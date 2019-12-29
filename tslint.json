@@ -32,6 +32,11 @@
       "arrow-parens": [
         true,
         "ban-single-arg-parens"
+      ],
+      "indent": [
+        true,
+        "spaces",
+        2
       ]
   },
   "rulesDirectory": []
