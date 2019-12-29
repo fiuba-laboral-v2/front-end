@@ -1,32 +1,38 @@
 {
-  "extends": "tslint:recommended",
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts"
     ]
   },
-  "rules": {
-    "max-line-length": {
-      "options": [100]
-    },
-    "jsx-wrap-multiline": false,
-    "no-debugger": false,
-    "ordered-imports": [false],
-    "object-literal-sort-keys": [false],
-    "new-parens": true,
-    "no-arg": true,
-    "no-bitwise": true,
-    "no-conditional-assignment": true,
-    "no-consecutive-blank-lines": false,
-    "no-console": {
-      "severity": "warning",
-      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
-    }
-  },
   "jsRules": {
     "max-line-length": {
       "options": [100]
     }
-  }
+  },
+  "rules": {
+    "max-line-length": {
+        "options": [100]
+      },
+      "jsx-wrap-multiline": false,
+      "no-debugger": false,
+      "ordered-imports": [false],
+      "object-literal-sort-keys": [false],
+      "new-parens": true,
+      "no-arg": true,
+      "no-bitwise": true,
+      "no-conditional-assignment": true,
+      "no-consecutive-blank-lines": false,
+      "no-console": false,
+      "only-arrow-functions": true,
+      "arrow-parens": [
+        true,
+        "ban-single-arg-parens"
+      ]
+  },
+  "rulesDirectory": []
 }

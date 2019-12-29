@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo_fiuba.png';
-import './App.css';
+import React from "react";
+import logo from "./logo_fiuba.png";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
