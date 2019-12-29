@@ -8,12 +8,12 @@
   },
   "rules": {
     "max-line-length": {
-      "options": [100],
-      "jsx-wrap-multiline": false,
-      "no-debugger": false,
-      "ordered-imports": [false],
-      "object-literal-sort-keys": [false]
+      "options": [100]
     },
+    "jsx-wrap-multiline": false,
+    "no-debugger": false,
+    "ordered-imports": [false],
+    "object-literal-sort-keys": [false],
     "new-parens": true,
     "no-arg": true,
     "no-bitwise": true,
