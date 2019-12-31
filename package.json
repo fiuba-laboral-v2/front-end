@@ -10,7 +10,7 @@
     "@types/node": "12.0.0",
     "@types/react": "16.9.0",
     "@types/react-dom": "16.9.0",
-    "husky": "^3.1.0",
+    "husky": "3.1.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-scripts": "3.3.0",
@@ -43,5 +43,8 @@
     "hooks": {
       "pre-commit": "git stash -u --keep-index && yarn lint && yarn test && git stash pop"
     }
+  },
+  "devDependencies": {
+    "tslint-config-fiuba-laboral-v2": "1.0.1"
   }
 }
