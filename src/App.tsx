@@ -1,18 +1,16 @@
-import React from "react";
-import logo from "./logo_fiuba.png";
-import "./App.css";
+import React, { FunctionComponent } from "react";
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bolsa de trabajo de la FIUBA
-        </p>
-      </header>
-    </div>
-  );
-};
+import Routes from "./routes";
+
+const App: FunctionComponent = () =>
+  <div>
+    <Router>
+      <Routes />
+    </Router>
+  </div>
+;
 
 export default App;

@@ -1,0 +1,18 @@
+@import '$styles/styles.scss';
+
+.notFound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 300px;
+}
+
+.notFoundText {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  color: grey;
+}
