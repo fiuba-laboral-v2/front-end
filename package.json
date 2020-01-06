@@ -29,7 +29,8 @@
     "eject": "react-scripts eject",
     "lint": "tslint -p tsconfig.json",
     "preinstall": "which link-module-alias && link-module-alias clean || echo",
-    "postinstall": "link-module-alias"
+    "postinstall": "link-module-alias",
+    "check-unstaged": "if [[ $(git ls-files --others --modified --exclude-standard) ]]; then echo '\\nERROR: There are unstaged changes\\n' && exit 1; fi"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,7 +49,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "git stash -u --keep-index && yarn lint && yarn test && git stash pop"
+      "pre-commit": "yarn check-unstaged && yarn lint && yarn test"
     }
   },
   "devDependencies": {
