@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
-import Logo from "../../components/Logo";
-import NavBar from "../../components/NavBar";
+import Logo from "$components/Logo";
+import NavBar from "$components/NavBar";
 
 import styles from "./styles.module.scss";
 
