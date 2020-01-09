@@ -5,7 +5,7 @@ import NavBar from "$components/NavBar";
 
 import styles from "./styles.module.scss";
 
-const App: FunctionComponent = () =>
+const App: FunctionComponent = () => (
   <div>
     <NavBar />
     <header className={styles.homeCenter}>
@@ -17,6 +17,6 @@ const App: FunctionComponent = () =>
       </p>
     </header>
   </div>
-;
+);
 
 export default App;

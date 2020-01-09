@@ -7,7 +7,7 @@ import {
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
-const Routes: FunctionComponent = () =>
+const Routes: FunctionComponent = () => (
   <Switch>
     <Route exact path="/">
       <Home />
@@ -16,6 +16,6 @@ const Routes: FunctionComponent = () =>
       <NotFound />
     </Route>
   </Switch>
-;
+);
 
 export default Routes;

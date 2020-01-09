@@ -5,12 +5,12 @@ import {
 
 import Routes from "./routes";
 
-const App: FunctionComponent = () =>
+const App: FunctionComponent = () => (
   <div>
     <Router>
       <Routes />
     </Router>
   </div>
-;
+);
 
 export default App;
