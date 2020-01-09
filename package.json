@@ -53,7 +53,7 @@
     }
   },
   "devDependencies": {
-    "tslint-config-fiuba-laboral-v2": "1.0.1"
+    "tslint-config-fiuba-laboral-v2": "1.0.3"
   },
   "_moduleAliases": {
     "$root": ".",
