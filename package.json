@@ -30,7 +30,9 @@
     "lint": "tslint -p tsconfig.json",
     "preinstall": "which link-module-alias && link-module-alias clean || echo",
     "postinstall": "link-module-alias",
-    "check-unstaged": "if [[ $(git ls-files --others --modified --exclude-standard) ]]; then echo '\\nERROR: There are unstaged changes\\n' && exit 1; fi"
+    "stash": "git stash -u --keep-index",
+    "unstash": "git stash pop",
+    "check-unstaged": "bash scripts/check_unstaged.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
