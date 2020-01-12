@@ -10545,6 +10545,11 @@ tslint-config-fiuba-laboral-v2@1.0.3:
   resolved "https://registry.yarnpkg.com/tslint-config-fiuba-laboral-v2/-/tslint-config-fiuba-laboral-v2-1.0.3.tgz#ba7c8fa548c04fccf0910abf14f9ce01588125ab"
   integrity sha512-e7HQYvDRUZjQsgjNhYGy/JAw8a+rlNJ1RHECWX1vxqRknbO7VsiNpbcH7dwp5skvBGxOi9fE6PpCq91fCrJlvA==
 
+tslint-react-hooks@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tslint-react-hooks/-/tslint-react-hooks-2.2.1.tgz#c52c7df65ee1517b2d6c92bc716e9ef72ccdf208"
+  integrity sha512-bqIg2uZe+quJMfSOGc4OOZ4awo6TP1ejGDGS6IKg2WIrS0XnWfhUJ99i3B8rUpnZhuD4vRSvyYIbXPUmEqQxxQ==
+
 tslint@5.20.1:
   version "5.20.1"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.20.1.tgz#e401e8aeda0152bc44dd07e614034f3f80c67b7d"
