@@ -2,7 +2,7 @@
 
 source scripts/apache/domain.sh
 
-yarn build
+PUBLIC_URL="http://localhost/laboral" yarn build
 sudo rm -rf "/var/www/$DOMAIN/html/*"
 cp -R build/. "/var/www/$DOMAIN/html/"
 sudo systemctl restart apache2
