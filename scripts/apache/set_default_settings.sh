@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source scripts/apache/domain.sh
+
 DEFAULT_SETTINGS_FILE=/etc/apache2/sites-available/$DOMAIN.conf
 SERVED_HTML_PATH=/var/www/$DOMAIN/html
 
@@ -9,13 +10,10 @@ cat <<EOT > "./scripts/$DOMAIN.conf"
 <VirtualHost *:80>
     ProxyPass /laboral-api http://localhost:5000
     ServerAdmin admin@$DOMAIN
-    ServerName $DOMAIN
-    ServerAlias www.$DOMAIN
+    ServerName $HOSTNAME
+    ServerAlias www.$HOSTNAME
     DocumentRoot /var/www/html
     Alias "/laboral" $SERVED_HTML_PATH
-    <Directory $SERVED_HTML_PATH>
-      Require all granted
-    </Directory>
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
