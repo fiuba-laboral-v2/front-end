@@ -8,8 +8,10 @@ import {
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
+const baseName: string = process.env.REACT_APP_SUB_DOMAIN || "/laboral";
+
 const Routes: FunctionComponent = () => (
-  <BrowserRouter basename="/laboral">
+  <BrowserRouter basename={baseName}>
     <Switch>
       <Route exact path="/">
         <Home />

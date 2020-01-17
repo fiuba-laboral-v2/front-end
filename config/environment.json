@@ -1,0 +1,23 @@
+{
+  "production": {
+    "REACT_APP_SUB_DOMAIN": "/laboral",
+    "PUBLIC_URL": "http://laboral.fi.uba.ar/laboral",
+    "branch": "master",
+    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "location": "$HOME/fiuba-laboral-v2/front-end"
+  },
+  "staging": {
+    "REACT_APP_SUB_DOMAIN": "/laboral",
+    "PUBLIC_URL": "http://antiguos.fi.uba.ar/laboral",
+    "branch": "staging",
+    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "location": "$HOME/fiuba-laboral-v2/front-end"
+  },
+  "development":{
+    "REACT_APP_SUB_DOMAIN": "/laboral",
+    "PUBLIC_URL": "http://localhost/laboral",
+    "branch": "feature/16-deploy",
+    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "location": "$HOME/fiuba-laboral-v2/front-end"
+  }
+}
