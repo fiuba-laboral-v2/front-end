@@ -5,7 +5,8 @@
     "hostname": "laboral.fi.uba.ar",
     "branch": "master",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
-    "location": "$HOME/fiuba-laboral-v2/front-end"
+    "location": "$HOME/fiuba-laboral-v2/front-end",
+    "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
   "staging": {
     "sub_domain": "/laboral",
@@ -13,7 +14,8 @@
     "hostname": "antiguos.fi.uba.ar",
     "branch": "staging",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
-    "location": "$HOME/fiuba-laboral-v2/front-end"
+    "location": "$HOME/fiuba-laboral-v2/front-end",
+    "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
   "development":{
     "sub_domain": "/laboral",
@@ -21,7 +23,8 @@
     "hostname": "localhost",
     "branch": "feature/16-deploy",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
-    "location": "$HOME/fiuba-laboral-v2/front-end"
+    "location": "$HOME/fiuba-laboral-v2/front-end",
+    "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
   "test":{
     "sub_domain": "/laboral",
@@ -29,7 +32,8 @@
     "hostname": "localhost",
     "branch": "feature/16-deploy",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
-    "location": "$HOME/fiuba-laboral-v2/front-end"
+    "location": "$HOME/fiuba-laboral-v2/front-end",
+    "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
   "test_travis":{
     "sub_domain": "/laboral",
@@ -37,6 +41,7 @@
     "hostname": "localhost",
     "branch": "feature/16-deploy",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
-    "location": "$HOME/fiuba-laboral-v2/front-end"
+    "location": "$HOME/fiuba-laboral-v2/front-end",
+    "ssh_address": "laboral@antiguos.fi.uba.ar"
   }
 }
