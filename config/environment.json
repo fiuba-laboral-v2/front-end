@@ -30,5 +30,13 @@
     "branch": "feature/16-deploy",
     "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
     "location": "$HOME/fiuba-laboral-v2/front-end"
+  },
+  "test_travis":{
+    "sub_domain": "/laboral",
+    "PUBLIC_URL": "http://localhost/laboral",
+    "hostname": "localhost",
+    "branch": "feature/16-deploy",
+    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "location": "$HOME/fiuba-laboral-v2/front-end"
   }
 }
