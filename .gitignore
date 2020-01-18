@@ -6,6 +6,8 @@
 
 # production
 /build
+
+# deploy
 deploy_key
 
 # misc
