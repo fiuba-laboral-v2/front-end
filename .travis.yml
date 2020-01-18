@@ -13,7 +13,7 @@ deploy:
   - provider: script
     script: PASSWORD=$STAGING_SSH_PAASWORD yarn deploy
     on:
-      branch: feature/16-deploy
+      branch: "feature/16-deploy"
 notifications:
   email:
     recipients:
