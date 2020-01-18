@@ -1,15 +1,13 @@
 #!/bin/bash
 
-source scripts/apache/domain.sh
-
-DEFAULT_SETTINGS_FILE=/etc/apache2/sites-available/$DOMAIN.conf
-SERVED_HTML_PATH=/var/www/$DOMAIN/html
+DEFAULT_SETTINGS_FILE=/etc/apache2/sites-available/$HOSTNAME.conf
+SERVED_HTML_PATH=/var/www/$HOSTNAME/html
 
 sudo touch "$DEFAULT_SETTINGS_FILE"
-cat <<EOT > "./scripts/$DOMAIN.conf"
+cat <<EOT > "./scripts/$HOSTNAME.conf"
 <VirtualHost *:80>
     ProxyPass /laboral-api http://localhost:5000
-    ServerAdmin admin@$DOMAIN
+    ServerAdmin admin@$HOSTNAME
     ServerName $HOSTNAME
     ServerAlias www.$HOSTNAME
     DocumentRoot /var/www/html
@@ -19,10 +17,10 @@ cat <<EOT > "./scripts/$DOMAIN.conf"
 </VirtualHost>
 EOT
 
-sudo cp "./scripts/$DOMAIN.conf" "$DEFAULT_SETTINGS_FILE"
-rm "./scripts/$DOMAIN.conf"
+sudo cp "./scripts/$HOSTNAME.conf" "$DEFAULT_SETTINGS_FILE"
+rm "./scripts/$HOSTNAME.conf"
 
-sudo a2ensite "$DOMAIN.conf"
+sudo a2ensite "$HOSTNAME.conf"
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo systemctl restart apache2

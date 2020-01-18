@@ -38,7 +38,7 @@
     "stash": "git stash -u --keep-index",
     "unstash": "git stash pop",
     "check-unstaged": "bash scripts/check_unstaged.sh",
-    "deploy:setup": "bash scripts/apache/setup.sh",
+    "deploy:setup": "node scripts/apache_setup.js",
     "deploy": "node scripts/deploy.js"
   },
   "eslintConfig": {
