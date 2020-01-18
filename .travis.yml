@@ -7,3 +7,12 @@ notifications:
       - llauromanuel@gmail.com
       - dylanalvarez1995@gmail.com
       - sebastian.e.blanco@gmail.com
+deploy:
+  - provider: script
+    script: NODE_ENV=production yarn deploy
+    on:
+      branch: master
+  - provider: script
+    script: NODE_ENV=staging yarn deploy
+    on:
+      branch: staging
