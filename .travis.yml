@@ -23,6 +23,6 @@ deploy:
     on:
       branch: staging
   - provider: script
-      script: ssh -i ./deploy_key laboral@antiguos.fi.uba.ar 'touch test_file'
+      script: yarn deploy
       on:
         branch: feature/16-deploy
