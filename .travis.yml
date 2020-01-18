@@ -1,6 +1,8 @@
 language: node_js
 script:
   - yarn lint && yarn test
+before_deploy:
+  - sudo apt-get install sshpass
 deploy:
   - provider: script
     script: NODE_ENV=production yarn deploy
