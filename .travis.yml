@@ -1,12 +1,6 @@
 language: node_js
 script:
   - yarn lint && yarn test
-notifications:
-  email:
-    recipients:
-      - llauromanuel@gmail.com
-      - dylanalvarez1995@gmail.com
-      - sebastian.e.blanco@gmail.com
 before_install:
   - openssl aes-256-cbc -K $encrypted_77965d5bdd4d_key -iv $encrypted_77965d5bdd4d_iv -in deploy_key.enc -out ./deploy_key -d
   - eval "$(ssh-agent -s)"
@@ -23,6 +17,12 @@ deploy:
     on:
       branch: staging
   - provider: script
-      script: yarn deploy
-      on:
-        branch: feature/16-deploy
+    script: yarn deploy
+    on:
+      branch: feature/16-deploy
+notifications:
+  email:
+    recipients:
+      - llauromanuel@gmail.com
+      - dylanalvarez1995@gmail.com
+      - sebastian.e.blanco@gmail.com
