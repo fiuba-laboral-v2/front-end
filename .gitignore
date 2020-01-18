@@ -6,7 +6,7 @@
 
 # production
 /build
-.deploy_key
+deploy_key
 
 # misc
 .DS_Store
