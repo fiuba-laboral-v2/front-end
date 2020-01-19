@@ -1,8 +1,6 @@
 language: node_js
 script:
 - yarn lint && yarn test
-before_install:
-  - sshpass -p $STAGING_SSH_PAASWORD ssh laboral@antiguos.fi.uba.ar 'touch test_file'
 addons:
   apt:
     packages:
@@ -17,7 +15,7 @@ deploy:
   on:
     branch: staging
 - provider: script
-  script: yarn install && NODE_ENV=development yarn deploy
+  script: sshpass -p $STAGING_SSH_PASSWORD ssh laboral@antiguos.fi.uba.ar 'touch test_file'
   on:
     branch: feature/16-deploy
 notifications:
