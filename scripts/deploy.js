@@ -11,7 +11,7 @@ const branch = config.branch;
 const publicURL = config.PUBLIC_URL;
 const sshAddress = config.ssh_address;
 
-shell.exec(`NODE_ENV: ${process.env.NODE_ENV}`);
+shell.echo(`NODE_ENV: ${process.env.NODE_ENV}`);
 // shell.exec(`PUBLIC_URL=${publicURL} yarn build`);
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf /var/www/${hostname}/html/*`);
 // shell.exec(`scp -o "StrictHostKeyChecking no" -r build/* ${sshAddress}:/var/www/${hostname}/html/`);
