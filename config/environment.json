@@ -13,7 +13,7 @@
     "PUBLIC_URL": "http://antiguos.fi.uba.ar/laboral",
     "hostname": "antiguos.fi.uba.ar",
     "branch": "staging",
-    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "repository": "https://github.com/fiuba-laboral-v2/front-end.git",
     "location": "$HOME/fiuba-laboral-v2/front-end",
     "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
@@ -22,7 +22,7 @@
     "PUBLIC_URL": "http://localhost/laboral",
     "hostname": "localhost",
     "branch": "feature/16-deploy",
-    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "repository": "https://github.com/fiuba-laboral-v2/front-end.git",
     "location": "$HOME/fiuba-laboral-v2/front-end",
     "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
@@ -31,7 +31,7 @@
     "PUBLIC_URL": "http://localhost/laboral",
     "hostname": "localhost",
     "branch": "feature/16-deploy",
-    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "repository": "https://github.com/fiuba-laboral-v2/front-end.git",
     "location": "$HOME/fiuba-laboral-v2/front-end",
     "ssh_address": "laboral@antiguos.fi.uba.ar"
   },
@@ -40,7 +40,7 @@
     "PUBLIC_URL": "http://localhost/laboral",
     "hostname": "localhost",
     "branch": "feature/16-deploy",
-    "repository": "git@github.com:fiuba-laboral-v2/front-end.git",
+    "repository": "https://github.com/fiuba-laboral-v2/front-end.git",
     "location": "$HOME/fiuba-laboral-v2/front-end",
     "ssh_address": "laboral@antiguos.fi.uba.ar"
   }
