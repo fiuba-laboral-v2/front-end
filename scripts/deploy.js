@@ -15,4 +15,4 @@ const sshAddress = config.ssh_address;
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} HOSTNAME=${hostname} PUBLIC_URL=${publicURL} bash ${location}/scripts/load_html.sh`);
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
 shell.exec("yarn build");
-shell.exec(`scp -o "StrictHostKeyChecking no" ${sshAddress} -R build/. "test/"`);
+shell.exec(`scp -o "StrictHostKeyChecking no" -R build/. ${sshAddress}:./test/`);
