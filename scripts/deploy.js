@@ -13,4 +13,4 @@ const sshAddress = config.ssh_address;
 shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
 shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} git clone -b ${branch} ${repository} ${location}`);
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} HOSTNAME=${hostname} PUBLIC_URL=${publicURL} bash ${location}/scripts/load_html.sh`);
-shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
+// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
