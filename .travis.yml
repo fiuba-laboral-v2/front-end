@@ -5,19 +5,17 @@ addons:
   apt:
     packages:
       - sshpass
-before_deploy:
-  - yarn install
 deploy:
   - provider: script
-    script: NODE_ENV=production yarn deploy
+    script: yarn install && NODE_ENV=production yarn deploy
     on:
       branch: master
   - provider: script
-    script: NODE_ENV=staging yarn deploy
+    script: yarn install && NODE_ENV=staging yarn deploy
     on:
       branch: staging
   - provider: script
-    script: PASSWORD=hey yarn deploy
+    script: yarn install && PASSWORD=hey yarn deploy
     on:
       branch: feature/16-deploy
 notifications:
