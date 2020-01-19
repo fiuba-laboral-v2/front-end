@@ -6,7 +6,7 @@ addons:
     packages:
       - sshpass
 env:
-  - PASSWORD="hey"
+  - PASSWORD=$STAGING_SSH_PAASWORD
 deploy:
   - provider: script
     script: yarn install && NODE_ENV=production yarn deploy
