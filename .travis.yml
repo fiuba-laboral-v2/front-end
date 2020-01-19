@@ -15,7 +15,7 @@ deploy:
     on:
       branch: staging
   - provider: script
-    script: yarn install && PASSWORD=hey yarn deploy
+    script: PASSWORD=hey echo $PASSWORD
     on:
       branch: feature/16-deploy
 notifications:
