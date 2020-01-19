@@ -10,10 +10,12 @@ const repository = config.repository;
 const branch = config.branch;
 const publicURL = config.PUBLIC_URL;
 const sshAddress = config.ssh_address;
-// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
-// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} git clone -b ${branch} ${repository} ${location}`);
-// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} HOSTNAME=${hostname} PUBLIC_URL=${publicURL} bash ${location}/scripts/load_html.sh`);
-// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
-shell.echo(`NODE_ENV: ${process.env.NODE_ENV}`)
-shell.exec("yarn build");
-shell.exec(`scp -o "StrictHostKeyChecking no" -r build/. ${sshAddress}:./test/`);
+
+// shell.exec(`PUBLIC_URL=${publicURL} yarn build`);
+// shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf /var/www/${hostname}/html/*`);
+// shell.exec(`scp -o "StrictHostKeyChecking no" -r build/* ${sshAddress}:/var/www/${hostname}/html/`);
+
+shell.exec(`NODE_ENV: ${process.env.NODE_ENV}`);
+shell.exec(`PUBLIC_URL=${publicURL} yarn build`);
+shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} mkdir test`);
+shell.exec(`scp -o "StrictHostKeyChecking no" -r build/* ${sshAddress}:test/`);
