@@ -9,9 +9,14 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import deployJSON from "$config/environment.json";
 
-const env = (process.env.NODE_ENV || "development") as ( "production" | "staging" | "development" );
-const config = deployJSON[env];
-const baseName: string = config.sub_domain;
+const env = (process.env.NODE_ENV || "development") as ("production" | "staging");
+let baseName: string;
+if (env === "production" || env === "staging") {
+  const config = deployJSON[env];
+  baseName = config.sub_domain;
+} else {
+  baseName = "/";
+}
 
 const Routes: FunctionComponent = () => (
   <BrowserRouter basename={baseName}>
