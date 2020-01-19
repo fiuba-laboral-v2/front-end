@@ -10,7 +10,6 @@ const repository = config.repository;
 const branch = config.branch;
 const publicURL = config.PUBLIC_URL;
 const sshAddress = config.ssh_address;
-shell.exec("yarn install");
 shell.echo("$PASSWORD");
 shell.exec("sshpass -p $PASSWORD ssh laboral@antiguos.fi.uba.ar 'touch test_file'");
 // shell.exec(`ssh ${sshAddress} rm -rf ${location}`);

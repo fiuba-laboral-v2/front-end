@@ -5,6 +5,8 @@ addons:
   apt:
     packages:
       - sshpass
+before_deploy:
+  - yarn install
 deploy:
   - provider: script
     script: NODE_ENV=production yarn deploy
