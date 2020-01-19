@@ -14,5 +14,6 @@ const sshAddress = config.ssh_address;
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} git clone -b ${branch} ${repository} ${location}`);
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} HOSTNAME=${hostname} PUBLIC_URL=${publicURL} bash ${location}/scripts/load_html.sh`);
 // shell.exec(`ssh -o "StrictHostKeyChecking no" ${sshAddress} rm -rf ${location}`);
+shell.echo(`NODE_ENV: ${process.env.NODE_ENV}`)
 shell.exec("yarn build");
-shell.exec(`scp -o "StrictHostKeyChecking no" -R build/. ${sshAddress}:./test/`);
+shell.exec(`scp -o "StrictHostKeyChecking no" -r build/. ${sshAddress}:./test/`);
