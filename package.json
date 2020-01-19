@@ -2,6 +2,11 @@
   "name": "fiuba-laboral-front-end",
   "version": "0.1.0",
   "private": true,
+  "contributors": [
+    "Sebastian Blanco <sebastian.e.blanco@gmail.com>",
+    "Dylan Alvarez <dylanalvarez1995@gmail.com>",
+    "Manuel Llauró <llauromanuel@gmail.com>"
+  ],
   "dependencies": {
     "@apollo/react-hooks": "3.1.3",
     "@testing-library/jest-dom": "4.2.4",
