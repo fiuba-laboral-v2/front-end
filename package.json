@@ -42,9 +42,7 @@
     "postinstall": "link-module-alias",
     "stash": "git stash -u --keep-index",
     "unstash": "git stash pop",
-    "check-unstaged": "bash scripts/check_unstaged.sh",
-    "deploy:setup": "node scripts/apache_setup.js",
-    "deploy": "node scripts/deploy.js"
+    "check-unstaged": "bash scripts/check_unstaged.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
