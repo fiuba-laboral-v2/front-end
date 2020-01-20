@@ -20,6 +20,14 @@ deploy:
     script: yarn install && NODE_ENV=staging yarn deploy
     on:
       branch: staging
+  - provider: script
+    script:
+      git clone -b feature/16-deploy https://github.com/fiuba-laboral-v2/deploy.git &&
+      cd deploy &&
+      yarn install &&
+      NODE_ENV=staging yarn deploy:frontend
+    on:
+      branch: feature/16-deploy
 notifications:
   email:
     recipients:
