@@ -7,10 +7,6 @@ before_install:
   - ssh-add ./deploy_key
 script:
 - yarn lint && yarn test
-addons:
-  apt:
-    packages:
-    - sshpass
 deploy:
   - provider: script
     script:
