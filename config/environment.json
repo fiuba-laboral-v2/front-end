@@ -6,7 +6,7 @@
     "sub_domain": "/laboral"
   },
   "development": {
-    "sub_domain": "/"
+    "sub_domain": "/laboral"
   },
   "test": {
     "sub_domain": "/"
