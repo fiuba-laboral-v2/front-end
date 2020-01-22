@@ -6,7 +6,7 @@ interface IAdminHomeProps {
   age: number;
 }
 
-const AdminHome: FunctionComponent<IAdminHomeProps> = ({name, surname, age}) => (
+const AdminHome: FunctionComponent<IAdminHomeProps> = ({ name, surname, age }) => (
   <div>
     <h1>Name: {name}</h1>
     <h1>Surname: {surname}</h1>

@@ -8,16 +8,16 @@ import styles from "./styles.module.scss";
 
 const App: FunctionComponent = () => (
   <div>
-    <NavBar />
+    <NavBar/>
     <header className={styles.homeCenter}>
       <div className={styles.logo}>
-        <Logo />
+        <Logo/>
       </div>
       <p>
         Bolsa de trabajo de la FIUBA
       </p>
     </header>
-    <HomeAdmin />
+    <HomeAdmin/>
   </div>
 );
 

@@ -1,8 +1,5 @@
 import React, { FunctionComponent } from "react";
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -10,10 +7,10 @@ import NotFound from "./pages/NotFound";
 const Routes: FunctionComponent = () => (
   <Switch>
     <Route exact path="/">
-      <Home />
+      <Home/>
     </Route>
     <Route path="*">
-      <NotFound />
+      <NotFound/>
     </Route>
   </Switch>
 );
