@@ -7,6 +7,9 @@
 # production
 /build
 
+# deploy
+deploy_key
+
 # misc
 .DS_Store
 .idea

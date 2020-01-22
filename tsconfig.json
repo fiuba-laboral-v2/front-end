@@ -21,6 +21,7 @@
     "strictNullChecks": true
   },
   "include": [
-    "src"
+    "src",
+    "src/config"
   ]
 }

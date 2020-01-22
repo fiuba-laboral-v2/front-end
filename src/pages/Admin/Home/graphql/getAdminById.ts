@@ -2,7 +2,7 @@ import { gql } from "apollo-boost";
 
 const GET_ADMIN = gql`
     {
-      getAdminById(id: "001") {
+      getAdminById(id: "0") {
         id
         name
         surname
