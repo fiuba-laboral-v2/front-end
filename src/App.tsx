@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import apolloClient from "./apolloClient";
+import ApolloClient from "./ApolloClient";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import Routes from "./routes";
 
 const App: FunctionComponent = () => (
-  <ApolloProvider client={apolloClient}>
+  <ApolloProvider client={ApolloClient}>
     <div>
       <Router>
         <Routes/>
