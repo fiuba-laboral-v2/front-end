@@ -6,7 +6,7 @@ before_install:
   - chmod 600 ./deploy_key
   - ssh-add ./deploy_key
 script:
-- yarn lint && yarn test
+  - yarn lint && yarn test
 deploy:
   - provider: script
     script:
