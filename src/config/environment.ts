@@ -1,4 +1,4 @@
-const environmentVariables = {
+const configurationVariables = {
   production: {
     sub_domain: "/laboral"
   },
@@ -16,4 +16,4 @@ const environmentVariables = {
   }
 };
 
-export default environmentVariables;
+export default configurationVariables;
