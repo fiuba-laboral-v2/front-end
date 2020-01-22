@@ -7,14 +7,10 @@ import {
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import deployJSON from "$config/environment.json";
-
-const env = (process.env.NODE_ENV || "development") as ("production" | "staging" | "development" | "test" | "test_travis");
-const config = deployJSON[env];
-const baseName: string = config.sub_domain;
+import configuration from "$config";
 
 const Routes: FunctionComponent = () => (
-  <BrowserRouter basename={baseName}>
+  <BrowserRouter basename={configuration.sub_domain}>
     <Switch>
       <Route exact path="/">
         <Home />

@@ -78,6 +78,6 @@
     "$pages": "src/pages",
     "$styles": "src/styles",
     "$test": "src/test",
-    "$config": "config"
+    "$config": "src/config"
   }
 }
