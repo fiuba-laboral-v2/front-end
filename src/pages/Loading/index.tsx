@@ -8,7 +8,7 @@ const App: FunctionComponent = () => (
   <div>
     <header className={styles.homeCenter}>
       <div className={styles.logo}>
-        <Logo />
+        <Logo/>
       </div>
     </header>
   </div>

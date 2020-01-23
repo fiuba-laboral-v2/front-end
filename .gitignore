@@ -21,3 +21,7 @@ deploy_key
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# graphql webstorm plugin
+config/.graphqlconfig
+config/schema.graphql

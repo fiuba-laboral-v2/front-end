@@ -1,14 +1,15 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import GET_ADMIN_BY_ID from "./graphql/getAdminById";
-
 import LoadingScreen from "$pages/Loading";
 import AdminHome from "./component";
+import { loader } from "graphql.macro";
+
+const getAdminById = loader("./queries/getAdminById.graphql");
 
 const AdminHomeContainer: FunctionComponent = () => {
-  const { loading, error, data } = useQuery(GET_ADMIN_BY_ID);
+  const { loading, error, data } = useQuery(getAdminById, { variables: { id: "0" } });
 
-  if (loading) return <LoadingScreen />;
+  if (loading) return <LoadingScreen/>;
   if (error) return <p>Error :</p>;
 
   const { getAdminById: { name, age, surname } } = data;
