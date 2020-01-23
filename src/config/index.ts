@@ -1,3 +1,3 @@
-import configuration from "./configuration";
+import Configuration from "./Configuration";
 
-export default configuration;
+export default Configuration;
