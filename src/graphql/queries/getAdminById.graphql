@@ -1,7 +1,0 @@
-query ($id: ID) {
-  getAdminById(id: $id) {
-    id
-    name
-    age
-  }
-}
