@@ -9,8 +9,8 @@ const NavBarContainer: FunctionComponent = () => {
 
   return (
     <NavBar
-      title={title?.translation}
-      myCompanyProfile={myCompanyProfile?.translation}
+      title={title?.translation || ""}
+      myCompanyProfile={myCompanyProfile?.translation || ""}
     />
   );
 };
