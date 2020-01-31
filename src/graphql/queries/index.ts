@@ -1,7 +1,7 @@
 import { loader } from "graphql.macro";
 
-const translation = loader("./translation.graphql");
+const getTranslations = loader("./getTranslations.graphql");
 
 export {
-  translation
+  getTranslations
 };

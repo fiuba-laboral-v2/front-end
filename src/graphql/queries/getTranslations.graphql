@@ -1,0 +1,3 @@
+query ($paths: [String!]!) {
+  getTranslations(paths: $paths)
+}
