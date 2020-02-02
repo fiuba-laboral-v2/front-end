@@ -10,8 +10,14 @@ interface INavBarProps {
 
 const NavBar: FunctionComponent<INavBarProps> = ({ title, myCompanyProfile }) => (
   <div className={styles.navBar}>
-    <Link to="/" className={styles.title}>{title}</Link>
-    <Link to="/my-company/">{myCompanyProfile}</Link>
+    <div className={styles.navigation}>
+      <Link to="/">{title}</Link>
+      <Link to="/my-company/">{myCompanyProfile}</Link>
+    </div>
+    <div>
+      <span>Daniela Castro</span>
+      <Link to="/">Cerrar Sesión</Link>
+    </div>
   </div>
 );
 
