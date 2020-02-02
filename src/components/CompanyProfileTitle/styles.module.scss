@@ -13,7 +13,8 @@
 
 .editButton {
   display: inline-flex;
-  margin: 0 12px;
+  flex-shrink: 0;
+  margin: auto 12px;
 }
 
 $verticalPadding: 16px;
