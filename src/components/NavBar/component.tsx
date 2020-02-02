@@ -11,7 +11,7 @@ interface INavBarProps {
 const NavBar: FunctionComponent<INavBarProps> = ({ title, myCompanyProfile }) => (
   <div className={styles.navBar}>
     <Link to="/" className={styles.title}>{title}</Link>
-    <Link to="/company-profiles/1">{myCompanyProfile}</Link>
+    <Link to="/my-company/">{myCompanyProfile}</Link>
   </div>
 );
 

@@ -12,7 +12,7 @@ const Routes: FunctionComponent = () => (
       <Route exact path="/">
         <Home/>
       </Route>
-      <Route exact path="/company-profiles/1">
+      <Route exact path="/my-company/">
         <CompanyProfile/>
       </Route>
       <Route path="*">
