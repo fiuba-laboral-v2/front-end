@@ -6,7 +6,6 @@
   left: 0;
   right: 0;
   display: flex;
-  height: $navBarHeight;
   align-items: center;
   background: #006097;
   color: #fff;
@@ -14,6 +13,7 @@
   font-style: normal;
   font-size: 18px;
   padding: 0 $pageMargin;
+  z-index: 1;
 
   a, p {
     margin: 0 6px;
@@ -22,15 +22,81 @@
     line-height: $navBarHeight;
   }
 
-  :first-child :first-child {
+  .main :first-child {
     margin-left: 0;
   }
 
-  :last-child :last-child {
+  .menu :last-child {
     margin-right: 0;
   }
 }
 
-.navigation {
+.separator, .toggle, .menu {
   flex-grow: 1;
+}
+
+.toggle {
+  display: none;
+}
+
+.main, .menu {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .navBar {
+    flex-direction: column;
+  }
+
+  .toggle {
+    display: inline-flex;
+  }
+
+  .main {
+    padding: 0 $pageMargin;
+    flex-grow: 1;
+  }
+
+  .main, .menu {
+    width: 100%;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+
+    > :not(.separator) {
+      border-top: solid 1px black;
+      flex-grow: 1;
+      margin: 0;
+    }
+
+    .user {
+      display: flex;
+      flex-direction: row-reverse;
+
+      :last-child {
+        flex-grow: 1;
+      }
+
+      > * {
+        margin: 0;
+      }
+    }
+  }
+
+  .menu:not(.showOnMobile) {
+    display: none;
+  }
+}
+
+.menuIcon {
+  display: flex;
+  height: $navBarHeight;
+  width: $navBarHeight;
+
+  :first-child:last-child {
+    margin: auto 0 auto auto;
+  }
 }
