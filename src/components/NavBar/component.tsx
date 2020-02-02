@@ -6,17 +6,26 @@ import styles from "./styles.module.scss";
 interface INavBarProps {
   title: string;
   myCompanyProfile: string;
+  logOut: string;
+  username: string;
 }
 
-const NavBar: FunctionComponent<INavBarProps> = ({ title, myCompanyProfile }) => (
+const NavBar: FunctionComponent<INavBarProps> = (
+  {
+    title,
+    myCompanyProfile,
+    logOut,
+    username
+  }
+) => (
   <div className={styles.navBar}>
     <div className={styles.navigation}>
       <Link to="/">{title}</Link>
       <Link to="/my-company/">{myCompanyProfile}</Link>
     </div>
     <div>
-      <span>Daniela Castro</span>
-      <Link to="/">Cerrar Sesión</Link>
+      <p>{username}</p>
+      <Link to="/">{logOut}</Link>
     </div>
   </div>
 );

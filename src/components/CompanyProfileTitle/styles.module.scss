@@ -1,0 +1,36 @@
+@import "$styles/_variables.scss";
+@import "$styles/_hoverShadow.scss";
+
+.profileTitle {
+  background: #0087D5;
+  padding: 0 $pageMargin;
+  color: white;
+
+  a {
+    @include hoverShadow(rgba(0, 0, 0, 0.3));
+  }
+}
+
+.editButton {
+  display: inline-flex;
+  margin: 0 12px;
+}
+
+$verticalPadding: 16px;
+
+.header {
+  font-weight: normal;
+  padding: $verticalPadding 0 0 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.editPrompt {
+  font-size: 16px;
+  display: flex;
+  padding: 8px 0 $verticalPadding 0;
+
+  * {
+    display: inline-block;
+  }
+}

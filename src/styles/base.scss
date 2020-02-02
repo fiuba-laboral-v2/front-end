@@ -1,4 +1,5 @@
 @import "$styles/_variables.scss";
+@import "$styles/_hoverShadow.scss";
 
 html {
   font-size: 82.5%;
@@ -21,6 +22,17 @@ button:disabled {
   cursor: default;
 }
 
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  @include hoverShadow(rgba(0, 0, 0, 0.4));
+}
+
 code {
   font-family: $monospace;
+}
+
+.mainContent {
+  margin-top: $navBarHeight;
 }
