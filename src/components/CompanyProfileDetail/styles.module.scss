@@ -1,0 +1,99 @@
+.mainContainer {
+  background: white;
+  background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
+  flex-grow: 1;
+}
+
+$profileContainerMaxWidth: 700px;
+$profileContainerHorizontalPadding: 10px;
+$mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContainerHorizontalPadding;
+
+.profileContainer {
+  padding: 60px $profileContainerHorizontalPadding 0;
+  margin: 0 auto;
+  max-width: $profileContainerMaxWidth;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 27px;
+  word-break: break-word;
+}
+
+.logoContainer {
+  $logoWidth: 140px;
+  height: $logoWidth;
+  width: $logoWidth;
+  box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  .logo {
+    max-width: $logoWidth;
+    max-height: $logoWidth;
+    margin: auto;
+  }
+}
+
+.mainInfo {
+  flex-grow: 1;
+  margin-left: 36px;
+  align-self: center;
+}
+
+.companyName, .companySlogan {
+  font-weight: normal;
+  margin: 0 0 10px 0;
+}
+
+.companyName {
+  font-size: 30px;
+}
+
+.companySlogan {
+  font-size: 16px;
+}
+
+.contactInfo {
+  a {
+    color: #0390BC;
+    font-weight: normal;
+  }
+}
+
+@media (max-width: $mobileProfileContainerThreshold) {
+  .header {
+    flex-direction: column;
+  }
+
+  .logoContainer {
+    align-self: center;
+  }
+
+  .mainInfo {
+    margin-left: 0;
+  }
+
+  .profileContainer {
+    padding-top: 50px;
+  }
+
+  .companyName {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .contactInfo {
+    a {
+      display: block;
+    }
+  }
+
+  .contactInfoDivider {
+    display: none;
+  }
+}
