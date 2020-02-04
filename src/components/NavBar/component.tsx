@@ -40,7 +40,7 @@ const NavBar: FunctionComponent<INavBarProps> = (
         <Link to="/my-company/">{myCompanyProfile}</Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
-          <p>{username}</p>
+          <p className={styles.userName}>{username}</p>
           <Link to="/">{logOut}</Link>
         </div>
       </div>

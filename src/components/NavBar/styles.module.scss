@@ -20,6 +20,12 @@
     display: inline-block;
     height: $navBarHeight;
     line-height: $navBarHeight;
+
+    @media (max-width: 240px) {
+      &.userName {
+        display: none;
+      }
+    }
   }
 
   .main :first-child {

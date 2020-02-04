@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import NavBar from "./component";
-import { getTranslations } from "../../graphql/queries";
+import { getTranslations } from "$queries";
 
 const NavBarContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
