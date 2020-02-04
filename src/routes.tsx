@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import CompanyProfile from "./pages/CompanyProfile";
@@ -7,7 +7,7 @@ import NotFound from "./pages/NotFound";
 import Configuration from "$config";
 
 const Routes: FunctionComponent = () => (
-  <BrowserRouter basename={Configuration.sub_domain}>
+  <HashRouter basename={Configuration.sub_domain}>
     <Switch>
       <Route exact path="/">
         <Home/>
@@ -19,7 +19,7 @@ const Routes: FunctionComponent = () => (
         <NotFound/>
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default Routes;
