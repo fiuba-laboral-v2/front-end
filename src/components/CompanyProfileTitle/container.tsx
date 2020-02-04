@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { getTranslations } from "../../graphql/queries";
+import { getTranslations } from "$queries";
 import CompanyProfileTitle from "./component";
 
 const CompanyProfileTitleContainer: FunctionComponent = () => {
