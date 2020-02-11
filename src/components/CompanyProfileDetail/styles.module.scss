@@ -2,10 +2,11 @@
   background: white;
   background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
   flex-grow: 1;
+  margin-bottom: 20px;
 }
 
-$profileContainerMaxWidth: 700px;
-$profileContainerHorizontalPadding: 10px;
+$profileContainerMaxWidth: 880px;
+$profileContainerHorizontalPadding: 20px;
 $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContainerHorizontalPadding;
 
 .profileContainer {
@@ -65,6 +66,27 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 }
 
+.description {
+  white-space: pre-line;
+  margin: 0;
+  font-size: 14px;
+}
+
+.photos {
+  $imageGap: 20px;
+
+  margin: 20px auto 0 auto;
+  line-height: 0;
+  column-count: 2;
+  column-gap: $imageGap;
+
+  img {
+    width: 100%;
+    height: auto;
+    padding: $imageGap/2 0;
+  }
+}
+
 @media (max-width: $mobileProfileContainerThreshold) {
   .header {
     flex-direction: column;
@@ -79,7 +101,7 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 
   .profileContainer {
-    padding-top: 50px;
+    padding: 50px 10vw 0 10vw;
   }
 
   .companyName {
@@ -95,5 +117,10 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
 
   .contactInfoDivider {
     display: none;
+  }
+
+  .photos {
+    column-count: 1;
+    max-width: 430px;
   }
 }
