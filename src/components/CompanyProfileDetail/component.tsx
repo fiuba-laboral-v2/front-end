@@ -8,6 +8,7 @@ interface ICompanyProfileDetailProps {
   logoImageSource: string;
   website: string;
   description: string;
+  photoImageSources: string[];
 }
 
 const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
@@ -17,7 +18,8 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
     slogan,
     logoImageSource,
     website,
-    description
+    description,
+    photoImageSources
   }
 ) => (
   <div className={styles.mainContainer}>
@@ -37,6 +39,9 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
         </div>
       </div>
       <p className={styles.description}>{description}</p>
+      <section className={styles.photos}>
+        {photoImageSources.map(source => (<img src={source} alt={`${name} photo`}/>))}
+      </section>
     </div>
   </div>
 );

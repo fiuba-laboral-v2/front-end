@@ -9,6 +9,12 @@ const website = "https://www.devartis.com/";
 const description = `Our projects are dynamic and challenging with an entertaining working environment and with opportunities to provide your knowledge in varying technologies and tasks.
 
 If you are a fast learner you have everything you need to work with us. You should be comfortable and eager to work on what is needed and learn what is necessary, in a fast-moving, dynamic environment.`;
+const photoImageSources = [
+  "https://miro.medium.com/max/11520/1*Om-snCmpOoI5vehnF6FBlw.jpeg",
+  "https://pbs.twimg.com/media/EK_OWQEWwAIwDXr.jpg",
+  "https://www.filepicker.io/api/file/9PbWZ8ZVTTiFogUOEebI/convert?w=1049&h=381&fit=scale",
+  "https://pbs.twimg.com/media/EK_OVsXXYAE-Y-p.jpg"
+];
 
 const CompanyProfileDetailContainer: FunctionComponent = () => {
   return (
@@ -19,6 +25,7 @@ const CompanyProfileDetailContainer: FunctionComponent = () => {
       logoImageSource={logoImageSource}
       website={website}
       description={description}
+      photoImageSources={photoImageSources}
     />
   );
 };
