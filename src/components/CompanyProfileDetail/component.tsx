@@ -7,6 +7,7 @@ interface ICompanyProfileDetailProps {
   slogan: string;
   logoImageSource: string;
   website: string;
+  description: string;
 }
 
 const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
@@ -15,7 +16,8 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
     email,
     slogan,
     logoImageSource,
-    website
+    website,
+    description
   }
 ) => (
   <div className={styles.mainContainer}>
@@ -34,6 +36,7 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
           </div>
         </div>
       </div>
+      <p className={styles.description}>{description}</p>
     </div>
   </div>
 );

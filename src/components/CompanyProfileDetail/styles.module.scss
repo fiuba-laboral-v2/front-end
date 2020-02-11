@@ -9,7 +9,7 @@ $profileContainerHorizontalPadding: 10px;
 $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContainerHorizontalPadding;
 
 .profileContainer {
-  padding: 60px $profileContainerHorizontalPadding 0;
+  padding: 60px $profileContainerHorizontalPadding;
   margin: 0 auto;
   max-width: $profileContainerMaxWidth;
 }
@@ -65,6 +65,12 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 }
 
+.description {
+  white-space: pre-line;
+  margin: 0;
+  font-size: 14px;
+}
+
 @media (max-width: $mobileProfileContainerThreshold) {
   .header {
     flex-direction: column;
@@ -79,7 +85,7 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 
   .profileContainer {
-    padding-top: 50px;
+    padding: 50px 10vw 0 10vw;
   }
 
   .companyName {
