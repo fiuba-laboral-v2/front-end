@@ -1,0 +1,13 @@
+query getCompanyProfileById ($id: ID!) {
+    getCompanyProfileById(id: $id) {
+        id
+        cuit
+        companyName
+        slogan
+        description
+        logo
+        website
+        phoneNumbers
+        photos
+    }
+}
