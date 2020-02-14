@@ -7,6 +7,7 @@ query getCompanyProfileById ($id: ID!) {
         description
         logo
         website
+        email
         phoneNumbers
         photos
     }

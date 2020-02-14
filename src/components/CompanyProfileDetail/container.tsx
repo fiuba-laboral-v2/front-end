@@ -17,7 +17,8 @@ const CompanyProfileDetailContainer: FunctionComponent = () => {
     logo,
     description,
     photos,
-    website
+    website,
+    email
 
   } = data ? data.getCompanyProfileById : {
     companyName: "",
@@ -25,6 +26,7 @@ const CompanyProfileDetailContainer: FunctionComponent = () => {
     logo: "",
     description: "",
     website: "",
+    email: "",
     photos: []
 
   };
@@ -32,7 +34,7 @@ const CompanyProfileDetailContainer: FunctionComponent = () => {
   return (
     <CompanyProfileDetail
       name={companyName}
-      email={""}
+      email={email}
       slogan={slogan}
       logoImageSource={logo}
       website={website}
