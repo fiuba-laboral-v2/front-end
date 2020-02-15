@@ -2,11 +2,13 @@ import React, { FunctionComponent } from "react";
 import CompanyProfileDetail from "./component";
 import { getCompanyProfileById } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
+import { useParams } from "react-router-dom";
 
 const CompanyProfileDetailContainer: FunctionComponent = () => {
+  const { id } = useParams();
   const { data } = useQuery(getCompanyProfileById, {
         variables: {
-          id: 4
+          id: id
         }
       }
   );
