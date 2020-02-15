@@ -3,15 +3,20 @@ import CompanyProfileDetail from "./component";
 import { getCompanyProfileById } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
+import NotFound from "$pages/NotFound";
 
 const CompanyProfileDetailContainer: FunctionComponent = () => {
   const { id } = useParams();
-  const { data } = useQuery(getCompanyProfileById, {
+  const response = useQuery(getCompanyProfileById, {
         variables: {
           id: id
         }
       }
   );
+
+  if (response.error) {
+    return (<NotFound/>);
+  }
 
   const {
     companyName,
@@ -21,8 +26,7 @@ const CompanyProfileDetailContainer: FunctionComponent = () => {
     photos,
     website,
     email
-
-  } = data ? data.getCompanyProfileById : {
+  } = response.data ? response.data.getCompanyProfileById : {
     companyName: "",
     slogan: "",
     logo: "",
