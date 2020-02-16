@@ -1,5 +1,5 @@
-query getCompanyProfileById ($id: ID!) {
-    getCompanyProfileById(id: $id) {
+query getCompanyById ($id: ID!) {
+    getCompanyById(id: $id) {
         id
         cuit
         companyName
