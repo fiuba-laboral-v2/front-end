@@ -1,15 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-
-interface ICompanyProfileDetailProps {
-  name: string;
-  email: string;
-  slogan: string;
-  logoImageSource: string;
-  website: string;
-  description: string;
-  photoImageSources: string[];
-}
+import { ICompanyProfileDetailProps } from "./CompanyProfileInterface";
 
 const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
   {
@@ -40,7 +31,7 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
       </div>
       <p className={styles.description}>{description}</p>
       <section className={styles.photos}>
-        {photoImageSources.map(source => (<img src={source} alt={`${name} photo`}/>))}
+        {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
       </section>
     </div>
   </div>
