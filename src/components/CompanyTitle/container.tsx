@@ -6,15 +6,15 @@ import CompanyTitle from "./component";
 const CompanyTitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
-        paths: ["company_profile.explanation", "company_profile.title", "edit"]
+        paths: ["company.explanation", "company.title", "edit"]
       }
     }
   );
-  const [explanation, myCompanyProfile, edit] = data ? data.getTranslations : ["", "", ""];
+  const [explanation, myCompany, edit] = data ? data.getTranslations : ["", "", ""];
 
   return (
     <CompanyTitle
-      myCompany={myCompanyProfile}
+      myCompany={myCompany}
       explanation={explanation}
       edit={edit}
     />
