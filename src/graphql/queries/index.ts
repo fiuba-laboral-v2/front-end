@@ -1,9 +1,9 @@
 import { loader } from "graphql.macro";
 
 const getTranslations = loader("./getTranslations.graphql");
-const getCompanyProfileById = loader("./getCompanyProfileById.graphql");
+const getCompanyById = loader("./getCompanyById.graphql");
 
 export {
   getTranslations,
-  getCompanyProfileById
+  getCompanyById
 };

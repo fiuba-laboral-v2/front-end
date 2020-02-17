@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Route, Switch, HashRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
-import CompanyProfile from "./pages/CompanyProfile";
+import Company from "./pages/Company";
 import NotFound from "./pages/NotFound";
 import Configuration from "$config";
 
@@ -13,7 +13,7 @@ const Routes: FunctionComponent = () => (
         <Home/>
       </Route>
       <Route exact path="/my-company/:id">
-        <CompanyProfile/>
+        <Company/>
       </Route>
       <Route path="*">
         <NotFound/>

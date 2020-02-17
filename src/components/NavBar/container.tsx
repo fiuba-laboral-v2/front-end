@@ -9,12 +9,12 @@ const NavBarContainer: FunctionComponent = () => {
       paths: ["app.title", "my_company", "app.log_out"]
     }
   });
-  const [title, myCompanyProfile, logOut] = data ? data.getTranslations : ["", "", ""];
+  const [title, myCompany, logOut] = data ? data.getTranslations : ["", "", ""];
 
   return (
     <NavBar
       title={title}
-      myCompanyProfile={myCompanyProfile}
+      myCompany={myCompany}
       logOut={logOut}
       username={"Daniela Castro"}
     />

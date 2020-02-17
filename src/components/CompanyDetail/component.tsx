@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { ICompanyProfileDetailProps } from "./CompanyProfileInterface";
+import { ICompanyDetailProps } from "./interface";
 
-const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
+const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
     name,
     email,
@@ -37,4 +37,4 @@ const CompanyProfileDetail: FunctionComponent<ICompanyProfileDetailProps> = (
   </div>
 );
 
-export default CompanyProfileDetail;
+export default CompanyDetail;
