@@ -1,4 +1,4 @@
-export interface ICompanyProfileDetailProps {
+export interface ICompanyDetailProps {
     name: string;
     email: string;
     slogan: string;

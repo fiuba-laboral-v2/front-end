@@ -14,7 +14,7 @@ const NavBarContainer: FunctionComponent = () => {
   return (
     <NavBar
       title={title}
-      myCompanyProfile={myCompanyProfile}
+      myCompany={myCompanyProfile}
       logOut={logOut}
       username={"Daniela Castro"}
     />

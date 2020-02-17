@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
-import CompanyProfileTitle from "./component";
+import CompanyTitle from "./component";
 
-const CompanyProfileTitleContainer: FunctionComponent = () => {
+const CompanyTitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
         paths: ["company_profile.explanation", "company_profile.title", "edit"]
@@ -13,12 +13,12 @@ const CompanyProfileTitleContainer: FunctionComponent = () => {
   const [explanation, myCompanyProfile, edit] = data ? data.getTranslations : ["", "", ""];
 
   return (
-    <CompanyProfileTitle
-      myCompanyProfile={myCompanyProfile}
+    <CompanyTitle
+      myCompany={myCompanyProfile}
       explanation={explanation}
       edit={edit}
     />
   );
 };
 
-export default CompanyProfileTitleContainer;
+export default CompanyTitleContainer;
