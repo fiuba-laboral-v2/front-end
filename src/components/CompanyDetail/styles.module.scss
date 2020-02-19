@@ -2,12 +2,6 @@
 @import "$styles/_detailHeader.scss";
 @import "$styles/_detailDescription.scss";
 
-.detailContainer {
-  padding: 60px $detailContainerHorizontalPadding 0;
-  margin: 0 auto;
-  max-width: $detailContainerMaxWidth;
-}
-
 .header {
   display: flex;
   flex-direction: row;
