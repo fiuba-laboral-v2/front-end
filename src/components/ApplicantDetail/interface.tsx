@@ -1,33 +1,21 @@
-interface IPadron {
-  value: number;
-  translation: string;
-}
-
-interface ICapabilities {
-  value: string[];
-  translation: string;
-}
-
 interface ICareer {
   name: string;
   credits: number;
 }
 
-interface ITranslationCareer {
+export interface ITranslations {
+  padron: string;
+  capabilities: string;
   careers: string;
-  credits: number;
-}
-
-interface ICareers {
-  value: ICareer[];
-  translations: ITranslationCareer;
+  credits: string;
 }
 
 export interface IApplicantDetailProps {
   name: string;
   surname: string;
-  padron: IPadron;
+  padron: number;
   description: string;
-  careers?: ICareers;
-  capabilities?: ICapabilities;
+  careers?: ICareer[];
+  capabilities?: string[];
+  translations: ITranslations;
 }

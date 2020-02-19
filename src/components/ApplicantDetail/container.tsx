@@ -15,45 +15,37 @@ const ApplicantDetailContainer: FunctionComponent = () => {
       }
     }
   );
-  const [padron, capabilities, careers, credits ] = data ? data.getTranslations : ["", "", ""];
+  const [ padron, capabilities, careers, credits ] = data ? data.getTranslations : ["", "", "", ""];
 
   return (
     <ApplicantDetail
       name={"Sebastian"}
       surname={"Blanco"}
-      padron={
-        {
-          value: 98539,
-          translation: padron
-        }
-      }
+      padron={98539}
       description={
         "Me considero una persona graciosa, con talentos de buen humor. Tengo promedio " +
         "8 en la facultad y por eso me considero una personasabia con aires de " +
         "grandeza."
       }
       careers={
-        {
-          value: [
-            {
-              name: "Ingeniería Informática",
-              credits: 200
-            },
-            {
-              name: "Ingeniería Civil",
-              credits: 20
-            }
-          ],
-          translations: {
-            careers: careers,
-            credits: credits
+        [
+          {
+            name: "Ingeniería Informática",
+            credits: 200
+          },
+          {
+            name: "Ingeniería Civil",
+            credits: 20
           }
-        }
+        ]
       }
-      capabilities={
+      capabilities={ ["Python", "Node", "css", "Auth security"] }
+      translations={
         {
-          value: ["Python", "Node", "css", "Auth security"],
-          translation: capabilities
+          padron: padron,
+          capabilities: capabilities,
+          careers: careers,
+          credits: credits
         }
       }
     />

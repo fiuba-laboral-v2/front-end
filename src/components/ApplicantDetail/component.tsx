@@ -11,7 +11,8 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     padron,
     description,
     careers,
-    capabilities
+    capabilities,
+    translations
   }) => (
   <div className={styles.mainContainer}>
       <div className={styles.detailContainer}>
@@ -20,8 +21,8 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                   <DetailHeadline headline={`${name} ${surname}`}/>
               </div>
               <div className={styles.padronContainer}>
-                  <span className={styles.padronTitle}>{padron.translation}:</span>
-                  <DetailByLine byLine={`${padron.value}`}/>
+                  <span className={styles.padronTitle}>{translations.padron}:</span>
+                  <DetailByLine byLine={padron}/>
               </div>
               <div className={styles.descriptionContainer}>
                   <p className={styles.description}>{description}</p>
@@ -29,19 +30,19 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
           </div>
           <div className={styles.info}>
               <section className={styles.capabilities}>
-                  <span className={styles.capabilityTitle}> { capabilities?.translation }: </span>
+                  <span className={styles.capabilityTitle}> {translations.capabilities}: </span>
                   {
-                    capabilities?.value!.map(capability =>
+                    capabilities?.map(capability =>
                       (<span className={styles.capability}>{capability}</span>))
                   }
               </section>
               <section className={styles.careers}>
-                  <span className={styles.careerTitle}> { careers?.translations.careers }: </span>
+                  <span className={styles.careerTitle}> { translations.careers }: </span>
                   {
-                    careers?.value!.map(career =>
+                    careers?.map(career =>
                       (
                         <span className={styles.career}>
-                            {career.name} - {career.credits} {careers?.translations.credits}
+                            {career.name} - {career.credits} translations.credits}
                         </span>)
                       )
                   }
