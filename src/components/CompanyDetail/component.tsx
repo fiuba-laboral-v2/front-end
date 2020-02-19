@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
+import { DetailHeadline } from "$components/DetailHeadline";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -20,12 +21,12 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
         </div>
         <div className={styles.mainInfo}>
-          <h2 className={styles.detailTitle}>{name}</h2>
+          <DetailHeadline headline={name}/>
           <h3 className={styles.detailByline}>{slogan}</h3>
           <div className={styles.contactInfo}>
             <a href={`mailto: ${email}`}>{email}</a>
             <span className={styles.contactInfoDivider}> — </span>
-            <a target="_blank" href={website}>{website}</a>
+            <a target="_blank" rel="noopener noreferrer" href={website}>{website}</a>
           </div>
         </div>
       </div>

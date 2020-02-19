@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
+import { DetailHeadline } from "../DetailHeadline";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -15,7 +16,7 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       <div className={styles.detailContainer}>
           <div className={styles.header}>
               <div className={styles.fullNameContainer}>
-                  <span className={styles.detailTitle}>{name} {surname}</span>
+                  <DetailHeadline headline={`${name} ${surname}`}/>
               </div>
               <div className={styles.padronContainer}>
                   <span className={styles.padronTitle}>{padron.translation}:</span>
