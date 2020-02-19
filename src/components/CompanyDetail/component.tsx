@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
-import { DetailHeadline } from "$components/DetailHeadline";
+import { DetailHeadline } from "$components/Details/DetailHeadline";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
-import { DetailHeadline } from "../DetailHeadline";
+import { DetailHeadline } from "$components//Details/DetailHeadline";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
