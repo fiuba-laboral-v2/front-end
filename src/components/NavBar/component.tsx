@@ -8,7 +8,8 @@ import styles from "./styles.module.scss";
 const NavBar: FunctionComponent<INavBarProps> = (
   {
     title,
-    myCompany,
+    companies,
+    applicants,
     logOut,
     username
   }
@@ -31,7 +32,8 @@ const NavBar: FunctionComponent<INavBarProps> = (
         </div>
       </div>
       <div className={`${styles.menu} ${showMenu && styles.showOnMobile}`}>
-        <Link to="/companies/">{myCompany}</Link>
+        <Link to="/companies/">{companies}</Link>
+        <Link to="/applicants/">{applicants}</Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           <p className={styles.userName}>{username}</p>

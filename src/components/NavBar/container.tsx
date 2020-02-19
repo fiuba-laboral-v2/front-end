@@ -6,15 +6,16 @@ import { getTranslations } from "$queries";
 const NavBarContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
     variables: {
-      paths: ["app.title", "my_company", "app.log_out"]
+      paths: ["app.title", "companies", "applicants", "app.log_out"]
     }
   });
-  const [title, myCompany, logOut] = data ? data.getTranslations : ["", "", ""];
+  const [title, companies, applicants, logOut] = data ? data.getTranslations : ["", "", ""];
 
   return (
     <NavBar
       title={title}
-      myCompany={myCompany}
+      companies={companies}
+      applicants={applicants}
       logOut={logOut}
       username={"Daniela Castro"}
     />

@@ -6,15 +6,15 @@ import { DetailTitle } from "../detailTitle";
 const ApplicantTitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
-        paths: ["company.explanation", "company.title", "edit"]
+        paths: ["applicant.explanation", "applicant.title", "edit"]
       }
     }
   );
-  const [explanation, myCompany, edit] = data ? data.getTranslations : ["", "", ""];
+  const [explanation, title, edit] = data ? data.getTranslations : ["", "", ""];
 
   return (
     <DetailTitle
-      myDetail={myCompany}
+      myDetail={title}
       explanation={explanation}
       edit={edit}
       link={"/applicants/"}
