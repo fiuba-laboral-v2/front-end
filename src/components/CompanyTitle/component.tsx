@@ -16,7 +16,7 @@ const CompanyTitle: FunctionComponent<ICompanyTitleProps> = (
     <div className={styles.editPrompt}>
       <span>{explanation}</span>
       <div className={styles.editButton}>
-        <Link to="/my-company/">
+        <Link to="/companies/">
           <CreateIcon fontSize={"inherit"}/>
           {edit}
         </Link>

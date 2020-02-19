@@ -1,0 +1,138 @@
+.mainContainer {
+  background: white;
+  background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+$detailContainerMaxWidth: 880px;
+$detailContainerHorizontalPadding: 20px;
+$mobileContainerThreshold: $detailContainerMaxWidth + 2 * $detailContainerHorizontalPadding;
+$headerContainerPadding: 10px;
+
+.detailContainer {
+  padding: 20px $detailContainerHorizontalPadding 20px;
+  margin: 0 auto;
+  max-width: $detailContainerMaxWidth;
+  box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
+}
+
+.header {
+  padding-bottom: 5px;
+}
+
+.fullNameContainer {
+  overflow: hidden;
+  padding-bottom: $headerContainerPadding;
+  box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
+}
+
+.padronContainer {
+  overflow: hidden;
+  padding-top: 2 * $headerContainerPadding;
+  padding-bottom: $headerContainerPadding;
+}
+
+.descriptionContainer {
+  overflow: hidden;
+  padding-bottom: $headerContainerPadding;
+}
+
+.fullName, .padron {
+  padding: 10px;
+  font-weight: normal;
+  margin: 0 0 10px 0;
+}
+
+.fullName {
+  font-size: 30px;
+}
+
+.padron {
+  font-size: 16px;
+}
+
+.description {
+  white-space: pre-line;
+  margin: 0;
+  font-size: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+.creditsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  line-height: 0;
+
+  .credits {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+}
+
+.capabilities {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  line-height: 0;
+
+  .capability {
+    list-style-type: circle;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+}
+
+.careers {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  line-height: 0;
+
+  .career {
+    list-style-type: circle;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .header {
+    flex-direction: column;
+  }
+
+  .fullNameContainer {
+    align-self: center;
+  }
+
+  .mainInfo {
+    margin-left: 0;
+  }
+
+  .detailContainer {
+    padding: 50px 10vw 0 10vw;
+  }
+
+  .fullName {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .capabilities {
+    column-count: 1;
+    max-width: 430px;
+  }
+
+  .careers {
+    column-count: 1;
+    max-width: 430px;
+  }
+}
