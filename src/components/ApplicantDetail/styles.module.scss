@@ -83,10 +83,17 @@ $headerContainerPadding: 10px;
   line-height: 0;
 
   .capability {
-    list-style-type: circle;
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+  }
+
+  .capabilityTitle {
     width: 100%;
     height: auto;
     padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
   }
 }
 
@@ -97,10 +104,17 @@ $headerContainerPadding: 10px;
   line-height: 0;
 
   .career {
-    list-style-type: circle;
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+  }
+
+  .careerTitle {
     width: 100%;
     height: auto;
     padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
   }
 }
 
