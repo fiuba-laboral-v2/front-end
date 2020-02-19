@@ -1,5 +1,6 @@
 @import "$styles/_mainDetailContainer.scss";
 @import "$styles/_detailHeader.scss";
+@import "$styles/_detailDescription.scss";
 
 
 $headerContainerPaddingLeft: 10px;
@@ -28,21 +29,15 @@ $headerContainerPaddingLeft: 10px;
   }
 }
 
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
 .descriptionContainer {
   overflow: hidden;
   padding-bottom: $headerContainerPadding;
   padding-left: $headerContainerPaddingLeft;
-}
-
-.description {
-  white-space: pre-line;
-  margin: 0;
-  font-size: 14px;
-}
-
-.info {
-  display: flex;
-  flex-direction: row;
 }
 
 .capabilities {

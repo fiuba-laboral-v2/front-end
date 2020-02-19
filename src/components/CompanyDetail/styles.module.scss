@@ -1,6 +1,6 @@
 @import "$styles/_mainDetailContainer.scss";
 @import "$styles/_detailHeader.scss";
-
+@import "$styles/_detailDescription.scss";
 
 .detailContainer {
   padding: 60px $detailContainerHorizontalPadding 0;
@@ -45,12 +45,6 @@
     color: #0390BC;
     font-weight: normal;
   }
-}
-
-.description {
-  white-space: pre-line;
-  margin: 0;
-  font-size: 14px;
 }
 
 .photos {
