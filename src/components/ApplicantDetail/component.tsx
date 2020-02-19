@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
 import { DetailHeadline } from "$components//Details/DetailHeadline";
 import { DetailByLine } from "$components/Details/DetailByLine";
+import { DetailDescription } from "$components/Details/DetailDescription";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -25,7 +26,7 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                   <DetailByLine byLine={padron}/>
               </div>
               <div className={styles.descriptionContainer}>
-                  <p className={styles.description}>{description}</p>
+                  <DetailDescription  description={description}/>
               </div>
           </div>
           <div className={styles.info}>

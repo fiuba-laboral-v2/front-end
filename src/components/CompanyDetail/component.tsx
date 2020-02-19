@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
 import { DetailHeadline } from "$components/Details/DetailHeadline";
 import { DetailByLine } from "$components/Details/DetailByLine";
+import { DetailDescription } from "$components/Details/DetailDescription";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -31,7 +32,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           </div>
         </div>
       </div>
-      <p className={styles.description}>{description}</p>
+      <DetailDescription description={description}/>
       <section className={styles.photos}>
         {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
       </section>
