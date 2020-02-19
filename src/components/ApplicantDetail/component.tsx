@@ -43,7 +43,7 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                     careers?.map(career =>
                       (
                         <span className={styles.career}>
-                            {career.name} - {career.credits} translations.credits}
+                            {career.name} - {career.credits} {translations.credits}
                         </span>)
                       )
                   }
