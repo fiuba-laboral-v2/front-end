@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
 import { DetailHeadline } from "$components//Details/DetailHeadline";
+import { DetailByLine } from "$components/Details/DetailByLine";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -20,7 +21,7 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
               </div>
               <div className={styles.padronContainer}>
                   <span className={styles.padronTitle}>{padron.translation}:</span>
-                  <span className={styles.detailByline}>{padron.value}</span>
+                  <DetailByLine byLine={`${padron.value}`}/>
               </div>
               <div className={styles.descriptionContainer}>
                   <p className={styles.description}>{description}</p>

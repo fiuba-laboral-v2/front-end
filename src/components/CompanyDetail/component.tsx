@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
 import { DetailHeadline } from "$components/Details/DetailHeadline";
+import { DetailByLine } from "$components/Details/DetailByLine";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -22,7 +23,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         </div>
         <div className={styles.mainInfo}>
           <DetailHeadline headline={name}/>
-          <h3 className={styles.detailByline}>{slogan}</h3>
+          <DetailByLine byLine={slogan}/>
           <div className={styles.contactInfo}>
             <a href={`mailto: ${email}`}>{email}</a>
             <span className={styles.contactInfoDivider}> — </span>
