@@ -4,6 +4,7 @@ import { ICompanyDetailProps } from "./interface";
 import { DetailHeadline } from "$components/Details/DetailHeadline";
 import { DetailByLine } from "$components/Details/DetailByLine";
 import { DetailDescription } from "$components/Details/DetailDescription";
+import { DetailContactMe } from "$components/Details/DetailContactMe";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -25,11 +26,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         <div className={styles.mainInfo}>
           <DetailHeadline headline={name}/>
           <DetailByLine byLine={slogan}/>
-          <div className={styles.contactInfo}>
-            <a href={`mailto: ${email}`}>{email}</a>
-            <span className={styles.contactInfoDivider}> — </span>
-            <a target="_blank" rel="noopener noreferrer" href={website}>{website}</a>
-          </div>
+          <DetailContactMe email={email} website={website}/>
         </div>
       </div>
       <DetailDescription description={description}/>
@@ -40,4 +37,4 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   </div>
 );
 
-export default CompanyDetail;
+export { CompanyDetail };

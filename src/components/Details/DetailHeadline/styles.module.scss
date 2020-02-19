@@ -1,5 +1,15 @@
+@import "$styles/Details/_detailsVariables.scss";
+
 .detailHeadline {
   font-weight: normal;
   margin: 0 0 10px 0;
   font-size: 30px;
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .detailHeadline {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+

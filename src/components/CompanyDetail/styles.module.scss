@@ -1,4 +1,4 @@
-@import "$styles/_mainDetailContainer.scss";
+@import "$styles/Details/_mainDetailContainer.scss";
 
 .header {
   display: flex;
@@ -29,14 +29,6 @@
   flex-grow: 1;
   margin-left: 36px;
   align-self: center;
-}
-
-
-.contactInfo {
-  a {
-    color: #0390BC;
-    font-weight: normal;
-  }
 }
 
 .photos {
@@ -74,16 +66,6 @@
   .companyName {
     margin-top: 15px;
     text-align: center;
-  }
-
-  .contactInfo {
-    a {
-      display: block;
-    }
-  }
-
-  .contactInfoDivider {
-    display: none;
   }
 
   .photos {
