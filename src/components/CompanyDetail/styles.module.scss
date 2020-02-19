@@ -1,18 +1,10 @@
-.mainContainer {
-  background: white;
-  background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
-  flex-grow: 1;
-  margin-bottom: 20px;
-}
+@import "$styles/_mainDetailContainer.scss";
 
-$profileContainerMaxWidth: 880px;
-$profileContainerHorizontalPadding: 20px;
-$mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContainerHorizontalPadding;
 
-.profileContainer {
-  padding: 60px $profileContainerHorizontalPadding 0;
+.detailContainer {
+  padding: 60px $detailContainerHorizontalPadding 0;
   margin: 0 auto;
-  max-width: $profileContainerMaxWidth;
+  max-width: $detailContainerMaxWidth;
 }
 
 .header {
@@ -87,7 +79,7 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 }
 
-@media (max-width: $mobileProfileContainerThreshold) {
+@media (max-width: $mobileContainerThreshold) {
   .header {
     flex-direction: column;
   }

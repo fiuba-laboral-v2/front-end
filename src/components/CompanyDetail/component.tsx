@@ -14,7 +14,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   }
 ) => (
   <div className={styles.mainContainer}>
-    <div className={styles.profileContainer}>
+    <div className={styles.detailContainer}>
       <div className={styles.header}>
         <div className={styles.logoContainer}>
           <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
