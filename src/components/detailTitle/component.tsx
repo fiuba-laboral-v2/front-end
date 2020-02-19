@@ -2,21 +2,22 @@ import React, { FunctionComponent } from "react";
 import CreateIcon from "@material-ui/icons/Create";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
-import { ICompanyTitleProps } from "./interface";
+import { IDetailTitleProps } from "./interface";
 
-const CompanyTitle: FunctionComponent<ICompanyTitleProps> = (
+const DetailTitle: FunctionComponent<IDetailTitleProps> = (
   {
-    myCompany,
+    myDetail,
     explanation,
-    edit
+    edit,
+    link
   }
 ) => (
   <div className={styles.profileTitle}>
-    <h1 className={styles.header}>{myCompany}</h1>
+    <h1 className={styles.header}>{myDetail}</h1>
     <div className={styles.editPrompt}>
       <span>{explanation}</span>
       <div className={styles.editButton}>
-        <Link to="/companies/">
+        <Link to={link}>
           <CreateIcon fontSize={"inherit"}/>
           {edit}
         </Link>
@@ -25,4 +26,4 @@ const CompanyTitle: FunctionComponent<ICompanyTitleProps> = (
   </div>
 );
 
-export default CompanyTitle;
+export { DetailTitle };

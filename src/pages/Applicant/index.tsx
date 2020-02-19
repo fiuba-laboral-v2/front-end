@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
 import NavBar from "$components/NavBar";
-import CompanyTitle from "$components/CompanyTitle";
+import { ApplicantTitleContainer } from "$components/ApplicantTitle";
 import { ApplicantDetailContainer } from "$components/ApplicantDetail";
 
 const Applicant: FunctionComponent = () => (
   <div>
     <NavBar/>
     <div className="mainContent">
-      <CompanyTitle/>
+      <ApplicantTitleContainer/>
       <ApplicantDetailContainer/>
     </div>
   </div>

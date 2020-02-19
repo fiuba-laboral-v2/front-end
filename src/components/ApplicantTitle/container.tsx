@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
 import { DetailTitle } from "../detailTitle";
 
-const CompanyTitleContainer: FunctionComponent = () => {
+const ApplicantTitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
         paths: ["company.explanation", "company.title", "edit"]
@@ -17,9 +17,9 @@ const CompanyTitleContainer: FunctionComponent = () => {
       myDetail={myCompany}
       explanation={explanation}
       edit={edit}
-      link={"/companies/"}
+      link={"/applicants/"}
     />
   );
 };
 
-export default CompanyTitleContainer;
+export { ApplicantTitleContainer };

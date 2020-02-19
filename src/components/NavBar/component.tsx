@@ -31,7 +31,7 @@ const NavBar: FunctionComponent<INavBarProps> = (
         </div>
       </div>
       <div className={`${styles.menu} ${showMenu && styles.showOnMobile}`}>
-        <Link to="/my-company/">{myCompany}</Link>
+        <Link to="/companies/">{myCompany}</Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           <p className={styles.userName}>{username}</p>
