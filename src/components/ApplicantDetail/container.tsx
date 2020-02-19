@@ -32,12 +32,6 @@ const ApplicantDetailContainer: FunctionComponent = () => {
         "8 en la facultad y por eso me considero una personasabia con aires de " +
         "grandeza."
       }
-      credits={
-        {
-          value: 222,
-          translation: credits
-        }
-      }
       careers={
         {
           value: [
@@ -50,7 +44,10 @@ const ApplicantDetailContainer: FunctionComponent = () => {
               credits: 20
             }
           ],
-          translation: careers
+          translations: {
+            careers: careers,
+            credits: credits
+          }
         }
       }
       capabilities={

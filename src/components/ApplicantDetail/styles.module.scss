@@ -10,7 +10,6 @@ $detailContainerHorizontalPadding: 20px;
 $mobileContainerThreshold: $detailContainerMaxWidth + 2 * $detailContainerHorizontalPadding;
 $headerContainerPadding: 10px;
 $headerContainerPaddingLeft: 10px;
-$bulletPoint: "• ";
 
 .detailContainer {
   padding: 20px $detailContainerHorizontalPadding 20px;
@@ -85,14 +84,10 @@ $bulletPoint: "• ";
     padding: 10px 10px;
   }
 
-  .capability:before {
-    content: $bulletPoint;
-  }
-
   .capabilityTitle {
     width: 100%;
     height: auto;
-    padding: 10px 0;
+    padding: 10px;
     font-size: 14px;
     font-weight: bold;
   }
@@ -110,14 +105,10 @@ $bulletPoint: "• ";
     padding: 10px 10px;
   }
 
-  .career:before {
-    content: $bulletPoint;
-  }
-
   .careerTitle {
     width: 100%;
     height: auto;
-    padding: 10px 0;
+    padding: 10px;
     font-size: 14px;
     font-weight: bold;
   }

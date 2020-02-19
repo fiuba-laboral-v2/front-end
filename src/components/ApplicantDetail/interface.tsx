@@ -13,14 +13,14 @@ interface ICareer {
   credits: number;
 }
 
-interface ICareers {
-  value: ICareer[];
-  translation: string;
+interface ITranslationCareer {
+  careers: string;
+  credits: number;
 }
 
-interface ICredits {
-  value: number;
-  translation: string;
+interface ICareers {
+  value: ICareer[];
+  translations: ITranslationCareer;
 }
 
 export interface IApplicantDetailProps {
@@ -28,7 +28,6 @@ export interface IApplicantDetailProps {
   surname: string;
   padron: IPadron;
   description: string;
-  credits: ICredits;
   careers?: ICareers;
   capabilities?: ICapabilities;
 }
