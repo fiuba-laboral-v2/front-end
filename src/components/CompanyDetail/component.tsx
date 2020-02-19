@@ -25,7 +25,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <div className={styles.contactInfo}>
             <a href={`mailto: ${email}`}>{email}</a>
             <span className={styles.contactInfoDivider}> — </span>
-            <a href={website}>{website}</a>
+            <a target="_blank" href={website}>{website}</a>
           </div>
         </div>
       </div>
