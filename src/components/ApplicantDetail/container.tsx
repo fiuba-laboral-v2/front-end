@@ -27,11 +27,11 @@ const ApplicantDetailContainer: FunctionComponent = () => {
           translation: padron
         }
       }
-      description={`
-      Me considero una graciosa, con talentos de buen humor. Tengo promedio 8 en
-      la facultad y por eso me considero una persona sabia con aires de
-      grandeza.
-      `}
+      description={
+        "Me considero una graciosa, con talentos de buen humor. Tengo promedio " +
+        "8 en la facultad y por eso me considero una personasabia con aires de " +
+        "grandeza."
+      }
       credits={
         {
           value: 222,

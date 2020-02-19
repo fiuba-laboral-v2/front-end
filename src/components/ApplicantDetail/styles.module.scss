@@ -24,13 +24,20 @@ $headerContainerPadding: 10px;
 .fullNameContainer {
   overflow: hidden;
   padding-bottom: $headerContainerPadding;
-  box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
 }
 
 .padronContainer {
   overflow: hidden;
   padding-top: 2 * $headerContainerPadding;
   padding-bottom: $headerContainerPadding;
+
+  .padronTitle {
+    width: 100%;
+    height: auto;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
 
 .descriptionContainer {
@@ -49,6 +56,7 @@ $headerContainerPadding: 10px;
 }
 
 .padron {
+  padding-left: 0;
   font-size: 16px;
 }
 
@@ -65,7 +73,7 @@ $headerContainerPadding: 10px;
 
 .creditsContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 20px auto 0 auto;
   line-height: 0;
 
@@ -73,6 +81,14 @@ $headerContainerPadding: 10px;
     width: 100%;
     height: auto;
     padding: 10px 0;
+  }
+
+  .creditsTitle {
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
   }
 }
 
