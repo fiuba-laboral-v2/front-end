@@ -10,6 +10,7 @@ $detailContainerHorizontalPadding: 20px;
 $mobileContainerThreshold: $detailContainerMaxWidth + 2 * $detailContainerHorizontalPadding;
 $headerContainerPadding: 10px;
 $headerContainerPaddingLeft: 10px;
+$bulletPoint: "• ";
 
 .detailContainer {
   padding: 20px $detailContainerHorizontalPadding 20px;
@@ -72,27 +73,6 @@ $headerContainerPaddingLeft: 10px;
   flex-direction: row;
 }
 
-.creditsContainer {
-  display: flex;
-  flex-direction: row;
-  margin: 20px auto 0 auto;
-  line-height: 0;
-
-  .credits {
-    width: 100%;
-    height: auto;
-    padding: 10px 0;
-  }
-
-  .creditsTitle {
-    width: 100%;
-    height: auto;
-    padding: 10px 10px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-}
-
 .capabilities {
   display: flex;
   flex-direction: column;
@@ -103,6 +83,10 @@ $headerContainerPaddingLeft: 10px;
     width: 100%;
     height: auto;
     padding: 10px 10px;
+  }
+
+  .capability:before {
+    content: $bulletPoint;
   }
 
   .capabilityTitle {
@@ -124,6 +108,10 @@ $headerContainerPaddingLeft: 10px;
     width: 100%;
     height: auto;
     padding: 10px 10px;
+  }
+
+  .career:before {
+    content: $bulletPoint;
   }
 
   .careerTitle {

@@ -8,8 +8,13 @@ interface ICapabilities {
   translation: string;
 }
 
+interface ICareer {
+  name: string;
+  credits: number;
+}
+
 interface ICareers {
-  value: string[];
+  value: ICareer[];
   translation: string;
 }
 

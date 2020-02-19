@@ -28,7 +28,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
         }
       }
       description={
-        "Me considero una graciosa, con talentos de buen humor. Tengo promedio " +
+        "Me considero una persona graciosa, con talentos de buen humor. Tengo promedio " +
         "8 en la facultad y por eso me considero una personasabia con aires de " +
         "grandeza."
       }
@@ -40,7 +40,16 @@ const ApplicantDetailContainer: FunctionComponent = () => {
       }
       careers={
         {
-          value: ["Ingenieria Informatica", "Ingenieria Civil"],
+          value: [
+            {
+              name: "Ingeniería Informática",
+              credits: 200
+            },
+            {
+              name: "Ingeniería Civil",
+              credits: 20
+            }
+          ],
           translation: careers
         }
       }

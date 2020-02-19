@@ -27,10 +27,6 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
               </div>
           </div>
           <div className={styles.info}>
-              <div className={styles.creditsContainer}>
-                  <span className={styles.creditsTitle}>{credits.translation}: </span>
-                  <span className={styles.credits}>{credits.value}</span>
-              </div>
               <section className={styles.capabilities}>
                   <span className={styles.capabilityTitle}> { capabilities?.translation }: </span>
                   {
@@ -42,7 +38,11 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                   <span className={styles.careerTitle}> { careers?.translation }: </span>
                   {
                     careers?.value!.map(career =>
-                      (<span className={styles.career}>{career}</span>))
+                      (
+                        <span className={styles.career}>
+                            {career.name} - {career.credits} {credits.translation}
+                        </span>)
+                      )
                   }
               </section>
           </div>
