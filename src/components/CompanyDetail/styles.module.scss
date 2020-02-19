@@ -1,4 +1,5 @@
 @import "$styles/_mainDetailContainer.scss";
+@import "$styles/_detailHeader.scss";
 
 
 .detailContainer {
@@ -38,18 +39,6 @@
   align-self: center;
 }
 
-.companyName, .companySlogan {
-  font-weight: normal;
-  margin: 0 0 10px 0;
-}
-
-.companyName {
-  font-size: 30px;
-}
-
-.companySlogan {
-  font-size: 16px;
-}
 
 .contactInfo {
   a {

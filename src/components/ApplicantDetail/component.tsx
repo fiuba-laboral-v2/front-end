@@ -15,11 +15,11 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       <div className={styles.detailContainer}>
           <div className={styles.header}>
               <div className={styles.fullNameContainer}>
-                  <span className={styles.fullName}>{name} {surname}</span>
+                  <span className={styles.detailTitle}>{name} {surname}</span>
               </div>
               <div className={styles.padronContainer}>
                   <span className={styles.padronTitle}>{padron.translation}:</span>
-                  <span className={styles.padron}>{padron.value}</span>
+                  <span className={styles.detailByline}>{padron.value}</span>
               </div>
               <div className={styles.descriptionContainer}>
                   <p className={styles.description}>{description}</p>

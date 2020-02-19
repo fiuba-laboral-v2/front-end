@@ -20,8 +20,8 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
         </div>
         <div className={styles.mainInfo}>
-          <h2 className={styles.companyName}>{name}</h2>
-          <h3 className={styles.companySlogan}>{slogan}</h3>
+          <h2 className={styles.detailTitle}>{name}</h2>
+          <h3 className={styles.detailByline}>{slogan}</h3>
           <div className={styles.contactInfo}>
             <a href={`mailto: ${email}`}>{email}</a>
             <span className={styles.contactInfoDivider}> — </span>

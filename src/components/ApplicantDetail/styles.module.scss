@@ -1,4 +1,5 @@
 @import "$styles/_mainDetailContainer.scss";
+@import "$styles/_detailHeader.scss";
 
 
 $headerContainerPaddingLeft: 10px;
@@ -31,20 +32,6 @@ $headerContainerPaddingLeft: 10px;
   overflow: hidden;
   padding-bottom: $headerContainerPadding;
   padding-left: $headerContainerPaddingLeft;
-}
-
-.fullName, .padron {
-  font-weight: normal;
-  margin: 0 0 10px 0;
-}
-
-.fullName {
-  font-size: 30px;
-}
-
-.padron {
-  padding-left: 0;
-  font-size: 16px;
 }
 
 .description {
