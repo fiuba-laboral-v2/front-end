@@ -1,4 +1,4 @@
-@import "$styles/Details/_mainDetailContainer.scss";
+@import "$styles/Details/_detailsVariables.scss";
 
 
 $headerContainerPaddingLeft: 10px;
@@ -91,10 +91,6 @@ $headerContainerPaddingLeft: 10px;
 
   .mainInfo {
     margin-left: 0;
-  }
-
-  .detailContainer {
-    padding: 50px 10vw 0 10vw;
   }
 
   .capabilities {

@@ -5,6 +5,7 @@ import { DetailHeadline } from "$components/Details/DetailHeadline";
 import { DetailByLine } from "$components/Details/DetailByLine";
 import { DetailDescription } from "$components/Details/DetailDescription";
 import { DetailContactMe } from "$components/Details/DetailContactMe";
+import { DetailMainContainer } from "$components/Details/DetailMainContainer";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -17,8 +18,8 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     photoImageSources
   }
 ) => (
-  <div className={styles.mainContainer}>
-    <div className={styles.detailContainer}>
+  <DetailMainContainer render={() => (
+    <div>
       <div className={styles.header}>
         <div className={styles.logoContainer}>
           <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
@@ -34,7 +35,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
       </section>
     </div>
-  </div>
+  )}/>
 );
 
 export { CompanyDetail };
