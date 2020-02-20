@@ -9,7 +9,7 @@ const DetailMainContainer: FunctionComponent<IDetailMainContainerProps> = (
 ) => (
   <div className={styles.mainContainer}>
     <div className={styles.detailContainer}>
-      {render()}
+      {render}
     </div>
   </div>
 );

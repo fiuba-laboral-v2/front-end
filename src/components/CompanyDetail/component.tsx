@@ -18,7 +18,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     photoImageSources
   }
 ) => (
-  <DetailMainContainer render={() => (
+  <DetailMainContainer render={
     <div>
       <div className={styles.header}>
         <div className={styles.logoContainer}>
@@ -35,7 +35,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
       </section>
     </div>
-  )}/>
+  }/>
 );
 
 export { CompanyDetail };
