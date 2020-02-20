@@ -1,3 +1,3 @@
 export interface IDetailMainContainerProps {
-  render: any;
+  detailBody: any;
 }

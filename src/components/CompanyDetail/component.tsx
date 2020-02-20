@@ -18,7 +18,7 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     photoImageSources
   }
 ) => (
-  <DetailMainContainer render={
+  <DetailMainContainer detailBody={
     <div>
       <div className={styles.header}>
         <div className={styles.logoContainer}>

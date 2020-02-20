@@ -16,7 +16,7 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     capabilities,
     translations
   }) => (
-    <DetailMainContainer render={
+    <DetailMainContainer detailBody={
         <div className={styles.mainContainer}>
             <div className={styles.detailContainer}>
                 <div className={styles.header}>

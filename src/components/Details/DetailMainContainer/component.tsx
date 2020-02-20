@@ -4,12 +4,12 @@ import { IDetailMainContainerProps } from "./interface";
 
 const DetailMainContainer: FunctionComponent<IDetailMainContainerProps> = (
   {
-    render
+    detailBody
   }
 ) => (
   <div className={styles.mainContainer}>
     <div className={styles.detailContainer}>
-      {render}
+      {detailBody}
     </div>
   </div>
 );
