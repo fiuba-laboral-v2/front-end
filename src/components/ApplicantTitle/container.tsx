@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
-import { DetailTitle } from "../Details/DetailTitle";
+import { DetailTitle } from "../Detail/DetailTitle";
 
 const ApplicantTitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {

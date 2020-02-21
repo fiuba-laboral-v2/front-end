@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
-import { DetailHeadline } from "$components//Details/DetailHeadline";
-import { DetailByLine } from "$components/Details/DetailByLine";
-import { DetailDescription } from "$components/Details/DetailDescription";
-import { DetailMainContainer } from "$components/Details/DetailMainContainer";
+import { DetailHeadline } from "$components//Detail/DetailHeadline";
+import { DetailByLine } from "$components/Detail/DetailByLine";
+import { DetailDescription } from "$components/Detail/DetailDescription";
+import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {

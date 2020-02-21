@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
-import { DetailHeadline } from "$components/Details/DetailHeadline";
-import { DetailByLine } from "$components/Details/DetailByLine";
-import { DetailDescription } from "$components/Details/DetailDescription";
-import { DetailContactMe } from "$components/Details/DetailContactMe";
-import { DetailMainContainer } from "$components/Details/DetailMainContainer";
+import { DetailHeadline } from "$components/Detail/DetailHeadline";
+import { DetailByLine } from "$components/Detail/DetailByLine";
+import { DetailDescription } from "$components/Detail/DetailDescription";
+import { DetailContactMe } from "$components/Detail/DetailContactMe";
+import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
