@@ -27,56 +27,55 @@ $headerContainerPaddingLeft: 10px;
   }
 }
 
-.info {
-  display: flex;
-  flex-direction: row;
-}
-
 .descriptionContainer {
   overflow: hidden;
   padding-bottom: $headerContainerPadding;
   padding-left: $headerContainerPaddingLeft;
 }
 
+
+.info {
+  display: flex;
+  flex-direction: row;
+  padding-left: $headerContainerPaddingLeft;
+}
+
 .capabilities {
   display: flex;
   flex-direction: column;
-  margin: 20px auto 0 auto;
-  line-height: 0;
 
   .capability {
     width: 100%;
     height: auto;
-    padding: 10px 10px;
+    margin-bottom: 5px;
   }
 
   .capabilityTitle {
     width: 100%;
     height: auto;
-    padding: 10px;
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: 5px;
   }
 }
 
 .careers {
   display: flex;
   flex-direction: column;
-  margin: 20px auto 0 auto;
-  line-height: 0;
+  margin-left: 300px;
 
   .career {
     width: 100%;
     height: auto;
-    padding: 10px 10px;
+    margin-bottom: 5px;
   }
 
   .careerTitle {
     width: 100%;
     height: auto;
-    padding: 10px;
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: 5px;
   }
 }
 
@@ -89,16 +88,20 @@ $headerContainerPaddingLeft: 10px;
     align-self: center;
   }
 
-  .mainInfo {
+  .info {
     margin-left: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .capabilities {
+    margin: 20px 0 0 0;
     column-count: 1;
     max-width: 430px;
   }
 
   .careers {
+    margin: 20px 0 0 0;
     column-count: 1;
     max-width: 430px;
   }

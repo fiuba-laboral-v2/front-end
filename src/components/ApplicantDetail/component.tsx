@@ -44,11 +44,11 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                     <span className={styles.careerTitle}> { translations.careers }: </span>
                     {
                         careers?.map(career =>
-                            (
-                              <span className={styles.career}>
-                            {career.name} - {career.credits} {translations.credits}
-                        </span>)
-                        )
+                          (
+                            <span className={styles.career}>
+                                {career.name} - {career.credits} {translations.credits}
+                            </span>
+                          ))
                     }
                 </section>
             </div>
