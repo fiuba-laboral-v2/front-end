@@ -8,6 +8,7 @@ $headerContainerPaddingLeft: 10px;
 }
 
 .fullNameContainer {
+  display: flex;
   overflow: hidden;
   padding-left: $headerContainerPaddingLeft;
 }
