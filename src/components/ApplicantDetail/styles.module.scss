@@ -44,6 +44,7 @@ $headerContainerPaddingLeft: 10px;
 .capabilities {
   display: flex;
   flex-direction: column;
+  width: 50%;
 
   .capability {
     width: 100%;
@@ -63,7 +64,7 @@ $headerContainerPaddingLeft: 10px;
 .careers {
   display: flex;
   flex-direction: column;
-  margin-left: 300px;
+  width: 50%;
 
   .career {
     width: 100%;
