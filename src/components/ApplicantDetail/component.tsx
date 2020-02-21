@@ -36,16 +36,20 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                           className={styles.capabilityTitle}> {translations.capabilities}:
                         </span>
                     {
-                        capabilities?.map(capability =>
-                          (<span className={styles.capability}>{capability}</span>))
+                        capabilities?.map((capability, index) =>
+                          (
+                            <span key={index} className={styles.capability}>
+                                {capability}
+                            </span>
+                          ))
                     }
                 </section>
                 <section className={styles.careers}>
                     <span className={styles.careerTitle}> { translations.careers }: </span>
                     {
-                        careers?.map(career =>
+                        careers?.map((career, index) =>
                           (
-                            <span className={styles.career}>
+                            <span key={index} className={styles.career}>
                                 {career.name} - {career.credits} {translations.credits}
                             </span>
                           ))

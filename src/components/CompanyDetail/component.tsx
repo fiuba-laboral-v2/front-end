@@ -32,7 +32,10 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
       </div>
       <DetailDescription description={description}/>
       <section className={styles.photos}>
-        {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
+        {
+          photoImageSources.map((source, index) =>
+          (<img key={index} src={source} alt={`${name}`}/>)
+        )}
       </section>
     </div>
   }/>
