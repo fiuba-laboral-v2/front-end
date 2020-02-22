@@ -17,33 +17,31 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     capabilities,
     translations
   }) => (
-    <DetailMainContainer detailBody={
-        <div>
-            <div className={styles.header}>
-                <div className={styles.fullNameContainer}>
-                    <DetailHeadline headline={`${name} ${surname}`}/>
-                </div>
-                <div className={styles.padronContainer}>
-                    <span className={styles.padronTitle}>{translations.padron}:</span>
-                    <DetailByLine byLine={padron}/>
-                </div>
-                <div className={styles.descriptionContainer}>
-                    <DetailDescription  description={description}/>
-                </div>
-            </div>
-            <div className={styles.info}>
-                <ApplicantItemsDetail
-                  items={capabilities}
-                  title={translations.capabilities}
-                />
-                <ApplicantItemsDetail
-                  items={careers?.map(career => `${career.name} - ${career.credits}`)}
-                  title={translations.careers}
-                  itemSuffix={translations.credits}
-                />
-            </div>
-        </div>
-    }/>
+  <DetailMainContainer>
+      <div className={styles.header}>
+          <div className={styles.fullNameContainer}>
+              <DetailHeadline headline={`${name} ${surname}`}/>
+          </div>
+          <div className={styles.padronContainer}>
+              <span className={styles.padronTitle}>{translations.padron}:</span>
+              <DetailByLine byLine={padron}/>
+          </div>
+          <div className={styles.descriptionContainer}>
+              <DetailDescription  description={description}/>
+          </div>
+      </div>
+      <div className={styles.info}>
+          <ApplicantItemsDetail
+            items={capabilities}
+            title={translations.capabilities}
+          />
+          <ApplicantItemsDetail
+            items={careers?.map(career => `${career.name} - ${career.credits}`)}
+            title={translations.careers}
+            itemSuffix={translations.credits}
+          />
+      </div>
+  </DetailMainContainer>
 );
 
 export { ApplicantDetail };

@@ -18,27 +18,25 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     photoImageSources
   }
 ) => (
-  <DetailMainContainer detailBody={
-    <div>
-      <div className={styles.header}>
-        <div className={styles.logoContainer}>
-          <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
-        </div>
-        <div className={styles.mainInfo}>
-          <DetailHeadline headline={name}/>
-          <DetailByLine byLine={slogan}/>
-          <DetailContactMe email={email} website={website}/>
-        </div>
+  <DetailMainContainer>
+    <div className={styles.header}>
+      <div className={styles.logoContainer}>
+        <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
       </div>
-      <DetailDescription description={description}/>
-      <section className={styles.photos}>
-        {
-          photoImageSources.map((source, index) =>
+      <div className={styles.mainInfo}>
+        <DetailHeadline headline={name}/>
+        <DetailByLine byLine={slogan}/>
+        <DetailContactMe email={email} website={website}/>
+      </div>
+    </div>
+    <DetailDescription description={description}/>
+    <section className={styles.photos}>
+      {
+        photoImageSources.map((source, index) =>
           (<img key={index} src={source} alt={`${name}`}/>)
         )}
-      </section>
-    </div>
-  }/>
+    </section>
+  </DetailMainContainer>
 );
 
 export { CompanyDetail };

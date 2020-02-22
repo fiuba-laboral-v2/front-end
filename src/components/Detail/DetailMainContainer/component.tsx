@@ -1,15 +1,14 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { IDetailMainContainerProps } from "./interface";
 
-const DetailMainContainer: FunctionComponent<IDetailMainContainerProps> = (
+const DetailMainContainer: FunctionComponent = (
   {
-    detailBody
+    children
   }
 ) => (
   <div className={styles.mainContainer}>
     <div className={styles.detailContainer}>
-      {detailBody}
+      {children}
     </div>
   </div>
 );
