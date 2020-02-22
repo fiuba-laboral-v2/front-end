@@ -5,6 +5,7 @@ import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
+import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -31,30 +32,15 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
                 </div>
             </div>
             <div className={styles.info}>
-                <section className={styles.capabilities}>
-                        <span
-                          className={styles.capabilityTitle}> {translations.capabilities}:
-                        </span>
-                    {
-                        capabilities?.map((capability, index) =>
-                          (
-                            <span key={index} className={styles.capability}>
-                                {capability}
-                            </span>
-                          ))
-                    }
-                </section>
-                <section className={styles.careers}>
-                    <span className={styles.careerTitle}> { translations.careers }: </span>
-                    {
-                        careers?.map((career, index) =>
-                          (
-                            <span key={index} className={styles.career}>
-                                {career.name} - {career.credits} {translations.credits}
-                            </span>
-                          ))
-                    }
-                </section>
+                <ApplicantItemsDetail
+                  items={capabilities}
+                  title={translations.capabilities}
+                />
+                <ApplicantItemsDetail
+                  items={careers?.map(career => `${career.name} - ${career.credits}`)}
+                  title={translations.careers}
+                  itemSuffix={translations.credits}
+                />
             </div>
         </div>
     }/>

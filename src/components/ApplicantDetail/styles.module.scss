@@ -34,31 +34,10 @@ $headerContainerPaddingLeft: 10px;
   padding-left: $headerContainerPaddingLeft;
 }
 
-
 .info {
   display: flex;
   flex-direction: row;
   padding-left: $headerContainerPaddingLeft;
-}
-
-.capabilities, .careers {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-
-  .capability, .career {
-    width: 100%;
-    height: auto;
-    margin-bottom: 5px;
-  }
-
-  .capabilityTitle, .careerTitle {
-    width: 100%;
-    height: auto;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
 }
 
 @media (max-width: $mobileContainerThreshold) {
@@ -74,17 +53,5 @@ $headerContainerPaddingLeft: 10px;
     margin-left: 0;
     display: flex;
     flex-direction: column;
-  }
-
-  .capabilities {
-    margin: 20px 0 0 0;
-    column-count: 1;
-    max-width: 430px;
-  }
-
-  .careers {
-    margin: 20px 0 0 0;
-    column-count: 1;
-    max-width: 430px;
   }
 }
