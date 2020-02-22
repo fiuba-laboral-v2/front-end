@@ -1,3 +1,3 @@
-import { CompanyDetailContainer } from "./container";
+import { CompanyDetailContainer as CompanyDetail } from "./container";
 
-export { CompanyDetailContainer };
+export { CompanyDetail };

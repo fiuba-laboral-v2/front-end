@@ -1,3 +1,3 @@
-import { ApplicantTitleContainer } from "./container";
+import { ApplicantTitleContainer as ApplicantTitle } from "./container";
 
-export { ApplicantTitleContainer };
+export { ApplicantTitle };

@@ -1,3 +1,3 @@
-import { ApplicantDetailContainer } from "./container";
+import { ApplicantDetailContainer as ApplicantDetail } from "./container";
 
-export { ApplicantDetailContainer };
+export { ApplicantDetail };
