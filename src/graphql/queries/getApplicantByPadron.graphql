@@ -1,0 +1,16 @@
+query getApplicantByPadron ($padron: Int!) {
+    getApplicantByPadron(padron: $padron) {
+        name
+        surname
+        padron
+        description
+        capabilities {
+            description
+        }
+        careers {
+            code
+            description
+            credits
+        }
+    }
+}

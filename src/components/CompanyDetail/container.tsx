@@ -34,7 +34,6 @@ const CompanyDetailContainer: FunctionComponent = () => {
     website: "",
     email: "",
     photos: []
-
   };
 
   return (

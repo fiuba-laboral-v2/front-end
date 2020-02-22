@@ -1,6 +1,11 @@
 interface ICareer {
-  name: string;
+  code: string;
+  description: string;
   credits: number;
+}
+
+interface ICapability {
+  description: string;
 }
 
 export interface ITranslations {
@@ -16,6 +21,6 @@ export interface IApplicantDetailProps {
   padron: number;
   description: string;
   careers?: ICareer[];
-  capabilities?: string[];
+  capabilities?: ICapability[];
   translations: ITranslations;
 }

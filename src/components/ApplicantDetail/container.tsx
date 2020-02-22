@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { getTranslations } from "$queries";
+import { getApplicantByPadron } from "$queries";
 import { ApplicantDetail } from "./component";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
+import NotFound from "$pages/NotFound";
 
 const ApplicantDetailContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
@@ -15,37 +18,54 @@ const ApplicantDetailContainer: FunctionComponent = () => {
       }
     }
   );
-  const [ padron, capabilities, careers, credits ] = data ? data.getTranslations : ["", "", "", ""];
+
+  const [
+    padronTranslation,
+    capabilitiesTranslation,
+    careersTranslation,
+    creditsTranslation
+  ] = data ? data.getTranslations : ["", "", "", ""];
+
+  const { id } = useParams();
+  const response = useQuery(getApplicantByPadron, {
+      variables: {
+        padron: parseInt(id!, 10)
+      }
+    }
+  );
+
+  if (response.error) return (<NotFound/>);
+
+  const {
+    name,
+    surname,
+    padron,
+    description,
+    capabilities,
+    careers
+  } = response.data ? response.data.getApplicantByPadron : {
+    name: "",
+    surname: "",
+    padron: 0,
+    description: "",
+    capabilities: [],
+    careers: []
+  };
 
   return (
     <ApplicantDetail
-      name={"Sebastian"}
-      surname={"Blanco"}
-      padron={98539}
-      description={
-        "Me considero una persona graciosa, con talentos de buen humor. Tengo promedio " +
-        "8 en la facultad y por eso me considero una personasabia con aires de " +
-        "grandeza."
-      }
-      careers={
-        [
-          {
-            name: "Ingeniería Informática",
-            credits: 200
-          },
-          {
-            name: "Ingeniería Civil",
-            credits: 20
-          }
-        ]
-      }
-      capabilities={ ["Python", "Node", "css", "Auth security"] }
+      name={name}
+      surname={surname}
+      padron={padron}
+      description={description}
+      careers={careers}
+      capabilities={capabilities}
       translations={
         {
-          padron: padron,
-          capabilities: capabilities,
-          careers: careers,
-          credits: credits
+          padron: padronTranslation,
+          capabilities: capabilitiesTranslation,
+          careers: careersTranslation,
+          credits: creditsTranslation
         }
       }
     />
