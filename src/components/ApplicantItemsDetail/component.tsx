@@ -17,7 +17,7 @@ const ApplicantItemsDetail: FunctionComponent<IApplicantItemsDetailProps> = (
       items?.map((item, index) =>
         (
           <span key={index} className={styles.item}>
-              {item} {itemSuffix}
+              { `${item} ${itemSuffix}` }
           </span>
         ))
     }
