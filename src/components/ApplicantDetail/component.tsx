@@ -32,14 +32,11 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       </div>
       <div className={styles.info}>
           <ApplicantItemsDetail
-            items={capabilities?.map(capability => capability.description)}
+            items={capabilities}
             title={translations.capabilities}
           />
           <ApplicantItemsDetail
-            items={
-                careers?.map(career =>
-                  `${career.code} - ${career.description}: ${career.credits}`
-                )}
+            items={careers}
             title={translations.careers}
             itemSuffix={translations.credits}
           />
