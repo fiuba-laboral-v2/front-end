@@ -1,0 +1,20 @@
+@import "$styles/_detailsVariables.scss";
+
+.contactInfo {
+  a {
+    color: #0390BC;
+    font-weight: normal;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .contactInfo {
+    a {
+      display: block;
+    }
+  }
+
+  .contactInfoDivider {
+    display: none;
+  }
+}

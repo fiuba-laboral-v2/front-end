@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
+import { DetailHeadline } from "$components/Detail/DetailHeadline";
+import { DetailByLine } from "$components/Detail/DetailByLine";
+import { DetailDescription } from "$components/Detail/DetailDescription";
+import { DetailContactMe } from "$components/Detail/DetailContactMe";
+import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 
 const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -13,28 +18,25 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     photoImageSources
   }
 ) => (
-  <div className={styles.mainContainer}>
-    <div className={styles.profileContainer}>
-      <div className={styles.header}>
-        <div className={styles.logoContainer}>
-          <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
-        </div>
-        <div className={styles.mainInfo}>
-          <h2 className={styles.companyName}>{name}</h2>
-          <h3 className={styles.companySlogan}>{slogan}</h3>
-          <div className={styles.contactInfo}>
-            <a href={`mailto: ${email}`}>{email}</a>
-            <span className={styles.contactInfoDivider}> — </span>
-            <a href={website}>{website}</a>
-          </div>
-        </div>
+  <DetailMainContainer>
+    <div className={styles.header}>
+      <div className={styles.logoContainer}>
+        <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
       </div>
-      <p className={styles.description}>{description}</p>
-      <section className={styles.photos}>
-        {photoImageSources.map(source => (<img src={source} alt={`${name}`}/>))}
-      </section>
+      <div className={styles.mainInfo}>
+        <DetailHeadline headline={name}/>
+        <DetailByLine byLine={slogan}/>
+        <DetailContactMe email={email} website={website}/>
+      </div>
     </div>
-  </div>
+    <DetailDescription description={description}/>
+    <section className={styles.photos}>
+      {
+        photoImageSources.map((source, index) =>
+          (<img key={index} src={source} alt={`${name}`}/>)
+        )}
+    </section>
+  </DetailMainContainer>
 );
 
-export default CompanyDetail;
+export { CompanyDetail };

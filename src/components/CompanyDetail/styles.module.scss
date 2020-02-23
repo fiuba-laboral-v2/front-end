@@ -1,19 +1,4 @@
-.mainContainer {
-  background: white;
-  background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
-  flex-grow: 1;
-  margin-bottom: 20px;
-}
-
-$profileContainerMaxWidth: 880px;
-$profileContainerHorizontalPadding: 20px;
-$mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContainerHorizontalPadding;
-
-.profileContainer {
-  padding: 60px $profileContainerHorizontalPadding 0;
-  margin: 0 auto;
-  max-width: $profileContainerMaxWidth;
-}
+@import "$styles/_detailsVariables.scss";
 
 .header {
   display: flex;
@@ -46,32 +31,6 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   align-self: center;
 }
 
-.companyName, .companySlogan {
-  font-weight: normal;
-  margin: 0 0 10px 0;
-}
-
-.companyName {
-  font-size: 30px;
-}
-
-.companySlogan {
-  font-size: 16px;
-}
-
-.contactInfo {
-  a {
-    color: #0390BC;
-    font-weight: normal;
-  }
-}
-
-.description {
-  white-space: pre-line;
-  margin: 0;
-  font-size: 14px;
-}
-
 .photos {
   $imageGap: 20px;
 
@@ -87,7 +46,7 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
   }
 }
 
-@media (max-width: $mobileProfileContainerThreshold) {
+@media (max-width: $mobileContainerThreshold) {
   .header {
     flex-direction: column;
   }
@@ -98,25 +57,6 @@ $mobileProfileContainerThreshold: $profileContainerMaxWidth + 2 * $profileContai
 
   .mainInfo {
     margin-left: 0;
-  }
-
-  .profileContainer {
-    padding: 50px 10vw 0 10vw;
-  }
-
-  .companyName {
-    margin-top: 15px;
-    text-align: center;
-  }
-
-  .contactInfo {
-    a {
-      display: block;
-    }
-  }
-
-  .contactInfoDivider {
-    display: none;
   }
 
   .photos {

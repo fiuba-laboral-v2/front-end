@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import CompanyDetail from "./component";
+import { CompanyDetail } from "./component";
 import { getCompanyById } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
@@ -34,7 +34,6 @@ const CompanyDetailContainer: FunctionComponent = () => {
     website: "",
     email: "",
     photos: []
-
   };
 
   return (
@@ -50,4 +49,4 @@ const CompanyDetailContainer: FunctionComponent = () => {
   );
 };
 
-export default CompanyDetailContainer;
+export { CompanyDetailContainer };
