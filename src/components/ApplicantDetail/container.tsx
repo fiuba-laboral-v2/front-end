@@ -7,7 +7,7 @@ import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
 
 const ApplicantDetailContainer: FunctionComponent = () => {
-  const { data } = useQuery(getTranslations, {
+  const { data: translationsData } = useQuery(getTranslations, {
       variables: {
         paths: [
           "applicant.padron",
@@ -24,17 +24,17 @@ const ApplicantDetailContainer: FunctionComponent = () => {
     capabilitiesTranslation,
     careersTranslation,
     creditsTranslation
-  ] = data ? data.getTranslations : ["", "", "", ""];
+  ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
 
   const { id } = useParams();
-  const response = useQuery(getApplicantByPadron, {
+  const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {
       variables: {
         padron: parseInt(id!, 10)
       }
     }
   );
 
-  if (response.error) return (<NotFound/>);
+  if (applicantError) return (<NotFound/>);
 
   const {
     name,
@@ -43,7 +43,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
     description,
     capabilities,
     careers
-  } = response.data ? response.data.getApplicantByPadron : {
+  } = applicantData ? applicantData.getApplicantByPadron : {
     name: "",
     surname: "",
     padron: 0,
