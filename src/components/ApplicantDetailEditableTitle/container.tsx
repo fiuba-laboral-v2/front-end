@@ -7,7 +7,7 @@ const ApplicantDetailEditableTitleContainer: FunctionComponent = () => {
 
   return (
     <DetailTitle
-      myDetail={"Mi perfil"}
+      myDetail={"Editando Mi perfil"}
       explanation={"Ahora puede editar su perfil"}
       edit={"Editando"}
       link={`/applicants/${id}`}
