@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import styles from "../ApplicantDetail/styles.module.scss";
+import styles from "./styles.module.scss";
 import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescriptionEditable } from "$components/DetailDescriptionEditable";
