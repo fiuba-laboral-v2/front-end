@@ -10,19 +10,19 @@ const DetailDescriptionEditableContainer: FunctionComponent = () => {
   });
 
   const submit = () => {
-    setState({description: state.description, update: true});
+    setState({ description: state.description, update: true });
     return;
   };
 
   const handleChange = (newDescription: string) => {
-    return setState({description: newDescription, update: false});
+    return setState({ description: newDescription, update: false} );
   };
 
   if (state.update) {
     return (
       <DetailDescription
         description={state.description}
-        onClick={() => setState({description: state.description, update: false})}
+        onClick={() => setState({ description: state.description, update: false })}
       />
     );
   }
