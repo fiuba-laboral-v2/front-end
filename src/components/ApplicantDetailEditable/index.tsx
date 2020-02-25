@@ -1,1 +1,1 @@
-export { ApplicantDetailEditable } from "./component";
+export { ApplicantDetailEditableContainer as ApplicantDetailEditable } from "./container";

@@ -1,12 +1,16 @@
 import React, { FunctionComponent, useState } from "react";
 import { DetailDescriptionEditable } from "./component";
 import { DetailDescription } from "$components/Detail/DetailDescription";
+import { IDetailDescriptionProps } from "$components/Detail/DetailDescription/interface";
 
 
-const DetailDescriptionEditableContainer: FunctionComponent = () => {
+const DetailDescriptionEditableContainer: FunctionComponent<IDetailDescriptionProps> = (
+  {
+    description
+  }) => {
   const [state, setState] = useState({
-    description: "",
-    update: false
+    description: description,
+    update: true
   });
 
   const submit = () => {
@@ -15,7 +19,7 @@ const DetailDescriptionEditableContainer: FunctionComponent = () => {
   };
 
   const handleChange = (newDescription: string) => {
-    return setState({ description: newDescription, update: false} );
+    return setState({ description: newDescription, update: false } );
   };
 
   if (state.update) {
