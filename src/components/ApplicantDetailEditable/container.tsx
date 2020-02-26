@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { ApplicantDetailEditable } from "./component";
 
 const ApplicantDetailEditableContainer: FunctionComponent = () => {

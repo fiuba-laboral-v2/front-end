@@ -1,40 +1,33 @@
 import React, { FunctionComponent, useState } from "react";
 import { DetailDescriptionEditable } from "./component";
 import { DetailDescription } from "$components/Detail/DetailDescription";
-import { IDetailDescriptionProps } from "$components/Detail/DetailDescription/interface";
+import { IDetailDescriptionEditableProps } from "./interface";
 
 
-const DetailDescriptionEditableContainer: FunctionComponent<IDetailDescriptionProps> = (
+const DetailDescriptionEditableContainer: FunctionComponent<IDetailDescriptionEditableProps> = (
   {
-    description
+    setDescription,
+    defaultDescription
   }) => {
-  const [state, setState] = useState({
-    description: description,
-    update: true
-  });
+  const [toggle, setToggle] = useState(true);
 
   const submit = () => {
-    setState({ description: state.description, update: true });
-    return;
+    return setToggle(true);
   };
 
-  const handleChange = (newDescription: string) => {
-    return setState({ description: newDescription, update: false } );
-  };
-
-  if (state.update) {
+  if (toggle) {
     return (
       <DetailDescription
-        description={state.description}
-        onClick={() => setState({ description: state.description, update: false })}
+        description={defaultDescription}
+        onClick={() => setToggle(false)}
       />
     );
   }
 
   return (
     <DetailDescriptionEditable
-      setDescription={handleChange}
-      defaultDescription={state.description}
+      setDescription={setDescription}
+      defaultDescription={defaultDescription}
       submit={submit}
     />
   );

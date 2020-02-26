@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import styles from "./styles.module.scss";
 import { DetailHeadline } from "$components/Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
@@ -16,32 +16,43 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailProps> = (
     careers,
     capabilities,
     translations
-  }) => (
-  <DetailMainContainer>
-    <div className={styles.header}>
-      <div className={styles.fullNameContainer}>
-        <DetailHeadline headline={`${name} ${surname}`}/>
+  }) => {
+  const [state, setState] = useState({
+    description: description
+  });
+  return (
+    <DetailMainContainer>
+      <div className={styles.header}>
+        <div className={styles.fullNameContainer}>
+          <DetailHeadline headline={`${name} ${surname}`}/>
+        </div>
+        <div className={styles.padronContainer}>
+          <span className={styles.padronTitle}>{translations.padron}:</span>
+          <DetailByLine byLine={padron}/>
+        </div>
+        <div className={styles.descriptionContainer}>
+          <DetailDescriptionEditable
+            defaultDescription={description}
+            setDescription={(newDescription: string) => {
+              state.description = newDescription;
+              setState(state);
+            }}
+          />
+        </div>
       </div>
-      <div className={styles.padronContainer}>
-        <span className={styles.padronTitle}>{translations.padron}:</span>
-        <DetailByLine byLine={padron}/>
+      <div className={styles.info}>
+        <ApplicantItemsDetail
+          items={capabilities}
+          title={translations.capabilities}
+        />
+        <ApplicantItemsDetail
+          items={careers}
+          title={translations.careers}
+          itemSuffix={translations.credits}
+        />
       </div>
-      <div className={styles.descriptionContainer}>
-        <DetailDescriptionEditable description={description}/>
-      </div>
-    </div>
-    <div className={styles.info}>
-      <ApplicantItemsDetail
-        items={capabilities}
-        title={translations.capabilities}
-      />
-      <ApplicantItemsDetail
-        items={careers}
-        title={translations.careers}
-        itemSuffix={translations.credits}
-      />
-    </div>
-  </DetailMainContainer>
-);
+    </DetailMainContainer>
+  );
+};
 
 export { ApplicantDetailEditable };
