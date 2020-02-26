@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { DetailHeadline } from "$components/Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
-import { DetailDescriptionEditable } from "$components/DetailDescriptionEditable";
+import { DetailDescriptionEditable } from "$components/Detail/DetailDescriptionEditable";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { IApplicantDetailProps } from "$components/ApplicantDetail/interface";
