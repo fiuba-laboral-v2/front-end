@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useState } from "react";
 import styles from "./styles.module.scss";
 import { DetailHeadline } from "$components/Detail/DetailHeadline";
-import { DetailByLine } from "$components/Detail/DetailByLine";
-import { DetailDescriptionEditable } from "$components/Detail/DetailDescriptionEditable";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { IApplicantDetailEditableProps } from "./interface";
 import { ICapability, ICareer } from "../ApplicantDetail/interface";
+import { FieldEditable } from "$components/FieldEditable";
+import { DetailByLine } from "$components/Detail/DetailByLine";
+import { DetailDescription } from "$components/Detail/DetailDescription";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -22,6 +23,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     capabilities: applicant.capabilities,
     careers: applicant.careers
   });
+
+  const setPadron = (newPadron: string | number) => {
+    state.padron = Number(newPadron);
+    setState(state);
+  };
+
+  const setDescription = (newDescription: string | number) => {
+    state.description = String(newDescription);
+    setState(state);
+  };
+
   return (
     <DetailMainContainer>
       <div className={styles.header}>
@@ -30,16 +42,14 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         </div>
         <div className={styles.padronContainer}>
           <span className={styles.padronTitle}>{translations.padron}:</span>
-          <DetailByLine byLine={state.padron}/>
+          <FieldEditable defaultField={state.padron} setField={setPadron}>
+            <DetailByLine byLine={state.padron}/>
+          </FieldEditable>
         </div>
         <div className={styles.descriptionContainer}>
-          <DetailDescriptionEditable
-            defaultDescription={state.description}
-            setDescription={(newDescription: string) => {
-              state.description = newDescription;
-              setState(state);
-            }}
-          />
+          <FieldEditable defaultField={state.description} setField={setDescription}>
+            <DetailDescription description={state.description}/>
+          </FieldEditable>
         </div>
       </div>
       <div className={styles.info}>

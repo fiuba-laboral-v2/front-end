@@ -7,7 +7,7 @@ const EditableContainer: FunctionComponent<IEditable> = (
     editableComponent,
     staticComponent
   }) => {
-  const [isEditing, setEditing] = useState(false);
+  const [isEditing, setEditing] = useState(true);
 
   if (isEditing) {
     return (
