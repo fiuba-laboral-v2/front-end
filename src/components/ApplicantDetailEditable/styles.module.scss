@@ -1,1 +1,23 @@
 @import "$components/ApplicantDetail/styles.module.scss";
+
+.footer {
+  display: flex;
+  overflow: hidden;
+}
+
+.footer :last-child {
+  margin-right: 0;
+}
+
+.separator, .footer {
+  flex-grow: 1;
+}
+
+.submitButton {
+  background: $background;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-left: $headerContainerPaddingLeft;
+  display: flex;
+}

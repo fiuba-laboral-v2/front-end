@@ -1,17 +1,10 @@
-$background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
+@import "$styles/_detailsVariables.scss";
 
 .descriptionEditable {
   width: 75%;
   white-space: pre-line;
   margin: 0;
   font-size: 14px;
-}
-
-.descriptionButtonSubmit {
-  margin-left: 6px;
-}
-
-.descriptionButtonSubmit, .descriptionEditable {
   background: $background;
   box-sizing: border-box;
   border: 2px solid #ccc;

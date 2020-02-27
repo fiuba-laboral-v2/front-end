@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
 import { DetailDescriptionEditable } from "./component";
-import { DetailDescription } from "$components/Detail/DetailDescription";
 import { IDetailDescriptionEditableProps } from "./interface";
 
 
@@ -9,26 +8,15 @@ const DetailDescriptionEditableContainer: FunctionComponent<IDetailDescriptionEd
     setDescription,
     defaultDescription
   }) => {
-  const [toggle, setToggle] = useState(true);
-
-  const submit = () => {
-    return setToggle(true);
+  const [state, setState] = useState(defaultDescription);
+  const onChange = (newDescription: string) => {
+    setState(newDescription);
+    setDescription(newDescription);
   };
-
-  if (toggle) {
-    return (
-      <DetailDescription
-        description={defaultDescription}
-        onClick={() => setToggle(false)}
-      />
-    );
-  }
-
   return (
     <DetailDescriptionEditable
-      setDescription={setDescription}
-      defaultDescription={defaultDescription}
-      submit={submit}
+      setDescription={onChange}
+      defaultDescription={state}
     />
   );
 };

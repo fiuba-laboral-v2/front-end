@@ -5,34 +5,36 @@ import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescriptionEditable } from "$components/Detail/DetailDescriptionEditable";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
-import { IApplicantDetailProps } from "$components/ApplicantDetail/interface";
+import { IApplicantDetailEditableProps } from "./interface";
+import { ICapability, ICareer } from "../ApplicantDetail/interface";
 
-const ApplicantDetailEditable: FunctionComponent<IApplicantDetailProps> = (
+const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
-    name,
-    surname,
-    padron,
-    description,
-    careers,
-    capabilities,
-    translations
+    applicant,
+    translations,
+    onSubmit
   }) => {
   const [state, setState] = useState({
-    description: description
+    name: applicant.name,
+    surname: applicant.surname,
+    padron: applicant.padron,
+    description: applicant.description,
+    capabilities: applicant.capabilities,
+    careers: applicant.careers
   });
   return (
     <DetailMainContainer>
       <div className={styles.header}>
         <div className={styles.fullNameContainer}>
-          <DetailHeadline headline={`${name} ${surname}`}/>
+          <DetailHeadline headline={`${state.name} ${state.surname}`}/>
         </div>
         <div className={styles.padronContainer}>
           <span className={styles.padronTitle}>{translations.padron}:</span>
-          <DetailByLine byLine={padron}/>
+          <DetailByLine byLine={state.padron}/>
         </div>
         <div className={styles.descriptionContainer}>
           <DetailDescriptionEditable
-            defaultDescription={description}
+            defaultDescription={state.description}
             setDescription={(newDescription: string) => {
               state.description = newDescription;
               setState(state);
@@ -42,14 +44,24 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailProps> = (
       </div>
       <div className={styles.info}>
         <ApplicantItemsDetail
-          items={capabilities}
+          items={state.capabilities?.map((capability: ICapability) => capability.description)}
           title={translations.capabilities}
         />
         <ApplicantItemsDetail
-          items={careers}
+          items={
+            state.careers?.map((career: ICareer) =>
+              `${career.code} - ${career.description}: ${career.credits}`
+            )
+          }
           title={translations.careers}
           itemSuffix={translations.credits}
         />
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.separator}/>
+        <button className={styles.submitButton} onClick={() => onSubmit(state)}>
+          save
+        </button>
       </div>
     </DetailMainContainer>
   );
