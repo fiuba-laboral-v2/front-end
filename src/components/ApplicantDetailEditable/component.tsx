@@ -26,12 +26,14 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
 
   const setPadron = (newPadron: string | number) => {
     state.padron = Number(newPadron);
-    setState(state);
+    const newState = Object.assign({}, state);
+    return setState(newState);
   };
 
   const setDescription = (newDescription: string | number) => {
     state.description = String(newDescription);
-    setState(state);
+    const newState = Object.assign({}, state);
+    return setState(newState);
   };
 
   return (
