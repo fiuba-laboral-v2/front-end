@@ -1,16 +1,27 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
+import { Redirect, useParams } from "react-router-dom";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant } from "./interface";
 
 const ApplicantDetailEditableContainer: FunctionComponent = () => {
+  const [redirect, setRedirect] = useState(false);
+  const { id } = useParams();
+
   const submit = (applicantProps: IApplicant) => {
     alert(JSON.stringify(applicantProps));
     return applicantProps;
   };
 
+  const cancel = () => {
+    return setRedirect(true);
+  };
+
+  if (redirect) return (<Redirect to={`/applicants/${id}/`}/>);
+
   return (
     <ApplicantDetailEditable
       onSubmit={submit}
+      onCancel={cancel}
       applicant={
         {
           name: "Sebastian",

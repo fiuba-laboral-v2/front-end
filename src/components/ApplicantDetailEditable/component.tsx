@@ -16,7 +16,8 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   {
     applicant,
     translations,
-    onSubmit
+    onSubmit,
+    onCancel
   }) => {
   const [state, setState] = useState({
     name: applicant.name,
@@ -107,6 +108,9 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       </div>
       <div className={styles.footer}>
         <div className={styles.separator}/>
+        <button className={styles.submitButton} onClick={onCancel}>
+          cancel
+        </button>
         <button className={styles.submitButton} onClick={() => onSubmit(state)}>
           save
         </button>
