@@ -7,15 +7,17 @@ const FieldEditableContainer: FunctionComponent<IFieldEditableProps> = (
   {
     setField,
     defaultField,
-    children
+    children,
+    className
   }) => {
   const [state, setState] = useState(defaultField);
   const onChange = (newByLine: string | number) => {
     setState(newByLine);
     setField(newByLine);
   };
+
   return (
-    <FieldEditable setField={onChange} defaultField={state}>
+    <FieldEditable setField={onChange} defaultField={state} className={className}>
       {children}
     </FieldEditable>
   );

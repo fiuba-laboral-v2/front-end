@@ -8,7 +8,7 @@ const DetailDescription: FunctionComponent<IDetailDescriptionProps> = (
     onClick
   }
 ) => (
-  <p className={styles.description} onClick={onClick} >{description}&#8203;</p>
+  <p className={styles.description} onClick={onClick} >{description}</p>
 );
 
 export { DetailDescription };

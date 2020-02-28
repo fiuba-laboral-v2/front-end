@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { IEditable } from "./interface";
+import styles from "./styles.module.scss";
 
 
 const EditableContainer: FunctionComponent<IEditable> = (
@@ -11,14 +12,14 @@ const EditableContainer: FunctionComponent<IEditable> = (
 
   if (isEditing) {
     return (
-      <div onBlur={() => setEditing(false)}>
+      <div className={styles.editable} onBlur={() => setEditing(false)}>
         {editableComponent}
       </div>
     );
   }
 
   return (
-      <div onClick={() => setEditing(true)}>
+      <div className={styles.editable} onClick={() => setEditing(true)}>
         {staticComponent}
       </div>
   );

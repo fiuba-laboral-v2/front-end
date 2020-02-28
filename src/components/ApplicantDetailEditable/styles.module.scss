@@ -1,5 +1,9 @@
 @import "$components/ApplicantDetail/styles.module.scss";
 
+.fullNameContainer > div:last-child {
+  padding-left: 10px;
+}
+
 .footer {
   display: flex;
   overflow: hidden;
