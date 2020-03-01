@@ -7,7 +7,8 @@ import CreateIcon from "@material-ui/icons/Create";
 const EditableContainer: FunctionComponent<IEditable> = (
   {
     editableComponent,
-    staticComponent
+    staticComponent,
+    onClick
   }) => {
   const [isEditing, setEditing] = useState(false);
 
@@ -15,7 +16,13 @@ const EditableContainer: FunctionComponent<IEditable> = (
     return (
       <div className={styles.editable}>
         {editableComponent}
-        <CreateIcon onClick={() => setEditing(false)} className={styles.editIcon}/>
+        <CreateIcon
+          onClick={() => {
+            setEditing(false);
+            if (onClick) onClick();
+          }}
+          className={styles.editIcon}
+        />
       </div>
     );
   }
@@ -23,7 +30,10 @@ const EditableContainer: FunctionComponent<IEditable> = (
   return (
     <div className={styles.editable}>
       {staticComponent}
-      <CreateIcon onClick={() => setEditing(true)} className={styles.editIcon}/>
+      <CreateIcon
+        onClick={() => setEditing(true)}
+        className={styles.editIcon}
+      />
     </div>
   );
 };

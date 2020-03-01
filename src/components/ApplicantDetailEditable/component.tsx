@@ -4,8 +4,9 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
-import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
+import { ListEditable } from "$components/ListEditable";
+import { ICapability } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -19,7 +20,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     surname: applicant.surname,
     padron: applicant.padron,
     description: applicant.description,
-    capabilities: applicant.capabilities,
+    capabilities: Array<ICapability>(),
     careers: applicant.careers
   });
 
@@ -39,6 +40,24 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     state.description = String(newDescription);
     const newState = Object.assign({}, state);
     return setState(newState);
+  };
+
+  const setCapabilities = (newCapability: string | number) => {
+    state.capabilities?.push({ description: String(newCapability) });
+    state.capabilities = state.capabilities?.filter((item: ICapability, index) => {
+      return state.capabilities
+        .map((capability: ICapability) => capability.description)
+        .indexOf(item.description) === index;
+    });
+    const newState = Object.assign({}, state);
+    return setState(newState);
+  };
+
+  const mergeCapabilities = () => {
+    const clone1 = Object.assign([], applicant.capabilities);
+    const clone2 = Object.assign([], state.capabilities);
+    const capabilities = [...clone1, ...clone2];
+    return capabilities.map((capability: ICapability) => capability.description);
   };
 
   return (
@@ -61,9 +80,10 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         />
       </div>
       <div className={styles.rowContainer}>
-        <CapabilitiesDetail
+        <ListEditable
+          list={mergeCapabilities()}
+          setList={setCapabilities}
           title={translations.capabilities}
-          capabilities={state.capabilities}
         />
         <CareersDetail
           careers={state.careers}
