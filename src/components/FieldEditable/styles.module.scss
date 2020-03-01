@@ -5,21 +5,12 @@
   flex-direction: row;
 }
 
-.fieldEditable {
-  width: 100%;
-  white-space: pre-line;
-  background: $background;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-}
-
 .fieldName {
   padding-right: 10px;
   font-weight: bold;
 }
 
-.fieldStatic, .fieldEditable, .fieldName {
+.fieldStatic, .fieldName {
   margin: 0 0 10px 0;
   font-size: 20px;
 }
