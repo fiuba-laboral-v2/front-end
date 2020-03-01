@@ -1,0 +1,1 @@
+export { CareersDetail } from "./component";

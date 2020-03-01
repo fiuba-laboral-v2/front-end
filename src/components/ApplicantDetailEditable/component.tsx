@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useState } from "react";
 import styles from "./styles.module.scss";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
-import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { IApplicantDetailEditableProps } from "./interface";
-import { ICapability, ICareer } from "../ApplicantDetail/interface";
 import { FieldEditable } from "$components/FieldEditable";
+import { FormFooter } from "$components/FormFooter";
+import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
+import { CareersDetail } from "$components/CareersDetail";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -43,34 +44,34 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   return (
     <DetailMainContainer>
       <div className={styles.columnContainer}>
-        <FieldEditable defaultField={state.name} setField={setName} fieldName={"Nombre"}/>
-        <FieldEditable defaultField={state.surname} setField={setSurname} fieldName={"Apellido"}/>
-        <FieldEditable defaultField={state.description} setField={setDescription} fieldName={"Descripcion"}/>
+        <FieldEditable
+          defaultField={state.name}
+          setField={setName}
+          fieldName={"Nombre"}
+        />
+        <FieldEditable
+          defaultField={state.surname}
+          setField={setSurname}
+          fieldName={"Apellido"}
+        />
+        <FieldEditable
+          defaultField={state.description}
+          setField={setDescription}
+          fieldName={"Descripcion"}
+        />
       </div>
       <div className={styles.rowContainer}>
-        <ApplicantItemsDetail
-          items={state.capabilities?.map((capability: ICapability) => capability.description)}
+        <CapabilitiesDetail
           title={translations.capabilities}
+          capabilities={state.capabilities}
         />
-        <ApplicantItemsDetail
-          items={
-            state.careers?.map((career: ICareer) =>
-              `${career.code} - ${career.description}: ${career.credits}`
-            )
-          }
-          title={translations.careers}
-          itemSuffix={translations.credits}
+        <CareersDetail
+          careers={state.careers}
+          capabilitiesTitle={translations.careers}
+          creditsTitle={translations.credits}
         />
       </div>
-      <div className={styles.footer}>
-        <div className={styles.separator}/>
-        <button className={styles.submitButton} onClick={onCancel}>
-          cancel
-        </button>
-        <button className={styles.submitButton} onClick={() => onSubmit(state)}>
-          save
-        </button>
-      </div>
+      <FormFooter onSubmit={() => onSubmit(state)} onCancel={onCancel}/>
     </DetailMainContainer>
   );
 };

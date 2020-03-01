@@ -16,8 +16,7 @@ const FieldEditableContainer: FunctionComponent<IFieldEditableProps> = (
   };
 
   return (
-    <FieldEditable setField={onChange} defaultField={state} fieldName={fieldName}>
-    </FieldEditable>
+    <FieldEditable setField={onChange} defaultField={state} fieldName={fieldName}/>
   );
 };
 
