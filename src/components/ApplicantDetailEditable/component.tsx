@@ -1,16 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
 import styles from "./styles.module.scss";
-import { DetailHeadline, styles as headlineStyles } from "$components/Detail/DetailHeadline";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { IApplicantDetailEditableProps } from "./interface";
 import { ICapability, ICareer } from "../ApplicantDetail/interface";
 import { FieldEditable } from "$components/FieldEditable";
-import { DetailByLine, styles as byLineStyles } from "$components/Detail/DetailByLine";
-import {
-  DetailDescription,
-  styles as descriptionStyles
-} from "$components/Detail/DetailDescription";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -40,12 +34,6 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     return setState(newState);
   };
 
-  const setPadron = (newPadron: string | number) => {
-    state.padron = Number(newPadron);
-    const newState = Object.assign({}, state);
-    return setState(newState);
-  };
-
   const setDescription = (newDescription: string | number) => {
     state.description = String(newDescription);
     const newState = Object.assign({}, state);
@@ -54,44 +42,12 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
 
   return (
     <DetailMainContainer>
-      <div className={styles.header}>
-        <div className={styles.fullNameContainer}>
-          <FieldEditable
-            defaultField={state.name}
-            setField={setName}
-            className={headlineStyles.detailHeadline}
-          >
-            <DetailHeadline headline={state.name}/>
-          </FieldEditable>
-          <FieldEditable
-            defaultField={state.surname}
-            setField={setSurname}
-            className={headlineStyles.detailHeadline}
-          >
-            <DetailHeadline headline={state.surname}/>
-          </FieldEditable>
-        </div>
-        <div className={styles.padronContainer}>
-          <span className={styles.padronTitle}>{translations.padron}:</span>
-          <FieldEditable
-            defaultField={state.padron}
-            setField={setPadron}
-            className={byLineStyles.detailByline}
-          >
-            <DetailByLine byLine={state.padron}/>
-          </FieldEditable>
-        </div>
-        <div className={styles.descriptionContainer}>
-          <FieldEditable
-            defaultField={state.description}
-            setField={setDescription}
-            className={descriptionStyles.description}
-          >
-            <DetailDescription description={state.description}/>
-          </FieldEditable>
-        </div>
+      <div className={styles.columnContainer}>
+        <FieldEditable defaultField={state.name} setField={setName} fieldName={"Nombre"}/>
+        <FieldEditable defaultField={state.surname} setField={setSurname} fieldName={"Apellido"}/>
+        <FieldEditable defaultField={state.description} setField={setDescription} fieldName={"Descripcion"}/>
       </div>
-      <div className={styles.info}>
+      <div className={styles.rowContainer}>
         <ApplicantItemsDetail
           items={state.capabilities?.map((capability: ICapability) => capability.description)}
           title={translations.capabilities}

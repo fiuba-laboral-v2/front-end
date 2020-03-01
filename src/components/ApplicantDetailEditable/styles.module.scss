@@ -1,7 +1,13 @@
-@import "$components/ApplicantDetail/styles.module.scss";
+@import "$styles/_detailsVariables.scss";
 
-.fullNameContainer > div:last-child {
-  padding-left: 10px;
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .footer {
@@ -18,7 +24,7 @@
 }
 
 .footer > .submitButton:last-child {
-  margin-left: $headerContainerPaddingLeft;
+  margin-left: 10px;
 }
 
 .submitButton {

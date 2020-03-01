@@ -1,5 +1,10 @@
 @import "$styles/_detailsVariables.scss";
 
+.fieldContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .fieldEditable {
   width: 100%;
   white-space: pre-line;
@@ -9,6 +14,12 @@
   border-radius: 6px;
 }
 
-.fieldStatic {
-  overflow: hidden;
+.fieldName {
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.fieldStatic, .fieldEditable, .fieldName {
+  margin: 0 0 10px 0;
+  font-size: 20px;
 }

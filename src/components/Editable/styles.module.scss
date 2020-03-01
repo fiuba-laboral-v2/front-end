@@ -1,3 +1,9 @@
 .editable {
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.editIcon {
+  padding-left: 10px;
 }

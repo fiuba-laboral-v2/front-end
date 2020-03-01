@@ -7,21 +7,27 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
   {
     setField,
     defaultField,
-    children,
-    className
+    fieldName
   }
 ) => (
   <Editable
     editableComponent={
-      <input
-        className={`${className} ${styles.fieldEditable}`}
-        type="text"
-        defaultValue={`${defaultField}`}
-        onChange={event => setField(event.target.value)}
-      />
+      <div className={styles.fieldContainer}>
+        <div className={styles.fieldName}>{`${fieldName}:`}</div>
+        <input
+          className={styles.fieldEditable}
+          type="text"
+          autoFocus
+          defaultValue={`${defaultField}`}
+          onChange={event => setField(event.target.value)}
+        />
+      </div>
     }
     staticComponent={
-      <div className={styles.fieldStatic}>{children}&#8203;</div>
+      <div className={styles.fieldContainer}>
+        <div className={styles.fieldName}>{`${fieldName}:`}</div>
+        <span className={styles.fieldStatic}>{defaultField}</span>
+      </div>
     }
   />
 );
