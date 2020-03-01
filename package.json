@@ -78,6 +78,7 @@
     "$root": ".",
     "$package": "package.json",
     "$components": "src/components",
+    "$interfaces": "src/interfaces",
     "$pages": "src/pages",
     "$queries": "src/graphql/queries",
     "$styles": "src/styles",

@@ -5,41 +5,37 @@ import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
-import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
+import { CapabilitiesDetail } from "../CapabilitiesDetail";
+import { CareersDetail } from "../CareersDetail";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
-    name,
-    surname,
-    padron,
-    description,
-    careers,
-    capabilities,
+    applicant,
     translations
   }) => (
   <DetailMainContainer>
       <div className={styles.header}>
           <div className={styles.fullNameContainer}>
-              <DetailHeadline headline={`${name} ${surname}`}/>
+              <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
           </div>
           <div className={styles.padronContainer}>
               <span className={styles.padronTitle}>{translations.padron}:</span>
-              <DetailByLine byLine={padron}/>
+              <DetailByLine byLine={applicant.padron}/>
           </div>
           <div className={styles.descriptionContainer}>
-              <DetailDescription  description={description}/>
+              <DetailDescription  description={applicant.description}/>
           </div>
       </div>
       <div className={styles.info}>
-          <ApplicantItemsDetail
-            items={capabilities}
-            title={translations.capabilities}
-          />
-          <ApplicantItemsDetail
-            items={careers}
-            title={translations.careers}
-            itemSuffix={translations.credits}
-          />
+        <CapabilitiesDetail
+          title={translations.capabilities}
+          capabilities={applicant.capabilities}
+        />
+        <CareersDetail
+          careers={applicant.careers}
+          capabilitiesTitle={translations.careers}
+          creditsTitle={translations.credits}
+        />
       </div>
   </DetailMainContainer>
 );

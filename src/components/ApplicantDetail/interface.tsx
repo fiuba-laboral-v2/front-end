@@ -1,13 +1,4 @@
-export interface ICareer {
-  code: string;
-  description: string;
-  credits: number;
-  creditsCount?: number;
-}
-
-export interface ICapability {
-  description: string;
-}
+import { IApplicant } from "$interfaces/Applicant";
 
 export interface ITranslations {
   padron: string;
@@ -17,11 +8,6 @@ export interface ITranslations {
 }
 
 export interface IApplicantDetailProps {
-  name: string;
-  surname: string;
-  padron: number;
-  description: string;
-  careers?: string[];
-  capabilities?: string[];
+  applicant: IApplicant;
   translations: ITranslations;
 }

@@ -1,13 +1,5 @@
-import { ICareer, ICapability, ITranslations } from "$components/ApplicantDetail/interface";
-
-export interface IApplicant {
-  name: string;
-  surname: string;
-  padron: number;
-  description: string;
-  capabilities?: ICapability[];
-  careers?: ICareer[];
-}
+import { ITranslations } from "$components/ApplicantDetail/interface";
+import { IApplicant } from "$interfaces/Applicant";
 
 export interface IApplicantDetailEditableProps {
   applicant: IApplicant;

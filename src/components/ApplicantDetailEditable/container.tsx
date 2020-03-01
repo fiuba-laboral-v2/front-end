@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { ApplicantDetailEditable } from "./component";
-import { IApplicant } from "./interface";
+import { IApplicant } from "$interfaces/Applicant";
 
 const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const [redirect, setRedirect] = useState(false);

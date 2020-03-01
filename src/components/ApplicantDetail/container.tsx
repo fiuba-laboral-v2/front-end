@@ -5,7 +5,6 @@ import { ApplicantDetail } from "./component";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
-import { ICapability, ICareer } from "./interface";
 
 const ApplicantDetailContainer: FunctionComponent = () => {
   const { data: translationsData } = useQuery(getTranslations, {
@@ -37,32 +36,20 @@ const ApplicantDetailContainer: FunctionComponent = () => {
 
   if (applicantError) return (<NotFound/>);
 
-  const {
-    name,
-    surname,
-    padron,
-    description,
-    capabilities,
-    careers
-  } = applicantData ? applicantData.getApplicantByPadron : {
-    name: "",
-    surname: "",
-    padron: 0,
-    description: "",
-    capabilities: [],
-    careers: []
+  const applicant = applicantData ? applicantData.getApplicantByPadron : {
+    applicant: {
+      name: "",
+      surname: "",
+      padron: 0,
+      description: "",
+      capabilities: [],
+      careers: []
+    }
   };
 
   return (
     <ApplicantDetail
-      name={name}
-      surname={surname}
-      padron={padron}
-      description={description}
-      careers={careers?.map((career: ICareer) =>
-        `${career.code} - ${career.description}: ${career.credits}`
-      )}
-      capabilities={capabilities?.map((capability: ICapability) => capability.description)}
+      applicant={applicant}
       translations={
         {
           padron: padronTranslation,
