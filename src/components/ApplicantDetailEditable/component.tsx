@@ -4,9 +4,9 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
-import { CareersDetail } from "$components/CareersDetail";
 import { ListEditable } from "$components/ListEditable";
-import { ICapability } from "$interfaces/Applicant";
+import { CareersEditable } from "$components/CareersEditable";
+import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -21,7 +21,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     padron: applicant.padron,
     description: applicant.description,
     capabilities: Array<ICapability>(),
-    careers: applicant.careers
+    careers: Array<ICareer>()
   });
 
   const setName = (newName: string | number) => {
@@ -60,6 +60,20 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     return capabilities.map((capability: ICapability) => capability.description);
   };
 
+  const setCareer = (career: ICareer) => {
+    const mergedCareers = mergeCareers();
+    if (mergedCareers.findIndex(item => item.code === career.code) >= 0) return;
+    state.careers?.push(career);
+    const newState = Object.assign({}, state);
+    return setState(newState);
+  };
+
+  const mergeCareers = () => {
+    const clone1 = Object.assign([], applicant.careers);
+    const clone2 = Object.assign([], state.careers);
+    return [...clone1, ...clone2];
+  };
+
   return (
     <DetailMainContainer>
       <div className={styles.columnContainer}>
@@ -85,11 +99,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
           setList={setCapabilities}
           title={translations.capabilities}
         />
-        <CareersDetail
-          careers={state.careers}
-          capabilitiesTitle={translations.careers}
-          creditsTitle={translations.credits}
-        />
+        <CareersEditable careers={mergeCareers()} padron={applicant.padron} setCareer={setCareer}/>
       </div>
       <FormFooter onSubmit={() => onSubmit(state)} onCancel={onCancel}/>
     </DetailMainContainer>
