@@ -43,12 +43,9 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   };
 
   const setCapabilities = (newCapability: string | number) => {
+    const mergedCapabilities = mergeCapabilities();
+    if (mergedCapabilities.findIndex(item => item === newCapability) >= 0) return;
     state.capabilities?.push({ description: String(newCapability) });
-    state.capabilities = state.capabilities?.filter((item: ICapability, index) => {
-      return state.capabilities
-        .map((capability: ICapability) => capability.description)
-        .indexOf(item.description) === index;
-    });
     const newState = Object.assign({}, state);
     return setState(newState);
   };
