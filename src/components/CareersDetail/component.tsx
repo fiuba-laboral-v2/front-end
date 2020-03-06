@@ -5,7 +5,7 @@ import { ICareersProps, ICareer } from "./interface";
 const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     careers,
-    capabilitiesTitle,
+    careersTitle,
     creditsTitle
   }) => {
 
@@ -16,7 +16,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
           `${career.code} - ${career.description}: ${career.credits}`
         )
       }
-      title={capabilitiesTitle}
+      title={careersTitle}
       itemSuffix={creditsTitle}
     />
   );

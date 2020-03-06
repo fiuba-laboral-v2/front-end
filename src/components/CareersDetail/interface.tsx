@@ -7,6 +7,6 @@ export interface ICareer {
 
 export interface ICareersProps {
   careers?: ICareer[];
-  capabilitiesTitle: string;
+  careersTitle: string;
   creditsTitle: string;
 }

@@ -8,6 +8,8 @@ import NotFound from "$pages/NotFound";
 
 const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
   {
+    title,
+    creditsTranslation,
     setCareer,
     careers
   }) => {
@@ -35,6 +37,8 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
 
   return (
     <CareersEditable
+      title={title}
+      creditsTranslation={creditsTranslation}
       onFinish={onFinish}
       setCareer={onChange}
       allCareers={allCareers}

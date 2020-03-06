@@ -6,6 +6,8 @@ import { CareersDetail } from "$components/CareersDetail";
 
 const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   {
+    title,
+    creditsTranslation,
     currentCareers,
     allCareers,
     setCareer,
@@ -17,8 +19,8 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
       <div className={styles.careersEditableContainer}>
         <CareersDetail
           careers={currentCareers}
-          capabilitiesTitle={"Carreras"}
-          creditsTitle={"Creditos"}
+          careersTitle={title}
+          creditsTitle={creditsTranslation}
         />
         <select className={""} onChange={(event => setCareer(event.target.value, allCareers))}>
           <option defaultValue={""} disabled={true}>seleccione la carrera</option>
@@ -33,8 +35,8 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
     staticComponent={
       <CareersDetail
         careers={currentCareers}
-        capabilitiesTitle={"Carreras"}
-        creditsTitle={"Creditos"}
+        careersTitle={title}
+        creditsTitle={creditsTranslation}
       />
     }
   />
