@@ -22,7 +22,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
           "applicant.padron",
           "applicant.capabilities",
           "applicant.careers",
-          "applicant.credits"
+          "applicant.credits",
+          "applicant.name",
+          "applicant.lastName",
+          "applicant.description"
         ]
       }
     }
@@ -32,7 +35,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     padronTranslation,
     capabilitiesTranslation,
     careersTranslation,
-    creditsTranslation
+    creditsTranslation,
+    nameTranslation,
+    lastNameTranslation,
+    descriptionTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
 
   const [
@@ -93,7 +99,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
           padron: padronTranslation,
           capabilities: capabilitiesTranslation,
           careers: careersTranslation,
-          credits: creditsTranslation
+          credits: creditsTranslation,
+          name: nameTranslation,
+          lastName: lastNameTranslation,
+          description: descriptionTranslation
         }
       }
     />
