@@ -4,7 +4,7 @@ import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import { updateApplicant } from "$mutations";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { getApplicantByPadron  } from "$queries";
+import { getApplicantByPadron, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
 
 
@@ -15,6 +15,25 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const [state, setState] = useState<IApplicantEditable>({
     padron: parseInt(id!, 10)
   });
+
+  const { data: translationsData } = useQuery(getTranslations, {
+      variables: {
+        paths: [
+          "applicant.padron",
+          "applicant.capabilities",
+          "applicant.careers",
+          "applicant.credits"
+        ]
+      }
+    }
+  );
+
+  const [
+    padronTranslation,
+    capabilitiesTranslation,
+    careersTranslation,
+    creditsTranslation
+  ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
 
   const [
     updateApplicantTodo,
@@ -71,10 +90,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       state={state}
       translations={
         {
-          padron: "Padron",
-          capabilities: "Aptitudes",
-          careers: "Carreras",
-          credits: "Creditos"
+          padron: padronTranslation,
+          capabilities: capabilitiesTranslation,
+          careers: careersTranslation,
+          credits: creditsTranslation
         }
       }
     />

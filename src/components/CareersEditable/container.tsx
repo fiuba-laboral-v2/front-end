@@ -8,7 +8,6 @@ import NotFound from "$pages/NotFound";
 
 const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
   {
-    padron,
     setCareer,
     careers
   }) => {

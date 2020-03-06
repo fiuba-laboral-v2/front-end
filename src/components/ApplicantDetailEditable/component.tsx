@@ -83,7 +83,6 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         />
         <CareersEditable
           careers={applicant.careers}
-          padron={applicant.padron}
           setCareer={setCareer}
         />
       </div>

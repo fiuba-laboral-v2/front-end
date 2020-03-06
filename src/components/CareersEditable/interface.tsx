@@ -9,6 +9,5 @@ export interface ICareersEditableProps {
 
 export interface ICareersEditableContainerProps {
   careers?: ICareer[];
-  padron: number;
   setCareer: (career: ICareer) => void;
 }
