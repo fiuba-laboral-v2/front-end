@@ -2,6 +2,9 @@ import React, { FunctionComponent, useState } from "react";
 import { ICareersEditableContainerProps } from "./interface";
 import { CareersEditable } from "./component";
 import { ICareer } from "../../interfaces/Applicant";
+import { getCareers } from "$queries";
+import { useQuery } from "@apollo/react-hooks";
+import NotFound from "$pages/NotFound";
 
 const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
   {
@@ -11,23 +14,9 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   }) => {
   const [state, setState] = useState<ICareer>();
 
-  const allCareers: ICareer[] = [
-    {
-      code: "10",
-      description: "Ingenieria Informatica",
-      credits: 256
-    },
-    {
-      code: "11",
-      description: "Ingenieria Civil",
-      credits: 256
-    },
-    {
-      code: "12",
-      description: "Ingenieria Quimica",
-      credits: 256
-    }
-  ];
+  const { data, error } = useQuery(getCareers);
+
+  const allCareers =  data ? data.getCareers : [];
 
   const onFinish = () => {
     if (state !== undefined) setCareer(state!);
@@ -39,6 +28,11 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
 
     return setState(career);
   };
+
+  if (error) {
+    alert("could not fetch careers");
+    return (<NotFound/>);
+  }
 
   return (
     <CareersEditable
