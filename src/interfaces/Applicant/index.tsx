@@ -17,3 +17,12 @@ export interface IApplicant {
   capabilities?: ICapability[];
   careers?: ICareer[];
 }
+
+export interface IApplicantEditable {
+  padron: number;
+  name?: string;
+  surname?: string;
+  description?: string;
+  capabilities?: ICapability[];
+  careers?: ICareer[];
+}

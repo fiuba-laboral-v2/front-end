@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
@@ -13,16 +13,10 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     applicant,
     translations,
     onSubmit,
-    onCancel
+    onCancel,
+    setState,
+    state
   }) => {
-  const [state, setState] = useState({
-    name: applicant.name,
-    surname: applicant.surname,
-    padron: applicant.padron,
-    description: applicant.description,
-    capabilities: Array<ICapability>(),
-    careers: Array<ICareer>()
-  });
 
   const setName = (newName: string | number) => {
     state.name = String(newName);
@@ -43,60 +37,55 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   };
 
   const setCapabilities = (newCapability: string | number) => {
-    const mergedCapabilities = mergeCapabilities();
-    if (mergedCapabilities.findIndex(item => item === newCapability) >= 0) return;
-    state.capabilities?.push({ description: String(newCapability) });
+    const mergedCapabilities = applicant.capabilities || [];
+    if (mergedCapabilities.findIndex(item => item.description === newCapability) >= 0) return;
+
+    state.capabilities = state.capabilities || [];
+    state.capabilities.push({ description: String(newCapability) });
     const newState = Object.assign({}, state);
     return setState(newState);
-  };
-
-  const mergeCapabilities = () => {
-    const clone1 = Object.assign([], applicant.capabilities);
-    const clone2 = Object.assign([], state.capabilities);
-    const capabilities = [...clone1, ...clone2];
-    return capabilities.map((capability: ICapability) => capability.description);
   };
 
   const setCareer = (career: ICareer) => {
-    const mergedCareers = mergeCareers();
-    if (mergedCareers.findIndex(item => item.code === career.code) >= 0) return;
-    state.careers?.push(career);
+    const mergedCareers = applicant.careers || [];
+    if (mergedCareers.findIndex((item: ICareer) => item.code === career.code) >= 0) return;
+
+    state.careers = state.careers || [];
+    state.careers.push(career);
     const newState = Object.assign({}, state);
     return setState(newState);
-  };
-
-  const mergeCareers = () => {
-    const clone1 = Object.assign([], applicant.careers);
-    const clone2 = Object.assign([], state.careers);
-    return [...clone1, ...clone2];
   };
 
   return (
     <DetailMainContainer>
       <div className={styles.columnContainer}>
         <FieldEditable
-          defaultField={state.name}
+          defaultField={applicant.name}
           setField={setName}
           fieldName={"Nombre"}
         />
         <FieldEditable
-          defaultField={state.surname}
+          defaultField={applicant.surname}
           setField={setSurname}
           fieldName={"Apellido"}
         />
         <FieldEditable
-          defaultField={state.description}
+          defaultField={applicant.description}
           setField={setDescription}
           fieldName={"Descripcion"}
         />
       </div>
       <div className={styles.rowContainer}>
         <ListEditable
-          list={mergeCapabilities()}
+          list={applicant.capabilities?.map((capability: ICapability) => capability.description)}
           setList={setCapabilities}
           title={translations.capabilities}
         />
-        <CareersEditable careers={mergeCareers()} padron={applicant.padron} setCareer={setCareer}/>
+        <CareersEditable
+          careers={applicant.careers}
+          padron={applicant.padron}
+          setCareer={setCareer}
+        />
       </div>
       <FormFooter onSubmit={() => onSubmit(state)} onCancel={onCancel}/>
     </DetailMainContainer>

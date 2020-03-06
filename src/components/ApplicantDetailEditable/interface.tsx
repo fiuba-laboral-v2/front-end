@@ -1,9 +1,11 @@
 import { ITranslations } from "$components/ApplicantDetail/interface";
-import { IApplicant } from "$interfaces/Applicant";
+import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 
 export interface IApplicantDetailEditableProps {
   applicant: IApplicant;
+  state: IApplicantEditable;
   translations: ITranslations;
-  onSubmit: (applicant: IApplicant) => void;
+  onSubmit: (applicant: IApplicantEditable) => void;
   onCancel: () => void;
+  setState: (applicant: IApplicantEditable) => void;
 }

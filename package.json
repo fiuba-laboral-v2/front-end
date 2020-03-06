@@ -81,6 +81,7 @@
     "$interfaces": "src/interfaces",
     "$pages": "src/pages",
     "$queries": "src/graphql/queries",
+    "$mutations": "src/graphql/mutations",
     "$styles": "src/styles",
     "$test": "src/test",
     "$config": "src/config"
