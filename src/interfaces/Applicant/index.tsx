@@ -23,6 +23,6 @@ export interface IApplicantEditable {
   name?: string;
   surname?: string;
   description?: string;
-  capabilities?: ICapability[];
+  capabilities?: string[];
   careers?: ICareer[];
 }

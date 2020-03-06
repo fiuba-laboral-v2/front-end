@@ -16,7 +16,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     padron: parseInt(id!, 10)
   });
 
-  const [ updateApplicantTodo, { error: updateError } ] = useMutation(updateApplicant);
+  const [
+    updateApplicantTodo,
+    { data: updateData, error: updateError }
+    ] = useMutation(updateApplicant);
   const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {
       variables: { padron: parseInt(id!, 10) }
     }
@@ -25,8 +28,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const applicant = applicantData ? applicantData.getApplicantByPadron : undefined;
 
   const submit = (applicantProps: IApplicantEditable) => {
-    alert(JSON.stringify(applicantProps));
-    // return updateApplicantTodo({ variables: applicantProps });
+    return updateApplicantTodo({ variables: applicantProps });
   };
 
   const onChange = (applicantProps: IApplicantEditable) => {
@@ -39,7 +41,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const mergeCapabilities = () => {
     const clone1 = Object.assign([], applicant.capabilities);
-    const clone2 = Object.assign([], state.capabilities);
+    const clone2 = Object.assign([], state.capabilities?.map(c => ({ description: c })));
     return [...clone1, ...clone2];
   };
 
@@ -56,7 +58,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     return clone;
   };
 
-  if (redirect) return (<Redirect to={`/applicants/${id}/`}/>);
+  if (redirect || updateData) return (<Redirect to={`/applicants/${id}/`}/>);
   if (applicantError || updateError) return (<NotFound/>);
   if (applicant === undefined) return (<div></div>);
 
