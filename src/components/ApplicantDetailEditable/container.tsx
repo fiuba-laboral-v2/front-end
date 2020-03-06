@@ -39,7 +39,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
-  ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
+  ] = translationsData ? translationsData.getTranslations : ["", "", "", "", "", "", ""];
 
   const [
     updateApplicantTodo,
