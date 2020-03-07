@@ -7,7 +7,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     careers,
     careersTitle,
-    creditsTitle
+    creditsProgressTranslation
   }) => {
 
   const percentage = (career: ICareer) => {
@@ -23,7 +23,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
         )
       }
       title={careersTitle}
-      itemSuffix={creditsTitle}
+      itemSuffix={creditsProgressTranslation}
     />
   );
 };

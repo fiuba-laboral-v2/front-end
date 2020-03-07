@@ -13,7 +13,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
           "applicant.padron",
           "applicant.capabilities",
           "applicant.careers",
-          "applicant.credits"
+          "applicant.creditsProgress"
         ]
       }
     }

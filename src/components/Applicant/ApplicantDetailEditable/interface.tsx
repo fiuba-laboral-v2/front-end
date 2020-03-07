@@ -4,7 +4,7 @@ export interface ITranslationsEditable {
   padron: string;
   capabilities: string;
   careers: string;
-  credits: string;
+  creditsProgress: string;
   name: string;
   lastName: string;
   description: string;

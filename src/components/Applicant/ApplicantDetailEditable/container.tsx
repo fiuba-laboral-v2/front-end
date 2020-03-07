@@ -20,7 +20,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
           "applicant.padron",
           "applicant.capabilities",
           "applicant.careers",
-          "applicant.credits",
+          "applicant.creditsProgress",
           "applicant.name",
           "applicant.lastName",
           "applicant.description"
@@ -33,7 +33,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     padronTranslation,
     capabilitiesTranslation,
     careersTranslation,
-    creditsTranslation,
+    creditsProgressTranslation,
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
@@ -92,7 +92,8 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   };
 
   if (redirect || updateData) return (<Redirect to={`/applicants/${id}/`}/>);
-  if (applicantError || updateError) return (<NotFound/>);
+  if (updateError) alert(updateError.message);
+  if (applicantError) return (<NotFound/>);
   if (applicant === undefined) return (<div></div>);
 
   return (
@@ -107,7 +108,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
           padron: padronTranslation,
           capabilities: capabilitiesTranslation,
           careers: careersTranslation,
-          credits: creditsTranslation,
+          creditsProgress: creditsProgressTranslation,
           name: nameTranslation,
           lastName: lastNameTranslation,
           description: descriptionTranslation
