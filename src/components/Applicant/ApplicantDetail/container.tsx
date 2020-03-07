@@ -20,7 +20,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
   const [
     padronTranslation,
     capabilitiesTranslation
-  ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
+  ] = translationsData ? translationsData.getTranslations : ["", ""];
 
   const { id } = useParams();
   const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {

@@ -30,12 +30,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const [
     padronTranslation,
     capabilitiesTranslation,
-    careersTranslation,
-    creditsProgressTranslation,
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
-  ] = translationsData ? translationsData.getTranslations : ["", "", "", "", "", "", ""];
+  ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
 
   const [
     updateApplicantTodo,
