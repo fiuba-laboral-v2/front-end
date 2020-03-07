@@ -5,8 +5,7 @@ import styles from "./styles.module.scss";
 const ApplicantItemsDetail: FunctionComponent<IApplicantItemsDetailProps> = (
   {
     items,
-    title,
-    itemSuffix
+    title
   }
 ) => (
   <section className={styles.items}>
@@ -17,7 +16,7 @@ const ApplicantItemsDetail: FunctionComponent<IApplicantItemsDetailProps> = (
       items?.map((item, index) =>
         (
           <span key={index} className={styles.item}>
-            {item} {itemSuffix}
+            {item}
           </span>
         ))
     }

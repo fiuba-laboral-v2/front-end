@@ -49,7 +49,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   };
 
   if (error) {
-    alert("could not fetch careers");
+    alert(error.message);
     return (<NotFound/>);
   }
 

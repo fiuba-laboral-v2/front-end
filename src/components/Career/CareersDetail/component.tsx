@@ -19,11 +19,10 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
     <ApplicantItemsDetail
       items={
         careers?.map((career: ICareer) =>
-          `${career.code} - ${career.description}: ${percentage(career)}`
+          `${career.code} - ${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
         )
       }
       title={careersTitle}
-      itemSuffix={creditsProgressTranslation}
     />
   );
 };
