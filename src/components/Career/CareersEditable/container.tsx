@@ -33,6 +33,8 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   };
 
   const onChange = (code: string, Careers: ICareer[]) => {
+    if (code === "none") return;
+
     const career = Careers.find(aCareer => aCareer.code === code);
     if (!career) throw new Error(`The career ${code} does not exists`);
 
