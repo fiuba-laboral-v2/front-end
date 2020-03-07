@@ -12,9 +12,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const { id } = useParams();
 
   const [redirect, setRedirect] = useState(false);
-  const [state, setState] = useState<IApplicantEditable>({
-    padron: parseInt(id!, 10)
-  });
+  const [state, setState] = useState<IApplicant>({} as any);
 
   const { data: translationsData } = useQuery(getTranslations, {
       variables: {
@@ -52,11 +50,21 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const applicant = applicantData ? applicantData.getApplicantByPadron : undefined;
 
-  const submit = (applicantProps: IApplicantEditable) => {
-    return updateApplicantTodo({ variables: applicantProps });
+  const submit = (applicantProps: IApplicant) => {
+    const dataToUpdate: IApplicantEditable = {
+      padron: parseInt(id!, 10),
+      name: applicantProps.name,
+      surname: applicantProps.surname,
+      description: applicantProps.description,
+      capabilities: applicantProps.capabilities?.map(c => c.description),
+      careers: applicantProps.careers?.map(c =>
+        ({ code: c.code, creditsCount: c.creditsCount || 0 })
+      )
+    };
+    return updateApplicantTodo({ variables: dataToUpdate });
   };
 
-  const onChange = (applicantProps: IApplicantEditable) => {
+  const onChange = (applicantProps: IApplicant) => {
     setState(applicantProps);
   };
 
@@ -66,7 +74,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const mergeCapabilities = () => {
     const clone1 = Object.assign([], applicant.capabilities);
-    const clone2 = Object.assign([], state.capabilities?.map(c => ({ description: c })));
+    const clone2 = Object.assign([], state.capabilities);
     return [...clone1, ...clone2];
   };
 

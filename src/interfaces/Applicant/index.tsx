@@ -17,6 +17,11 @@ export interface IApplicant {
   capabilities?: ICapability[];
   careers?: ICareer[];
 }
+export interface IApplicantCareer {
+  code: string;
+  creditsCount: number;
+}
+
 
 export interface IApplicantEditable {
   padron: number;
@@ -24,5 +29,5 @@ export interface IApplicantEditable {
   surname?: string;
   description?: string;
   capabilities?: string[];
-  careers?: ICareer[];
+  careers?: IApplicantCareer[];
 }

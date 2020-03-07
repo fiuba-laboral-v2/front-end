@@ -1,4 +1,4 @@
-import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
+import { IApplicant } from "$interfaces/Applicant";
 
 export interface ITranslationsEditable {
   padron: string;
@@ -12,9 +12,9 @@ export interface ITranslationsEditable {
 
 export interface IApplicantDetailEditableProps {
   applicant: IApplicant;
-  state: IApplicantEditable;
+  state: IApplicant;
   translations: ITranslationsEditable;
-  onSubmit: (applicant: IApplicantEditable) => void;
+  onSubmit: (applicant: IApplicant) => void;
   onCancel: () => void;
-  setState: (applicant: IApplicantEditable) => void;
+  setState: (applicant: IApplicant) => void;
 }
