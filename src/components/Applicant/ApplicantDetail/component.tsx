@@ -33,8 +33,6 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         />
         <CareersDetail
           careers={applicant.careers}
-          careersTitle={translations.careers}
-          creditsProgressTranslation={translations.credits}
         />
       </div>
   </DetailMainContainer>

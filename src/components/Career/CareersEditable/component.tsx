@@ -7,8 +7,6 @@ import { InputEditable } from "../../InputEditable";
 
 const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   {
-    title,
-    creditsProgressTranslation,
     selectACareerTranslation,
     currentCareers,
     allCareers,
@@ -22,8 +20,6 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
       <div className={styles.careersEditableContainer}>
         <CareersDetail
           careers={currentCareers}
-          careersTitle={title}
-          creditsProgressTranslation={creditsProgressTranslation}
         />
           <div className={styles.selectorContainer}>
           <select
@@ -49,8 +45,6 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
     staticComponent={
       <CareersDetail
         careers={currentCareers}
-        careersTitle={title}
-        creditsProgressTranslation={creditsProgressTranslation}
       />
     }
   />

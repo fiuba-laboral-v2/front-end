@@ -5,3 +5,7 @@ export interface ICareersProps {
   careersTitle: string;
   creditsProgressTranslation: string;
 }
+
+export interface ICareersContainerProps {
+  careers?: ICareer[];
+}

@@ -1,8 +1,6 @@
 import { ICareer } from "$interfaces/Applicant";
 
 export interface ICareersEditableProps {
-  title: string;
-  creditsProgressTranslation: string;
   selectACareerTranslation: string;
   allCareers: ICareer[];
   currentCareers: ICareer[];

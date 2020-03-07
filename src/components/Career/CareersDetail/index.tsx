@@ -1,1 +1,1 @@
-export { CareersDetail } from "./component";
+export { CareersDetailContainer as CareersDetail } from "./container";

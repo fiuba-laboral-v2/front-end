@@ -13,22 +13,14 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   }) => {
   const [state, setState] = useState<ICareer>();
   const { data, error } = useQuery(getCareers);
-  const { data: translationsData } = useQuery(getTranslations, {
-      variables: {
-        paths: [
-          "career.selectACareer",
-          "applicant.creditsProgress",
-          "applicant.careers"
-        ]
-      }
+  const { data: translationsData } = useQuery(
+    getTranslations,
+    {
+      variables: {paths: ["career.selectACareer"]}
     }
   );
 
-  const [
-    selectACareerTranslation,
-    creditsProgressTranslation,
-    careersTitleTranslation
-  ] = translationsData ? translationsData.getTranslations : [""];
+  const [ selectACareerTranslation ] = translationsData ? translationsData.getTranslations : [""];
   const allCareers: ICareer[] =  data ? data.getCareers : [];
 
   const stateUndefined = () => {
@@ -66,8 +58,6 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
 
   return (
     <CareersEditable
-      title={careersTitleTranslation}
-      creditsProgressTranslation={creditsProgressTranslation}
       selectACareerTranslation={selectACareerTranslation}
       onFinish={onFinish}
       setCareer={onChange}

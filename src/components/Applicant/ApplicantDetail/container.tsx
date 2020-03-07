@@ -11,9 +11,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
       variables: {
         paths: [
           "applicant.padron",
-          "applicant.capabilities",
-          "applicant.careers",
-          "applicant.creditsProgress"
+          "applicant.capabilities"
         ]
       }
     }
@@ -21,9 +19,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
 
   const [
     padronTranslation,
-    capabilitiesTranslation,
-    careersTranslation,
-    creditsTranslation
+    capabilitiesTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", ""];
 
   const { id } = useParams();
@@ -53,9 +49,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
       translations={
         {
           padron: padronTranslation,
-          capabilities: capabilitiesTranslation,
-          careers: careersTranslation,
-          credits: creditsTranslation
+          capabilities: capabilitiesTranslation
         }
       }
     />
