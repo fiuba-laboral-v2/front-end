@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
+import { ItemsDetail } from "$components/ItemsDetail";
 import { ICapabilitiesProps, ICapability } from "./interface";
 
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
@@ -9,7 +9,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   }) => {
 
   return (
-    <ApplicantItemsDetail
+    <ItemsDetail
       items={capabilities?.map((capability: ICapability) => capability.description)}
       title={title}
     />

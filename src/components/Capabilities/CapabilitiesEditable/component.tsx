@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ICapabilitiesEditableProps } from "./interface";
 import styles from "./styles.module.scss";
 import { Editable } from "../../Editable";
-import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
+import { ItemsDetail } from "$components/ItemsDetail";
 import { InputEditable } from "$components/InputEditable";
 
 const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
@@ -19,7 +19,7 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
         }}
         editableComponent={
           <div className={styles.listContainer}>
-            <ApplicantItemsDetail
+            <ItemsDetail
               items={capabilities}
               title={title}
             />
@@ -28,7 +28,7 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
         }
         staticComponent={
           <div className={styles.listContainer}>
-            <ApplicantItemsDetail
+            <ItemsDetail
               items={capabilities}
               title={title}
             />

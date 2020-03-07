@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
+import { ItemsDetail } from "$components/ItemsDetail";
 import { ICareersProps } from "./interface";
 import { ICareer } from "$interfaces/Applicant";
 
@@ -16,7 +16,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
   };
 
   return (
-    <ApplicantItemsDetail
+    <ItemsDetail
       items={
         careers?.map((career: ICareer) =>
           `${career.code} - ${career.description}: ${percentage(career)} ${creditsProgressTranslation}`

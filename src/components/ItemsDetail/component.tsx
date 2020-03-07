@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { IApplicantItemsDetailProps } from "./interface";
+import { IItemsDetailProps } from "./interface";
 import styles from "./styles.module.scss";
 
-const ApplicantItemsDetail: FunctionComponent<IApplicantItemsDetailProps> = (
+const ItemsDetail: FunctionComponent<IItemsDetailProps> = (
   {
     items,
     title
@@ -23,4 +23,4 @@ const ApplicantItemsDetail: FunctionComponent<IApplicantItemsDetailProps> = (
   </section>
 );
 
-export { ApplicantItemsDetail };
+export { ItemsDetail };
