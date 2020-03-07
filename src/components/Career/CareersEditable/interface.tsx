@@ -12,8 +12,6 @@ export interface ICareersEditableProps {
 }
 
 export interface ICareersEditableContainerProps {
-  title: string;
-  creditsProgressTranslation: string;
   careers?: ICareer[];
   setCareer: (career: ICareer) => void;
 }

@@ -82,8 +82,6 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
           title={translations.capabilities}
         />
         <CareersEditable
-          title={translations.careers}
-          creditsProgressTranslation={translations.creditsProgress}
           careers={applicant.careers}
           setCareer={setCareer}
         />

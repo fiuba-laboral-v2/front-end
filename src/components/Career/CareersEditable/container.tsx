@@ -8,19 +8,27 @@ import NotFound from "$pages/NotFound";
 
 const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
   {
-    title,
-    creditsProgressTranslation,
     setCareer,
     careers
   }) => {
   const [state, setState] = useState<ICareer>();
   const { data, error } = useQuery(getCareers);
   const { data: translationsData } = useQuery(getTranslations, {
-      variables: { paths: ["career.selectACareer"] }
+      variables: {
+        paths: [
+          "career.selectACareer",
+          "applicant.creditsProgress",
+          "applicant.careers"
+        ]
+      }
     }
   );
 
-  const [selectACareerTranslation] = translationsData ? translationsData.getTranslations : [""];
+  const [
+    selectACareerTranslation,
+    creditsProgressTranslation,
+    careersTitleTranslation
+  ] = translationsData ? translationsData.getTranslations : [""];
   const allCareers: ICareer[] =  data ? data.getCareers : [];
 
   const stateUndefined = () => {
@@ -58,7 +66,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
 
   return (
     <CareersEditable
-      title={title}
+      title={careersTitleTranslation}
       creditsProgressTranslation={creditsProgressTranslation}
       selectACareerTranslation={selectACareerTranslation}
       onFinish={onFinish}
