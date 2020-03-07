@@ -1,9 +1,4 @@
-export interface ICareer {
-  code: string;
-  description: string;
-  credits: number;
-  creditsCount?: number;
-}
+import { ICareer } from "$interfaces/Applicant";
 
 export interface ICareersProps {
   careers?: ICareer[];

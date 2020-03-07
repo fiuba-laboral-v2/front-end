@@ -23,7 +23,7 @@ const ListEditable: FunctionComponent<IListEditableProps> = (
               items={list}
               title={title}
             />
-            <InputEditable onChange={setList}/>
+            <InputEditable type={"text"} onChange={setList}/>
           </div>
         }
         staticComponent={

@@ -15,7 +15,7 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
     editableComponent={
       <div className={styles.fieldContainer}>
         <div className={styles.fieldName}>{`${fieldName}:`}</div>
-        <InputEditable onChange={setField} defaultValue={defaultField}/>
+        <InputEditable type={"text"} onChange={setField} defaultValue={defaultField}/>
       </div>
     }
     staticComponent={

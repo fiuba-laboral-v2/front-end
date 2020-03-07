@@ -1,4 +1,29 @@
+@import "$styles/_detailsVariables.scss";
+
 .careersEditableContainer {
   overflow: hidden;
   width: inherit;
+}
+
+.selectorContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.careersSelector {
+  white-space: pre-line;
+  background: $background;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin: 0 0 10px 0;
+}
+
+.creditsCount {
+  width: 20%;
+}
+
+
+.creditsCount, .careersSelector {
+  font-size: 15px;
 }

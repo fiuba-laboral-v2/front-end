@@ -11,6 +11,7 @@ query getApplicantByPadron ($padron: Int!) {
             code
             description
             credits
+            creditsCount
         }
     }
 }

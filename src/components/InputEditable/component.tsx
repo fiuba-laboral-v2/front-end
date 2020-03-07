@@ -4,12 +4,16 @@ import styles from "./styles.module.scss";
 
 const InputEditable: FunctionComponent<IInputEditableProps> = (
   {
+    className,
     defaultValue,
-    onChange
+    onChange,
+    type,
+    min
   }) => (
   <input
-    className={styles.fieldEditable}
-    type="text"
+    className={`${styles.fieldEditable} ${className}`}
+    min={min}
+    type={type}
     autoFocus
     defaultValue={defaultValue ? `${defaultValue}`: ""}
     onChange={event => onChange(event.target.value)}
