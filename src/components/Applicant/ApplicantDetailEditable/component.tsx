@@ -4,7 +4,7 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
-import { CapabilitiesEditable } from "$components/CapabilitiesEditable";
+import { CapabilitiesEditable } from "$components/Capabilities/CapabilitiesEditable";
 import { CareersEditable } from "$components/Career/CareersEditable";
 import { ICareer } from "$interfaces/Applicant";
 

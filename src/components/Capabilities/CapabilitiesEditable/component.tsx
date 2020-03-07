@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ICapabilitiesEditableProps } from "./interface";
 import styles from "./styles.module.scss";
-import { Editable } from "../Editable";
+import { Editable } from "../../Editable";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { InputEditable } from "$components/InputEditable";
 
