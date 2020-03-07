@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { ICareersEditableContainerProps } from "./interface";
 import { CareersEditable } from "./component";
 import { ICareer } from "../../../interfaces/Applicant";
-import { getCareers } from "$queries";
+import { getCareers, getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
 
@@ -14,18 +14,21 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
     careers
   }) => {
   const [state, setState] = useState<ICareer>();
-
   const { data, error } = useQuery(getCareers);
+  const { data: translationsData } = useQuery(getTranslations, {
+      variables: { paths: ["career.selectACareer"] }
+    }
+  );
 
-  const allCareers =  data ? data.getCareers : [];
+  const [selectACareerTranslation] = translationsData ? translationsData.getTranslations : [""];
+  const allCareers: ICareer[] =  data ? data.getCareers : [];
 
   const stateUndefined = () => {
     if (state === undefined) return true;
     if (state.code === undefined) return true;
     if (state.description === undefined) return true;
     if (state.credits === undefined) return true;
-    if (state.creditsCount === undefined) return true;
-    return false;
+    return state.creditsCount === undefined;
   };
 
   const onFinish = () => {
@@ -57,6 +60,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
     <CareersEditable
       title={title}
       creditsProgressTranslation={creditsProgressTranslation}
+      selectACareerTranslation={selectACareerTranslation}
       onFinish={onFinish}
       setCareer={onChange}
       setCreditsCount={setCreditsCount}

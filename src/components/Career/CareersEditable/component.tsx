@@ -9,6 +9,7 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   {
     title,
     creditsProgressTranslation,
+    selectACareerTranslation,
     currentCareers,
     allCareers,
     setCareer,
@@ -29,7 +30,7 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
             className={styles.careersSelector}
             onChange={(event => setCareer(event.target.value, allCareers))}
           >
-            <option defaultValue={"none"} value="none">seleccione la carrera</option>
+            <option defaultValue={"none"} value="none">{selectACareerTranslation}</option>
             {
               allCareers.map((career, index) => {
                 return (<option key={index} value={career.code}>{career.description}</option>);
