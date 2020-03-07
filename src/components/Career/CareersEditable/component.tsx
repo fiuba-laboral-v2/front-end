@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react";
 import { ICareersEditableProps } from "./interface";
 import { Editable } from "$components/Editable";
 import styles from "./styles.module.scss";
-import { CareersDetail } from "$components/CareersDetail";
-import { InputEditable } from "../InputEditable";
+import { CareersDetail } from "$components/Career/CareersDetail";
+import { InputEditable } from "../../InputEditable";
 
 const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   {

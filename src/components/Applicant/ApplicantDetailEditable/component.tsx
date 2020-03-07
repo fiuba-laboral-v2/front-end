@@ -5,7 +5,7 @@ import { IApplicantDetailEditableProps } from "./interface";
 import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
 import { ListEditable } from "$components/ListEditable";
-import { CareersEditable } from "$components/CareersEditable";
+import { CareersEditable } from "$components/Career/CareersEditable";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
