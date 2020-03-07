@@ -2,7 +2,6 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export interface ITranslationsEditable {
   padron: string;
-  capabilities: string;
   name: string;
   lastName: string;
   description: string;

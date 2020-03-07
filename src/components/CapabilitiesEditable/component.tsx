@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { IListEditableProps } from "./interface";
+import { ICapabilitiesEditableProps } from "./interface";
 import styles from "./styles.module.scss";
 import { Editable } from "../Editable";
 import { ApplicantItemsDetail } from "$components/ApplicantItemsDetail";
 import { InputEditable } from "$components/InputEditable";
 
-const ListEditable: FunctionComponent<IListEditableProps> = (
+const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
   {
     setList,
-    list,
+    capabilities,
     title,
     onFinish
   }) => (
@@ -20,7 +20,7 @@ const ListEditable: FunctionComponent<IListEditableProps> = (
         editableComponent={
           <div className={styles.listContainer}>
             <ApplicantItemsDetail
-              items={list}
+              items={capabilities}
               title={title}
             />
             <InputEditable className={styles.input} type={"text"} onChange={setList}/>
@@ -29,7 +29,7 @@ const ListEditable: FunctionComponent<IListEditableProps> = (
         staticComponent={
           <div className={styles.listContainer}>
             <ApplicantItemsDetail
-              items={list}
+              items={capabilities}
               title={title}
             />
           </div>
@@ -38,4 +38,4 @@ const ListEditable: FunctionComponent<IListEditableProps> = (
     </div>
 );
 
-export { ListEditable };
+export { CapabilitiesEditable };

@@ -4,9 +4,9 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
-import { ListEditable } from "$components/ListEditable";
+import { CapabilitiesEditable } from "$components/CapabilitiesEditable";
 import { CareersEditable } from "$components/Career/CareersEditable";
-import { ICapability, ICareer } from "$interfaces/Applicant";
+import { ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -76,10 +76,9 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         />
       </div>
       <div className={styles.rowContainer}>
-        <ListEditable
-          list={applicant.capabilities?.map((capability: ICapability) => capability.description)}
+        <CapabilitiesEditable
+          capabilities={applicant.capabilities}
           setList={setCapabilities}
-          title={translations.capabilities}
         />
         <CareersEditable
           careers={applicant.careers}

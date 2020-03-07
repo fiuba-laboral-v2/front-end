@@ -18,7 +18,6 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       variables: {
         paths: [
           "applicant.padron",
-          "applicant.capabilities",
           "applicant.name",
           "applicant.lastName",
           "applicant.description"
@@ -29,7 +28,6 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const [
     padronTranslation,
-    capabilitiesTranslation,
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
@@ -102,7 +100,6 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       translations={
         {
           padron: padronTranslation,
-          capabilities: capabilitiesTranslation,
           name: nameTranslation,
           lastName: lastNameTranslation,
           description: descriptionTranslation
