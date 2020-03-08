@@ -36,7 +36,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const [
     updateApplicantTodo,
     { data: updateData, error: updateError }
-    ] = useMutation(updateApplicant);
+  ] = useMutation(updateApplicant);
   const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {
       variables: { padron: parseInt(id!, 10) }
     }

@@ -19,7 +19,7 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
       items={
         capabilities.map((capability: ICapability) => {
           return {
-            id: capability.description,
+            id: capability.uuid,
             value: capability.description
           };
         })
