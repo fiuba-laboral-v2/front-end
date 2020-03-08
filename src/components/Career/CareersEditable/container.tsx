@@ -43,8 +43,9 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
     if (!stateUndefined()) setCareer(state!);
   };
 
-  const onDelete = (item: string) => {
-    alert(`Are you sure to delete: ${item}`);
+  const onDelete = (code: string) => {
+    const career = careers!.find(c => c.code === code);
+    alert(`Are you sure to delete: ${career!.description}`);
   };
 
   const onChange = (code: string, Careers: ICareer[]) => {

@@ -22,14 +22,22 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
     return ((career.creditsCount/career.credits)*100).toFixed(2);
   };
 
+  const interpolateCareer = (career: ICareer) => {
+    return `${career.code} - ${career.description}:
+            ${percentage(career)} ${creditsProgressTranslation}`;
+  };
+
   return (
     <ItemsDetailEditable
       onDelete={onDelete}
       titleTranslation={careersTitleTranslation}
       items={
-        currentCareers?.map((career: ICareer) =>
-          `${career.code} - ${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
-        )
+        currentCareers?.map((career: ICareer) => {
+          return {
+            id: career.code,
+            value: interpolateCareer(career)
+          };
+        })
       }
       onFinish={onFinish}>
       <div className={styles.selectorContainer}>

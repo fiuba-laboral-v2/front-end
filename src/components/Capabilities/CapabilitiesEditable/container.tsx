@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { ICapabilitiesEditableContainerProps } from "./interface";
 import { CapabilitiesEditable } from "./component";
-import { ICapability } from "../../../interfaces/Applicant";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "../../../graphql/queries";
 
@@ -29,7 +28,7 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
       onFinish={onFinish}
       onDelete={onDelete}
       setState={setState}
-      capabilities={capabilities?.map((capability: ICapability) => capability.description)}
+      capabilities={capabilities}
       title={title}
     />
   );

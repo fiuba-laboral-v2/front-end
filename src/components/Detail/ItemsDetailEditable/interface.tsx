@@ -1,5 +1,10 @@
+export interface IItem {
+  id: string;
+  value: string;
+}
+
 export interface IItemsDetailEditableContainerProps {
-  items: string[];
+  items: IItem[];
   titleTranslation: string;
   onDelete: (item: string) => void;
   onFinish: () => void;
@@ -7,7 +12,7 @@ export interface IItemsDetailEditableContainerProps {
 
 export interface IItemsDetailEditableProps {
   titleTranslation: string;
-  items: string[];
+  items: IItem[];
   onDelete: (item: string) => void;
   isAdding: boolean;
   setIsAdding: (isAdding: boolean) => void;

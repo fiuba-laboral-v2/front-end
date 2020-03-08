@@ -3,6 +3,7 @@ import { ICapabilitiesEditableProps } from "./interface";
 import { ItemsDetailEditable } from "$components/Detail/ItemsDetailEditable";
 import styles from "../../Detail/ItemsDetailEditable/styles.module.scss";
 import { InputEditable } from "../../InputEditable";
+import { ICapability } from "../../../interfaces/Applicant";
 
 const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
   {
@@ -15,7 +16,14 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
     <ItemsDetailEditable
       onDelete={onDelete}
       titleTranslation={title}
-      items={capabilities || []}
+      items={
+        capabilities.map((capability: ICapability) => {
+          return {
+            id: capability.description,
+            value: capability.description
+          };
+        })
+      }
       onFinish={onFinish}>
       <InputEditable className={styles.input} type={"text"} onChange={setState}/>
     </ItemsDetailEditable>

@@ -4,7 +4,7 @@ export interface ICapabilitiesEditableProps {
   setState: (newValue: string | number) => void;
   onFinish: () => void;
   onDelete: (item: string) => void;
-  capabilities: string[];
+  capabilities: ICapability[];
   title: string;
 }
 

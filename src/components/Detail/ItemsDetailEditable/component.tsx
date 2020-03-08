@@ -31,11 +31,11 @@ const ItemsDetailEditable: FunctionComponent<IItemsDetailEditableProps> = (
         items?.map((item, index) =>
           (
             <div key={index} className={styles.row}>
-              <span className={styles.item}>{item}</span>
+              <span className={styles.item}>{item.value}</span>
               <DeleteIcon
                 fontSize="small"
                 className={styles.deleteIcon}
-                onClick={() => onDelete(item)}
+                onClick={() => onDelete(item.id)}
               />
             </div>
           )
