@@ -1,53 +1,58 @@
 import React, { FunctionComponent } from "react";
 import { ICareersEditableProps } from "./interface";
-import { Editable } from "$components/Editable";
 import styles from "./styles.module.scss";
-import { CareersDetail } from "$components/Career/CareersDetail";
-import { InputEditable } from "../../InputEditable";
+import { InputEditable } from "$components/InputEditable";
+import { ItemsDetailEditable } from "$components/Detail/ItemsDetailEditable";
+import { ICareer } from "$interfaces/Applicant";
 
 const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   {
     selectACareerTranslation,
+    creditsProgressTranslation,
+    careersTitleTranslation,
     currentCareers,
     allCareers,
     setCareer,
     setCreditsCount,
-    onFinish
-  }) => (
-  <Editable
-    onClick={onFinish}
-    editableComponent={
-      <div className={styles.careersEditableContainer}>
-        <CareersDetail
-          careers={currentCareers}
+    onFinish,
+    onDelete
+  }) => {
+  const percentage = (career: ICareer) => {
+    career.creditsCount = career.creditsCount || 0;
+    return ((career.creditsCount/career.credits)*100).toFixed(2);
+  };
+
+  return (
+    <ItemsDetailEditable
+      onDelete={onDelete}
+      titleTranslation={careersTitleTranslation}
+      items={
+        currentCareers?.map((career: ICareer) =>
+          `${career.code} - ${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
+        )
+      }
+      onFinish={onFinish}>
+      <div className={styles.selectorContainer}>
+        <select
+          className={styles.careersSelector}
+          onChange={(event => setCareer(event.target.value, allCareers))}
+        >
+          <option defaultValue={"none"} value="none">{selectACareerTranslation}</option>
+          {
+            allCareers.map((career, index) => {
+              return (<option key={index} value={career.code}>{career.description}</option>);
+            })
+          }
+        </select>
+        <InputEditable
+          className={styles.creditsCount}
+          type={"number"}
+          min={0}
+          onChange={setCreditsCount}
         />
-          <div className={styles.selectorContainer}>
-          <select
-            className={styles.careersSelector}
-            onChange={(event => setCareer(event.target.value, allCareers))}
-          >
-            <option defaultValue={"none"} value="none">{selectACareerTranslation}</option>
-            {
-              allCareers.map((career, index) => {
-                return (<option key={index} value={career.code}>{career.description}</option>);
-              })
-            }
-          </select>
-          <InputEditable
-            className={styles.creditsCount}
-            type={"number"}
-            min={0}
-            onChange={setCreditsCount}
-          />
-        </div>
       </div>
-    }
-    staticComponent={
-      <CareersDetail
-        careers={currentCareers}
-      />
-    }
-  />
-);
+    </ItemsDetailEditable>
+  );
+};
 
 export { CareersEditable };

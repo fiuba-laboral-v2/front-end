@@ -7,7 +7,7 @@ import { InputEditable } from "../../InputEditable";
 const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
   {
     setState,
-    onfinish,
+    onFinish,
     onDelete,
     capabilities,
     title
@@ -16,7 +16,7 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
       onDelete={onDelete}
       titleTranslation={title}
       items={capabilities || []}
-      onFinish={onfinish}>
+      onFinish={onFinish}>
       <InputEditable className={styles.input} type={"text"} onChange={setState}/>
     </ItemsDetailEditable>
 );

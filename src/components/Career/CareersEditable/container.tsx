@@ -13,14 +13,22 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   }) => {
   const [state, setState] = useState<ICareer>();
   const { data, error } = useQuery(getCareers);
-  const { data: translationsData } = useQuery(
-    getTranslations,
-    {
-      variables: {paths: ["career.selectACareer"]}
+  const { data: translationsData } = useQuery(getTranslations, {
+      variables: {
+        paths: [
+          "career.selectACareer",
+          "applicant.creditsProgress",
+          "applicant.careers"
+        ]
+      }
     }
   );
 
-  const [ selectACareerTranslation ] = translationsData ? translationsData.getTranslations : [""];
+  const [
+    creditsProgressTranslation,
+    careersTitleTranslation,
+    selectACareerTranslation
+  ] = translationsData ? translationsData.getTranslations : ["", "", ""];
   const allCareers: ICareer[] =  data ? data.getCareers : [];
 
   const stateUndefined = () => {
@@ -33,6 +41,10 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
 
   const onFinish = () => {
     if (!stateUndefined()) setCareer(state!);
+  };
+
+  const onDelete = (item: string) => {
+    alert(`Are you sure to delete: ${item}`);
   };
 
   const onChange = (code: string, Careers: ICareer[]) => {
@@ -59,7 +71,10 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   return (
     <CareersEditable
       selectACareerTranslation={selectACareerTranslation}
+      creditsProgressTranslation={creditsProgressTranslation}
+      careersTitleTranslation={careersTitleTranslation}
       onFinish={onFinish}
+      onDelete={onDelete}
       setCareer={onChange}
       setCreditsCount={setCreditsCount}
       allCareers={allCareers}

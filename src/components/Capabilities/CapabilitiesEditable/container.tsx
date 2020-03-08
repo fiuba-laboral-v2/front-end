@@ -26,7 +26,7 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
   };
   return (
     <CapabilitiesEditable
-      onfinish={onFinish}
+      onFinish={onFinish}
       onDelete={onDelete}
       setState={setState}
       capabilities={capabilities?.map((capability: ICapability) => capability.description)}

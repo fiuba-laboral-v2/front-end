@@ -2,7 +2,7 @@ import { ICapability } from "$interfaces/Applicant";
 
 export interface ICapabilitiesEditableProps {
   setState: (newValue: string | number) => void;
-  onfinish: () => void;
+  onFinish: () => void;
   onDelete: (item: string) => void;
   capabilities: string[];
   title: string;
