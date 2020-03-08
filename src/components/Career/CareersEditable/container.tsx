@@ -25,9 +25,9 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   );
 
   const [
+    selectACareerTranslation,
     creditsProgressTranslation,
-    careersTitleTranslation,
-    selectACareerTranslation
+    careersTitleTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", ""];
   const allCareers: ICareer[] =  data ? data.getCareers : [];
 
