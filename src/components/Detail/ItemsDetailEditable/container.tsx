@@ -4,33 +4,26 @@ import { IItemsDetailEditableContainerProps } from "./interface";
 
 const ItemsDetailEditableContainer: FunctionComponent<IItemsDetailEditableContainerProps> = (
   {
+    onFinish,
+    onDelete,
     items,
-    setItem,
-    titleTranslation
+    titleTranslation,
+    children
   }) => {
   const [isAdding, setIsAdding] = useState(false);
-  const [state, setState] = useState<string | number>();
 
-  const onDelete = (item: string) => {
-    alert(`Are you sure you want to delete: ${item}`);
-  };
-
-  const onAdding = (item: string | number) => {
-    setState(item);
-  };
-
-  const onFinish = () => {
-    if (state) setItem(state);
+  const onCheck = () => {
+    onFinish();
     setIsAdding(false);
   };
 
   return (
     <ItemsDetailEditable
+      children={children}
       titleTranslation={titleTranslation}
-      onFinish={onFinish}
+      onCheck={onCheck}
       setIsAdding={setIsAdding}
       isAdding={isAdding}
-      onAdding={onAdding}
       onDelete={onDelete}
       items={items}
     />

@@ -4,17 +4,16 @@ import styles from "./styles.module.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import Check from "@material-ui/icons/Check";
-import { InputEditable } from "$components/InputEditable";
 
 const ItemsDetailEditable: FunctionComponent<IItemsDetailEditableProps> = (
   {
     items,
-    onAdding,
     onDelete,
     setIsAdding,
     isAdding,
-    onFinish,
-    titleTranslation
+    onCheck,
+    titleTranslation,
+    children
   }) => {
   return (
     <section className={styles.items}>
@@ -45,8 +44,8 @@ const ItemsDetailEditable: FunctionComponent<IItemsDetailEditableProps> = (
       {
         isAdding ?
           <div className={styles.footer}>
-            <InputEditable className={styles.input} type={"text"} onChange={onAdding}/>
-            <Check className={styles.checkIcon} onClick={() => onFinish()}/>
+            {children}
+            <Check className={styles.checkIcon} onClick={() => onCheck()}/>
           </div>
           :
           <div></div>

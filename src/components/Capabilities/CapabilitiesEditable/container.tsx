@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { ICapabilitiesEditableContainerProps } from "./interface";
 import { CapabilitiesEditable } from "./component";
 import { ICapability } from "../../../interfaces/Applicant";
@@ -10,16 +10,25 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
     setList,
     capabilities
   }) => {
+  const [state, setState] = useState<string | number>();
   const { data: translationsData } = useQuery(getTranslations, {
       variables: { paths: ["applicant.capabilities"] }
     }
   );
-
   const [ title ] = translationsData ? translationsData.getTranslations : [""];
 
+  const onFinish = () => {
+    if (state) setList(state);
+  };
+
+  const onDelete = (item: string) => {
+    alert(`Are you sure to delete: ${item}`);
+  };
   return (
     <CapabilitiesEditable
-      setList={setList}
+      onfinish={onFinish}
+      onDelete={onDelete}
+      setState={setState}
       capabilities={capabilities?.map((capability: ICapability) => capability.description)}
       title={title}
     />
