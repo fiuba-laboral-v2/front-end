@@ -77,9 +77,10 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       </div>
       <div className={styles.rowContainer}>
         <CapabilitiesEditable
-          capabilities={applicant.capabilities}
           setList={setCapabilities}
+          capabilities={applicant.capabilities || []}
         />
+        <div className={styles.separator}/>
         <CareersEditable
           careers={applicant.careers}
           setCareer={setCareer}

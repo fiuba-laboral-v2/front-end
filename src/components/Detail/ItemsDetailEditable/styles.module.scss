@@ -1,0 +1,63 @@
+@import "$styles/_detailsVariables.scss";
+@import "$components/Capabilities/styles/variables.scss";
+
+.headers {
+  display: flex;
+  flex-direction: row;
+}
+
+.addIcon {
+  padding-left: 10px;
+  margin-bottom: $margin-bottom;
+}
+
+.deleteIcon {
+  padding-left: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  width: $width;
+  height: $height;
+  font-size: $font-size;
+  margin-bottom: $margin-bottom;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    height: $height;
+    font-size: $font-size;
+    margin-bottom: $margin-bottom;
+  }
+
+  .title {
+    height: $height;
+    font-size: $font-size;
+    font-weight: bold;
+    margin-bottom: $margin-bottom;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkIcon {
+  padding-left: 10px;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .items {
+    margin: 20px 0 0 0;
+    column-count: 1;
+    max-width: 430px;
+  }
+}

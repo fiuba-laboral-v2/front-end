@@ -10,6 +10,11 @@
   flex-direction: row;
 }
 
+.separator, .rowContainer {
+  flex-grow: 1;
+}
+
+
 @media (max-width: $mobileContainerThreshold) {
   .rowContainer {
     margin-left: 0;
