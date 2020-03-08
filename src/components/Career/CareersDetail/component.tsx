@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ItemsDetail } from "$components/ItemsDetail";
+import { ItemsDetail } from "$components/Detail/ItemsDetail";
 import { ICareersProps } from "./interface";
 import { ICareer } from "$interfaces/Applicant";
 
