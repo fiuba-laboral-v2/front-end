@@ -3,7 +3,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import { updateApplicant } from "$mutations";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import { getApplicantByPadron, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
 
@@ -13,6 +13,8 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const [redirect, setRedirect] = useState(false);
   const [state, setState] = useState<IApplicant>({} as any);
+  const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
+  const [deletedCareers, setDeletedCareers] = useState(Array<string>());
 
   const { data: translationsData } = useQuery(getTranslations, {
       variables: {
@@ -42,7 +44,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     }
   );
 
-  const applicant = applicantData ? applicantData.getApplicantByPadron : undefined;
+  const applicant: IApplicant = applicantData ? applicantData.getApplicantByPadron : undefined;
 
   const submit = (applicantProps: IApplicant) => {
     const dataToUpdate: IApplicantEditable = {
@@ -55,6 +57,9 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         ({ code: c.code, creditsCount: c.creditsCount || 0 })
       )
     };
+    alert(JSON.stringify(deletedCareers));
+    alert(JSON.stringify(deletedCapabilities));
+    alert(JSON.stringify(dataToUpdate));
     return updateApplicantTodo({ variables: dataToUpdate });
   };
 
@@ -64,6 +69,40 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const cancel = () => {
     return setRedirect(true);
+  };
+
+  const deleteNewCapability = (description: string) => {
+    state.capabilities = state.capabilities?.filter(c =>  c.description !== description);
+    setState(Object.assign({}, state));
+  };
+
+  const deleteExistingCapability = (description: string) => {
+    applicant.capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
+  };
+
+  const deleteCapability = (description: string) => {
+    const newDeletedCapabilities = Object.assign([], deletedCapabilities);
+    newDeletedCapabilities.push(description);
+    setDeletedCapabilities(Object.assign([], [...new Set(newDeletedCapabilities)]));
+    deleteNewCapability(description);
+    deleteExistingCapability(description);
+  };
+
+  const deleteNewCareer = (code: string) => {
+    state.careers = state.careers?.filter(c =>  c.code !== code);
+    setState(Object.assign({}, state));
+  };
+
+  const deleteExistingCareer = (code: string) => {
+    applicant.careers = applicant.careers?.filter(c =>  c.code !== code);
+  };
+
+  const deleteCareer = (code: string) => {
+    const newDeletedCareers = Object.assign([], deletedCareers);
+    newDeletedCareers.push(code);
+    setDeletedCareers(Object.assign([], [...new Set(newDeletedCareers)]));
+    deleteNewCareer(code);
+    deleteExistingCareer(code);
   };
 
   const mergeCapabilities = () => {
@@ -92,6 +131,8 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   return (
     <ApplicantDetailEditable
+      deleteCapability={deleteCapability}
+      deleteCareer={deleteCareer}
       setState={onChange}
       onSubmit={submit}
       onCancel={cancel}

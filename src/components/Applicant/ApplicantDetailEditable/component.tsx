@@ -15,7 +15,9 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     onSubmit,
     onCancel,
     setState,
-    state
+    state,
+    deleteCapability,
+    deleteCareer
   }) => {
 
   const setName = (newName: string | number) => {
@@ -77,11 +79,13 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       </div>
       <div className={styles.rowContainer}>
         <CapabilitiesEditable
+          deleteCapability={deleteCapability}
           setList={setCapabilities}
           capabilities={applicant.capabilities || []}
         />
         <div className={styles.separator}/>
         <CareersEditable
+          deleteCareer={deleteCareer}
           careers={applicant.careers}
           setCareer={setCareer}
         />

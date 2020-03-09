@@ -15,4 +15,5 @@ export interface ICareersEditableProps {
 export interface ICareersEditableContainerProps {
   careers?: ICareer[];
   setCareer: (career: ICareer) => void;
+  deleteCareer: (code: string) => void;
 }

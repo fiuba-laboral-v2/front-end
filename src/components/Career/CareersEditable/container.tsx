@@ -9,6 +9,7 @@ import NotFound from "$pages/NotFound";
 const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
   {
     setCareer,
+    deleteCareer,
     careers
   }) => {
   const [state, setState] = useState<ICareer>();
@@ -44,8 +45,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   };
 
   const onDelete = (code: string) => {
-    const career = careers!.find(c => c.code === code);
-    alert(`Are you sure to delete: ${career!.description}`);
+    deleteCareer(code);
   };
 
   const onChange = (code: string, Careers: ICareer[]) => {

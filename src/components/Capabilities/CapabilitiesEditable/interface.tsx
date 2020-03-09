@@ -10,5 +10,6 @@ export interface ICapabilitiesEditableProps {
 
 export interface ICapabilitiesEditableContainerProps {
   setList: (newValue: string | number) => void;
+  deleteCapability: (description: string) => void;
   capabilities: ICapability[];
 }

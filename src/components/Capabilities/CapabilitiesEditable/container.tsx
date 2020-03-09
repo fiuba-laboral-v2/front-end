@@ -7,6 +7,7 @@ import { getTranslations } from "../../../graphql/queries";
 const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableContainerProps> = (
   {
     setList,
+    deleteCapability,
     capabilities
   }) => {
   const [state, setState] = useState<string | number>();
@@ -20,8 +21,8 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
     if (state) setList(state);
   };
 
-  const onDelete = (item: string) => {
-    alert(`Are you sure to delete: ${item}`);
+  const onDelete = (description: string) => {
+    deleteCapability(description);
   };
   return (
     <CapabilitiesEditable

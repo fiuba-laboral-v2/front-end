@@ -14,4 +14,6 @@ export interface IApplicantDetailEditableProps {
   onSubmit: (applicant: IApplicant) => void;
   onCancel: () => void;
   setState: (applicant: IApplicant) => void;
+  deleteCapability: (description: string) => void;
+  deleteCareer: (code: string) => void;
 }
