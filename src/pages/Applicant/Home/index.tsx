@@ -3,7 +3,7 @@ import NavBar from "$components/NavBar";
 import { ApplicantTitle } from "$components/ApplicantTitle";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 
-const Applicant: FunctionComponent = () => (
+const ApplicantHome: FunctionComponent = () => (
   <div>
     <NavBar/>
     <div className="mainContent">
@@ -13,4 +13,4 @@ const Applicant: FunctionComponent = () => (
   </div>
 );
 
-export default Applicant;
+export default ApplicantHome;

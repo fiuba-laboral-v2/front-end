@@ -1,0 +1,7 @@
+query GetCareers{
+  getCareers{
+    code
+    description
+    credits
+  }
+}
