@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
+import { SubmitButton } from "$components/SubmitButton";
 import { IFormFooterProps } from "./interface";
 
 const FormFooter: FunctionComponent<IFormFooterProps> = (
@@ -10,12 +11,8 @@ const FormFooter: FunctionComponent<IFormFooterProps> = (
   return (
     <div className={styles.footer}>
       <div className={styles.separator}/>
-      <button className={styles.submitButton} onClick={onCancel}>
-        cancel
-      </button>
-      <button className={styles.submitButton} onClick={onSubmit}>
-        save
-      </button>
+      <SubmitButton onClick={onCancel} text={"Cancelar"}/>
+      <SubmitButton onClick={onSubmit} text={"Guardar"}/>
     </div>
   );
 };

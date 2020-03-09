@@ -6,25 +6,9 @@
 }
 
 .footer :last-child {
-  margin-right: 0;
+  margin-left: 10px;
 }
 
 .separator, .footer {
   flex-grow: 1;
-}
-
-.footer > .submitButton:last-child {
-  margin-left: 10px;
-}
-
-.submitButton {
-  background: $background;
-  display:table-cell;
-  height: 30px;
-  width: 60px;
-
-  color: #004369;
-  box-sizing: border-box;
-  border: 2px solid #004369;
-  border-radius: 6px;
 }
