@@ -1,1 +1,1 @@
-export { FormFooter } from "./component";
+export { FormFooterContainer as FormFooter } from "./container";
