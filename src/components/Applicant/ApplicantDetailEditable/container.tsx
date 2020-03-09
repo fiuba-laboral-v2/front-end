@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
-import { updateApplicant } from "$mutations";
+import { updateApplicant, deleteApplicantCapabilities, deleteApplicantCareers } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { getApplicantByPadron, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
@@ -39,6 +39,17 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     updateApplicantTodo,
     { data: updateData, error: updateError }
   ] = useMutation(updateApplicant);
+
+  const [
+    deleteCapabilitiesTodo,
+    { data: deleteCapabilitiesData, error: deleteCapabilitiesError }
+  ] = useMutation(deleteApplicantCapabilities);
+
+  const [
+    deleteCareersTodo,
+    { data: deleteCareersData, error: deleteCareersError }
+  ] = useMutation(deleteApplicantCareers);
+
   const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {
       variables: { padron: parseInt(id!, 10) }
     }
@@ -46,9 +57,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const applicant: IApplicant = applicantData ? applicantData.getApplicantByPadron : undefined;
 
-  const submit = (applicantProps: IApplicant) => {
+  const submit = async (applicantProps: IApplicant) => {
+    const padron = parseInt(id!, 10);
     const dataToUpdate: IApplicantEditable = {
-      padron: parseInt(id!, 10),
+      padron: padron,
       name: applicantProps.name,
       surname: applicantProps.surname,
       description: applicantProps.description,
@@ -57,9 +69,12 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         ({ code: c.code, creditsCount: c.creditsCount || 0 })
       )
     };
-    alert(JSON.stringify(deletedCareers));
-    alert(JSON.stringify(deletedCapabilities));
-    alert(JSON.stringify(dataToUpdate));
+    await deleteCapabilitiesTodo({
+      variables: { padron: padron, capabilities: deletedCapabilities }
+    });
+    await deleteCareersTodo({
+      variables: { padron: padron, careersCodes: deletedCareers }
+    });
     return updateApplicantTodo({ variables: dataToUpdate });
   };
 
@@ -124,8 +139,12 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     return clone;
   };
 
-  if (redirect || updateData) return (<Redirect to={`/applicants/${id}/`}/>);
+  if (redirect || updateData || deleteCapabilitiesData || deleteCareersData) {
+    return (<Redirect to={`/applicants/${id}/`}/>);
+  }
   if (updateError) alert(updateError.message);
+  if (deleteCapabilitiesError) alert(deleteCapabilitiesError.message);
+  if (deleteCareersError) alert(deleteCareersError.message);
   if (applicantError) return (<NotFound/>);
   if (applicant === undefined) return (<div></div>);
 
