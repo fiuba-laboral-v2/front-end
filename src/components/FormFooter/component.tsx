@@ -6,13 +6,15 @@ import { IFormFooterProps } from "./interface";
 const FormFooter: FunctionComponent<IFormFooterProps> = (
   {
     onSubmit,
-    onCancel
+    onCancel,
+    saveText,
+    cancelText
   }) => {
   return (
     <div className={styles.footer}>
       <div className={styles.separator}/>
-      <SubmitButton onClick={onCancel} text={"Cancelar"}/>
-      <SubmitButton onClick={onSubmit} text={"Guardar"}/>
+      <SubmitButton onClick={onCancel} text={cancelText}/>
+      <SubmitButton onClick={onSubmit} text={saveText}/>
     </div>
   );
 };
