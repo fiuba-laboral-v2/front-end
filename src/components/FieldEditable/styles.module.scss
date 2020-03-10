@@ -5,14 +5,27 @@
   flex-direction: row;
 }
 
+.editContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .fieldName {
   padding-right: 10px;
   font-weight: bold;
 }
 
-.fieldStatic, .fieldName {
+.inputFieldValue {
+  width: 100%;
+}
+
+.inputFieldValue, .fieldValue, .fieldName {
   margin: 0 0 10px 0;
   font-size: 20px;
+}
+
+.editIcon {
+  padding-left: 10px;
 }
 
 
