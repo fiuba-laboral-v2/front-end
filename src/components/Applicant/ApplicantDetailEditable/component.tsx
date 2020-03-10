@@ -19,7 +19,6 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     deleteCapability,
     deleteCareer
   }) => {
-
   const setName = (newName: string | number) => {
     state.name = String(newName);
     const newState = Object.assign({}, state);
