@@ -13,7 +13,7 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
     fieldName
   }
 ) => {
-  const field = () => {
+  const toggleField = () => {
     if (isEditing) {
       return (
         <InputEditable
@@ -26,17 +26,12 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
     return (<span className={styles.fieldValue}>{defaultField}</span>);
   };
 
-  const toggleIsEditing = () => {
-    if (isEditing) return setEditing(false);
-    return setEditing(true);
-  };
-
   return (
     <div className={styles.fieldContainer}>
       <div className={styles.fieldName}>{`${fieldName}:`}</div>
       <div className={styles.editContainer}>
-        {field()}
-        <CreateIcon onClick={toggleIsEditing} className={styles.editIcon}/>
+        { toggleField() }
+        <CreateIcon onClick={() => setEditing(!isEditing)} className={styles.editIcon}/>
       </div>
     </div>
   );
