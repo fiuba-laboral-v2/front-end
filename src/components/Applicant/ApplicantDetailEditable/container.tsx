@@ -34,20 +34,14 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     descriptionTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
 
-  const [
-    updateApplicantTodo,
-    { data: updateData, error: updateError }
-  ] = useMutation(updateApplicant);
+  const [ updateApplicantTodo, { data: updateData } ] = useMutation(updateApplicant);
 
   const [
     deleteCapabilitiesTodo,
-    { data: deleteCapabilitiesData, error: deleteCapabilitiesError }
+    { data: deleteCapabilitiesData }
   ] = useMutation(deleteApplicantCapabilities);
 
-  const [
-    deleteCareersTodo,
-    { data: deleteCareersData, error: deleteCareersError }
-  ] = useMutation(deleteApplicantCareers);
+  const [ deleteCareersTodo, { data: deleteCareersData } ] = useMutation(deleteApplicantCareers);
 
   const { data: applicantData, error: applicantError, loading } = useQuery(getApplicantByPadron, {
       variables: { padron: parseInt(id!, 10) }
@@ -68,13 +62,17 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         ({ code: c.code, creditsCount: c.creditsCount || 0 })
       )
     };
-    await deleteCapabilitiesTodo({
-      variables: { padron: padron, capabilities: deletedCapabilities }
-    });
-    await deleteCareersTodo({
-      variables: { padron: padron, careersCodes: deletedCareers }
-    });
-    return updateApplicantTodo({ variables: dataToUpdate });
+    try {
+      await deleteCapabilitiesTodo({
+        variables: { padron: padron, capabilities: deletedCapabilities }
+      });
+      await deleteCareersTodo({
+        variables: { padron: padron, careersCodes: deletedCareers }
+      });
+      await updateApplicantTodo({ variables: dataToUpdate });
+    } catch (e) {
+      alert(e);
+    }
   };
 
   const deleteCapability = (description: string) => {
@@ -92,9 +90,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
   if (redirect || updateData || deleteCapabilitiesData || deleteCareersData) {
     return (<Redirect to={`/applicants/${id}/`}/>);
   }
-  if (updateError) alert(updateError.message);
-  if (deleteCapabilitiesError) alert(deleteCapabilitiesError.message);
-  if (deleteCareersError) alert(deleteCareersError.message);
+
   if (applicantError) return (<NotFound/>);
   if (loading) return (<div></div>);
   return (
