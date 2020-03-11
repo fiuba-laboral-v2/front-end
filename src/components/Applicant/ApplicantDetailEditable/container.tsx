@@ -77,32 +77,16 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     return updateApplicantTodo({ variables: dataToUpdate });
   };
 
-  const cancel = () => {
-    return setRedirect(true);
-  };
-
-  const deleteNewCapability = (description: string) => {
-    applicant.capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
-    setApplicant(Object.assign({}, applicant));
-  };
-
   const deleteCapability = (description: string) => {
-    const newDeletedCapabilities = Object.assign([], deletedCapabilities);
-    newDeletedCapabilities.push(description);
-    setDeletedCapabilities(Object.assign([], [...new Set(newDeletedCapabilities)]));
-    deleteNewCapability(description);
-  };
-
-  const deleteNewCareer = (code: string) => {
-    applicant.careers = applicant.careers?.filter(c =>  c.code !== code);
-    setApplicant(Object.assign({}, applicant));
+    setDeletedCapabilities([ ...deletedCapabilities,  description]);
+    applicant.capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
+    setApplicant({ ...applicant, capabilities: applicant.capabilities });
   };
 
   const deleteCareer = (code: string) => {
-    const newDeletedCareers = Object.assign([], deletedCareers);
-    newDeletedCareers.push(code);
-    setDeletedCareers(Object.assign([], [...new Set(newDeletedCareers)]));
-    deleteNewCareer(code);
+    setDeletedCareers([ ...deletedCareers, code ]);
+    applicant.careers = applicant.careers?.filter(c =>  c.code !== code);
+    setApplicant({ ...applicant, careers: applicant.careers });
   };
 
   if (redirect || updateData || deleteCapabilitiesData || deleteCareersData) {
@@ -119,7 +103,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setState={setApplicant}
       onSubmit={submit}
-      onCancel={cancel}
+      onCancel={() => setRedirect(true)}
       applicant={applicant}
       translations={
         {
