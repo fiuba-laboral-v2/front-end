@@ -62,7 +62,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         <div className={styles.separator}/>
         <CareersEditable
           deleteCareer={deleteCareer}
-          careers={applicant.careers}
+          careers={applicant.careers || []}
           setCareer={setCareer}
         />
       </div>

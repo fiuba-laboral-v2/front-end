@@ -29,10 +29,10 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       <div className={styles.info}>
         <CapabilitiesDetail
           title={translations.capabilities}
-          capabilities={applicant.capabilities}
+          capabilities={applicant.capabilities || []}
         />
         <CareersDetail
-          careers={applicant.careers}
+          careers={applicant.careers || []}
         />
       </div>
   </DetailMainContainer>

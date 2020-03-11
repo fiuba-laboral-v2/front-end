@@ -1,4 +1,4 @@
 export interface IItemsDetailProps {
-  items?: string[];
+  items: string[];
   title: string;
 }

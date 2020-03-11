@@ -3,6 +3,6 @@ export interface ICapability {
 }
 
 export interface ICapabilitiesProps {
-  capabilities?: ICapability[];
+  capabilities: ICapability[];
   title: string;
 }

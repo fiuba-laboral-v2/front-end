@@ -13,7 +13,7 @@ export interface ICareersEditableProps {
 }
 
 export interface ICareersEditableContainerProps {
-  careers?: ICareer[];
+  careers: ICareer[];
   setCareer: (career: ICareer) => void;
   deleteCareer: (code: string) => void;
 }
