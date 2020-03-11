@@ -18,6 +18,7 @@ export interface IApplicant {
   capabilities?: ICapability[];
   careers?: ICareer[];
 }
+
 export interface IApplicantCareer {
   code: string;
   creditsCount: number;

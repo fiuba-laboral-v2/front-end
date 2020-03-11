@@ -12,9 +12,9 @@ const FieldEditableContainer: FunctionComponent<IFieldEditableContainerProps> = 
   const [state, setState] = useState(defaultField);
   const [isEditing, setEditing] = useState(false);
 
-  const onChange = (newByLine: string | number) => {
-    setState(newByLine);
-    setField(newByLine);
+  const onChange = (newField: string) => {
+    setState(newField);
+    setField(newField);
   };
 
   return (

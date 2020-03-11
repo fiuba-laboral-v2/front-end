@@ -19,24 +19,6 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     deleteCapability,
     deleteCareer
   }) => {
-  const setName = (newName: string | number) => {
-    state.name = String(newName);
-    const newState = Object.assign({}, state);
-    return setState(newState);
-  };
-
-  const setSurname = (newSurname: string | number) => {
-    state.surname = String(newSurname);
-    const newState = Object.assign({}, state);
-    return setState(newState);
-  };
-
-  const setDescription = (newDescription: string | number) => {
-    state.description = String(newDescription);
-    const newState = Object.assign({}, state);
-    return setState(newState);
-  };
-
   const setCapabilities = (newCapability: string | number) => {
     const mergedCapabilities = applicant.capabilities || [];
     if (mergedCapabilities.findIndex(item => item.description === newCapability) >= 0) return;
@@ -62,17 +44,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       <div className={styles.columnContainer}>
         <FieldEditable
           defaultField={applicant.name}
-          setField={setName}
+          setField={newName => setState({...state, name: newName})}
           fieldName={translations.name}
         />
         <FieldEditable
           defaultField={applicant.surname}
-          setField={setSurname}
+          setField={newSurname => setState({...state, surname: newSurname})}
           fieldName={translations.lastName}
         />
         <FieldEditable
           defaultField={applicant.description}
-          setField={setDescription}
+          setField={newDescription => setState({...state, description: newDescription})}
           fieldName={translations.description}
         />
       </div>

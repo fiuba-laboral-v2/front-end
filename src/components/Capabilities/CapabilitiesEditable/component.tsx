@@ -17,14 +17,15 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
       onDelete={onDelete}
       titleTranslation={title}
       items={
-        capabilities.map((capability: ICapability) => {
+        capabilities.map(({ description }: ICapability) => {
           return {
-            id: capability.description,
-            value: capability.description
+            id: description,
+            value: description
           };
         })
       }
-      onFinish={onFinish}>
+      onFinish={onFinish}
+    >
       <InputEditable className={styles.input} type={"text"} onChange={setState}/>
     </ItemsDetailEditable>
 );
