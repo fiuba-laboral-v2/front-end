@@ -14,16 +14,16 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
   }
 ) => {
   const toggleField = () => {
-    if (isEditing) {
-      return (
+    return (
+      isEditing ?
         <InputEditable
           className={styles.inputFieldValue}
           type={"text"} onChange={setField}
           defaultValue={defaultField}
         />
-      );
-    }
-    return (<span className={styles.fieldValue}>{defaultField}</span>);
+        :
+        <span className={styles.fieldValue}>{defaultField}</span>
+    );
   };
 
   return (
