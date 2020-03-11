@@ -52,6 +52,7 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
             })
           }
         </select>
+        <div className={styles.separator}/>
         <InputEditable
           className={styles.creditsCount}
           type={"number"}
