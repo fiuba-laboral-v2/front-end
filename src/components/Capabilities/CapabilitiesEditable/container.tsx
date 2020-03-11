@@ -10,7 +10,7 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
     deleteCapability,
     capabilities
   }) => {
-  const [state, setState] = useState<string | number>();
+  const [state, setState] = useState<string>();
   const { data: translationsData } = useQuery(getTranslations, {
       variables: { paths: ["applicant.capabilities"] }
     }

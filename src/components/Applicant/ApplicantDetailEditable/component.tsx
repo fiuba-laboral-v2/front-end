@@ -6,7 +6,7 @@ import { FieldEditable } from "$components/FieldEditable";
 import { FormFooter } from "$components/FormFooter";
 import { CapabilitiesEditable } from "$components/Capabilities/CapabilitiesEditable";
 import { CareersEditable } from "$components/Career/CareersEditable";
-import { ICareer } from "$interfaces/Applicant";
+import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -18,9 +18,12 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     deleteCapability,
     deleteCareer
   }) => {
-  const setCapabilities = (newCapability: string | number) => {
+  const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
-    if (applicant.capabilities.findIndex(item => item.description === newCapability) >= 0) return;
+    if (applicant.capabilities
+      .map(({ description }: ICapability) => description)
+      .includes(newCapability)
+    ) return;
 
     applicant.capabilities.push({ uuid: "", description: String(newCapability) });
     return setState({ ...applicant, capabilities: applicant.capabilities });
@@ -28,7 +31,11 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
 
   const setCareer = (career: ICareer) => {
     applicant.careers = applicant.careers || [];
-    if (applicant.careers.findIndex((item: ICareer) => item.code === career.code) >= 0) return;
+    if (
+      applicant.careers
+        .map(({ code }: ICareer) => code)
+        .includes(career.code)
+    ) return;
 
     applicant.careers.push(career);
     return setState({ ...applicant, careers: applicant.careers });
