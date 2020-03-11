@@ -14,7 +14,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     translations,
     onSubmit,
     onCancel,
-    setState,
+    setApplicant,
     deleteCapability,
     deleteCareer
   }) => {
@@ -27,7 +27,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     ) return;
 
     applicant.capabilities.push({ uuid: "", description: String(newCapability) });
-    return setState({ ...applicant, capabilities: applicant.capabilities });
+    return setApplicant({ ...applicant, capabilities: applicant.capabilities });
   };
 
   const setCareer = (career: ICareer) => {
@@ -39,7 +39,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     ) return;
 
     applicant.careers.push(career);
-    return setState({ ...applicant, careers: applicant.careers });
+    return setApplicant({ ...applicant, careers: applicant.careers });
   };
 
   return (
@@ -47,17 +47,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       <div className={styles.columnContainer}>
         <FieldEditable
           defaultField={applicant.name}
-          setField={newName => setState({...applicant, name: newName})}
+          setField={newName => setApplicant({...applicant, name: newName})}
           fieldName={translations.name}
         />
         <FieldEditable
           defaultField={applicant.surname}
-          setField={newSurname => setState({...applicant, surname: newSurname})}
+          setField={newSurname => setApplicant({...applicant, surname: newSurname})}
           fieldName={translations.lastName}
         />
         <FieldEditable
           defaultField={applicant.description}
-          setField={newDescription => setState({...applicant, description: newDescription})}
+          setField={newDescription => setApplicant({...applicant, description: newDescription})}
           fieldName={translations.description}
         />
       </div>

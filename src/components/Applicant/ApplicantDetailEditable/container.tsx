@@ -101,7 +101,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     <ApplicantDetailEditable
       deleteCapability={deleteCapability}
       deleteCareer={deleteCareer}
-      setState={setApplicant}
+      setApplicant={setApplicant}
       onSubmit={submit}
       onCancel={() => setRedirect(true)}
       applicant={applicant}

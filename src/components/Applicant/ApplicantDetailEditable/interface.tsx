@@ -12,7 +12,7 @@ export interface IApplicantDetailEditableProps {
   translations: ITranslationsEditable;
   onSubmit: (applicant: IApplicant) => void;
   onCancel: () => void;
-  setState: (applicant: IApplicant) => void;
+  setApplicant: (applicant: IApplicant) => void;
   deleteCapability: (description: string) => void;
   deleteCareer: (code: string) => void;
 }
