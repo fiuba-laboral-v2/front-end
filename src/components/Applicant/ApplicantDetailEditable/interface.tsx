@@ -9,7 +9,6 @@ export interface ITranslationsEditable {
 
 export interface IApplicantDetailEditableProps {
   applicant: IApplicant;
-  state: IApplicant;
   translations: ITranslationsEditable;
   onSubmit: (applicant: IApplicant) => void;
   onCancel: () => void;

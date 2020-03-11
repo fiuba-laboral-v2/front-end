@@ -15,28 +15,23 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     onSubmit,
     onCancel,
     setState,
-    state,
     deleteCapability,
     deleteCareer
   }) => {
   const setCapabilities = (newCapability: string | number) => {
-    const mergedCapabilities = applicant.capabilities || [];
-    if (mergedCapabilities.findIndex(item => item.description === newCapability) >= 0) return;
+    applicant.capabilities = applicant.capabilities || [];
+    if (applicant.capabilities.findIndex(item => item.description === newCapability) >= 0) return;
 
-    state.capabilities = state.capabilities || [];
-    state.capabilities.push({ uuid: "", description: String(newCapability) });
-    const newState = Object.assign({}, state);
-    return setState(newState);
+    applicant.capabilities.push({ uuid: "", description: String(newCapability) });
+    return setState({ ...applicant, capabilities: applicant.capabilities });
   };
 
   const setCareer = (career: ICareer) => {
-    const mergedCareers = applicant.careers || [];
-    if (mergedCareers.findIndex((item: ICareer) => item.code === career.code) >= 0) return;
+    applicant.careers = applicant.careers || [];
+    if (applicant.careers.findIndex((item: ICareer) => item.code === career.code) >= 0) return;
 
-    state.careers = state.careers || [];
-    state.careers.push(career);
-    const newState = Object.assign({}, state);
-    return setState(newState);
+    applicant.careers.push(career);
+    return setState({ ...applicant, careers: applicant.careers });
   };
 
   return (
@@ -44,17 +39,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       <div className={styles.columnContainer}>
         <FieldEditable
           defaultField={applicant.name}
-          setField={newName => setState({...state, name: newName})}
+          setField={newName => setState({...applicant, name: newName})}
           fieldName={translations.name}
         />
         <FieldEditable
           defaultField={applicant.surname}
-          setField={newSurname => setState({...state, surname: newSurname})}
+          setField={newSurname => setState({...applicant, surname: newSurname})}
           fieldName={translations.lastName}
         />
         <FieldEditable
           defaultField={applicant.description}
-          setField={newDescription => setState({...state, description: newDescription})}
+          setField={newDescription => setState({...applicant, description: newDescription})}
           fieldName={translations.description}
         />
       </div>
@@ -71,7 +66,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
           setCareer={setCareer}
         />
       </div>
-      <FormFooter onSubmit={() => onSubmit(state)} onCancel={onCancel}/>
+      <FormFooter onSubmit={() => onSubmit(applicant)} onCancel={onCancel}/>
     </DetailMainContainer>
   );
 };
