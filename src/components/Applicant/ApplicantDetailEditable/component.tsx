@@ -20,9 +20,10 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   }) => {
   const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
-    if (applicant.capabilities
-      .map(({ description }: ICapability) => description)
-      .includes(newCapability)
+    if (
+      applicant.capabilities
+        .map(({ description }: ICapability) => description)
+        .includes(newCapability)
     ) return;
 
     applicant.capabilities.push({ uuid: "", description: String(newCapability) });
