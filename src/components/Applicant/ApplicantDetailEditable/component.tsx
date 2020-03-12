@@ -5,7 +5,7 @@ import { IApplicantDetailEditableProps } from "./interface";
 import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
 import { EditableCapabilities } from "$components/Capabilities/EditableCapabilities";
-import { CareersEditable } from "$components/Career/CareersEditable";
+import { EditableCareers } from "$components/Career/EditableCareers";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
@@ -68,7 +68,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
           capabilities={applicant.capabilities || []}
         />
         <div className={styles.separator}/>
-        <CareersEditable
+        <EditableCareers
           deleteCareer={deleteCareer}
           careers={applicant.careers || []}
           setCareer={setCareer}

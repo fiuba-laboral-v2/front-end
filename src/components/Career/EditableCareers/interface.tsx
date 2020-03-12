@@ -1,6 +1,6 @@
 import { ICareer } from "$interfaces/Applicant";
 
-export interface ICareersEditableProps {
+export interface IEditableCareersProps {
   selectACareerTranslation: string;
   creditsProgressTranslation: string;
   careersTitleTranslation: string;
@@ -12,7 +12,7 @@ export interface ICareersEditableProps {
   onDelete: (item: string) => void;
 }
 
-export interface ICareersEditableContainerProps {
+export interface IEditableCareersContainerProps {
   careers: ICareer[];
   setCareer: (career: ICareer) => void;
   deleteCareer: (code: string) => void;

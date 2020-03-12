@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { ICareersEditableProps } from "./interface";
+import { IEditableCareersProps } from "./interface";
 import styles from "./styles.module.scss";
 import { InputEditable } from "$components/InputEditable";
 import { ItemsDetailEditable } from "$components/Detail/ItemsDetailEditable";
 import { ICareer } from "$interfaces/Applicant";
 
-const CareersEditable: FunctionComponent<ICareersEditableProps> = (
+const EditableCareers: FunctionComponent<IEditableCareersProps> = (
   {
     selectACareerTranslation,
     creditsProgressTranslation,
@@ -64,4 +64,4 @@ const CareersEditable: FunctionComponent<ICareersEditableProps> = (
   );
 };
 
-export { CareersEditable };
+export { EditableCareers };

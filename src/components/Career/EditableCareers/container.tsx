@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useState } from "react";
-import { ICareersEditableContainerProps } from "./interface";
-import { CareersEditable } from "./component";
+import { IEditableCareersContainerProps } from "./interface";
+import { EditableCareers } from "./component";
 import { ICareer } from "../../../interfaces/Applicant";
 import { getCareers, getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
 
-const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps> = (
+const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps> = (
   {
     setCareer,
     deleteCareer,
@@ -52,9 +52,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
     if (code === "none") return;
 
     const career = Careers.find(aCareer => aCareer.code === code);
-    if (!career) throw new Error(`The career ${code} does not exists`);
-
-    career.creditsCount = state?.creditsCount;
+    career!.creditsCount = state?.creditsCount;
     return setState(career);
   };
 
@@ -70,7 +68,7 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   }
 
   return (
-    <CareersEditable
+    <EditableCareers
       selectACareerTranslation={selectACareerTranslation}
       creditsProgressTranslation={creditsProgressTranslation}
       careersTitleTranslation={careersTitleTranslation}
@@ -84,4 +82,4 @@ const CareersEditableContainer: FunctionComponent<ICareersEditableContainerProps
   );
 };
 
-export { CareersEditableContainer };
+export { EditableCareersContainer };
