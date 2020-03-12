@@ -6,7 +6,7 @@ export interface IEditableCareersProps {
   careersTitleTranslation: string;
   allCareers: ICareer[];
   currentCareers: ICareer[];
-  setCreditsCount: (creditsCount: number | string) => void;
+  setCreditsCount: (creditsCount: string) => void;
   setCareer: (code: string, careers: ICareer[]) => void;
   onFinish: () => void;
   onDelete: (item: string) => void;

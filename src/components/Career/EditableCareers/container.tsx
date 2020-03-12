@@ -12,7 +12,14 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     deleteCareer,
     careers
   }) => {
-  const [state, setState] = useState<ICareer>();
+  const [state, setState] = useState<ICareer>(
+    {
+      code: "",
+      description: "",
+      credits: 0,
+      creditsCount: 0
+    }
+  );
   const { data, error } = useQuery(getCareers);
   const { data: translationsData } = useQuery(getTranslations, {
       variables: {
@@ -44,22 +51,16 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     if (!stateUndefined()) setCareer(state!);
   };
 
-  const onDelete = (code: string) => {
-    deleteCareer(code);
-  };
-
   const onChange = (code: string, Careers: ICareer[]) => {
     if (code === "none") return;
 
     const career = Careers.find(aCareer => aCareer.code === code);
-    career!.creditsCount = state?.creditsCount;
-    return setState(career);
+    career!.creditsCount = state.creditsCount;
+    return setState(career!);
   };
 
-  const setCreditsCount = (creditsCount: number | string) => {
-    const newState = Object.assign({}, state);
-    newState.creditsCount = Number(creditsCount);
-    setState(newState);
+  const setCreditsCount = (creditsCount: string) => {
+    setState({ ...state, creditsCount: Number(creditsCount) });
   };
 
   if (error) {
@@ -73,7 +74,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
       creditsProgressTranslation={creditsProgressTranslation}
       careersTitleTranslation={careersTitleTranslation}
       onFinish={onFinish}
-      onDelete={onDelete}
+      onDelete={deleteCareer}
       setCareer={onChange}
       setCreditsCount={setCreditsCount}
       allCareers={allCareers}
