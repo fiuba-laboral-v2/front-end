@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useMemo } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { HistoryRoutes } from "../../../history";
+import { RoutesBuilder } from "../../../routesBuilder";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
@@ -71,7 +71,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         variables: { padron: padron, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
-      history.push(HistoryRoutes.applicant.detail(padron));
+      history.push(RoutesBuilder.applicant.detail(padron));
     } catch (e) {
       alert(e);
     }
@@ -97,7 +97,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => history.push(HistoryRoutes.applicant.detail(padron))}
+      onCancel={() => history.push(RoutesBuilder.applicant.detail(padron))}
       applicant={applicant}
       translations={
         {
