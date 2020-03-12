@@ -2,7 +2,11 @@ import React, { FunctionComponent, useState, useMemo } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
-import { updateApplicant, deleteApplicantCapabilities, deleteApplicantCareers } from "$mutations";
+import {
+  updateApplicant as updateApplicantMutation,
+  deleteApplicantCapabilities,
+  deleteApplicantCareers
+} from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { getApplicantByPadron, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
@@ -34,14 +38,14 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     descriptionTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
 
-  const [ updateApplicantTodo, { data: updateData } ] = useMutation(updateApplicant);
+  const [ updateApplicant, { data: updateData } ] = useMutation(updateApplicantMutation);
 
   const [
-    deleteCapabilitiesTodo,
+    deleteCapabilities,
     { data: deleteCapabilitiesData }
   ] = useMutation(deleteApplicantCapabilities);
 
-  const [ deleteCareersTodo, { data: deleteCareersData } ] = useMutation(deleteApplicantCareers);
+  const [ deleteCareers, { data: deleteCareersData } ] = useMutation(deleteApplicantCareers);
 
   const { data: applicantData, error: applicantError, loading } = useQuery(getApplicantByPadron, {
       variables: { padron: parseInt(id!, 10) }
@@ -63,13 +67,13 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       )
     };
     try {
-      await deleteCapabilitiesTodo({
+      await deleteCapabilities({
         variables: { padron: padron, capabilities: deletedCapabilities }
       });
-      await deleteCareersTodo({
+      await deleteCareers({
         variables: { padron: padron, careersCodes: deletedCareers }
       });
-      await updateApplicantTodo({ variables: dataToUpdate });
+      await updateApplicant({ variables: dataToUpdate });
     } catch (e) {
       alert(e);
     }
