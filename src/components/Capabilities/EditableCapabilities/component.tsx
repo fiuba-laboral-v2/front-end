@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { ICapabilitiesEditableProps } from "./interface";
+import { IEditableCapabilitiesProps } from "./interface";
 import { ItemsDetailEditable } from "$components/Detail/ItemsDetailEditable";
 import styles from "../../Detail/ItemsDetailEditable/styles.module.scss";
 import { InputEditable } from "../../InputEditable";
 import { ICapability } from "../../../interfaces/Applicant";
 
-const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
+const EditableCapabilities: FunctionComponent<IEditableCapabilitiesProps> = (
   {
     setState,
     onFinish,
@@ -30,4 +30,4 @@ const CapabilitiesEditable: FunctionComponent<ICapabilitiesEditableProps> = (
     </ItemsDetailEditable>
 );
 
-export { CapabilitiesEditable };
+export { EditableCapabilities };

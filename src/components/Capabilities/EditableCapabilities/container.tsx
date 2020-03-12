@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
-import { ICapabilitiesEditableContainerProps } from "./interface";
-import { CapabilitiesEditable } from "./component";
+import { IEditableCapabilitiesContainerProps } from "./interface";
+import { EditableCapabilities } from "./component";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "../../../graphql/queries";
 
-const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableContainerProps> = (
+const EditableCapabilitiesContainer: FunctionComponent<IEditableCapabilitiesContainerProps> = (
   {
     addCapability,
     deleteCapability,
@@ -22,7 +22,7 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
   };
 
   return (
-    <CapabilitiesEditable
+    <EditableCapabilities
       onFinish={onFinish}
       onDelete={deleteCapability}
       setState={setState}
@@ -32,4 +32,4 @@ const CapabilitiesEditableContainer: FunctionComponent<ICapabilitiesEditableCont
   );
 };
 
-export { CapabilitiesEditableContainer };
+export { EditableCapabilitiesContainer };

@@ -4,7 +4,7 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
-import { CapabilitiesEditable } from "$components/Capabilities/CapabilitiesEditable";
+import { EditableCapabilities } from "$components/Capabilities/EditableCapabilities";
 import { CareersEditable } from "$components/Career/CareersEditable";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
@@ -62,7 +62,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
         />
       </div>
       <div className={styles.rowContainer}>
-        <CapabilitiesEditable
+        <EditableCapabilities
           deleteCapability={deleteCapability}
           addCapability={setCapabilities}
           capabilities={applicant.capabilities || []}

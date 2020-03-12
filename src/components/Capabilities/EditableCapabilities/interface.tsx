@@ -1,6 +1,6 @@
 import { ICapability } from "$interfaces/Applicant";
 
-export interface ICapabilitiesEditableProps {
+export interface IEditableCapabilitiesProps {
   setState: (newCapability: string) => void;
   onFinish: () => void;
   onDelete: (item: string) => void;
@@ -8,7 +8,7 @@ export interface ICapabilitiesEditableProps {
   title: string;
 }
 
-export interface ICapabilitiesEditableContainerProps {
+export interface IEditableCapabilitiesContainerProps {
   addCapability: (newCapability: string) => void;
   deleteCapability: (description: string) => void;
   capabilities: ICapability[];
