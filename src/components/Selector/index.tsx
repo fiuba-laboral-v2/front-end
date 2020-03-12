@@ -17,7 +17,7 @@ const formatGroupLabel = (data: any) => (
 );
 
 const SelectField: FunctionComponent<ISelectorProps> = ({ name, options }) => {
-  const [field,, helpers] = useField<string>(name);
+  const [field, , helpers] = useField<string>(name);
   return (
     <Select
       options={options}

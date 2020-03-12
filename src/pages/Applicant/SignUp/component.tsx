@@ -11,7 +11,7 @@ import CareerSelector from "$components/CareerSelector";
 
 import styles from "./styles.module.scss";
 
-interface ICareers {
+interface ICareersMapper {
   value: string;
   label: string;
 }
@@ -29,26 +29,41 @@ interface ISignUpProps {
     addCareerBtn: string;
     submit: string;
   };
+  careers: ICareersMapper[];
+}
+
+interface ICareers {
+  code: string;
+  creditsCount: number;
+}
+
+interface IInitialValues {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+  padron: number;
   careers: ICareers[];
 }
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
-  const [ signUp ] = useMutation(SIGN_UP);
-  const [ saveApplicant ] = useMutation(SAVE_APPLICANT);
+  const [signUp] = useMutation(SIGN_UP);
+  const [saveApplicant] = useMutation(SAVE_APPLICANT);
+  const initialValues: IInitialValues = {
+    email: "",
+    password: "",
+    name: "",
+    surname: "",
+    padron: 0,
+    careers: []
+  };
 
   return (
     <>
       <h1 className={styles.title}>{translations.title}</h1>
-      <hr/>
+      <hr />
       <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          name: "",
-          surname: "",
-          padron: 0,
-          careers: []
-        }}
+        initialValues={initialValues}
         validate={validations}
         onSubmit={(values, { setSubmitting }) => {
           signUp({
@@ -100,7 +115,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
               name="padron"
               type="number"
               placeholder={translations.padron}
-              otherProps={{min:"0", step:"1", oninput:"validity.valid||(value='');"}}
+              otherProps={{ min: "0", step: "1" }}
               large
             />
             <FieldArray
@@ -113,21 +128,22 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                   {values.careers && values.careers.length > 0 ? (
                     values.careers.map((career, index) => (
                       <CareerSelector
+                        key={index}
                         index={index}
-                        career={career}
+                        creditsCount={career.creditsCount}
                         options={careers}
                         arrayHelpers={arrayHelpers}
                         creditsLabel={translations.credits}
                       />
                     ))
                   ) : (
-                    <button
-                      className={styles.addCareerBtn}
-                      type="button"
-                      onClick={() => arrayHelpers.push("")}>
+                      <button
+                        className={styles.addCareerBtn}
+                        type="button"
+                        onClick={() => arrayHelpers.push("")}>
                         {translations.addCareerBtn}
-                    </button>
-                  )}
+                      </button>
+                    )}
                 </div>
               )}
             />
