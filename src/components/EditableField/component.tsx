@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { InputEditable } from "$components/InputEditable";
 import CreateIcon from "@material-ui/icons/Create";
 
-const FieldEditable: FunctionComponent<IFieldEditableProps> = (
+const EditableField: FunctionComponent<IFieldEditableProps> = (
   {
     isEditing,
     setEditing,
@@ -37,4 +37,4 @@ const FieldEditable: FunctionComponent<IFieldEditableProps> = (
   );
 };
 
-export { FieldEditable };
+export { EditableField };

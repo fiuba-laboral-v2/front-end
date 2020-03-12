@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
-import { FieldEditable } from "$components/FieldEditable";
+import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
 import { CapabilitiesEditable } from "$components/Capabilities/CapabilitiesEditable";
 import { CareersEditable } from "$components/Career/CareersEditable";
@@ -45,17 +45,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   return (
     <DetailMainContainer>
       <div className={styles.columnContainer}>
-        <FieldEditable
+        <EditableField
           defaultField={applicant.name}
           setField={newName => setApplicant({...applicant, name: newName})}
           fieldName={translations.name}
         />
-        <FieldEditable
+        <EditableField
           defaultField={applicant.surname}
           setField={newSurname => setApplicant({...applicant, surname: newSurname})}
           fieldName={translations.lastName}
         />
-        <FieldEditable
+        <EditableField
           defaultField={applicant.description}
           setField={newDescription => setApplicant({...applicant, description: newDescription})}
           fieldName={translations.description}

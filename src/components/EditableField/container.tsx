@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
-import { FieldEditable } from "./component";
+import { EditableField } from "./component";
 import { IFieldEditableContainerProps } from "./interface";
 
 
-const FieldEditableContainer: FunctionComponent<IFieldEditableContainerProps> = (
+const EditableFieldContainer: FunctionComponent<IFieldEditableContainerProps> = (
   {
     setField,
     defaultField,
@@ -18,7 +18,7 @@ const FieldEditableContainer: FunctionComponent<IFieldEditableContainerProps> = 
   };
 
   return (
-    <FieldEditable
+    <EditableField
       isEditing={isEditing}
       setEditing={setEditing}
       setField={onChange}
@@ -28,4 +28,4 @@ const FieldEditableContainer: FunctionComponent<IFieldEditableContainerProps> = 
   );
 };
 
-export { FieldEditableContainer };
+export { EditableFieldContainer };
