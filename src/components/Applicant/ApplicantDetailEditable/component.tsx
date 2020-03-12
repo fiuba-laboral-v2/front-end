@@ -64,7 +64,7 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
       <div className={styles.rowContainer}>
         <CapabilitiesEditable
           deleteCapability={deleteCapability}
-          setList={setCapabilities}
+          addCapability={setCapabilities}
           capabilities={applicant.capabilities || []}
         />
         <div className={styles.separator}/>
