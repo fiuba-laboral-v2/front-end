@@ -71,7 +71,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         variables: { padron: padron, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
-      HistoryRoutes.applicant.detail(history, padron);
+      history.push(HistoryRoutes.applicant.detail(padron));
     } catch (e) {
       alert(e);
     }
@@ -97,7 +97,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => HistoryRoutes.applicant.detail(history, padron)}
+      onCancel={() => history.push(HistoryRoutes.applicant.detail(padron))}
       applicant={applicant}
       translations={
         {
