@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { IFieldEditableProps } from "./interface";
+import { IEditableFieldProps } from "./interface";
 import styles from "./styles.module.scss";
 import { InputEditable } from "$components/InputEditable";
 import CreateIcon from "@material-ui/icons/Create";
 
-const EditableField: FunctionComponent<IFieldEditableProps> = (
+const EditableField: FunctionComponent<IEditableFieldProps> = (
   {
     isEditing,
     setEditing,

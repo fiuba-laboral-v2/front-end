@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
 import { EditableField } from "./component";
-import { IFieldEditableContainerProps } from "./interface";
+import { IEditableFieldContainerProps } from "./interface";
 
 
-const EditableFieldContainer: FunctionComponent<IFieldEditableContainerProps> = (
+const EditableFieldContainer: FunctionComponent<IEditableFieldContainerProps> = (
   {
     setField,
     defaultValue,
