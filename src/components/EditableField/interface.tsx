@@ -2,12 +2,12 @@ export interface IFieldEditableProps {
   setEditing: (isEditing: boolean) => void;
   isEditing: boolean;
   setField: (newField: string) => void;
-  defaultField: string;
+  value: string;
   fieldName: string;
 }
 
 export interface IFieldEditableContainerProps {
   setField: (newField: string) => void;
-  defaultField: string;
+  defaultValue: string;
   fieldName: string;
 }

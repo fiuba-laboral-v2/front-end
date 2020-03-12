@@ -46,17 +46,17 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
     <DetailMainContainer>
       <div className={styles.columnContainer}>
         <EditableField
-          defaultField={applicant.name}
+          defaultValue={applicant.name}
           setField={newName => setApplicant({...applicant, name: newName})}
           fieldName={translations.name}
         />
         <EditableField
-          defaultField={applicant.surname}
+          defaultValue={applicant.surname}
           setField={newSurname => setApplicant({...applicant, surname: newSurname})}
           fieldName={translations.lastName}
         />
         <EditableField
-          defaultField={applicant.description}
+          defaultValue={applicant.description}
           setField={newDescription => setApplicant({...applicant, description: newDescription})}
           fieldName={translations.description}
         />

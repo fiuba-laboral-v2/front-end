@@ -9,7 +9,7 @@ const EditableField: FunctionComponent<IFieldEditableProps> = (
     isEditing,
     setEditing,
     setField,
-    defaultField,
+    value,
     fieldName
   }
 ) => {
@@ -19,10 +19,10 @@ const EditableField: FunctionComponent<IFieldEditableProps> = (
         <InputEditable
           className={styles.inputFieldValue}
           type={"text"} onChange={setField}
-          defaultValue={defaultField}
+          defaultValue={value}
         />
         :
-        <span className={styles.fieldValue}>{defaultField}</span>
+        <span className={styles.fieldValue}>{value}</span>
     );
   };
 

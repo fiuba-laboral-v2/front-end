@@ -6,10 +6,10 @@ import { IFieldEditableContainerProps } from "./interface";
 const EditableFieldContainer: FunctionComponent<IFieldEditableContainerProps> = (
   {
     setField,
-    defaultField,
+    defaultValue,
     fieldName
   }) => {
-  const [state, setState] = useState(defaultField);
+  const [state, setState] = useState(defaultValue);
   const [isEditing, setEditing] = useState(false);
 
   const onChange = (newField: string) => {
@@ -22,7 +22,7 @@ const EditableFieldContainer: FunctionComponent<IFieldEditableContainerProps> = 
       isEditing={isEditing}
       setEditing={setEditing}
       setField={onChange}
-      defaultField={state}
+      value={state}
       fieldName={fieldName}
     />
   );
