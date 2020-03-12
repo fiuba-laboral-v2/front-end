@@ -14,7 +14,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
   }) => {
   const [state, setState] = useState<ICareer>(
     {
-      code: "",
+      code: "none",
       description: "",
       credits: 0,
       creditsCount: 0
@@ -39,24 +39,15 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
   ] = translationsData ? translationsData.getTranslations : ["", "", ""];
   const allCareers: ICareer[] =  data ? data.getCareers : [];
 
-  const stateUndefined = () => {
-    if (state === undefined) return true;
-    if (state.code === undefined) return true;
-    if (state.description === undefined) return true;
-    if (state.credits === undefined) return true;
-    return state.creditsCount === undefined;
-  };
-
   const onFinish = () => {
-    if (!stateUndefined()) setCareer(state!);
+    if (state.code === "none") return;
+    setCareer(state);
   };
 
-  const onChange = (code: string, Careers: ICareer[]) => {
-    if (code === "none") return;
+  const onChange = (index: number) => {
+    if (index === -1) return;
 
-    const career = Careers.find(aCareer => aCareer.code === code);
-    career!.creditsCount = state.creditsCount;
-    return setState(career!);
+    return setState({ ...allCareers[index], creditsCount: state.creditsCount });
   };
 
   const setCreditsCount = (creditsCount: string) => {

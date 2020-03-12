@@ -43,12 +43,12 @@ const EditableCareers: FunctionComponent<IEditableCareersProps> = (
       <div className={styles.selectorContainer}>
         <select
           className={styles.careersSelector}
-          onChange={(event => setCareer(event.target.value, allCareers))}
+          onChange={(event => setCareer(parseInt(event.target.value, 10)))}
         >
-          <option defaultValue={"none"} value="none">{selectACareerTranslation}</option>
+          <option defaultValue={"none"} value={-1}>{selectACareerTranslation}</option>
           {
             allCareers.map((career, index) => {
-              return (<option key={index} value={career.code}>{career.description}</option>);
+              return (<option key={index} value={index}>{career.description}</option>);
             })
           }
         </select>
