@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, useMemo } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { HistoryRoutes } from "../../../history";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
@@ -13,11 +14,11 @@ import NotFound from "$pages/NotFound";
 
 const ApplicantDetailEditableContainer: FunctionComponent = () => {
   const { id } = useParams();
-
-  const [redirect, setRedirect] = useState(false);
+  const padron = parseInt(id!, 10);
   const [applicant, setApplicant] = useState<IApplicant>({} as any);
   const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
+  const history = useHistory();
 
   const { data: translationsData } = useQuery(getTranslations, {
       variables: {
@@ -38,24 +39,20 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     descriptionTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
 
-  const [ updateApplicant, { data: updateData } ] = useMutation(updateApplicantMutation);
+  const [ updateApplicant ] = useMutation(updateApplicantMutation);
 
-  const [
-    deleteCapabilities,
-    { data: deleteCapabilitiesData }
-  ] = useMutation(deleteApplicantCapabilities);
+  const [ deleteCapabilities ] = useMutation(deleteApplicantCapabilities);
 
-  const [ deleteCareers, { data: deleteCareersData } ] = useMutation(deleteApplicantCareers);
+  const [ deleteCareers ] = useMutation(deleteApplicantCareers);
 
   const { data: applicantData, error: applicantError, loading } = useQuery(getApplicantByPadron, {
-      variables: { padron: parseInt(id!, 10) }
+      variables: { padron: padron }
     }
   );
 
   useMemo(() => setApplicant(applicantData?.getApplicantByPadron), [applicantData]);
 
   const submit = async (applicantProps: IApplicant) => {
-    const padron = parseInt(id!, 10);
     const dataToUpdate: IApplicantEditable = {
       padron: padron,
       name: applicantProps.name,
@@ -74,6 +71,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         variables: { padron: padron, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
+      HistoryRoutes.applicant.detail(history, padron);
     } catch (e) {
       alert(e);
     }
@@ -91,10 +89,6 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
     setApplicant({ ...applicant, careers: applicant.careers });
   };
 
-  if (redirect || updateData || deleteCapabilitiesData || deleteCareersData) {
-    return (<Redirect to={`/applicants/${id}/`}/>);
-  }
-
   if (applicantError) return (<NotFound/>);
   if (loading) return (<div></div>);
   return (
@@ -103,7 +97,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => setRedirect(true)}
+      onCancel={() => HistoryRoutes.applicant.detail(history, padron)}
       applicant={applicant}
       translations={
         {
