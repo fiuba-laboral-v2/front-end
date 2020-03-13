@@ -32,6 +32,7 @@ const ItemsDetailEditable: FunctionComponent<IItemsDetailEditableProps> = (
           (
             <div key={index} className={styles.row}>
               <span className={styles.item}>{item.value}</span>
+              <div className={styles.separator}/>
               <DeleteIcon
                 fontSize="small"
                 className={styles.deleteIcon}
