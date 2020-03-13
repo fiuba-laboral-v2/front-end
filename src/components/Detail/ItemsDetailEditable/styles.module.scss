@@ -1,5 +1,4 @@
 @import "$styles/_detailsVariables.scss";
-@import "$components/Capabilities/styles/variables.scss";
 
 .headers {
   display: flex;
@@ -8,54 +7,49 @@
 
 .addIcon {
   padding-left: 10px;
-  margin-bottom: $margin-bottom;
+  margin-bottom: $item-margin-bottom;
 }
 
-.deleteIcon {
-  padding-left: 10px;
-}
-
-.separator {
-  flex-grow: 1;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.input {
-  width: $width;
-  height: $height;
-  font-size: $font-size;
-  margin-bottom: $margin-bottom;
-}
 
 .items {
   display: flex;
   flex-direction: column;
 
-  .item {
-    height: $height;
-    font-size: $font-size;
-    margin-bottom: $margin-bottom;
-  }
-
   .title {
-    height: $height;
-    font-size: $font-size;
+    height: $item-height;
+    font-size: $item-font-size;
     font-weight: bold;
-    margin-bottom: $margin-bottom;
+    margin-bottom: $item-margin-bottom;
   }
-}
 
-.footer {
-  display: flex;
-  flex-direction: row;
-}
+  .row {
+    display: flex;
+    flex-direction: row;
 
-.checkIcon {
-  padding-left: 10px;
+    .item {
+      height: $item-height;
+      font-size: $item-font-size;
+      margin-bottom: $item-margin-bottom;
+    }
+
+    .separator {
+      flex-grow: 1;
+    }
+
+    .deleteIcon {
+      padding-left: 10px;
+    }
+
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+
+    .checkIcon {
+      padding-left: 10px;
+    }
+  }
 }
 
 @media (max-width: $mobileContainerThreshold) {

@@ -1,0 +1,8 @@
+@import "$styles/_detailsVariables.scss";
+
+.input {
+  width: $item-width;
+  height: $item-height;
+  font-size: $item-font-size;
+  margin-bottom: $item-margin-bottom;
+}

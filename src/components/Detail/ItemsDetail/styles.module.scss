@@ -1,24 +1,23 @@
 @import "$styles/_detailsVariables.scss";
-@import "$components/Capabilities/styles/variables.scss";
 
 .items {
   display: flex;
   flex-direction: column;
-  width: $width;
+  width: $item-width;
 
   .item {
-    width: $width;
-    height: $height;
-    font-size: $font-size;
-    margin-bottom: $margin-bottom;
+    width: $item-width;
+    height: $item-height;
+    font-size: $item-font-size;
+    margin-bottom: $item-margin-bottom;
   }
 
   .title {
     width: 100%;
-    height: $height;
-    font-size: $font-size;
+    height: $item-height;
+    font-size: $item-font-size;
     font-weight: bold;
-    margin-bottom: $margin-bottom;
+    margin-bottom: $item-margin-bottom;
   }
 }
 
