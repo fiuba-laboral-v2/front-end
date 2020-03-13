@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { IEditableCapabilitiesContainerProps } from "./interface";
 import { EditableCapabilities } from "./component";
 import { useQuery } from "@apollo/react-hooks";
-import { getTranslations } from "../../../graphql/queries";
+import { getTranslations } from "$queries";
 
 const EditableCapabilitiesContainer: FunctionComponent<IEditableCapabilitiesContainerProps> = (
   {

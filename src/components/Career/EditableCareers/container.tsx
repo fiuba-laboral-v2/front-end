@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { IEditableCareersContainerProps } from "./interface";
 import { EditableCareers } from "./component";
-import { ICareer } from "../../../interfaces/Applicant";
+import { ICareer } from "$interfaces/Applicant";
 import { getCareers, getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";

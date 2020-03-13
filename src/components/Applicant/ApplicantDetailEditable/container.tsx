@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useMemo } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { RoutesBuilder } from "../../../routesBuilder";
+import { RoutesBuilder } from "$src/routesBuilder";
 import { ApplicantDetailEditable } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {

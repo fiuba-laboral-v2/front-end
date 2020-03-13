@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react";
 import { IEditableCapabilitiesProps } from "./interface";
 import { ItemsDetailEditable } from "$components/Detail/ItemsDetailEditable";
 import styles from "./styles.module.scss";
-import { InputEditable } from "../../InputEditable";
-import { ICapability } from "../../../interfaces/Applicant";
+import { InputEditable } from "$components/InputEditable";
+import { ICapability } from "$interfaces/Applicant";
 
 const EditableCapabilities: FunctionComponent<IEditableCapabilitiesProps> = (
   {

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { FormFooter } from "./component";
 import { IFormFooterContainerProps } from "./interface";
 import { useQuery } from "@apollo/react-hooks";
-import { getTranslations } from "../../graphql/queries";
+import { getTranslations } from "$queries";
 
 const FormFooterContainer: FunctionComponent<IFormFooterContainerProps> = (
   {
