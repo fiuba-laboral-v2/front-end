@@ -79,8 +79,8 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   const deleteCapability = (description: string) => {
     setDeletedCapabilities([ ...deletedCapabilities,  description]);
-    applicant.capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
-    setApplicant({ ...applicant, capabilities: applicant.capabilities });
+    const capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
+    setApplicant({ ...applicant, capabilities: capabilities });
   };
 
   const deleteCareer = (code: string) => {
