@@ -71,10 +71,10 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
         variables: { padron: padron, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
-      history.push(RoutesBuilder.applicant.detail(padron));
     } catch (e) {
       alert(e);
     }
+    history.push(RoutesBuilder.applicant.detail(padron));
   };
 
   const deleteCapability = (description: string) => {
@@ -91,6 +91,7 @@ const ApplicantDetailEditableContainer: FunctionComponent = () => {
 
   if (applicantError) return (<NotFound/>);
   if (loading) return (<div></div>);
+
   return (
     <ApplicantDetailEditable
       deleteCapability={deleteCapability}
