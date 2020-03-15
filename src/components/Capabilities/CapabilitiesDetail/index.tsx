@@ -1,0 +1,1 @@
+export { CapabilitiesDetail } from "./component";

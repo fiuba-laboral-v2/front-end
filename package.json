@@ -78,10 +78,13 @@
     "$root": ".",
     "$package": "package.json",
     "$components": "src/components",
+    "$interfaces": "src/interfaces",
     "$pages": "src/pages",
     "$queries": "src/graphql/queries",
+    "$mutations": "src/graphql/mutations",
     "$styles": "src/styles",
     "$test": "src/test",
+    "$src": "src",
     "$config": "src/config"
   }
 }

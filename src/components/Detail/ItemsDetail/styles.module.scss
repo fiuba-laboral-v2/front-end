@@ -3,20 +3,21 @@
 .items {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: $item-width;
 
   .item {
-    width: 100%;
-    height: auto;
-    margin-bottom: 5px;
+    width: $item-width;
+    height: $item-height;
+    font-size: $item-font-size;
+    margin-bottom: $item-margin-bottom;
   }
 
   .title {
     width: 100%;
-    height: auto;
-    font-size: 14px;
+    height: $item-height;
+    font-size: $item-font-size;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: $item-margin-bottom;
   }
 }
 

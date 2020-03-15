@@ -5,12 +5,14 @@ query getApplicantByPadron ($padron: Int!) {
         padron
         description
         capabilities {
+            uuid
             description
         }
         careers {
             code
             description
             credits
+            creditsCount
         }
     }
 }

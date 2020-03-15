@@ -3,7 +3,7 @@ import { Route, Switch, HashRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Company from "./pages/Company";
-import Applicant from "./pages/Applicant";
+import { ApplicantDetails, ApplicantDetailsEditable } from "./pages/Applicant";
 import NotFound from "./pages/NotFound";
 import Configuration from "$config";
 
@@ -17,7 +17,10 @@ const Routes: FunctionComponent = () => (
         <Company/>
       </Route>
       <Route exact path="/applicants/:id">
-        <Applicant/>
+        <ApplicantDetails/>
+      </Route>
+      <Route exact path="/applicants/:id/edit">
+        <ApplicantDetailsEditable/>
       </Route>
       <Route path="*">
         <NotFound/>

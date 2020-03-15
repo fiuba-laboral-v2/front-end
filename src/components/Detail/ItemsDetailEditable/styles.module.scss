@@ -1,0 +1,61 @@
+@import "$styles/_detailsVariables.scss";
+
+.headers {
+  display: flex;
+  flex-direction: row;
+}
+
+.addIcon {
+  padding-left: 10px;
+  margin-bottom: $item-margin-bottom;
+}
+
+
+.items {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    height: $item-height;
+    font-size: $item-font-size;
+    font-weight: bold;
+    margin-bottom: $item-margin-bottom;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+
+    .item {
+      height: $item-height;
+      font-size: $item-font-size;
+      margin-bottom: $item-margin-bottom;
+    }
+
+    .separator {
+      flex-grow: 1;
+    }
+
+    .deleteIcon {
+      padding-left: 10px;
+    }
+
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+
+    .checkIcon {
+      padding-left: 10px;
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .items {
+    margin: 20px 0 0 0;
+    column-count: 1;
+    max-width: 430px;
+  }
+}
