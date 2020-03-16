@@ -4,8 +4,8 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
-import { EditableCapabilities } from "$components/Capabilities/EditableCapabilities";
-import { EditableCareers } from "$components/Career/EditableCareers";
+import { EditableCapabilities } from "$pages/Applicant/Edit/EditableCapabilities";
+import { EditableCareers } from "$pages/Applicant/Edit/EditableCareers";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
