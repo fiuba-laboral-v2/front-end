@@ -1,2 +1,2 @@
-export { ApplicantDetails } from "./Details";
+export { ApplicantDetails } from "./Detail";
 export { ApplicantDetailsEditable } from "./Edit";
