@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import ApplicantHome from "./Home";
 import SignUp from "./SignUp";
+import Profile from "./Profile";
+import EditableProfile from "./Edit";
+
 
 
 const ApplicantRoutes: FunctionComponent = () => {
@@ -13,7 +15,10 @@ const ApplicantRoutes: FunctionComponent = () => {
         <SignUp />
       </Route>
       <Route exact path={`${path}/:id`}>
-        <ApplicantHome />
+        <Profile />
+      </Route>
+      <Route exact path="/applicants/:id/edit">
+        <EditableProfile />
       </Route>
     </Switch>
   );

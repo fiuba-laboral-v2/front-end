@@ -1,0 +1,18 @@
+mutation deleteApplicantCareers($padron: Int!, $careersCodes: [String!]) {
+    deleteApplicantCareers(padron: $padron, careersCodes: $careersCodes) {
+        name
+        surname
+        padron
+        description
+        capabilities {
+            uuid
+            description
+        }
+        careers {
+            code
+            description
+            credits
+            creditsCount
+        }
+    }
+}

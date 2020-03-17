@@ -4,10 +4,11 @@ import styles from "./styles.module.scss";
 
 const DetailDescription: FunctionComponent<IDetailDescriptionProps> = (
   {
-    description
+    description,
+    onClick
   }
 ) => (
-  <p className={styles.description}>{description}</p>
+  <p className={styles.description} onClick={onClick} >{description}</p>
 );
 
 export { DetailDescription };

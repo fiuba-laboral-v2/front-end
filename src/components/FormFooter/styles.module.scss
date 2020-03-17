@@ -1,0 +1,14 @@
+@import "$styles/_detailsVariables.scss";
+
+.footer {
+  display: flex;
+  overflow: hidden;
+}
+
+.footer :last-child {
+  margin-left: 10px;
+}
+
+.separator, .footer {
+  flex-grow: 1;
+}

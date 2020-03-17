@@ -1,0 +1,1 @@
+export { ItemsDetail } from "./component";
