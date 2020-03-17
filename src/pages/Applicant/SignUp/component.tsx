@@ -9,6 +9,8 @@ import { validations, signUpParams, saveApplicantParams } from "./utils";
 import TextInput from "$components/TextInput";
 import CareerSelector from "$components/CareerSelector";
 
+import { IInitialValues } from "./interfaces";
+
 import styles from "./styles.module.scss";
 
 interface ICareersMapper {
@@ -31,20 +33,6 @@ interface ISignUpProps {
   };
   careers: ICareersMapper[];
   setRedirectUrl: any;
-}
-
-interface ICareers {
-  code: string;
-  creditsCount: number;
-}
-
-interface IInitialValues {
-  email: string;
-  password: string;
-  name: string;
-  surname: string;
-  padron: number;
-  careers: ICareers[];
 }
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRedirectUrl }) => {
