@@ -30,6 +30,7 @@ interface ISignUpProps {
     submit: string;
   };
   careers: ICareersMapper[];
+  setRedirectUrl: any;
 }
 
 interface ICareers {
@@ -46,7 +47,7 @@ interface IInitialValues {
   careers: ICareers[];
 }
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
+const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRedirectUrl }) => {
   const [signUp] = useMutation(SIGN_UP);
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
   const initialValues: IInitialValues = {
@@ -65,14 +66,16 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
       <Formik
         initialValues={initialValues}
         validate={validations}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           signUp({
             variables: signUpParams(values)
           });
-          saveApplicant({
+          const { data: { saveApplicant: applicant } } = await saveApplicant({
             variables: saveApplicantParams(values)
           });
           setSubmitting(false);
+          // TODO: this should be /applicants/${applicant.uuid}/
+          setRedirectUrl(`/applicants/${applicant.padron}/`);
         }}
       >
         {({ values, isValid, isSubmitting }) => (
@@ -140,7 +143,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                       <button
                         className={styles.addCareerBtn}
                         type="button"
-                        onClick={() => arrayHelpers.push("")}>
+                        onClick={() => arrayHelpers.push({ creditsCount: 0 })}>
                         {translations.addCareerBtn}
                       </button>
                     )}

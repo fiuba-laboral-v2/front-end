@@ -20,7 +20,7 @@ const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
   arrayHelpers,
   creditsLabel
 }) => (
-    <div className={styles.careerSelector} key={index}>
+    <div className={styles.careerSelector}>
       <div className={styles.selectorContainer}>
         <Selector name={`careers.${index}.code`} options={options} />
       </div>

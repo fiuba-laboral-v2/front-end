@@ -6,6 +6,7 @@ mutation SaveApplicant(
     name: $name, surname: $surname, padron: $padron,
     description: $description, careers: $careers, capabilities: $capabilities
   ) {
+    uuid
     name
     surname
     padron
