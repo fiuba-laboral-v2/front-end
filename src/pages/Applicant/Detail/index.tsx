@@ -3,14 +3,14 @@ import NavBar from "$components/NavBar";
 import { ApplicantTitle } from "$components/Applicant/ApplicantTitle";
 import { ApplicantDetail } from "$components/Applicant/ApplicantDetail";
 
-const ApplicantDetails: FunctionComponent = () => (
+const Detail: FunctionComponent = () => (
   <div>
-    <NavBar/>
+    <NavBar />
     <div className="mainContent">
-      <ApplicantTitle/>
-      <ApplicantDetail/>
+      <ApplicantTitle />
+      <ApplicantDetail />
     </div>
   </div>
 );
 
-export { ApplicantDetails };
+export default Detail;

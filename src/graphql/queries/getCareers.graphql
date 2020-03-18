@@ -1,7 +1,7 @@
-query getCareers {
-    getCareers {
-        code
-        description
-        credits
-    }
+query GetCareers{
+  getCareers{
+    code
+    description
+    credits
+  }
 }
