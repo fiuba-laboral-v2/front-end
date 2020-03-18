@@ -3,11 +3,11 @@ import { loader } from "graphql.macro";
 const getTranslations = loader("./getTranslations.graphql");
 const getCompanyById = loader("./getCompanyById.graphql");
 const getApplicantByPadron = loader("./getApplicantByPadron.graphql");
-const getCareers = loader("./getCareers.graphql");
+const GET_CAREERS = loader("./getCareers.graphql");
 
 export {
   getTranslations,
   getCompanyById,
   getApplicantByPadron,
-  getCareers
+  GET_CAREERS
 };

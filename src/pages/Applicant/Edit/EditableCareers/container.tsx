@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { IEditableCareersContainerProps } from "./interface";
 import { EditableCareers } from "./component";
 import { ICareer } from "$interfaces/Applicant";
-import { getCareers, getTranslations } from "$queries";
+import { GET_CAREERS, getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
 
@@ -20,16 +20,16 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
       creditsCount: 0
     }
   );
-  const { data, error } = useQuery(getCareers);
+  const { data, error } = useQuery(GET_CAREERS);
   const { data: translationsData } = useQuery(getTranslations, {
-      variables: {
-        paths: [
-          "career.selectACareer",
-          "applicant.creditsProgress",
-          "applicant.careers"
-        ]
-      }
+    variables: {
+      paths: [
+        "career.selectACareer",
+        "applicant.creditsProgress",
+        "applicant.careers"
+      ]
     }
+  }
   );
 
   const [
@@ -37,7 +37,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     creditsProgressTranslation,
     careersTitleTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", ""];
-  const allCareers: ICareer[] =  data ? data.getCareers : [];
+  const allCareers: ICareer[] = data ? data.getCareers : [];
 
   const onFinish = () => {
     if (state.code === "none") return;
@@ -56,7 +56,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
 
   if (error) {
     alert(error.message);
-    return (<NotFound/>);
+    return (<NotFound />);
   }
 
   return (

@@ -9,7 +9,7 @@ const NavBarContainer: FunctionComponent = () => {
       paths: ["app.title", "companies", "applicants", "app.log_out"]
     }
   });
-  const [title, companies, applicants, logOut] = data ? data.getTranslations : ["", "", ""];
+  const [title, companies, applicants, logOut] = data ? data.getTranslations : ["", "", "", ""];
 
   return (
     <NavBar
