@@ -4,6 +4,7 @@ import {
   validateEmail,
   validatePassword,
 } from "validations-fiuba-laboral-v2";
+import { ICareer } from "$interfaces/Applicant";
 
 const validator = (value: string, callback: (x: string) => void) => {
   try {
@@ -31,12 +32,12 @@ const validations = (values: IPropsToValidate) => {
   const careers = values.careers.length > 0 ? undefined : "Debes elegir una carrera";
 
   return {
-    ...(email) && {email},
-    ...(password) && {password},
-    ...(name) && {name},
-    ...(surname) && {surname},
-    ...(padron) && {padron},
-    ...(careers) && {careers}
+    ...(email) && { email },
+    ...(password) && { password },
+    ...(name) && { name },
+    ...(surname) && { surname },
+    ...(padron) && { padron },
+    ...(careers) && { careers }
   };
 };
 
@@ -72,13 +73,7 @@ const translationsMapper = (trasnlations: string[] = Array(10).fill("")) => {
   };
 };
 
-interface ICareer {
-  code: string;
-  description: string;
-  credits: string;
-}
-
 const careersMapper = (careers: ICareer[]) =>
-  careers.map(({code, description}) => ({ value: code, label: description}));
+  careers.map(({ code, description }) => ({ value: code, label: description }));
 
 export { validations, signUpParams, saveApplicantParams, translationsMapper, careersMapper };

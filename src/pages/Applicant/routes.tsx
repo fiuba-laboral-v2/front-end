@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import SignUp from "./SignUp";
-import Profile from "./Profile";
-import EditableProfile from "./Edit";
+import Deatil from "./Detail";
+import EditableDeatil from "./Edit";
 
 
 
@@ -15,10 +15,10 @@ const ApplicantRoutes: FunctionComponent = () => {
         <SignUp />
       </Route>
       <Route exact path={`${path}/:id`}>
-        <Profile />
+        <Deatil />
       </Route>
       <Route exact path="/applicants/:id/edit">
-        <EditableProfile />
+        <EditableDeatil />
       </Route>
     </Switch>
   );

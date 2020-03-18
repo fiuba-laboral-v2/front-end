@@ -3,7 +3,7 @@ import NavBar from "$components/NavBar";
 import { ApplicantTitle } from "$components/Applicant/ApplicantTitle";
 import { ApplicantDetail } from "$components/Applicant/ApplicantDetail";
 
-const Profile: FunctionComponent = () => (
+const Detail: FunctionComponent = () => (
   <div>
     <NavBar />
     <div className="mainContent">
@@ -13,4 +13,4 @@ const Profile: FunctionComponent = () => (
   </div>
 );
 
-export default Profile;
+export default Detail;

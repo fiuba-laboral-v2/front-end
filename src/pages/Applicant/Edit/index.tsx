@@ -3,7 +3,7 @@ import NavBar from "$components/NavBar";
 import { ApplicantDetailEditableTitle } from "$components/Applicant/ApplicantDetailEditableTitle";
 import { ApplicantDetailEditable } from "$components/Applicant/ApplicantDetailEditable";
 
-const EditableProfile: FunctionComponent = () => (
+const EditableDetail: FunctionComponent = () => (
   <div>
     <NavBar />
     <div className="mainContent">
@@ -13,4 +13,4 @@ const EditableProfile: FunctionComponent = () => (
   </div>
 );
 
-export default EditableProfile;
+export default EditableDetail;
