@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { getTranslations } from "$queries";
 import { getApplicantByPadron } from "$queries";
-import { ApplicantDetail } from "./component";
+import { Detail } from "./component";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import NotFound from "$pages/NotFound";
 
-const ApplicantDetailContainer: FunctionComponent = () => {
+const DetailContainer: FunctionComponent = () => {
   const { data: translationsData } = useQuery(getTranslations, {
       variables: {
         paths: [
@@ -44,7 +44,7 @@ const ApplicantDetailContainer: FunctionComponent = () => {
   };
 
   return (
-    <ApplicantDetail
+    <Detail
       applicant={applicant}
       translations={
         {
@@ -56,4 +56,4 @@ const ApplicantDetailContainer: FunctionComponent = () => {
   );
 };
 
-export { ApplicantDetailContainer };
+export { DetailContainer };
