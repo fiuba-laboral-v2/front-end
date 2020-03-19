@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, useMemo } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
-import { DetailEditable } from "./component";
+import { EditableDetail } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
   updateApplicant as updateApplicantMutation,
@@ -12,7 +12,7 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { getApplicantByPadron, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
 
-const DetailEditableContainer: FunctionComponent = () => {
+const EditableDetailContainer: FunctionComponent = () => {
   const { id } = useParams();
   const padron = parseInt(id!, 10);
   const [applicant, setApplicant] = useState<IApplicant>({} as any);
@@ -93,7 +93,7 @@ const DetailEditableContainer: FunctionComponent = () => {
   if (loading) return (<div></div>);
 
   return (
-    <DetailEditable
+    <EditableDetail
       deleteCapability={deleteCapability}
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
@@ -112,4 +112,4 @@ const DetailEditableContainer: FunctionComponent = () => {
   );
 };
 
-export { DetailEditableContainer };
+export { EditableDetailContainer };

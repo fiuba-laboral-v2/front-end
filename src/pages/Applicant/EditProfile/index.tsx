@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from "react";
 import NavBar from "$components/NavBar";
 import { Title } from "./Title";
-import { DetailEditable } from "./DetailEditable";
+import { EditableDetail } from "./EditableDetail";
 
-const EditableDetail: FunctionComponent = () => (
+const EditableProfile: FunctionComponent = () => (
   <div>
     <NavBar />
     <div className="mainContent">
       <Title />
-      <DetailEditable />
+      <EditableDetail />
     </div>
   </div>
 );
 
-export default EditableDetail;
+export { EditableProfile };

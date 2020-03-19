@@ -8,7 +8,7 @@ import { EditableCapabilities } from "$pages/Applicant/EditProfile/EditableCapab
 import { EditableCareers } from "$pages/Applicant/EditProfile/EditableCareers";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
-const DetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
+const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     applicant,
     translations,
@@ -79,4 +79,4 @@ const DetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   );
 };
 
-export { DetailEditable };
+export { EditableDetail };
