@@ -5,8 +5,8 @@ import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
-import { CapabilitiesDetail } from "$components/Capabilities/CapabilitiesDetail";
-import { CareersDetail } from "$components/Career/CareersDetail";
+import { CapabilitiesDetail } from "$pages/Applicant/Detail/CapabilitiesDetail";
+import { CareersDetail } from "$pages/Applicant/Detail/CareersDetail";
 
 const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {

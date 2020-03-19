@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import NavBar from "$components/NavBar";
-import { ApplicantTitle } from "$components/Applicant/ApplicantTitle";
-import { ApplicantDetail } from "$components/Applicant/ApplicantDetail";
+import { ApplicantTitle } from "./ApplicantTitle";
+import { ApplicantDetail } from "./ApplicantDetail";
 
 const Detail: FunctionComponent = () => (
   <div>

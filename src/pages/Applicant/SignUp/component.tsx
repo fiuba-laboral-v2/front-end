@@ -55,7 +55,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
         initialValues={initialValues}
         validate={validations}
         onSubmit={async (values, { setSubmitting }) => {
-          signUp({
+          await signUp({
             variables: signUpParams(values)
           });
           const { data: { saveApplicant: applicant } } = await saveApplicant({
