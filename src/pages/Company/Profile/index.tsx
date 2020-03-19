@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import NavBar from "$components/NavBar";
-import { Title } from "./Profile/Title";
-import { Detail } from "./Profile/Detail";
+import { Title } from "./Title";
+import { Detail } from "./Detail";
 
-const Company: FunctionComponent = () => (
+const Profile: FunctionComponent = () => (
   <div>
     <NavBar/>
     <div className="mainContent">
@@ -13,4 +13,4 @@ const Company: FunctionComponent = () => (
   </div>
 );
 
-export default Company;
+export { Profile };
