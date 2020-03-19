@@ -7,7 +7,7 @@ import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 
-const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
+const Detail: FunctionComponent<ICompanyDetailProps> = (
   {
     name,
     email,
@@ -39,4 +39,4 @@ const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   </DetailMainContainer>
 );
 
-export { CompanyDetail };
+export { Detail };

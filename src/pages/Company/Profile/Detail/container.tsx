@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { CompanyDetail } from "./component";
+import { Detail } from "./component";
 import { getCompanyById } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
 import NotFound from "$pages/NotFound";
 
-const CompanyDetailContainer: FunctionComponent = () => {
+const DetailContainer: FunctionComponent = () => {
   const { id } = useParams();
   const response = useQuery(getCompanyById, {
         variables: {
@@ -37,7 +37,7 @@ const CompanyDetailContainer: FunctionComponent = () => {
   };
 
   return (
-    <CompanyDetail
+    <Detail
       name={companyName}
       email={email}
       slogan={slogan}
@@ -49,4 +49,4 @@ const CompanyDetailContainer: FunctionComponent = () => {
   );
 };
 
-export { CompanyDetailContainer };
+export { DetailContainer };

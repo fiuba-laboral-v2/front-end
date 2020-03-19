@@ -5,10 +5,10 @@ import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
-import { CapabilitiesDetail } from "$pages/Applicant/Detail/CapabilitiesDetail";
-import { CareersDetail } from "$pages/Applicant/Detail/CareersDetail";
+import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
+import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
 
-const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
+const Detail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
     translations
@@ -38,4 +38,4 @@ const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   </DetailMainContainer>
 );
 
-export { ApplicantDetail };
+export { Detail };

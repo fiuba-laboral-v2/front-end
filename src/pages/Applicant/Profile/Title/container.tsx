@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getTranslations } from "$queries";
 import { DetailTitle } from "$components/Detail/DetailTitle";
 
-const ApplicantTitleContainer: FunctionComponent = () => {
+const TitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
         paths: ["applicant.explanation", "applicant.title", "edit"]
@@ -24,4 +24,4 @@ const ApplicantTitleContainer: FunctionComponent = () => {
   );
 };
 
-export { ApplicantTitleContainer };
+export { TitleContainer };
