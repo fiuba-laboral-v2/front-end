@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
 import NavBar from "$components/NavBar";
-import { ApplicantDetailEditableTitle } from "./ApplicantDetailEditableTitle";
-import { ApplicantDetailEditable } from "./ApplicantDetailEditable";
+import { Title } from "./Title";
+import { DetailEditable } from "./DetailEditable";
 
 const EditableDetail: FunctionComponent = () => (
   <div>
     <NavBar />
     <div className="mainContent">
-      <ApplicantDetailEditableTitle />
-      <ApplicantDetailEditable />
+      <Title />
+      <DetailEditable />
     </div>
   </div>
 );

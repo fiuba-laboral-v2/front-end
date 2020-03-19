@@ -4,11 +4,11 @@ import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { IApplicantDetailEditableProps } from "./interface";
 import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
-import { EditableCapabilities } from "$pages/Applicant/Edit/EditableCapabilities";
-import { EditableCareers } from "$pages/Applicant/Edit/EditableCareers";
+import { EditableCapabilities } from "$pages/Applicant/EditProfile/EditableCapabilities";
+import { EditableCareers } from "$pages/Applicant/EditProfile/EditableCareers";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
-const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
+const DetailEditable: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     applicant,
     translations,
@@ -79,4 +79,4 @@ const ApplicantDetailEditable: FunctionComponent<IApplicantDetailEditableProps> 
   );
 };
 
-export { ApplicantDetailEditable };
+export { DetailEditable };

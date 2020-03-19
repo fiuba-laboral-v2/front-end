@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import SignUp from "./SignUp";
 import Profile from "./Profile";
-import EditableDeatil from "./Edit";
+import EditableDeatil from "./EditProfile";
 
 
 

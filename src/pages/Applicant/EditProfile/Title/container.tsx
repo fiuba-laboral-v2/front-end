@@ -4,7 +4,7 @@ import { DetailTitle } from "$components/Detail/DetailTitle";
 import { getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 
-const ApplicantDetailEditableTitleContainer: FunctionComponent = () => {
+const TitleContainer: FunctionComponent = () => {
   const { id } = useParams();
 
   const { data: translationsData } = useQuery(getTranslations, {
@@ -34,4 +34,4 @@ const ApplicantDetailEditableTitleContainer: FunctionComponent = () => {
   );
 };
 
-export { ApplicantDetailEditableTitleContainer };
+export { TitleContainer };
