@@ -1,6 +1,5 @@
-@import "$styles/_detailsVariables.scss";
 @import "$styles/_variables.scss";
-@import "$styles/_card.scss";
+@import "$styles/mixins/_card.scss";
 
 .mainContainer {
   flex-grow: 1;
@@ -9,14 +8,5 @@
 
 .detailContainer {
   @include card;
-
-  margin: $biggerSpacing auto 0;
-  max-width: $detailContainerMaxWidth;
 }
 
-
-@media (max-width: $mobileContainerThreshold) {
-  .detailContainer {
-    padding: 50px 10vw 0 10vw;
-  }
-}
