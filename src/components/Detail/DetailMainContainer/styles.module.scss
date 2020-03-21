@@ -1,14 +1,16 @@
 @import "$styles/_detailsVariables.scss";
+@import "$styles/_variables.scss";
+@import "$styles/_card.scss";
 
 .mainContainer {
-  background: $background;
   flex-grow: 1;
   padding-bottom: 20px;
 }
 
 .detailContainer {
-  padding: 20px $detailContainerHorizontalPadding 20px;
-  margin: 0 auto;
+  @include card;
+
+  margin: $biggerSpacing auto 0;
   max-width: $detailContainerMaxWidth;
 }
 
