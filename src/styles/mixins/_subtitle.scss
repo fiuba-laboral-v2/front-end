@@ -1,7 +1,9 @@
 @import "$styles/_variables.scss";
 
 @mixin subtitle {
-  color: $subtitleColor;
+  :not(a) {
+    color: $subtitleColor;
+  }
   margin: $smallSpacing 0 0 0;
   font-weight: normal;
   font-size: 22px;

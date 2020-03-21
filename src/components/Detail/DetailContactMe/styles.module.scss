@@ -1,10 +1,8 @@
 @import "$styles/_detailsVariables.scss";
+@import "$styles/mixins/_subtitle.scss";
 
 .contactInfo {
-  a {
-    color: #0390BC;
-    font-weight: normal;
-  }
+  @include subtitle;
 }
 
 @media (max-width: $mobileContainerThreshold) {
