@@ -4,7 +4,7 @@
 .header {
   display: flex;
   flex-direction: row;
-  padding-bottom: 27px;
+  padding-bottom: $bigSpacing;
   word-break: break-word;
 }
 
@@ -33,17 +33,15 @@
 }
 
 .photos {
-  $imageGap: 20px;
-
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   line-height: 0;
   column-count: 2;
-  column-gap: $imageGap;
+  column-gap: $bigSpacing;
 
   img {
     width: 100%;
     height: auto;
-    padding: $imageGap/2 0;
+    padding: $bigSpacing 0 0 0;
   }
 }
 
