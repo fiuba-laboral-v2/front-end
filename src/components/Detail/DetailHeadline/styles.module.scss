@@ -1,9 +1,8 @@
 @import "$styles/_detailsVariables.scss";
+@import "$styles/mixins/_title.scss";
 
 .detailHeadline {
-  font-weight: normal;
-  margin: 0 0 10px 0;
-  font-size: 30px;
+  @include title;
 }
 
 @media (max-width: $mobileContainerThreshold) {

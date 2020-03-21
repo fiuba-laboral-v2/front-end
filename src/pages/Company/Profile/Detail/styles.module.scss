@@ -1,4 +1,5 @@
 @import "$styles/_detailsVariables.scss";
+@import "$styles/_variables.scss";
 
 .header {
   display: flex;
@@ -12,7 +13,7 @@
   height: $logoWidth;
   width: $logoWidth;
   box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
-  border-radius: 8px;
+  border-radius: $defaultBorderRadius;
   background: white;
   display: flex;
   overflow: hidden;
