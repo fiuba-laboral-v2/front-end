@@ -27,7 +27,6 @@
 @media (max-width: $mobileContainerThreshold) {
   .row {
     .childrenContainer {
-      display: flex;
       flex-direction: column;
 
       .separator {
