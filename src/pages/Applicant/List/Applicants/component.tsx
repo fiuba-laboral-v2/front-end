@@ -12,7 +12,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     editButtonText,
     viewButtonText
   }) => (
-  <>
+  <div>
     {
       applicants.map(applicant =>
         <div className={styles.row} key={applicant.padron}>
@@ -36,7 +36,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
         </div>
       )
     }
-  </>
+  </div>
 );
 
 
