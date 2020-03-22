@@ -18,7 +18,6 @@ const TitleContainer: FunctionComponent = () => {
   return (
     <Title
       title={"Postulantes"}
-      subtitle={""}
     />
   );
 };

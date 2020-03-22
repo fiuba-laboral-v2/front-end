@@ -9,22 +9,24 @@ import { RoutesBuilder } from "$src/routesBuilder";
 
 const ApplicantsContainer: FunctionComponent = () => {
   const history = useHistory();
-  // TODO: Agregar las translation "view" en el back
-  const translationsResponse = useQuery(getTranslations, {
-      variables: { paths: ["edit"] }
-    }
-  );
+  const {
+    data: translationsData,
+    error: translationsError,
+    loading: translationLoading
+  } = useQuery(getTranslations, { variables: { paths: ["edit", "view"] } });
   const { data, error, loading } = useQuery(GET_APPLICANTS);
-  if (error || translationsResponse.error) return <NotFound/>;
-  if (loading || translationsResponse.loading) return <Loading />;
+  if (error || translationsError) return <NotFound/>;
+  if (loading || translationLoading) return <Loading />;
+
+  const [ editTranslation, viewTranslation ] = translationsData.getTranslations;
 
   return (
     <Applicants
       applicants={data.getApplicants}
       onClickEdit={(padron: number) => history.push(RoutesBuilder.applicant.edit(padron))}
       onClickView={(padron: number) => history.push(RoutesBuilder.applicant.detail(padron))}
-      editButtonText={translationsResponse.data.getTranslations[0]}
-      viewButtonText={"ver"}
+      editButtonText={editTranslation}
+      viewButtonText={viewTranslation}
     />
   );
 };

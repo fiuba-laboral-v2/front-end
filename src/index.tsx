@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "normalize.css";
 import "./styles/base.scss";
 import App from "./App";
 import { unregister } from "./serviceWorker";
