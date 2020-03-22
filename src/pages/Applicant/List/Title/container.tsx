@@ -6,18 +6,20 @@ import NotFound from "$pages/NotFound";
 import Loading from "$pages/Loading";
 
 const TitleContainer: FunctionComponent = () => {
-  const translationsResponse = useQuery(getTranslations, {
+  const { data, loading, error } = useQuery(getTranslations, {
       variables: {
-        paths: ["applicant.title"]
+        paths: ["applicants"]
       }
     }
   );
-  if (translationsResponse.error) return <NotFound/>;
-  if (translationsResponse.loading) return <Loading />;
+  if (error) return <NotFound/>;
+  if (loading) return <Loading />;
+
+  const [ applicantsTranslation ] = data.getTranslations;
 
   return (
     <Title
-      title={"Postulantes"}
+      title={applicantsTranslation}
     />
   );
 };
