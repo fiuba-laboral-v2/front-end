@@ -1,0 +1,44 @@
+@import "$styles/mixins/_subtitle.scss";
+@import "$styles/_variables.scss";
+@import "$styles/_detailsVariables.scss";
+
+.row {
+  padding-bottom: $normalSpacing;
+
+  .childrenContainer {
+    display: flex;
+    flex-direction: row;
+
+    .name {
+      @include subtitle;
+      margin: 0;
+    }
+
+    .separator {
+      flex-grow: 1;
+    }
+
+    .buttons :last-child{
+      margin-left: $normalSpacing;
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .row {
+    .childrenContainer {
+      display: flex;
+      flex-direction: column;
+
+      .separator {
+        flex-grow: 1;
+      }
+
+      .buttons {
+        .separator {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

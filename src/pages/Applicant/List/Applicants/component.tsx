@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantsProps } from "./interface";
 import { ListItem } from "$components/ListItem";
+import { SubmitButton } from "$components/SubmitButton";
+import styles from "./styles.module.scss";
 
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
@@ -14,11 +16,25 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     <div>
       {
         applicants.map(applicant =>
-          <ListItem>
-            <p>{`${applicant.name} ${applicant.surname}`}</p>
-            <button onClick={() => onClickEdit(applicant.padron)}>{editButtonText}</button>
-            <button onClick={() => onClickView(applicant.padron)}>{viewButtonText}</button>
-          </ListItem>
+          <div className={styles.row} key={applicant.padron}>
+            <ListItem>
+              <div className={styles.childrenContainer}>
+                <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
+                <div className={styles.separator}/>
+                <div className={styles.buttons}>
+                  <div className={styles.separator}/>
+                  <SubmitButton
+                    onClick={() => onClickEdit(applicant.padron)}
+                    text={editButtonText}
+                  />
+                  <SubmitButton
+                    onClick={() => onClickView(applicant.padron)}
+                    text={viewButtonText}
+                  />
+                </div>
+              </div>
+            </ListItem>
+          </div>
         )
       }
     </div>
