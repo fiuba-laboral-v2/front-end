@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
+import { Applicants } from "./Applicants";
 import { Title } from "./Title";
-import { Detail } from "./Detail";
 import { Window } from "$components/Window";
 
-const Profile: FunctionComponent = () => (
+const List: FunctionComponent = () => (
   <Window>
     <Title/>
-    <Detail/>
+    <Applicants />
   </Window>
 );
 
-export { Profile };
+export { List };
