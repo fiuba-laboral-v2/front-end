@@ -9,21 +9,19 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     onClickView,
     editButtonText,
     viewButtonText
-  }) => {
-  return (
-    <div>
-      {
-        applicants.map(applicant =>
-          <ListItem>
-            <p>{`${applicant.name} ${applicant.surname}`}</p>
-            <button onClick={() => onClickEdit(applicant.padron)}>{editButtonText}</button>
-            <button onClick={() => onClickView(applicant.padron)}>{viewButtonText}</button>
-          </ListItem>
-        )
-      }
-    </div>
-  );
-};
+  }) => (
+  <div>
+    {
+      applicants.map(applicant =>
+        <ListItem>
+          <p>{`${applicant.name} ${applicant.surname}`}</p>
+          <button onClick={() => onClickEdit(applicant.padron)}>{editButtonText}</button>
+          <button onClick={() => onClickView(applicant.padron)}>{viewButtonText}</button>
+        </ListItem>
+      )
+    }
+  </div>
+);
 
 
 export { Applicants };
