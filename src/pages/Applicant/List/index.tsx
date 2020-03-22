@@ -1,16 +1,13 @@
 import React, { FunctionComponent } from "react";
-import NavBar from "$components/NavBar";
 import { Applicants } from "./Applicants";
 import { Title } from "./Title";
+import { Window } from "$components/Window";
 
 const List: FunctionComponent = () => (
-  <>
-    <NavBar />
-    <div className="mainContent">
-      <Title/>
-      <Applicants />
-    </div>
-  </>
+  <Window>
+    <Title/>
+    <Applicants />
+  </Window>
 );
 
 export { List };
