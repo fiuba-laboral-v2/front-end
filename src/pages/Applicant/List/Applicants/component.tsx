@@ -10,7 +10,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     editButtonText,
     viewButtonText
   }) => (
-  <div>
+  <>
     {
       applicants.map(applicant =>
         <ListItem>
@@ -20,7 +20,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
         </ListItem>
       )
     }
-  </div>
+  </>
 );
 
 
