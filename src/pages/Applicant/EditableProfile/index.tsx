@@ -1,17 +1,13 @@
 import React, { FunctionComponent } from "react";
-import NavBar from "$components/NavBar";
 import { Title } from "./Title";
 import { EditableDetail } from "./EditableDetail";
-import { MainContent } from "$components/MainContent";
+import { Window } from "$components/Window";
 
 const EditableProfile: FunctionComponent = () => (
-  <div>
-    <NavBar/>
-    <MainContent>
-      <Title/>
-      <EditableDetail/>
-    </MainContent>
-  </div>
+  <Window>
+    <Title/>
+    <EditableDetail/>
+  </Window>
 );
 
 export { EditableProfile };
