@@ -7,13 +7,19 @@
   right: 0;
   display: flex;
   align-items: center;
-  background: $mainBlue;
-  color: #fff;
+  background: #233445;
+  color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-style: normal;
   font-size: 18px;
   padding: 0 $pageMargin;
   z-index: 1;
+
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
 
   a, p {
     margin: 0 6px;
