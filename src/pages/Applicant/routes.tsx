@@ -3,7 +3,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import SignUp from "./SignUp";
 import Profile from "./Profile";
 import { EditableProfile } from "./EditableProfile";
-
+import { List } from "./List";
 
 
 const ApplicantRoutes: FunctionComponent = () => {
@@ -11,6 +11,9 @@ const ApplicantRoutes: FunctionComponent = () => {
 
   return (
     <Switch>
+      <Route exact path={`${path}/`}>
+        <List />
+      </Route>
       <Route exact path={`${path}/sign-up`}>
         <SignUp />
       </Route>
