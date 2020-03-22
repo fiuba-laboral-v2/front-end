@@ -1,5 +1,5 @@
 @import "$styles/_variables.scss";
-@import "$styles/_hoverShadow.scss";
+@import "$styles/_detailsVariables.scss";
 
 html {
   font-size: 82.5%;
@@ -12,6 +12,9 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #4A4A48;
+  font-size: 15px;
+  background-color: #EDEDED;
 }
 
 button {
@@ -23,10 +26,7 @@ button:disabled {
 }
 
 a {
-  text-decoration: none;
-  font-weight: bold;
-  color: inherit;
-  @include hoverShadow(rgba(0, 0, 0, 0.4));
+  color: $mainBlue;
 }
 
 code {
@@ -35,7 +35,17 @@ code {
 
 .mainContent {
   margin-top: $navBarHeight;
-  min-height: calc(100vh - #{$navBarHeight});
   display: flex;
   flex-direction: column;
+  > * {
+    margin: $biggerSpacing auto 0;
+    width: $detailContainerWidth;
+  }
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContent > * {
+    width: 90vw;
+  }
+}
+

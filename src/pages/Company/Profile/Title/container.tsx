@@ -1,23 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
-import { DetailTitle } from "$components/Detail/DetailTitle";
+import { Title } from "$components/Title";
 
 const TitleContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
       variables: {
-        paths: ["company.explanation", "company.title", "edit"]
+        paths: ["company.explanation", "company.title"]
       }
     }
   );
-  const [explanation, myCompany, edit] = data ? data.getTranslations : ["", "", ""];
+  const [explanation, myCompany] = data ? data.getTranslations : ["", ""];
 
   return (
-    <DetailTitle
-      myDetail={myCompany}
-      explanation={explanation}
-      edit={edit}
-      link={"/companies/"}
+    <Title
+      title={myCompany}
+      subtitle={explanation}
     />
   );
 };

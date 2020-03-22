@@ -1,8 +1,7 @@
-$detailContainerMaxWidth: 880px;
+$detailContainerWidth: 880px;
 $detailContainerHorizontalPadding: 20px;
-$mobileContainerThreshold: $detailContainerMaxWidth + 2 * $detailContainerHorizontalPadding;
+$mobileContainerThreshold: $detailContainerWidth + 2 * $detailContainerHorizontalPadding;
 $headerContainerPadding: 10px;
-$background: linear-gradient(180deg, rgba(0, 135, 213, 0.2) 0, white 360px);
 
 $item-font-size: 14px;
 $item-width: 100%;
