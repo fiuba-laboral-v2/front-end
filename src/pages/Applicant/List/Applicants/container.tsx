@@ -11,7 +11,7 @@ const ApplicantsContainer: FunctionComponent = () => {
   const history = useHistory();
   // TODO: Agregar las translation "view" en el back
   const translationsResponse = useQuery(getTranslations, {
-      variables: { paths: ["edit", "save"] }
+      variables: { paths: ["edit"] }
     }
   );
   const { data, error, loading } = useQuery(GET_APPLICANTS);
@@ -24,7 +24,7 @@ const ApplicantsContainer: FunctionComponent = () => {
       onClickEdit={(padron: number) => history.push(RoutesBuilder.applicant.edit(padron))}
       onClickView={(padron: number) => history.push(RoutesBuilder.applicant.detail(padron))}
       editButtonText={translationsResponse.data.getTranslations[0]}
-      viewButtonText={translationsResponse.data.getTranslations[1]}
+      viewButtonText={"ver"}
     />
   );
 };
