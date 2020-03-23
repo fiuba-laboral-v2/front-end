@@ -6,11 +6,9 @@ import NotFound from "$pages/NotFound";
 import Loading from "$pages/Loading";
 
 const TitleContainer: FunctionComponent = () => {
-  const { data, loading, error } = useQuery(getTranslations, {
-      variables: {
-        paths: ["applicants"]
-      }
-    }
+  const { data, loading, error } = useQuery(
+    getTranslations,
+    { variables: { paths: ["applicants"] } }
   );
   if (error) return <NotFound/>;
   if (loading) return <Loading />;
