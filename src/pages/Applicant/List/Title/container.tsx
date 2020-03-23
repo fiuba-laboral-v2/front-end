@@ -10,7 +10,7 @@ const TitleContainer: FunctionComponent = () => {
     getTranslations,
     { variables: { paths: ["applicants"] } }
   );
-  if (error) return <NotFound/>;
+  if (error) return <div/>;
   if (loading) return <Loading />;
 
   const [ applicantsTranslation ] = data.getTranslations;
