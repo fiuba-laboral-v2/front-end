@@ -1,0 +1,77 @@
+$blueBtn: #0095DB;
+$lightBlueBtn: #E6F7FF;
+$redBtn: #F44236;
+$lightRedBtn: #FEE8E7;
+$greyBtn: #767676;
+$lightGreyBtn: #F1F1F1;
+
+.main {
+  width: fit-content;
+  min-width: 85px;
+  min-height: 40px;
+  padding: 1px 14px 1px 14px;
+  margin: 14px;
+  border-radius: 5px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  display: flex;
+  justify-content: center;
+}
+
+.primary.positive {
+  background-color: $blueBtn;
+  color: white;
+
+  &:hover {
+    background-color: lighten($blueBtn, 3%);
+  }
+
+  &:active {
+    background-color: darken($blueBtn, 3%);
+  }
+}
+
+.secondary.positive {
+  border: 1px solid $blueBtn;
+  background-color: $lightBlueBtn;
+  color: $blueBtn;
+
+  &:hover {
+    background-color: lighten($lightBlueBtn, 3%);
+  }
+
+  &:active {
+    background-color: darken($lightBlueBtn, 3%);
+  }
+}
+
+.primary.negative {
+  border: 1px solid $redBtn;
+  background-color: $lightRedBtn;
+  color: $redBtn;
+
+  &:hover {
+    background-color: lighten($lightRedBtn, 3%);
+  }
+
+  &:active {
+    background-color: darken($lightRedBtn, 3%);
+  }
+}
+
+.secondary.negative {
+  border: 1px solid $greyBtn;
+  background-color: $lightGreyBtn;
+  color: $greyBtn;
+
+  &:hover {
+    background-color: lighten($lightGreyBtn, 3%);
+  }
+
+  &:active {
+    background-color: darken($lightGreyBtn, 3%);
+  }
+}
