@@ -2,22 +2,21 @@ import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
 import { Title } from "$components/Title";
-import NotFound from "$pages/NotFound";
 import Loading from "$pages/Loading";
 
 const TitleContainer: FunctionComponent = () => {
-  const translationsResponse = useQuery(getTranslations, {
-      variables: {
-        paths: ["applicant.title"]
-      }
-    }
+  const { data, loading, error } = useQuery(
+    getTranslations,
+    { variables: { paths: ["applicants"] } }
   );
-  if (translationsResponse.error) return <NotFound/>;
-  if (translationsResponse.loading) return <Loading />;
+  if (error) return <div/>;
+  if (loading) return <Loading />;
+
+  const [ applicantsTranslation ] = data.getTranslations;
 
   return (
     <Title
-      title={"Postulantes"}
+      title={applicantsTranslation}
     />
   );
 };
