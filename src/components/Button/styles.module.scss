@@ -1,4 +1,5 @@
-$blueBtn: #0095DB;
+@import "$styles/_variables";
+
 $lightBlueBtn: #E6F7FF;
 $redBtn: #F44236;
 $lightRedBtn: #FEE8E7;
@@ -22,22 +23,22 @@ $lightGreyBtn: #F1F1F1;
 }
 
 .primary.positive {
-  background-color: $blueBtn;
+  background-color: $mainBlue;
   color: white;
 
   &:hover {
-    background-color: lighten($blueBtn, 3%);
+    background-color: lighten($mainBlue, 3%);
   }
 
   &:active {
-    background-color: darken($blueBtn, 3%);
+    background-color: darken($mainBlue, 3%);
   }
 }
 
 .secondary.positive {
-  border: 1px solid $blueBtn;
+  border: 1px solid $mainBlue;
   background-color: $lightBlueBtn;
-  color: $blueBtn;
+  color: $mainBlue;
 
   &:hover {
     background-color: lighten($lightBlueBtn, 3%);

@@ -1,13 +1,15 @@
 import React, { FunctionComponent } from "react";
 import classnames from "classnames";
 
+import { IButtonProps } from "./interface";
 import styles from "./styles.module.scss";
 
-const Button: FunctionComponent<IButtonProps & IButtonStyles> = (
+const Button: FunctionComponent<IButtonProps> = (
   {
     negative,
     secondary,
     onClick,
+    children,
     ...props
   }) => (
     <button
@@ -21,20 +23,8 @@ const Button: FunctionComponent<IButtonProps & IButtonStyles> = (
       onClick={onClick}
       {...props}
     >
-      {props.children}
+      {children}
     </button>
   );
-
-interface IButtonProps {
-  onClick?: (state: object) => void;
-  disabled?: boolean;
-  autoFocus?: boolean;
-  type?: "button" | "submit" | "reset" | undefined;
-}
-
-interface IButtonStyles {
-  negative?: boolean;
-  secondary?: boolean;
-}
 
 export default Button;
