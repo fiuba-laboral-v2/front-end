@@ -2,18 +2,14 @@
 @import "$styles/_detailsVariables.scss";
 
 .mainContent {
-  margin-top: $navBarHeight;
+  margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   display: flex;
   flex-direction: column;
-
-  > * {
-    margin: $biggerSpacing auto 0;
-    width: $detailContainerWidth;
-  }
+  width: $detailContainerWidth;
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .mainContent > * {
+  .mainContent {
     width: 90vw;
   }
 }
