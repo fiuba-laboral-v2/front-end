@@ -23,14 +23,12 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
                 <Button
                   onClick={() => onClickEdit(applicant.padron)}
                   className="secondary"
-                  type="button"
                 >
                   {editButtonText}
                 </Button>
                 <Button
                   onClick={() => onClickView(applicant.padron)}
                   className="primary"
-                  type="button"
                 >
                   {viewButtonText}
                 </Button>
