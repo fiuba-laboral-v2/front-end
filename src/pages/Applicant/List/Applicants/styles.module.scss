@@ -12,7 +12,7 @@
 
     .name {
       @include subtitle;
-      margin: 0;
+      margin: auto;
       flex-grow: 1;
     }
 
@@ -20,6 +20,10 @@
       display: flex;
       flex-direction: row;
       flex-shrink: 0;
+
+      :last-child{
+        margin-left: $normalSpacing;
+      }
     }
   }
 }
