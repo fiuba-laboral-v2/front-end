@@ -12,10 +12,11 @@
     .name {
       @include subtitle;
       margin: 0;
+      flex-grow: 1;
     }
 
-    .separator {
-      flex-grow: 1;
+    .buttons {
+      flex-shrink: 0;
     }
 
     .buttons :last-child{
@@ -28,19 +29,11 @@
   .row {
     .childrenContainer {
       flex-direction: column;
+    }
 
-      .separator {
-        display: flex;
-        flex-grow: 0;
-      }
-
-      .buttons {
-        display: flex;
-        flex-direction: row;
-        .separator {
-          flex-grow: 1;
-        }
-      }
+    .buttons {
+      display: flex;
+      align-self: flex-end;
     }
   }
 }

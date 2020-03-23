@@ -19,9 +19,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
           <ListItem>
             <div className={styles.childrenContainer}>
               <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
-              <div className={styles.separator}/>
               <div className={styles.buttons}>
-                <div className={styles.separator}/>
                 <SubmitButton
                   onClick={() => onClickEdit(applicant.padron)}
                   text={editButtonText}
