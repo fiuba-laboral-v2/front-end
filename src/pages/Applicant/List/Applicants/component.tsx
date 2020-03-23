@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantsProps } from "./interface";
 import { ListItem } from "$components/ListItem";
-import { SubmitButton } from "$components/SubmitButton";
 import styles from "./styles.module.scss";
+import Button from "$components/Button";
 
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
@@ -20,14 +20,20 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
             <div className={styles.childrenContainer}>
               <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
               <div className={styles.buttons}>
-                <SubmitButton
+                <Button
                   onClick={() => onClickEdit(applicant.padron)}
-                  text={editButtonText}
-                />
-                <SubmitButton
+                  className="secondary"
+                  type="button"
+                >
+                  {editButtonText}
+                </Button>
+                <Button
                   onClick={() => onClickView(applicant.padron)}
-                  text={viewButtonText}
-                />
+                  className="primary"
+                  type="button"
+                >
+                  {viewButtonText}
+                </Button>
               </div>
             </div>
           </ListItem>

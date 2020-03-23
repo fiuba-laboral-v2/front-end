@@ -17,11 +17,9 @@
     }
 
     .buttons {
+      display: flex;
+      flex-direction: row;
       flex-shrink: 0;
-    }
-
-    .buttons :last-child{
-      margin-left: $normalSpacing;
     }
   }
 }

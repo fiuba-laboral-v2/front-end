@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { getTranslations } from "$queries";
 import { Title } from "$components/Title";
-import NotFound from "$pages/NotFound";
 import Loading from "$pages/Loading";
 
 const TitleContainer: FunctionComponent = () => {
