@@ -3,16 +3,6 @@ import classnames from "classnames";
 
 import styles from "./styles.module.scss";
 
-const existingProps = ({
-  disabled,
-  autoFocus,
-  type
-}: IButtonProps) => ({
-  ...(disabled && { disabled }),
-  ...(autoFocus && { autoFocus }),
-  ...(type && { type })
-});
-
 const Button: FunctionComponent<IButtonProps & IButtonStyles> = (
   {
     negative,
@@ -29,7 +19,7 @@ const Button: FunctionComponent<IButtonProps & IButtonStyles> = (
       }
       )}
       onClick={onClick}
-      {...existingProps(props)}
+      {...props}
     >
       {props.children}
     </button>
@@ -39,7 +29,7 @@ interface IButtonProps {
   onClick?: (state: object) => void;
   disabled?: boolean;
   autoFocus?: boolean;
-  type?: string | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 interface IButtonStyles {
