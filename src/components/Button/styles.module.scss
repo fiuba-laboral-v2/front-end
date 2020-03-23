@@ -23,7 +23,7 @@ $lightGreyBtn: #F1F1F1;
 }
 
 @mixin btnColors($border, $background, $textColor) {
-  border: $border;
+  border: 1px solid $border;
   background-color: $background;
   color: $textColor;
 
@@ -37,17 +37,17 @@ $lightGreyBtn: #F1F1F1;
 }
 
 .primary {
-  @include btnColors(0px, $mainBlue, white);
+  @include btnColors($mainBlue, $mainBlue, white);
 }
 
 .secondary {
-  @include btnColors(1px solid $mainBlue, $lightBlueBtn, $mainBlue);
+  @include btnColors($mainBlue, $lightBlueBtn, $mainBlue);
 }
 
 .danger {
-  @include btnColors(1px solid $redBtn, $lightRedBtn, $redBtn);
+  @include btnColors($redBtn, $lightRedBtn, $redBtn);
 }
 
 .warning {
-  @include btnColors(1px solid $greyBtn, $lightGreyBtn, $greyBtn);
+  @include btnColors($greyBtn, $lightGreyBtn, $greyBtn);
 }
