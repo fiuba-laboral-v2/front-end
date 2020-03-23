@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ListTitle } from "$components/ListTitle";
 
 const TitleContainer: FunctionComponent = () => (
-  <ListTitle titleTranslationPath={"applicants"} />
+  <ListTitle titleTranslationPath={"companies"} />
 );
 
 export { TitleContainer };
