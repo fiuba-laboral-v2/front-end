@@ -1,86 +1,44 @@
 @import "$styles/_variables.scss";
 
-.labelInput, .textInput {
-  transition: all 0.2s;
-  touch-action: manipulation;
+.textInput {
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: solid 1px black;
+  font-size: 22px;
+  padding: 2px 0;
 }
 
-.labelInput {
-  color: $mainBlue;
-  font-size: 1.5em;
-  // width: 35rem;
-  align-self: baseline;
-}
-
-.textInput:focus {
-  outline: 0;
-  border-bottom: 1px solid #666;
-}
-
-.textInput:placeholder-shown + .labelInput {
-  cursor: text;
-  max-width: 66.66%;
+.labelInput, .errorMessage {
+  font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transform-origin: left bottom;
-  transform: translate(0, 2.125rem) scale(1.5);
+  height: 15px;
 }
 
-::-webkit-input-placeholder {
-  color: #fff;
-  opacity: 0;
-  transition: inherit;
+.labelInput {
+  color: black;
 }
 
-.textInput:focus::-webkit-input-placeholder {
-  opacity: 1;
-}
-
-.textInput:not(:placeholder-shown) + .labelInput,
-.textInput:focus + .labelInput {
-  transform: translate(0, 0) scale(1);
-  cursor: pointer;
-}
-
-.textInput {
-  color: grey;
-  font-size: x-large;
-  border: 0.2rem;
-  border-bottom: 1px solid $mainBlue;
-  width: 35rem;
-  align-self: center;
-  border-radius: 0;
-  padding: 0;
-  cursor: text;
-}
-
-.errorInput {
-  color: red;
-  font-size: small;
+.errorMessage {
+  width: 0;
+  color: $red;
 }
 
 .inputContainer {
-  margin-top: 3rem;
-  align-self: baseline;
   display: flex;
   flex-direction: column;
-  flex-flow: column-reverse;
-  margin-bottom: 1em;
-}
 
-.numberInput {
-  color: grey;
-  font-size: x-large;
-  border: 0.2rem;
-  border-bottom: 1px solid $mainBlue;
-  width: 10rem;
-  align-self: baseline;
-  border-radius: 0;
-  padding: 0;
-  cursor: text;
-  margin-top: 1rem;
-  outline: none;
+  &.error {
+    .textInput {
+      border-color: $red;
+    }
+
+    .errorMessage {
+      width: initial;
+    }
+  }
 }
 
 input::-webkit-outer-spin-button,
@@ -89,7 +47,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }

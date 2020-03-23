@@ -71,43 +71,29 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
             <TextInput
               id="email"
               label={translations.email}
-              name="email"
               type="email"
-              placeholder={translations.email}
-              large
             />
             <TextInput
               id="password"
               label={translations.password}
-              name="password"
               type="password"
-              placeholder={translations.password}
-              large
             />
             <TextInput
               id="name"
               label={translations.name}
-              name="name"
               type="text"
-              placeholder={translations.name}
-              large
             />
             <TextInput
               id="surname"
               label={translations.surname}
-              name="surname"
               type="text"
-              placeholder={translations.surname}
-              large
             />
             <TextInput
               id="padron"
               label={translations.padron}
-              name="padron"
               type="number"
-              placeholder={translations.padron}
-              otherProps={{ min: "0", step: "1" }}
-              large
+              min={0}
+              step={1}
             />
             <FieldArray
               name="careers"

@@ -1,7 +1,6 @@
 @import "$styles/_variables";
 
 $lightBlueBtn: #E6F7FF;
-$redBtn: #F44236;
 $lightRedBtn: #FEE8E7;
 $greyBtn: #767676;
 $lightGreyBtn: #F1F1F1;
@@ -44,7 +43,7 @@ $lightGreyBtn: #F1F1F1;
 }
 
 .danger {
-  @include btnColors($redBtn, $lightRedBtn, $redBtn);
+  @include btnColors($red, $lightRedBtn, $red);
 }
 
 .warning {

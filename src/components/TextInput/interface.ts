@@ -1,10 +1,6 @@
-export interface IInputProps {
+import { HTMLProps } from "react";
+
+export interface IInputProps extends HTMLProps<HTMLInputElement> {
   id: string;
-  name: string;
   label: string;
-  type: string;
-  placeholder: string;
-  large?: boolean;
-  small?: boolean;
-  otherProps?: any;
 }
