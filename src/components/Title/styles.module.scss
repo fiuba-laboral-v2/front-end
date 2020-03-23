@@ -10,3 +10,7 @@
 .subtitle {
   @include subtitle;
 }
+
+.container {
+  margin-bottom: $biggerSpacing;
+}
