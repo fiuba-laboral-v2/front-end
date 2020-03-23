@@ -1,4 +1,5 @@
 export interface IButtonProps {
+  className: "primary" | "secondary" | "warning" | "danger";
   onClick?: (state: object) => void;
   disabled?: boolean;
   autoFocus?: boolean;
@@ -6,4 +7,3 @@ export interface IButtonProps {
   negative?: boolean;
   secondary?: boolean;
 }
-

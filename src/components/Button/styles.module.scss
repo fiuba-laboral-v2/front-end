@@ -22,57 +22,32 @@ $lightGreyBtn: #F1F1F1;
   justify-content: center;
 }
 
-.primary.positive {
-  background-color: $mainBlue;
-  color: white;
+@mixin btnColors($border, $background, $textColor) {
+  border: $border;
+  background-color: $background;
+  color: $textColor;
 
   &:hover {
-    background-color: lighten($mainBlue, 3%);
+    background-color: lighten($background, 3%);
   }
 
   &:active {
-    background-color: darken($mainBlue, 3%);
+    background-color: darken($background, 3%);
   }
 }
 
-.secondary.positive {
-  border: 1px solid $mainBlue;
-  background-color: $lightBlueBtn;
-  color: $mainBlue;
-
-  &:hover {
-    background-color: lighten($lightBlueBtn, 3%);
-  }
-
-  &:active {
-    background-color: darken($lightBlueBtn, 3%);
-  }
+.primary {
+  @include btnColors(0px, $mainBlue, white);
 }
 
-.primary.negative {
-  border: 1px solid $redBtn;
-  background-color: $lightRedBtn;
-  color: $redBtn;
-
-  &:hover {
-    background-color: lighten($lightRedBtn, 3%);
-  }
-
-  &:active {
-    background-color: darken($lightRedBtn, 3%);
-  }
+.secondary {
+  @include btnColors(1px solid $mainBlue, $lightBlueBtn, $mainBlue);
 }
 
-.secondary.negative {
-  border: 1px solid $greyBtn;
-  background-color: $lightGreyBtn;
-  color: $greyBtn;
+.danger {
+  @include btnColors(1px solid $redBtn, $lightRedBtn, $redBtn);
+}
 
-  &:hover {
-    background-color: lighten($lightGreyBtn, 3%);
-  }
-
-  &:active {
-    background-color: darken($lightGreyBtn, 3%);
-  }
+.warning {
+  @include btnColors(1px solid $greyBtn, $lightGreyBtn, $greyBtn);
 }

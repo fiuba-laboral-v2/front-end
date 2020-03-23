@@ -140,6 +140,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
               )}
             />
             <Button
+              className="primary"
               type="submit"
               disabled={!isValid || isSubmitting}
             >
