@@ -1,0 +1,52 @@
+@import "$styles/_variables";
+
+$lightBlueBtn: #E6F7FF;
+$redBtn: #F44236;
+$lightRedBtn: #FEE8E7;
+$greyBtn: #767676;
+$lightGreyBtn: #F1F1F1;
+
+.main {
+  width: fit-content;
+  min-width: 85px;
+  min-height: 40px;
+  padding: 1px 14px 1px 14px;
+  margin: 14px;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin btnColors($border, $background, $textColor) {
+  border: 1px solid $border;
+  background-color: $background;
+  color: $textColor;
+
+  &:hover {
+    background-color: lighten($background, 3%);
+  }
+
+  &:active {
+    background-color: darken($background, 3%);
+  }
+}
+
+.primary {
+  @include btnColors($mainBlue, $mainBlue, white);
+}
+
+.secondary {
+  @include btnColors($mainBlue, $lightBlueBtn, $mainBlue);
+}
+
+.danger {
+  @include btnColors($redBtn, $lightRedBtn, $redBtn);
+}
+
+.warning {
+  @include btnColors($greyBtn, $lightGreyBtn, $greyBtn);
+}
