@@ -8,6 +8,7 @@ import { validations, signUpParams, saveApplicantParams } from "./utils";
 
 import TextInput from "$components/TextInput";
 import CareerSelector from "$components/CareerSelector";
+import Button from "$components/Button";
 
 import { IInitialValues } from "./interfaces";
 
@@ -138,12 +139,13 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
                 </div>
               )}
             />
-            <button
-              className={styles.submitButton}
+            <Button
+              className="primary"
               type="submit"
               disabled={!isValid || isSubmitting}
             >
-              {translations.submit}</button>
+              {translations.submit}
+            </Button>
           </Form>
         )}
       </Formik>
