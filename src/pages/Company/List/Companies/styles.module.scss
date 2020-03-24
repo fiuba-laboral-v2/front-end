@@ -1,6 +1,21 @@
 @import "$styles/_list.scss";
+@import "$styles/_detailsVariables.scss";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+
+  .companyLogo {
+    margin-right: 5px;
+  }
+}
 
 
-.companyLogo {
-  margin-right: 5px;
+@media (max-width: $mobileContainerThreshold) {
+  .companyLogo {
+    margin: 0;
+    display: flex;
+    align-self: flex-start;
+  }
 }

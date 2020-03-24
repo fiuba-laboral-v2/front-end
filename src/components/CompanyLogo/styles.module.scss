@@ -1,17 +1,17 @@
 @import "$styles/_detailsVariables.scss";
 @import "$styles/_variables.scss";
 
-@mixin size($size) {
-  height: $size;
-  width: $size;
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
 }
 
 .detailSize {
-  @include size(140px)
+  @include size(140px, 140px)
 }
 
 .listSize {
-  @include size(25px)
+  @include size(35px, 40px)
 }
 
 .logoContainer {

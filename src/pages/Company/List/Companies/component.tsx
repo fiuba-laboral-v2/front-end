@@ -17,13 +17,15 @@ const Companies: FunctionComponent<ICompaniesProps> = (
         <div className={styles.row} key={company.id}>
           <ListItem>
             <div className={styles.childrenContainer}>
-              <CompanyLogo
-                className={styles.companyLogo}
-                size={"listSize"}
-                companyName={company.companyName}
-                logo={company.logo}
-              />
-              <p className={styles.name}>{company.companyName}</p>
+              <div className={styles.header}>
+                <CompanyLogo
+                  className={styles.companyLogo}
+                  size={"listSize"}
+                  companyName={company.companyName}
+                  logo={company.logo}
+                />
+                <p className={styles.name}>{company.companyName}</p>
+              </div>
               <div className={styles.buttons}>
                 <Button
                   onClick={() => onClickView(company.id)}
