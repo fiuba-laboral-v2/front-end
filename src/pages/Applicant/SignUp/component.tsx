@@ -63,52 +63,37 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
             variables: saveApplicantParams(values)
           });
           setSubmitting(false);
-          // TODO: this should be /applicants/${applicant.uuid}/
           setRedirectUrl(`/applicants/${applicant.padron}/`);
         }}
       >
         {({ values, isValid, isSubmitting }) => (
           <Form translate="yes" className={styles.formContainer}>
             <TextInput
-              id="email"
-              label={translations.email}
               name="email"
+              label={translations.email}
               type="email"
-              placeholder={translations.email}
-              large
             />
             <TextInput
-              id="password"
-              label={translations.password}
               name="password"
+              label={translations.password}
               type="password"
-              placeholder={translations.password}
-              large
             />
             <TextInput
-              id="name"
-              label={translations.name}
               name="name"
+              label={translations.name}
               type="text"
-              placeholder={translations.name}
-              large
             />
             <TextInput
-              id="surname"
-              label={translations.surname}
               name="surname"
+              label={translations.surname}
               type="text"
-              placeholder={translations.surname}
-              large
             />
             <TextInput
-              id="padron"
-              label={translations.padron}
               name="padron"
+              label={translations.padron}
               type="number"
-              placeholder={translations.padron}
-              otherProps={{ min: "0", step: "1" }}
-              large
+              min={0}
+              step={1}
             />
             <FieldArray
               name="careers"
