@@ -1,0 +1,15 @@
+@import "$styles/_variables.scss";
+@import "$styles/_detailsVariables.scss";
+
+.mainContent {
+  margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
+  display: flex;
+  flex-direction: column;
+  width: $detailContainerWidth;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContent {
+    width: 90vw;
+  }
+}
