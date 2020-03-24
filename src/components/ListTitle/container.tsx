@@ -14,7 +14,7 @@ const ListTitleContainer: FunctionComponent<IListTitleProps> = ({ titleTranslati
   if (loading) return <Loading />;
 
   const [ titleTranslation ] = data.getTranslations;
-  return (<Title title={titleTranslation} />);
+  return <Title title={titleTranslation} />;
 };
 
 export { ListTitleContainer };
