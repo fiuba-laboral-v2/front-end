@@ -1,7 +1,6 @@
 query getCompanies {
     getCompanies {
         id
-        cuit
         companyName
         logo
     }
