@@ -1,6 +1,6 @@
 import { HTMLProps } from "react";
 
 export interface IInputProps extends HTMLProps<HTMLInputElement> {
-  id: string;
+  name: string;
   label: string;
 }

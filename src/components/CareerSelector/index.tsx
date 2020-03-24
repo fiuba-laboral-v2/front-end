@@ -25,7 +25,7 @@ const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
         <Selector name={`careers.${index}.code`} options={options} />
       </div>
       <TextInput
-        id={`careers[${index}].creditsCount`}
+        name={`careers[${index}].creditsCount`}
         label={creditsLabel}
         type="number"
         min={0}

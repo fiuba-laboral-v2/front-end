@@ -69,27 +69,27 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
         {({ values, isValid, isSubmitting }) => (
           <Form translate="yes" className={styles.formContainer}>
             <TextInput
-              id="email"
+              name="email"
               label={translations.email}
               type="email"
             />
             <TextInput
-              id="password"
+              name="password"
               label={translations.password}
               type="password"
             />
             <TextInput
-              id="name"
+              name="name"
               label={translations.name}
               type="text"
             />
             <TextInput
-              id="surname"
+              name="surname"
               label={translations.surname}
               type="text"
             />
             <TextInput
-              id="padron"
+              name="padron"
               label={translations.padron}
               type="number"
               min={0}
