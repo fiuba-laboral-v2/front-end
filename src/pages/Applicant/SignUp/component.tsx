@@ -64,7 +64,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
           });
           setSubmitting(false);
           // TODO: this should be /applicants/${applicant.uuid}/
-          setRedirectUrl(`/applicants/${applicant.padron}/`);
+          setRedirectUrl(`/applicants/${applicant.uuid}/`);
         }}
       >
         {({ values, isValid, isSubmitting }) => (

@@ -47,17 +47,17 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
       <div className={styles.columnContainer}>
         <EditableField
           defaultValue={applicant.name}
-          setField={newName => setApplicant({...applicant, name: newName})}
+          setField={newName => setApplicant({ ...applicant, name: newName })}
           fieldName={translations.name}
         />
         <EditableField
           defaultValue={applicant.surname}
-          setField={newSurname => setApplicant({...applicant, surname: newSurname})}
+          setField={newSurname => setApplicant({ ...applicant, surname: newSurname })}
           fieldName={translations.lastName}
         />
         <EditableField
           defaultValue={applicant.description}
-          setField={newDescription => setApplicant({...applicant, description: newDescription})}
+          setField={newDescription => setApplicant({ ...applicant, description: newDescription })}
           fieldName={translations.description}
         />
       </div>
@@ -67,14 +67,14 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           addCapability={setCapabilities}
           capabilities={applicant.capabilities || []}
         />
-        <div className={styles.separator}/>
+        <div className={styles.separator} />
         <EditableCareers
           deleteCareer={deleteCareer}
           careers={applicant.careers || []}
           setCareer={setCareer}
         />
       </div>
-      <FormFooter onSubmit={() => onSubmit(applicant)} onCancel={onCancel}/>
+      <FormFooter onSubmit={() => onSubmit(applicant)} onCancel={onCancel} />
     </DetailMainContainer>
   );
 };
