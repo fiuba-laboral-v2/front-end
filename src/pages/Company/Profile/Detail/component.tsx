@@ -22,7 +22,7 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
   <DetailMainContainer>
     <div className={styles.header}>
       <CompanyLogo
-        size={"detailSize"}
+        size={"large"}
         companyName={name}
         logo={logoImageSource}
       />

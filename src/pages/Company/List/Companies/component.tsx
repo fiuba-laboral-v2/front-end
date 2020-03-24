@@ -22,7 +22,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
               <div className={styles.header}>
                 <CompanyLogo
                   className={styles.companyLogo}
-                  size={"listSize"}
+                  size={"small"}
                   companyName={company.companyName}
                   logo={company.logo}
                 />
