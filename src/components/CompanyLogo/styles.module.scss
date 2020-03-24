@@ -1,21 +1,29 @@
 @import "$styles/_detailsVariables.scss";
 @import "$styles/_variables.scss";
 
+@mixin size($size) {
+  height: $size;
+  width: $size;
+}
+
+.detailSize {
+  @include size(140px)
+}
+
+.listSize {
+  @include size(25px)
+}
 
 .logoContainer {
-  $logoWidth: 140px;
-  height: $logoWidth;
-  width: $logoWidth;
   box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
   border-radius: $defaultBorderRadius;
   background: white;
   display: flex;
   overflow: hidden;
   flex-shrink: 0;
+  margin: auto;
 
   .logo {
-    max-width: $logoWidth;
-    max-height: $logoWidth;
     margin: auto;
   }
 }
