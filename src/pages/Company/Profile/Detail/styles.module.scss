@@ -8,24 +8,6 @@
   word-break: break-word;
 }
 
-.logoContainer {
-  $logoWidth: 140px;
-  height: $logoWidth;
-  width: $logoWidth;
-  box-shadow: 0 0 5px rgba(0, 64, 109, 0.2);
-  border-radius: $defaultBorderRadius;
-  background: white;
-  display: flex;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  .logo {
-    max-width: $logoWidth;
-    max-height: $logoWidth;
-    margin: auto;
-  }
-}
-
 .mainInfo {
   flex-grow: 1;
   margin-left: 36px;
@@ -48,10 +30,6 @@
 @media (max-width: $mobileContainerThreshold) {
   .header {
     flex-direction: column;
-  }
-
-  .logoContainer {
-    align-self: center;
   }
 
   .mainInfo {

@@ -6,6 +6,7 @@ import { DetailByLine } from "$components/Detail/DetailByLine";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
+import { CompanyLogo } from "$components/CompanyLogo";
 
 const Detail: FunctionComponent<ICompanyDetailProps> = (
   {
@@ -20,9 +21,10 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
 ) => (
   <DetailMainContainer>
     <div className={styles.header}>
-      <div className={styles.logoContainer}>
-        <img className={styles.logo} src={logoImageSource} alt={`${name} logo`}/>
-      </div>
+      <CompanyLogo
+        companyName={name}
+        logo={logoImageSource}
+      />
       <div className={styles.mainInfo}>
         <DetailHeadline headline={name}/>
         <DetailByLine byLine={slogan}/>
