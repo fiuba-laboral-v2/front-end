@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { ListItem } from "$components/ListItem";
 import Button from "$components/Button";
 import { CompanyLogo } from "$components/CompanyLogo";
+import { ListTitle } from "$components/ListTitle";
 
 const Companies: FunctionComponent<ICompaniesProps> = (
   {
@@ -12,6 +13,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
     viewButtonText
   }) => (
   <>
+    <ListTitle titleTranslationPath={"companies"} />
     {
       companies.map(company =>
         <div className={styles.row} key={company.id}>
