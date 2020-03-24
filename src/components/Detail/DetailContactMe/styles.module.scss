@@ -1,8 +1,11 @@
+@import "$styles/_variables.scss";
 @import "$styles/_detailsVariables.scss";
 @import "$styles/mixins/_subtitle.scss";
 
 .contactInfo {
   @include subtitle;
+
+  margin-top: $smallSpacing;
 }
 
 @media (max-width: $mobileContainerThreshold) {
