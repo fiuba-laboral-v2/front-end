@@ -13,7 +13,7 @@ const TextInput: FunctionComponent<IInputProps> = ({ label, ...props }) => {
   if (error) containerClassNames.push(styles.error);
 
   const labelClassNames = [styles.labelInput];
-  if (meta.value || props.placeholder) labelClassNames.push(styles.notAnimated);
+  if (props.placeholder || meta.value !== "") labelClassNames.push(styles.notAnimated);
 
   return (
     <div className={classNames(...containerClassNames)}>
