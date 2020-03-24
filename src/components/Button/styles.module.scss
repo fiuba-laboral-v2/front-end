@@ -2,8 +2,6 @@
 
 $lightBlueBtn: #E6F7FF;
 $lightRedBtn: #FEE8E7;
-$greyBtn: #767676;
-$lightGreyBtn: #F1F1F1;
 
 .main {
   width: fit-content;
@@ -46,5 +44,5 @@ $lightGreyBtn: #F1F1F1;
 }
 
 .warning {
-  @include btnColors($greyBtn, $lightGreyBtn, $greyBtn);
+  @include btnColors($grey, $lightGrey, $grey);
 }

@@ -6,16 +6,19 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 const TextInput: FunctionComponent<IInputProps> = ({ label, ...props }) => {
-  const [field, meta] = useField(props.name);
-  const containerClassNames = [styles.inputContainer];
+  const [field, meta] = useField(props);
   const error = meta.touched && meta.error;
+
+  const containerClassNames = [styles.inputContainer];
   if (error) containerClassNames.push(styles.error);
-  if (!props.placeholder) props.placeholder = label;
+
+  const labelClassNames = [styles.labelInput];
+  if (meta.value || props.placeholder) labelClassNames.push(styles.notAnimated);
 
   return (
     <div className={classNames(...containerClassNames)}>
-      <label className={styles.labelInput} htmlFor={props.name}>{label}</label>
       <input className={styles.textInput} {...field} {...props} />
+      <label className={classNames(...labelClassNames)} htmlFor={props.name}>{label}</label>
       {error && <div className={styles.errorMessage}>{meta.error}</div>}
     </div>
   );

@@ -1,31 +1,47 @@
 @import "$styles/_variables.scss";
 
 $labelHeight: 15px;
+$labelFontSize: 13px;
+$textInputFontSize: 22px;
+
+.labelInput {
+  font-size: $textInputFontSize;
+  transform: translateY(17px);
+  color: $grey;
+  order: -1;
+  transition: 0.3s cubic-bezier(0.32, 0.71, 0.1, 0.92);
+  transition-property: font-size, transform;
+  pointer-events: none;
+}
 
 .textInput {
   outline: none;
   background: none;
   border: none;
   border-bottom: solid 1px black;
-  font-size: 22px;
+  font-size: $textInputFontSize;
   padding: 2px 0;
+
+  &:focus + .labelInput, & + .labelInput.notAnimated {
+    transform: none;
+    font-size: $labelFontSize;
+    color: black;
+  }
+
+  &::placeholder {
+    color: $grey;
+  }
 }
 
 .labelInput, .errorMessage {
-  font-size: 13px;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   height: $labelHeight;
 }
 
-.labelInput {
-  color: black;
-}
-
 .errorMessage {
-  width: 0;
-  color: $red;
+  font-size: $labelFontSize;
+  overflow: hidden;
 }
 
 .inputContainer {
@@ -40,8 +56,8 @@ $labelHeight: 15px;
       border-color: $red;
     }
 
-    .errorMessage {
-      width: initial;
+    .labelInput, .errorMessage {
+      color: $red;
     }
   }
 }
