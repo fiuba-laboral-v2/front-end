@@ -8,17 +8,14 @@ import styles from "./styles.module.scss";
 const TextInput: FunctionComponent<IInputProps> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const error = meta.touched && meta.error;
-
-  const containerClassNames = [styles.inputContainer];
-  if (error) containerClassNames.push(styles.error);
-
-  const labelClassNames = [styles.labelInput];
-  if (props.placeholder || meta.value !== "") labelClassNames.push(styles.notAnimated);
-
+  const hasValue = props.placeholder || meta.value !== "";
   return (
-    <div className={classNames(...containerClassNames)}>
+    <div className={classNames(styles.inputContainer, {[styles.error]: error})}>
       <input className={styles.textInput} {...field} {...props} />
-      <label className={classNames(...labelClassNames)} htmlFor={props.name}>{label}</label>
+      <label className={classNames(styles.labelInput, { [styles.withoutTransform]: hasValue })}
+             htmlFor={props.name}>
+        {label}
+      </label>
       {error && <div className={styles.errorMessage}>{meta.error}</div>}
     </div>
   );
