@@ -1,5 +1,7 @@
 @import "$styles/_variables.scss";
 
+$labelHeight: 15px;
+
 .textInput {
   outline: none;
   background: none;
@@ -14,7 +16,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 15px;
+  height: $labelHeight;
 }
 
 .labelInput {
@@ -29,8 +31,11 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+  padding-bottom: $labelHeight;
 
   &.error {
+    padding-bottom: 0;
+
     .textInput {
       border-color: $red;
     }
