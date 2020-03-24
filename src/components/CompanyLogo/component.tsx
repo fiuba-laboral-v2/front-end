@@ -13,7 +13,7 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
 ) => (
   <div className={classNames(styles.logoContainer, className, styles[size])}>
     <img
-      className={classNames(styles.logo, styles[size])}
+      className={styles.logo}
       src={logo}
       alt={`${companyName} logo`}
     />

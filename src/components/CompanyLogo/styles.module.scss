@@ -7,11 +7,15 @@
 }
 
 .detailSize {
-  @include size(140px, 140px)
+  &, .logo {
+    @include size(140px, 140px)
+  }
 }
 
 .listSize {
-  @include size(35px, 40px)
+  &, .logo {
+    @include size(35px, 40px)
+  }
 }
 
 .logoContainer {
