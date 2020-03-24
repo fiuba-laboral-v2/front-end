@@ -5,19 +5,18 @@ import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
-const TextInput: FunctionComponent<IInputProps> = ({
-   label, large, small, otherProps, ...props
-  }) => {
+const TextInput: FunctionComponent<IInputProps> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  const className = classNames({textInput: large, numberInput: small});
+  const error = meta.touched && meta.error;
+  const hasValue = props.placeholder || meta.value !== "";
   return (
-    <div className={styles.inputContainer}>
-      {meta.touched && meta.error ? (
-        <div className={styles.errorInput}>{meta.error}</div>
-      ) : null}
-      <input className={styles[className]} {...field} {...props} {...otherProps} />
-      <label className={styles.labelInput} htmlFor={props.id || props.name}>{label}</label>
-
+    <div className={classNames(styles.inputContainer, {[styles.error]: error})}>
+      <input className={styles.textInput} {...field} {...props} />
+      <label className={classNames(styles.labelInput, { [styles.withoutTransform]: hasValue })}
+             htmlFor={props.name}>
+        {label}
+      </label>
+      {error && <div className={styles.errorMessage}>{meta.error}</div>}
     </div>
   );
 };

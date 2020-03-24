@@ -1,86 +1,69 @@
 @import "$styles/_variables.scss";
 
-.labelInput, .textInput {
-  transition: all 0.2s;
-  touch-action: manipulation;
-}
+$labelHeight: 15px;
+$labelFontSize: 13px;
+$textInputFontSize: 22px;
 
 .labelInput {
-  color: $mainBlue;
-  font-size: 1.5em;
-  // width: 35rem;
-  align-self: baseline;
-}
-
-.textInput:focus {
-  outline: 0;
-  border-bottom: 1px solid #666;
-}
-
-.textInput:placeholder-shown + .labelInput {
-  cursor: text;
-  max-width: 66.66%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transform-origin: left bottom;
-  transform: translate(0, 2.125rem) scale(1.5);
-}
-
-::-webkit-input-placeholder {
-  color: #fff;
-  opacity: 0;
-  transition: inherit;
-}
-
-.textInput:focus::-webkit-input-placeholder {
-  opacity: 1;
-}
-
-.textInput:not(:placeholder-shown) + .labelInput,
-.textInput:focus + .labelInput {
-  transform: translate(0, 0) scale(1);
-  cursor: pointer;
+  font-size: $textInputFontSize;
+  transform: translateY(17px);
+  color: $grey;
+  order: -1;
+  transition: 0.3s cubic-bezier(0.32, 0.71, 0.1, 0.92);
+  transition-property: font-size, transform;
+  pointer-events: none;
 }
 
 .textInput {
-  color: grey;
-  font-size: x-large;
-  border: 0.2rem;
-  border-bottom: 1px solid $mainBlue;
-  width: 35rem;
-  align-self: center;
-  border-radius: 0;
-  padding: 0;
-  cursor: text;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: solid 1px black;
+  font-size: $textInputFontSize;
+  padding: 2px 0;
+
+  &:focus + .labelInput, & + .labelInput.withoutTransform {
+    transform: none;
+    font-size: $labelFontSize;
+    color: black;
+  }
+
+  &::placeholder {
+    color: $grey;
+  }
 }
 
-.errorInput {
-  color: red;
-  font-size: small;
+.labelInput, .errorMessage {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: $labelHeight;
+}
+
+.errorMessage {
+  font-size: $labelFontSize;
+  overflow: hidden;
 }
 
 .inputContainer {
-  margin-top: 3rem;
-  align-self: baseline;
   display: flex;
   flex-direction: column;
-  flex-flow: column-reverse;
-  margin-bottom: 1em;
-}
+  padding-bottom: $labelHeight;
 
-.numberInput {
-  color: grey;
-  font-size: x-large;
-  border: 0.2rem;
-  border-bottom: 1px solid $mainBlue;
-  width: 10rem;
-  align-self: baseline;
-  border-radius: 0;
-  padding: 0;
-  cursor: text;
-  margin-top: 1rem;
-  outline: none;
+  &.error {
+    padding-bottom: 0;
+
+    .textInput {
+      border-color: $red;
+
+      &:focus + .labelInput, & + .labelInput.withoutTransform {
+        color: $red;
+      }
+    }
+
+    .errorMessage {
+      color: $red;
+    }
+  }
 }
 
 input::-webkit-outer-spin-button,
@@ -89,7 +72,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
