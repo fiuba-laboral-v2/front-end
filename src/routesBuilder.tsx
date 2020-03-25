@@ -1,8 +1,8 @@
 const RoutesBuilder = {
   applicant: {
     list: () => "/applicants/",
-    detail: (padron: number) => `/applicants/${padron}/`,
-    edit: (padron: number) => `/applicants/${padron}/edit`
+    detail: (uuid: string) => `/applicants/${uuid}/`,
+    edit: (uuid: string) => `/applicants/${uuid}/edit`
   },
   company: {
     list: () => "/companies/",

@@ -11,6 +11,7 @@ export interface ICapability {
 }
 
 export interface IApplicant {
+  uuid: string;
   name: string;
   surname: string;
   padron: number;

@@ -2,8 +2,8 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export interface IApplicantsProps {
   applicants: IApplicant[];
-  onClickEdit: (padron: number) => void;
-  onClickView: (padron: number) => void;
+  onClickEdit: (uuid: string) => void;
+  onClickView: (uuid: string) => void;
   editButtonText: string;
   viewButtonText: string;
 }

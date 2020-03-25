@@ -13,35 +13,35 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     editButtonText,
     viewButtonText
   }) => (
-  <>
-    <ListTitle titleTranslationPath={"applicants"} />
-    {
-      applicants.map(applicant =>
-        <div className={styles.row} key={applicant.padron}>
-          <ListItem>
-            <div className={styles.childrenContainer}>
-              <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
-              <div className={styles.buttons}>
-                <Button
-                  onClick={() => onClickEdit(applicant.padron)}
-                  className="secondary"
-                >
-                  {editButtonText}
-                </Button>
-                <Button
-                  onClick={() => onClickView(applicant.padron)}
-                  className="primary"
-                >
-                  {viewButtonText}
-                </Button>
+    <>
+      <ListTitle titleTranslationPath={"applicants"} />
+      {
+        applicants.map(applicant =>
+          <div className={styles.row} key={applicant.uuid}>
+            <ListItem>
+              <div className={styles.childrenContainer}>
+                <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
+                <div className={styles.buttons}>
+                  <Button
+                    onClick={() => onClickEdit(applicant.uuid)}
+                    className="secondary"
+                  >
+                    {editButtonText}
+                  </Button>
+                  <Button
+                    onClick={() => onClickView(applicant.uuid)}
+                    className="primary"
+                  >
+                    {viewButtonText}
+                  </Button>
+                </div>
               </div>
-            </div>
-          </ListItem>
-        </div>
-      )
-    }
-  </>
-);
+            </ListItem>
+          </div>
+        )
+      }
+    </>
+  );
 
 
 export { Applicants };

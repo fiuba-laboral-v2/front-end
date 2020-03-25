@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { getTranslations } from "$queries";
-import { getApplicantByPadron } from "$queries";
+import { GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
@@ -8,13 +8,13 @@ import NotFound from "$pages/NotFound";
 
 const DetailContainer: FunctionComponent = () => {
   const { data: translationsData } = useQuery(getTranslations, {
-      variables: {
-        paths: [
-          "applicant.padron",
-          "applicant.capabilities"
-        ]
-      }
+    variables: {
+      paths: [
+        "applicant.padron",
+        "applicant.capabilities"
+      ]
     }
+  }
   );
 
   const [
@@ -22,17 +22,15 @@ const DetailContainer: FunctionComponent = () => {
     capabilitiesTranslation
   ] = translationsData ? translationsData.getTranslations : ["", ""];
 
-  const { id } = useParams();
-  const { data: applicantData, error: applicantError } = useQuery(getApplicantByPadron, {
-      variables: {
-        padron: parseInt(id!, 10)
-      }
-    }
+  const { id: uuid } = useParams();
+  const { data: applicantData, error: applicantError } = useQuery(GET_APPLICANT, {
+    variables: { uuid }
+  }
   );
 
-  if (applicantError) return (<NotFound/>);
+  if (applicantError) return (<NotFound />);
 
-  const applicant = applicantData ? applicantData.getApplicantByPadron : {
+  const applicant = applicantData ? applicantData.getApplicant : {
     applicant: {
       name: "",
       surname: "",

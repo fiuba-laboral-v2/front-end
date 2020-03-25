@@ -1,0 +1,19 @@
+query GetApplicant($uuid: ID!) {
+    getApplicant(uuid: $uuid) {
+        uuid
+        name
+        surname
+        padron
+        description
+        capabilities {
+            uuid
+            description
+        }
+        careers {
+            code
+            description
+            credits
+            creditsCount
+        }
+    }
+}

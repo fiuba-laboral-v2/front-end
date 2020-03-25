@@ -9,27 +9,27 @@ import {
   deleteApplicantCareers
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { getApplicantByPadron, getTranslations } from "$queries";
+import { GET_APPLICANT, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
+import Loading from "$pages/Loading";
 
 const EditableDetailContainer: FunctionComponent = () => {
-  const { id } = useParams();
-  const padron = parseInt(id!, 10);
+  const { id: uuid } = useParams();
   const [applicant, setApplicant] = useState<IApplicant>({} as any);
   const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
   const history = useHistory();
 
   const { data: translationsData } = useQuery(getTranslations, {
-      variables: {
-        paths: [
-          "applicant.padron",
-          "applicant.name",
-          "applicant.lastName",
-          "applicant.description"
-        ]
-      }
+    variables: {
+      paths: [
+        "applicant.padron",
+        "applicant.name",
+        "applicant.lastName",
+        "applicant.description"
+      ]
     }
+  }
   );
 
   const [
@@ -39,27 +39,35 @@ const EditableDetailContainer: FunctionComponent = () => {
     descriptionTranslation
   ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
 
-  const [ updateApplicant ] = useMutation(updateApplicantMutation);
+  const [updateApplicant] = useMutation(updateApplicantMutation);
 
-  const [ deleteCapabilities ] = useMutation(deleteApplicantCapabilities);
+  const [deleteCapabilities] = useMutation(deleteApplicantCapabilities);
 
-  const [ deleteCareers ] = useMutation(deleteApplicantCareers);
+  const [deleteCareers] = useMutation(deleteApplicantCareers);
 
-  const { data: applicantData, error: applicantError, loading } = useQuery(getApplicantByPadron, {
-      variables: { padron: padron }
-    }
+  const { data: applicantData, error: applicantError, loading } = useQuery(GET_APPLICANT, {
+    variables: { uuid }
+  }
   );
 
-  useMemo(() => setApplicant(applicantData?.getApplicantByPadron), [applicantData]);
+  useMemo(() => setApplicant(applicantData?.getApplicant), [applicantData]);
 
-  const submit = async (applicantProps: IApplicant) => {
+  const submit = async ({
+    uuid: id,
+    padron,
+    name,
+    surname,
+    description,
+    capabilities,
+    careers
+  }: IApplicant) => {
     const dataToUpdate: IApplicantEditable = {
-      padron: padron,
-      name: applicantProps.name,
-      surname: applicantProps.surname,
-      description: applicantProps.description,
-      capabilities: applicantProps.capabilities?.map(c => c.description),
-      careers: applicantProps.careers?.map(c =>
+      padron,
+      name,
+      surname,
+      description,
+      capabilities: capabilities?.map(c => c.description),
+      careers: careers?.map(c =>
         ({ code: c.code, creditsCount: c.creditsCount || 0 })
       )
     };
@@ -74,23 +82,23 @@ const EditableDetailContainer: FunctionComponent = () => {
     } catch (e) {
       alert(e);
     }
-    history.push(RoutesBuilder.applicant.detail(padron));
+    history.push(RoutesBuilder.applicant.detail(id));
   };
 
   const deleteCapability = (description: string) => {
-    setDeletedCapabilities([ ...deletedCapabilities,  description]);
-    const capabilities = applicant.capabilities?.filter(c =>  c.description !== description);
+    setDeletedCapabilities([...deletedCapabilities, description]);
+    const capabilities = applicant.capabilities?.filter(c => c.description !== description);
     setApplicant({ ...applicant, capabilities: capabilities });
   };
 
   const deleteCareer = (code: string) => {
-    setDeletedCareers([ ...deletedCareers, code ]);
-    applicant.careers = applicant.careers?.filter(c =>  c.code !== code);
+    setDeletedCareers([...deletedCareers, code]);
+    applicant.careers = applicant.careers?.filter(c => c.code !== code);
     setApplicant({ ...applicant, careers: applicant.careers });
   };
 
-  if (applicantError) return (<NotFound/>);
-  if (loading) return (<div></div>);
+  if (applicantError) return (<NotFound />);
+  if (loading) return (<Loading />);
 
   return (
     <EditableDetail
@@ -98,7 +106,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => history.push(RoutesBuilder.applicant.detail(padron))}
+      onCancel={() => history.push(RoutesBuilder.applicant.detail(applicant.uuid))}
       applicant={applicant}
       translations={
         {
