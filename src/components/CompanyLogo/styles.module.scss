@@ -6,15 +6,21 @@
   width: $width;
 }
 
-.large {
+.small {
   &, .logo {
-    @include size(140px, 140px)
+    @include size(40px, 40px)
   }
 }
 
-.small {
+.medium {
   &, .logo {
-    @include size(35px, 40px)
+    @include size(50px, 50px)
+  }
+}
+
+.large {
+  &, .logo {
+    @include size(140px, 140px)
   }
 }
 
