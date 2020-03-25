@@ -6,13 +6,13 @@
   width: $width;
 }
 
-.detailSize {
+.large {
   &, .logo {
     @include size(140px, 140px)
   }
 }
 
-.listSize {
+.small {
   &, .logo {
     @include size(35px, 40px)
   }
