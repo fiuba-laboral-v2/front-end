@@ -9,8 +9,9 @@ $textInputFontSize: 22px;
   transform: translateY(17px);
   color: $grey;
   order: -1;
-  transition: 0.3s cubic-bezier(0.32, 0.71, 0.1, 0.92);
+  transition: 0.2s ease-out;
   transition-property: font-size, transform;
+  transform-origin: 0 0;
   pointer-events: none;
 }
 
@@ -24,8 +25,7 @@ $textInputFontSize: 22px;
   padding: 2px 0;
 
   &:focus + .labelInput, & + .labelInput.withoutTransform {
-    transform: none;
-    font-size: $labelFontSize;
+    transform: scale($labelFontSize / $textInputFontSize);
     color: black;
   }
 
