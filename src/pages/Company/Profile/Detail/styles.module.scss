@@ -8,28 +8,9 @@
   word-break: break-word;
 }
 
-.logoContainer {
-  $logoWidth: 140px;
-  height: $logoWidth;
-  width: $logoWidth;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: $defaultBorderRadius;
-  background: white;
-  display: flex;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  .logo {
-    max-width: $logoWidth;
-    max-height: $logoWidth;
-    margin: auto;
-  }
-}
-
 .mainInfo {
   flex-grow: 1;
   margin-left: 36px;
-  align-self: center;
 }
 
 .photos {
@@ -48,10 +29,6 @@
 @media (max-width: $mobileContainerThreshold) {
   .header {
     flex-direction: column;
-  }
-
-  .logoContainer {
-    align-self: center;
   }
 
   .mainInfo {

@@ -2,7 +2,7 @@
 
 @mixin subtitle {
   :not(a) {
-    color: $subtitleColor;
+    color: $darkGrey;
   }
   margin: 0;
   font-weight: normal;

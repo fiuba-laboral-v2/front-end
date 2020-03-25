@@ -1,10 +1,7 @@
 @import "$styles/_variables";
 
 $lightBlueBtn: #E6F7FF;
-$redBtn: #F44236;
 $lightRedBtn: #FEE8E7;
-$greyBtn: #767676;
-$lightGreyBtn: #F1F1F1;
 
 .main {
   width: fit-content;
@@ -17,6 +14,7 @@ $lightGreyBtn: #F1F1F1;
   font-size: 15px;
   line-height: 17px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -43,9 +41,9 @@ $lightGreyBtn: #F1F1F1;
 }
 
 .danger {
-  @include btnColors($redBtn, $lightRedBtn, $redBtn);
+  @include btnColors($red, $lightRedBtn, $red);
 }
 
 .warning {
-  @include btnColors($greyBtn, $lightGreyBtn, $greyBtn);
+  @include btnColors($grey, $lightGrey, $grey);
 }

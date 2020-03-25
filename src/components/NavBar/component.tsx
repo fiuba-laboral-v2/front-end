@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
+import { RoutesBuilder } from "$src/routesBuilder";
 import { INavBarProps } from "./interface";
 
 import styles from "./styles.module.scss";
@@ -32,8 +33,8 @@ const NavBar: FunctionComponent<INavBarProps> = (
         </div>
       </div>
       <div className={`${styles.menu} ${showMenu && styles.showOnMobile}`}>
-        <Link to="/companies/">{companies}</Link>
-        <Link to="/applicants/">{applicants}</Link>
+        <Link to={RoutesBuilder.company.list()}>{companies}</Link>
+        <Link to={RoutesBuilder.applicant.list()}>{applicants}</Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           <p className={styles.userName}>{username}</p>
