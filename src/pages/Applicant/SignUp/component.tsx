@@ -63,7 +63,6 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
             variables: saveApplicantParams(values)
           });
           setSubmitting(false);
-          // TODO: this should be /applicants/${applicant.uuid}/
           setRedirectUrl(`/applicants/${applicant.uuid}/`);
         }}
       >

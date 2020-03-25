@@ -11,10 +11,10 @@ import {
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, getTranslations } from "$queries";
 import NotFound from "$pages/NotFound";
+import Loading from "$pages/Loading";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  // const padron = parseInt(id!, 10);
   const [applicant, setApplicant] = useState<IApplicant>({} as any);
   const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
@@ -98,7 +98,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   };
 
   if (applicantError) return (<NotFound />);
-  if (loading) return (<div></div>);
+  if (loading) return (<Loading />);
 
   return (
     <EditableDetail
@@ -106,7 +106,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => history.push(RoutesBuilder.applicant.detail(uuid as string))}
+      onCancel={() => history.push(RoutesBuilder.applicant.detail(uuid!))}
       applicant={applicant}
       translations={
         {
