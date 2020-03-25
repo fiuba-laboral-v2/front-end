@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { Applicants } from "./Applicants";
+import { Companies } from "./Companies";
 import { Window } from "$components/Window";
 
 const List: FunctionComponent = () => (
   <Window>
-    <Applicants />
+    <Companies />
   </Window>
 );
 

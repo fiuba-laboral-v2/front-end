@@ -1,0 +1,39 @@
+@import "$styles/_detailsVariables.scss";
+@import "$styles/_variables.scss";
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+.large {
+  &, .logo {
+    @include size(140px, 140px)
+  }
+}
+
+.small {
+  &, .logo {
+    @include size(35px, 40px)
+  }
+}
+
+.logoContainer {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: $defaultBorderRadius;
+  background: white;
+  display: flex;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: auto;
+
+  .logo {
+    margin: auto;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .logoContainer {
+    align-self: center;
+  }
+}

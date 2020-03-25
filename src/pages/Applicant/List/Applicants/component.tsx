@@ -3,6 +3,7 @@ import { IApplicantsProps } from "./interface";
 import { ListItem } from "$components/ListItem";
 import styles from "./styles.module.scss";
 import Button from "$components/Button";
+import { ListTitle } from "$components/ListTitle";
 
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
@@ -13,6 +14,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     viewButtonText
   }) => (
   <>
+    <ListTitle titleTranslationPath={"applicants"} />
     {
       applicants.map(applicant =>
         <div className={styles.row} key={applicant.padron}>
