@@ -1,13 +1,13 @@
 @import "$styles/_variables.scss";
-@import "$styles/mixins/_subtitle.scss";
 
 $labelHeight: 15px;
 $labelFontSize: 13px;
 $textInputFontSize: 22px;
 
 .labelInput {
-  @include subtitle;
+  font-size: $textInputFontSize;
   transform: translateY(17px);
+  color: $grey;
   order: -1;
   transition: 0.2s ease-out;
   transition-property: font-size, transform;
@@ -16,12 +16,12 @@ $textInputFontSize: 22px;
 }
 
 .textInput {
-  @include subtitle;
   outline: none;
   background: none;
   border: none;
   border-bottom: solid 1px black;
   border-radius: 0;
+  font-size: $textInputFontSize;
   padding: 2px 0;
 
   &:focus + .labelInput, & + .labelInput.withoutTransform {
