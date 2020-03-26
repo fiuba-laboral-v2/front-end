@@ -1,6 +1,6 @@
 export interface ICompanyLogoProps {
   companyName: string;
   logo?: string;
-  size: "small" | "large";
+  size: "small" | "medium" | "large";
   className?: string;
 }
