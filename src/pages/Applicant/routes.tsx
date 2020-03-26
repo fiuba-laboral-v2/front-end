@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import SignUp from "./SignUp";
+import { SignUp } from "./SignUp";
 import Profile from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
