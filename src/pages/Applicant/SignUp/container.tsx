@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { Redirect } from "react-router-dom";
 import { getTranslations, GET_CAREERS } from "$queries";
-import SignUp from "./component";
+import { SignUp } from "./component";
 import { translationsMapper, careersMapper } from "./utils";
 import SignUpTranslations from "./translations";
 
