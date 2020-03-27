@@ -12,7 +12,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
     applicant,
     translations
   }) => (
-  <div className={styles.detailContainer}>
+  <div className={styles.container}>
     <div className={styles.headline}>
       <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
       <div> Links </div>

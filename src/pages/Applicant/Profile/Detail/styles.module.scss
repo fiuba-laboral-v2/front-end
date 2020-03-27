@@ -1,7 +1,7 @@
 @import "$styles/_detailsVariables.scss";
 @import "$styles/mixins/_card.scss";
 
-.detailContainer {
+.container {
   @include card;
 
   .headline, .firstContainerInfo, .sections {
@@ -33,7 +33,7 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .detailContainer {
+  .container {
     .firstContainerInfo {
       flex-direction: column;
     }
