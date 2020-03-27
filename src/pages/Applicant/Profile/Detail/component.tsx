@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantDetailProps } from "./interface";
 import { DetailHeadline } from "$components//Detail/DetailHeadline";
-import { DetailDescription } from "$components/Detail/DetailDescription";
 import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
 import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
 import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
@@ -30,7 +29,11 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       </div>
     </div>
     <div className={styles.sections}>
-      <SectionDetail title={"Experiencia Laboral"} text={applicant.description}/>
+      {
+        applicant.sections?.map(section =>
+          <SectionDetail title={section.title} text={section.text}/>
+        )
+      }
     </div>
   </div>
 );

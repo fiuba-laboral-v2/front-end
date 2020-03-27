@@ -10,12 +10,19 @@ export interface ICapability {
   description: string;
 }
 
+export interface ISection {
+  title: string;
+  text: string;
+}
+
 export interface IApplicant {
   uuid: string;
   name: string;
   surname: string;
   padron: number;
   description: string;
+  links?: string[];
+  sections?: ISection[];
   capabilities?: ICapability[];
   careers?: ICareer[];
 }
