@@ -18,8 +18,8 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
   return (
     <ItemsDetail
       items={
-        careers?.map((career: ICareer) =>
-          `${career.code} - ${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
+        careers.map(career =>
+          `${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
         )
       }
       title={careersTitle}

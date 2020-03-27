@@ -1,0 +1,21 @@
+@import "$styles/mixins/_subtitle.scss";
+@import "$styles/_variables.scss";
+
+$separator: 7px;
+
+.title {
+  @include subtitle;
+  margin-bottom: $smallSpacing;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: $separator;
+
+  .item {
+    margin-right: $separator;
+    margin-bottom: $separator;
+  }
+}
