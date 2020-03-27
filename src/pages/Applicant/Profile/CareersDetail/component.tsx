@@ -7,23 +7,25 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     careers,
     careersTitle,
-    creditsProgressTranslation
+    creditsProgressTranslation,
+    className
   }) => {
-
   const percentage = (career: ICareer) => {
     career.creditsCount = career.creditsCount || 0;
     return ((career.creditsCount/career.credits)*100).toFixed(2);
   };
 
   return (
-    <ItemsDetail
-      items={
-        careers.map(career =>
-          `${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
-        )
-      }
-      title={careersTitle}
-    />
+    <div className={className}>
+      <ItemsDetail
+        items={
+          careers.map(career =>
+            `${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
+          )
+        }
+        title={careersTitle}
+      />
+    </div>
   );
 };
 

@@ -6,9 +6,10 @@ import styles from "./styles.module.scss";
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   {
     capabilities,
-    title
+    title,
+    className
   }) => (
-  <>
+  <div className={className}>
     <span className={styles.title}> {title}</span>
     <section className={styles.items}>
       {
@@ -19,7 +20,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
         )
       }
     </section>
-  </>
+  </div>
 );
 
 export { CapabilitiesDetail };
