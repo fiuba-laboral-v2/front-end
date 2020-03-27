@@ -1,45 +1,28 @@
 import React, { FunctionComponent } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { Formik, Form, FieldArray } from "formik";
+import { FieldArray, Form, Formik } from "formik";
 
-import { SIGN_UP, SAVE_APPLICANT } from "$mutations";
+import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
 
-import { validations, signUpParams, saveApplicantParams } from "./utils";
+import { saveApplicantParams, signUpParams, validations } from "./utils";
 import { RoutesBuilder } from "$src/routesBuilder";
 
 import TextInput from "$components/TextInput";
 import CareerSelector from "$components/CareerSelector";
 import Button from "$components/Button";
 
-import { IInitialValues } from "./interfaces";
+import { IInitialValues, ISignUpProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
+import { useHistory } from "react-router-dom";
 
-interface ICareersMapper {
-  value: string;
-  label: string;
-}
-
-interface ISignUpProps {
-  translations: {
-    title: string;
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-    padron: string;
-    careersTitle: string;
-    credits: string;
-    addCareerBtn: string;
-    submit: string;
-  };
-  careers: ICareersMapper[];
-  setRedirectUrl: any;
-}
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRedirectUrl }) => {
+  const history = useHistory();
+
   const [signUp] = useMutation(SIGN_UP);
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
+  const formName = "signUpForm";
   const initialValues: IInitialValues = {
     email: "",
     password: "",
@@ -64,12 +47,12 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
               variables: saveApplicantParams(values)
             });
             setSubmitting(false);
-            setRedirectUrl(RoutesBuilder.applicant.detail(applicant.uuid));
+            history.push(RoutesBuilder.applicant.detail(applicant.uuid));
           }}
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
-              <Form translate="yes" className={styles.formContainer}>
+              <Form translate="yes" className={styles.formContainer} id={formName}>
                 <TextInput
                   name="email"
                   label={translations.email}
@@ -129,6 +112,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
               </Form>
               <div className={styles.footer}>
                 <Button
+                  form={formName}
                   className="primary"
                   type="submit"
                   disabled={!isValid || isSubmitting}

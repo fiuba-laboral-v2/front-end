@@ -1,14 +1,15 @@
 import React, { FunctionComponent } from "react";
 import TextInput from "$components/TextInput";
-import Selector from "$components/Selector";
+import { Selector } from "$components/Selector";
 import { ArrayHelpers } from "formik";
 
 import styles from "./styles.module.scss";
+import { ICareersMapper } from "$pages/Applicant/SignUp/interfaces";
 
 interface ICareerSelectorProps {
   index: number;
   creditsCount: number;
-  options: any;
+  options: ICareersMapper[];
   arrayHelpers: ArrayHelpers;
   creditsLabel: string;
 }

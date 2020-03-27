@@ -11,3 +11,25 @@ export interface IInitialValues {
   padron: number;
   careers: ICareersSelector[];
 }
+
+export interface ICareersMapper {
+  value: string;
+  label: string;
+}
+
+export interface ISignUpProps {
+  translations: {
+    title: string;
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+    padron: string;
+    careersTitle: string;
+    credits: string;
+    addCareerBtn: string;
+    submit: string;
+  };
+  careers: ICareersMapper[];
+  setRedirectUrl: any;
+}
