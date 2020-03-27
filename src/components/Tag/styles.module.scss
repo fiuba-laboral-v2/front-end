@@ -1,3 +1,5 @@
+@import "$styles/mixins/_text.scss";
+
 .tag {
   display: flex;
   background: #26A69A;
@@ -8,7 +10,6 @@
 
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
-  line-height: 17px;
+  @include text;
   justify-content: center;
 }

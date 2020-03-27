@@ -4,6 +4,7 @@ import { DetailHeadline } from "$components//Detail/DetailHeadline";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
 import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
+import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
 
 import styles from "./styles.module.scss";
 
@@ -29,7 +30,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       </div>
     </div>
     <div className={styles.sections}>
-      <DetailDescription  description={applicant.description}/>
+      <SectionDetail title={"Experiencia Laboral"} text={applicant.description}/>
     </div>
   </div>
 );

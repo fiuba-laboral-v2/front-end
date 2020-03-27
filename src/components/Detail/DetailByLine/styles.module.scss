@@ -1,8 +1,15 @@
 @import "$styles/_variables.scss";
+@import "$styles/_detailsVariables.scss";
 @import "$styles/mixins/_subtitle.scss";
 
 .detailByline {
   @include subtitle;
 
   margin-top: $smallSpacing;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .detailByline {
+    word-break: break-word;
+  }
 }
