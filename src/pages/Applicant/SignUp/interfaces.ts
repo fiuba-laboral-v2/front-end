@@ -1,4 +1,4 @@
-import { ISelectorOption } from "$components/Selector/interface";
+import { ICareer } from "$interfaces/Applicant";
 
 export interface ICareersSelector {
   code: string;
@@ -27,6 +27,6 @@ export interface ISignUpProps {
     addCareerBtn: string;
     submit: string;
   };
-  careers: ISelectorOption[];
+  careers: ICareer[];
   setRedirectUrl: any;
 }

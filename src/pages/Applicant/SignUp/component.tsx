@@ -92,8 +92,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRed
                           <CareerSelector
                             key={index}
                             index={index}
-                            creditsCount={career.creditsCount}
-                            options={careers}
+                            careers={careers}
                             arrayHelpers={arrayHelpers}
                             creditsLabel={translations.credits}
                           />

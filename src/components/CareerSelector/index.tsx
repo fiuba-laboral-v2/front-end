@@ -4,26 +4,27 @@ import { Selector } from "$components/Selector";
 import { ArrayHelpers } from "formik";
 
 import styles from "./styles.module.scss";
-import { ISelectorOption } from "../Selector/interface";
+import { ICareer } from "$interfaces/Applicant";
 
 interface ICareerSelectorProps {
   index: number;
-  creditsCount: number;
-  options: ISelectorOption[];
+  careers: ICareer[];
   arrayHelpers: ArrayHelpers;
   creditsLabel: string;
 }
 
 const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
   index,
-  creditsCount,
-  options,
+  careers,
   arrayHelpers,
   creditsLabel
 }) => (
     <div className={styles.careerSelector}>
       <div className={styles.selectorContainer}>
-        <Selector name={`careers.${index}.code`} options={options} />
+        <Selector
+          name={`careers.${index}.code`}
+          options={careers.map(({ code, description }) => ({ value: code, label: description }))}
+        />
       </div>
       <TextInput
         name={`careers[${index}].creditsCount`}

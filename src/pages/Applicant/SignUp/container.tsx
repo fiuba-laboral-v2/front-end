@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CAREERS, getTranslations } from "$queries";
 import { SignUp } from "./component";
-import { careersMapper, translationsMapper } from "./utils";
+import { translationsMapper } from "./utils";
 import SignUpTranslations from "./translations";
 
 import Loading from "$pages/Loading";
@@ -22,7 +22,7 @@ const SignUpContainer: FunctionComponent = () => {
   if (loading || loadingCareers) return <Loading/>;
 
   const translations = translationsMapper(translationsData.getTranslations);
-  const careers = careersMapper(data.getCareers);
+  const careers = data.getCareers;
 
   return (
     <SignUp translations={translations} careers={careers} setRedirectUrl={setRedirectUrl}/>
