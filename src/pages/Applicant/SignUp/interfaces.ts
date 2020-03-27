@@ -1,3 +1,5 @@
+import { ISelectorOption } from "$components/Selector/interface";
+
 export interface ICareersSelector {
   code: string;
   creditsCount: number;
@@ -10,11 +12,6 @@ export interface IInitialValues {
   surname: string;
   padron: number;
   careers: ICareersSelector[];
-}
-
-export interface ICareersMapper {
-  value: string;
-  label: string;
 }
 
 export interface ISignUpProps {
@@ -30,6 +27,6 @@ export interface ISignUpProps {
     addCareerBtn: string;
     submit: string;
   };
-  careers: ICareersMapper[];
+  careers: ISelectorOption[];
   setRedirectUrl: any;
 }

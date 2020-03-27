@@ -4,12 +4,12 @@ import { Selector } from "$components/Selector";
 import { ArrayHelpers } from "formik";
 
 import styles from "./styles.module.scss";
-import { ICareersMapper } from "$pages/Applicant/SignUp/interfaces";
+import { ISelectorOption } from "../Selector/interface";
 
 interface ICareerSelectorProps {
   index: number;
   creditsCount: number;
-  options: ICareersMapper[];
+  options: ISelectorOption[];
   arrayHelpers: ArrayHelpers;
   creditsLabel: string;
 }
