@@ -15,13 +15,18 @@ export interface ISection {
   text: string;
 }
 
+export interface ILink {
+  name: string;
+  url: string;
+}
+
 export interface IApplicant {
   uuid: string;
   name: string;
   surname: string;
   padron: number;
   description: string;
-  links?: string[];
+  links?: ILink[];
   sections?: ISection[];
   capabilities?: ICapability[];
   careers?: ICareer[];
