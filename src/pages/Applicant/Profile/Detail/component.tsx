@@ -12,21 +12,18 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
     applicant,
     translations
   }) => (
-  <div className={styles.detailContainer}>
+  <div className={styles.container}>
     <div className={styles.headline}>
       <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
       <div> Links </div>
     </div>
-    <div className={styles.firstContainerInfo}>
-      <div className={styles.capabilities}>
-        <CapabilitiesDetail
-          title={translations.capabilities}
-          capabilities={applicant.capabilities || []}
-        />
-      </div>
-      <div className={styles.careers}>
-        <CareersDetail careers={applicant.careers || []} />
-      </div>
+    <div className={styles.capabilitiesAndCareersContainer}>
+      <CapabilitiesDetail
+        className={styles.capabilities}
+        title={translations.capabilities}
+        capabilities={applicant.capabilities || []}
+      />
+      <CareersDetail className={styles.careers} careers={applicant.careers || []} />
     </div>
     <div className={styles.sections}>
       {
