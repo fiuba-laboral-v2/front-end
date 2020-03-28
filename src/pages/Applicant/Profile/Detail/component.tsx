@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantDetailProps } from "./interface";
-import { DetailHeadline } from "$components//Detail/DetailHeadline";
+import { DetailHeadline } from "$components/Detail/DetailHeadline";
+import { Links } from "$components/Links";
 import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
 import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
 import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
@@ -15,7 +16,15 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   <div className={styles.container}>
     <div className={styles.headline}>
       <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
-      <div> Links </div>
+      <Links
+        links={
+          [
+            { href: "https://www.linkedin.com", name: "LinkedIn" },
+            { href: "https://www.medium.com", name: "Medium" },
+            { href: "https://www.github.com", name: "GitHub" }
+          ]
+        }
+      />
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
       <CapabilitiesDetail
