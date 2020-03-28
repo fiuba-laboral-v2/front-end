@@ -9,16 +9,11 @@ const ItemsDetail: FunctionComponent<IItemsDetailProps> = (
   }
 ) => (
   <section className={styles.items}>
-    <span
-      className={styles.title}> {title}:
-    </span>
+    <span className={styles.title}> {title}</span>
     {
       items?.map((item, index) =>
-        (
-          <span key={index} className={styles.item}>
-            {item}
-          </span>
-        ))
+        <span key={index} className={styles.item}>{item}</span>
+      )
     }
   </section>
 );

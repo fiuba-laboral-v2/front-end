@@ -1,0 +1,1 @@
+export { SectionDetail } from "./component";

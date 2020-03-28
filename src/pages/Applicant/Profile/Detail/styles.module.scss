@@ -1,50 +1,41 @@
 @import "$styles/_detailsVariables.scss";
+@import "$styles/mixins/_card.scss";
 
-.header {
-  padding-bottom: 5px;
-}
+.container {
+  @include card;
 
-.fullNameContainer {
-  display: flex;
-  overflow: hidden;
-}
-
-.padronContainer {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  padding-top: 2 * $headerContainerPadding;
-  padding-bottom: $headerContainerPadding;
-
-  .padronTitle {
-    padding-right: 5px;
-    font-size: 16px;
-    font-weight: bold;
+  .headline, .firstContainerInfo, .sections {
+    margin-bottom: 25px;
   }
-}
 
-.descriptionContainer {
-  overflow: hidden;
-  padding-bottom: $headerContainerPadding;
-}
+  .headline {
+    display: flex;
+    flex-direction: column;
+  }
 
-.info {
-  display: flex;
-  flex-direction: row;
+  .capabilitiesAndCareersContainer {
+    display: flex;
+    flex-direction: row;
+
+    .capabilities {
+      flex-grow: 1;
+    }
+
+    .careers {
+      flex-shrink: 0;
+    }
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .header {
-    flex-direction: column;
-  }
-
-  .fullNameContainer {
-    align-self: center;
-  }
-
-  .info {
-    margin-left: 0;
-    display: flex;
-    flex-direction: column;
+  .container {
+    .capabilitiesAndCareersContainer {
+      flex-direction: column;
+    }
   }
 }
