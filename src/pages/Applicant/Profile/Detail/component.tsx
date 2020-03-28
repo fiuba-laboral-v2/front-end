@@ -26,7 +26,11 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       <CareersDetail className={styles.careers} careers={applicant.careers || []} />
     </div>
     <div className={styles.sections}>
-      <SectionDetail title={"Experiencia Laboral"} text={applicant.description}/>
+      {
+        applicant.sections?.map(section =>
+          <SectionDetail title={section.title} text={section.text}/>
+        )
+      }
     </div>
   </div>
 );
