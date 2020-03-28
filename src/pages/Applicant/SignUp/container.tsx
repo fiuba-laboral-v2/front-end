@@ -20,10 +20,9 @@ const SignUpContainer: FunctionComponent = () => {
   if (loading || loadingCareers) return <Loading/>;
 
   const translations = translationsMapper(translationsData.getTranslations);
-  const careers = data.getCareers;
 
   return (
-    <SignUp translations={translations} careers={careers}/>
+    <SignUp translations={translations} careers={data.getCareers}/>
   );
 };
 
