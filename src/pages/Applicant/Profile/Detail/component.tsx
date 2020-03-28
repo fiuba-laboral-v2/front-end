@@ -17,7 +17,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
       <div> Links </div>
     </div>
-    <div className={styles.firstContainerInfo}>
+    <div className={styles.capabilitiesAndCareersContainer}>
       <CapabilitiesDetail
         className={styles.capabilities}
         title={translations.capabilities}

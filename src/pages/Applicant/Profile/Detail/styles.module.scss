@@ -13,7 +13,7 @@
     flex-direction: column;
   }
 
-  .firstContainerInfo {
+  .capabilitiesAndCareersContainer {
     display: flex;
     flex-direction: row;
 
@@ -34,7 +34,7 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .container {
-    .firstContainerInfo {
+    .capabilitiesAndCareersContainer {
       flex-direction: column;
     }
   }
