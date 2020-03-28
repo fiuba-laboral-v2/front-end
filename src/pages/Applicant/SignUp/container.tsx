@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CAREERS, getTranslations } from "$queries";
 import { SignUp } from "./component";
@@ -8,8 +8,6 @@ import SignUpTranslations from "./translations";
 import Loading from "$pages/Loading";
 
 const SignUpContainer: FunctionComponent = () => {
-  const [, setRedirectUrl] = useState();
-
   const { data: translationsData, loading } = useQuery(getTranslations, {
       variables: {
         paths: SignUpTranslations
@@ -25,7 +23,7 @@ const SignUpContainer: FunctionComponent = () => {
   const careers = data.getCareers;
 
   return (
-    <SignUp translations={translations} careers={careers} setRedirectUrl={setRedirectUrl}/>
+    <SignUp translations={translations} careers={careers}/>
   );
 };
 

@@ -17,7 +17,7 @@ import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, setRedirectUrl }) => {
+const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
   const history = useHistory();
 
   const [signUp] = useMutation(SIGN_UP);

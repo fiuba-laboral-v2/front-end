@@ -28,5 +28,4 @@ export interface ISignUpProps {
     submit: string;
   };
   careers: ICareer[];
-  setRedirectUrl: any;
 }
