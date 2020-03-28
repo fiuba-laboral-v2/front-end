@@ -14,9 +14,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     <section className={styles.items}>
       {
         capabilities.map((capability, index) =>
-          <div key={index} className={styles.item}>
-            <Tag name={capability.description} />
-          </div>
+          <Tag key={index} className={styles.item} name={capability.description} />
         )
       }
     </section>
