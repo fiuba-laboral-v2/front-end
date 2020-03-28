@@ -8,7 +8,7 @@ import { saveApplicantParams, signUpParams, validations } from "./utils";
 import { RoutesBuilder } from "$src/routesBuilder";
 
 import TextInput from "$components/TextInput";
-import CareerSelector from "$components/CareerSelector";
+import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
 import { IInitialValues, ISignUpProps } from "./interfaces";

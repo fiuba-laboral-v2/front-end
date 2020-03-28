@@ -6,10 +6,11 @@ import { ISelectorOption } from "./interface";
 
 interface ISelectorProps {
   name: string;
+  label?: string;
   options: ISelectorOption[];
 }
 
-export const Selector: FunctionComponent<ISelectorProps> = ({ name, options }) => {
+export const Selector: FunctionComponent<ISelectorProps> = ({ name, label, options }) => {
   const [field, meta, helpers] = useField(name);
   return (
     <Autocomplete<ISelectorOption>
@@ -23,7 +24,7 @@ export const Selector: FunctionComponent<ISelectorProps> = ({ name, options }) =
         <TextField
           {...params}
           name={field.name}
-          label="Combo box"
+          label={label}
           error={!!meta.error}
           helperText={meta.error}
         />
