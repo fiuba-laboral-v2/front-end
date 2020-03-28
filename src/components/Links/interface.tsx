@@ -1,7 +1,4 @@
-export interface ILink {
-  name: string;
-  href: string;
-}
+import { ILink } from "$interfaces/Applicant";
 
 export interface ILinksProps {
   links: ILink[];

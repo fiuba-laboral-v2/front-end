@@ -7,7 +7,7 @@ const Links: FunctionComponent<ILinksProps> = ({ links, className }) => (
       {
         links.map((link, index) =>
           <div key={index} className={styles.link}>
-            <a target="_blank" rel="noopener noreferrer" href={link.href}>{link.name}</a>
+            <a target="_blank" rel="noopener noreferrer" href={link.url}>{link.name}</a>
             <span className={styles.divider}> — </span>
           </div>
         )
