@@ -2,7 +2,11 @@ import { useField } from "formik";
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
-import { ISelectorOption } from "./interface";
+
+interface ISelectorOption {
+  value: string;
+  label: string;
+}
 
 interface ISelectorProps {
   name: string;
