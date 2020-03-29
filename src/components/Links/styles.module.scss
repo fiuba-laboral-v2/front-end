@@ -1,16 +1,18 @@
 @import "$styles/_variables.scss";
 @import "$styles/_detailsVariables.scss";
-@import "$styles/mixins/_subtitle.scss";
+
 
 .links {
-  @include subtitle;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
   .link {
+    display: flex;
+    flex-direction: row;
+
     .divider {
+      margin: auto;
       margin-right: $smallSpacing;
       margin-left: $smallSpacing;
     }

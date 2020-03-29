@@ -1,21 +1,22 @@
 @import "$styles/_variables.scss";
 @import "$styles/_detailsVariables.scss";
-@import "$styles/mixins/_subtitle.scss";
 
 .contactInfo {
-  @include subtitle;
-
+  display: flex;
+  flex-direction: row;
   margin-top: $smallSpacing;
+
+  .contactInfoDivider {
+    margin: auto $smallSpacing;
+  }
 }
 
 @media (max-width: $mobileContainerThreshold) {
   .contactInfo {
-    a {
-      display: block;
-    }
-  }
+    flex-direction: column;
 
-  .contactInfoDivider {
-    display: none;
+    .contactInfoDivider {
+      display: none;
+    }
   }
 }

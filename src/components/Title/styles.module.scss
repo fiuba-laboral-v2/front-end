@@ -1,6 +1,5 @@
 @import "$styles/_variables.scss";
 @import "$styles/mixins/_title.scss";
-@import "$styles/mixins/_subtitle.scss";
 
 .title {
   @include title;
