@@ -1,3 +1,3 @@
 export interface IDetailByLineProps {
-  byLine: string | number;
+  subtitle: string | number;
 }

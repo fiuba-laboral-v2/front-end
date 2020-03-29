@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ICompanyDetailProps } from "./interface";
 import { DetailHeadline } from "$components/Detail/DetailHeadline";
-import { DetailByLine } from "$components/Detail/DetailByLine";
+import { Subtitle } from "$components/Subtitle";
 import { DetailDescription } from "$components/Detail/DetailDescription";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
@@ -28,7 +28,7 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
       />
       <div className={styles.mainInfo}>
         <DetailHeadline headline={name}/>
-        <DetailByLine byLine={slogan}/>
+        <Subtitle subtitle={slogan}/>
         <DetailContactMe email={email} website={website}/>
       </div>
     </div>

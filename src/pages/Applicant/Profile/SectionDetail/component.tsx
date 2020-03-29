@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ISectionDetailProps } from "./interface";
-import { DetailByLine } from "$components/Detail/DetailByLine";
+import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
 
 const SectionDetail: FunctionComponent<ISectionDetailProps> = (
@@ -9,7 +9,7 @@ const SectionDetail: FunctionComponent<ISectionDetailProps> = (
     text
   }) => (
     <>
-      <DetailByLine byLine={title}/>
+      <Subtitle subtitle={title}/>
       <p className={styles.text}>{text}</p>
     </>
 );
