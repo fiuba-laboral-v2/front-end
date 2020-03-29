@@ -21,10 +21,9 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
           <div className={styles.row} key={applicant.uuid}>
             <ListItem>
               <div className={styles.childrenContainer}>
-                <Subtitle
-                  className={styles.name}
-                  subtitle={`${applicant.name} ${applicant.surname}`}
-                />
+                <Subtitle className={styles.name}>
+                  {`${applicant.name} ${applicant.surname}`}
+                </Subtitle>
                 <div className={styles.buttons}>
                   <Button
                     onClick={() => onClickEdit(applicant.uuid)}

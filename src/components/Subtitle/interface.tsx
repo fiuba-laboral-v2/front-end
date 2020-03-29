@@ -1,4 +1,4 @@
-export interface ISubtitleProps {
-  subtitle?: string | number;
-  className?: string;
+import { HTMLProps } from "react";
+
+export interface ISubtitleProps extends HTMLProps<HTMLDivElement> {
 }

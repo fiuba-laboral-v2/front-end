@@ -4,10 +4,12 @@ import { ISubtitleProps } from "./interface";
 
 const Subtitle: FunctionComponent<ISubtitleProps> = (
   {
-    subtitle,
-    className
+    className,
+    children
   }) => (
-  <h3 className={`${styles.subtitleContainer} ${className}`}>{subtitle}</h3>
+  <h3 className={`${styles.subtitleContainer} ${className}`}>
+    {children}
+  </h3>
 );
 
 export { Subtitle };

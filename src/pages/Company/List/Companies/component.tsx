@@ -35,7 +35,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
                     companyName={company.companyName}
                     logo={company.logo}
                   />
-                  <Subtitle className={styles.name} subtitle={company.companyName}/>
+                  <Subtitle className={styles.name}>{company.companyName}</Subtitle>
                 </div>
                 <div className={styles.buttons}>
                   <Button

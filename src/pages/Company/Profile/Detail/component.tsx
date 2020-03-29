@@ -28,7 +28,7 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
       />
       <div className={styles.mainInfo}>
         <DetailHeadline headline={name}/>
-        <Subtitle subtitle={slogan}/>
+        <Subtitle>{slogan}</Subtitle>
         <DetailContactMe email={email} website={website}/>
       </div>
     </div>
