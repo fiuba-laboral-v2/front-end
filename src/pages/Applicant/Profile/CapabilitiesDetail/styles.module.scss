@@ -3,11 +3,6 @@
 
 $separator: 7px;
 
-.title {
-  @include subtitle;
-  margin-bottom: $smallSpacing;
-}
-
 .items {
   display: flex;
   flex-direction: row;
