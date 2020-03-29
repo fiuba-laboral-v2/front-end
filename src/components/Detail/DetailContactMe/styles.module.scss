@@ -13,7 +13,7 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .contactInfo {
-    flex-direction: column;
+    display: block;
 
     .contactInfoDivider {
       display: none;
