@@ -1,35 +1,38 @@
 import { useField } from "formik";
-import React, { FunctionComponent } from "react";
-import Select from "react-select";
+import React, { ChangeEvent, FunctionComponent } from "react";
+import { Autocomplete } from "@material-ui/lab";
+import { TextField } from "@material-ui/core";
 
-import styles from "./styles.module.scss";
+interface ISelectorOption {
+  value: string;
+  label: string;
+}
 
 interface ISelectorProps {
   name: string;
-  options: any;
+  label?: string;
+  options: ISelectorOption[];
 }
 
-const formatGroupLabel = (data: any) => (
-  <div className={styles.groupStyles}>
-    <span>{data.label}</span>
-    <span className={styles.groupBadgeStyles}>{data.options.length}</span>
-  </div>
-);
-
-const SelectField: FunctionComponent<ISelectorProps> = ({ name, options }) => {
-  const [field, , helpers] = useField<string>(name);
+export const Selector: FunctionComponent<ISelectorProps> = ({ name, label, options }) => {
+  const [field, meta, helpers] = useField(name);
   return (
-    <Select
+    <Autocomplete<ISelectorOption>
       options={options}
-      name={field.name}
-      value={options ? options.find((option: any) => option.value === field.value) : ""}
-      onChange={(option: any): void => {
-        helpers.setValue(option.value);
-      }}
+      getOptionLabel={option => option.label}
       onBlur={field.onBlur}
-      formatGroupLabel={formatGroupLabel}
+      onChange={(event: ChangeEvent<{}>, option: ISelectorOption | null) =>
+        helpers.setValue(option?.value)
+      }
+      renderInput={params =>
+        <TextField
+          {...params}
+          name={field.name}
+          label={label}
+          error={!!meta.error}
+          helperText={meta.error}
+        />
+      }
     />
   );
 };
-
-export default SelectField;
