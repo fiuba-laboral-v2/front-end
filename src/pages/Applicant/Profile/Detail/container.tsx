@@ -27,6 +27,7 @@ const DetailContainer: FunctionComponent = () => {
   if (loadingApplicantData || loadingTranslations) return (<div/>);
 
   const applicant: IApplicant = applicantData.getApplicant;
+  applicant.links = applicant.links || [];
   const [ padronTranslation, capabilitiesTranslation ] = translationsData.getTranslations;
 
   return (
