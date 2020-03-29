@@ -1,8 +1,6 @@
-@import "$styles/_detailsVariables.scss";
+@import "$styles/_variables.scss";
 
 .input {
-  width: $item-width;
-  height: $item-height;
-  font-size: $item-font-size;
+  font-size: 15px;
   margin-bottom: $item-margin-bottom;
 }

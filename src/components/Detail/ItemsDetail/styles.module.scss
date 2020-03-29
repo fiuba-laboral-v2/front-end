@@ -2,12 +2,6 @@
 @import "$styles/_detailsVariables.scss";
 @import "$styles/_variables.scss";
 
-$item-font-size: 15px;
-$item-width: 100%;
-$item-height: auto;
-$item-margin-bottom: 7px;
-
-
 .items {
   display: flex;
   flex-direction: column;
@@ -18,9 +12,6 @@ $item-margin-bottom: 7px;
   }
 
   .item {
-    width: $item-width;
-    height: $item-height;
-    font-size: $item-font-size;
     margin-bottom: $item-margin-bottom;
   }
 }
