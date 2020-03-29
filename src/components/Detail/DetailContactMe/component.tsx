@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
 import { IDetailContactMeProps } from "./interface";
 
@@ -9,9 +10,11 @@ const DetailContactMe: FunctionComponent<IDetailContactMeProps> = (
   }
 ) => (
   <div className={styles.contactInfo}>
-    <a href={`mailto: ${email}`}>{email}</a>
+    <Subtitle><a href={`mailto: ${email}`}>{email}</a></Subtitle>
     <span className={styles.contactInfoDivider}> — </span>
-    <a target="_blank" rel="noopener noreferrer" href={website}>{website}</a>
+    <Subtitle>
+      <a target="_blank" rel="noopener noreferrer" href={website}>{website}</a>
+    </Subtitle>
   </div>
 );
 

@@ -11,7 +11,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     className
   }) => (
   <div className={className}>
-    <Subtitle subtitle={title} />
+    <Subtitle>{title}</Subtitle>
     <section className={styles.items}>
       {
         capabilities.map((capability, index) =>

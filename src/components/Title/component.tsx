@@ -11,7 +11,7 @@ const Title: FunctionComponent<ITitleProps> = (
 ) => (
   <div className={styles.container}>
     <h1 className={styles.title}>{title}</h1>
-    <Subtitle subtitle={subtitle} />
+    <Subtitle>{subtitle}</Subtitle>
   </div>
 );
 
