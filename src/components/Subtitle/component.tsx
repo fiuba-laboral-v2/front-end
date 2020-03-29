@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { IDetailByLineProps } from "./interface";
+import { ISubtitleProps } from "./interface";
 
-const Subtitle: FunctionComponent<IDetailByLineProps> = (
+const Subtitle: FunctionComponent<ISubtitleProps> = (
   {
     subtitle,
     className

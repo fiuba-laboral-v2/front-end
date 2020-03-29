@@ -1,4 +1,4 @@
-export interface IDetailByLineProps {
+export interface ISubtitleProps {
   subtitle?: string | number;
   className?: string;
 }
