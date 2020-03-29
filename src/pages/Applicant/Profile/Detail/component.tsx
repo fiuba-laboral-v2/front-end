@@ -1,41 +1,39 @@
 import React, { FunctionComponent } from "react";
-import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
-import { DetailHeadline } from "$components//Detail/DetailHeadline";
-import { DetailByLine } from "$components/Detail/DetailByLine";
-import { DetailDescription } from "$components/Detail/DetailDescription";
-import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
+import { DetailHeadline } from "$components/Detail/DetailHeadline";
+import { Links } from "$components/Links";
 import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
 import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
+import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
+
+import styles from "./styles.module.scss";
 
 const Detail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
     translations
   }) => (
-  <DetailMainContainer>
-      <div className={styles.header}>
-          <div className={styles.fullNameContainer}>
-              <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
-          </div>
-          <div className={styles.padronContainer}>
-              <span className={styles.padronTitle}>{translations.padron}:</span>
-              <DetailByLine byLine={applicant.padron}/>
-          </div>
-          <div className={styles.descriptionContainer}>
-              <DetailDescription  description={applicant.description}/>
-          </div>
-      </div>
-      <div className={styles.info}>
-        <CapabilitiesDetail
-          title={translations.capabilities}
-          capabilities={applicant.capabilities || []}
-        />
-        <CareersDetail
-          careers={applicant.careers || []}
-        />
-      </div>
-  </DetailMainContainer>
+  <div className={styles.container}>
+    <div className={styles.headline}>
+      <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
+      <Links links={applicant.links} />
+    </div>
+    <div className={styles.capabilitiesAndCareersContainer}>
+      <CapabilitiesDetail
+        className={styles.capabilities}
+        title={translations.capabilities}
+        capabilities={applicant.capabilities || []}
+      />
+      <CareersDetail className={styles.careers} careers={applicant.careers || []} />
+    </div>
+    <div className={styles.sections}>
+      {
+        applicant.sections?.map((section, index) =>
+          <SectionDetail key={index} title={section.title} text={section.text}/>
+        )
+      }
+    </div>
+  </div>
 );
 
 export { Detail };

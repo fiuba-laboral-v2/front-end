@@ -1,8 +1,11 @@
 @import "$styles/_variables.scss";
+@import "$styles/_detailsVariables.scss";
 @import "$styles/mixins/_subtitle.scss";
 
-.detailByline {
+.subtitleContainer {
   @include subtitle;
 
   margin-top: $smallSpacing;
+  margin-bottom: $smallSpacing;
+  word-break: break-word;
 }

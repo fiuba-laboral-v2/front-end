@@ -1,19 +1,25 @@
 import React, { FunctionComponent } from "react";
-import { ItemsDetail } from "$components/Detail/ItemsDetail";
-import { ICapabilitiesProps, ICapability } from "./interface";
+import { ICapabilitiesProps } from "./interface";
+import { Tag } from "$components/Tag";
+import { Subtitle } from "$components/Subtitle";
+import styles from "./styles.module.scss";
 
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   {
     capabilities,
-    title
-  }) => {
-
-  return (
-    <ItemsDetail
-      items={capabilities?.map((capability: ICapability) => capability.description)}
-      title={title}
-    />
-  );
-};
+    title,
+    className
+  }) => (
+  <div className={className}>
+    <Subtitle subtitle={title} />
+    <section className={styles.items}>
+      {
+        capabilities.map((capability, index) =>
+          <Tag key={index} className={styles.item} name={capability.description} />
+        )
+      }
+    </section>
+  </div>
+);
 
 export { CapabilitiesDetail };

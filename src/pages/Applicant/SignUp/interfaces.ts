@@ -23,7 +23,6 @@ export interface ISignUpProps {
     surname: string;
     padron: string;
     careersTitle: string;
-    credits: string;
     addCareerBtn: string;
     submit: string;
   };

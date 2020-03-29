@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ICompaniesProps } from "./interface";
 import styles from "./styles.module.scss";
 import { ListItem } from "$components/ListItem";
+import { Subtitle } from "$components/Subtitle";
 import Button from "$components/Button";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
@@ -34,7 +35,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
                     companyName={company.companyName}
                     logo={company.logo}
                   />
-                  <p className={styles.name}>{company.companyName}</p>
+                  <Subtitle className={styles.name} subtitle={company.companyName}/>
                 </div>
                 <div className={styles.buttons}>
                   <Button

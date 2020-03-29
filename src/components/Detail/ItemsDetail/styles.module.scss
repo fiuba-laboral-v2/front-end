@@ -1,22 +1,12 @@
+@import "$styles/mixins/_subtitle.scss";
 @import "$styles/_detailsVariables.scss";
+@import "$styles/_variables.scss";
 
 .items {
   display: flex;
   flex-direction: column;
-  width: $item-width;
 
   .item {
-    width: $item-width;
-    height: $item-height;
-    font-size: $item-font-size;
-    margin-bottom: $item-margin-bottom;
-  }
-
-  .title {
-    width: 100%;
-    height: $item-height;
-    font-size: $item-font-size;
-    font-weight: bold;
     margin-bottom: $item-margin-bottom;
   }
 }

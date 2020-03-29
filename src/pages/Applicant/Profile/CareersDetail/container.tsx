@@ -6,9 +6,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
   {
-    careers
+    careers,
+    className
   }) => {
-  const { data: translationsData } = useQuery(getTranslations, {
+  const { data, loading } = useQuery(getTranslations, {
       variables: {
         paths: [
           "applicant.creditsProgress",
@@ -17,13 +18,12 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
       }
     }
   );
+  if (loading) return <div/>;
 
-  const [
-    creditsProgressTranslation,
-    careersTitleTranslation
-  ] = translationsData ? translationsData.getTranslations : [""];
+  const [ creditsProgressTranslation, careersTitleTranslation ] = data.getTranslations;
   return (
     <CareersDetail
+      className={className}
       careers={careers}
       careersTitle={careersTitleTranslation}
       creditsProgressTranslation={creditsProgressTranslation}

@@ -1,0 +1,37 @@
+@import "$styles/_variables.scss";
+@import "$styles/_detailsVariables.scss";
+@import "$styles/mixins/_subtitle.scss";
+
+.links {
+  @include subtitle;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .link {
+    .divider {
+      margin-right: $smallSpacing;
+      margin-left: $smallSpacing;
+    }
+
+    &:last-child {
+      .divider {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .links {
+    .link {
+      margin-right: $smallSpacing;
+      margin-left: $smallSpacing;
+
+      .divider {
+        display: none;
+      }
+    }
+  }
+}

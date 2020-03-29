@@ -4,6 +4,7 @@ import { ListItem } from "$components/ListItem";
 import styles from "./styles.module.scss";
 import Button from "$components/Button";
 import { ListTitle } from "$components/ListTitle";
+import { Subtitle } from "$components/Subtitle";
 
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
@@ -20,7 +21,10 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
           <div className={styles.row} key={applicant.uuid}>
             <ListItem>
               <div className={styles.childrenContainer}>
-                <p className={styles.name}>{`${applicant.name} ${applicant.surname}`}</p>
+                <Subtitle
+                  className={styles.name}
+                  subtitle={`${applicant.name} ${applicant.surname}`}
+                />
                 <div className={styles.buttons}>
                   <Button
                     onClick={() => onClickEdit(applicant.uuid)}

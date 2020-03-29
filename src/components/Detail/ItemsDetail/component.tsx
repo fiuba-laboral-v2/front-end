@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Subtitle } from "$components/Subtitle";
 import { IItemsDetailProps } from "./interface";
 import styles from "./styles.module.scss";
 
@@ -9,16 +10,11 @@ const ItemsDetail: FunctionComponent<IItemsDetailProps> = (
   }
 ) => (
   <section className={styles.items}>
-    <span
-      className={styles.title}> {title}:
-    </span>
+    <Subtitle subtitle={title} />
     {
       items?.map((item, index) =>
-        (
-          <span key={index} className={styles.item}>
-            {item}
-          </span>
-        ))
+        <span key={index} className={styles.item}>{item}</span>
+      )
     }
   </section>
 );
