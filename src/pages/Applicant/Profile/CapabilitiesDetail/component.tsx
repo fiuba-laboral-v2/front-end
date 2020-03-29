@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ICapabilitiesProps } from "./interface";
 import { Tag } from "$components/Tag";
+import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
 
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
@@ -10,7 +11,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     className
   }) => (
   <div className={className}>
-    <span className={styles.title}> {title}</span>
+    <Subtitle subtitle={title} />
     <section className={styles.items}>
       {
         capabilities.map((capability, index) =>

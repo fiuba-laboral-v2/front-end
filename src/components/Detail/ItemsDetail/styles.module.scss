@@ -6,11 +6,6 @@
   display: flex;
   flex-direction: column;
 
-  .title {
-    @include subtitle;
-    margin-bottom: $smallSpacing;
-  }
-
   .item {
     margin-bottom: $item-margin-bottom;
   }

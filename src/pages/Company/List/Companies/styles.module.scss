@@ -21,8 +21,6 @@
         flex-grow: 1;
 
         .name {
-          @include subtitle;
-          margin: auto;
           flex-grow: 1;
         }
 
