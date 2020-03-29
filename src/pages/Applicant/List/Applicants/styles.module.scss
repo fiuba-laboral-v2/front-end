@@ -11,8 +11,6 @@
     flex-direction: row;
 
     .name {
-      @include subtitle;
-      margin: auto;
       flex-grow: 1;
     }
 
