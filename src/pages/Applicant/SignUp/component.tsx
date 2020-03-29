@@ -39,6 +39,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
         <Formik
           initialValues={initialValues}
           validate={validations}
+          validateOnChange
           onSubmit={async (values, { setSubmitting }) => {
             await signUp({
               variables: signUpParams(values)
@@ -77,8 +78,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                   name="padron"
                   label={translations.padron}
                   type="number"
-                  min={0}
-                  step={1}
+                  inputProps={{ min: 0, step: 1 }}
                 />
                 <FieldArray
                   name="careers"
