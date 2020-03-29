@@ -8,9 +8,9 @@ import { ICareerSelectorProps } from "./interface";
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
     index,
-    career,
     careers,
     arrayHelpers,
+    careerLabel,
     creditsLabel
   }
 ) => (
@@ -19,7 +19,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       <Selector
         name={`careers.${index}.code`}
         options={careers.map(({ code, description }) => ({ value: code, label: description }))}
-        label={career}
+        label={careerLabel}
       />
     </div>
     <TextInput

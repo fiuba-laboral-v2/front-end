@@ -7,14 +7,15 @@ import { getTranslations } from "../../graphql/queries";
 
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
   const { data: translationsData } = useQuery(getTranslations, {
-      variables: { paths: ["applicant.career"] }
+      variables: { paths: ["applicant.career", "applicant.signUp.credits"] }
     }
   );
-  const [career] = translationsData ? translationsData.getTranslations : [""];
+  const [careerLabel, creditsLabel] = translationsData ? translationsData.getTranslations : [""];
 
   return (
     <CareerSelector
-      career={career}
+      careerLabel={careerLabel}
+      creditsLabel={creditsLabel}
       {...props}
     />
   );

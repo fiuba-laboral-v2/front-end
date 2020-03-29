@@ -94,7 +94,6 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                             index={index}
                             careers={careers}
                             arrayHelpers={arrayHelpers}
-                            creditsLabel={translations.credits}
                           />
                         ))
                       ) : (
