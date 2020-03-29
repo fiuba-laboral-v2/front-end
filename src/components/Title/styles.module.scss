@@ -8,12 +8,6 @@
   color: #1A6288;
 }
 
-.subtitle {
-  @include subtitle;
-
-  margin-top: $smallSpacing;
-}
-
 .container {
   margin-bottom: $biggerSpacing;
 }
