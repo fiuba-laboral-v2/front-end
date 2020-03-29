@@ -26,7 +26,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       name={`careers[${index}].creditsCount`}
       label={creditsLabel}
       type="number"
-      min={0}
+      inputProps={{ min: 0 }}
     />
     <div className={styles.buttonsContainer}>
       <button
