@@ -16,6 +16,7 @@ import { IInitialValues, ISignUpProps } from "./interfaces";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 import { AddButton } from "$components/AddButton";
+import { Subtitle } from "../../../components/Subtitle";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
@@ -85,10 +86,10 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                   name="careers"
                   render={arrayHelpers => (
                     <div>
-                      <div>
-                        <h3 className={styles.careersTitle}>
+                      <div className={styles.careersTitleContainer}>
+                        <Subtitle>
                           {translations.careersTitle}
-                        </h3>
+                        </Subtitle>
                         <AddButton onClick={() =>
                           arrayHelpers.insert(values.careers.length + 1, "")
                         }/>

@@ -36,6 +36,10 @@
   }
 }
 
+.careersTitleContainer {
+  display: flex;
+}
+
 @media (max-width: $mobileContainerThreshold) {
   .mainContainer {
     .body {

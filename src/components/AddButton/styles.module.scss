@@ -1,3 +1,18 @@
+@import "$styles/_variables.scss";
+
 .plusSign {
-  font-size: 13px;
+  font-size: 28px;
+  cursor: pointer;
+  color: $mainBlue;
+  padding: 0 $smallSpacing;
+  margin-bottom: $smallSpacing;
+  line-height: 35px;
+
+  &:hover {
+    color: $mainBlueLight;
+  }
+
+  &:active {
+    color: $mainBlueDark;
+  }
 }
