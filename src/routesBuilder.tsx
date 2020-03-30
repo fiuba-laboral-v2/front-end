@@ -2,7 +2,8 @@ const RoutesBuilder = {
   applicant: {
     list: () => "/applicants/",
     detail: (uuid: string) => `/applicants/${uuid}/`,
-    edit: (uuid: string) => `/applicants/${uuid}/edit`
+    edit: (uuid: string) => `/applicants/${uuid}/edit`,
+    signUp: () => "/applicants/sign-up/"
   },
   company: {
     list: () => "/companies/",
