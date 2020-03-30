@@ -18,7 +18,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   if (loading) {
     return (
       <div className={styles.container}>
-        <LoadingSpinner color="primary"/>
+        <LoadingSpinner />
       </div>
     );
   }
