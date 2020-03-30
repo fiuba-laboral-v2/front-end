@@ -11,7 +11,7 @@ const NavBar: FunctionComponent<INavBarProps> = (
     title,
     companies,
     applicants,
-    logOut,
+    signUp,
     username
   }
 ) => {
@@ -38,7 +38,7 @@ const NavBar: FunctionComponent<INavBarProps> = (
         <div className={styles.separator}/>
         <div className={styles.user}>
           <p className={styles.userName}>{username}</p>
-          <Link to="/">{logOut}</Link>
+          <Link to={RoutesBuilder.applicant.signUp()}>{signUp}</Link>
         </div>
       </div>
     </div>

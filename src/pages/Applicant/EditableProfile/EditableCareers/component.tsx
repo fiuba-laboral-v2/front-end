@@ -40,7 +40,7 @@ const EditableCareers: FunctionComponent<IEditableCareersProps> = (
         })
       }
       onFinish={onFinish}>
-      <div className={styles.selectorContainer}>
+      <div>
         <select
           className={styles.careersSelector}
           onChange={(event => setCareer(parseInt(event.target.value, 10)))}

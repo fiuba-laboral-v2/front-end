@@ -2,6 +2,6 @@ export interface INavBarProps {
   title: string;
   companies: string;
   applicants: string;
-  logOut: string;
+  signUp: string;
   username: string;
 }

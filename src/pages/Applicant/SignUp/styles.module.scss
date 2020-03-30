@@ -18,32 +18,9 @@
     .formContainer {
       display: flex;
       flex-direction: column;
-      width: 70%;
       justify-content: space-around;
       align-content: space-between;
       margin: 0;
-
-      > * {
-        margin-bottom: $bigSpacing;
-      }
-
-      .careersTitle {
-        font-size: 3rem;
-      }
-
-      .addCareerBtn {
-        margin: 0 0 1rem 1rem;
-        padding: 12px 20px;
-        border: 1px solid #08c;
-        border-radius: 5px;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
-        font-size: 1rem;
-        font-weight: 500;
-        color: #08c;
-        cursor: pointer;
-        outline: none;
-        -webkit-appearance: none;
-      }
     }
 
     .footer {
@@ -54,19 +31,27 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
-  .mainContainer {
-    .body {
-      .formContainer {
-        width: 100%;
-      }
+.careersTitleContainer {
+  display: flex;
+}
 
-      .footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-      }
-    }
+.textInputContainer {
+  width: 70%;
+}
+
+div.textInput {
+  margin-bottom: $bigSpacing;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContainer .body .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .textInputContainer {
+    width: 100%;
   }
 }
 

@@ -1,0 +1,13 @@
+@import "$styles/_variables.scss";
+
+.formSection {
+  display: flex;
+  padding: $normalSpacing $bigSpacing;
+  margin-top: $normalSpacing;
+  background: #F1F1F1;
+  border-radius: $defaultBorderRadius;
+
+  &:last-child {
+    margin-bottom: $bigSpacing;
+  }
+}

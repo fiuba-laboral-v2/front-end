@@ -12,12 +12,20 @@ interface ISelectorProps {
   name: string;
   label?: string;
   options: ISelectorOption[];
+  className?: string;
 }
 
-export const Selector: FunctionComponent<ISelectorProps> = ({ name, label, options }) => {
+export const Selector: FunctionComponent<ISelectorProps> = (
+  {
+    name,
+    label,
+    options,
+    className
+  }) => {
   const [field, meta, helpers] = useField(name);
   return (
     <Autocomplete<ISelectorOption>
+      className={className}
       options={options}
       getOptionLabel={option => option.label}
       onBlur={field.onBlur}

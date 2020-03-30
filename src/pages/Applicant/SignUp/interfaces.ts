@@ -23,7 +23,6 @@ export interface ISignUpProps {
     surname: string;
     padron: string;
     careersTitle: string;
-    addCareerBtn: string;
     submit: string;
   };
   careers: ICareer[];

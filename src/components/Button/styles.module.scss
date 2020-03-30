@@ -30,6 +30,13 @@ $lightRedBtn: #FEE8E7;
   &:active {
     background-color: darken($background, 3%);
   }
+
+  &:disabled {
+    color: transparentize(desaturate($textColor, 80%), 0.15);
+    border-color: transparentize(desaturate($border, 80%), 0.15);
+    background-color: darken(desaturate($background, 80%), 5%);
+    cursor: not-allowed;
+  }
 }
 
 .primary {

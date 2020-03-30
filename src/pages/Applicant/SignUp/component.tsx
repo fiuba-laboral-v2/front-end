@@ -15,6 +15,8 @@ import { IInitialValues, ISignUpProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
+import { AddButton } from "$components/AddButton";
+import { Subtitle } from "../../../components/Subtitle";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
@@ -29,7 +31,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
     name: "",
     surname: "",
     padron: 0,
-    careers: []
+    careers: [{ code: "", creditsCount: 0 }]
   };
 
   return (
@@ -39,7 +41,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
         <Formik
           initialValues={initialValues}
           validate={validations}
-          validateOnChange
+          isInitialValid={false}
           onSubmit={async (values, { setSubmitting }) => {
             await signUp({
               variables: signUpParams(values)
@@ -54,56 +56,59 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
-                <TextInput
-                  name="email"
-                  label={translations.email}
-                  type="email"
-                />
-                <TextInput
-                  name="password"
-                  label={translations.password}
-                  type="password"
-                />
-                <TextInput
-                  name="name"
-                  label={translations.name}
-                  type="text"
-                />
-                <TextInput
-                  name="surname"
-                  label={translations.surname}
-                  type="text"
-                />
-                <TextInput
-                  name="padron"
-                  label={translations.padron}
-                  type="number"
-                  inputProps={{ min: 0, step: 1 }}
-                />
+                <div className={styles.textInputContainer}>
+                  <TextInput
+                    name="email"
+                    label={translations.email}
+                    type="email"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="password"
+                    label={translations.password}
+                    type="password"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="name"
+                    label={translations.name}
+                    type="text"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="surname"
+                    label={translations.surname}
+                    type="text"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="padron"
+                    label={translations.padron}
+                    type="number"
+                    inputProps={{ min: 0, step: 1 }}
+                    className={styles.textInput}
+                  />
+                </div>
                 <FieldArray
                   name="careers"
                   render={arrayHelpers => (
                     <div>
-                      <h3 className={styles.careersTitle}>
-                        {translations.careersTitle}
-                      </h3>
-                      {values.careers && values.careers.length > 0 ? (
-                        values.careers.map((career, index) => (
-                          <CareerSelector
-                            key={index}
-                            index={index}
-                            careers={careers}
-                            arrayHelpers={arrayHelpers}
-                          />
-                        ))
-                      ) : (
-                        <button
-                          className={styles.addCareerBtn}
-                          type="button"
-                          onClick={() => arrayHelpers.push({ creditsCount: 0 })}>
-                          {translations.addCareerBtn}
-                        </button>
-                      )}
+                      <div className={styles.careersTitleContainer}>
+                        <Subtitle>
+                          {translations.careersTitle}
+                        </Subtitle>
+                        <AddButton onClick={() =>
+                          arrayHelpers.insert(values.careers.length + 1, "")
+                        }/>
+                      </div>
+                      {values.careers.map((career, index) => (
+                        <CareerSelector
+                          key={index}
+                          index={index}
+                          careers={careers}
+                          arrayHelpers={arrayHelpers}
+                        />
+                      ))}
                     </div>
                   )}
                 />
