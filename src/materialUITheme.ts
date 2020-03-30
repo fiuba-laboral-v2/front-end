@@ -23,6 +23,11 @@ export const MaterialUITheme = createMuiTheme({
           top: "calc(50% - 18px)"
         }
       }
+    },
+    MuiCircularProgress: {
+      colorPrimary: {
+          color: "#0095DB"
+      }
     }
   }
 });
