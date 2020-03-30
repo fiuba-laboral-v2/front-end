@@ -31,7 +31,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
     name: "",
     surname: "",
     padron: 0,
-    careers: []
+    careers: [{ code: "", creditsCount: 0 }]
   };
 
   return (
