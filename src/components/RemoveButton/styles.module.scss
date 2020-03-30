@@ -1,0 +1,18 @@
+@import "$styles/_variables.scss";
+
+.remove {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: $darkGrey;
+  user-select: none;
+
+  &:hover {
+    color: $grey;
+  }
+
+  &:active {
+    color: black;
+  }
+}

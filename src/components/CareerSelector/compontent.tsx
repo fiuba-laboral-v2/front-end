@@ -5,6 +5,7 @@ import { Selector } from "$components/Selector";
 import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
 import { FormSection } from "../FormSection";
+import { RemoveButton } from "../RemoveButton";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
@@ -29,11 +30,8 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       inputProps={{ min: 0 }}
       className={styles.credits}
     />
-    <button
-      type="button"
+    <RemoveButton
       onClick={() => arrayHelpers.remove(index)}
-    >
-      -
-    </button>
+    />
   </FormSection>
 );
