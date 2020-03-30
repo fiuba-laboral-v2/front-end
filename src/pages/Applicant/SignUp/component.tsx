@@ -41,7 +41,6 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
         <Formik
           initialValues={initialValues}
           validate={validations}
-          validateOnChange
           isInitialValid={false}
           onSubmit={async (values, { setSubmitting }) => {
             await signUp({
