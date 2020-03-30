@@ -15,6 +15,7 @@ import { IInitialValues, ISignUpProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
+import { AddButton } from "$components/AddButton";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
@@ -84,26 +85,22 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                   name="careers"
                   render={arrayHelpers => (
                     <div>
-                      <h3 className={styles.careersTitle}>
-                        {translations.careersTitle}
-                      </h3>
-                      {values.careers && values.careers.length > 0 ? (
-                        values.careers.map((career, index) => (
-                          <CareerSelector
-                            key={index}
-                            index={index}
-                            careers={careers}
-                            arrayHelpers={arrayHelpers}
-                          />
-                        ))
-                      ) : (
-                        <button
-                          className={styles.addCareerBtn}
-                          type="button"
-                          onClick={() => arrayHelpers.push({ creditsCount: 0 })}>
-                          {translations.addCareerBtn}
-                        </button>
-                      )}
+                      <div>
+                        <h3 className={styles.careersTitle}>
+                          {translations.careersTitle}
+                        </h3>
+                        <AddButton onClick={() =>
+                          arrayHelpers.insert(values.careers.length + 1, "")
+                        }/>
+                      </div>
+                      {values.careers.map((career, index) => (
+                        <CareerSelector
+                          key={index}
+                          index={index}
+                          careers={careers}
+                          arrayHelpers={arrayHelpers}
+                        />
+                      ))}
                     </div>
                   )}
                 />

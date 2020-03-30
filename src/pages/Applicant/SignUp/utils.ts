@@ -53,7 +53,6 @@ const translationsMapper = (trasnlations: string[] = Array(10).fill("")) => {
     surname,
     padron,
     careersTitle,
-    addCareerBtn,
     submit
   ] = trasnlations;
 
@@ -65,7 +64,6 @@ const translationsMapper = (trasnlations: string[] = Array(10).fill("")) => {
     surname,
     padron,
     careersTitle,
-    addCareerBtn,
     submit
   };
 };

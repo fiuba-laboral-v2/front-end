@@ -30,18 +30,10 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
     />
     <div className={styles.buttonsContainer}>
       <button
-        className={styles.helperButton}
         type="button"
         onClick={() => arrayHelpers.remove(index)}
       >
         -
-      </button>
-      <button
-        className={styles.helperButton}
-        type="button"
-        onClick={() => arrayHelpers.insert(index + 1, "")}
-      >
-        +
       </button>
     </div>
   </div>
