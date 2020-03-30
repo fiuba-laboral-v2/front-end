@@ -56,32 +56,39 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
-                <TextInput
-                  name="email"
-                  label={translations.email}
-                  type="email"
-                />
-                <TextInput
-                  name="password"
-                  label={translations.password}
-                  type="password"
-                />
-                <TextInput
-                  name="name"
-                  label={translations.name}
-                  type="text"
-                />
-                <TextInput
-                  name="surname"
-                  label={translations.surname}
-                  type="text"
-                />
-                <TextInput
-                  name="padron"
-                  label={translations.padron}
-                  type="number"
-                  inputProps={{ min: 0, step: 1 }}
-                />
+                <div className={styles.textInputContainer}>
+                  <TextInput
+                    name="email"
+                    label={translations.email}
+                    type="email"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="password"
+                    label={translations.password}
+                    type="password"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="name"
+                    label={translations.name}
+                    type="text"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="surname"
+                    label={translations.surname}
+                    type="text"
+                    className={styles.textInput}
+                  />
+                  <TextInput
+                    name="padron"
+                    label={translations.padron}
+                    type="number"
+                    inputProps={{ min: 0, step: 1 }}
+                    className={styles.textInput}
+                  />
+                </div>
                 <FieldArray
                   name="careers"
                   render={arrayHelpers => (

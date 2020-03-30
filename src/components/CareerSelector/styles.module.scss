@@ -1,14 +1,12 @@
-.careerSelector {
-  display: flex;
-  justify-content: flex-start;
+@import "$styles/_variables.scss";
+
+.career {
+  width: 546px;
+  flex-shrink: 0;
 }
 
-.selectorContainer {
-  width: 45rem;
-  margin: 7rem 4rem 0 0;
-}
-
-.buttonsContainer {
-  display: flex;
-  justify-content: space-around;
+div.credits {
+  width: unset;
+  flex-grow: 1;
+  margin: 0 $bigSpacing;
 }

@@ -4,6 +4,7 @@ import { Selector } from "$components/Selector";
 
 import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
+import { FormSection } from "../FormSection";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
@@ -14,27 +15,25 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
     creditsLabel
   }
 ) => (
-  <div className={styles.careerSelector}>
-    <div className={styles.selectorContainer}>
-      <Selector
-        name={`careers.${index}.code`}
-        options={careers.map(({ code, description }) => ({ value: code, label: description }))}
-        label={careerLabel}
-      />
-    </div>
+  <FormSection>
+    <Selector
+      name={`careers.${index}.code`}
+      options={careers.map(({ code, description }) => ({ value: code, label: description }))}
+      label={careerLabel}
+      className={styles.career}
+    />
     <TextInput
       name={`careers[${index}].creditsCount`}
       label={creditsLabel}
       type="number"
       inputProps={{ min: 0 }}
+      className={styles.credits}
     />
-    <div className={styles.buttonsContainer}>
-      <button
-        type="button"
-        onClick={() => arrayHelpers.remove(index)}
-      >
-        -
-      </button>
-    </div>
-  </div>
+    <button
+      type="button"
+      onClick={() => arrayHelpers.remove(index)}
+    >
+      -
+    </button>
+  </FormSection>
 );

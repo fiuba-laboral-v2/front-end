@@ -18,14 +18,9 @@
     .formContainer {
       display: flex;
       flex-direction: column;
-      width: 70%;
       justify-content: space-around;
       align-content: space-between;
       margin: 0;
-
-      > * {
-        margin-bottom: $bigSpacing;
-      }
     }
 
     .footer {
@@ -40,19 +35,23 @@
   display: flex;
 }
 
-@media (max-width: $mobileContainerThreshold) {
-  .mainContainer {
-    .body {
-      .formContainer {
-        width: 100%;
-      }
+.textInputContainer {
+  width: 70%;
+}
 
-      .footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-      }
-    }
+div.textInput {
+  margin-bottom: $bigSpacing;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContainer .body .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .textInputContainer {
+    width: 100%;
   }
 }
 
