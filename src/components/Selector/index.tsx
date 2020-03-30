@@ -2,6 +2,8 @@ import { useField } from "formik";
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
+import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 interface ISelectorOption {
   value: string;
@@ -25,7 +27,7 @@ export const Selector: FunctionComponent<ISelectorProps> = (
   const [field, meta, helpers] = useField(name);
   return (
     <Autocomplete<ISelectorOption>
-      className={className}
+      className={classNames(className, styles.selector)}
       options={options}
       getOptionLabel={option => option.label}
       onBlur={field.onBlur}

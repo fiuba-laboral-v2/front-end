@@ -17,20 +17,23 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   }
 ) => (
   <FormSection>
-    <Selector
-      name={`careers.${index}.code`}
-      options={careers.map(({ code, description }) => ({ value: code, label: description }))}
-      label={careerLabel}
-      className={styles.career}
-    />
-    <TextInput
-      name={`careers[${index}].creditsCount`}
-      label={creditsLabel}
-      type="number"
-      inputProps={{ min: 0 }}
-      className={styles.credits}
-    />
+    <div className={styles.fieldsContainer}>
+      <Selector
+        name={`careers.${index}.code`}
+        options={careers.map(({ code, description }) => ({ value: code, label: description }))}
+        label={careerLabel}
+        className={styles.career}
+      />
+      <TextInput
+        name={`careers[${index}].creditsCount`}
+        label={creditsLabel}
+        type="number"
+        inputProps={{ min: 0 }}
+        className={styles.credits}
+      />
+    </div>
     <RemoveButton
+      className={styles.remove}
       onClick={() => arrayHelpers.remove(index)}
     />
   </FormSection>

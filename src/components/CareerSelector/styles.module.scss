@@ -1,6 +1,6 @@
 @import "$styles/_variables.scss";
 
-.career {
+div.career {
   width: 546px;
   flex-shrink: 0;
 }
@@ -8,5 +8,30 @@
 div.credits {
   width: unset;
   flex-grow: 1;
-  margin: 0 $bigSpacing;
+  margin-left: $bigSpacing;
+}
+
+.fieldsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.remove {
+  margin-left: $bigSpacing;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .fieldsContainer {
+    flex-direction: column;
+  }
+
+  div.credits {
+    margin: 0;
+  }
+
+  div.career {
+    width: 100%;
+    margin-bottom: $normalSpacing;
+  }
 }
