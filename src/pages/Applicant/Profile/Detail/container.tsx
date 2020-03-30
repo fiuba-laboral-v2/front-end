@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { getTranslations } from "$queries";
-import { GET_APPLICANT } from "$queries";
+import { getTranslations as GET_TRANSLATIONS, GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
@@ -10,28 +9,28 @@ import { IApplicant } from "$interfaces/Applicant";
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const {
-    data: translationsData,
+    data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: loadingTranslations
   } = useQuery(
-    getTranslations,
+    GET_TRANSLATIONS,
     { variables: { paths: [ "applicant.padron", "applicant.capabilities" ] } }
   );
   const {
-    data: applicantData,
+    data: { getApplicant } = { getApplicant: {} as IApplicant },
     error: applicantError,
     loading: loadingApplicantData
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
   if (applicantError || translationsError) return (<NotFound />);
-  if (loadingApplicantData || loadingTranslations) return (<div/>);
 
-  const applicant: IApplicant = applicantData.getApplicant;
+  const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
-  const [ padronTranslation, capabilitiesTranslation ] = translationsData.getTranslations;
+  const [ padronTranslation, capabilitiesTranslation ] = getTranslations;
 
   return (
     <Detail
+      loading={loadingApplicantData || loadingTranslations}
       applicant={applicant}
       translations={
         {

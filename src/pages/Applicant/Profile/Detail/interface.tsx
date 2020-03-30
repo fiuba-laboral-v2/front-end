@@ -8,4 +8,5 @@ export interface ITranslations {
 export interface IApplicantDetailProps {
   applicant: IApplicant;
   translations: ITranslations;
+  loading: boolean;
 }
