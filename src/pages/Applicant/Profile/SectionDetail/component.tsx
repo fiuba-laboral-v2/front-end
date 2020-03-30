@@ -9,7 +9,7 @@ const SectionDetail: FunctionComponent<ISectionDetailProps> = (
     text
   }) => (
     <>
-      <Subtitle subtitle={title}/>
+      <Subtitle>{title}</Subtitle>
       <p className={styles.text}>{text}</p>
     </>
 );

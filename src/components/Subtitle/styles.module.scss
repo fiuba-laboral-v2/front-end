@@ -1,10 +1,12 @@
 @import "$styles/_variables.scss";
 @import "$styles/_detailsVariables.scss";
-@import "$styles/mixins/_subtitle.scss";
 
 .subtitleContainer {
-  @include subtitle;
-
+  :not(a) {
+    color: $darkGrey;
+  }
+  font-weight: normal;
+  font-size: 22px;
   margin-top: $smallSpacing;
   margin-bottom: $smallSpacing;
   word-break: break-word;
