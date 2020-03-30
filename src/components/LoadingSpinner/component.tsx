@@ -4,9 +4,9 @@ import styles from "./styles.module.scss";
 
 const LoadingSpinner: FunctionComponent<CircularProgressProps> = (
   {
-    ...props
+    color
   }) => (
-  <div className={styles.spinner}><CircularProgress color={props.color}/></div>
+  <div className={styles.spinner}><CircularProgress color={color}/></div>
 );
 
 export { LoadingSpinner };
