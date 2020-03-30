@@ -27,9 +27,6 @@ export const MaterialUITheme = createMuiTheme({
     MuiCircularProgress: {
       colorPrimary: {
           color: "#0095DB"
-      },
-      colorSecondary: {
-        color: "#0fb3ff"
       }
     }
   }
