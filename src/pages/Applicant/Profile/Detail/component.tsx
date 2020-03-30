@@ -14,35 +14,38 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
     applicant,
     translations,
     loading
-  }) => (
-  <div className={styles.container}>
-    {
-      loading ?
+  }) => {
+  if (loading) {
+    return (
+      <div className={styles.container}>
         <LoadingSpinner color="primary"/>
-        :
-        <>
-          <div className={styles.headline}>
-            <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
-            <Links links={applicant.links} />
-          </div>
-          <div className={styles.capabilitiesAndCareersContainer}>
-            <CapabilitiesDetail
-              className={styles.capabilities}
-              title={translations.capabilities}
-              capabilities={applicant.capabilities || []}
-            />
-            <CareersDetail className={styles.careers} careers={applicant.careers || []} />
-          </div>
-          <div className={styles.sections}>
-            {
-              applicant.sections?.map((section, index) =>
-                <SectionDetail key={index} title={section.title} text={section.text}/>
-              )
-            }
-          </div>
-        </>
-    }
-  </div>
-);
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.headline}>
+        <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
+        <Links links={applicant.links} />
+      </div>
+      <div className={styles.capabilitiesAndCareersContainer}>
+        <CapabilitiesDetail
+          className={styles.capabilities}
+          title={translations.capabilities}
+          capabilities={applicant.capabilities || []}
+        />
+        <CareersDetail className={styles.careers} careers={applicant.careers || []} />
+      </div>
+      <div className={styles.sections}>
+        {
+          applicant.sections?.map((section, index) =>
+            <SectionDetail key={index} title={section.title} text={section.text}/>
+          )
+        }
+      </div>
+    </div>
+  );
+};
 
 export { Detail };
