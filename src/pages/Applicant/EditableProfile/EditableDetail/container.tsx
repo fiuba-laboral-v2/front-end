@@ -9,9 +9,8 @@ import {
   deleteApplicantCareers
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_APPLICANT, getTranslations } from "$queries";
+import { GET_APPLICANT, getTranslations as GET_TRANSLATIONS } from "$queries";
 import NotFound from "$pages/NotFound";
-import Loading from "$pages/Loading";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -20,7 +19,11 @@ const EditableDetailContainer: FunctionComponent = () => {
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
   const history = useHistory();
 
-  const { data: translationsData } = useQuery(getTranslations, {
+  const {
+    data: { getTranslations } = { getTranslations: [] },
+    loading: translationsLoading,
+    error: translationsError
+  } = useQuery(GET_TRANSLATIONS, {
     variables: {
       paths: [
         "applicant.padron",
@@ -29,15 +32,14 @@ const EditableDetailContainer: FunctionComponent = () => {
         "applicant.description"
       ]
     }
-  }
-  );
+  });
 
   const [
     padronTranslation,
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
-  ] = translationsData ? translationsData.getTranslations : ["", "", "", "", ""];
+  ] = getTranslations ;
 
   const [updateApplicant] = useMutation(updateApplicantMutation);
 
@@ -45,12 +47,13 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   const [deleteCareers] = useMutation(deleteApplicantCareers);
 
-  const { data: applicantData, error: applicantError, loading } = useQuery(GET_APPLICANT, {
-    variables: { uuid }
-  }
-  );
+  const {
+    data: { getApplicant } = { getApplicant: {} as IApplicant },
+    error: applicantError,
+    loading: loadingApplicant
+  } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
-  useMemo(() => setApplicant(applicantData?.getApplicant), [applicantData]);
+  useMemo(() => setApplicant(getApplicant), [loadingApplicant]);
 
   const submit = async ({
     uuid: id,
@@ -97,11 +100,11 @@ const EditableDetailContainer: FunctionComponent = () => {
     setApplicant({ ...applicant, careers: applicant.careers });
   };
 
-  if (applicantError) return (<NotFound />);
-  if (loading) return (<Loading />);
+  if (applicantError || translationsError) return (<NotFound />);
 
   return (
     <EditableDetail
+      loading={loadingApplicant || translationsLoading}
       deleteCapability={deleteCapability}
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
