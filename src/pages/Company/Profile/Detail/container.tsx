@@ -9,13 +9,13 @@ import NotFound from "$pages/NotFound";
 const DetailContainer: FunctionComponent = () => {
   const { id } = useParams();
   const {
-    data: { getCompanyById } = { getCompanyById: {} as ICompany },
+    data: { getCompanyById: company } = { getCompanyById: {} as ICompany },
     error,
     loading
   } = useQuery(GET_COMPANY_BY_ID, { variables: { id: id } });
   if (error) return <NotFound />;
 
-  return <Detail loading={loading} company={getCompanyById} />;
+  return <Detail loading={loading} company={company} />;
 };
 
 export { DetailContainer };
