@@ -53,7 +53,10 @@ const EditableDetailContainer: FunctionComponent = () => {
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
-  useMemo(() => setApplicant(getApplicant), [loadingApplicant]);
+  useMemo(
+    () => !loadingApplicant? setApplicant(getApplicant): null,
+    [getApplicant, loadingApplicant]
+  );
 
   const submit = async ({
     uuid: id,
