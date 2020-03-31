@@ -12,7 +12,7 @@ $bigSpacing: 25px;
 $normalSpacing: 15px;
 $smallSpacing: 7px;
 
-$item-margin-bottom: 7px;
+$itemMarginBottom: 7px;
 
 $defaultBorderRadius: 5px;
 
@@ -23,3 +23,8 @@ $red: #F44236;
 $darkGrey: #40403F;
 $grey: #767676;
 $lightGrey: #F1F1F1;
+
+$detailContainerWidth: 880px;
+$detailContainerHorizontalPadding: 20px;
+$mobileContainerThreshold: $detailContainerWidth + 2 * $detailContainerHorizontalPadding;
+$headerContainerPadding: 10px;
