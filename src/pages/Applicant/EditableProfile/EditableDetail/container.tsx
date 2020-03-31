@@ -38,7 +38,7 @@ const EditableDetailContainer: FunctionComponent = () => {
     nameTranslation,
     lastNameTranslation,
     descriptionTranslation
-  ] = getTranslations ;
+  ] = getTranslations;
 
   const [updateApplicant] = useMutation(updateApplicantMutation);
 
