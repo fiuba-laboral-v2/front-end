@@ -1,9 +1,5 @@
-import { isEmpty, pick, every } from "lodash";
-import {
-  validateName,
-  validateEmail,
-  validatePassword,
-} from "validations-fiuba-laboral-v2";
+import { every, isEmpty, pick } from "lodash";
+import { validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { ICareersSelector } from "./interfaces";
 
 const validator = (value: string, callback: (x: string) => void) => {
@@ -15,7 +11,6 @@ const validator = (value: string, callback: (x: string) => void) => {
 };
 
 interface IPropsToValidate {
-  email: string;
   password: string;
   name: string;
   surname: string;
@@ -24,7 +19,6 @@ interface IPropsToValidate {
 }
 
 interface IValidationResult {
-  email?: string;
   password?: string;
   name?: string;
   surname?: string;
@@ -34,14 +28,12 @@ interface IValidationResult {
 }
 
 const validations = (values: IPropsToValidate): IValidationResult => {
-  const email = validator(values.email, validateEmail);
   const password = validator(values.password, validatePassword);
   const name = validator(values.name, validateName);
   const surname = validator(values.surname, validateName);
   const padron = values.padron > 0 ? undefined : "El padron es mayor que 0";
 
   const result: IValidationResult = {
-    ...(email) && { email },
     ...(password) && { password },
     ...(name) && { name },
     ...(surname) && { surname },
@@ -54,7 +46,7 @@ const validations = (values: IPropsToValidate): IValidationResult => {
       ...(code) && { code }
     };
   });
-  if (!every(careers,career => isEmpty(career))) result.careers = careers;
+  if (!every(careers, career => isEmpty(career))) result.careers = careers;
 
   const codes = values.careers.map(career => career.code);
   if (new Set(codes).size !== codes.length) result._form = "No se pueden repetir carreras";

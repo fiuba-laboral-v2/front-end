@@ -14,6 +14,8 @@ import { AddButton } from "$components/AddButton";
 import { Subtitle } from "../../../components/Subtitle";
 import { ICareer } from "../../../interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
+import { validateEmail } from "validations-fiuba-laboral-v2";
+import { FormikValidator } from "../../../FormikValidator";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubmit }) => {
@@ -47,6 +49,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
                     label={translations.email}
                     type="email"
                     className={styles.textInput}
+                    validate={FormikValidator(validateEmail)}
                   />
                   <TextInput
                     name="password"
