@@ -7,13 +7,12 @@ import { Title } from "$components/Title";
 const ListTitleContainer: FunctionComponent<IListTitleProps> = ({ titleTranslationPath }) => {
   const {
     data: { getTranslations } = { getTranslations: [] },
-    loading,
     error
   } = useQuery(
     GET_TRANSLATIONS,
     { variables: { paths: [titleTranslationPath] } }
   );
-  if (error || loading) return <div/>;
+  if (error) return <div/>;
 
   const [ titleTranslation ] = getTranslations;
   return <Title title={titleTranslation} />;
