@@ -1,29 +1,22 @@
 import React, { FunctionComponent } from "react";
-import { useMutation } from "@apollo/react-hooks";
 import { FieldArray, Form, Formik } from "formik";
 
-import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
-
-import { saveApplicantParams, signUpParams, validations } from "./utils";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { validations } from "./utils";
 
 import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
-import { IInitialValues, ISignUpProps } from "./interfaces";
+import { ICareersSelector } from "./interfaces";
 
 import styles from "./styles.module.scss";
-import { useHistory } from "react-router-dom";
 import { AddButton } from "$components/AddButton";
 import { Subtitle } from "../../../components/Subtitle";
+import { ICareer } from "../../../interfaces/Applicant";
+import { FormikHelpers } from "formik/dist/types";
 
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
-  const history = useHistory();
-
-  const [signUp] = useMutation(SIGN_UP);
-  const [saveApplicant] = useMutation(SAVE_APPLICANT);
+const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubmit }) => {
   const formName = "signUpForm";
   const initialValues: IInitialValues = {
     email: "",
@@ -43,16 +36,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
           initialValues={initialValues}
           validate={validations}
           isInitialValid={false}
-          onSubmit={async (values, { setSubmitting }) => {
-            await signUp({
-              variables: signUpParams(values)
-            });
-            const { data: { saveApplicant: applicant } } = await saveApplicant({
-              variables: saveApplicantParams(values)
-            });
-            setSubmitting(false);
-            history.push(RoutesBuilder.applicant.detail(applicant.uuid));
-          }}
+          onSubmit={onSubmit}
         >
           {({ values, isValid, isSubmitting, errors }) => (
             <div className={styles.body}>
@@ -132,5 +116,31 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
     </>
   );
 };
+
+interface IInitialValues {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+  padron: number;
+  careers: ICareersSelector[];
+  _form: string;
+}
+
+interface ISignUpProps {
+  translations: {
+    title: string;
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+    padron: string;
+    careersTitle: string;
+    submit: string;
+  };
+  careers: ICareer[];
+  onSubmit: (values: IInitialValues, formikHelpers: FormikHelpers<IInitialValues>) =>
+    void | Promise<any>;
+}
 
 export { SignUp };
