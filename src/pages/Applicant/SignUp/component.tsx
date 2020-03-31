@@ -31,7 +31,8 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
     name: "",
     surname: "",
     padron: 0,
-    careers: [{ code: "", creditsCount: 0 }]
+    careers: [{ code: "", creditsCount: 0 }],
+    _form: ""
   };
 
   return (
@@ -53,7 +54,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
             history.push(RoutesBuilder.applicant.detail(applicant.uuid));
           }}
         >
-          {({ values, isValid, isSubmitting }) => (
+          {({ values, isValid, isSubmitting, errors }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <div className={styles.textInputContainer}>
@@ -114,6 +115,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
                 />
               </Form>
               <div className={styles.footer}>
+                <span className={styles.formError}>{errors._form}</span>
                 <Button
                   form={formName}
                   className="primary"

@@ -12,6 +12,7 @@ export interface IInitialValues {
   surname: string;
   padron: number;
   careers: ICareersSelector[];
+  _form: string;
 }
 
 export interface ISignUpProps {
