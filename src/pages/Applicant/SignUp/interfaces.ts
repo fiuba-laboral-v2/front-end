@@ -26,4 +26,5 @@ export interface ISignUpProps {
     submit: string;
   };
   careers: ICareer[];
+  loading: boolean;
 }
