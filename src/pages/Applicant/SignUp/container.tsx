@@ -2,13 +2,41 @@ import React, { FunctionComponent } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_CAREERS, getTranslations } from "$queries";
 import { SignUp } from "./component";
-import { saveApplicantParams, signUpParams, translationsMapper } from "./utils";
 import SignUpTranslations from "./translations";
 
 import Loading from "$pages/Loading";
 import { RoutesBuilder } from "../../../routesBuilder";
 import { SAVE_APPLICANT, SIGN_UP } from "../../../graphql/mutations";
 import { useHistory } from "react-router-dom";
+import { pick } from "lodash";
+
+const translationsMapper = (translations: string[] = Array(10).fill("")) => {
+  const [
+    title,
+    email,
+    password,
+    name,
+    surname,
+    padron,
+    careersTitle,
+    submit
+  ] = translations;
+
+  return {
+    title,
+    email,
+    password,
+    name,
+    surname,
+    padron,
+    careersTitle,
+    submit
+  };
+};
+
+const signUpParams = (values: any) => pick(values, ["email", "password"]);
+
+const saveApplicantParams = (values: any) => pick(values, ["name", "surname", "padron", "careers"]);
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();

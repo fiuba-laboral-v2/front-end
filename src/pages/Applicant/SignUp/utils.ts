@@ -1,44 +1,17 @@
-import { every, isEmpty, pick } from "lodash";
-import { validateName, validatePassword } from "validations-fiuba-laboral-v2";
+import { every, isEmpty } from "lodash";
 import { ICareersSelector } from "./interfaces";
 
-const validator = (value: string, callback: (x: string) => void) => {
-  try {
-    callback(value);
-  } catch ({ message }) {
-    return message;
-  }
-};
-
 interface IPropsToValidate {
-  password: string;
-  name: string;
-  surname: string;
-  padron: number;
   careers: ICareersSelector[];
 }
 
 interface IValidationResult {
-  password?: string;
-  name?: string;
-  surname?: string;
-  padron?: string;
   careers?: object[];
   _form?: string;
 }
 
 const validations = (values: IPropsToValidate): IValidationResult => {
-  const password = validator(values.password, validatePassword);
-  const name = validator(values.name, validateName);
-  const surname = validator(values.surname, validateName);
-  const padron = values.padron > 0 ? undefined : "El padron es mayor que 0";
-
-  const result: IValidationResult = {
-    ...(password) && { password },
-    ...(name) && { name },
-    ...(surname) && { surname },
-    ...(padron) && { padron }
-  };
+  const result: IValidationResult = {};
 
   const careers = values.careers.map(value => {
     const code = value.code !== "" ? undefined : "Este campo es obligatorio";
@@ -55,32 +28,5 @@ const validations = (values: IPropsToValidate): IValidationResult => {
   return result;
 };
 
-const signUpParams = (values: any) => pick(values, ["email", "password"]);
 
-const saveApplicantParams = (values: any) => pick(values, ["name", "surname", "padron", "careers"]);
-
-const translationsMapper = (trasnlations: string[] = Array(10).fill("")) => {
-  const [
-    title,
-    email,
-    password,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  ] = trasnlations;
-
-  return {
-    title,
-    email,
-    password,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  };
-};
-
-export { validations, signUpParams, saveApplicantParams, translationsMapper };
+export { validations };

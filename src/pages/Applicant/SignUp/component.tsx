@@ -14,7 +14,7 @@ import { AddButton } from "$components/AddButton";
 import { Subtitle } from "../../../components/Subtitle";
 import { ICareer } from "../../../interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
-import { validateEmail } from "validations-fiuba-laboral-v2";
+import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "../../../FormikValidator";
 
 
@@ -49,25 +49,28 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
                     label={translations.email}
                     type="email"
                     className={styles.textInput}
-                    validate={FormikValidator(validateEmail)}
+                    validate={FormikValidator(validateEmail, { mandatory: true })}
                   />
                   <TextInput
                     name="password"
                     label={translations.password}
                     type="password"
                     className={styles.textInput}
+                    validate={FormikValidator(validatePassword, { mandatory: true })}
                   />
                   <TextInput
                     name="name"
                     label={translations.name}
                     type="text"
                     className={styles.textInput}
+                    validate={FormikValidator(validateName, { mandatory: true })}
                   />
                   <TextInput
                     name="surname"
                     label={translations.surname}
                     type="text"
                     className={styles.textInput}
+                    validate={FormikValidator(validateName, { mandatory: true })}
                   />
                   <TextInput
                     name="padron"
@@ -75,6 +78,9 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
                     type="number"
                     inputProps={{ min: 0, step: 1 }}
                     className={styles.textInput}
+                    validate={(value: number) => {
+                      if (value <= 0) return "El padrón es mayor que 0";
+                    }}
                   />
                 </div>
                 <FieldArray
