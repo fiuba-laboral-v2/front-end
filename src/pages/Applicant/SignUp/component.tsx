@@ -16,10 +16,11 @@ import { IInitialValues, ISignUpProps } from "./interfaces";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 import { AddButton } from "$components/AddButton";
-import { Subtitle } from "../../../components/Subtitle";
+import { Subtitle } from "$components/Subtitle";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
+const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loading }) => {
   const history = useHistory();
 
   const [signUp] = useMutation(SIGN_UP);
@@ -33,6 +34,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers }) => {
     padron: 0,
     careers: [{ code: "", creditsCount: 0 }]
   };
+  if (loading) return <LoadingSpinner />;
 
   return (
     <>
