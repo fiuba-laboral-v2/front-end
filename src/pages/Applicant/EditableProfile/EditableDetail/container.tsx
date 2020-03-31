@@ -10,7 +10,6 @@ import {
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, getTranslations as GET_TRANSLATIONS } from "$queries";
-import NotFound from "$pages/NotFound";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -103,7 +102,7 @@ const EditableDetailContainer: FunctionComponent = () => {
     setApplicant({ ...applicant, careers: applicant.careers });
   };
 
-  if (applicantError || translationsError) return (<NotFound />);
+  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
   return (
     <EditableDetail

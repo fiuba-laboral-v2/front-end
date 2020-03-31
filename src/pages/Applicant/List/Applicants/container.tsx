@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import NotFound from "$pages/NotFound";
 import { GET_APPLICANTS, getTranslations as GET_TRANSLATION } from "$queries";
 import { Applicants } from "./component";
 import { RoutesBuilder } from "$src/routesBuilder";
@@ -18,7 +17,7 @@ const ApplicantsContainer: FunctionComponent = () => {
     error,
     loading
   } = useQuery(GET_APPLICANTS);
-  if (error || translationsError) return <NotFound />;
+  if (error || translationsError) history.push(RoutesBuilder.notFound);
 
   const [editTranslation, viewTranslation] = getTranslations;
 

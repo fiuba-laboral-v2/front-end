@@ -8,7 +8,8 @@ const RoutesBuilder = {
   company: {
     list: () => "/companies/",
     detail: (id: number) => `/companies/${id}/`
-  }
+  },
+  notFound: "/*/"
 };
 
 export { RoutesBuilder };
