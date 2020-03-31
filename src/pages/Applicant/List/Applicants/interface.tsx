@@ -6,4 +6,5 @@ export interface IApplicantsProps {
   onClickView: (uuid: string) => void;
   editButtonText: string;
   viewButtonText: string;
+  loading: boolean;
 }

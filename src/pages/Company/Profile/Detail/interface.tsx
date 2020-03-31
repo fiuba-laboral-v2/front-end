@@ -1,9 +1,6 @@
+import { ICompany } from "$interfaces/Company";
+
 export interface ICompanyDetailProps {
-    name: string;
-    email: string;
-    slogan: string;
-    logoImageSource: string;
-    website: string;
-    description: string;
-    photoImageSources: string[];
+    company: ICompany;
+    loading: boolean;
 }

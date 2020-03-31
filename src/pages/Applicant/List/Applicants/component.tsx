@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import Button from "$components/Button";
 import { ListTitle } from "$components/ListTitle";
 import { Subtitle } from "$components/Subtitle";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
@@ -12,8 +13,19 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     onClickEdit,
     onClickView,
     editButtonText,
-    viewButtonText
-  }) => (
+    viewButtonText,
+    loading
+  }) => {
+  if (loading) {
+    return (
+      <>
+        <ListTitle titleTranslationPath={"applicants"} />
+        <LoadingSpinner />
+      </>
+    );
+  }
+
+  return (
     <>
       <ListTitle titleTranslationPath={"applicants"} />
       {
@@ -45,6 +57,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
       }
     </>
   );
+};
 
 
 export { Applicants };
