@@ -54,7 +54,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
   useMemo(
-    () => !loadingApplicant? setApplicant(getApplicant): null,
+    () => loadingApplicant? null: setApplicant(getApplicant),
     [getApplicant, loadingApplicant]
   );
 
