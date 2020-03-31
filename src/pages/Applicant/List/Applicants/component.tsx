@@ -16,38 +16,44 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     viewButtonText,
     loading
   }) => {
+  if (loading) {
+    return (
+      <>
+        <ListTitle titleTranslationPath={"applicants"} />
+        <LoadingSpinner />
+      </>
+    );
+  }
+
   return (
     <>
       <ListTitle titleTranslationPath={"applicants"} />
       {
-        loading ?
-          <LoadingSpinner />
-          :
-          applicants.map(applicant =>
-            <div className={styles.row} key={applicant.uuid}>
-              <ListItem>
-                <div className={styles.childrenContainer}>
-                  <Subtitle className={styles.name}>
-                    {`${applicant.name} ${applicant.surname}`}
-                  </Subtitle>
-                  <div className={styles.buttons}>
-                    <Button
-                      onClick={() => onClickEdit(applicant.uuid)}
-                      className="secondary"
-                    >
-                      {editButtonText}
-                    </Button>
-                    <Button
-                      onClick={() => onClickView(applicant.uuid)}
-                      className="primary"
-                    >
-                      {viewButtonText}
-                    </Button>
-                  </div>
+        applicants.map(applicant =>
+          <div className={styles.row} key={applicant.uuid}>
+            <ListItem>
+              <div className={styles.childrenContainer}>
+                <Subtitle className={styles.name}>
+                  {`${applicant.name} ${applicant.surname}`}
+                </Subtitle>
+                <div className={styles.buttons}>
+                  <Button
+                    onClick={() => onClickEdit(applicant.uuid)}
+                    className="secondary"
+                  >
+                    {editButtonText}
+                  </Button>
+                  <Button
+                    onClick={() => onClickView(applicant.uuid)}
+                    className="primary"
+                  >
+                    {viewButtonText}
+                  </Button>
                 </div>
-              </ListItem>
-            </div>
-          )
+              </div>
+            </ListItem>
+          </div>
+        )
       }
     </>
   );

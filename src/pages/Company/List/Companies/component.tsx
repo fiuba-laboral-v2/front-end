@@ -14,13 +14,19 @@ const Companies: FunctionComponent<ICompaniesProps> = (
     onClickView,
     viewButtonText,
     loading
-  }) => (
-  <>
-    <ListTitle titleTranslationPath={"companies"} />
-    {
-      loading?
+  }) => {
+  if (loading) {
+    return (
+      <>
+        <ListTitle titleTranslationPath={"companies"} />
         <LoadingSpinner />
-        :
+      </>
+    );
+  }
+  return (
+    <>
+      <ListTitle titleTranslationPath={"companies"} />
+      {
         companies.map(company =>
           <div className={styles.row} key={company.id}>
             <ListItem>
@@ -55,8 +61,9 @@ const Companies: FunctionComponent<ICompaniesProps> = (
             </ListItem>
           </div>
         )
-    }
-  </>
-);
+      }
+    </>
+  );
+};
 
 export { Companies };
