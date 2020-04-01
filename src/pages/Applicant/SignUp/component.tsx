@@ -5,15 +5,14 @@ import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
-import { ICareersSelector } from "./interfaces";
-
 import styles from "./styles.module.scss";
 import { AddButton } from "$components/AddButton";
-import { Subtitle } from "../../../components/Subtitle";
 import { ICareer } from "../../../interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "../../../FormikValidator";
+import { Subtitle } from "$components/Subtitle";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -21,7 +20,8 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     translations,
     careers,
     onSubmit,
-    validate
+    validate,
+    loading
   }
 ) => {
   const formName = "signUpForm";
@@ -35,6 +35,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     careers: [careerInitialValue],
     _form: ""
   };
+  if (loading) return <LoadingSpinner />;
 
   return (
     <>
@@ -141,7 +142,10 @@ interface ISignUpValues {
   name: string;
   surname: string;
   padron: number;
-  careers: ICareersSelector[];
+  careers: Array<{
+    code: string;
+    creditsCount: number;
+  }>;
   _form: string;
 }
 
@@ -156,6 +160,7 @@ interface ISignUpProps {
     careersTitle: string;
     submit: string;
   };
+  loading: boolean;
   careers: ICareer[];
   validate: (values: ISignUpValues) => string | undefined;
   onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>

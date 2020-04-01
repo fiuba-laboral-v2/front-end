@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { useHistory } from "react-router-dom";
 import { getTranslations as GET_TRANSLATIONS } from "$queries";
 import { Title } from "$components/Title";
-import NotFound from "$pages/NotFound";
+import { RoutesBuilder } from "$src/routesBuilder";
 
 const TitleContainer: FunctionComponent = () => {
+  const history = useHistory();
   const {
     data: { getTranslations } = { getTranslations: [] },
     error
@@ -14,7 +16,7 @@ const TitleContainer: FunctionComponent = () => {
       }
     }
   );
-  if (error) return <NotFound />;
+  if (error) history.push(RoutesBuilder.notFound);
 
   const [explanation, title] = getTranslations;
 

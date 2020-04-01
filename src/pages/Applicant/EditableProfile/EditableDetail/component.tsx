@@ -6,6 +6,7 @@ import { EditableField } from "$components/EditableField";
 import { FormFooter } from "$components/FormFooter";
 import { EditableCapabilities } from "$pages/Applicant/EditableProfile/EditableCapabilities";
 import { EditableCareers } from "$pages/Applicant/EditableProfile/EditableCareers";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ICapability, ICareer } from "$interfaces/Applicant";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
@@ -16,8 +17,11 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
     onCancel,
     setApplicant,
     deleteCapability,
-    deleteCareer
+    deleteCareer,
+    loading
   }) => {
+  if (loading) return <LoadingSpinner />;
+
   const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
     if (

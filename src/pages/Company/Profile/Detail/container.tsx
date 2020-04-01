@@ -1,52 +1,22 @@
 import React, { FunctionComponent } from "react";
-import { Detail } from "./component";
-import { getCompanyById } from "$queries";
+import { getCompanyById as GET_COMPANY_BY_ID } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
-import { useParams } from "react-router-dom";
-import NotFound from "$pages/NotFound";
+import { useParams, useHistory } from "react-router-dom";
+import { ICompany } from "$interfaces/Company";
+import { Detail } from "./component";
+import { RoutesBuilder } from "$src/routesBuilder";
 
 const DetailContainer: FunctionComponent = () => {
   const { id } = useParams();
-  const response = useQuery(getCompanyById, {
-        variables: {
-          id: id
-        }
-      }
-  );
-
-  if (response.error) {
-    return (<NotFound/>);
-  }
-
+  const history = useHistory();
   const {
-    companyName,
-    slogan,
-    logo,
-    description,
-    photos,
-    website,
-    email
-  } = response.data ? response.data.getCompanyById : {
-    companyName: "",
-    slogan: "",
-    logo: "",
-    description: "",
-    website: "",
-    email: "",
-    photos: []
-  };
+    data: { getCompanyById: company } = { getCompanyById: {} as ICompany },
+    error,
+    loading
+  } = useQuery(GET_COMPANY_BY_ID, { variables: { id: id } });
+  if (error) history.push(RoutesBuilder.notFound);
 
-  return (
-    <Detail
-      name={companyName}
-      email={email}
-      slogan={slogan}
-      logoImageSource={logo}
-      website={website}
-      description={description}
-      photoImageSources={photos}
-    />
-  );
+  return <Detail loading={loading} company={company} />;
 };
 
 export { DetailContainer };

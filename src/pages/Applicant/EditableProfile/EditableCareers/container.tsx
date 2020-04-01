@@ -4,7 +4,8 @@ import { EditableCareers } from "./component";
 import { ICareer } from "$interfaces/Applicant";
 import { GET_CAREERS, getTranslations } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
-import NotFound from "$pages/NotFound";
+import { useHistory } from "react-router-dom";
+import { RoutesBuilder } from "$src/routesBuilder";
 
 const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps> = (
   {
@@ -12,6 +13,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     deleteCareer,
     careers
   }) => {
+  const history = useHistory();
   const [state, setState] = useState<ICareer>(
     {
       code: "none",
@@ -54,10 +56,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     setState({ ...state, creditsCount: Number(creditsCount) });
   };
 
-  if (error) {
-    alert(error.message);
-    return (<NotFound />);
-  }
+  if (error) history.push(RoutesBuilder.notFound);
 
   return (
     <EditableCareers

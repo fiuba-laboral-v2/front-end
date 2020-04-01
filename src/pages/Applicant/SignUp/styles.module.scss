@@ -1,7 +1,6 @@
 @import "$styles/mixins/_card.scss";
 @import "$styles/mixins/_title.scss";
 @import "$styles/_variables.scss";
-@import "$styles/_detailsVariables.scss";
 
 .mainContainer {
   @include card;
@@ -40,7 +39,7 @@
 }
 
 div.textInput {
-  margin-bottom: $bigSpacing;
+  margin-bottom: $normalSpacing;
 }
 
 .formError {
@@ -60,5 +59,3 @@ div.textInput {
     width: 100%;
   }
 }
-
-

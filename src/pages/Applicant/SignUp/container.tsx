@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_CAREERS, getTranslations } from "$queries";
+import { GET_CAREERS, getTranslations as GET_TRANSLATIONS } from "$queries";
 import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
-import Loading from "$pages/Loading";
 import { RoutesBuilder } from "../../../routesBuilder";
 import { SAVE_APPLICANT, SIGN_UP } from "../../../graphql/mutations";
 import { useHistory } from "react-router-dom";
@@ -43,21 +42,19 @@ const SignUpContainer: FunctionComponent = () => {
   const [signUp] = useMutation(SIGN_UP);
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
 
-  const { data: translationsData, loading } = useQuery(getTranslations, {
-      variables: {
-        paths: SignUpTranslations
-      }
-    }
-  );
-
-  const { data, loading: loadingCareers } = useQuery(GET_CAREERS);
-
-  if (loading || loadingCareers) return <Loading/>;
-
-  const translations = translationsMapper(translationsData.getTranslations);
+  const {
+    data: { getTranslations } = { getTranslations: [] },
+    loading
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: SignUpTranslations } });
+  const {
+    data: { getCareers } = { getCareers: [] },
+    loading: loadingCareers
+  } = useQuery(GET_CAREERS);
+  const translations = translationsMapper(getTranslations);
 
   return (
     <SignUp
+      loading={loading || loadingCareers}
       translations={translations}
       validate={values => {
         const selectedCodes = values.careers.map(career => career.code);
@@ -65,7 +62,7 @@ const SignUpContainer: FunctionComponent = () => {
         if (new Set(selectedCodes).size !== selectedCodes.length) return "No se pueden repetir carreras";
         if (selectedCodes.length === 0) return "Debes elegir como mínimo una carrera";
       }}
-      careers={data.getCareers}
+      careers={getCareers}
       onSubmit={async (values, { setSubmitting }) => {
         await signUp({
           variables: signUpParams(values)

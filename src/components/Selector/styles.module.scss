@@ -1,5 +1,5 @@
 @import "$styles/mixins/_textInput.scss";
 
-div.textInput {
+div.selector {
   @include textInput;
 }

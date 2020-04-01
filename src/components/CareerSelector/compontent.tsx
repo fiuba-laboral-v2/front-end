@@ -18,7 +18,8 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   }
 ) => (
   <FormSection>
-    <Selector
+    <div className={styles.fieldsContainer}>
+      <Selector
       name={`careers.${index}.code`}
       options={careers.map(({ code, description }) => ({ value: code, label: description }))}
       label={careerLabel}
@@ -31,8 +32,9 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       type="number"
       inputProps={{ min: 0 }}
       className={styles.credits}
-    />
+    /></div>
     <RemoveButton
+      className={styles.remove}
       onClick={() => arrayHelpers.remove(index)}
     />
   </FormSection>
