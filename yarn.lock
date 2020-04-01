@@ -11427,10 +11427,10 @@ tslib@^1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-tslint-config-fiuba-laboral-v2@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/tslint-config-fiuba-laboral-v2/-/tslint-config-fiuba-laboral-v2-1.0.5.tgz#4d5582f6d8fe20d3522b53c377536605b8c589b6"
-  integrity sha512-h2J/U3CwT9GzM2haG3HH9b2sW6KNzCyCUgiCBITu7psqlbjXRh8yqoE7DKRJRX1vkVuPZ3wFM0SGY4MIfQPvUA==
+tslint-config-fiuba-laboral-v2@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/tslint-config-fiuba-laboral-v2/-/tslint-config-fiuba-laboral-v2-1.0.8.tgz#6d2a8cd062b177ceca74a463edb4dd1f63a75d1e"
+  integrity sha512-is2qS1U6EDLg1gUK1jJts+8VQAeV/91uhuszJquoq1kx31wvlCHoRNcn0pzmyAtXmwWd36z4nLnOnGPrLXBcSg==
 
 tslint-react-hooks@2.2.1:
   version "2.2.1"
