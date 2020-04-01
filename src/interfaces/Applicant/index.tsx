@@ -29,9 +29,9 @@ export interface IApplicant {
   padron: number;
   description: string;
   links: ILink[];
-  sections?: ISection[];
-  capabilities?: ICapability[];
-  careers?: ICareer[];
+  sections: ISection[];
+  capabilities: ICapability[];
+  careers: ICareer[];
 }
 
 export interface IApplicantCareer {
