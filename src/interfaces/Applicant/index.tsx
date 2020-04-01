@@ -11,8 +11,10 @@ export interface ICapability {
 }
 
 export interface ISection {
+  uuid?: string;
   title: string;
   text: string;
+  displayOrder: number;
 }
 
 export interface ILink {
@@ -39,10 +41,12 @@ export interface IApplicantCareer {
 
 
 export interface IApplicantEditable {
-  padron: number;
+  uuid: string;
+  padron?: number;
   name?: string;
   surname?: string;
   description?: string;
   capabilities?: string[];
   careers?: IApplicantCareer[];
+  sections?: ISection[];
 }
