@@ -1,4 +1,4 @@
-import { Field, FieldMetaProps, FormikBag } from "formik";
+import { Field, FieldProps } from "formik";
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
@@ -27,15 +27,7 @@ export const Selector: FunctionComponent<ISelectorProps> = (
     validate
   }) => (
   <Field name={name} validate={validate}>
-    {(
-      {
-        meta,
-        form
-      }: {
-        meta: FieldMetaProps<string>,
-        form: FormikBag<ISelectorProps, string>
-      }
-    ) => {
+    {({ meta, form }: FieldProps<string, ISelectorProps>) => {
       const setValue = (value?: string) => {
         form.setFieldValue(name, value);
         form.setFieldTouched(name, true);
@@ -46,7 +38,7 @@ export const Selector: FunctionComponent<ISelectorProps> = (
           className={classNames(className, styles.selector)}
           options={options}
           getOptionLabel={option => option.label}
-          onBlur={() => setValue(meta.value) }
+          onBlur={() => setValue(meta.value)}
           onChange={(event: ChangeEvent<{}>, option: ISelectorOption | null) => {
             setValue(option?.value);
           }}
