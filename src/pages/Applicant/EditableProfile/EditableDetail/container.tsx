@@ -64,9 +64,11 @@ const EditableDetailContainer: FunctionComponent = () => {
     surname,
     description,
     capabilities,
-    careers
+    careers,
+    sections
   }: IApplicant) => {
     const dataToUpdate: IApplicantEditable = {
+      uuid: id,
       padron,
       name,
       surname,
@@ -74,14 +76,15 @@ const EditableDetailContainer: FunctionComponent = () => {
       capabilities: capabilities?.map(c => c.description),
       careers: careers?.map(c =>
         ({ code: c.code, creditsCount: c.creditsCount || 0 })
-      )
+      ),
+      sections: sections
     };
     try {
       await deleteCapabilities({
-        variables: { padron: padron, capabilities: deletedCapabilities }
+        variables: { uuid: id, capabilities: deletedCapabilities }
       });
       await deleteCareers({
-        variables: { padron: padron, careersCodes: deletedCareers }
+        variables: { uuid: id, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
     } catch (e) {

@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$src/routesBuilder";
 import { IApplicant } from "$interfaces/Applicant";
+import { sortBy } from "lodash";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -27,6 +28,7 @@ const DetailContainer: FunctionComponent = () => {
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
+  applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
   const [ padronTranslation, capabilitiesTranslation ] = getTranslations;
 
   return (

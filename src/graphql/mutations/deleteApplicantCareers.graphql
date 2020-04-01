@@ -1,5 +1,6 @@
-mutation deleteApplicantCareers($padron: Int!, $careersCodes: [String!]) {
-    deleteApplicantCareers(padron: $padron, careersCodes: $careersCodes) {
+mutation deleteApplicantCareers($uuid: ID!, $careersCodes: [String!]) {
+    deleteApplicantCareers(uuid: $uuid, careersCodes: $careersCodes) {
+        uuid
         name
         surname
         padron

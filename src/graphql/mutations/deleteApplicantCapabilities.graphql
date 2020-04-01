@@ -1,5 +1,6 @@
-mutation deleteApplicantCapabilities($padron: Int!, $capabilities: [String]) {
-    deleteApplicantCapabilities(padron: $padron, capabilities: $capabilities) {
+mutation deleteApplicantCapabilities($uuid: ID!, $capabilities: [String]) {
+    deleteApplicantCapabilities(uuid: $uuid, capabilities: $capabilities) {
+        uuid
         name
         surname
         padron
