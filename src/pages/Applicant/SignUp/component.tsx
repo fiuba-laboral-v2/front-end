@@ -1,38 +1,40 @@
 import React, { FunctionComponent } from "react";
-import { useMutation } from "@apollo/react-hooks";
 import { FieldArray, Form, Formik } from "formik";
-
-import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
-
-import { saveApplicantParams, signUpParams, validations } from "./utils";
-import { RoutesBuilder } from "$src/routesBuilder";
 
 import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
-import { IInitialValues, ISignUpProps } from "./interfaces";
-
 import styles from "./styles.module.scss";
-import { useHistory } from "react-router-dom";
 import { AddButton } from "$components/AddButton";
+import { ICareer } from "$interfaces/Applicant";
+import { FormikHelpers } from "formik/dist/types";
+import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
+import { FormikValidator } from "$src/FormikValidator";
 import { Subtitle } from "$components/Subtitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { ISignUpValues } from "./interface";
 
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loading }) => {
-  const history = useHistory();
-
-  const [signUp] = useMutation(SIGN_UP);
-  const [saveApplicant] = useMutation(SAVE_APPLICANT);
+const SignUp: FunctionComponent<ISignUpProps> = (
+  {
+    translations,
+    careers,
+    onSubmit,
+    validate,
+    loading
+  }
+) => {
   const formName = "signUpForm";
-  const initialValues: IInitialValues = {
+  const careerInitialValue = { code: "", creditsCount: 0 };
+  const initialValues: ISignUpValues = {
     email: "",
     password: "",
     name: "",
     surname: "",
     padron: 0,
-    careers: [{ code: "", creditsCount: 0 }]
+    careers: [careerInitialValue],
+    _form: ""
   };
   if (loading) return <LoadingSpinner />;
 
@@ -42,20 +44,14 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
         <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={initialValues}
-          validate={validations}
-          isInitialValid={false}
-          onSubmit={async (values, { setSubmitting }) => {
-            await signUp({
-              variables: signUpParams(values)
-            });
-            const { data: { saveApplicant: applicant } } = await saveApplicant({
-              variables: saveApplicantParams(values)
-            });
-            setSubmitting(false);
-            history.push(RoutesBuilder.applicant.detail(applicant.uuid));
+          validate={values => {
+            const errorMessage = validate(values);
+            if (errorMessage) return { _form: errorMessage };
           }}
+          isInitialValid={false}
+          onSubmit={onSubmit}
         >
-          {({ values, isValid, isSubmitting }) => (
+          {({ values, isValid, isSubmitting, errors }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <div className={styles.textInputContainer}>
@@ -64,24 +60,28 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
                     label={translations.email}
                     type="email"
                     className={styles.textInput}
+                    validate={FormikValidator({ validator: validateEmail, mandatory: true })}
                   />
                   <TextInput
                     name="password"
                     label={translations.password}
                     type="password"
                     className={styles.textInput}
+                    validate={FormikValidator({ validator: validatePassword, mandatory: true })}
                   />
                   <TextInput
                     name="name"
                     label={translations.name}
                     type="text"
                     className={styles.textInput}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
                     name="surname"
                     label={translations.surname}
                     type="text"
                     className={styles.textInput}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
                     name="padron"
@@ -89,6 +89,9 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
                     type="number"
                     inputProps={{ min: 0, step: 1 }}
                     className={styles.textInput}
+                    validate={(value: number) => {
+                      if (value <= 0) return "El padrón es mayor que 0";
+                    }}
                   />
                 </div>
                 <FieldArray
@@ -100,7 +103,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
                           {translations.careersTitle}
                         </Subtitle>
                         <AddButton onClick={() =>
-                          arrayHelpers.insert(values.careers.length + 1, "")
+                          arrayHelpers.insert(values.careers.length + 1, careerInitialValue)
                         }/>
                       </div>
                       {values.careers.map((career, index) => (
@@ -116,6 +119,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
                 />
               </Form>
               <div className={styles.footer}>
+                <span className={styles.formError}>{errors._form}</span>
                 <Button
                   form={formName}
                   className="primary"
@@ -132,5 +136,23 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, loadin
     </>
   );
 };
+
+interface ISignUpProps {
+  translations: {
+    title: string;
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+    padron: string;
+    careersTitle: string;
+    submit: string;
+  };
+  loading: boolean;
+  careers: ICareer[];
+  validate: (values: ISignUpValues) => string | undefined;
+  onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
+    void | Promise<any>;
+}
 
 export { SignUp };

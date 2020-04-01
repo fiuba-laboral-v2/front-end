@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
 import { FormSection } from "../FormSection";
 import { RemoveButton } from "../RemoveButton";
+import { FormikValidator } from "$src/FormikValidator";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
@@ -23,6 +24,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
         options={careers.map(({ code, description }) => ({ value: code, label: description }))}
         label={careerLabel}
         className={styles.career}
+        validate={FormikValidator({ mandatory: true })}
       />
       <TextInput
         name={`careers[${index}].creditsCount`}
