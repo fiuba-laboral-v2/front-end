@@ -13,6 +13,7 @@ import { validateEmail, validateName, validatePassword } from "validations-fiuba
 import { FormikValidator } from "$src/FormikValidator";
 import { Subtitle } from "$components/Subtitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { ISignUpValues } from "./interface";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -135,19 +136,6 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     </>
   );
 };
-
-interface ISignUpValues {
-  email: string;
-  password: string;
-  name: string;
-  surname: string;
-  padron: number;
-  careers: Array<{
-    code: string;
-    creditsCount: number;
-  }>;
-  _form: string;
-}
 
 interface ISignUpProps {
   translations: {

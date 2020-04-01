@@ -8,6 +8,8 @@ import { RoutesBuilder } from "$src/routesBuilder";
 import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
 import { useHistory } from "react-router-dom";
 import { pick } from "lodash";
+import { ISignUpValues } from "./interface";
+import { FormikHelpers } from "formik";
 
 const translationsMapper = (translations: string[] = Array(10).fill("")) => {
   const [
@@ -46,34 +48,43 @@ const SignUpContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     loading
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: SignUpTranslations } });
+
   const {
     data: { getCareers } = { getCareers: [] },
     loading: loadingCareers
   } = useQuery(GET_CAREERS);
+
   const translations = translationsMapper(getTranslations);
+
+  const validate = (values: ISignUpValues) => {
+    const selectedCodes = values.careers.map(career => career.code);
+    if (new Set(selectedCodes).size !== selectedCodes.length) {
+      return "No se pueden repetir carreras";
+    }
+    if (selectedCodes.length === 0) {
+      return "Debes elegir como mínimo una carrera";
+    }
+  };
+
+  const onSubmit = async (
+    values: ISignUpValues,
+    { setSubmitting }: FormikHelpers<ISignUpValues>
+  ) => {
+    await signUp({ variables: signUpParams(values) });
+    const { data: { saveApplicant: applicant } } = await saveApplicant({
+      variables: saveApplicantParams(values)
+    });
+    setSubmitting(false);
+    history.push(RoutesBuilder.applicant.detail(applicant.uuid));
+  };
 
   return (
     <SignUp
       loading={loading || loadingCareers}
       translations={translations}
-      validate={values => {
-        const selectedCodes = values.careers.map(career => career.code);
-        if (new Set(selectedCodes).size !== selectedCodes.length) {
-          return "No se pueden repetir carreras";
-        }
-        if (selectedCodes.length === 0) {
-          return "Debes elegir como mínimo una carrera";
-        }
-      }}
+      validate={validate}
       careers={getCareers}
-      onSubmit={async (values, { setSubmitting }) => {
-        await signUp({ variables: signUpParams(values) });
-        const { data: { saveApplicant: applicant } } = await saveApplicant({
-          variables: saveApplicantParams(values)
-        });
-        setSubmitting(false);
-        history.push(RoutesBuilder.applicant.detail(applicant.uuid));
-      }}
+      onSubmit={onSubmit}
     />
   );
 };
