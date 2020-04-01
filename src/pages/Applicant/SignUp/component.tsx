@@ -20,13 +20,14 @@ import { FormikValidator } from "../../../FormikValidator";
 
 const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubmit }) => {
   const formName = "signUpForm";
+  const careerInitialValue = { code: "", creditsCount: 0 };
   const initialValues: IInitialValues = {
     email: "",
     password: "",
     name: "",
     surname: "",
     padron: 0,
-    careers: [{ code: "", creditsCount: 0 }],
+    careers: [careerInitialValue],
     _form: ""
   };
 
@@ -49,28 +50,28 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
                     label={translations.email}
                     type="email"
                     className={styles.textInput}
-                    validate={FormikValidator(validateEmail, { mandatory: true })}
+                    validate={FormikValidator({ validator: validateEmail, mandatory: true })}
                   />
                   <TextInput
                     name="password"
                     label={translations.password}
                     type="password"
                     className={styles.textInput}
-                    validate={FormikValidator(validatePassword, { mandatory: true })}
+                    validate={FormikValidator({ validator: validatePassword, mandatory: true })}
                   />
                   <TextInput
                     name="name"
                     label={translations.name}
                     type="text"
                     className={styles.textInput}
-                    validate={FormikValidator(validateName, { mandatory: true })}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
                     name="surname"
                     label={translations.surname}
                     type="text"
                     className={styles.textInput}
-                    validate={FormikValidator(validateName, { mandatory: true })}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
                     name="padron"
@@ -92,7 +93,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
                           {translations.careersTitle}
                         </Subtitle>
                         <AddButton onClick={() =>
-                          arrayHelpers.insert(values.careers.length + 1, "")
+                          arrayHelpers.insert(values.careers.length + 1, careerInitialValue)
                         }/>
                       </div>
                       {values.careers.map((career, index) => (
