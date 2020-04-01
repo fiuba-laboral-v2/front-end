@@ -67,9 +67,7 @@ const SignUpContainer: FunctionComponent = () => {
       }}
       careers={getCareers}
       onSubmit={async (values, { setSubmitting }) => {
-        await signUp({
-          variables: signUpParams(values)
-        });
+        await signUp({ variables: signUpParams(values) });
         const { data: { saveApplicant: applicant } } = await saveApplicant({
           variables: saveApplicantParams(values)
         });
