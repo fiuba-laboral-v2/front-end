@@ -32,7 +32,8 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
         type="number"
         inputProps={{ min: 0 }}
         className={styles.credits}
-      /></div>
+      />
+    </div>
     <RemoveButton
       className={styles.remove}
       onClick={() => arrayHelpers.remove(index)}
