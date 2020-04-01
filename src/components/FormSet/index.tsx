@@ -22,7 +22,7 @@ const FormSet: FunctionComponent<IFormSetProps<any>> = (
           <AddButton onClick={() => arrayHelpers.insert(values.length + 1, defaultValue)}/>
         </div>
         {values.map((value, index) => (
-          <FieldSet key={index} onClick={() => arrayHelpers.remove(index)}>
+          <FieldSet key={index} onRemove={() => arrayHelpers.remove(index)}>
             {form(value, index)}
           </FieldSet>
         ))}

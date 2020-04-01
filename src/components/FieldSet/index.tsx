@@ -5,20 +5,20 @@ import { FormSection } from "$components/FormSection";
 
 const FieldSet: FunctionComponent<IFieldSetProps> = (
   {
-    onClick,
+    onRemove,
     children
   }) => (
   <FormSection>
     <div className={styles.childrenContainer}>{children}</div>
     <RemoveButton
       className={styles.removeLink}
-      onClick={onClick}
+      onClick={onRemove}
     />
   </FormSection>
 );
 
 export interface IFieldSetProps {
-  onClick: () => void;
+  onRemove: () => void;
 }
 
 export { FieldSet };
