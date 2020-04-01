@@ -7,10 +7,10 @@ import Button from "$components/Button";
 
 import styles from "./styles.module.scss";
 import { AddButton } from "$components/AddButton";
-import { ICareer } from "../../../interfaces/Applicant";
+import { ICareer } from "$interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
-import { FormikValidator } from "../../../FormikValidator";
+import { FormikValidator } from "$src/FormikValidator";
 import { Subtitle } from "$components/Subtitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 

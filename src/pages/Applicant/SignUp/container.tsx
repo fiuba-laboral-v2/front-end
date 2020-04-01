@@ -4,8 +4,8 @@ import { GET_CAREERS, getTranslations as GET_TRANSLATIONS } from "$queries";
 import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
-import { RoutesBuilder } from "../../../routesBuilder";
-import { SAVE_APPLICANT, SIGN_UP } from "../../../graphql/mutations";
+import { RoutesBuilder } from "$src/routesBuilder";
+import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
 import { useHistory } from "react-router-dom";
 import { pick } from "lodash";
 

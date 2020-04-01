@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
 import { FormSection } from "../FormSection";
 import { RemoveButton } from "../RemoveButton";
-import { FormikValidator } from "../../FormikValidator";
+import { FormikValidator } from "$src/FormikValidator";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
