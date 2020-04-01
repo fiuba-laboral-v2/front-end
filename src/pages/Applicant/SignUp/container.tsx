@@ -11,30 +11,6 @@ import { pick } from "lodash";
 import { ISignUpValues } from "./interface";
 import { FormikHelpers } from "formik";
 
-const translationsMapper = (translations: string[] = Array(10).fill("")) => {
-  const [
-    title,
-    email,
-    password,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  ] = translations;
-
-  return {
-    title,
-    email,
-    password,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  };
-};
-
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [signUp] = useMutation(SIGN_UP);
@@ -83,6 +59,30 @@ const SignUpContainer: FunctionComponent = () => {
       onSubmit={onSubmit}
     />
   );
+};
+
+const translationsMapper = (translations: string[] = Array(10).fill("")) => {
+  const [
+    title,
+    email,
+    password,
+    name,
+    surname,
+    padron,
+    careersTitle,
+    submit
+  ] = translations;
+
+  return {
+    title,
+    email,
+    password,
+    name,
+    surname,
+    padron,
+    careersTitle,
+    submit
+  };
 };
 
 export { SignUpContainer };

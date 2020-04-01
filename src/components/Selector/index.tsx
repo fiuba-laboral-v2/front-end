@@ -5,19 +5,6 @@ import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-interface ISelectorOption {
-  value: string;
-  label: string;
-}
-
-interface ISelectorProps {
-  name: string;
-  label?: string;
-  options: ISelectorOption[];
-  className?: string;
-  validate?: (option?: string) => string | undefined;
-}
-
 export const Selector: FunctionComponent<ISelectorProps> = (
   {
     name,
@@ -56,3 +43,16 @@ export const Selector: FunctionComponent<ISelectorProps> = (
     }}
   </Field>
 );
+
+interface ISelectorOption {
+  value: string;
+  label: string;
+}
+
+interface ISelectorProps {
+  name: string;
+  label?: string;
+  options: ISelectorOption[];
+  className?: string;
+  validate?: (option?: string) => string | undefined;
+}
