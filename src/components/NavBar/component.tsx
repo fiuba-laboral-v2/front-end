@@ -2,13 +2,11 @@ import React, { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { RoutesBuilder } from "$src/routesBuilder";
-import { INavBarProps } from "./interface";
 
 import styles from "./styles.module.scss";
 
-const NavBar: FunctionComponent<INavBarProps> = (
+export const NavBar: FunctionComponent<INavBarProps> = (
   {
-    title,
     companies,
     applicants,
     signUp,
@@ -24,7 +22,6 @@ const NavBar: FunctionComponent<INavBarProps> = (
   return (
     <div className={styles.navBar}>
       <div className={styles.main}>
-        <Link to="/">{title}</Link>
         <div className={styles.toggle}>
           <div className={styles.separator}/>
           <div className={styles.menuIcon} onClick={toggleMenu}>
@@ -45,4 +42,9 @@ const NavBar: FunctionComponent<INavBarProps> = (
   );
 };
 
-export default NavBar;
+interface INavBarProps {
+  companies: string;
+  applicants: string;
+  signUp: string;
+  username: string;
+}

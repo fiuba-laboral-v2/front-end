@@ -1,19 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import NavBar from "./component";
+import { NavBar } from "./component";
 import { getTranslations } from "$queries";
 
-const NavBarContainer: FunctionComponent = () => {
+export const NavBarContainer: FunctionComponent = () => {
   const { data } = useQuery(getTranslations, {
     variables: {
-      paths: ["app.title", "companies", "applicants", "applicant.signUp.title"]
+      paths: ["companies", "applicants", "applicant.signUp.title"]
     }
   });
-  const [title, companies, applicants, signUp] = data ? data.getTranslations : ["", "", "", ""];
+  const [companies, applicants, signUp] = data ? data.getTranslations : ["", "", ""];
 
   return (
     <NavBar
-      title={title}
       companies={companies}
       applicants={applicants}
       signUp={signUp}
@@ -21,5 +20,3 @@ const NavBarContainer: FunctionComponent = () => {
     />
   );
 };
-
-export default NavBarContainer;
