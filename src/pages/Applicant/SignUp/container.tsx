@@ -35,10 +35,6 @@ const translationsMapper = (translations: string[] = Array(10).fill("")) => {
   };
 };
 
-const signUpParams = (values: any) => pick(values, ["email", "password"]);
-
-const saveApplicantParams = (values: any) => pick(values, ["name", "surname", "padron", "careers"]);
-
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [signUp] = useMutation(SIGN_UP);
@@ -70,9 +66,9 @@ const SignUpContainer: FunctionComponent = () => {
     values: ISignUpValues,
     { setSubmitting }: FormikHelpers<ISignUpValues>
   ) => {
-    await signUp({ variables: signUpParams(values) });
+    await signUp({ variables: pick(values, ["email", "password"]) });
     const { data: { saveApplicant: applicant } } = await saveApplicant({
-      variables: saveApplicantParams(values)
+      variables: pick(values, ["name", "surname", "padron", "careers"])
     });
     setSubmitting(false);
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
