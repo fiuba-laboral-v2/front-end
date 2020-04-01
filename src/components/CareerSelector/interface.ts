@@ -1,10 +1,8 @@
 import { ICareer } from "../../interfaces/Applicant";
-import { ArrayHelpers } from "formik";
 
 export interface ICareerSelectorContainerProps {
   index: number;
-  careers: ICareer[];
-  arrayHelpers: ArrayHelpers;
+  options: ICareer[];
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {

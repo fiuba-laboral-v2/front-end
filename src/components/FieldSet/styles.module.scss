@@ -4,18 +4,6 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-
-  :first-child {
-    * > {
-      flex-shrink: 0;
-      width: 546px;
-    }
-  }
-
-  :last-child {
-    width: unset;
-    flex-grow: 1;
-  }
 }
 
 .remove {
@@ -25,14 +13,5 @@
 @media (max-width: $mobileContainerThreshold) {
   .childrenContainer {
     flex-direction: column;
-
-    :first-child {
-      margin: 0;
-    }
-
-    :last-child {
-      width: 100%;
-      margin-bottom: $normalSpacing;
-    }
   }
 }

@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { ICapability, ICareer } from "$interfaces/Applicant";
-import { IApplicant } from "$interfaces/Applicant";
+import { IApplicant, ICapability, ICareer } from "$interfaces/Applicant";
 import { IApplicantDetailEditableProps } from "./interface";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { FieldArray, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
-import { FieldSet } from "$components/FieldSet";
 import { EditableCapabilities } from "../EditableCapabilities";
 import { EditableCareers } from "../EditableCareers";
 

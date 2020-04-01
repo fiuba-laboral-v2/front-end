@@ -11,7 +11,7 @@ const FieldSet: FunctionComponent<IFieldSetProps> = (
   <FormSection>
     <div className={styles.childrenContainer}>{children}</div>
     <RemoveButton
-      className={styles.removeLink}
+      className={styles.remove}
       onClick={onRemove}
     />
   </FormSection>

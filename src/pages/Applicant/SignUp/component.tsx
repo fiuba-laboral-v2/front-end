@@ -1,19 +1,18 @@
 import React, { FunctionComponent } from "react";
-import { FieldArray, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 
 import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
 import styles from "./styles.module.scss";
-import { AddButton } from "$components/AddButton";
 import { ICareer } from "$interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$src/FormikValidator";
-import { Subtitle } from "$components/Subtitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpValues } from "./interface";
+import { FormSet } from "$components/FormSet";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -36,7 +35,8 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     careers: [careerInitialValue],
     _form: ""
   };
-  if (loading) return <LoadingSpinner />;
+
+  if (loading) return <LoadingSpinner/>;
 
   return (
     <>
@@ -94,27 +94,17 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     }}
                   />
                 </div>
-                <FieldArray
-                  name="careers"
-                  render={arrayHelpers => (
-                    <div>
-                      <div className={styles.careersTitleContainer}>
-                        <Subtitle>
-                          {translations.careersTitle}
-                        </Subtitle>
-                        <AddButton onClick={() =>
-                          arrayHelpers.insert(values.careers.length + 1, careerInitialValue)
-                        }/>
-                      </div>
-                      {values.careers.map((career, index) => (
-                        <CareerSelector
-                          key={index}
-                          index={index}
-                          careers={careers}
-                          arrayHelpers={arrayHelpers}
-                        />
-                      ))}
-                    </div>
+                <FormSet
+                  title={translations.careersTitle}
+                  name={"careers"}
+                  values={values.careers}
+                  defaultValue={careerInitialValue}
+                  form={(value, index) => (
+                    <CareerSelector
+                      key={index}
+                      index={index}
+                      options={careers}
+                    />
                   )}
                 />
               </Form>
