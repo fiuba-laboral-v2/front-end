@@ -15,5 +15,16 @@ query GetApplicant($uuid: ID!) {
             credits
             creditsCount
         }
+        sections {
+            uuid
+            title
+            text
+            displayOrder
+        }
+        links {
+            uuid
+            name
+            url
+        }
     }
 }
