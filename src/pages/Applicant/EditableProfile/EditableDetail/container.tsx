@@ -114,16 +114,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => history.push(RoutesBuilder.applicant.detail(applicant.uuid))}
       applicant={applicant}
-      translations={
-        {
-          padron: padronTranslation,
-          name: nameTranslation,
-          lastName: lastNameTranslation,
-          description: descriptionTranslation
-        }
-      }
     />
   );
 };

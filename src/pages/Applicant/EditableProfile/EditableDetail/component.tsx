@@ -15,21 +15,20 @@ import { EditableCareers } from "../EditableCareers";
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     applicant,
-    translations,
     onSubmit,
-    onCancel,
     setApplicant,
     deleteCapability,
     deleteCareer,
     loading
   }) => {
-  if (loading) return <LoadingSpinner />;
+  if (loading) return <LoadingSpinner/>;
 
   const formName = "editApplicantDetailForm";
   const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
     if (
-      applicant.capabilities
+      applicant
+        .capabilities
         .map(({ description }: ICapability) => description)
         .includes(newCapability)
     ) return;
@@ -63,32 +62,28 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
-                <FieldArray
-                  name="links"
-                  render={arrayHelpers => (
-                    <div>
-                      <FormSet title="Links" onClick=
-                        {() => arrayHelpers.insert(values.links.length + 1, "")}
+                <FormSet
+                  title={"Links"}
+                  name={"links"}
+                  values={values.links}
+                  defaultValue={{ link: "", title: "" }}
+                  form={(value, index) => (
+                    <>
+                      <TextInput
+                        name={`links[${index}].link`}
+                        label={"link"}
+                        type="url"
+                        inputProps={{ defaultValue: value.url }}
+                        className={styles.link}
                       />
-                      {values.links.map((link, index) => (
-                        <FieldSet key={index} onClick={() => arrayHelpers.remove(index)}>
-                          <TextInput
-                            name={`links[${index}].link`}
-                            label={"link"}
-                            type="url"
-                            inputProps={{ defaultValue: link.url }}
-                            className={styles.link}
-                          />
-                          <TextInput
-                            name={`links[${index}].title`}
-                            label={"Titulo"}
-                            type="text"
-                            inputProps={{ defaultValue: link.name }}
-                            className={styles.linkTitle}
-                          />
-                        </FieldSet>
-                      ))}
-                    </div>
+                      <TextInput
+                        name={`links[${index}].title`}
+                        label={"Titulo"}
+                        type="text"
+                        inputProps={{ defaultValue: value.name }}
+                        className={styles.linkTitle}
+                      />
+                    </>
                   )}
                 />
                 <div className={styles.capabilitiesAndCareersContainer}>
@@ -97,7 +92,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     addCapability={setCapabilities}
                     capabilities={applicant.capabilities}
                   />
-                  <div className={styles.separator} />
+                  <div className={styles.separator}/>
                   <EditableCareers
                     deleteCareer={deleteCareer}
                     careers={applicant.careers}
