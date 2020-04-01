@@ -46,11 +46,9 @@ export const Selector: FunctionComponent<ISelectorProps> = (
           className={classNames(className, styles.selector)}
           options={options}
           getOptionLabel={option => option.label}
+          onBlur={() => setValue(meta.value) }
           onChange={(event: ChangeEvent<{}>, option: ISelectorOption | null) => {
             setValue(option?.value);
-          }}
-          onBlur={() => {
-            setValue(meta.value);
           }}
           renderInput={props =>
             <TextField
