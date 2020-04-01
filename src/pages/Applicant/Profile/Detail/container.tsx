@@ -28,7 +28,6 @@ const DetailContainer: FunctionComponent = () => {
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
-  applicant.sections = applicant.sections || [];
   applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
   const [ padronTranslation, capabilitiesTranslation ] = getTranslations;
 
