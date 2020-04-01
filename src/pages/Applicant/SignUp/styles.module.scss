@@ -45,7 +45,7 @@ div.textInput {
 .formError {
   align-self: flex-end;
   color: $red;
-  margin-right: $normalSpacing;
+  margin-right: auto $normalSpacing auto auto;
 }
 
 @media (max-width: $mobileContainerThreshold) {
