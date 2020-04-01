@@ -81,10 +81,10 @@ const EditableDetailContainer: FunctionComponent = () => {
     };
     try {
       await deleteCapabilities({
-        variables: { padron: padron, capabilities: deletedCapabilities }
+        variables: { uuid: id, capabilities: deletedCapabilities }
       });
       await deleteCareers({
-        variables: { padron: padron, careersCodes: deletedCareers }
+        variables: { uuid: id, careersCodes: deletedCareers }
       });
       await updateApplicant({ variables: dataToUpdate });
     } catch (e) {
