@@ -59,6 +59,12 @@ const SignUpContainer: FunctionComponent = () => {
   return (
     <SignUp
       translations={translations}
+      validate={values => {
+        const selectedCodes = values.careers.map(career => career.code);
+
+        if (new Set(selectedCodes).size !== selectedCodes.length) return "No se pueden repetir carreras";
+        if (selectedCodes.length === 0) return "Debes elegir como mínimo una carrera";
+      }}
       careers={data.getCareers}
       onSubmit={async (values, { setSubmitting }) => {
         await signUp({

@@ -23,39 +23,44 @@ export const Selector: FunctionComponent<ISelectorProps> = (
     options,
     className,
     validate
-  }) => {
-  return (
-    <Field name={name} validate={validate}>
-      {(
-        {
-          meta,
-          form
-        }: {
-          meta: FieldMetaProps<string>,
-          form: FormikBag<ISelectorProps, string>
-        }
-      ) => (
+  }) => (
+  <Field name={name} validate={validate}>
+    {(
+      {
+        meta,
+        form
+      }: {
+        meta: FieldMetaProps<string>,
+        form: FormikBag<ISelectorProps, string>
+      }
+    ) => {
+      const setValue = (value?: string) => {
+        form.setFieldValue(name, value);
+        form.setFieldTouched(name, true);
+      };
+
+      return (
         <Autocomplete<ISelectorOption>
           className={className}
           options={options}
           getOptionLabel={option => option.label}
           onChange={(event: ChangeEvent<{}>, option: ISelectorOption | null) => {
-            form.setFieldValue(name, option?.value);
+            setValue(option?.value);
           }}
           onBlur={() => {
-            form.setFieldValue(name, meta.value);
+            setValue(meta.value);
           }}
           renderInput={props =>
             <TextField
               {...props}
               name={name}
               label={label}
-              error={!!meta.error}
-              helperText={meta.error}
+              error={!!meta.error && meta.touched}
+              helperText={meta.touched && meta.error}
             />
           }
         />
-      )}
-    </Field>
-  );
-};
+      );
+    }}
+  </Field>
+);

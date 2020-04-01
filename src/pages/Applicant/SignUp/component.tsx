@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { FieldArray, Form, Formik } from "formik";
 
-import { validations } from "./utils";
-
 import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
@@ -18,10 +16,17 @@ import { validateEmail, validateName, validatePassword } from "validations-fiuba
 import { FormikValidator } from "../../../FormikValidator";
 
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubmit }) => {
+const SignUp: FunctionComponent<ISignUpProps> = (
+  {
+    translations,
+    careers,
+    onSubmit,
+    validate
+  }
+) => {
   const formName = "signUpForm";
   const careerInitialValue = { code: "", creditsCount: 0 };
-  const initialValues: IInitialValues = {
+  const initialValues: ISignUpValues = {
     email: "",
     password: "",
     name: "",
@@ -37,7 +42,10 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
         <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={initialValues}
-          validate={validations}
+          validate={values => {
+            const errorMessage = validate(values);
+            if (errorMessage) return { _form: errorMessage };
+          }}
           isInitialValid={false}
           onSubmit={onSubmit}
         >
@@ -127,7 +135,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ translations, careers, onSubm
   );
 };
 
-interface IInitialValues {
+interface ISignUpValues {
   email: string;
   password: string;
   name: string;
@@ -149,7 +157,8 @@ interface ISignUpProps {
     submit: string;
   };
   careers: ICareer[];
-  onSubmit: (values: IInitialValues, formikHelpers: FormikHelpers<IInitialValues>) =>
+  validate: (values: ISignUpValues) => string | undefined;
+  onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
     void | Promise<any>;
 }
 
