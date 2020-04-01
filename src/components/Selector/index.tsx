@@ -50,6 +50,7 @@ interface ISelectorOption {
 }
 
 interface ISelectorProps {
+  defaultValue?: ISelectorOption;
   name: string;
   label?: string;
   options: ISelectorOption[];

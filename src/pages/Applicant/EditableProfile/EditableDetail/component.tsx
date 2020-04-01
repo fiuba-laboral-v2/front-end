@@ -1,13 +1,16 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
-import { IApplicantDetailEditableProps } from "./interface";
-import { EditableField } from "$components/EditableField";
-import { FormFooter } from "$components/FormFooter";
-import { EditableCapabilities } from "$pages/Applicant/EditableProfile/EditableCapabilities";
-import { EditableCareers } from "$pages/Applicant/EditableProfile/EditableCareers";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ICapability, ICareer } from "$interfaces/Applicant";
+import { IApplicant } from "$interfaces/Applicant";
+import { IApplicantDetailEditableProps } from "./interface";
+import { LoadingSpinner } from "$components/LoadingSpinner";
+import { FieldArray, Form, Formik } from "formik";
+import TextInput from "$components/TextInput";
+import Button from "$components/Button";
+import { FormSet } from "$components/FormSet";
+import { FieldSet } from "$components/FieldSet";
+import { EditableCapabilities } from "../EditableCapabilities";
+import { EditableCareers } from "../EditableCareers";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -22,6 +25,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   }) => {
   if (loading) return <LoadingSpinner />;
 
+  const formName = "editApplicantDetailForm";
   const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
     if (
@@ -47,39 +51,75 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   };
 
   return (
-    <DetailMainContainer>
-      <div className={styles.columnContainer}>
-        <EditableField
-          defaultValue={applicant.name}
-          setField={newName => setApplicant({ ...applicant, name: newName })}
-          fieldName={translations.name}
-        />
-        <EditableField
-          defaultValue={applicant.surname}
-          setField={newSurname => setApplicant({ ...applicant, surname: newSurname })}
-          fieldName={translations.lastName}
-        />
-        <EditableField
-          defaultValue={applicant.description}
-          setField={newDescription => setApplicant({ ...applicant, description: newDescription })}
-          fieldName={translations.description}
-        />
+    <>
+      <div className={styles.mainContainer}>
+        <h1 className={styles.title}>Editar tu perfil</h1>
+        <Formik
+          initialValues={applicant}
+          isInitialValid={false}
+          onSubmit={onSubmit}
+          validate={(values: IApplicant) => values}
+        >
+          {({ values, isValid, isSubmitting }) => (
+            <div className={styles.body}>
+              <Form translate="yes" className={styles.formContainer} id={formName}>
+                <FieldArray
+                  name="links"
+                  render={arrayHelpers => (
+                    <div>
+                      <FormSet title="Links" onClick=
+                        {() => arrayHelpers.insert(values.links.length + 1, "")}
+                      />
+                      {values.links.map((link, index) => (
+                        <FieldSet key={index} onClick={() => arrayHelpers.remove(index)}>
+                          <TextInput
+                            name={`links[${index}].link`}
+                            label={"link"}
+                            type="url"
+                            inputProps={{ defaultValue: link.url }}
+                            className={styles.link}
+                          />
+                          <TextInput
+                            name={`links[${index}].title`}
+                            label={"Titulo"}
+                            type="text"
+                            inputProps={{ defaultValue: link.name }}
+                            className={styles.linkTitle}
+                          />
+                        </FieldSet>
+                      ))}
+                    </div>
+                  )}
+                />
+                <div className={styles.capabilitiesAndCareersContainer}>
+                  <EditableCapabilities
+                    deleteCapability={deleteCapability}
+                    addCapability={setCapabilities}
+                    capabilities={applicant.capabilities}
+                  />
+                  <div className={styles.separator} />
+                  <EditableCareers
+                    deleteCareer={deleteCareer}
+                    careers={applicant.careers}
+                    setCareer={setCareer}
+                  />
+                </div>
+              </Form>
+              <div className={styles.footer}>
+                <Button
+                  form={formName}
+                  className="primary"
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                >
+                  Guardar
+                </Button>
+              </div>
+            </div>
+          )}
+        </Formik>
       </div>
-      <div className={styles.rowContainer}>
-        <EditableCapabilities
-          deleteCapability={deleteCapability}
-          addCapability={setCapabilities}
-          capabilities={applicant.capabilities || []}
-        />
-        <div className={styles.separator} />
-        <EditableCareers
-          deleteCareer={deleteCareer}
-          careers={applicant.careers || []}
-          setCareer={setCareer}
-        />
-      </div>
-      <FormFooter onSubmit={() => onSubmit(applicant)} onCancel={onCancel} />
-    </DetailMainContainer>
+    </>
   );
 };
 
