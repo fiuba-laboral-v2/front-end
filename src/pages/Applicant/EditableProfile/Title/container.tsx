@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Title } from "$components/Title";
-import { getTranslations } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 
 const TitleContainer: FunctionComponent = () => {
-  const { data: translationsData } = useQuery(getTranslations, {
+  const { data: translationsData } = useQuery(GET_TRANSLATIONS, {
       variables: {
         paths: [
           "applicant.edit.myDetail",

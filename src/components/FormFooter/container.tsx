@@ -2,14 +2,14 @@ import React, { FunctionComponent } from "react";
 import { FormFooter } from "./component";
 import { IFormFooterContainerProps } from "./interface";
 import { useQuery } from "@apollo/react-hooks";
-import { getTranslations } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 
 const FormFooterContainer: FunctionComponent<IFormFooterContainerProps> = (
   {
     onSubmit,
     onCancel
   }) => {
-  const { data } = useQuery(getTranslations, {
+  const { data } = useQuery(GET_TRANSLATIONS, {
       variables: { paths: ["save", "cancel"] }
     }
   );

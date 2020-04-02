@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { getTranslations as GET_TRANSLATIONS, GET_APPLICANT } from "$queries";
+import { GET_TRANSLATIONS, GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
 import { useParams, useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";

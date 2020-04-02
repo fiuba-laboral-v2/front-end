@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { IEditableCareersContainerProps } from "./interface";
 import { EditableCareers } from "./component";
 import { ICareer } from "$interfaces/Applicant";
-import { GET_CAREERS, getTranslations } from "$queries";
+import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
@@ -23,7 +23,7 @@ const EditableCareersContainer: FunctionComponent<IEditableCareersContainerProps
     }
   );
   const { data, error } = useQuery(GET_CAREERS);
-  const { data: translationsData } = useQuery(getTranslations, {
+  const { data: translationsData } = useQuery(GET_TRANSLATIONS, {
     variables: {
       paths: [
         "career.selectACareer",

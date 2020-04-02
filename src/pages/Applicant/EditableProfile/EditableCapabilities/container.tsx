@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { IEditableCapabilitiesContainerProps } from "./interface";
 import { EditableCapabilities } from "./component";
 import { useQuery } from "@apollo/react-hooks";
-import { getTranslations } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 
 const EditableCapabilitiesContainer: FunctionComponent<IEditableCapabilitiesContainerProps> = (
   {
@@ -11,7 +11,7 @@ const EditableCapabilitiesContainer: FunctionComponent<IEditableCapabilitiesCont
     capabilities
   }) => {
   const [state, setState] = useState<string>();
-  const { data: translationsData } = useQuery(getTranslations, {
+  const { data: translationsData } = useQuery(GET_TRANSLATIONS, {
       variables: { paths: ["applicant.capabilities"] }
     }
   );

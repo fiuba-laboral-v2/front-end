@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_CAREERS, getTranslations as GET_TRANSLATIONS } from "$queries";
+import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
 import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
