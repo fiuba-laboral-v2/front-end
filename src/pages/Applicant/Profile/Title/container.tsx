@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import { getTranslations as GET_TRANSLATIONS } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 import { Title } from "$components/Title";
 import { RoutesBuilder } from "$src/routesBuilder";
 

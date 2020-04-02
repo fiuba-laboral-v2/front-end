@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ICareersContainerProps } from "./interface";
 import { CareersDetail } from "./component";
-import { getTranslations } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 
 const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
@@ -9,7 +9,7 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
     careers,
     className
   }) => {
-  const { data, loading } = useQuery(getTranslations, {
+  const { data, loading } = useQuery(GET_TRANSLATIONS, {
       variables: {
         paths: [
           "applicant.creditsProgress",
