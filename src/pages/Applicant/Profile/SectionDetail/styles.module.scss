@@ -1,7 +1,9 @@
+@import "$styles/_variables.scss";
 @import "$styles/mixins/_text.scss";
 
 .text {
   @include text;
 
   word-break: break-word;
+  margin-top: $smallSpacing;
 }

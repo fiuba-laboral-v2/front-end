@@ -5,9 +5,9 @@
   cursor: pointer;
   color: $mainBlue;
   padding: 0 $smallSpacing;
-  margin-bottom: $smallSpacing;
-  line-height: 35px;
   user-select: none;
+  margin-bottom: 0;
+  line-height: 20px;
 
   &:hover {
     color: $mainBlueLight;

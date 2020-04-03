@@ -99,7 +99,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   render={arrayHelpers => (
                     <div>
                       <div className={styles.careersTitleContainer}>
-                        <Subtitle>
+                        <Subtitle className={styles.careersTitle}>
                           {translations.careersTitle}
                         </Subtitle>
                         <AddButton onClick={() =>

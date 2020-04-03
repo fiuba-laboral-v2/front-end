@@ -4,7 +4,7 @@
 .container {
   @include card;
 
-  .headline, .firstContainerInfo, .sections {
+  .headline, .firstContainerInfo {
     margin-bottom: 25px;
   }
 
@@ -26,9 +26,10 @@
     }
   }
 
-  .sections {
+  .section {
     display: flex;
     flex-direction: column;
+    margin-top: $bigSpacing;
   }
 }
 
@@ -36,6 +37,14 @@
   .container {
     .capabilitiesAndCareersContainer {
       flex-direction: column;
+
+      .capabilities, .careers {
+        width: 100%
+      }
+
+      .capabilities {
+        margin-right: 0;
+      }
     }
   }
 }

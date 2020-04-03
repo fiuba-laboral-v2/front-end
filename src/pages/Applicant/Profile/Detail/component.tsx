@@ -18,7 +18,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   if (loading) {
     return (
       <div className={styles.container}>
-        <LoadingSpinner />
+        <LoadingSpinner/>
       </div>
     );
   }
@@ -27,7 +27,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
     <div className={styles.container}>
       <div className={styles.headline}>
         <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
-        <Links links={applicant.links} />
+        <Links links={applicant.links}/>
       </div>
       <div className={styles.capabilitiesAndCareersContainer}>
         <CapabilitiesDetail
@@ -35,15 +35,15 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
           title={translations.capabilities}
           capabilities={applicant.capabilities || []}
         />
-        <CareersDetail className={styles.careers} careers={applicant.careers || []} />
+        <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
       </div>
-      <div className={styles.sections}>
-        {
-          applicant.sections?.map(section =>
+      {
+        applicant.sections?.map(section =>
+          <div className={styles.section}>
             <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   );
 };
