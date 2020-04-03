@@ -20,7 +20,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   }) => {
   const formName = "editApplicantDetailForm";
   const setCapabilities = (newCapability: string) => {
-    applicant.capabilities = applicant.capabilities || [];
     if (
       applicant
         .capabilities
