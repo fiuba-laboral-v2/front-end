@@ -4,6 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { RoutesBuilder } from "$src/routesBuilder";
 
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
@@ -29,7 +30,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
           </div>
         </div>
       </div>
-      <div className={`${styles.menu} ${showMenu && styles.showOnMobile}`}>
+      <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link to={RoutesBuilder.company.list()}>{companies}</Link>
         <Link to={RoutesBuilder.applicant.list()}>{applicants}</Link>
         <div className={styles.separator}/>

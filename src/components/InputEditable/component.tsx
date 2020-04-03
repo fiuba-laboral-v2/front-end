@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IInputEditableProps } from "./interface";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 const InputEditable: FunctionComponent<IInputEditableProps> = (
   {
@@ -11,7 +12,7 @@ const InputEditable: FunctionComponent<IInputEditableProps> = (
     min
   }) => (
   <input
-    className={`${styles.fieldEditable} ${className}`}
+    className={classNames(styles.fieldEditable, className)}
     min={min}
     type={type}
     autoFocus

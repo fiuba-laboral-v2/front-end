@@ -39,7 +39,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
                   />
                 </div>
                 <div className={styles.rightContainer}>
-                  <div className={`${styles.header}`}>
+                  <div className={styles.header}>
                     <CompanyLogo
                       className={styles.companyLogo}
                       size={"small"}

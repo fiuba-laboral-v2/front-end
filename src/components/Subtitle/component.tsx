@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ISubtitleProps } from "./interface";
+import classNames from "classnames";
 
 const Subtitle: FunctionComponent<ISubtitleProps> = (
   {
     className,
     children
   }) => (
-  <h3 className={`${styles.subtitleContainer} ${className}`}>
+  <h3 className={classNames(styles.subtitleContainer, className)}>
     {children}
   </h3>
 );
