@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import { pick } from "lodash";
 import { ISignUpValues } from "./interface";
 import { FormikHelpers } from "formik";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,7 +19,7 @@ const SignUpContainer: FunctionComponent = () => {
 
   const {
     data: { getTranslations } = { getTranslations: [] },
-    loading
+    loading: loadingTranslations
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: SignUpTranslations } });
 
   const {
@@ -50,9 +51,10 @@ const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
   };
 
+  if (loadingTranslations || loadingCareers) return <LoadingSpinner/>;
+
   return (
     <SignUp
-      loading={loading || loadingCareers}
       translations={translations}
       validate={validate}
       careers={getCareers}

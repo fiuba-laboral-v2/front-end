@@ -10,7 +10,6 @@ import { ICareer } from "$interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$src/FormikValidator";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
 
@@ -20,8 +19,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     translations,
     careers,
     onSubmit,
-    validate,
-    loading
+    validate
   }
 ) => {
   const formName = "signUpForm";
@@ -35,8 +33,6 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     careers: [careerInitialValue],
     _form: ""
   };
-
-  if (loading) return <LoadingSpinner/>;
 
   return (
     <>
@@ -138,7 +134,6 @@ interface ISignUpProps {
     careersTitle: string;
     submit: string;
   };
-  loading: boolean;
   careers: ICareer[];
   validate: (values: ISignUpValues) => string | undefined;
   onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
