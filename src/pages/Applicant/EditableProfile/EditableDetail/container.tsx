@@ -4,12 +4,12 @@ import { RoutesBuilder } from "$src/routesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
-  deleteApplicantCapabilities,
-  deleteApplicantCareers,
-  updateApplicant as updateApplicantMutation
+  UPDATE_APPLICANT,
+  DELETE_APPLICANT_CAPABILITIES,
+  DELETE_APPLICANT_CAREERS
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_APPLICANT, getTranslations as GET_TRANSLATIONS } from "$queries";
+import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailEditableTranslations } from "./interface";
 
@@ -20,11 +20,11 @@ const EditableDetailContainer: FunctionComponent = () => {
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
   const history = useHistory();
 
-  const [updateApplicant] = useMutation(updateApplicantMutation);
+  const [updateApplicant] = useMutation(UPDATE_APPLICANT);
 
-  const [deleteCapabilities] = useMutation(deleteApplicantCapabilities);
+  const [deleteCapabilities] = useMutation(DELETE_APPLICANT_CAPABILITIES);
 
-  const [deleteCareers] = useMutation(deleteApplicantCareers);
+  const [deleteCareers] = useMutation(DELETE_APPLICANT_CAREERS);
 
   const {
     data: { getApplicant } = { getApplicant: {} as IApplicant },

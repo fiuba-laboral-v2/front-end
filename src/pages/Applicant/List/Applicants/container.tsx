@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import { GET_APPLICANTS, getTranslations as GET_TRANSLATION } from "$queries";
+import { GET_APPLICANTS, GET_TRANSLATIONS } from "$queries";
 import { Applicants } from "./component";
 import { RoutesBuilder } from "$src/routesBuilder";
 
@@ -11,7 +11,7 @@ const ApplicantsContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: translationLoading
-  } = useQuery(GET_TRANSLATION, { variables: { paths: ["edit", "view"] } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["edit", "view"] } });
   const {
     data: { getApplicants } = { getApplicants: [] },
     error,

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { getCompanyById as GET_COMPANY_BY_ID } from "$queries";
+import { GET_COMPANY_BY_ID } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams, useHistory } from "react-router-dom";
 import { ICompany } from "$interfaces/Company";

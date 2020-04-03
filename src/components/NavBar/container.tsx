@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { NavBar } from "./component";
-import { getTranslations } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 
 export const NavBarContainer: FunctionComponent = () => {
-  const { data } = useQuery(getTranslations, {
+  const { data } = useQuery(GET_TRANSLATIONS, {
     variables: {
       paths: ["companies", "applicants", "applicant.signUp.title"]
     }
