@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicant, ICapability, ICareer } from "$interfaces/Applicant";
-import { IApplicantDetailEditableProps } from "./interface";
 import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
@@ -111,5 +110,18 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
     </>
   );
 };
+
+interface IApplicantDetailEditableProps {
+  applicant: IApplicant;
+  onSubmit: (applicant: IApplicant) => void;
+  setApplicant: (applicant: IApplicant) => void;
+  deleteCapability: (description: string) => void;
+  deleteCareer: (code: string) => void;
+  translations: IApplicantDetailEditableTranslations;
+}
+
+interface IApplicantDetailEditableTranslations {
+  title: string;
+}
 
 export { EditableDetail };

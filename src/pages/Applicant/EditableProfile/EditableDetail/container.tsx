@@ -4,14 +4,13 @@ import { RoutesBuilder } from "$src/routesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
-  UPDATE_APPLICANT,
   DELETE_APPLICANT_CAPABILITIES,
-  DELETE_APPLICANT_CAREERS
+  DELETE_APPLICANT_CAREERS,
+  UPDATE_APPLICANT
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { IApplicantDetailEditableTranslations } from "./interface";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -97,8 +96,8 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
 
-  const [ titleTranslation ] = getTranslations;
-  const translations: IApplicantDetailEditableTranslations = {
+  const [titleTranslation] = getTranslations;
+  const translations = {
     title: titleTranslation
   };
 
