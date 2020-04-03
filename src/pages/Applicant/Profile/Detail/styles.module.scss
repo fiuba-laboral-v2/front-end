@@ -17,12 +17,12 @@
     display: flex;
     flex-direction: row;
 
-    .capabilities {
-      flex-grow: 1;
+    .capabilities, .careers {
+      width: 50%
     }
 
-    .careers {
-      flex-shrink: 0;
+    .capabilities {
+      margin-right: $bigSpacing;
     }
   }
 
