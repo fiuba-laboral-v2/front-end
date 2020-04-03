@@ -17,15 +17,7 @@ div.credits {
   flex-grow: 1;
 }
 
-.remove {
-  margin-left: $bigSpacing;
-}
-
 @media (max-width: $mobileContainerThreshold) {
-  .fieldsContainer {
-    flex-direction: column;
-  }
-
   div.credits {
     margin: 0;
   }
@@ -33,5 +25,9 @@ div.credits {
   div.career {
     width: 100%;
     margin-bottom: $normalSpacing;
+  }
+
+  .fieldsContainer {
+    flex-direction: column;
   }
 }

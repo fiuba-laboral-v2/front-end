@@ -1,0 +1,17 @@
+@import "$styles/_variables.scss";
+
+.childrenContainer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.remove {
+  margin-left: $bigSpacing;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .childrenContainer {
+    flex-direction: column;
+  }
+}
