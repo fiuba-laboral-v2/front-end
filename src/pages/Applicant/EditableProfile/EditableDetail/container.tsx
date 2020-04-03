@@ -9,7 +9,9 @@ import {
   updateApplicant as updateApplicantMutation
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_APPLICANT } from "$queries";
+import { GET_APPLICANT, getTranslations as GET_TRANSLATIONS } from "$queries";
+import { LoadingSpinner } from "$components/LoadingSpinner";
+import { IApplicantDetailEditableTranslations } from "./interface";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -29,6 +31,12 @@ const EditableDetailContainer: FunctionComponent = () => {
     error: applicantError,
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
+
+  const {
+    data: { getTranslations } = { getTranslations: [] },
+    error: translationsError,
+    loading: loadingTranslations
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["applicant.edit.title"] } });
 
   useMemo(
     () => loadingApplicant ? null : setApplicant(getApplicant),
@@ -85,16 +93,23 @@ const EditableDetailContainer: FunctionComponent = () => {
     setApplicant({ ...applicant, careers: applicant.careers });
   };
 
-  if (applicantError) history.push(RoutesBuilder.notFound);
+  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
+
+  if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
+
+  const [ titleTranslation ] = getTranslations;
+  const translations: IApplicantDetailEditableTranslations = {
+    title: titleTranslation
+  };
 
   return (
     <EditableDetail
-      loading={loadingApplicant}
       deleteCapability={deleteCapability}
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
       applicant={applicant}
+      translations={translations}
     />
   );
 };

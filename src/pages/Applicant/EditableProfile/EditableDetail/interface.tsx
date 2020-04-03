@@ -6,5 +6,9 @@ export interface IApplicantDetailEditableProps {
   setApplicant: (applicant: IApplicant) => void;
   deleteCapability: (description: string) => void;
   deleteCareer: (code: string) => void;
-  loading: boolean;
+  translations: IApplicantDetailEditableTranslations;
+}
+
+export interface IApplicantDetailEditableTranslations {
+  title: string;
 }

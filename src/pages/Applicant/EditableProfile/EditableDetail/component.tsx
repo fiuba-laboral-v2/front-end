@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { IApplicant, ICapability, ICareer } from "$interfaces/Applicant";
 import { IApplicantDetailEditableProps } from "./interface";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
@@ -17,10 +16,8 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
     setApplicant,
     deleteCapability,
     deleteCareer,
-    loading
+    translations
   }) => {
-  if (loading) return <LoadingSpinner/>;
-
   const formName = "editApplicantDetailForm";
   const setCapabilities = (newCapability: string) => {
     applicant.capabilities = applicant.capabilities || [];
@@ -50,7 +47,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   return (
     <>
       <div className={styles.mainContainer}>
-        <h1 className={styles.title}>Editar tu perfil</h1>
+        <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={applicant}
           isInitialValid={false}
