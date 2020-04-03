@@ -95,7 +95,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   name={"careers"}
                   values={values.careers}
                   defaultValue={careerInitialValue}
-                  form={(value, index) => (
+                  fields={(value, index) => (
                     <CareerSelector
                       key={index}
                       index={index}

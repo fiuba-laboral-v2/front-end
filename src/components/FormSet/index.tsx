@@ -11,7 +11,7 @@ const FormSet: FunctionComponent<IFormSetProps<any>> = (
     name,
     values,
     defaultValue,
-    form
+    fields
   }) => (
   <FieldArray
     name={name}
@@ -23,7 +23,7 @@ const FormSet: FunctionComponent<IFormSetProps<any>> = (
         </div>
         {values.map((value, index) => (
           <FieldSet key={index} onRemove={() => arrayHelpers.remove(index)}>
-            {form(value, index)}
+            {fields(value, index)}
           </FieldSet>
         ))}
       </>
@@ -36,7 +36,7 @@ export interface IFormSetProps<Value> {
   name: string;
   values: Value[];
   defaultValue: Value;
-  form: (value: Value, index: number) => ReactNode;
+  fields: (value: Value, index: number) => ReactNode;
 }
 
 export { FormSet };

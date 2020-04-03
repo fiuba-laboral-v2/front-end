@@ -61,7 +61,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   name={"links"}
                   values={values.links}
                   defaultValue={{ link: "", title: "" }}
-                  form={(value, index) => (
+                  fields={(value, index) => (
                     <>
                       <TextInput
                         name={`links[${index}].link`}
