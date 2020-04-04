@@ -1,15 +1,16 @@
-import React, { FunctionComponent, useState, useMemo } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React, { FunctionComponent, useMemo, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
 import {
-  UPDATE_APPLICANT,
   DELETE_APPLICANT_CAPABILITIES,
-  DELETE_APPLICANT_CAREERS
+  DELETE_APPLICANT_CAREERS,
+  UPDATE_APPLICANT
 } from "$mutations";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -17,28 +18,6 @@ const EditableDetailContainer: FunctionComponent = () => {
   const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
   const [deletedCareers, setDeletedCareers] = useState(Array<string>());
   const history = useHistory();
-
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    loading: translationsLoading,
-    error: translationsError
-  } = useQuery(GET_TRANSLATIONS, {
-    variables: {
-      paths: [
-        "applicant.padron",
-        "applicant.name",
-        "applicant.lastName",
-        "applicant.description"
-      ]
-    }
-  });
-
-  const [
-    padronTranslation,
-    nameTranslation,
-    lastNameTranslation,
-    descriptionTranslation
-  ] = getTranslations;
 
   const [updateApplicant] = useMutation(UPDATE_APPLICANT);
 
@@ -52,21 +31,29 @@ const EditableDetailContainer: FunctionComponent = () => {
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
+  const {
+    data: { getTranslations } = { getTranslations: [] },
+    error: translationsError,
+    loading: loadingTranslations
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["applicant.edit.title"] } });
+
   useMemo(
-    () => loadingApplicant? null: setApplicant(getApplicant),
+    () => loadingApplicant ? null : setApplicant(getApplicant),
     [getApplicant, loadingApplicant]
   );
 
-  const submit = async ({
-    uuid: id,
-    padron,
-    name,
-    surname,
-    description,
-    capabilities,
-    careers,
-    sections
-  }: IApplicant) => {
+  const submit = async (
+    {
+      uuid: id,
+      padron,
+      name,
+      surname,
+      description,
+      capabilities,
+      careers,
+      sections
+    }: IApplicant
+  ) => {
     const dataToUpdate: IApplicantEditable = {
       uuid: id,
       padron,
@@ -107,23 +94,21 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
+  if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
+
+  const [titleTranslation] = getTranslations;
+  const translations = {
+    title: titleTranslation
+  };
+
   return (
     <EditableDetail
-      loading={loadingApplicant || translationsLoading}
       deleteCapability={deleteCapability}
       deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
-      onCancel={() => history.push(RoutesBuilder.applicant.detail(applicant.uuid))}
       applicant={applicant}
-      translations={
-        {
-          padron: padronTranslation,
-          name: nameTranslation,
-          lastName: lastNameTranslation,
-          description: descriptionTranslation
-        }
-      }
+      translations={translations}
     />
   );
 };
