@@ -6,11 +6,11 @@
 }
 
 .small {
-  @include size(40px, 40px)
+  @include size(38px, 38px)
 }
 
 .medium {
-  @include size(50px, 50px)
+  @include size(48px, 48px)
 }
 
 .large {
@@ -35,5 +35,9 @@
 @media (max-width: $mobileContainerThreshold) {
   .logoContainer {
     align-self: center;
+
+    .large {
+      margin-bottom: $bigSpacing;
+    }
   }
 }
