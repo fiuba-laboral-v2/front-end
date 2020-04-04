@@ -4,7 +4,7 @@
 .container {
   @include card;
 
-  .headline, .firstContainerInfo, .sections {
+  .headline, .firstContainerInfo {
     margin-bottom: 25px;
   }
 
@@ -17,18 +17,13 @@
     display: flex;
     flex-direction: row;
 
+    .capabilities, .careers {
+      width: 50%
+    }
+
     .capabilities {
-      flex-grow: 1;
+      margin-right: $bigSpacing;
     }
-
-    .careers {
-      flex-shrink: 0;
-    }
-  }
-
-  .sections {
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -36,6 +31,14 @@
   .container {
     .capabilitiesAndCareersContainer {
       flex-direction: column;
+
+      .capabilities, .careers {
+        width: 100%
+      }
+
+      .capabilities {
+        margin-right: 0;
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ $separator: 7px;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: $separator;
+  margin-bottom: -$separator;
 
   .item {
     margin-right: $separator;

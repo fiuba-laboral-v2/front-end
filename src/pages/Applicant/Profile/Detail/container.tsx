@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from "react";
-import { GET_TRANSLATIONS, GET_APPLICANT } from "$queries";
+import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { Detail } from "./component";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$src/routesBuilder";
 import { IApplicant } from "$interfaces/Applicant";
 import { sortBy } from "lodash";
+import styles from "./styles.module.scss";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
@@ -16,7 +18,7 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingTranslations
   } = useQuery(
     GET_TRANSLATIONS,
-    { variables: { paths: [ "applicant.padron", "applicant.capabilities" ] } }
+    { variables: { paths: ["applicant.padron", "applicant.capabilities"] } }
   );
   const {
     data: { getApplicant } = { getApplicant: {} as IApplicant },
@@ -29,11 +31,18 @@ const DetailContainer: FunctionComponent = () => {
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
   applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
-  const [ padronTranslation, capabilitiesTranslation ] = getTranslations;
+  const [padronTranslation, capabilitiesTranslation] = getTranslations;
+
+  if (loadingApplicantData || loadingTranslations) {
+    return (
+      <div className={styles.container}>
+        <LoadingSpinner/>
+      </div>
+    );
+  }
 
   return (
     <Detail
-      loading={loadingApplicantData || loadingTranslations}
       applicant={applicant}
       translations={
         {

@@ -4,15 +4,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: $smallSpacing;
 
   .link {
     display: flex;
     flex-direction: row;
 
     .divider {
-      margin: auto;
-      margin-right: $smallSpacing;
-      margin-left: $smallSpacing;
+      margin: auto $smallSpacing;
     }
 
     &:last-child {
@@ -25,13 +24,10 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .links {
-    .link {
-      margin-right: $smallSpacing;
-      margin-left: $smallSpacing;
+    flex-direction: column;
 
-      .divider {
-        display: none;
-      }
+    .link .divider {
+      display: none;
     }
   }
 }
