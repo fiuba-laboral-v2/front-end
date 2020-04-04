@@ -25,12 +25,6 @@
       margin-right: $bigSpacing;
     }
   }
-
-  .section {
-    display: flex;
-    flex-direction: column;
-    margin-top: $bigSpacing;
-  }
 }
 
 @media (max-width: $mobileContainerThreshold) {

@@ -39,9 +39,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       </div>
       {
         applicant.sections?.map(section =>
-          <div className={styles.section}>
-            <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
-          </div>
+          <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
         )
       }
     </div>

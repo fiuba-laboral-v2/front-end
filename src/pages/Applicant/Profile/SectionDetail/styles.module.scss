@@ -7,3 +7,9 @@
   word-break: break-word;
   margin-top: $smallSpacing;
 }
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-top: $bigSpacing;
+}
