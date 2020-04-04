@@ -23,7 +23,11 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .links .link .divider {
-    display: none;
+  .links {
+    flex-direction: column;
+
+    .link .divider {
+      display: none;
+    }
   }
 }
