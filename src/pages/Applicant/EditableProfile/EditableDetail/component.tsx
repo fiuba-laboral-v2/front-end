@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { IApplicant, ICapability, ICareer } from "$interfaces/Applicant";
+import { IApplicant, ICapability } from "$interfaces/Applicant";
 import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { EditableCapabilities } from "../EditableCapabilities";
-import { EditableCareers } from "../EditableCareers";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -14,7 +13,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
     onSubmit,
     setApplicant,
     deleteCapability,
-    deleteCareer,
     translations
   }) => {
   const formName = "editApplicantDetailForm";
@@ -24,22 +22,12 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
         .capabilities
         .map(({ description }: ICapability) => description)
         .includes(newCapability)
-    ) return;
+    ) {
+      return;
+    }
 
     applicant.capabilities.push({ uuid: "", description: String(newCapability) });
     return setApplicant({ ...applicant, capabilities: applicant.capabilities });
-  };
-
-  const setCareer = (career: ICareer) => {
-    applicant.careers = applicant.careers || [];
-    if (
-      applicant.careers
-        .map(({ code }: ICareer) => code)
-        .includes(career.code)
-    ) return;
-
-    applicant.careers.push(career);
-    return setApplicant({ ...applicant, careers: applicant.careers });
   };
 
   return (
@@ -85,12 +73,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     addCapability={setCapabilities}
                     capabilities={applicant.capabilities}
                   />
-                  <div className={styles.separator}/>
-                  <EditableCareers
-                    deleteCareer={deleteCareer}
-                    careers={applicant.careers}
-                    setCareer={setCareer}
-                  />
                 </div>
               </Form>
               <div className={styles.footer}>
@@ -116,7 +98,6 @@ interface IApplicantDetailEditableProps {
   onSubmit: (applicant: IApplicant) => void;
   setApplicant: (applicant: IApplicant) => void;
   deleteCapability: (description: string) => void;
-  deleteCareer: (code: string) => void;
   translations: IApplicantDetailEditableTranslations;
 }
 

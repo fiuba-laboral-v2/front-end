@@ -16,7 +16,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const [applicant, setApplicant] = useState<IApplicant>({} as any);
   const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
-  const [deletedCareers, setDeletedCareers] = useState(Array<string>());
+  const [deletedCareers] = useState(Array<string>());
   const history = useHistory();
 
   const [updateApplicant] = useMutation(UPDATE_APPLICANT);
@@ -86,12 +86,6 @@ const EditableDetailContainer: FunctionComponent = () => {
     setApplicant({ ...applicant, capabilities: capabilities });
   };
 
-  const deleteCareer = (code: string) => {
-    setDeletedCareers([...deletedCareers, code]);
-    applicant.careers = applicant.careers?.filter(c => c.code !== code);
-    setApplicant({ ...applicant, careers: applicant.careers });
-  };
-
   if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
   if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
@@ -104,7 +98,6 @@ const EditableDetailContainer: FunctionComponent = () => {
   return (
     <EditableDetail
       deleteCapability={deleteCapability}
-      deleteCareer={deleteCareer}
       setApplicant={setApplicant}
       onSubmit={submit}
       applicant={applicant}
