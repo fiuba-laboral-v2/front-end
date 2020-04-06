@@ -22,19 +22,42 @@ const EditableDetailContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["applicant.edit.title"] } });
+  } = useQuery(GET_TRANSLATIONS, {
+    variables: {
+      paths: [
+        "applicant.edit.title",
+        "applicant.edit.links",
+        "applicant.edit.link",
+        "applicant.edit.linkTitle",
+        "applicant.edit.careers",
+        "applicant.edit.submit"
+      ]
+    }
+  });
 
   if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
   if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
 
-  const [titleTranslation] = getTranslations;
+  const [
+    titleTranslation,
+    linksTranslation,
+    linkTranslation,
+    linkTitleTranslation,
+    careersTranslation,
+    submitTranslation
+  ] = getTranslations;
 
   return (
     <EditableDetail
       onSubmit={noop}
       translations={{
-        title: titleTranslation
+        title: titleTranslation,
+        links: linksTranslation,
+        link: linkTranslation,
+        linkTitle: linkTitleTranslation,
+        careers: careersTranslation,
+        submit: submitTranslation
       }}
       initialValues={{
         uuid: applicant.uuid,

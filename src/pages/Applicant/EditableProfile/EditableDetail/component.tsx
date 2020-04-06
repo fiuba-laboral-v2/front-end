@@ -31,7 +31,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
               </div>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <FormSet
-                  title={"fdsfdfsfdsf"}
+                  title={translations.links}
                   name={"links"}
                   values={values.links}
                   defaultValue={{ url: "", name: "", uuid: "" }}
@@ -39,13 +39,13 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     <>
                       <TextInput
                         name={`links[${index}].url`}
-                        label={"jgifjoigdd"}
+                        label={translations.link}
                         type="url"
                         className={styles.link}
                       />
                       <TextInput
                         name={`links[${index}].name`}
-                        label={"fengjioregjo"}
+                        label={translations.linkTitle}
                         type="text"
                         className={styles.linkTitle}
                       />
@@ -53,7 +53,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   )}
                 />
                 <FormSet
-                  title={"dsffdsf"}
+                  title={translations.careers}
                   name={"careers"}
                   values={values.careers}
                   defaultValue={{ code: "", creditsCount: 0 }}
@@ -69,7 +69,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   type="submit"
                   disabled={!isValid || isSubmitting}
                 >
-                  fmeigmirogjrti
+                  {translations.submit}
                 </Button>
               </div>
             </div>
@@ -88,6 +88,11 @@ interface IApplicantDetailEditableProps {
 
 interface IApplicantDetailEditableTranslations {
   title: string;
+  links: string;
+  link: string;
+  linkTitle: string;
+  careers: string;
+  submit: string;
 }
 
 export { EditableDetail };
