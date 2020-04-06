@@ -1,33 +1,36 @@
 import { Field, FieldProps } from "formik";
-import React, { ChangeEvent, FunctionComponent } from "react";
+import React, { ChangeEvent } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { identity } from "lodash";
 
-export const Selector: FunctionComponent<ISelectorProps> = (
+export const Selector = <Value extends object>(
   {
     name,
     label,
     options,
     className,
-    validate
-  }) => (
+    validate,
+    getOptionLabel,
+    getOptionValue = identity
+  }: ISelectorProps<Value>
+) => (
   <Field name={name} validate={validate}>
-    {({ meta, form }: FieldProps<string, ISelectorProps>) => {
-      const setValue = (value?: string) => {
-        form.setFieldValue(name, value);
+    {({ meta, form }: FieldProps<string, ISelectorProps<Value>>) => {
+      const setValue = (value?: Value | null) => {
+        form.setFieldValue(name, value ? getOptionValue(value) : undefined);
         form.setFieldTouched(name, true);
       };
 
       return (
-        <Autocomplete<ISelectorOption>
+        <Autocomplete<Value>
           className={classNames(className, styles.selector)}
           options={options}
-          getOptionLabel={option => option.label}
-          onBlur={() => setValue(meta.value)}
-          onChange={(event: ChangeEvent<{}>, option: ISelectorOption | null) => {
-            setValue(option?.value);
+          getOptionLabel={getOptionLabel}
+          onChange={(event: ChangeEvent<{}>, option: Value | null) => {
+            setValue(option);
           }}
           renderInput={props =>
             <TextField
@@ -44,16 +47,13 @@ export const Selector: FunctionComponent<ISelectorProps> = (
   </Field>
 );
 
-interface ISelectorOption {
-  value: string;
-  label: string;
-}
-
-interface ISelectorProps {
-  defaultValue?: ISelectorOption;
+interface ISelectorProps<Value> {
+  defaultValue?: Value;
   name: string;
   label?: string;
-  options: ISelectorOption[];
+  options: Value[];
   className?: string;
-  validate?: (option?: string) => string | undefined;
+  validate?: (option?: Value) => string | undefined;
+  getOptionLabel: (option: Value) => string;
+  getOptionValue?: (option: Value) => any;
 }

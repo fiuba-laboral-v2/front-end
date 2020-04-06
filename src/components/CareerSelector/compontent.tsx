@@ -17,13 +17,15 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   <div className={styles.fieldsContainer}>
     <Selector
       name={`careers.${index}.code`}
-      options={options.map(({ code, description }) => ({ value: code, label: description }))}
+      options={options}
       label={careerLabel}
       className={styles.career}
       validate={FormikValidator({ mandatory: true })}
+      getOptionLabel={option => option.description}
+      getOptionValue={option => option.code}
     />
     <TextInput
-      name={`careers[${index}].creditsCount`}
+      name={`careers.${index}.creditsCount`}
       label={creditsLabel}
       type="number"
       inputProps={{ min: 0 }}
