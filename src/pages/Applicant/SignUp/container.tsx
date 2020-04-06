@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
+import { GET_TRANSLATIONS } from "$queries";
 import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
@@ -21,11 +21,6 @@ const SignUpContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     loading: loadingTranslations
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: SignUpTranslations } });
-
-  const {
-    data: { getCareers } = { getCareers: [] },
-    loading: loadingCareers
-  } = useQuery(GET_CAREERS);
 
   const translations = translationsMapper(getTranslations);
 
@@ -51,13 +46,12 @@ const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
   };
 
-  if (loadingTranslations || loadingCareers) return <LoadingSpinner/>;
+  if (loadingTranslations) return <LoadingSpinner/>;
 
   return (
     <SignUp
       translations={translations}
       validate={validate}
-      careers={getCareers}
       onSubmit={onSubmit}
     />
   );

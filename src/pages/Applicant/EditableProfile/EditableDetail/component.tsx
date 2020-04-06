@@ -42,7 +42,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
-              <div style={{whiteSpace: "pre-wrap", fontFamily: "monospace"}}>
+              <div style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}>
                 {JSON.stringify(values, null, "  ")}
               </div>
               <Form translate="yes" className={styles.formContainer} id={formName}>
@@ -57,14 +57,12 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                         name={`links[${index}].url`}
                         label={"link"}
                         type="url"
-                        inputProps={{ defaultValue: value.url }}
                         className={styles.link}
                       />
                       <TextInput
                         name={`links[${index}].name`}
                         label={"Titulo"}
                         type="text"
-                        inputProps={{ defaultValue: value.name }}
                         className={styles.linkTitle}
                       />
                     </>
