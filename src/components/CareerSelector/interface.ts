@@ -1,4 +1,4 @@
-import { ICareer } from "../../interfaces/Applicant";
+import { ICareer } from "$interfaces/Applicant";
 
 export interface ICareerSelectorContainerProps {
   index: number;

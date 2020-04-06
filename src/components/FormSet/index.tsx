@@ -5,7 +5,7 @@ import { AddButton } from "$components/AddButton";
 import { FieldArray } from "formik";
 import { FieldSet } from "../FieldSet";
 
-export const FormSet = <Value extends object>(
+export const FormSet = <Value, >(
   {
     title,
     name,
