@@ -2,7 +2,10 @@ import { ICareer } from "../../interfaces/Applicant";
 
 export interface ICareerSelectorContainerProps {
   index: number;
-  value?: ICareer;
+  value?: {
+    code: string,
+    creditsCount: number
+  };
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {

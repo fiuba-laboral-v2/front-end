@@ -42,7 +42,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             const errorMessage = validate(values);
             if (errorMessage) return { _form: errorMessage };
           }}
-          isInitialValid={false}
+          validateOnMount={true}
           onSubmit={onSubmit}
         >
           {({ values, isValid, isSubmitting, errors }) => (

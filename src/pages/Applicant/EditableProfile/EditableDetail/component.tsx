@@ -5,6 +5,7 @@ import TextInput from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues } from "./interface";
+import { CareerSelector } from "$components/CareerSelector";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -19,7 +20,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
         <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={initialValues}
-          isInitialValid={false}
+          validateOnMount={true}
           onSubmit={onSubmit}
           validate={(values: IEditableDetailValues) => values}
         >
@@ -30,7 +31,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
               </div>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <FormSet
-                  title={"Links"}
+                  title={"fdsfdfsfdsf"}
                   name={"links"}
                   values={values.links}
                   defaultValue={{ url: "", name: "", uuid: "" }}
@@ -38,17 +39,26 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     <>
                       <TextInput
                         name={`links[${index}].url`}
-                        label={"link"}
+                        label={"jgifjoigdd"}
                         type="url"
                         className={styles.link}
                       />
                       <TextInput
                         name={`links[${index}].name`}
-                        label={"Titulo"}
+                        label={"fengjioregjo"}
                         type="text"
                         className={styles.linkTitle}
                       />
                     </>
+                  )}
+                />
+                <FormSet
+                  title={"dsffdsf"}
+                  name={"careers"}
+                  values={values.careers}
+                  defaultValue={{ code: "", creditsCount: 0 }}
+                  fields={(value, index) => (
+                    <CareerSelector key={index} index={index} value={value}/>
                   )}
                 />
               </Form>
@@ -59,7 +69,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   type="submit"
                   disabled={!isValid || isSubmitting}
                 >
-                  Guardar
+                  fmeigmirogjrti
                 </Button>
               </div>
             </div>

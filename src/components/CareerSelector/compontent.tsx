@@ -11,7 +11,8 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
     index,
     options,
     careerLabel,
-    creditsLabel
+    creditsLabel,
+    value
   }
 ) => (
   <div className={styles.fieldsContainer}>
@@ -23,6 +24,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       validate={FormikValidator({ mandatory: true })}
       getOptionLabel={option => option.description}
       getOptionValue={option => option.code}
+      initialValue={value?.code}
     />
     <TextInput
       name={`careers.${index}.creditsCount`}
