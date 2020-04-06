@@ -1,32 +1,19 @@
-import React, { FunctionComponent, useMemo, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
 import { EditableDetail } from "./component";
-import { IApplicant, IApplicantEditable } from "$interfaces/Applicant";
-import {
-  DELETE_APPLICANT_CAPABILITIES,
-  DELETE_APPLICANT_CAREERS,
-  UPDATE_APPLICANT
-} from "$mutations";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import { IApplicant } from "$interfaces/Applicant";
+import { useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { noop } from "lodash";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  const [applicant, setApplicant] = useState<IApplicant>({} as any);
-  const [deletedCapabilities, setDeletedCapabilities] = useState(Array<string>());
-  const [deletedCareers] = useState(Array<string>());
   const history = useHistory();
 
-  const [updateApplicant] = useMutation(UPDATE_APPLICANT);
-
-  const [deleteCapabilities] = useMutation(DELETE_APPLICANT_CAPABILITIES);
-
-  const [deleteCareers] = useMutation(DELETE_APPLICANT_CAREERS);
-
   const {
-    data: { getApplicant } = { getApplicant: {} as IApplicant },
+    data: { getApplicant: applicant } = { getApplicant: {} as IApplicant },
     error: applicantError,
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
@@ -37,71 +24,23 @@ const EditableDetailContainer: FunctionComponent = () => {
     loading: loadingTranslations
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["applicant.edit.title"] } });
 
-  useMemo(
-    () => loadingApplicant ? null : setApplicant(getApplicant),
-    [getApplicant, loadingApplicant]
-  );
-
-  const submit = async (
-    {
-      uuid: id,
-      padron,
-      name,
-      surname,
-      description,
-      capabilities,
-      careers,
-      sections
-    }: IApplicant
-  ) => {
-    const dataToUpdate: IApplicantEditable = {
-      uuid: id,
-      padron,
-      name,
-      surname,
-      description,
-      capabilities: capabilities?.map(c => c.description),
-      careers: careers?.map(c =>
-        ({ code: c.code, creditsCount: c.creditsCount || 0 })
-      ),
-      sections: sections
-    };
-    try {
-      await deleteCapabilities({
-        variables: { uuid: id, capabilities: deletedCapabilities }
-      });
-      await deleteCareers({
-        variables: { uuid: id, careersCodes: deletedCareers }
-      });
-      await updateApplicant({ variables: dataToUpdate });
-    } catch (e) {
-      alert(e);
-    }
-    history.push(RoutesBuilder.applicant.detail(id));
-  };
-
-  const deleteCapability = (description: string) => {
-    setDeletedCapabilities([...deletedCapabilities, description]);
-    const capabilities = applicant.capabilities?.filter(c => c.description !== description);
-    setApplicant({ ...applicant, capabilities: capabilities });
-  };
-
   if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
   if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
 
   const [titleTranslation] = getTranslations;
-  const translations = {
-    title: titleTranslation
-  };
 
   return (
     <EditableDetail
-      deleteCapability={deleteCapability}
-      setApplicant={setApplicant}
-      onSubmit={submit}
-      applicant={applicant}
-      translations={translations}
+      onSubmit={noop}
+      translations={{
+        title: titleTranslation
+      }}
+      initialValues={{
+        uuid: applicant.uuid,
+        links: applicant.links,
+        _form: ""
+      }}
     />
   );
 };

@@ -12,33 +12,4 @@
     display: flex;
     flex-direction: column;
   }
-
-  .capabilitiesAndCareersContainer {
-    display: flex;
-    flex-direction: row;
-
-    .capabilities, .careers {
-      width: 50%
-    }
-
-    .capabilities {
-      margin-right: $bigSpacing;
-    }
-  }
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .container {
-    .capabilitiesAndCareersContainer {
-      flex-direction: column;
-
-      .capabilities, .careers {
-        width: 100%
-      }
-
-      .capabilities {
-        margin-right: 0;
-      }
-    }
-  }
 }

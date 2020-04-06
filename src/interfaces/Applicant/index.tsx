@@ -18,6 +18,7 @@ export interface ISection {
 }
 
 export interface ILink {
+  uuid?: string;
   name: string;
   url: string;
 }
@@ -37,16 +38,4 @@ export interface IApplicant {
 export interface IApplicantCareer {
   code: string;
   creditsCount: number;
-}
-
-
-export interface IApplicantEditable {
-  uuid: string;
-  padron?: number;
-  name?: string;
-  surname?: string;
-  description?: string;
-  capabilities?: string[];
-  careers?: IApplicantCareer[];
-  sections?: ISection[];
 }
