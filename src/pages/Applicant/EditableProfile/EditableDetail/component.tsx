@@ -26,9 +26,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
-              <div style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}>
-                {JSON.stringify(values, null, "  ")}
-              </div>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <FormSet
                   title={translations.links}

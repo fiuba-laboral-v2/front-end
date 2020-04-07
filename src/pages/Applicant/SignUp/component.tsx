@@ -47,9 +47,6 @@ const SignUp: FunctionComponent<ISignUpProps> = (
         >
           {({ values, isValid, isSubmitting, errors }) => (
             <div className={styles.body}>
-              <div style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}>
-                {JSON.stringify(values, null, "  ")}
-              </div>
               <Form translate="yes" className={styles.formContainer} id={formName}>
                 <div className={styles.textInputContainer}>
                   <TextInput
