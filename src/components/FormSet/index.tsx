@@ -1,18 +1,19 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import styles from "./styles.module.scss";
 import { Subtitle } from "$components/Subtitle";
 import { AddButton } from "$components/AddButton";
 import { FieldArray } from "formik";
 import { FieldSet } from "../FieldSet";
 
-const FormSet: FunctionComponent<IFormSetProps<any>> = (
+export const FormSet = <Value, >(
   {
     title,
     name,
     values,
     defaultValue,
     fields
-  }) => (
+  }: IFormSetProps<Value>
+) => (
   <FieldArray
     name={name}
     render={arrayHelpers => (
@@ -31,12 +32,10 @@ const FormSet: FunctionComponent<IFormSetProps<any>> = (
   />
 );
 
-export interface IFormSetProps<Value> {
+interface IFormSetProps<Value> {
   title: string;
   name: string;
   values: Value[];
   defaultValue: Value;
   fields: (value: Value, index: number) => ReactNode;
 }
-
-export { FormSet };

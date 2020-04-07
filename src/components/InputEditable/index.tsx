@@ -1,1 +1,0 @@
-export { InputEditable } from "./component";

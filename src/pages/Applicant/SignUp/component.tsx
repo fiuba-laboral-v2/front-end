@@ -6,7 +6,6 @@ import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 
 import styles from "./styles.module.scss";
-import { ICareer } from "$interfaces/Applicant";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$src/FormikValidator";
@@ -17,7 +16,6 @@ import { FormSet } from "$components/FormSet";
 const SignUp: FunctionComponent<ISignUpProps> = (
   {
     translations,
-    careers,
     onSubmit,
     validate
   }
@@ -44,7 +42,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             const errorMessage = validate(values);
             if (errorMessage) return { _form: errorMessage };
           }}
-          isInitialValid={false}
+          validateOnMount={true}
           onSubmit={onSubmit}
         >
           {({ values, isValid, isSubmitting, errors }) => (
@@ -96,11 +94,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   values={values.careers}
                   defaultValue={careerInitialValue}
                   fields={(value, index) => (
-                    <CareerSelector
-                      key={index}
-                      index={index}
-                      options={careers}
-                    />
+                    <CareerSelector key={index} index={index}/>
                   )}
                 />
               </Form>
@@ -134,7 +128,6 @@ interface ISignUpProps {
     careersTitle: string;
     submit: string;
   };
-  careers: ICareer[];
   validate: (values: ISignUpValues) => string | undefined;
   onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
     void | Promise<any>;

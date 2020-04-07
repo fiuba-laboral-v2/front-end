@@ -19,16 +19,6 @@
     .linkTitle {
       margin-left: $bigSpacing;
     }
-
-    .capabilitiesAndCareersContainer {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .separator, .capabilitiesAndCareersContainer {
-      flex-grow: 1;
-    }
-
   }
 }
 
@@ -44,11 +34,6 @@
     .body {
       .linkTitle {
         margin: 0;
-      }
-
-      .capabilitiesAndCareersContainer {
-        display: flex;
-        flex-direction: column;
       }
     }
   }
