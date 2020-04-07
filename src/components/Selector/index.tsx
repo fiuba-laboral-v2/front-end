@@ -29,7 +29,8 @@ export const Selector = <Option, Value>(
           getOptionLabel={getOptionLabel}
           defaultValue={defaultValue}
           onBlur={() => form.setFieldTouched(name, true)}
-          onChange={(event: ChangeEvent<{}>, option: Option | null) =>
+          multiple={false}
+          onChange={(event, option) =>
             form.setFieldValue(name, option ? getOptionValue(option) : undefined)
           }
           renderInput={props =>
