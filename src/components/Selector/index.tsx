@@ -22,34 +22,26 @@ export const Selector = <Option, Value>(
 
   return (
     <Field name={name} validate={validate}>
-      {({ meta, form }: FieldProps) => {
-        const setTouched = () => {
-          form.setFieldTouched(name, true);
-        };
-
-        const setValue = (value?: Option | null) => {
-          form.setFieldValue(name, value ? getOptionValue(value) : undefined);
-        };
-
-        return (
-          <Autocomplete<Option>
-            className={classNames(className, styles.selector)}
-            options={options}
-            getOptionLabel={getOptionLabel}
-            onChange={(event: ChangeEvent<{}>, option: Option | null) => setValue(option)}
-            onBlur={setTouched}
-            defaultValue={defaultValue}
-            renderInput={props =>
-              <TextField
-                {...props}
-                label={label}
-                error={!!meta.error && meta.touched}
-                helperText={meta.touched && meta.error}
-              />
-            }
-          />
-        );
-      }}
+      {({ meta, form }: FieldProps) => (
+        <Autocomplete<Option>
+          className={classNames(className, styles.selector)}
+          options={options}
+          getOptionLabel={getOptionLabel}
+          defaultValue={defaultValue}
+          onBlur={() => form.setFieldTouched(name, true)}
+          onChange={(event: ChangeEvent<{}>, option: Option | null) =>
+            form.setFieldValue(name, option ? getOptionValue(option) : undefined)
+          }
+          renderInput={props =>
+            <TextField
+              {...props}
+              label={label}
+              error={!!meta.error && meta.touched}
+              helperText={meta.touched && meta.error}
+            />
+          }
+        />
+      )}
     </Field>
   );
 };
