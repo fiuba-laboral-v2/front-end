@@ -1,5 +1,5 @@
 import { Field, FieldProps } from "formik";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";

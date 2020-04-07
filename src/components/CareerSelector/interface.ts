@@ -1,11 +1,8 @@
-import { ICareer } from "$interfaces/Applicant";
+import { IApplicantCareer, ICareer } from "$interfaces/Applicant";
 
 export interface ICareerSelectorContainerProps {
   index: number;
-  value?: {
-    code: string,
-    creditsCount: number
-  };
+  value?: IApplicantCareer;
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {
