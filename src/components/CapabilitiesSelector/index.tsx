@@ -1,0 +1,1 @@
+export { CapabilitiesSelector } from "./compontent";

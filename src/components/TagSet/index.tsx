@@ -1,0 +1,1 @@
+export { TagSet } from "./component";

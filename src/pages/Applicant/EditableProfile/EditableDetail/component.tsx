@@ -6,9 +6,8 @@ import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
-import { MultipleSelector } from "$components/Selector/MultipleSelector";
-import { ICapability } from "../../../../interfaces/Applicant";
-import capitalize from "@material-ui/core/utils/capitalize";
+import { Subtitle } from "$components/Subtitle";
+import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -61,15 +60,10 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     <CareerSelector key={index} index={index} value={value}/>
                   )}
                 />
-                <MultipleSelector<ICapability, ICapability>
-                  name={"capabilities"}
-                  getOptionValue={({ uuid, description }) => (
-                    { uuid, description: capitalize(description) }
-                  )}
-                  getOptionLabel={capability => capability.description}
-                  compareValuesBy={capability => capability.description}
-                  stringToValue={stringValue => ({ description: stringValue })}
-                  options={values.capabilities}
+                <Subtitle>{translations.capabilities}</Subtitle>
+                <CapabilitiesSelector
+                  options={[{ description: "Result Of GetCapabilities Query!" }]}
+                  label={translations.capability}
                 />
               </Form>
               <div className={styles.footer}>
@@ -102,6 +96,8 @@ interface IApplicantDetailEditableTranslations {
   link: string;
   linkTitle: string;
   careers: string;
+  capabilities: string;
+  capability: string;
   submit: string;
 }
 
