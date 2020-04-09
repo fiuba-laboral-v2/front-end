@@ -3,6 +3,7 @@
 .items {
   display: flex;
   flex-direction: column;
+  margin: 20px 0 0 0;
 
   .item {
     margin-top: $itemMarginBottom;
@@ -11,7 +12,6 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .items {
-    margin: 20px 0 0 0;
     column-count: 1;
     max-width: 430px;
   }

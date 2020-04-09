@@ -69,7 +69,7 @@ const EditableDetailContainer: FunctionComponent = () => {
         uuid: applicant.uuid,
         links: applicant.links,
         careers: applicant.careers.map(({ code, creditsCount }) => (
-          { code, creditsCount: creditsCount || 0 }
+          { code, creditsCount: creditsCount }
         )),
         capabilities: applicant.capabilities,
         _form: ""

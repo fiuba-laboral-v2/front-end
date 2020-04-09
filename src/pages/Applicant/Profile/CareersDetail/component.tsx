@@ -11,8 +11,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
     className
   }) => {
   const percentage = (career: ICareer) => {
-    career.creditsCount = career.creditsCount || 0;
-    return ((career.creditsCount/career.credits)*100).toFixed(2);
+    return ((career.creditsCount / career.credits) * 100).toFixed(2);
   };
 
   return (
