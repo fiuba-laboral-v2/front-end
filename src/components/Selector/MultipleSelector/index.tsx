@@ -33,26 +33,23 @@ export const MultipleSelector = <Option, Value>(
               disableClearable
               className={styles.selector}
               initialValue={initialValue}
+              onInputChange={(event, value) => setInputValue(value)}
               inputValue={toUpperCase(inputValue)}
+              errorMessage={meta.touched ? meta.error : undefined}
               options={options}
               getOptionValue={getOptionValue}
               getOptionLabel={(option: Option | string) =>
                 typeof option === "string" ? option : getOptionLabel(option)
               }
-              errorMessage={meta.touched ? meta.error : undefined}
               onBlur={() => {
                 form.setFieldTouched(name, true);
                 setInputValue("");
               }}
-              onInputChange={(event, value) => setInputValue(value)}
-              onKeyPress={event => event.key === "Enter" ? setInputValue("") : undefined}
-              onChange={(event, option: Option | string | null) => {
-                if (!option) return;
-                form.setFieldValue(name, unionBy(
-                  meta.value,
-                  [typeof option === "string" ? stringToValue(option) : getOptionValue(option)],
-                  compareValuesBy
-                ));
+              onKeyPress={event => {
+                if (event.key !== "Enter") return;
+                const newValue = unionBy(meta.value, [stringToValue(inputValue)], compareValuesBy);
+                form.setFieldValue(name, newValue);
+                setInputValue("");
               }}
             />
             <TagSet tags={meta.value.map(value => toUpperCase(valueToString(value)))}/>
