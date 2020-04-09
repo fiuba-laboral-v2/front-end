@@ -6,6 +6,9 @@ import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
+import { MultipleSelector } from "$components/Selector/MultipleSelector";
+import { ICapability } from "../../../../interfaces/Applicant";
+import capitalize from "@material-ui/core/utils/capitalize";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -22,7 +25,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           initialValues={initialValues}
           validateOnMount={true}
           onSubmit={onSubmit}
-          validate={(values: IEditableDetailValues) => values}
+          validate={() => ({})}
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
@@ -57,6 +60,16 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   fields={(value, index) => (
                     <CareerSelector key={index} index={index} value={value}/>
                   )}
+                />
+                <MultipleSelector<ICapability, ICapability>
+                  name={"capabilities"}
+                  getOptionValue={({ uuid, description }) => (
+                    { uuid, description: capitalize(description) }
+                  )}
+                  getOptionLabel={capability => capability.description}
+                  compareValuesBy={capability => capability.description}
+                  stringToValue={stringValue => ({ description: stringValue })}
+                  options={values.capabilities}
                 />
               </Form>
               <div className={styles.footer}>

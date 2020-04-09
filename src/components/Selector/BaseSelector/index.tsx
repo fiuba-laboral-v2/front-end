@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { KeyboardEventHandler, useState } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
@@ -20,6 +20,7 @@ export const BaseSelector = <Option, Value>(
   return (
     <Autocomplete<Option>
       {...autocompleteProps}
+      selectOnFocus
       className={classNames(className, styles.selector)}
       defaultValue={defaultValue}
       multiple={false}
@@ -45,5 +46,10 @@ export interface IBaseSelectorProps<Option, Value> {
   getOptionLabel: (option: Option) => string;
   onBlur?: () => void;
   onChange?: (event: React.ChangeEvent<{}>, value: Option | null) => void;
+  onInputChange?: (event: React.ChangeEvent<{}>, value: string) => void;
+  onKeyPress?: KeyboardEventHandler<HTMLInputElement>;
   options: Option[];
+  freeSolo?: boolean;
+  disableClearable?: boolean;
+  inputValue?: string;
 }

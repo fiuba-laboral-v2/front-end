@@ -12,7 +12,7 @@ export const Selector = <Option, Value>(
 ) => {
   return (
     <Field name={name} validate={validate}>
-      {({ meta, form }: FieldProps) => (
+      {({ meta, form }: FieldProps<Value>) => (
         <BaseSelector
           {...props}
           onBlur={() => form.setFieldTouched(name, true)}
