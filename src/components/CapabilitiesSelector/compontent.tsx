@@ -12,9 +12,9 @@ export const CapabilitiesSelector: FunctionComponent<ICapabiltiesSelector> = (
   <MultipleSelector<ICapability, ICapability>
     name={"capabilities"}
     getOptionValue={identity}
-    getOptionLabel={capability => capability.description}
-    compareValuesBy={capability => capability.description.toLowerCase()}
-    valueToString={capability => capability.description}
+    getOptionLabel={({description}) => description}
+    compareValuesBy={({description}) => description.toLowerCase()}
+    valueToString={({description}) => description}
     stringToValue={stringValue => ({ description: stringValue })}
     options={options}
     label={label}
