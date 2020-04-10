@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { ICareersContainerProps } from "./interface";
 import { CareersDetail } from "./component";
 import { GET_TRANSLATIONS } from "$queries";
@@ -18,9 +18,9 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
       }
     }
   );
-  if (loading) return <div/>;
+  if (loading) return <Fragment/>;
 
-  const [ creditsProgressTranslation, careersTitleTranslation ] = data.getTranslations;
+  const [creditsProgressTranslation, careersTitleTranslation] = data.getTranslations;
   return (
     <CareersDetail
       className={className}

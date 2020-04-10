@@ -7,6 +7,7 @@ import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
 
 import styles from "./styles.module.scss";
 import { IApplicant } from "$interfaces/Applicant";
+import { Description } from "$components/Description";
 
 const Detail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -22,10 +23,11 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
       <CapabilitiesDetail
         className={styles.capabilities}
         title={translations.capabilities}
-        capabilities={applicant.capabilities || []}
+        capabilities={applicant.capabilities}
       />
       <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
     </div>
+    <Description description={applicant.description}/>
     {
       applicant.sections?.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>

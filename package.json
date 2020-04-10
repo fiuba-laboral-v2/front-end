@@ -24,6 +24,7 @@
     "@types/react": "16.9.0",
     "@types/react-dom": "16.9.0",
     "@types/react-router-dom": "5.1.3",
+    "@types/shortid": "0.0.29",
     "apollo-boost": "0.4.7",
     "apollo-client": "2.6.8",
     "apollo-utilities": "1.3.3",
@@ -43,6 +44,7 @@
     "react-dom": "16.12.0",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.3.0",
+    "shortid": "2.2.15",
     "tslint": "5.20.1",
     "typescript": "~3.7.2",
     "validations-fiuba-laboral-v2": "1.0.5"

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_TRANSLATIONS } from "$queries";
 import { IListTitleProps } from "./interface";
@@ -12,10 +12,10 @@ const ListTitleContainer: FunctionComponent<IListTitleProps> = ({ titleTranslati
     GET_TRANSLATIONS,
     { variables: { paths: [titleTranslationPath] } }
   );
-  if (error) return <div/>;
+  if (error) return <Fragment/>;
 
-  const [ titleTranslation ] = getTranslations;
-  return <Title title={titleTranslation} />;
+  const [titleTranslation] = getTranslations;
+  return <Title title={titleTranslation}/>;
 };
 
 export { ListTitleContainer };

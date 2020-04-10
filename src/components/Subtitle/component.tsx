@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ISubtitleProps } from "./interface";
 import classNames from "classnames";
@@ -7,10 +7,14 @@ const Subtitle: FunctionComponent<ISubtitleProps> = (
   {
     className,
     children
-  }) => (
-  <h3 className={classNames(styles.subtitleContainer, className)}>
-    {children}
-  </h3>
-);
+  }) => {
+  if (!children) return <Fragment/>;
+
+  return (
+    <h3 className={classNames(styles.subtitleContainer, className)}>
+      {children}
+    </h3>
+  );
+};
 
 export { Subtitle };

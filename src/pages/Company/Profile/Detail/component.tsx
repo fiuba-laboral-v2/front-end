@@ -4,7 +4,7 @@ import { ICompanyDetailProps } from "./interface";
 
 import { DetailHeadline } from "$components/Detail/DetailHeadline";
 import { Subtitle } from "$components/Subtitle";
-import { DetailDescription } from "$components/Detail/DetailDescription";
+import { Description } from "$components/Description";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { CompanyLogo } from "$components/CompanyLogo";
@@ -40,7 +40,7 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
           <DetailContactMe email={email} website={website}/>
         </div>
       </div>
-      <DetailDescription description={description}/>
+      <Description description={description}/>
       <section className={styles.photos}>
         {
           photos.map((source, index) =>
