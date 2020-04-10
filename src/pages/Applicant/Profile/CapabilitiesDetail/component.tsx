@@ -11,7 +11,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   }) => (
   <div className={className}>
     <Subtitle>{title}</Subtitle>
-    <TagSet tags={capabilities.map(capability => capability.description)}/>
+    <TagSet tags={new Set(capabilities.map(capability => capability.description))}/>
   </div>
 );
 

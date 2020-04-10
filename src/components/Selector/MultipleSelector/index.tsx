@@ -52,7 +52,7 @@ export const MultipleSelector = <Option, Value>(
                 setInputValue("");
               }}
             />
-            <TagSet tags={meta.value.map(value => toUpperCase(valueToString(value)))}/>
+            <TagSet tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}/>
           </>
         );
       }}
