@@ -16,16 +16,21 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   <div className={styles.container}>
     <div className={styles.headline}>
       <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
-      <Links links={applicant.links}/>
+      {applicant.links.length > 0 ?
+        <Links links={applicant.links}/> : undefined
+      }
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
-      <CapabilitiesDetail
-        className={styles.capabilities}
-        title={translations.capabilities}
-        capabilities={applicant.capabilities || []}
-      />
+      {applicant.capabilities.length > 0 ?
+        <CapabilitiesDetail
+          className={styles.capabilities}
+          title={translations.capabilities}
+          capabilities={applicant.capabilities}
+        /> : undefined
+      }
       <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
     </div>
+    {applicant.description ? <SectionDetail text={applicant.description}/> : undefined}
     {
       applicant.sections?.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>

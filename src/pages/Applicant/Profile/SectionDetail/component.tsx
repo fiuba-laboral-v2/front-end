@@ -8,10 +8,10 @@ const SectionDetail: FunctionComponent<ISectionDetailProps> = (
     title,
     text
   }) => (
-    <div className={styles.section}>
-      <Subtitle>{title}</Subtitle>
-      <p className={styles.text}>{text}</p>
-    </div>
+  <div className={styles.section}>
+    {title ? <Subtitle>{title}</Subtitle> : undefined}
+    <p className={styles.text}>{text}</p>
+  </div>
 );
 
 export { SectionDetail };

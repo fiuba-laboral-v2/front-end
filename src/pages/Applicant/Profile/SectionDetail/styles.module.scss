@@ -6,6 +6,10 @@
 
   word-break: break-word;
   margin-top: $smallSpacing;
+
+  &:first-child {
+    margin: 0;
+  }
 }
 
 .section {
