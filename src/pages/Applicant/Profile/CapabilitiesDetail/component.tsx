@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ICapabilitiesProps } from "./interface";
-import { Tag } from "$components/Tag";
 import { Subtitle } from "$components/Subtitle";
-import styles from "./styles.module.scss";
+import { TagSet } from "$components/TagSet";
 
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   {
@@ -12,13 +11,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   }) => (
   <div className={className}>
     <Subtitle>{title}</Subtitle>
-    <section className={styles.items}>
-      {
-        capabilities.map((capability, index) =>
-          <Tag key={index} className={styles.item} name={capability.description} />
-        )
-      }
-    </section>
+    <TagSet tags={new Set(capabilities.map(capability => capability.description))}/>
   </div>
 );
 

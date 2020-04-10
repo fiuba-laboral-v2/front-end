@@ -6,6 +6,8 @@ import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
+import { Subtitle } from "$components/Subtitle";
+import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -22,7 +24,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           initialValues={initialValues}
           validateOnMount={true}
           onSubmit={onSubmit}
-          validate={(values: IEditableDetailValues) => values}
+          validate={() => ({})}
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
@@ -65,6 +67,11 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     <CareerSelector key={index} index={index} value={value}/>
                   )}
                 />
+                <Subtitle>{translations.capabilities}</Subtitle>
+                <CapabilitiesSelector
+                  options={[{ description: "Result Of GetCapabilities Query!" }]}
+                  label={translations.capability}
+                />
               </Form>
               <div className={styles.footer}>
                 <Button
@@ -98,6 +105,8 @@ interface IApplicantDetailEditableTranslations {
   link: string;
   linkTitle: string;
   careers: string;
+  capabilities: string;
+  capability: string;
   submit: string;
 }
 
