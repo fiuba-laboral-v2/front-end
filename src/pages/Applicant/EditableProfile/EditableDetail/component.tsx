@@ -27,6 +27,14 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
+                <TextInput
+                  name={"name"}
+                  label={translations.name}
+                />
+                <TextInput
+                  name={"surname"}
+                  label={translations.surname}
+                />
                 <FormSet
                   title={translations.links}
                   name={"links"}
@@ -43,7 +51,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                       <TextInput
                         name={`links[${index}].name`}
                         label={translations.linkTitle}
-                        type="text"
                         className={styles.linkTitle}
                       />
                     </>
@@ -85,6 +92,8 @@ interface IApplicantDetailEditableProps {
 
 interface IApplicantDetailEditableTranslations {
   title: string;
+  name: string;
+  surname: string;
   links: string;
   link: string;
   linkTitle: string;

@@ -66,14 +66,12 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   <TextInput
                     name="name"
                     label={translations.name}
-                    type="text"
                     className={styles.textInput}
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
                     name="surname"
                     label={translations.surname}
-                    type="text"
                     className={styles.textInput}
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
