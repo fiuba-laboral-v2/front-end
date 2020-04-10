@@ -7,10 +7,14 @@ const Subtitle: FunctionComponent<ISubtitleProps> = (
   {
     className,
     children
-  }) => (
-  <h3 className={classNames(styles.subtitleContainer, className)}>
-    {children}
-  </h3>
-);
+  }) => {
+  if (!children) return null;
+
+  return (
+    <h3 className={classNames(styles.subtitleContainer, className)}>
+      {children}
+    </h3>
+  );
+};
 
 export { Subtitle };

@@ -9,17 +9,21 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     capabilities,
     title,
     className
-  }) => (
-  <div className={className}>
-    <Subtitle>{title}</Subtitle>
-    <section className={styles.items}>
-      {
-        capabilities.map((capability, index) =>
-          <Tag key={index} className={styles.item} name={capability.description} />
-        )
-      }
-    </section>
-  </div>
-);
+  }) => {
+  if (capabilities.length === 0) return null;
+
+  return (
+    <div className={className}>
+      <Subtitle>{title}</Subtitle>
+      <section className={styles.items}>
+        {
+          capabilities.map((capability, index) =>
+            <Tag key={index} className={styles.item} name={capability.description}/>
+          )
+        }
+      </section>
+    </div>
+  );
+};
 
 export { CapabilitiesDetail };

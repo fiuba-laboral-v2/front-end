@@ -28,7 +28,7 @@ export interface IApplicant {
   name: string;
   surname: string;
   padron: number;
-  description: string;
+  description?: string;
   links: ILink[];
   sections: ISection[];
   capabilities: ICapability[];
