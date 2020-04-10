@@ -28,6 +28,17 @@ export const MaterialUITheme = createMuiTheme({
       colorPrimary: {
           color: "#0095DB"
       }
+    },
+    MuiInputLabel: {
+      root: {
+        maxWidth: "100%",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis"
+      },
+      shrink: {
+        maxWidth: "130%"
+      }
     }
   }
 });
