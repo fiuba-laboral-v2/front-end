@@ -11,8 +11,8 @@ const Links: FunctionComponent<ILinksProps> = ({ links, className }) => {
   return (
     <div className={classNames(styles.links, className)}>
       {
-        links.map(({ uuid, url, name }) =>
-          <div key={uuid || shortid.generate()} className={styles.link}>
+        links.map(({ uuid = shortid.generate(), url, name }) =>
+          <div key={uuid} className={styles.link}>
             <Subtitle>
               <a target="_blank" rel="noopener noreferrer" href={url}>{name}</a>
             </Subtitle>
