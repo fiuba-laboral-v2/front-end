@@ -26,10 +26,14 @@ const EditableDetailContainer: FunctionComponent = () => {
     variables: {
       paths: [
         "applicant.edit.title",
+        "applicant.edit.name",
+        "applicant.edit.surname",
         "applicant.edit.links",
         "applicant.edit.link",
         "applicant.edit.linkTitle",
         "applicant.edit.careers",
+        "applicant.edit.capabilities",
+        "applicant.edit.capability",
         "applicant.edit.submit"
       ]
     }
@@ -41,10 +45,14 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   const [
     titleTranslation,
+    nameTranslation,
+    surnameTranslation,
     linksTranslation,
     linkTranslation,
     linkTitleTranslation,
     careersTranslation,
+    capabilitiesTranslation,
+    capabilityTranslation,
     submitTranslation
   ] = getTranslations;
 
@@ -53,10 +61,14 @@ const EditableDetailContainer: FunctionComponent = () => {
       onSubmit={noop}
       translations={{
         title: titleTranslation,
+        name: nameTranslation,
+        surname: surnameTranslation,
         links: linksTranslation,
         link: linkTranslation,
         linkTitle: linkTitleTranslation,
         careers: careersTranslation,
+        capabilities: capabilitiesTranslation,
+        capability: capabilityTranslation,
         submit: submitTranslation
       }}
       initialValues={{
@@ -65,6 +77,7 @@ const EditableDetailContainer: FunctionComponent = () => {
         careers: applicant.careers.map(({ code, creditsCount }) => (
           { code, creditsCount: creditsCount }
         )),
+        capabilities: applicant.capabilities,
         _form: ""
       }}
     />

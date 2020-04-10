@@ -6,7 +6,7 @@ export interface ICareer {
 }
 
 export interface ICapability {
-  uuid: string;
+  uuid?: string;
   description: string;
 }
 

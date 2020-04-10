@@ -6,6 +6,8 @@ import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
+import { Subtitle } from "$components/Subtitle";
+import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -22,11 +24,19 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           initialValues={initialValues}
           validateOnMount={true}
           onSubmit={onSubmit}
-          validate={(values: IEditableDetailValues) => values}
+          validate={() => ({})}
         >
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
+                <TextInput
+                  name={"name"}
+                  label={translations.name}
+                />
+                <TextInput
+                  name={"surname"}
+                  label={translations.surname}
+                />
                 <FormSet
                   title={translations.links}
                   name={"links"}
@@ -43,7 +53,6 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                       <TextInput
                         name={`links[${index}].name`}
                         label={translations.linkTitle}
-                        type="text"
                         className={styles.linkTitle}
                       />
                     </>
@@ -57,6 +66,11 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   fields={(value, index) => (
                     <CareerSelector key={index} index={index} value={value}/>
                   )}
+                />
+                <Subtitle>{translations.capabilities}</Subtitle>
+                <CapabilitiesSelector
+                  options={[{ description: "Result Of GetCapabilities Query!" }]}
+                  label={translations.capability}
                 />
               </Form>
               <div className={styles.footer}>
@@ -85,10 +99,14 @@ interface IApplicantDetailEditableProps {
 
 interface IApplicantDetailEditableTranslations {
   title: string;
+  name: string;
+  surname: string;
   links: string;
   link: string;
   linkTitle: string;
   careers: string;
+  capabilities: string;
+  capability: string;
   submit: string;
 }
 
