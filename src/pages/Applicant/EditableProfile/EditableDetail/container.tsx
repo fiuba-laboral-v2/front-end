@@ -73,6 +73,8 @@ const EditableDetailContainer: FunctionComponent = () => {
       }}
       initialValues={{
         uuid: applicant.uuid,
+        name: applicant.name,
+        surname: applicant.surname,
         links: applicant.links,
         careers: applicant.careers.map(({ code, creditsCount }) => (
           { code, creditsCount: creditsCount }
