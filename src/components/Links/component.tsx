@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
 import { ILinksProps } from "./interface";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
 const Links: FunctionComponent<ILinksProps> = ({ links, className }) => {
-  if (links.length === 0) return null;
+  if (links.length === 0) return <Fragment/>;
 
   return (
     <div className={classNames(styles.links, className)}>

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
-import { GET_TRANSLATIONS, GET_COMPANIES } from "$queries";
+import { GET_COMPANIES, GET_TRANSLATIONS } from "$queries";
 import { Companies } from "./component";
 
 const CompaniesContainer: FunctionComponent = () => {
@@ -18,9 +18,9 @@ const CompaniesContainer: FunctionComponent = () => {
     loading
   } = useQuery(GET_COMPANIES);
 
-  if (translationsError || error) return <div/>;
+  if (translationsError || error) return <Fragment/>;
 
-  const [ viewTranslation ] = getTranslations;
+  const [viewTranslation] = getTranslations;
 
   return (
     <Companies

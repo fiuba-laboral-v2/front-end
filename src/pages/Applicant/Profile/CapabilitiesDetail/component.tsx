@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { ICapabilitiesProps } from "./interface";
 import { Tag } from "$components/Tag";
 import { Subtitle } from "$components/Subtitle";
@@ -10,7 +10,7 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     title,
     className
   }) => {
-  if (capabilities.length === 0) return null;
+  if (capabilities.length === 0) return <Fragment/>;
 
   return (
     <div className={className}>
