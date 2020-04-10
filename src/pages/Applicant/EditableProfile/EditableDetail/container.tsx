@@ -26,6 +26,8 @@ const EditableDetailContainer: FunctionComponent = () => {
     variables: {
       paths: [
         "applicant.edit.title",
+        "applicant.edit.name",
+        "applicant.edit.surname",
         "applicant.edit.links",
         "applicant.edit.link",
         "applicant.edit.linkTitle",
@@ -41,6 +43,8 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   const [
     titleTranslation,
+    nameTranslation,
+    surnameTranslation,
     linksTranslation,
     linkTranslation,
     linkTitleTranslation,
@@ -53,6 +57,8 @@ const EditableDetailContainer: FunctionComponent = () => {
       onSubmit={noop}
       translations={{
         title: titleTranslation,
+        name: nameTranslation,
+        surname: surnameTranslation,
         links: linksTranslation,
         link: linkTranslation,
         linkTitle: linkTitleTranslation,
