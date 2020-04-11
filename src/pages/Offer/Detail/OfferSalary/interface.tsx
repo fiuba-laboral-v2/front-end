@@ -5,8 +5,12 @@ export interface IOfferSalaryContainerProps {
   className?: string;
 }
 
-export interface IOfferSalaryComponentProps extends IOfferSalaryContainerProps {
-  title: string;
+interface ITranslations {
   salaryFromTranslation: string;
   salaryToTranslation: string;
+}
+
+export interface IOfferSalaryComponentProps extends IOfferSalaryContainerProps {
+  title: string;
+  translations: ITranslations;
 }
