@@ -1,4 +1,4 @@
-import { IApplicantCareer, ICapability, ILink } from "$interfaces/Applicant";
+import { IApplicantCareer, ICapability, ILink, ISection } from "$interfaces/Applicant";
 
 export interface IEditableDetailValues {
   uuid: string;
@@ -7,5 +7,6 @@ export interface IEditableDetailValues {
   links: ILink[];
   careers: IApplicantCareer[];
   capabilities: ICapability[];
+  sections: ISection[];
   _form: string;
 }

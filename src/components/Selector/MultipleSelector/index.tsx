@@ -46,6 +46,7 @@ export const MultipleSelector = <Option, Value>(
             }}
             onKeyPress={event => {
               if (event.key !== "Enter") return;
+              event.preventDefault();
               const newValue = unionBy(meta.value, [stringToValue(inputValue)], compareValuesBy);
               form.setFieldValue(name, newValue);
               setInputValue("");
