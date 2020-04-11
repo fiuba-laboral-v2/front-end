@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-const OfferInfoItem: FunctionComponent<IOfferInfoProps> = (
+const OfferInfoItem: FunctionComponent<IOfferInfoItemProps> = (
   {
     title,
     className,
@@ -14,7 +14,7 @@ const OfferInfoItem: FunctionComponent<IOfferInfoProps> = (
   </div>
 );
 
-interface IOfferInfoProps {
+interface IOfferInfoItemProps {
   className?: string;
   title: string;
 }

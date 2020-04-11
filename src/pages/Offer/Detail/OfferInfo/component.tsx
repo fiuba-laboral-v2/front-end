@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { OfferInfoItem } from "../OfferInfoItem";
+import { OfferSalary } from "../OfferSalary";
 
 import { IOffer } from "$interfaces/Offer";
 
@@ -22,18 +22,7 @@ const OfferInfo: FunctionComponent<IOfferInfoProps> = ({ offer, className }) => 
         <div className={styles.hoursPerDayText}>horas por dia</div>
       </div>
     </OfferInfoItem>
-    <OfferInfoItem className={styles.salary} title={"Salario Neto"}>
-      <div className={styles.minimumSalary}>
-        <div className={styles.salaryFrom}>Desde</div>
-        <AttachMoneyIcon fontSize="small"/>
-        <div className={styles.salaryNumber}>{offer.minimumSalary}</div>
-      </div>
-      <div className={styles.maximumSalary}>
-        <div className={styles.salaryTo}>Hasta</div>
-        <AttachMoneyIcon fontSize="small"/>
-        <div className={styles.salaryNumber}>{offer.maximumSalary}</div>
-      </div>
-    </OfferInfoItem>
+    <OfferSalary className={styles.salary} offer={offer} />
   </div>
 );
 

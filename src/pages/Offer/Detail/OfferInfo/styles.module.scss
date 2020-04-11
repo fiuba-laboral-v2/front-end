@@ -16,7 +16,7 @@
     margin-bottom: $bigSpacing;
   }
 
-  .hours .hoursInfo .hoursNumber, .salary .minimumSalary .salaryNumber, .salary .maximumSalary .salaryNumber {
+  .hours .hoursInfo .hoursNumber {
     font-weight: bold;
     font-size: 22px;
   }
@@ -36,18 +36,6 @@
     .hoursPerDayText {
       font-size: 18px;
       align-self: center;
-    }
-  }
-
-  .salary {
-    .minimumSalary, .maximumSalary {
-      display: flex;
-
-      .salaryFrom, .salaryTo {
-        font-size: 18px;
-        margin-right: 5px;
-        align-self: center;
-      }
     }
   }
 }
