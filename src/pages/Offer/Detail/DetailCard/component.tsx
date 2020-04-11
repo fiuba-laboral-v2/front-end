@@ -50,8 +50,8 @@ const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => 
       <div className={styles.leftBodyContainer}>
         <Description description={offer.description}/>
         {
-          offer.sections?.map(section =>
-            <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
+          offer.sections?.map(({ displayOrder, title, text })  =>
+            <SectionDetail key={displayOrder} title={title} text={text}/>
           )
         }
       </div>
