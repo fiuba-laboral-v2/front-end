@@ -11,6 +11,7 @@
 deploy_key
 
 # misc
+.vscode
 .DS_Store
 .idea
 .env.local
