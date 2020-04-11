@@ -8,7 +8,7 @@ import Button from "$components/Button";
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
-import { FormikValidator } from "$src/FormikValidator";
+import { FormikValidator } from "$utils/FormikValidator";
 import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
 

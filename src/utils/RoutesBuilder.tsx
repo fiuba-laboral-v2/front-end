@@ -1,4 +1,4 @@
-const RoutesBuilder = {
+export const RoutesBuilder = {
   applicant: {
     list: () => "/applicants/",
     detail: (uuid: string) => `/applicants/${uuid}/`,
@@ -11,5 +11,3 @@ const RoutesBuilder = {
   },
   notFound: "/*/"
 };
-
-export { RoutesBuilder };

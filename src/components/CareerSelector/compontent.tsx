@@ -4,7 +4,7 @@ import { Selector } from "$components/Selector";
 
 import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
-import { FormikValidator } from "$src/FormikValidator";
+import { FormikValidator } from "$utils/FormikValidator";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {

@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams, useHistory } from "react-router-dom";
 import { ICompany } from "$interfaces/Company";
 import { Detail } from "./component";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$utils/RoutesBuilder";
 
 const DetailContainer: FunctionComponent = () => {
   const { id } = useParams();

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
 import { GET_TRANSLATIONS } from "$queries";
 import { Title } from "$components/Title";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$utils/RoutesBuilder";
 
 const TitleContainer: FunctionComponent = () => {
   const history = useHistory();

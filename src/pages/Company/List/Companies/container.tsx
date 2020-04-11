@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$utils/RoutesBuilder";
 import { GET_COMPANIES, GET_TRANSLATIONS } from "$queries";
 import { Companies } from "./component";
 
