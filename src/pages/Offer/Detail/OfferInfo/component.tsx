@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import { OfferInfoItem } from "../OfferInfoItem";
 
 import { IOffer } from "$interfaces/Offer";
 
@@ -8,23 +9,20 @@ import styles from "./styles.module.scss";
 
 const OfferInfo: FunctionComponent<IOfferInfoProps> = ({ offer, className }) => (
   <div className={classNames(styles.mainContainer, className)}>
-    <div className={styles.careers}>
-      <div className={styles.careersTitle}>Carreras</div>
+    <OfferInfoItem className={styles.careers} title={"Carreras"}>
       {
         offer.careers?.map(career =>
           <div key={career.code} className={styles.career}>{career.description}</div>
         )
       }
-    </div>
-    <div className={styles.hours}>
-      <div className={styles.hoursTitle}>Carga Horaria</div>
+    </OfferInfoItem>
+    <OfferInfoItem className={styles.hours} title={"Carga Horaria"}>
       <div className={styles.hoursInfo}>
         <div className={styles.hoursNumber}>{offer.hoursPerDay}</div>
         <div className={styles.hoursPerDayText}>horas por dia</div>
       </div>
-    </div>
-    <div className={styles.salary}>
-      <div className={styles.salaryTitle}>Salario Neto</div>
+    </OfferInfoItem>
+    <OfferInfoItem className={styles.salary} title={"Salario Neto"}>
       <div className={styles.minimumSalary}>
         <div className={styles.salaryFrom}>Desde</div>
         <AttachMoneyIcon fontSize="small"/>
@@ -35,7 +33,7 @@ const OfferInfo: FunctionComponent<IOfferInfoProps> = ({ offer, className }) => 
         <AttachMoneyIcon fontSize="small"/>
         <div className={styles.salaryNumber}>{offer.maximumSalary}</div>
       </div>
-    </div>
+    </OfferInfoItem>
   </div>
 );
 

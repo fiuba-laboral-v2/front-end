@@ -12,16 +12,8 @@
     margin-bottom: $bigSpacing;
   }
 
-  .careers, .hours, .salary {
+  .careers, .hours {
     margin-bottom: $bigSpacing;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .careers .careersTitle, .hours .hoursTitle, .salary .salaryTitle {
-    @include text;
-    font-weight: bold;
-    margin-bottom: $smallSpacing;
   }
 
   .hours .hoursInfo .hoursNumber, .salary .minimumSalary .salaryNumber, .salary .maximumSalary .salaryNumber {
@@ -48,7 +40,6 @@
   }
 
   .salary {
-    display: flex;
     .minimumSalary, .maximumSalary {
       display: flex;
 

@@ -1,0 +1,13 @@
+@import "$styles/_variables.scss";
+@import "$styles/mixins/_text.scss";
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    @include text;
+    font-weight: bold;
+    margin-bottom: $smallSpacing;
+  }
+}
