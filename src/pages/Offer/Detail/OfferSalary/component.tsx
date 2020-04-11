@@ -9,8 +9,8 @@ import { IOfferSalaryComponentProps } from "./interface";
 const OfferSalary: FunctionComponent<IOfferSalaryComponentProps> = (
   {
     offer,
-    title,
     translations: {
+      title,
       salaryFromTranslation,
       salaryToTranslation
     },
