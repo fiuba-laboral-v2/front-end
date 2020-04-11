@@ -16,5 +16,4 @@ interface IDetailHeadlineProps {
   className?: string;
 }
 
-
 export { Headline };
