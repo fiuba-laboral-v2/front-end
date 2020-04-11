@@ -15,23 +15,4 @@
   .careers, .hours {
     margin-bottom: $bigSpacing;
   }
-
-  .hours .hoursInfo .hoursNumber {
-    font-weight: bold;
-    font-size: 22px;
-  }
-
-  .hours .hoursInfo {
-    display: flex;
-
-    .hoursNumber {
-      margin-right: 5px;
-      align-self: center;
-    }
-
-    .hoursPerDayText {
-      font-size: 18px;
-      align-self: center;
-    }
-  }
 }
