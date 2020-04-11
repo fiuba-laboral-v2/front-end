@@ -45,13 +45,13 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   fields={(value, index) => (
                     <>
                       <TextInput
-                        name={`links[${index}].url`}
+                        name={`links.${index}.url`}
                         label={translations.link}
                         type="url"
                         className={styles.link}
                       />
                       <TextInput
-                        name={`links[${index}].name`}
+                        name={`links.${index}.name`}
                         label={translations.linkTitle}
                         className={styles.linkTitle}
                       />
@@ -71,6 +71,30 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                 <CapabilitiesSelector
                   options={[{ description: "Result Of GetCapabilities Query!" }]}
                   label={translations.capability}
+                />
+                <FormSet
+                  title={translations.sections}
+                  name={"sections"}
+                  values={values.sections}
+                  defaultValue={{
+                    title: "",
+                    text: "",
+                    displayOrder: Math.max(
+                      ...values.sections.map(({ displayOrder }) => displayOrder)
+                    ) + 1
+                  }}
+                  fields={(value, index) => (
+                    <>
+                      <TextInput
+                        name={`sections.${index}.title`}
+                        label={translations.sectionTitle}
+                      />
+                      <TextInput
+                        name={`sections.${index}.text`}
+                        label={translations.sectionContent}
+                      />
+                    </>
+                  )}
                 />
               </Form>
               <div className={styles.footer}>
@@ -107,6 +131,9 @@ interface IApplicantDetailEditableTranslations {
   careers: string;
   capabilities: string;
   capability: string;
+  sections: string;
+  sectionTitle: string;
+  sectionContent: string;
   submit: string;
 }
 
