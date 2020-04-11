@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 const Button: FunctionComponent<IButtonProps> = (
   {
     className,
-    width= "fit-content",
+    width = "fit-content",
     children,
     ...props
   }) => (
