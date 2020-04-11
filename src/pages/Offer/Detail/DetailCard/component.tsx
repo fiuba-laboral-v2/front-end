@@ -8,6 +8,7 @@ import { Description } from "$components/Description";
 import { SectionDetail } from "$components/SectionDetail";
 import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
+import HumanizeDuration from "humanize-duration";
 
 import styles from "./styles.module.scss";
 
@@ -31,7 +32,18 @@ const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => 
             {offer.company.companyName}
           </a>
         </Subtitle>
-        <div className={styles.createdAt}>Hace 3 semanas</div>
+        <div className={styles.createdAt}>
+          {
+            `Hace
+            ${
+              HumanizeDuration(
+                new Date(parseInt(offer.createdAt, 10)).getTime() - new Date(Date.now()).getTime(),
+                { language: "es", largest: 2 }
+              )
+            }
+            `
+          }
+        </div>
       </div>
     </div>
     <div className={styles.body}>

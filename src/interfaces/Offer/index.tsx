@@ -15,6 +15,7 @@ export interface IOffer {
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
+  createdAt: string;
   sections?: IOfferSection[];
   careers?: ICareer[];
 }
