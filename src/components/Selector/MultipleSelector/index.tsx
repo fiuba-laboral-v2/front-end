@@ -1,4 +1,4 @@
-import { Field, FieldProps } from "formik";
+import { FastField, FieldProps } from "formik";
 import React, { useState } from "react";
 import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
 import { capitalize, unionBy } from "lodash";
@@ -23,7 +23,7 @@ export const MultipleSelector = <Option, Value>(
   const toUpperCase = (label: string) => label.split(" ").map(capitalize).join(" ");
 
   return (
-    <Field name={name} validate={validate}>
+    <FastField name={name} validate={validate}>
       {({ meta, form }: FieldProps<Value[]>) => (
         <>
           <BaseSelector
@@ -55,7 +55,7 @@ export const MultipleSelector = <Option, Value>(
           <TagSet tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}/>
         </>
       )}
-    </Field>
+    </FastField>
   );
 };
 
