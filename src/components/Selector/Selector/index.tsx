@@ -14,6 +14,7 @@ export const Selector = <Option, Value>(
     {({ meta, form }: FieldProps<Value>) => (
       <BaseSelector
         {...props}
+        disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
         onChange={(event, option) =>
           form.setFieldValue(name, option ? getOptionValue(option) : undefined)

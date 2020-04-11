@@ -30,6 +30,7 @@ export const MultipleSelector = <Option, Value>(
             {...props}
             freeSolo
             disableClearable
+            disabled={form.isSubmitting}
             className={styles.selector}
             initialValue={initialValue}
             onInputChange={(event, value) => setInputValue(value)}
