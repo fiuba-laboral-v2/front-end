@@ -6,6 +6,7 @@ const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_CAREERS = loader("./getCareers.graphql");
 const GET_COMPANIES = loader("./getCompanies.graphql");
+const GET_OFFER_BY_UUID = loader("./getOfferByUuid.graphql");
 
 export {
   GET_TRANSLATIONS,
@@ -13,5 +14,6 @@ export {
   GET_CAREERS,
   GET_APPLICANT,
   GET_APPLICANTS,
-  GET_COMPANIES
+  GET_COMPANIES,
+  GET_OFFER_BY_UUID
 };

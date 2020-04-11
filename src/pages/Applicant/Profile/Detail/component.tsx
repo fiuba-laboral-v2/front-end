@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { DetailHeadline } from "$components/Detail/DetailHeadline";
+import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
 import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
 import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
-import { SectionDetail } from "$pages/Applicant/Profile/SectionDetail";
+import { SectionDetail } from "$components/SectionDetail";
 
 import styles from "./styles.module.scss";
 import { IApplicant } from "$interfaces/Applicant";
@@ -16,7 +16,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   }) => (
   <div className={styles.container}>
     <div className={styles.headline}>
-      <DetailHeadline headline={`${applicant.name} ${applicant.surname}`}/>
+      <Headline headline={`${applicant.name} ${applicant.surname}`}/>
       <Links links={applicant.links}/>
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>

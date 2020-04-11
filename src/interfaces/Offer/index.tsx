@@ -1,0 +1,20 @@
+import { ICareer } from "$interfaces/Applicant";
+import { ICompany } from "$interfaces/Company";
+
+export interface IOfferSection {
+  uuid?: string;
+  title: string;
+  text: string;
+  displayOrder: number;
+}
+
+export interface IOffer {
+  company: ICompany;
+  title: string;
+  description: string;
+  hoursPerDay: number;
+  minimumSalary: number;
+  maximumSalary: number;
+  sections?: IOfferSection[];
+  careers?: ICareer[];
+}

@@ -4,6 +4,7 @@ import { Route, Switch, HashRouter } from "react-router-dom";
 import Home from "$pages/Home";
 import { CompanyRoutes } from "$pages/Company/routes";
 import ApplicantRoutes from "$pages/Applicant/routes";
+import { OfferRoutes } from "$pages/Offer/routes";
 import NotFound from "./pages/NotFound";
 import Configuration from "$config";
 
@@ -18,6 +19,9 @@ const Routes: FunctionComponent = () => (
       </Route>
       <Route path="/applicants">
         <ApplicantRoutes />
+      </Route>
+      <Route path="/offers">
+        <OfferRoutes />
       </Route>
       <Route>
         <NotFound />

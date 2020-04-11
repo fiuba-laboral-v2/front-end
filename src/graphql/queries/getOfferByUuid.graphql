@@ -1,0 +1,26 @@
+query ($uuid: ID!) {
+    getOfferByUuid(uuid: $uuid) {
+        uuid
+        title
+        description
+        hoursPerDay
+        minimumSalary
+        maximumSalary
+        sections {
+            uuid
+            title
+            text
+            displayOrder
+        }
+        careers {
+            code
+            description
+            credits
+        }
+        company {
+            id
+            companyName
+            logo
+        }
+    }
+}
