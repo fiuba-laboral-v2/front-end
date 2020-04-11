@@ -5,7 +5,11 @@ export interface IOfferWorkloadContainerProps {
   className?: string;
 }
 
-export interface IOfferWorkloadComponentProps extends IOfferWorkloadContainerProps {
+interface ITranslations {
   title: string;
   hoursPerDayTranslation: string;
+}
+
+export interface IOfferWorkloadComponentProps extends IOfferWorkloadContainerProps {
+  translations: ITranslations;
 }

@@ -8,8 +8,10 @@ import { IOfferWorkloadComponentProps } from "./interface";
 const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = (
   {
     offer,
-    title,
-    hoursPerDayTranslation,
+    translations: {
+      title,
+      hoursPerDayTranslation
+    },
     className
   }) => (
   <OfferInfoItem className={classNames(styles.workload, className)} title={title}>
