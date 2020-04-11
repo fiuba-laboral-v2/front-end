@@ -3,9 +3,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$src/routesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
-import { ICapability } from "$interfaces/Capability";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_APPLICANT, GET_CAPABILITIES, GET_TRANSLATIONS } from "$queries";
+import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { noop } from "lodash";
 
@@ -18,12 +17,6 @@ const EditableDetailContainer: FunctionComponent = () => {
     error: applicantError,
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
-
-  const {
-    data: { getCapabilities: capabilities } = { getCapabilities: [] as ICapability[] },
-    error: capabilitiesError,
-    loading: loadingCapabilities
-  } = useQuery(GET_CAPABILITIES);
 
   const {
     data: { getTranslations } = { getTranslations: [] },
@@ -46,11 +39,11 @@ const EditableDetailContainer: FunctionComponent = () => {
     }
   });
 
-  if (applicantError || translationsError || capabilitiesError) {
+  if (applicantError || translationsError) {
     history.push(RoutesBuilder.notFound);
   }
 
-  if (loadingApplicant || loadingTranslations || loadingCapabilities) {
+  if (loadingApplicant || loadingTranslations) {
     return <LoadingSpinner/>;
   }
 
@@ -70,7 +63,6 @@ const EditableDetailContainer: FunctionComponent = () => {
   return (
     <EditableDetail
       onSubmit={noop}
-      capabilities={capabilities}
       translations={{
         title: titleTranslation,
         name: nameTranslation,

@@ -8,14 +8,12 @@ import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
 import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
-import { ICapability } from "$interfaces/Capability";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     initialValues,
     onSubmit,
-    translations,
-    capabilities
+    translations
   }) => {
   const formName = "editApplicantDetailForm";
   return (
@@ -70,10 +68,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   )}
                 />
                 <Subtitle>{translations.capabilities}</Subtitle>
-                <CapabilitiesSelector
-                  options={capabilities}
-                  label={translations.capability}
-                />
+                <CapabilitiesSelector label={translations.capability}/>
               </Form>
               <div className={styles.footer}>
                 <Button
@@ -97,7 +92,6 @@ interface IApplicantDetailEditableProps {
   initialValues: IEditableDetailValues;
   onSubmit: (applicant: IEditableDetailValues) => void;
   translations: IApplicantDetailEditableTranslations;
-  capabilities: ICapability[];
 }
 
 interface IApplicantDetailEditableTranslations {

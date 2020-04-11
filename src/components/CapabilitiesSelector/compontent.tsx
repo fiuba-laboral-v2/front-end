@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { MultipleSelector } from "../Selector/MultipleSelector";
 import { ICapability } from "$interfaces/Capability";
 import { capitalize, identity } from "lodash";
+import { ICapabiltiesSelector } from "./interface";
 
 export const CapabilitiesSelector: FunctionComponent<ICapabiltiesSelector> = (
   {
@@ -26,8 +27,3 @@ export const CapabilitiesSelector: FunctionComponent<ICapabiltiesSelector> = (
     />
   );
 };
-
-interface ICapabiltiesSelector {
-  options: ICapability[];
-  label: string;
-}
