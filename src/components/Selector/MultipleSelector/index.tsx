@@ -1,7 +1,7 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
 import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
-import { capitalize, unionBy } from "lodash";
+import { capitalize, differenceBy, unionBy } from "lodash";
 import { TagSet } from "../../TagSet";
 import styles from "./styles.module.scss";
 
@@ -46,12 +46,28 @@ export const MultipleSelector = <Option, Value>(
             }}
             onKeyPress={event => {
               if (event.key !== "Enter") return;
-              const newValue = unionBy(meta.value, [stringToValue(inputValue)], compareValuesBy);
-              form.setFieldValue(name, newValue);
+              const selectedOption = options.find(option =>
+                compareValuesBy(getOptionValue(option)) ===
+                compareValuesBy(stringToValue(inputValue))
+              );
+              const selectedValue = selectedOption ?
+                getOptionValue(selectedOption) : stringToValue(inputValue);
+              form.setFieldValue(
+                name,
+                unionBy(meta.value, [selectedValue], compareValuesBy)
+              );
               setInputValue("");
             }}
           />
-          <TagSet tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}/>
+          <TagSet
+            tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}
+            onRemove={stringValue =>
+              form.setFieldValue(
+                name,
+                differenceBy(meta.value, [stringToValue(stringValue)], compareValuesBy)
+              )
+            }
+          />
         </>
       )}
     </Field>
