@@ -34,6 +34,9 @@ const EditableDetailContainer: FunctionComponent = () => {
         "applicant.edit.careers",
         "applicant.edit.capabilities",
         "applicant.edit.capability",
+        "applicant.edit.sections",
+        "applicant.edit.sectionTitle",
+        "applicant.edit.sectionContent",
         "applicant.edit.submit"
       ]
     }
@@ -57,6 +60,9 @@ const EditableDetailContainer: FunctionComponent = () => {
     careersTranslation,
     capabilitiesTranslation,
     capabilityTranslation,
+    sectionsTranslation,
+    sectionTitleTranslation,
+    sectionContentTranslation,
     submitTranslation
   ] = getTranslations;
 
@@ -73,6 +79,9 @@ const EditableDetailContainer: FunctionComponent = () => {
         careers: careersTranslation,
         capabilities: capabilitiesTranslation,
         capability: capabilityTranslation,
+        sections: sectionsTranslation,
+        sectionTitle: sectionTitleTranslation,
+        sectionContent: sectionContentTranslation,
         submit: submitTranslation
       }}
       initialValues={{
@@ -84,6 +93,7 @@ const EditableDetailContainer: FunctionComponent = () => {
           { code, creditsCount: creditsCount }
         )),
         capabilities: applicant.capabilities,
+        sections: applicant.sections,
         _form: ""
       }}
     />

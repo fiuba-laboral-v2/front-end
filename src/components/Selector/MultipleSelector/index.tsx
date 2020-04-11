@@ -29,6 +29,7 @@ export const MultipleSelector = <Option, Value>(
             {...props}
             freeSolo
             disableClearable
+            disabled={form.isSubmitting}
             className={styles.selector}
             initialValue={initialValue}
             onInputChange={(event, value) => setInputValue(value)}
@@ -45,6 +46,7 @@ export const MultipleSelector = <Option, Value>(
             }}
             onKeyPress={event => {
               if (event.key !== "Enter") return;
+              event.preventDefault();
               const newValue = unionBy(meta.value, [stringToValue(inputValue)], compareValuesBy);
               form.setFieldValue(name, newValue);
               setInputValue("");
