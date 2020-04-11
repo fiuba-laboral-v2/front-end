@@ -31,6 +31,7 @@ export const MaterialUITheme = createMuiTheme({
     },
     MuiInputLabel: {
       root: {
+        height: "30px",
         maxWidth: "100%",
         whiteSpace: "nowrap",
         overflow: "hidden",

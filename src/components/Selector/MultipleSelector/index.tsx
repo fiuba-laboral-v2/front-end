@@ -30,6 +30,7 @@ export const MultipleSelector = <Option, Value>(
             {...props}
             freeSolo
             disableClearable
+            disabled={form.isSubmitting}
             className={styles.selector}
             initialValue={initialValue}
             onInputChange={(event, value) => setInputValue(value)}
@@ -46,6 +47,7 @@ export const MultipleSelector = <Option, Value>(
             }}
             onKeyPress={event => {
               if (event.key !== "Enter") return;
+              event.preventDefault();
               const selectedOption = options.find(option =>
                 compareValuesBy(getOptionValue(option)) ===
                 compareValuesBy(stringToValue(inputValue))
