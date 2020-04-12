@@ -6,7 +6,8 @@ const OfferSalaryInfo: FunctionComponent<IOfferSalaryInfoProps> = (
   {
     salaryNumber,
     translations
-  }) => (
+  }
+) => (
   <div className={styles.salaryInfo}>
     <span className={styles.salaryInfoText}>{translations.salaryInfoText}</span>
     <AttachMoneyIcon fontSize="small"/>
