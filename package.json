@@ -49,7 +49,7 @@
     "shortid": "2.2.15",
     "tslint": "5.20.1",
     "typescript": "~3.7.2",
-    "validations-fiuba-laboral-v2": "1.0.12"
+    "validations-fiuba-laboral-v2": "github::fiuba-laboral-v2/validations#11d0ee39f5ef4800d599d822dc0222e7a0aa0cd0"
   },
   "scripts": {
     "start": "NODE_ENV=development yarn run postinstall && react-scripts start",
