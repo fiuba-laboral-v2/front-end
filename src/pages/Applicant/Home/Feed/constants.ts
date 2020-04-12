@@ -9,16 +9,18 @@ const getOffers = () => ([
   hoursPerDay: 8,
   minimumSalary: 50000,
   maximumSalary: 70000,
-  createdAt: new Date(new Date().setDate(new Date().getDate()-3)),
+  createdAt: `${new Date(new Date().setDate(new Date().getDate()-3))}`,
   careers: [
     {
       code: "1111",
       description: "Ing. Informatica",
+      creditsCount: 140,
       credits: 245
     }
   ],
   sections: [],
   company: {
+    id: 1,
     cuit: "11111111111",
     companyName: "GitHub",
     slogan: "GitHub",
@@ -37,16 +39,18 @@ const getOffers = () => ([
   hoursPerDay: 6,
   minimumSalary: 40000,
   maximumSalary: 60000,
-  createdAt: new Date(new Date().setDate(new Date().getDate()-15)),
+  createdAt: `${new Date(new Date().setDate(new Date().getDate()-15))}`,
   careers: [
     {
       code: "1111",
       description: "Ing. Informatica",
+      creditsCount: 140,
       credits: 245
     }
   ],
   sections: [],
   company: {
+    id: 2,
     cuit: "11111111111",
     companyName: "Mercado Libre",
     slogan: "Gatos",
