@@ -4,24 +4,20 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
 const OfferSalaryInfo: FunctionComponent<IOfferSalaryInfoProps> = (
   {
-    salaryNumber,
-    translations
+    amount,
+    label
   }
 ) => (
   <div className={styles.salaryInfo}>
-    <span className={styles.salaryInfoText}>{translations.salaryInfoText}</span>
+    <span className={styles.salaryInfoText}>{label}</span>
     <AttachMoneyIcon fontSize="small"/>
-    <span className={styles.salaryNumber}>{salaryNumber}</span>
+    <span className={styles.amount}>{amount}</span>
   </div>
 );
 
-interface IOfferSalaryInfoTranslations {
-  salaryInfoText: string;
-}
-
 interface IOfferSalaryInfoProps {
-  translations: IOfferSalaryInfoTranslations;
-  salaryNumber: number;
+  label: string;
+  amount: number;
 }
 
 export { OfferSalaryInfo };
