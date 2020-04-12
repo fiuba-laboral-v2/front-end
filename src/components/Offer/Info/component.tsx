@@ -5,6 +5,8 @@ import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
 
+const dateExample = new Date(new Date().setDate(new Date().getDate()-3));
+
 const Info: FunctionComponent = () => (
   <div className={styles.container}>
     <Subtitle className={styles.jobDescription}>
@@ -16,7 +18,7 @@ const Info: FunctionComponent = () => (
         <Subtitle>
           Mercado Libre
         </Subtitle>
-        <TimeHumanizer since={new Date(new Date().setDate(new Date().getDate()-3))} />
+        <TimeHumanizer since={dateExample} className={styles.time}/>
       </div>
       <JobSpecs salary={"70000 - 52500"} workload={{time: "8", description: "horas por día"}} />
     </div>
