@@ -15,6 +15,7 @@ $lightRedBtn: #FEE8E7;
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
 }
 
 @mixin btnColors($border, $background, $textColor) {

@@ -1,13 +1,13 @@
-export const FormikValidator = (
+export const FormikValidator = <Value>(
   {
     validator,
     mandatory = false
   }: {
-    validator?: (value: any) => void,
+    validator?: (value: Value) => void,
     mandatory?: boolean
   } = {}
 ) => {
-  return (value: any) => {
+  return (value: Value) => {
     if (mandatory && ["", null, undefined, {}].includes(value)) return "Este campo es obligatorio";
 
     try {

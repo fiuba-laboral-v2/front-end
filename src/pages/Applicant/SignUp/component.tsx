@@ -7,7 +7,12 @@ import Button from "$components/Button";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
-import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
+import {
+  validateEmail,
+  validateIntegerInRange,
+  validateName,
+  validatePassword
+} from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
 import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
@@ -81,9 +86,10 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     type="number"
                     inputProps={{ min: 0, step: 1 }}
                     className={styles.textInput}
-                    validate={(value: number) => {
-                      if (value <= 0) return "El padrón es mayor que 0";
-                    }}
+                    validate={FormikValidator({
+                      validator: validateIntegerInRange({ min: { value: 0, include: false } }),
+                      mandatory: true
+                    })}
                   />
                 </div>
                 <FormSet
@@ -92,7 +98,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   values={values.careers}
                   defaultValue={careerInitialValue}
                   fields={(value, index) => (
-                    <CareerSelector key={index} index={index}/>
+                    <CareerSelector key={index} index={index} value={value}/>
                   )}
                 />
               </Form>
