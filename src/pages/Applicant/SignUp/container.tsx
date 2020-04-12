@@ -4,7 +4,7 @@ import { GET_TRANSLATIONS } from "$queries";
 import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
 import { useHistory } from "react-router-dom";
 import { pick } from "lodash";

@@ -1,4 +1,5 @@
 @import "$styles/mixins/_text.scss";
+@import "$styles/_variables.scss";
 
 .tag {
   @include text;
@@ -11,4 +12,15 @@
   font-style: normal;
   font-weight: normal;
   justify-content: center;
+}
+
+.removeButton {
+  color: white;
+  font-size: 15px;
+  line-height: unset;
+  margin-left: 2px;
+
+  &:hover, &:active {
+    color: $lightGrey;
+  }
 }

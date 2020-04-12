@@ -1,9 +1,10 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
 import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
-import { capitalize, unionBy } from "lodash";
+import { differenceBy, unionBy } from "lodash";
 import { TagSet } from "../../TagSet";
 import styles from "./styles.module.scss";
+import { TextFormatter } from "$models/TextFormatter";
 
 export const MultipleSelector = <Option, Value>(
   {
@@ -20,7 +21,6 @@ export const MultipleSelector = <Option, Value>(
   }: IMultipleSelectorProps<Option, Value>
 ) => {
   const [inputValue, setInputValue] = useState("");
-  const toUpperCase = (label: string) => label.split(" ").map(capitalize).join(" ");
 
   return (
     <Field name={name} validate={validate}>
@@ -30,10 +30,11 @@ export const MultipleSelector = <Option, Value>(
             {...props}
             freeSolo
             disableClearable
+            disabled={form.isSubmitting}
             className={styles.selector}
             initialValue={initialValue}
             onInputChange={(event, value) => setInputValue(value)}
-            inputValue={toUpperCase(inputValue)}
+            inputValue={valueToString(stringToValue(inputValue))}
             errorMessage={meta.touched ? meta.error : undefined}
             options={options}
             getOptionValue={getOptionValue}
@@ -46,12 +47,29 @@ export const MultipleSelector = <Option, Value>(
             }}
             onKeyPress={event => {
               if (event.key !== "Enter") return;
-              const newValue = unionBy(meta.value, [stringToValue(inputValue)], compareValuesBy);
-              form.setFieldValue(name, newValue);
+              event.preventDefault();
+              const selectedOption = options.find(option =>
+                compareValuesBy(getOptionValue(option)) ===
+                compareValuesBy(stringToValue(inputValue))
+              );
+              const selectedValue = selectedOption ?
+                getOptionValue(selectedOption) : stringToValue(inputValue);
+              form.setFieldValue(
+                name,
+                unionBy(meta.value, [selectedValue], compareValuesBy)
+              );
               setInputValue("");
             }}
           />
-          <TagSet tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}/>
+          <TagSet
+            tags={new Set(meta.value.map(value => TextFormatter.capitalize(valueToString(value))))}
+            onRemove={stringValue =>
+              form.setFieldValue(
+                name,
+                differenceBy(meta.value, [stringToValue(stringValue)], compareValuesBy)
+              )
+            }
+          />
         </>
       )}
     </Field>

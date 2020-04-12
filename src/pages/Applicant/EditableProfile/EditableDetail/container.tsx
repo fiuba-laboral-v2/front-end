@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 import { useQuery } from "@apollo/react-hooks";
@@ -34,14 +34,21 @@ const EditableDetailContainer: FunctionComponent = () => {
         "applicant.edit.careers",
         "applicant.edit.capabilities",
         "applicant.edit.capability",
+        "applicant.edit.sections",
+        "applicant.edit.sectionTitle",
+        "applicant.edit.sectionContent",
         "applicant.edit.submit"
       ]
     }
   });
 
-  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
+  if (applicantError || translationsError) {
+    history.push(RoutesBuilder.notFound);
+  }
 
-  if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
+  if (loadingApplicant || loadingTranslations) {
+    return <LoadingSpinner/>;
+  }
 
   const [
     titleTranslation,
@@ -53,6 +60,9 @@ const EditableDetailContainer: FunctionComponent = () => {
     careersTranslation,
     capabilitiesTranslation,
     capabilityTranslation,
+    sectionsTranslation,
+    sectionTitleTranslation,
+    sectionContentTranslation,
     submitTranslation
   ] = getTranslations;
 
@@ -69,6 +79,9 @@ const EditableDetailContainer: FunctionComponent = () => {
         careers: careersTranslation,
         capabilities: capabilitiesTranslation,
         capability: capabilityTranslation,
+        sections: sectionsTranslation,
+        sectionTitle: sectionTitleTranslation,
+        sectionContent: sectionContentTranslation,
         submit: submitTranslation
       }}
       initialValues={{
@@ -80,6 +93,7 @@ const EditableDetailContainer: FunctionComponent = () => {
           { code, creditsCount: creditsCount }
         )),
         capabilities: applicant.capabilities,
+        sections: applicant.sections,
         _form: ""
       }}
     />

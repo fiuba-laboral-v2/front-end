@@ -1,4 +1,4 @@
-import { Field, FieldProps } from "formik";
+import { FastField, FieldProps } from "formik";
 import React from "react";
 import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
 
@@ -10,10 +10,11 @@ export const Selector = <Option, Value>(
     ...props
   }: ISelectorProps<Option, Value>
 ) => (
-  <Field name={name} validate={validate}>
+  <FastField name={name} validate={validate}>
     {({ meta, form }: FieldProps<Value>) => (
       <BaseSelector
         {...props}
+        disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
         onChange={(event, option) =>
           form.setFieldValue(name, option ? getOptionValue(option) : undefined)
@@ -22,7 +23,7 @@ export const Selector = <Option, Value>(
         errorMessage={meta.touched ? meta.error : undefined}
       />
     )}
-  </Field>
+  </FastField>
 );
 
 interface ISelectorProps<Option, Value> extends IBaseSelectorProps<Option, Value> {

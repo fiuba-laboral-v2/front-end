@@ -1,1 +1,1 @@
-export { CapabilitiesSelector } from "./compontent";
+export { CapabilitiesSelectorContainer as CapabilitiesSelector } from "./container";
