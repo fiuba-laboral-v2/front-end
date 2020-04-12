@@ -14,7 +14,7 @@ const Info: FunctionComponent = () => (
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
         <Subtitle>
-          GitHub
+          Mercado Libre
         </Subtitle>
         <TimeHumanizer since={new Date(new Date().setDate(new Date().getDate()-3))} />
       </div>
