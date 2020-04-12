@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
 import { Home } from "./Home";
+import { OfferDetail } from "./OfferDetail";
 
 
 const ApplicantRoutes: FunctionComponent = () => {
@@ -26,6 +27,9 @@ const ApplicantRoutes: FunctionComponent = () => {
       </Route>
       <Route exact path="/applicants/:id/edit">
         <EditableProfile />
+      </Route>
+      <Route exact path="/applicants/offers/:id">
+        <OfferDetail />
       </Route>
     </Switch>
   );

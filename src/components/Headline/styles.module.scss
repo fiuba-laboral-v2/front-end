@@ -1,9 +1,13 @@
 @import "$styles/_variables.scss";
 @import "$styles/mixins/_title.scss";
 
-.title {
+.detailHeadline {
   @include title;
-
-  color: #1A6288;
-  margin-bottom: $smallSpacing;
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .detailHeadline {
+    word-break: break-word;
+  }
+}
+
