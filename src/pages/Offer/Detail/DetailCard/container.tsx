@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
+import { sortBy } from "lodash";
 
 import { RoutesBuilder } from "$src/routesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
@@ -21,6 +22,8 @@ const DetailCardContainer: FunctionComponent = () => {
 
   if (offerError) history.push(RoutesBuilder.notFound);
   if (loadingOffer) return <LoadingSpinner/>;
+
+  offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
   return (
     <DetailCard
