@@ -50,6 +50,7 @@ export interface IBaseSelectorProps<Option, Value> {
   onKeyPress?: KeyboardEventHandler<HTMLInputElement>;
   options: Option[];
   freeSolo?: boolean;
+  disabled?: boolean;
   disableClearable?: boolean;
   inputValue?: string;
 }

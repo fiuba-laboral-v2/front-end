@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { sortBy } from "lodash";
 
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 

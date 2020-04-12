@@ -12,7 +12,6 @@ import { OfferInfo } from "../OfferInfo";
 import HumanizeDuration from "humanize-duration";
 
 import styles from "./styles.module.scss";
-import { RoutesBuilder } from "../../../../routesBuilder";
 
 const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => (
   <div className={styles.mainContainer}>
