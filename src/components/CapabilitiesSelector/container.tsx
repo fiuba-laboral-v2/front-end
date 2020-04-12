@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { ICapabiltiesSelectorContainer } from "./interface";
 import { CapabilitiesSelector } from "./compontent";
-import { ICapability } from "../../interfaces/Capability";
+import { ICapability } from "$interfaces/Capability";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_CAPABILITIES } from "../../graphql/queries";
+import { GET_CAPABILITIES } from "$queries";
 
 export const CapabilitiesSelectorContainer:
   FunctionComponent<ICapabiltiesSelectorContainer> = props => {
