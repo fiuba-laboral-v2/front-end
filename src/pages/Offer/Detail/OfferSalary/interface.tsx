@@ -1,4 +1,4 @@
-import { IOffer } from "../../../../interfaces/Offer";
+import { IOffer } from "$interfaces/Offer";
 
 export interface IOfferSalaryContainerProps {
   offer: IOffer;
