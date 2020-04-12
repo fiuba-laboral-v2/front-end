@@ -13,7 +13,13 @@ import HumanizeDuration from "humanize-duration";
 
 import styles from "./styles.module.scss";
 
-const Detail: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => (
+const Detail: FunctionComponent<IDetailProps> = (
+  {
+    offer,
+    goToCompany,
+    translations
+  }
+) => (
   <div className={styles.mainContainer}>
     <div className={styles.header}>
       <CompanyLogo
@@ -57,16 +63,21 @@ const Detail: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => (
           width="expand"
           type="submit"
         >
-          Postularme
+          {translations.apply}
         </Button>
       </div>
     </div>
   </div>
 );
 
+interface IDetailTranslations {
+  apply: string;
+}
+
 interface IDetailProps {
   offer: IOffer;
   goToCompany: string;
+  translations: IDetailTranslations;
 }
 
 export { Detail };
