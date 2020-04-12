@@ -1,0 +1,1 @@
+export { OfferInfo } from "./component";

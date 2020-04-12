@@ -1,0 +1,14 @@
+.hoursInfo {
+  display: flex;
+  .hoursPerDay {
+    font-weight: bold;
+    font-size: 22px;
+    margin-right: 5px;
+    align-self: center;
+  }
+
+  .hoursPerDayText {
+    font-size: 18px;
+    align-self: center;
+  }
+}
