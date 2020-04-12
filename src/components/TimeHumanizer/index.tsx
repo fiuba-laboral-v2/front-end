@@ -13,7 +13,7 @@ const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({since, className
 
 interface ITimeHumanizerProps {
   since: Date | string | number;
-  className: string;
+  className?: string;
 }
 
 export { TimeHumanizer };
