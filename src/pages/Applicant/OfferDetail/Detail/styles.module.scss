@@ -1,0 +1,86 @@
+@import "$styles/_variables.scss";
+@import "$styles/mixins/_card.scss";
+@import "$styles/mixins/_text.scss";
+
+.mainContainer {
+  @include card;
+
+  .header {
+    display: flex;
+    margin-bottom: $bigSpacing;
+
+    .companyLogo {
+      margin-right: $bigSpacing;
+    }
+
+    .rightHeader {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        margin-bottom: $smallSpacing;
+      }
+
+      .companyName {
+        margin-bottom: $normalSpacing;
+      }
+
+      .createdAt {
+        @include text;
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+
+    .leftBodyContainer {
+      width: 70%;
+      margin-right: $bigSpacing;
+    }
+
+    .rightBodyContainer {
+      width: 30%;
+
+      .offerInfo {
+        margin-bottom: $biggerSpacing;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContainer {
+    @include card;
+
+    .header {
+      flex-direction: column;
+
+      .companyLogo {
+        margin-right: $bigSpacing;
+      }
+
+      .rightHeader {
+        flex-direction: column;
+      }
+    }
+
+    .body {
+      flex-direction: column;
+
+      .leftBodyContainer, .rightBodyContainer {
+        width: auto;
+      }
+
+      .rightBodyContainer {
+        margin-bottom: $bigSpacing;
+        order: 1;
+      }
+
+      .leftBodyContainer {
+        order: 2;
+      }
+    }
+  }
+}
+
