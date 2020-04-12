@@ -6,12 +6,12 @@ import styles from "./styles.module.scss";
 
 const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({since}) => (
   <p className={styles.time}>
-    {moment(`${since}`).fromNow()}
+    {moment(since).fromNow()}
   </p>
 );
 
 interface ITimeHumanizerProps {
-  since: Date | string;
+  since: Date | string | number;
 }
 
 export { TimeHumanizer };
