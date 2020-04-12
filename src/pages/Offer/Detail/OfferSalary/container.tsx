@@ -9,8 +9,8 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
     className
   }
 ) => {
-  const salaryFromTranslation = "Desde";
-  const salaryToTranslation = "Hasta";
+  const salaryFrom = "Desde";
+  const salaryTo = "Hasta";
 
   return (
     <OfferSalary
@@ -18,8 +18,8 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
       translations={
         {
           title: "Salario Neto",
-          salaryFromTranslation: salaryFromTranslation,
-          salaryToTranslation: salaryToTranslation
+          salaryFrom: salaryFrom,
+          salaryTo: salaryTo
         }
       }
       offer={offer}

@@ -7,10 +7,10 @@ export interface IOfferSalaryContainerProps {
 
 interface ITranslations {
   title: string;
-  salaryFromTranslation: string;
-  salaryToTranslation: string;
+  salaryFrom: string;
+  salaryTo: string;
 }
 
-export interface IOfferSalaryComponentProps extends IOfferSalaryContainerProps {
+export interface IOfferSalaryProps extends IOfferSalaryContainerProps {
   translations: ITranslations;
 }

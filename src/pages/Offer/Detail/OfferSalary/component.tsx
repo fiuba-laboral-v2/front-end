@@ -4,26 +4,22 @@ import styles from "./styles.module.scss";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { OfferInfoItem } from "../OfferInfoItem";
 
-import { IOfferSalaryComponentProps } from "./interface";
+import { IOfferSalaryProps } from "./interface";
 
-const OfferSalary: FunctionComponent<IOfferSalaryComponentProps> = (
+const OfferSalary: FunctionComponent<IOfferSalaryProps> = (
   {
     offer,
-    translations: {
-      title,
-      salaryFromTranslation,
-      salaryToTranslation
-    },
+    translations,
     className
   }) => (
-    <OfferInfoItem className={classNames(styles.salary, className)} title={title}>
+    <OfferInfoItem className={classNames(styles.salary, className)} title={translations.title}>
       <div className={styles.SalaryInfo}>
-        <div className={styles.salaryInfoText}>{salaryFromTranslation}</div>
+        <div className={styles.salaryInfoText}>{translations.salaryFrom}</div>
         <AttachMoneyIcon fontSize="small"/>
         <div className={styles.salaryNumber}>{offer.minimumSalary}</div>
       </div>
       <div className={styles.SalaryInfo}>
-        <div className={styles.salaryInfoText}>{salaryToTranslation}</div>
+        <div className={styles.salaryInfoText}>{translations.salaryTo}</div>
         <AttachMoneyIcon fontSize="small"/>
         <div className={styles.salaryNumber}>{offer.maximumSalary}</div>
       </div>
