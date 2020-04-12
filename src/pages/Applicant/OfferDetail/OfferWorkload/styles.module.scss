@@ -1,3 +1,5 @@
+|@import "$styles/_variables.scss";
+
 .hoursInfo {
   display: flex;
   .hoursPerDay {
@@ -8,7 +10,7 @@
   }
 
   .hoursPerDayText {
-    font-size: 18px;
+    font-size: $normalFontSize;
     align-self: center;
   }
 }
