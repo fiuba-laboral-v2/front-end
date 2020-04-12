@@ -8,6 +8,8 @@ import { IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
 import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
+import { FormikValidator } from "$models/FormikValidator";
+import { validateName, validateURL } from "validations-fiuba-laboral-v2";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -32,10 +34,12 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                 <TextInput
                   name={"name"}
                   label={translations.name}
+                  validate={FormikValidator({ validator: validateName, mandatory: true })}
                 />
                 <TextInput
                   name={"surname"}
                   label={translations.surname}
+                  validate={FormikValidator({ validator: validateName, mandatory: true })}
                 />
                 <FormSet
                   title={translations.links}
@@ -49,11 +53,13 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                         label={translations.link}
                         type="url"
                         className={styles.link}
+                        validate={FormikValidator({ validator: validateURL, mandatory: true })}
                       />
                       <TextInput
                         name={`links.${index}.name`}
                         label={translations.linkTitle}
                         className={styles.linkTitle}
+                        validate={FormikValidator({ mandatory: true })}
                       />
                     </>
                   )}
@@ -85,10 +91,12 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                       <TextInput
                         name={`sections.${index}.title`}
                         label={translations.sectionTitle}
+                        validate={FormikValidator({ mandatory: true })}
                       />
                       <TextInput
                         name={`sections.${index}.text`}
                         label={translations.sectionContent}
+                        validate={FormikValidator({ mandatory: true })}
                       />
                     </>
                   )}

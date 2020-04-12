@@ -2,7 +2,7 @@ import { IApplicantCareer, ICareer } from "$interfaces/Applicant";
 
 export interface ICareerSelectorContainerProps {
   index: number;
-  value?: IApplicantCareer;
+  value: IApplicantCareer;
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {

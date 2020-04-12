@@ -5,6 +5,7 @@ import { Selector } from "$components/Selector";
 import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
 import { FormikValidator } from "$models/FormikValidator";
+import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
@@ -30,7 +31,20 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       name={`careers.${index}.creditsCount`}
       label={creditsLabel}
       type="number"
-      inputProps={{ min: 0 }}
+      fast={false}
+      validate={FormikValidator({
+        validator: validateIntegerInRange({
+          min: {
+            value: 0,
+            include: true
+          },
+          max: {
+            value: options.find(career => career.code === value?.code)?.credits,
+            include: true
+          }
+        }),
+        mandatory: true
+      })}
       className={styles.credits}
     />
   </div>
