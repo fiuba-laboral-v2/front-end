@@ -1,16 +1,5 @@
+@import "$styles/_variables.scss";
+
 .salary {
-  .SalaryInfo {
-    display: flex;
-
-    .salaryInfoText {
-      font-size: 18px;
-      margin-right: 5px;
-      align-self: center;
-    }
-
-    .salaryNumber {
-      font-weight: bold;
-      font-size: 22px;
-    }
-  }
+  display: flex;
 }
