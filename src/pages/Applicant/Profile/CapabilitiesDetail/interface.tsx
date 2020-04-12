@@ -1,4 +1,4 @@
-import { ICapability } from "$interfaces/Applicant";
+import { ICapability } from "$interfaces/Capability";
 
 export interface ICapabilitiesProps {
   capabilities: ICapability[];
