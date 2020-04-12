@@ -1,7 +1,7 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
 import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
-import { capitalize, unionBy } from "lodash";
+import { unionBy } from "lodash";
 import { TagSet } from "../../TagSet";
 import styles from "./styles.module.scss";
 
@@ -20,7 +20,6 @@ export const MultipleSelector = <Option, Value>(
   }: IMultipleSelectorProps<Option, Value>
 ) => {
   const [inputValue, setInputValue] = useState("");
-  const toUpperCase = (label: string) => label.split(" ").map(capitalize).join(" ");
 
   return (
     <Field name={name} validate={validate}>
@@ -34,7 +33,7 @@ export const MultipleSelector = <Option, Value>(
             className={styles.selector}
             initialValue={initialValue}
             onInputChange={(event, value) => setInputValue(value)}
-            inputValue={toUpperCase(inputValue)}
+            inputValue={valueToString(stringToValue(inputValue))}
             errorMessage={meta.touched ? meta.error : undefined}
             options={options}
             getOptionValue={getOptionValue}
@@ -53,7 +52,7 @@ export const MultipleSelector = <Option, Value>(
               setInputValue("");
             }}
           />
-          <TagSet tags={new Set(meta.value.map(value => toUpperCase(valueToString(value))))}/>
+          <TagSet tags={new Set(meta.value.map(value => valueToString(value)))}/>
         </>
       )}
     </Field>

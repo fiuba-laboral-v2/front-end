@@ -26,7 +26,7 @@ export const MaterialUITheme = createMuiTheme({
     },
     MuiCircularProgress: {
       colorPrimary: {
-          color: "#0095DB"
+        color: "#0095DB"
       }
     },
     MuiInputLabel: {

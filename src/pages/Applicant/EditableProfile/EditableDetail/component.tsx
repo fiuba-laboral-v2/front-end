@@ -68,10 +68,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   )}
                 />
                 <Subtitle>{translations.capabilities}</Subtitle>
-                <CapabilitiesSelector
-                  options={[{ description: "Result Of GetCapabilities Query!" }]}
-                  label={translations.capability}
-                />
+                <CapabilitiesSelector label={translations.capability}/>
                 <FormSet
                   title={translations.sections}
                   name={"sections"}
