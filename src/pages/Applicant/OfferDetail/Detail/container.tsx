@@ -34,7 +34,7 @@ const DetailContainer: FunctionComponent = () => {
 
   return (
     <Detail
-      translations={{ apply: apply }}
+      translations={{ apply }}
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}
       offer={offer}
     />
