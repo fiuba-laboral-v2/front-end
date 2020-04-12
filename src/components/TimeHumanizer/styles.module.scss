@@ -1,0 +1,8 @@
+@import "$styles/_variables.scss";
+@import "$styles/mixins/_text.scss";
+
+.time {
+  @include text;
+
+  color: $grey;
+}
