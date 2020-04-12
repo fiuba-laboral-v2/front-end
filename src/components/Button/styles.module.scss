@@ -17,10 +17,6 @@ $lightRedBtn: #FEE8E7;
   justify-content: center;
 }
 
-@mixin width($value) {
-  width: $value;
-}
-
 @mixin btnColors($border, $background, $textColor) {
   border: 1px solid $border;
   background-color: $background;
@@ -43,11 +39,11 @@ $lightRedBtn: #FEE8E7;
 }
 
 .expand {
-  @include width(100%);
+  width: 100%;
 }
 
 .fit-content {
-  @include width("fit-content");
+  width: fit-content;
 }
 
 .primary {
