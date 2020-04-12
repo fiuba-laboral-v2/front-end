@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { RoutesBuilder } from "$src/routesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 import { useQuery } from "@apollo/react-hooks";
@@ -42,9 +42,13 @@ const EditableDetailContainer: FunctionComponent = () => {
     }
   });
 
-  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
+  if (applicantError || translationsError) {
+    history.push(RoutesBuilder.notFound);
+  }
 
-  if (loadingApplicant || loadingTranslations) return <LoadingSpinner/>;
+  if (loadingApplicant || loadingTranslations) {
+    return <LoadingSpinner/>;
+  }
 
   const [
     titleTranslation,

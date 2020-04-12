@@ -1,13 +1,10 @@
+import { ICapability } from "../Capability";
+
 export interface ICareer {
   code: string;
   description: string;
   credits: number;
   creditsCount: number;
-}
-
-export interface ICapability {
-  uuid?: string;
-  description: string;
 }
 
 export interface ISection {
