@@ -4,6 +4,7 @@ import { SignUp } from "./SignUp";
 import Profile from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
+import { Home } from "./Home";
 
 
 const ApplicantRoutes: FunctionComponent = () => {
@@ -12,6 +13,9 @@ const ApplicantRoutes: FunctionComponent = () => {
   return (
     <Switch>
       <Route exact path={`${path}/`}>
+        <Home />
+      </Route>
+      <Route exact path={`${path}/list`}>
         <List />
       </Route>
       <Route exact path={`${path}/sign-up`}>

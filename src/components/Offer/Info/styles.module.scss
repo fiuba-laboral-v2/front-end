@@ -1,0 +1,23 @@
+@import "$styles/_variables.scss";
+
+.container {
+  // display: flex;
+  // flex-grow: 2;
+  flex-basis: 100%;
+  margin: $smallSpacing;
+  margin-left: $bigSpacing;
+  flex-direction: column;
+  // background-color:green;
+}
+
+.separator {
+  border: .5px solid $grey;
+}
+
+.detailsContainer {
+  display: flex;
+  margin: $bigSpacing;
+  margin-left: $bigSpacing;
+  margin-bottom: 0;
+  flex-direction: column;
+}

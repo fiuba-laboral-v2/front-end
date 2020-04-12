@@ -1,0 +1,8 @@
+@import "$styles/mixins/_subtitle.scss";
+@import "$styles/_variables.scss";
+
+.title {
+  @include subtitle;
+
+  margin-bottom: $smallSpacing;
+}

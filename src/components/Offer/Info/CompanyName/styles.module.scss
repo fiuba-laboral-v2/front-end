@@ -1,0 +1,9 @@
+@import "$styles/mixins/_subtitle.scss";
+@import "$styles/_variables.scss";
+
+.name {
+  @include subtitle;
+
+  color: $darkGrey;
+  font-weight: normal;
+}
