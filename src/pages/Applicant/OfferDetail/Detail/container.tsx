@@ -7,10 +7,10 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 
-import { DetailCard } from "./component";
+import { Detail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
-const DetailCardContainer: FunctionComponent = () => {
+const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
 
@@ -26,11 +26,11 @@ const DetailCardContainer: FunctionComponent = () => {
   offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
   return (
-    <DetailCard
+    <Detail
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}
       offer={offer}
     />
   );
 };
 
-export { DetailCardContainer };
+export { DetailContainer };

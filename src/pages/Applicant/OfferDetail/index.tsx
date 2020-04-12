@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Window } from "$components/Window";
-import { DetailCard } from "./DetailCard";
+import { Detail } from "./Detail";
 
-const Detail: FunctionComponent = () => (
+const OfferDetail: FunctionComponent = () => (
   <Window>
-    <DetailCard/>
+    <Detail/>
   </Window>
 );
 
-export { Detail };
+export { OfferDetail };
