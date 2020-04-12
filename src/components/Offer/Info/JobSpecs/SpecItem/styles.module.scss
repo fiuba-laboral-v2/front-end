@@ -1,0 +1,21 @@
+@import "$styles/mixins/_subtitle.scss";
+@import "$styles/mixins/_text.scss";
+@import "$styles/_variables.scss";
+
+.content {
+  display: flex;
+  align-items: flex-end;
+  margin-left: $bigSpacing;
+
+  h2 {
+    @include subtitle;
+
+    font-weight: normal;
+    margin: 0 $smallSpacing 0 $normalSpacing;
+  }
+
+  p {
+    @include text;
+    margin: 0;
+  }
+}

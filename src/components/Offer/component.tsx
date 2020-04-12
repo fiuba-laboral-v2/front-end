@@ -11,7 +11,6 @@ const Offer: FunctionComponent = () => (
       companyName={"GitHub"}
       logo={githubLogo}
       size="large"
-      className={styles.logoContainer}
     />
     <Info />
   </div>
