@@ -33,7 +33,7 @@ const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => 
             `Hace
             ${
               HumanizeDuration(
-                new Date(parseInt(offer.createdAt, 10)).getTime() - new Date(Date.now()).getTime(),
+                parseInt(offer.createdAt, 10) - Date.now(),
                 { language: "es", largest: 2 }
               )
             }
