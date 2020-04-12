@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { IOffer } from "$interfaces/Offer";
 
 import { CompanyLogo } from "$components/CompanyLogo";
@@ -11,6 +12,7 @@ import { OfferInfo } from "../OfferInfo";
 import HumanizeDuration from "humanize-duration";
 
 import styles from "./styles.module.scss";
+import { RoutesBuilder } from "../../../../routesBuilder";
 
 const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => (
   <div className={styles.mainContainer}>
@@ -24,13 +26,7 @@ const DetailCard: FunctionComponent<IDetailProps> = ({ offer, goToCompany }) => 
       <div className={styles.rightHeader}>
         <Headline className={styles.title} headline={offer.title}/>
         <Subtitle className={styles.companyName} >
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`#${goToCompany}`}
-          >
-            {offer.company.companyName}
-          </a>
+          <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>
         <div className={styles.createdAt}>
           {
