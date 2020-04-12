@@ -7,9 +7,9 @@ import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
 import { Description } from "$components/Description";
 import { SectionDetail } from "$components/SectionDetail";
+import { TimeHumanizer } from "$components/TimeHumanizer";
 import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
-import HumanizeDuration from "humanize-duration";
 
 import styles from "./styles.module.scss";
 
@@ -33,18 +33,7 @@ const Detail: FunctionComponent<IDetailProps> = (
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>
-        <div className={styles.createdAt}>
-          {
-            `Hace
-            ${
-              HumanizeDuration(
-                parseInt(offer.createdAt, 10) - Date.now(),
-                { language: "es", largest: 2 }
-              )
-            }
-            `
-          }
-        </div>
+        <TimeHumanizer className={styles.createdAt} since={parseInt(offer.createdAt, 10)}/>
       </div>
     </div>
     <div className={styles.body}>
