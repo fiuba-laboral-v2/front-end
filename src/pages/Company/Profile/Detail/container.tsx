@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { GET_COMPANY_BY_ID } from "$queries";
 import { useQuery } from "@apollo/react-hooks";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { ICompany } from "$interfaces/Company";
 import { Detail } from "./component";
-import { RoutesBuilder } from "$utils/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const DetailContainer: FunctionComponent = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const DetailContainer: FunctionComponent = () => {
   } = useQuery(GET_COMPANY_BY_ID, { variables: { id: id } });
   if (error) history.push(RoutesBuilder.notFound);
 
-  return <Detail loading={loading} company={company} />;
+  return <Detail loading={loading} company={company}/>;
 };
 
 export { DetailContainer };

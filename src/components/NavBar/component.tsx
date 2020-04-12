@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import { RoutesBuilder } from "$utils/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import styles from "./styles.module.scss";
 import classNames from "classnames";

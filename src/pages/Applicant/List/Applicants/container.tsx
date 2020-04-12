@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
 import { GET_APPLICANTS, GET_TRANSLATIONS } from "$queries";
 import { Applicants } from "./component";
-import { RoutesBuilder } from "$utils/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const ApplicantsContainer: FunctionComponent = () => {
   const history = useHistory();
