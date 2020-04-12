@@ -5,7 +5,6 @@ $lightBlueBtn: #E6F7FF;
 $lightRedBtn: #FEE8E7;
 
 .main {
-  width: fit-content;
   min-width: 85px;
   min-height: 40px;
   padding: 1px 14px 1px 14px;
@@ -37,6 +36,14 @@ $lightRedBtn: #FEE8E7;
     background-color: darken(desaturate($background, 80%), 5%);
     cursor: not-allowed;
   }
+}
+
+.expand {
+  width: 100%;
+}
+
+.fit-content {
+  width: fit-content;
 }
 
 .primary {
