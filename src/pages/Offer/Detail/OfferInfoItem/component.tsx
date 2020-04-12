@@ -7,7 +7,8 @@ const OfferInfoItem: FunctionComponent<IOfferInfoItemProps> = (
     title,
     className,
     children
-  }) => (
+  }
+) => (
   <div className={classNames(styles.item, className)}>
     <div className={styles.title}>{title}</div>
     {children}

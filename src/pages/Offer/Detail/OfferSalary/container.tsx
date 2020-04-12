@@ -7,7 +7,8 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
   {
     offer,
     className
-  }) => {
+  }
+) => {
   const salaryFromTranslation = "Desde";
   const salaryToTranslation = "Hasta";
 
