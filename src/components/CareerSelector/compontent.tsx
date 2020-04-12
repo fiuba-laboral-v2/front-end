@@ -38,10 +38,12 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
             value: 0,
             include: true
           },
-          max: {
-            value: options.find(career => career.code === value?.code)?.credits,
-            include: true
-          }
+          ...(value.code && {
+            max: {
+              value: options.find(career => career.code === value.code)!.credits,
+              include: true
+            }
+          })
         }),
         mandatory: true
       })}
