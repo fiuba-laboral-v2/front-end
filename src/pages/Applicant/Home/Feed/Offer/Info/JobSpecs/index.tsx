@@ -3,8 +3,8 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import { SpecItem } from "./SpecItem";
 
-const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload, className }) => (
-  <div className={className}>
+const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload }) => (
+  <div>
     <SpecItem item={workload.time} description={workload.description}>
       <AccessTimeIcon fontSize="small"/>
     </SpecItem>
@@ -16,7 +16,6 @@ const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload, classNa
 
 interface IJobSpecsProps {
   salary: string;
-  className: string;
   workload: {
     time: string;
     description: string;

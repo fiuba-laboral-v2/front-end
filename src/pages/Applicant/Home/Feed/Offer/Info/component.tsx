@@ -20,11 +20,12 @@ const Info: FunctionComponent = () => (
         </Subtitle>
         <TimeHumanizer since={dateExample} className={styles.time}/>
       </div>
-      <JobSpecs
-        className={styles.secondColumn}
-        salary={"70000 - 52500"}
-        workload={{ time: "8", description: "horas por día" }}
-      />
+      <div className={styles.secondColumn}>
+        <JobSpecs
+          salary={"70000 - 52500"}
+          workload={{ time: "8", description: "horas por día" }}
+        />
+      </div>
     </div>
   </div>
 );

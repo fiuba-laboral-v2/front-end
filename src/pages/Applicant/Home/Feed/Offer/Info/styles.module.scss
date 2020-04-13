@@ -24,14 +24,21 @@
   flex-grow: 1;
 }
 
-.firstColumn {
+.firstColumn, .secondColumn {
+  display: flex;
   flex-direction: column;
   text-align: center;
-}
-
-.firstColumn, .secondColumn {
   align-self: center;
   width: 50%;
+}
+
+.firstColumn {
+  margin-right: $bigSpacing;
+}
+
+.secondColumn {
+  flex-direction: row;
+  justify-content: center;
 }
 
 .time {
