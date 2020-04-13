@@ -7,6 +7,7 @@
 .container {
   flex-basis: 100%;
   margin: 0 0 0 $bigSpacing;
+  display: flex;
   flex-direction: column;
 }
 
@@ -19,14 +20,21 @@
 
 .detailsContainer {
   display: flex;
-  margin: $bigSpacing $bigSpacing 0;
   justify-content: space-around;
+  flex-grow: 1;
 }
 
 .firstColumn {
   flex-direction: column;
+  text-align: center;
+}
+
+.firstColumn, .secondColumn {
+  align-self: center;
+  width: 50%;
 }
 
 .time {
   text-align: center;
+  margin-top: $smallSpacing;
 }
