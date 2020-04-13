@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const Feed: FunctionComponent = () => (
   <div>
-    <ListItem className={styles.cardContainer}>
+    <ListItem className={styles.cardContainer} onClick={() => alert("click")}>
       <Offer />
     </ListItem>
   </div>
