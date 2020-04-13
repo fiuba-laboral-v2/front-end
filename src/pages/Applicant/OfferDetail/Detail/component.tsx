@@ -24,7 +24,7 @@ const Detail: FunctionComponent<IDetailProps> = (
     <div className={styles.header}>
       <CompanyLogo
         className={styles.companyLogo}
-        size="large"
+        size="extraLarge"
         companyName={offer.company.companyName}
         logo={offer.company.logo}
       />

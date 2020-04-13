@@ -1,6 +1,6 @@
 export const RoutesBuilder = {
   applicant: {
-    home: () => "applicants/",
+    home: () => "/applicants",
     list: () => "/applicants/list",
     detail: (uuid: string) => `/applicants/${uuid}/`,
     edit: (uuid: string) => `/applicants/${uuid}/edit`,

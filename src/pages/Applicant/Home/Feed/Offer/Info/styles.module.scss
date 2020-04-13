@@ -6,27 +6,42 @@
 
 .container {
   flex-basis: 100%;
-  margin: $smallSpacing;
-  margin-left: $bigSpacing;
+  margin: 0 0 0 $bigSpacing;
+  display: flex;
   flex-direction: column;
 }
 
 .separator {
-  border: .5px solid lighten($color: $grey, $amount: 30%);
+  background: $lightGrey;
+  height: 1px;
+  border: none;
+  margin: $normalSpacing 0;
 }
 
 .detailsContainer {
   display: flex;
-  margin: $bigSpacing;
-  margin-left: $bigSpacing;
-  margin-bottom: 0;
   justify-content: space-around;
+  flex-grow: 1;
+}
+
+.firstColumn, .secondColumn {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  width: 50%;
 }
 
 .firstColumn {
-  flex-direction: column;
+  margin-right: $bigSpacing;
+}
+
+.secondColumn {
+  flex-direction: row;
+  justify-content: center;
 }
 
 .time {
   text-align: center;
+  margin-top: $smallSpacing;
 }

@@ -12,7 +12,7 @@ const Info: FunctionComponent = () => (
     <Subtitle className={styles.jobDescription}>
       Desarrollador Java Full Stack
     </Subtitle>
-    <hr className={styles.separator} />
+    <hr className={styles.separator}/>
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
         <Subtitle>
@@ -20,7 +20,12 @@ const Info: FunctionComponent = () => (
         </Subtitle>
         <TimeHumanizer since={dateExample} className={styles.time}/>
       </div>
-      <JobSpecs salary={"70000 - 52500"} workload={{time: "8", description: "horas por día"}} />
+      <div className={styles.secondColumn}>
+        <JobSpecs
+          salary={"70000 - 52500"}
+          workload={{ time: "8", description: "horas por día" }}
+        />
+      </div>
     </div>
   </div>
 );

@@ -33,6 +33,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link to={RoutesBuilder.company.list()}>{companies}</Link>
         <Link to={RoutesBuilder.applicant.list()}>{applicants}</Link>
+        <Link to={RoutesBuilder.applicant.home()}>{"Ofertas de trabajo"}</Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           <p className={styles.userName}>{username}</p>
