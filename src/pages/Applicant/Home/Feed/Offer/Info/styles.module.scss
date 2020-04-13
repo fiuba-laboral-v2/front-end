@@ -6,20 +6,19 @@
 
 .container {
   flex-basis: 100%;
-  margin: $smallSpacing;
-  margin-left: $bigSpacing;
+  margin: $smallSpacing $smallSpacing $smallSpacing $bigSpacing;
   flex-direction: column;
 }
 
 .separator {
-  border: .5px solid lighten($color: $grey, $amount: 30%);
+  background: $lightGrey;
+  height: 1px;
+  border: none;
 }
 
 .detailsContainer {
   display: flex;
-  margin: $bigSpacing;
-  margin-left: $bigSpacing;
-  margin-bottom: 0;
+  margin: $bigSpacing $bigSpacing 0;
   justify-content: space-around;
 }
 
