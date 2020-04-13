@@ -10,7 +10,7 @@ const Offer: FunctionComponent = () => (
     <CompanyLogo
       companyName={"GitHub"}
       logo={githubLogo}
-      size="large"
+      size="extraLarge"
     />
     <Info />
   </div>
