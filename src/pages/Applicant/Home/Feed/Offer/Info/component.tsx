@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 const Info: FunctionComponent<IOfferProps> = ({
   data: {
     company,
-    description,
+    title,
     minimumSalary,
     maximumSalary,
     hoursPerDay,
@@ -17,7 +17,7 @@ const Info: FunctionComponent<IOfferProps> = ({
 }}) => (
   <div className={styles.container}>
     <Subtitle className={styles.jobDescription}>
-      {description}
+      {title}
     </Subtitle>
     <hr className={styles.separator}/>
     <div className={styles.detailsContainer}>
