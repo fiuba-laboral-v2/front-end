@@ -13,8 +13,8 @@ const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = (
   }) => (
   <OfferInfoItem className={classNames(styles.workload, className)} title={translations.title}>
     <div className={styles.hoursInfo}>
-      <div className={styles.hoursPerDay}>{offer.hoursPerDay}</div>
-      <div className={styles.hoursPerDayText}>{translations.hoursPerDay}</div>
+      <span className={styles.hoursPerDay}>{offer.hoursPerDay}</span>
+      <span className={styles.hoursPerDayText}>{translations.hoursPerDay}</span>
     </div>
   </OfferInfoItem>
 );

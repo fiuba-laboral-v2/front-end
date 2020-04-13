@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({since, className}) => (
   <p className={classnames(styles.time, className)}>
-    {moment(since).fromNow()}
+    {moment(1586490154821).fromNow()}
   </p>
 );
 

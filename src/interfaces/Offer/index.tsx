@@ -9,6 +9,7 @@ export interface IOfferSection {
 }
 
 export interface IOffer {
+  uuid: string;
   company: ICompany;
   title: string;
   description: string;

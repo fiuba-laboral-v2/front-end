@@ -4,25 +4,38 @@ import { TimeHumanizer } from "$components/TimeHumanizer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
+import { IOffer } from "$interfaces/Offer";
 
-const dateExample = new Date(new Date().setDate(new Date().getDate()-3));
+// const dateExample = 1586490154821;
 
-const Info: FunctionComponent = () => (
+const Info: FunctionComponent<IOfferProps> = ({
+  data: {
+    company,
+    description,
+    minimumSalary,
+    maximumSalary,
+    hoursPerDay,
+    createdAt
+}}) => (
   <div className={styles.container}>
     <Subtitle className={styles.jobDescription}>
-      Desarrollador Java Full Stack
+      {description}
     </Subtitle>
     <hr className={styles.separator} />
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
         <Subtitle>
-          Mercado Libre
+          {company.companyName}
         </Subtitle>
-        <TimeHumanizer since={dateExample} className={styles.time}/>
+        <TimeHumanizer since={createdAt} className={styles.time}/>
       </div>
-      <JobSpecs salary={"70000 - 52500"} workload={{time: "8", description: "horas por día"}} />
+      <JobSpecs salary={{minimumSalary, maximumSalary}} workload={hoursPerDay} />
     </div>
   </div>
 );
+
+interface IOfferProps {
+  data: IOffer;
+}
 
 export { Info };

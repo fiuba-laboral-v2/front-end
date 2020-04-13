@@ -5791,11 +5791,6 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-humanize-duration@3.22.0:
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/humanize-duration/-/humanize-duration-3.22.0.tgz#b0b577e2071f231e69b71bfae25e1bb342ffb915"
-  integrity sha512-kq2Ncl1E8I7LJtjWhraQS8/LCsdt6fTQ+fwrGJ8dLSNFITW5YQpGWAgPgzjfIErAID7QHv0PA+HZBPfAf6f7IA==
-
 husky@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-3.1.0.tgz#5faad520ab860582ed94f0c1a77f0f04c90b57c0"
@@ -11796,10 +11791,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-validations-fiuba-laboral-v2@1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/validations-fiuba-laboral-v2/-/validations-fiuba-laboral-v2-1.0.11.tgz#a8b3d18ece0ee520ee3e4429aa6547c879c4ff77"
-  integrity sha512-59l6Rd5wb0HvUlK7/FfLuSDImL1/k6SEZF+eg2AvuLa83iUetgcKH2JHj5XQTQEP1ZqOH8X/vjHOGamie/6fNw==
+validations-fiuba-laboral-v2@1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/validations-fiuba-laboral-v2/-/validations-fiuba-laboral-v2-1.0.12.tgz#4033625cc072fc3fd7654370f99fc914b551b2c4"
+  integrity sha512-FPzsH/rJHawmvRfCarLYB+E1X+97X4dOozfsDb/yK0xcRyKQeqFbWkZC0BN+8GeG4ismC/wDEIv34dx9LDvRwQ==
   dependencies:
     "@types/bluebird" "3.5.29"
     "@types/node" "13.1.4"

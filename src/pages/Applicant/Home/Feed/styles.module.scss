@@ -1,4 +1,6 @@
+@import "$styles/_variables.scss";
+
 .cardContainer {
   width: 70%;
-  margin: auto;
+  margin: $normalSpacing auto;
 }
