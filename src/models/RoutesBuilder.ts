@@ -4,7 +4,8 @@ export const RoutesBuilder = {
     list: () => "/applicants/list",
     detail: (uuid: string) => `/applicants/${uuid}/`,
     edit: (uuid: string) => `/applicants/${uuid}/edit`,
-    signUp: () => "/applicants/sign-up/"
+    signUp: () => "/applicants/sign-up/",
+    offerDetail: (uuid: string) => `/applicants/offers/${uuid}`
   },
   company: {
     list: () => "/companies/",

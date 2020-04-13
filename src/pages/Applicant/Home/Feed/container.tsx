@@ -20,7 +20,10 @@ const FeedContainer: FunctionComponent = () => {
   if (loadingOffer) return <LoadingSpinner/>;
 
   return (
-    <Feed offers={offers} />
+    <Feed
+      offers={offers}
+      onCardClick={(uuid: string) => history.push(RoutesBuilder.applicant.offerDetail(uuid))}
+    />
   );
 };
 
