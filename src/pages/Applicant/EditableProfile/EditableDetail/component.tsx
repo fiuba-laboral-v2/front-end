@@ -10,6 +10,7 @@ import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateName, validateURL } from "validations-fiuba-laboral-v2";
+import classNames from "classnames";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -31,76 +32,86 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
-                <TextInput
-                  name={"name"}
-                  label={translations.name}
-                  validate={FormikValidator({ validator: validateName, mandatory: true })}
-                />
-                <TextInput
-                  name={"surname"}
-                  label={translations.surname}
-                  validate={FormikValidator({ validator: validateName, mandatory: true })}
-                />
-                <FormSet
-                  title={translations.links}
-                  name={"links"}
-                  values={values.links}
-                  defaultValue={{ url: "", name: "", uuid: "" }}
-                  fields={(value, index) => (
-                    <>
-                      <TextInput
-                        name={`links.${index}.url`}
-                        label={translations.link}
-                        type="url"
-                        className={styles.link}
-                        validate={FormikValidator({ validator: validateURL, mandatory: true })}
-                      />
-                      <TextInput
-                        name={`links.${index}.name`}
-                        label={translations.linkTitle}
-                        className={styles.linkTitle}
-                        validate={FormikValidator({ mandatory: true })}
-                      />
-                    </>
-                  )}
-                />
-                <FormSet
-                  title={translations.careers}
-                  name={"careers"}
-                  values={values.careers}
-                  defaultValue={{ code: "", creditsCount: 0 }}
-                  fields={(value, index) => (
-                    <CareerSelector key={index} index={index} value={value}/>
-                  )}
-                />
+                <div className={classNames(styles.fullName, styles.section)}>
+                  <TextInput
+                    className={styles.name}
+                    name={"name"}
+                    label={translations.name}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
+                  />
+                  <TextInput
+                    className={styles.surname}
+                    name={"surname"}
+                    label={translations.surname}
+                    validate={FormikValidator({ validator: validateName, mandatory: true })}
+                  />
+                </div>
+                <div className={styles.section}>
+                  <FormSet
+                    title={translations.links}
+                    name={"links"}
+                    values={values.links}
+                    defaultValue={{ url: "", name: "", uuid: "" }}
+                    fields={(value, index) => (
+                      <>
+                        <TextInput
+                          name={`links.${index}.url`}
+                          label={translations.link}
+                          type="url"
+                          className={styles.link}
+                          validate={FormikValidator({ validator: validateURL, mandatory: true })}
+                        />
+                        <TextInput
+                          name={`links.${index}.name`}
+                          label={translations.linkTitle}
+                          className={styles.linkTitle}
+                          validate={FormikValidator({ mandatory: true })}
+                        />
+                      </>
+                    )}
+                  />
+                </div>
+                <div className={styles.section}>
+                  <FormSet
+                    title={translations.careers}
+                    name={"careers"}
+                    values={values.careers}
+                    defaultValue={{ code: "", creditsCount: 0 }}
+                    fields={(value, index) => (
+                      <CareerSelector key={index} index={index} value={value}/>
+                    )}
+                  />
+                </div>
                 <Subtitle>{translations.capabilities}</Subtitle>
                 <CapabilitiesSelector label={translations.capability}/>
-                <FormSet
-                  title={translations.sections}
-                  name={"sections"}
-                  values={values.sections}
-                  defaultValue={{
-                    title: "",
-                    text: "",
-                    displayOrder: Math.max(
-                      ...values.sections.map(({ displayOrder }) => displayOrder)
-                    ) + 1
-                  }}
-                  fields={(value, index) => (
-                    <>
-                      <TextInput
-                        name={`sections.${index}.title`}
-                        label={translations.sectionTitle}
-                        validate={FormikValidator({ mandatory: true })}
-                      />
-                      <TextInput
-                        name={`sections.${index}.text`}
-                        label={translations.sectionContent}
-                        validate={FormikValidator({ mandatory: true })}
-                      />
-                    </>
-                  )}
-                />
+                <div className={styles.section}>
+                  <FormSet
+                    title={translations.sections}
+                    name={"sections"}
+                    values={values.sections}
+                    defaultValue={{
+                      title: "",
+                      text: "",
+                      displayOrder: Math.max(
+                        ...values.sections.map(({ displayOrder }) => displayOrder)
+                      ) + 1
+                    }}
+                    fields={(value, index) => (
+                      <>
+                        <TextInput
+                          name={`sections.${index}.title`}
+                          label={translations.sectionTitle}
+                          validate={FormikValidator({ mandatory: true })}
+                        />
+                        <TextInput
+                          name={`sections.${index}.text`}
+                          label={translations.sectionContent}
+                          validate={FormikValidator({ mandatory: true })}
+                        />
+                      </>
+                    )}
+                  />
+                </div>
               </Form>
               <div className={styles.footer}>
                 <Button

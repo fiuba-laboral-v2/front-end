@@ -27,6 +27,21 @@
   align-self: flex-end;
 }
 
+.fullName {
+  display: flex;
+
+  .name {
+    margin-right: $bigSpacing;
+  }
+
+  .name, .surname {
+    width: 50%;
+  }
+}
+
+.section {
+  margin-top: $normalSpacing;
+}
 
 @media (max-width: $mobileContainerThreshold) {
   .mainContainer {
