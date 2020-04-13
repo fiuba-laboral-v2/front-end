@@ -24,7 +24,10 @@ const DetailContainer: FunctionComponent = () => {
     data: { getApplicant } = { getApplicant: {} as IApplicant },
     error: applicantError,
     loading: loadingApplicantData
-  } = useQuery(GET_APPLICANT, { variables: { uuid } });
+  } = useQuery(GET_APPLICANT, {
+    variables: { uuid },
+    fetchPolicy: "no-cache"
+  });
 
   if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
 
