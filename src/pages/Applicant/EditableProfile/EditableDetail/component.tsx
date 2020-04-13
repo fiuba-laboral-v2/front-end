@@ -32,7 +32,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           {({ values, isValid, isSubmitting }) => (
             <div className={styles.body}>
               <Form translate="yes" className={styles.formContainer} id={formName}>
-                <div className={classNames(styles.fullName, styles.section)}>
+                <div className={classNames(styles.fullName, styles.row)}>
                   <TextInput
                     className={styles.name}
                     name={"name"}
@@ -46,32 +46,34 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                 </div>
-                <div className={styles.section}>
+                <div className={styles.capabilities}>
+                  <Subtitle>{translations.capabilities}</Subtitle>
+                  <CapabilitiesSelector label={translations.capability}/>
+                </div>
+                <div className={styles.row}>
                   <FormSet
                     title={translations.links}
                     name={"links"}
                     values={values.links}
                     defaultValue={{ url: "", name: "", uuid: "" }}
                     fields={(value, index) => (
-                      <>
+                      <div className={styles.link}>
+                        <TextInput
+                          name={`links.${index}.name`}
+                          label={translations.linkTitle}
+                          validate={FormikValidator({ mandatory: true })}
+                        />
                         <TextInput
                           name={`links.${index}.url`}
                           label={translations.link}
                           type="url"
-                          className={styles.link}
                           validate={FormikValidator({ validator: validateURL, mandatory: true })}
                         />
-                        <TextInput
-                          name={`links.${index}.name`}
-                          label={translations.linkTitle}
-                          className={styles.linkTitle}
-                          validate={FormikValidator({ mandatory: true })}
-                        />
-                      </>
+                      </div>
                     )}
                   />
                 </div>
-                <div className={styles.section}>
+                <div className={styles.row}>
                   <FormSet
                     title={translations.careers}
                     name={"careers"}
@@ -82,9 +84,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     )}
                   />
                 </div>
-                <Subtitle>{translations.capabilities}</Subtitle>
-                <CapabilitiesSelector label={translations.capability}/>
-                <div className={styles.section}>
+                <div className={styles.row}>
                   <FormSet
                     title={translations.sections}
                     name={"sections"}
@@ -97,7 +97,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                       ) + 1
                     }}
                     fields={(value, index) => (
-                      <>
+                      <div className={styles.section}>
                         <TextInput
                           name={`sections.${index}.title`}
                           label={translations.sectionTitle}
@@ -107,8 +107,9 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                           name={`sections.${index}.text`}
                           label={translations.sectionContent}
                           validate={FormikValidator({ mandatory: true })}
+                          multiline
                         />
-                      </>
+                      </div>
                     )}
                   />
                 </div>

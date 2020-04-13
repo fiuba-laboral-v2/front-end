@@ -1,6 +1,7 @@
 @import "$styles/_variables.scss";
 @import "$styles/mixins/_card.scss";
 @import "$styles/mixins/_title.scss";
+@import "$styles/mixins/_formSetMainColumn.scss";
 
 .mainContainer {
   @include card;
@@ -15,10 +16,6 @@
   .body {
     display: flex;
     flex-direction: column;
-
-    .linkTitle {
-      margin-left: $bigSpacing;
-    }
   }
 }
 
@@ -39,9 +36,22 @@
   }
 }
 
-.section {
+.capabilities {
+  margin-bottom: $bigSpacing;
+}
+
+.fullName, .capabilities {
+  width: 70%;
+}
+
+.row {
   margin-top: $normalSpacing;
 }
+
+.section, .link {
+  @include formSetMainColumn;
+}
+
 
 @media (max-width: $mobileContainerThreshold) {
   .mainContainer {
