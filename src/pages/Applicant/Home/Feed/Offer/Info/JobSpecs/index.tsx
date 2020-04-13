@@ -5,7 +5,7 @@ import { SpecItem } from "./SpecItem";
 
 const timeDescription = "horas por día";
 
-const setSalary = ({minimumSalary, maximumSalary}: IJobSpecsProps["salary"]) =>
+const setSalary = ({minimumSalary, maximumSalary}: ISalary) =>
   maximumSalary ? `${minimumSalary} - ${maximumSalary}` : `${minimumSalary}`;
 
 const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload }) => (
@@ -19,11 +19,12 @@ const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload }) => (
   </div>
 );
 
+interface ISalary {
+  minimumSalary: number;
+  maximumSalary: number;
+}
 interface IJobSpecsProps {
-  salary: {
-    minimumSalary: number,
-    maximumSalary: number,
-  };
+  salary: ISalary;
   workload: number;
 }
 

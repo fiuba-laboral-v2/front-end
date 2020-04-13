@@ -5,7 +5,7 @@ const getOffers = () => ([
 {
   uuid: "015b1c7a-579d-4562-8b76-f47b4a91dae0",
   title: "Desarrollador Java Full Stack",
-  description: "descripcion",
+  description: "Desarrollador Python Full Stack",
   hoursPerDay: 8,
   minimumSalary: 50000,
   maximumSalary: 70000,
@@ -35,7 +35,7 @@ const getOffers = () => ([
 {
   uuid: "015b1c7a-579d-4562-8b76-f47b4a91dae2",
   title: "Desarrollador Python Full Stack",
-  description: "descripcion",
+  description: "Desarrollador Java Full Stack",
   hoursPerDay: 6,
   minimumSalary: 40000,
   maximumSalary: 60000,
