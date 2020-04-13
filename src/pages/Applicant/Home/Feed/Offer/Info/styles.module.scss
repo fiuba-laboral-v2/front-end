@@ -6,7 +6,7 @@
 
 .container {
   flex-basis: 100%;
-  margin: $smallSpacing $smallSpacing $smallSpacing $bigSpacing;
+  margin: 0 0 0 $bigSpacing;
   flex-direction: column;
 }
 
@@ -14,6 +14,7 @@
   background: $lightGrey;
   height: 1px;
   border: none;
+  margin: $normalSpacing 0;
 }
 
 .detailsContainer {
