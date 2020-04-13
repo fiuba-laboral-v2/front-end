@@ -31,7 +31,11 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  &::after {
-    display: none;
+  .hoverable {
+    transition: transform 0.3s ease-in-out;
+
+    &.touched {
+      transform: scale(0.95);
+    }
   }
 }
