@@ -12,7 +12,7 @@ const Feed: FunctionComponent<IFeedProps> = ({offers}) => (
   <div>
     <OfferList list={offers}>
       {offer => (
-        <ListItem className={styles.cardContainer} key={offer.uuid}>
+        <ListItem className={styles.cardContainer} key={offer.uuid} onClick={() => alert("click")}>
           <Offer data={offer} />
         </ListItem>
         )

@@ -5,18 +5,25 @@
 .content {
   display: flex;
   align-items: flex-end;
-  margin-left: $bigSpacing;
-  margin-bottom: $smallSpacing;
+
+  &:not(:last-child) {
+    margin-bottom: $normalSpacing;
+  }
 
   h2 {
     @include subtitle;
 
     font-weight: normal;
-    margin: 0 $smallSpacing 0 $normalSpacing;
+    line-height: $bigFontSize;
+    margin: 0 0 0 $normalSpacing;
   }
 
   p {
     @include text;
-    margin: 0;
+    margin: 0 0 0 $smallSpacing;
+  }
+
+  h2, p {
+    margin-bottom: 1px;
   }
 }

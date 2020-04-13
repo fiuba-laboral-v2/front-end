@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
+import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
-import { IOffer } from "$interfaces/Offer";
-
-// const dateExample = 1586490154821;
 
 const Info: FunctionComponent<IOfferProps> = ({
   data: {
@@ -21,7 +19,7 @@ const Info: FunctionComponent<IOfferProps> = ({
     <Subtitle className={styles.jobDescription}>
       {description}
     </Subtitle>
-    <hr className={styles.separator} />
+    <hr className={styles.separator}/>
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
         <Subtitle>

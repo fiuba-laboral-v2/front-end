@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Info } from "./Info";
 import { IOffer } from "$interfaces/Offer";
-// import githubLogo from "./github_logo.svg";
 
 import styles from "./styles.module.scss";
 
@@ -11,7 +10,7 @@ const Offer: FunctionComponent<IOfferProps> = ({data: {company, ...props}}) => (
     <CompanyLogo
       companyName={company.companyName}
       logo={company.logo}
-      size="large"
+      size="extraLarge"
     />
     <Info data={{company, ...props}}/>
   </div>
