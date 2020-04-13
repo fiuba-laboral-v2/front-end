@@ -1,0 +1,32 @@
+@import "$styles/_variables.scss";
+
+.jobDescription {
+  font-weight: bold;
+}
+
+.container {
+  flex-basis: 100%;
+  margin: $smallSpacing;
+  margin-left: $bigSpacing;
+  flex-direction: column;
+}
+
+.separator {
+  border: .5px solid lighten($color: $grey, $amount: 30%);
+}
+
+.detailsContainer {
+  display: flex;
+  margin: $bigSpacing;
+  margin-left: $bigSpacing;
+  margin-bottom: 0;
+  justify-content: space-around;
+}
+
+.firstColumn {
+  flex-direction: column;
+}
+
+.time {
+  text-align: center;
+}

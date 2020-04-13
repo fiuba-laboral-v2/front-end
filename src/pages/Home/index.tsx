@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const Home: FunctionComponent = () => (
-  <Redirect to={RoutesBuilder.applicant.list()}/>
+  <Redirect to={RoutesBuilder.applicant.home()}/>
 );
 
 export default Home;
