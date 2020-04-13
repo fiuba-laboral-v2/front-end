@@ -19,8 +19,11 @@ const FeedContainer: FunctionComponent = () => {
   if (offerError) history.push(RoutesBuilder.notFound);
   if (loadingOffer) return <LoadingSpinner/>;
 
+  const onCardClick = (uuid: string) =>
+    history.push(RoutesBuilder.applicant.offerDetail(uuid));
+
   return (
-    <Feed offers={offers} />
+    <Feed offers={offers} onCardClick={onCardClick} />
   );
 };
 

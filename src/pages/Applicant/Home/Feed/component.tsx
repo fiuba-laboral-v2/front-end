@@ -8,11 +8,15 @@ import styles from "./styles.module.scss";
 
 const OfferList = List as IList<IOffer>;
 
-const Feed: FunctionComponent<IFeedProps> = ({offers}) => (
+const Feed: FunctionComponent<IFeedProps> = ({offers, onCardClick}) => (
   <div>
     <OfferList list={offers}>
       {offer => (
-        <ListItem className={styles.cardContainer} key={offer.uuid} onClick={() => alert("click")}>
+        <ListItem
+          key={offer.uuid}
+          className={styles.cardContainer}
+          onClick={() => onCardClick(offer.uuid)}
+        >
           <Offer data={offer} />
         </ListItem>
         )
@@ -23,6 +27,7 @@ const Feed: FunctionComponent<IFeedProps> = ({offers}) => (
 
 interface IFeedProps {
   offers: IOffer[];
+  onCardClick: (uuid: string) => void;
 }
 
 export { Feed };
