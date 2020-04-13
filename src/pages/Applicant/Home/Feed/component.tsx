@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ListItem } from "$components/ListItem";
-import { Offer } from "$components/Offer";
+import { Offer } from "./Offer";
 
 import styles from "./styles.module.scss";
 

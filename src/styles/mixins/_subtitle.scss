@@ -1,6 +1,8 @@
+@import "$styles/_variables.scss";
+
 @mixin subtitle {
   color: $darkGrey;
   margin: 0;
   font-weight: bold;
-  font-size: 22px;
+  font-size: $bigFontSize;
 }

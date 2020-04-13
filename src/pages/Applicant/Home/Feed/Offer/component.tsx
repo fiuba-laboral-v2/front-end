@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { CompanyLogo } from "../CompanyLogo";
+import { CompanyLogo } from "$components/CompanyLogo";
 import { Info } from "./Info";
 import githubLogo from "./github_logo.svg";
 

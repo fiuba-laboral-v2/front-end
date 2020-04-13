@@ -5,7 +5,7 @@ import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
 
-const dateExample = new Date(new Date().setDate(new Date().getDate()-3));
+const dateExample = 1586490154821;
 
 const Info: FunctionComponent = () => (
   <div className={styles.container}>
