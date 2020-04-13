@@ -75,7 +75,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       errors: updateApplicantErrors
     } = await updateApplicant({
       variables: {
-        ...{ ...values },
+        ...values,
         capabilities: values.capabilities.map(capability => capability.description),
         careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
       }
