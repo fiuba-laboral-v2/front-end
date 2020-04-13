@@ -22,5 +22,4 @@ const List: IList = (
   </div>
 );
 
-
 export { List };
