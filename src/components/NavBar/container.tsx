@@ -7,7 +7,6 @@ import { Session } from "$models/Session";
 import { IUser } from "$interfaces/User";
 
 import { NavBar } from "./component";
-import { LoadingSpinner } from "../LoadingSpinner";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -17,7 +16,7 @@ export const NavBarContainer: FunctionComponent = () => {
   });
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
-  if (loading) return <LoadingSpinner/>;
+  if (loading) return <div/>;
 
   const logOut = () => {
     Session.logout();
