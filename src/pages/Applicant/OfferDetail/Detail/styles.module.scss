@@ -49,6 +49,10 @@
   }
 }
 
+.description {
+  white-space: pre-wrap;
+}
+
 @media (max-width: $mobileContainerThreshold) {
   .mainContainer {
     @include card;

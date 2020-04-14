@@ -5,7 +5,6 @@ import { IOffer } from "$interfaces/Offer";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
-import { Description } from "$components/Description";
 import { SectionDetail } from "$components/SectionDetail";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 import Button from "$components/Button";
@@ -38,7 +37,7 @@ const Detail: FunctionComponent<IDetailProps> = (
     </div>
     <div className={styles.body}>
       <div className={styles.leftBodyContainer}>
-        <Description description={offer.description}/>
+        <p className={styles.description}>{offer.description}</p>
         {
           offer.sections?.map(({ displayOrder, title, text })  =>
             <SectionDetail key={displayOrder} title={title} text={text}/>
