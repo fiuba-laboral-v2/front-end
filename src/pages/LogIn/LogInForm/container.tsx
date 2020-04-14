@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "$mutations";
+import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
 
@@ -19,7 +20,7 @@ const LogInFormContainer: FunctionComponent = () => {
   ) => {
     setSubmitting(false);
     const { data } = await login({ variables: values });
-    localStorage.setItem("token", data.login);
+    Session.login(data.login);
     history.push(RoutesBuilder.applicant.home());
   };
 

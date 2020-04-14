@@ -2,9 +2,11 @@ import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { NavBar } from "./component";
 import { GET_TRANSLATIONS, ME } from "$queries";
+import { Session } from "$models/Session";
 import { IUser } from "$interfaces/User";
+
+import { NavBar } from "./component";
 import { LoadingSpinner } from "../LoadingSpinner";
 
 export const NavBarContainer: FunctionComponent = () => {
@@ -18,7 +20,7 @@ export const NavBarContainer: FunctionComponent = () => {
   if (loading) return <LoadingSpinner/>;
 
   const logOut = () => {
-    localStorage.removeItem("token");
+    Session.logout();
     history.push(RoutesBuilder.login);
   };
 
