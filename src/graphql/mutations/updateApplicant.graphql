@@ -15,7 +15,7 @@ mutation updateApplicant(
     surname
     description
     capabilities {
-      uui
+      uuid
       description
     }
     careers {
