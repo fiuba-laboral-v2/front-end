@@ -16,6 +16,10 @@ body {
     .formContainer {
       display: flex;
       flex-direction: column;
+
+      .textInput {
+        margin-bottom: $bigSpacing;
+      }
     }
 
     .footer {
