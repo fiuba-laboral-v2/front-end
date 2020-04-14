@@ -8,6 +8,8 @@ import classNames from "classnames";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
+    logOut,
+    logged,
     companies,
     applicants,
     signUp,
@@ -16,28 +18,43 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 ) => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
   return (
     <div className={styles.navBar}>
       <div className={styles.main}>
         <div className={styles.toggle}>
           <div className={styles.separator}/>
-          <div className={styles.menuIcon} onClick={toggleMenu}>
+          <div className={styles.menuIcon} onClick={() => setShowMenu(!showMenu)}>
             <MenuIcon/>
           </div>
         </div>
       </div>
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
-        <Link to={RoutesBuilder.company.list()}>{companies}</Link>
-        <Link to={RoutesBuilder.applicant.list()}>{applicants}</Link>
-        <Link to={RoutesBuilder.applicant.home()}>{"Ofertas de trabajo"}</Link>
+        <Link
+          className={classNames({ [styles.logged]: !logged })}
+          to={RoutesBuilder.company.list()}>{companies}
+        </Link>
+        <Link
+          className={classNames({ [styles.logged]: !logged })}
+          to={RoutesBuilder.applicant.list()}>{applicants}
+        </Link>
+        <Link
+          className={classNames({ [styles.logged]: !logged })}
+          to={RoutesBuilder.applicant.home()}>{"Ofertas de trabajo"}
+        </Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
-          <p className={styles.userName}>{username}</p>
-          <Link to={RoutesBuilder.applicant.signUp()}>{signUp}</Link>
+          {
+            logged ?
+              <>
+                <p className={styles.userName}>{username}</p>
+                <Link onClick={logOut} to="#">{"Cerrar Sesión"}</Link>
+              </>
+              :
+              <>
+                <Link to={RoutesBuilder.login}>{"Iniciar Sesión"}</Link>
+                <Link to={RoutesBuilder.applicant.signUp}>{signUp}</Link>
+              </>
+          }
         </div>
       </div>
     </div>
@@ -45,6 +62,8 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 };
 
 interface INavBarProps {
+  logOut: () => void;
+  logged: boolean;
   companies: string;
   applicants: string;
   signUp: string;

@@ -1,4 +1,5 @@
 export const RoutesBuilder = {
+  login: "/login",
   applicant: {
     home: () => "/applicants",
     list: () => "/applicants/list",
