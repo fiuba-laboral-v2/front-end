@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikErrors } from "formik";
 
 import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
@@ -22,7 +22,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   {
     translations,
     onSubmit,
-    validate
+    validateForm
   }
 ) => {
   const formName = "signUpForm";
@@ -30,6 +30,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   const initialValues: ISignUpValues = {
     email: "",
     password: "",
+    passwordConfirm: "",
     name: "",
     surname: "",
     padron: 0,
@@ -44,8 +45,17 @@ const SignUp: FunctionComponent<ISignUpProps> = (
         <Formik
           initialValues={initialValues}
           validate={values => {
-            const errorMessage = validate(values);
-            if (errorMessage) return { _form: errorMessage };
+            const errors: FormikErrors<ISignUpValues> = {};
+
+            const formErrorMessage = validateForm(values);
+            if (formErrorMessage) {
+              errors._form = formErrorMessage;
+            }
+
+            if (values.password !== values.passwordConfirm) {
+              errors.passwordConfirm = "Las contraseñas no coinciden";
+            }
+            return errors;
           }}
           validateOnMount={true}
           onSubmit={onSubmit}
@@ -67,6 +77,12 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     type="password"
                     className={styles.textInput}
                     validate={FormikValidator({ validator: validatePassword, mandatory: true })}
+                  />
+                  <TextInput
+                    name="passwordConfirm"
+                    label={translations.passwordConfirm}
+                    type="password"
+                    className={styles.textInput}
                   />
                   <TextInput
                     name="name"
@@ -108,7 +124,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   form={formName}
                   className="primary"
                   type="submit"
-                  disabled={!isValid || isSubmitting}
+                  disabled={isSubmitting}
                 >
                   {translations.submit}
                 </Button>
@@ -126,13 +142,14 @@ interface ISignUpProps {
     title: string;
     email: string;
     password: string;
+    passwordConfirm: string;
     name: string;
     surname: string;
     padron: string;
     careersTitle: string;
     submit: string;
   };
-  validate: (values: ISignUpValues) => string | undefined;
+  validateForm: (values: ISignUpValues) => string | undefined;
   onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
     void | Promise<any>;
 }

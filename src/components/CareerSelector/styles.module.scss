@@ -1,8 +1,8 @@
 @import "$styles/_variables.scss";
+@import "$styles/mixins/_formSetMainColumn.scss";
 
 div.career {
-  width: calc(0.7 * #{$detailContainerWidth - 2 * $biggerSpacing} - #{$bigSpacing});
-  flex-shrink: 0;
+  @include formSetMainColumn;
 }
 
 div.credits {

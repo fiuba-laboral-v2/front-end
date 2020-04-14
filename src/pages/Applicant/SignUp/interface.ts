@@ -3,6 +3,7 @@ import { IApplicantCareer } from "$interfaces/Applicant";
 export interface ISignUpValues {
   email: string;
   password: string;
+  passwordConfirm: string;
   name: string;
   surname: string;
   padron: number;

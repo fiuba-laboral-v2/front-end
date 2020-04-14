@@ -1,0 +1,15 @@
+query {
+  getOffers {
+    uuid
+    title
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    createdAt
+    company {
+      id
+      companyName
+      logo
+    }
+  }
+}

@@ -3,14 +3,17 @@ import { useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
-import { useQuery } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { noop } from "lodash";
+import { IEditableDetailValues } from "./interface";
+import { UPDATE_APPLICANT } from "$mutations";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
+
+  const [updateApplicant] = useMutation(UPDATE_APPLICANT);
 
   const {
     data: { getApplicant: applicant } = { getApplicant: {} as IApplicant },
@@ -66,9 +69,24 @@ const EditableDetailContainer: FunctionComponent = () => {
     submitTranslation
   ] = getTranslations;
 
+  const onSubmit = async (values: IEditableDetailValues) => {
+    const {
+      data: { updateApplicant: updatedApplicant },
+      errors: updateApplicantErrors
+    } = await updateApplicant({
+      variables: {
+        ...values,
+        capabilities: values.capabilities.map(capability => capability.description),
+        careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
+      }
+    });
+    if (updateApplicantErrors) history.push(RoutesBuilder.notFound);
+    history.push(RoutesBuilder.applicant.detail(updatedApplicant.uuid));
+  };
+
   return (
     <EditableDetail
-      onSubmit={noop}
+      onSubmit={onSubmit}
       translations={{
         title: titleTranslation,
         name: nameTranslation,
