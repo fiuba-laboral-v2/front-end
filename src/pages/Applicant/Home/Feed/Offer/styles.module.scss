@@ -3,3 +3,9 @@
 .container {
   display: flex;
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .desktopLogo {
+    display: none;
+  }
+}

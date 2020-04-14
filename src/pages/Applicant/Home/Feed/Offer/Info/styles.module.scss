@@ -46,6 +46,19 @@
   margin-top: $smallSpacing;
 }
 
+.mobileTime {
+  display: none;
+}
+
+.mobileLogo {
+  display: none;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: $mobileContainerThreshold) {
   .detailsContainer {
     flex-direction: column;
@@ -62,5 +75,29 @@
   }
   .time {
     display: none;
+  }
+  .mobileTime {
+    display: flex;
+  }
+  .mobileLogo {
+    display: flex;
+    align-self: unset;
+  }
+  .container {
+    margin: 0;
+  }
+  .headerContainer {
+    flex-direction: row;
+    margin-bottom: $normalSpacing;
+  }
+  .subtitleContainer {
+    flex-grow: 1;
+    margin-left: $normalSpacing;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .separator {
+    margin: $smallSpacing 0;
   }
 }

@@ -5,6 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
+import { CompanyLogo } from "../../../../../../components/CompanyLogo";
 
 export const Info: FunctionComponent<IOfferProps> = ({
   data: {
@@ -16,10 +17,21 @@ export const Info: FunctionComponent<IOfferProps> = ({
     createdAt
 }}) => (
   <div className={styles.container}>
-    <Subtitle className={styles.jobDescription}>
-      {title}
-    </Subtitle>
-    <hr className={styles.separator}/>
+    <div className={styles.headerContainer}>
+      <CompanyLogo
+        className={styles.mobileLogo}
+        companyName={company.companyName}
+        logo={company.logo}
+        size="large"
+      />
+      <div className={styles.subtitleContainer}>
+        <Subtitle className={styles.jobDescription}>
+          {title}
+        </Subtitle>
+        <hr className={styles.separator}/>
+        <TimeHumanizer since={createdAt} className={styles.mobileTime}/>
+      </div>
+    </div>
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
         <Subtitle className={styles.companyName}>

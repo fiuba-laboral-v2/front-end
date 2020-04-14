@@ -3,7 +3,7 @@
 .cardContainer {
   width: 70%;
   margin: 0 auto;
-  padding: 25px;
+  padding: $bigSpacing;
   &:not(:last-child) {
     margin-bottom: $bigSpacing;
   }
@@ -13,5 +13,6 @@
   .cardContainer {
     width: unset;
     margin: 0;
+    padding: $normalSpacing;
   }
 }
