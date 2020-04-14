@@ -1,5 +1,6 @@
+const SESSION_KEY = "token";
+
 export const Session = {
-  key: "token",
-  login: (token: string) => localStorage.setItem(Session.key, token),
-  logout: () => localStorage.removeItem(Session.key)
+  login: (token: string) => localStorage.setItem(SESSION_KEY, token),
+  logout: () => localStorage.removeItem(SESSION_KEY)
 };
