@@ -24,7 +24,7 @@ const SignUpContainer: FunctionComponent = () => {
 
   const translations = translationsMapper(getTranslations);
 
-  const validate = (values: ISignUpValues) => {
+  const validateForm = (values: ISignUpValues) => {
     const selectedCodes = values.careers.map(career => career.code);
     if (new Set(selectedCodes).size !== selectedCodes.length) {
       return "No se pueden repetir carreras";
@@ -51,7 +51,7 @@ const SignUpContainer: FunctionComponent = () => {
   return (
     <SignUp
       translations={translations}
-      validate={validate}
+      validateForm={validateForm}
       onSubmit={onSubmit}
     />
   );
@@ -62,6 +62,7 @@ const translationsMapper = (translations: string[] = Array(10).fill("")) => {
     title,
     email,
     password,
+    passwordConfirm,
     name,
     surname,
     padron,
@@ -73,6 +74,7 @@ const translationsMapper = (translations: string[] = Array(10).fill("")) => {
     title,
     email,
     password,
+    passwordConfirm,
     name,
     surname,
     padron,

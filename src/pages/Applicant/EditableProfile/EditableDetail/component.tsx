@@ -119,7 +119,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   form={formName}
                   className="primary"
                   type="submit"
-                  disabled={!isValid || isSubmitting}
+                  disabled={isSubmitting}
                 >
                   {translations.submit}
                 </Button>
