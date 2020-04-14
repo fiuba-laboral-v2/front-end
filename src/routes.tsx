@@ -3,6 +3,7 @@ import { Route, Switch, HashRouter } from "react-router-dom";
 
 import Home from "$pages/Home";
 import { CompanyRoutes } from "$pages/Company/routes";
+import { LogIn } from "$pages/LogIn";
 import ApplicantRoutes from "$pages/Applicant/routes";
 import NotFound from "./pages/NotFound";
 import Configuration from "$config";
@@ -12,6 +13,9 @@ const Routes: FunctionComponent = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route exact path="/login">
+        <LogIn />
       </Route>
       <Route path="/companies">
         <CompanyRoutes />
