@@ -1,7 +1,10 @@
 export const RoutesBuilder = {
   login: "/login",
   applicant: {
-    home: () => "/applicants",
+    home: () => {
+      if (localStorage.getItem("token")) return "/applicants";
+      return "/login";
+    },
     list: () => "/applicants/list",
     detail: (uuid: string) => `/applicants/${uuid}/`,
     edit: (uuid: string) => `/applicants/${uuid}/edit`,
