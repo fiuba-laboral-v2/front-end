@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
+import { LOGIN } from "$mutations";
 
 import { LogInForm } from "./component";
 
@@ -9,12 +11,14 @@ import { RoutesBuilder } from "../../../models/RoutesBuilder";
 
 const LogInFormContainer: FunctionComponent = () => {
   const history = useHistory();
+  const [ login ] = useMutation(LOGIN);
 
   const onSubmit = async (
     values: ILogInFormValues,
     { setSubmitting }: FormikHelpers<ILogInFormValues>
   ) => {
     setSubmitting(false);
+    await login({ variables: values });
     history.push(RoutesBuilder.applicant.home());
   };
 
