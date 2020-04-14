@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { ICapabilitiesProps } from "./interface";
 import { Subtitle } from "$components/Subtitle";
 import { TagSet } from "$components/TagSet";
+import { TextFormatter } from "$models/TextFormatter";
 
 const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   {
@@ -14,7 +15,9 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   return (
     <div className={className}>
       <Subtitle>{title}</Subtitle>
-      <TagSet tags={new Set(capabilities.map(capability => capability.description))}/>
+      <TagSet tags={new Set(
+        capabilities.map(capability => TextFormatter.capitalize(capability.description))
+      )}/>
     </div>
   );
 };
