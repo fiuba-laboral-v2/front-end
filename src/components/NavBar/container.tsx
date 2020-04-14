@@ -21,7 +21,7 @@ export const NavBarContainer: FunctionComponent = () => {
               "applicants",
               "jobOffers",
               "applicant.signUp.title",
-              "logIn",
+              "login.prompt",
               "logOut"
             ]
         }

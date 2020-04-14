@@ -22,10 +22,10 @@ const LogInFormContainer: FunctionComponent = () => {
         {
           paths:
             [
-              "login.title",
+              "login.enter",
               "login.email",
               "login.password",
-              "logIn"
+              "login.prompt"
             ]
         }
     }
