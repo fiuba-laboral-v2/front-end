@@ -12,26 +12,44 @@ export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
   const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
     GET_TRANSLATIONS,
-    { variables: { paths: [ "companies", "applicants", "applicant.signUp.title" ] }
-  });
+    {
+      variables:
+        {
+          paths:
+            [
+              "companies",
+              "applicants",
+              "jobOffers",
+              "applicant.signUp.title",
+              "logIn",
+              "logOut"
+            ]
+        }
+    }
+  );
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
   if (loading) return <div/>;
 
-  const logOut = () => {
+  const onLogOut = () => {
     Session.logout();
     history.push(RoutesBuilder.login);
   };
 
-  const [ companies, applicants, signUp ] = getTranslations;
+  const [ companies, applicants, jobOffers, signUp, logIn, logOut ] = getTranslations;
 
   return (
     <NavBar
-      logOut={logOut}
+      logOut={onLogOut}
       isLoggedIn={!error}
-      companies={companies}
-      applicants={applicants}
-      signUp={signUp}
+      translations={{
+        companies,
+        applicants,
+        jobOffers,
+        signUp,
+        logIn,
+        logOut
+      }}
       username={me.email}
     />
   );

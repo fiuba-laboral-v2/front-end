@@ -10,10 +10,8 @@ export const NavBar: FunctionComponent<INavBarProps> = (
   {
     logOut,
     isLoggedIn,
-    companies,
-    applicants,
-    signUp,
-    username
+    username,
+    translations
   }
 ) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -31,15 +29,15 @@ export const NavBar: FunctionComponent<INavBarProps> = (
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.list()}>{companies}
+          to={RoutesBuilder.company.list()}>{translations.companies}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.list()}>{applicants}
+          to={RoutesBuilder.applicant.list()}>{translations.applicants}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.home()}>{"Ofertas de trabajo"}
+          to={RoutesBuilder.applicant.home()}>{translations.jobOffers}
         </Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
@@ -47,12 +45,12 @@ export const NavBar: FunctionComponent<INavBarProps> = (
             isLoggedIn ?
               <>
                 <p className={styles.userName}>{username}</p>
-                <Link onClick={logOut} to="#">{"Cerrar Sesión"}</Link>
+                <Link onClick={logOut} to="#">{translations.logOut}</Link>
               </>
               :
               <>
-                <Link to={RoutesBuilder.login}>{"Iniciar Sesión"}</Link>
-                <Link to={RoutesBuilder.applicant.signUp}>{signUp}</Link>
+                <Link to={RoutesBuilder.login}>{translations.logIn}</Link>
+                <Link to={RoutesBuilder.applicant.signUp}>{translations.signUp}</Link>
               </>
           }
         </div>
@@ -61,11 +59,18 @@ export const NavBar: FunctionComponent<INavBarProps> = (
   );
 };
 
+interface INavBarTranslationsProps {
+  companies: string;
+  applicants: string;
+  jobOffers: string;
+  signUp: string;
+  logIn: string;
+  logOut: string;
+}
+
 interface INavBarProps {
   logOut: () => void;
   isLoggedIn: boolean;
-  companies: string;
-  applicants: string;
-  signUp: string;
   username: string;
+  translations: INavBarTranslationsProps;
 }
