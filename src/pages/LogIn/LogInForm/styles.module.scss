@@ -1,0 +1,30 @@
+@import "$styles/_variables.scss";
+
+body {
+  background-color: #FCFCFC;
+}
+
+.mainContainer {
+  .title {
+    margin-bottom: $bigSpacing;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+
+      .textInput {
+        margin-bottom: $bigSpacing;
+      }
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

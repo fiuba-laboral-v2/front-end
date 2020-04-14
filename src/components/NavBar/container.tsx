@@ -1,22 +1,56 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, Fragment } from "react";
+import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+import { GET_TRANSLATIONS, ME } from "$queries";
+import { Session } from "$models/Session";
+import { IUser } from "$interfaces/User";
+
 import { NavBar } from "./component";
-import { GET_TRANSLATIONS } from "$queries";
 
 export const NavBarContainer: FunctionComponent = () => {
-  const { data } = useQuery(GET_TRANSLATIONS, {
-    variables: {
-      paths: ["companies", "applicants", "applicant.signUp.title"]
+  const history = useHistory();
+  const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
+    GET_TRANSLATIONS,
+    {
+      variables:
+        {
+          paths:
+            [
+              "companies",
+              "applicants",
+              "jobOffers",
+              "applicant.signUp.title",
+              "login.prompt",
+              "logOut"
+            ]
+        }
     }
-  });
-  const [companies, applicants, signUp] = data ? data.getTranslations : ["", "", ""];
+  );
+  const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
+
+  if (loading) return <Fragment/>;
+
+  const onLogOut = () => {
+    Session.logout();
+    history.push(RoutesBuilder.login);
+  };
+
+  const [ companies, applicants, jobOffers, signUp, logIn, logOut ] = getTranslations;
 
   return (
     <NavBar
-      companies={companies}
-      applicants={applicants}
-      signUp={signUp}
-      username={"Demo"}
+      logOut={onLogOut}
+      isLoggedIn={!error}
+      translations={{
+        companies,
+        applicants,
+        jobOffers,
+        signUp,
+        logIn,
+        logOut
+      }}
+      username={me.email}
     />
   );
 };

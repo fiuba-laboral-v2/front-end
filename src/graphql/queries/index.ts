@@ -9,8 +9,10 @@ const GET_CAREERS = loader("./getCareers.graphql");
 const GET_COMPANIES = loader("./getCompanies.graphql");
 const GET_OFFER_BY_UUID = loader("./getOfferByUuid.graphql");
 const GET_OFFERS = loader("./getOffers.graphql");
+const ME = loader("./me.graphql");
 
 export {
+  ME,
   GET_TRANSLATIONS,
   GET_COMPANY_BY_ID,
   GET_CAREERS,

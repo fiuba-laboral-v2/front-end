@@ -1,19 +1,21 @@
 import React, { FunctionComponent } from "react";
+import { FormikHelpers } from "formik";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_TRANSLATIONS } from "$queries";
-import { SignUp } from "./component";
+import { SAVE_APPLICANT, LOGIN } from "$mutations";
+import { Session } from "$models/Session";
 import SignUpTranslations from "./translations";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { SAVE_APPLICANT } from "$mutations";
 import { useHistory } from "react-router-dom";
 import { ISignUpValues } from "./interface";
-import { FormikHelpers } from "formik";
+import { SignUp } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
+  const [ login ] = useMutation(LOGIN);
 
   const {
     data: { getTranslations } = { getTranslations: [] },
@@ -58,6 +60,8 @@ const SignUpContainer: FunctionComponent = () => {
       }
     });
     setSubmitting(false);
+    const { data: loginData } = await login({ variables: { email, password } });
+    Session.login(loginData.login);
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
   };
 

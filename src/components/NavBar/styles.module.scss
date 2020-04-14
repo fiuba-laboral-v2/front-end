@@ -41,6 +41,12 @@
   .menu :last-child {
     margin-right: 0;
   }
+
+  .menu {
+    .logged {
+      display: none;
+    }
+  }
 }
 
 .separator, .toggle, .menu {
