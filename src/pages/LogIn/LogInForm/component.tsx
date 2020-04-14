@@ -14,13 +14,14 @@ import { ILogInFormValues } from "./interface";
 
 const LogInForm: FunctionComponent<ILogInFormProps> = (
   {
+    translations,
     initialValues,
     onSubmit
   }
 ) => (
   <>
     <div className={styles.mainContainer}>
-      <Headline className={styles.title} headline={"Ingresar"}/>
+      <Headline className={styles.title} headline={translations.title}/>
       <Formik
         initialValues={initialValues}
         validateOnMount={true}
@@ -31,14 +32,14 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
             <Form translate="yes" className={styles.formContainer} id={"formName"}>
               <TextInput
                 name="email"
-                label={"email"}
+                label={translations.email}
                 type="email"
                 className={styles.textInput}
                 validate={FormikValidator({ validator: validateEmail, mandatory: true })}
               />
               <TextInput
                 name="password"
-                label={"password"}
+                label={translations.password}
                 type="password"
                 className={styles.textInput}
                 validate={FormikValidator({ validator: validatePassword, mandatory: true })}
@@ -52,7 +53,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 type="submit"
                 disabled={!isValid || isSubmitting}
               >
-                {"Iniciar Sesión"}
+                {translations.logIn}
               </Button>
             </div>
           </div>
@@ -62,7 +63,15 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
   </>
 );
 
+interface ILogInFormTranslationsProps {
+  title: string;
+  email: string;
+  password: string;
+  logIn: string;
+}
+
 interface ILogInFormProps {
+  translations: ILogInFormTranslationsProps;
   initialValues: ILogInFormValues;
   onSubmit: (
     values: ILogInFormValues,

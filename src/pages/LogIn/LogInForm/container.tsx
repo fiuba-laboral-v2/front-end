@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import { LOGIN } from "$mutations";
+import { GET_TRANSLATIONS } from "$queries";
 import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
@@ -13,6 +14,24 @@ import { RoutesBuilder } from "../../../models/RoutesBuilder";
 const LogInFormContainer: FunctionComponent = () => {
   const history = useHistory();
   const [ login ] = useMutation(LOGIN);
+
+  const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
+    GET_TRANSLATIONS,
+    {
+      variables:
+        {
+          paths:
+            [
+              "login.title",
+              "login.email",
+              "login.password",
+              "logIn"
+            ]
+        }
+    }
+  );
+
+  const [ title, email, password, logIn ] = getTranslations;
 
   const onSubmit = async (
     values: ILogInFormValues,
@@ -28,6 +47,12 @@ const LogInFormContainer: FunctionComponent = () => {
     <LogInForm
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
+      translations={{
+        title,
+        email,
+        password,
+        logIn
+      }}
     />
   );
 };
