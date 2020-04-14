@@ -9,7 +9,7 @@ import classNames from "classnames";
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
     logOut,
-    logged,
+    isLoggedIn,
     companies,
     applicants,
     signUp,
@@ -30,21 +30,21 @@ export const NavBar: FunctionComponent<INavBarProps> = (
       </div>
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link
-          className={classNames({ [styles.logged]: !logged })}
+          className={classNames({ [styles.logged]: !isLoggedIn })}
           to={RoutesBuilder.company.list()}>{companies}
         </Link>
         <Link
-          className={classNames({ [styles.logged]: !logged })}
+          className={classNames({ [styles.logged]: !isLoggedIn })}
           to={RoutesBuilder.applicant.list()}>{applicants}
         </Link>
         <Link
-          className={classNames({ [styles.logged]: !logged })}
+          className={classNames({ [styles.logged]: !isLoggedIn })}
           to={RoutesBuilder.applicant.home()}>{"Ofertas de trabajo"}
         </Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           {
-            logged ?
+            isLoggedIn ?
               <>
                 <p className={styles.userName}>{username}</p>
                 <Link onClick={logOut} to="#">{"Cerrar Sesión"}</Link>
@@ -63,7 +63,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 
 interface INavBarProps {
   logOut: () => void;
-  logged: boolean;
+  isLoggedIn: boolean;
   companies: string;
   applicants: string;
   signUp: string;

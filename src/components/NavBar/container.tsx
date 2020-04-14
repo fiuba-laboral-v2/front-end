@@ -29,7 +29,7 @@ export const NavBarContainer: FunctionComponent = () => {
   return (
     <NavBar
       logOut={logOut}
-      logged={!error}
+      isLoggedIn={!error}
       companies={companies}
       applicants={applicants}
       signUp={signUp}
