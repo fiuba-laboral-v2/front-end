@@ -37,9 +37,9 @@ const LogInFormContainer: FunctionComponent = () => {
     values: ILogInFormValues,
     { setSubmitting }: FormikHelpers<ILogInFormValues>
   ) => {
-    setSubmitting(false);
     const { data } = await login({ variables: values });
     Session.login(data.login);
+    setSubmitting(false);
     history.push(RoutesBuilder.applicant.home());
   };
 
