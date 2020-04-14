@@ -5,16 +5,14 @@ import { SignUp } from "./component";
 import SignUpTranslations from "./translations";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { SAVE_APPLICANT, SIGN_UP } from "$mutations";
+import { SAVE_APPLICANT } from "$mutations";
 import { useHistory } from "react-router-dom";
-import { pick } from "lodash";
 import { ISignUpValues } from "./interface";
 import { FormikHelpers } from "formik";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const [signUp] = useMutation(SIGN_UP);
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
 
   const {
@@ -35,12 +33,29 @@ const SignUpContainer: FunctionComponent = () => {
   };
 
   const onSubmit = async (
-    values: ISignUpValues,
-    { setSubmitting }: FormikHelpers<ISignUpValues>
+    {
+      email,
+      password,
+      name,
+      surname,
+      padron,
+      careers
+    }: ISignUpValues,
+    {
+      setSubmitting
+    }: FormikHelpers<ISignUpValues>
   ) => {
-    await signUp({ variables: pick(values, ["email", "password"]) });
     const { data: { saveApplicant: applicant } } = await saveApplicant({
-      variables: pick(values, ["name", "surname", "padron", "careers"])
+      variables: {
+        name,
+        surname,
+        padron,
+        careers,
+        user: {
+          email,
+          password
+        }
+      }
     });
     setSubmitting(false);
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
