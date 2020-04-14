@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -29,7 +29,7 @@ export const NavBarContainer: FunctionComponent = () => {
   );
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
-  if (loading) return <div/>;
+  if (loading) return <Fragment/>;
 
   const onLogOut = () => {
     Session.logout();
