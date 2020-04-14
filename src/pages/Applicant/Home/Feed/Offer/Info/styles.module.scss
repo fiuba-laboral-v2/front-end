@@ -45,3 +45,22 @@
   text-align: center;
   margin-top: $smallSpacing;
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .detailsContainer {
+    flex-direction: column;
+  }
+  .firstColumn {
+    flex-direction: column-reverse;
+    width: 100%;
+    display: flex;
+    margin: 0;
+  }
+  .companyName {
+    text-align: left;
+    margin-bottom: $normalSpacing;
+  }
+  .time {
+    display: none;
+  }
+}

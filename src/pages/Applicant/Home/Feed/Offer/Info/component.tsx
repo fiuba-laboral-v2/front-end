@@ -6,7 +6,7 @@ import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
 
-const Info: FunctionComponent<IOfferProps> = ({
+export const Info: FunctionComponent<IOfferProps> = ({
   data: {
     company,
     title,
@@ -22,7 +22,7 @@ const Info: FunctionComponent<IOfferProps> = ({
     <hr className={styles.separator}/>
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
-        <Subtitle>
+        <Subtitle className={styles.companyName}>
           {company.companyName}
         </Subtitle>
         <TimeHumanizer since={createdAt} className={styles.time}/>
@@ -35,5 +35,3 @@ const Info: FunctionComponent<IOfferProps> = ({
 interface IOfferProps {
   data: IOffer;
 }
-
-export { Info };
