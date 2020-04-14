@@ -55,7 +55,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     title={translations.links}
                     name={"links"}
                     values={values.links}
-                    defaultValue={{ url: "", name: "", uuid: "" }}
+                    defaultValue={{ url: "", name: "" }}
                     fields={(value, index) => (
                       <div className={styles.link}>
                         <TextInput

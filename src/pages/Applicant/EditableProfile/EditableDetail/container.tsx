@@ -71,7 +71,6 @@ const EditableDetailContainer: FunctionComponent = () => {
 
   const onSubmit = async (values: IEditableDetailValues) => {
     const {
-      data: { updateApplicant: updatedApplicant },
       errors: updateApplicantErrors
     } = await updateApplicant({
       variables: {
@@ -81,7 +80,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       }
     });
     if (updateApplicantErrors) history.push(RoutesBuilder.notFound);
-    history.push(RoutesBuilder.applicant.detail(updatedApplicant.uuid));
+    history.push(RoutesBuilder.applicant.detail(uuid!));
   };
 
   return (
