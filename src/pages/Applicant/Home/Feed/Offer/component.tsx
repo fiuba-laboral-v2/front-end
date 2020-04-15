@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 const Offer: FunctionComponent<IOfferProps> = ({data: {company, ...props}}) => (
   <div className={styles.container}>
     <CompanyLogo
+      className={styles.desktopLogo}
       companyName={company.companyName}
       logo={company.logo}
       size="extraLarge"
