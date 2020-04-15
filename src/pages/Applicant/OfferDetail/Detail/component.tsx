@@ -14,6 +14,8 @@ import styles from "./styles.module.scss";
 
 const Detail: FunctionComponent<IDetailProps> = (
   {
+    disable,
+    apply,
     offer,
     goToCompany,
     translations
@@ -47,9 +49,11 @@ const Detail: FunctionComponent<IDetailProps> = (
       <div className={styles.rightBodyContainer}>
         <OfferInfo className={styles.offerInfo} offer={offer}/>
         <Button
+          onClick={() => apply(offer.uuid)}
           className="primary"
           width="expand"
           type="submit"
+          disabled={disable}
         >
           {translations.apply}
         </Button>
@@ -63,9 +67,11 @@ interface IDetailTranslations {
 }
 
 interface IDetailProps {
+  disable: boolean;
   offer: IOffer;
   goToCompany: string;
   translations: IDetailTranslations;
+  apply: (offerUuid: string) => void;
 }
 
 export { Detail };
