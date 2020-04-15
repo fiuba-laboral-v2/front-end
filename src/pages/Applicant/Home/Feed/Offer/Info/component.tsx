@@ -27,7 +27,11 @@ const Info: FunctionComponent<IOfferProps> = ({
         </Subtitle>
         <TimeHumanizer since={createdAt} className={styles.time}/>
       </div>
-      <JobSpecs salary={{minimumSalary, maximumSalary}} workload={hoursPerDay} />
+      <JobSpecs
+        salary={{minimumSalary, maximumSalary}}
+        workload={hoursPerDay}
+        className={styles.secondColumn}
+      />
     </div>
   </div>
 );
