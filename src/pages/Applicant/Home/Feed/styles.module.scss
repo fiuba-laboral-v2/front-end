@@ -2,6 +2,17 @@
 
 .cardContainer {
   width: 70%;
-  margin: $normalSpacing auto;
-  padding: 25px;
+  margin: 0 auto;
+  padding: $bigSpacing;
+  &:not(:last-child) {
+    margin-bottom: $bigSpacing;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .cardContainer {
+    width: unset;
+    margin: 0;
+    padding: $normalSpacing;
+  }
 }

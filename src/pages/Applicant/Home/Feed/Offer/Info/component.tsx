@@ -5,8 +5,9 @@ import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
+import { CompanyLogo } from "../../../../../../components/CompanyLogo";
 
-const Info: FunctionComponent<IOfferProps> = ({
+export const Info: FunctionComponent<IOfferProps> = ({
   data: {
     company,
     title,
@@ -16,18 +17,33 @@ const Info: FunctionComponent<IOfferProps> = ({
     createdAt
 }}) => (
   <div className={styles.container}>
-    <Subtitle className={styles.jobDescription}>
-      {title}
-    </Subtitle>
-    <hr className={styles.separator}/>
+    <div className={styles.headerContainer}>
+      <CompanyLogo
+        className={styles.mobileLogo}
+        companyName={company.companyName}
+        logo={company.logo}
+        size="large"
+      />
+      <div className={styles.subtitleContainer}>
+        <Subtitle className={styles.jobDescription}>
+          {title}
+        </Subtitle>
+        <hr className={styles.separator}/>
+        <TimeHumanizer since={createdAt} className={styles.mobileTime}/>
+      </div>
+    </div>
     <div className={styles.detailsContainer}>
       <div className={styles.firstColumn}>
-        <Subtitle>
+        <Subtitle className={styles.companyName}>
           {company.companyName}
         </Subtitle>
         <TimeHumanizer since={createdAt} className={styles.time}/>
       </div>
-      <JobSpecs salary={{minimumSalary, maximumSalary}} workload={hoursPerDay} />
+      <JobSpecs
+        salary={{minimumSalary, maximumSalary}}
+        workload={hoursPerDay}
+        className={styles.secondColumn}
+      />
     </div>
   </div>
 );
@@ -35,5 +51,3 @@ const Info: FunctionComponent<IOfferProps> = ({
 interface IOfferProps {
   data: IOffer;
 }
-
-export { Info };

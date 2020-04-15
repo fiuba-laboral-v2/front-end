@@ -36,12 +36,63 @@
   margin-right: $bigSpacing;
 }
 
-.secondColumn {
-  flex-direction: row;
-  justify-content: center;
-}
-
 .time {
   text-align: center;
   margin-top: $smallSpacing;
+}
+
+.mobileTime {
+  display: none;
+}
+
+.mobileLogo {
+  display: none;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .detailsContainer {
+    flex-direction: column;
+  }
+  .firstColumn {
+    flex-direction: column-reverse;
+    width: 100%;
+    display: flex;
+    margin: 0;
+  }
+  .companyName {
+    text-align: left;
+    margin-bottom: $normalSpacing;
+  }
+  .time {
+    display: none;
+  }
+  .mobileTime {
+    display: flex;
+  }
+  .mobileLogo {
+    display: flex;
+    align-self: unset;
+  }
+  .container {
+    margin: 0;
+  }
+  .headerContainer {
+    flex-direction: row;
+    margin-bottom: $normalSpacing;
+  }
+  .subtitleContainer {
+    flex-grow: 1;
+    margin-left: $normalSpacing;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .separator {
+    margin: $smallSpacing 0;
+  }
 }

@@ -3,6 +3,7 @@
 @mixin size($width, $height) {
   height: $height;
   width: $width;
+  border-radius: 0.11 * $height;
 }
 
 .small {
@@ -23,7 +24,6 @@
 
 .logoContainer {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: $defaultBorderRadius;
   background: white;
   display: flex;
   overflow: hidden;

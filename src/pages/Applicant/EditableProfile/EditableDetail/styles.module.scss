@@ -52,10 +52,12 @@
   @include formSetMainColumn;
 }
 
-
 @media (max-width: $mobileContainerThreshold) {
-  .mainContainer {
+  .fullName, .capabilities, .section, .link {
+    width: 100%;
+  }
 
+  .mainContainer {
     .body {
       .linkTitle {
         margin: 0;

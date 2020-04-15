@@ -16,9 +16,13 @@ body {
   background-color: #EDEDED;
 }
 
+p {
+  margin: 0;
+}
+
 button {
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 button:disabled {
