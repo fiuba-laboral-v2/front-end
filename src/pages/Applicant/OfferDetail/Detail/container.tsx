@@ -28,24 +28,23 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
 
-  if (offerError || translationsError) history.push(RoutesBuilder.notFound);
+  if (offerError || translationsError) {
+    history.push(RoutesBuilder.notFound);
+    return null;
+  }
   if (loadingOffer  || loadingTranslations) return <LoadingSpinner/>;
 
   const [ apply ] = getTranslations;
   offer.sections = sortBy(offer.sections, [ "displayOrder" ]);
 
   const onSubmit = async (offerUuid: string) => {
-    try {
-      await saveJobApplication({ variables: { offerUuid } });
-    } catch (e) {
-      alert(JSON.stringify(e));
-    }
+    await saveJobApplication({ variables: { offerUuid } });
     history.push(RoutesBuilder.applicant.home());
   };
 
   return (
     <Detail
-      disable={false}
+      disable={offer.hasApplied!}
       apply={onSubmit}
       translations={{ apply }}
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}
