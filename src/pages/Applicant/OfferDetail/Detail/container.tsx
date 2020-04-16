@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { sortBy } from "lodash";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID, GET_TRANSLATIONS } from "$queries";
 import { SAVE_JOB_APPLICATION } from "$mutations";
-import { IOffer } from "$interfaces/Offer";
+import { IMyOffer } from "$interfaces/Applicant";
 
 import { Detail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -23,29 +23,24 @@ const DetailContainer: FunctionComponent = () => {
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "offer.apply" ] } });
 
   const {
-    data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IOffer },
+    data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IMyOffer },
     error: offerError,
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
 
-  if (offerError || translationsError) history.push(RoutesBuilder.notFound);
+  if (offerError || translationsError) return <Redirect to={RoutesBuilder.notFound} />;
   if (loadingOffer  || loadingTranslations) return <LoadingSpinner/>;
 
   const [ apply ] = getTranslations;
   offer.sections = sortBy(offer.sections, [ "displayOrder" ]);
 
   const onSubmit = async (offerUuid: string) => {
-    try {
-      await saveJobApplication({ variables: { offerUuid } });
-    } catch (e) {
-      alert(JSON.stringify(e));
-    }
+    await saveJobApplication({ variables: { offerUuid } });
     history.push(RoutesBuilder.applicant.home());
   };
 
   return (
     <Detail
-      disable={false}
       apply={onSubmit}
       translations={{ apply }}
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}

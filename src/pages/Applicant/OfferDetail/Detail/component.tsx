@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { IOffer } from "$interfaces/Offer";
+import { IMyOffer } from "$interfaces/Applicant";
 
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
@@ -14,7 +14,6 @@ import styles from "./styles.module.scss";
 
 const Detail: FunctionComponent<IDetailProps> = (
   {
-    disable,
     apply,
     offer,
     goToCompany,
@@ -53,7 +52,7 @@ const Detail: FunctionComponent<IDetailProps> = (
           className="primary"
           width="expand"
           type="submit"
-          disabled={disable}
+          disabled={offer.hasApplied}
         >
           {translations.apply}
         </Button>
@@ -67,8 +66,7 @@ interface IDetailTranslations {
 }
 
 interface IDetailProps {
-  disable: boolean;
-  offer: IOffer;
+  offer: IMyOffer;
   goToCompany: string;
   translations: IDetailTranslations;
   apply: (offerUuid: string) => void;

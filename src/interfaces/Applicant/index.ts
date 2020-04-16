@@ -1,4 +1,5 @@
 import { ICapability } from "../Capability";
+import { IOffer } from "../Offer";
 
 export interface ICareer {
   code: string;
@@ -35,4 +36,8 @@ export interface IApplicant {
 export interface IApplicantCareer {
   code: string;
   creditsCount: number;
+}
+
+export interface IMyOffer extends IOffer {
+  hasApplied: boolean;
 }
