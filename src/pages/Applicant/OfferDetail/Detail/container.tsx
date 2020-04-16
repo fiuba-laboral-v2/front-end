@@ -41,7 +41,6 @@ const DetailContainer: FunctionComponent = () => {
 
   return (
     <Detail
-      disable={offer.hasApplied}
       apply={onSubmit}
       translations={{ apply }}
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}
