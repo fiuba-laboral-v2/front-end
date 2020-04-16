@@ -6,7 +6,7 @@ import { sortBy } from "lodash";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID, GET_TRANSLATIONS } from "$queries";
 import { SAVE_JOB_APPLICATION } from "$mutations";
-import { IOffer } from "$interfaces/Offer";
+import { IMyOffer } from "$interfaces/Applicant";
 
 import { Detail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -23,7 +23,7 @@ const DetailContainer: FunctionComponent = () => {
   } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "offer.apply" ] } });
 
   const {
-    data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IOffer },
+    data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IMyOffer },
     error: offerError,
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });

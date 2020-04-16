@@ -19,5 +19,4 @@ export interface IOffer {
   createdAt: string;
   sections?: IOfferSection[];
   careers?: ICareer[];
-  hasApplied: boolean;
 }
