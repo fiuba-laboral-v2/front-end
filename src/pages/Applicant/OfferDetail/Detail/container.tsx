@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { sortBy } from "lodash";
 
@@ -28,10 +28,7 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
 
-  if (offerError || translationsError) {
-    history.push(RoutesBuilder.notFound);
-    return null;
-  }
+  if (offerError || translationsError) return <Redirect to={RoutesBuilder.notFound} />;
   if (loadingOffer  || loadingTranslations) return <LoadingSpinner/>;
 
   const [ apply ] = getTranslations;
