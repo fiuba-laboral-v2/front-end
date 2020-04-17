@@ -10,11 +10,9 @@ import { MaterialUITheme } from "./materialUITheme";
 const App: FunctionComponent = () => (
   <ApolloProvider client={ApolloClient}>
     <ThemeProvider theme={MaterialUITheme}>
-      <div>
-        <Router>
-          <Routes/>
-        </Router>
-      </div>
+      <Router>
+        <Routes/>
+      </Router>
     </ThemeProvider>
   </ApolloProvider>
 );

@@ -29,7 +29,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
         validateOnMount={true}
         onSubmit={onSubmit}
       >
-        {({ isValid, isSubmitting }) => (
+        {({ isSubmitting }) => (
           <div className={styles.body}>
             <Form translate="yes" className={styles.formContainer} id={"formName"}>
               <TextInput
@@ -53,7 +53,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 className="primary"
                 width="expand"
                 type="submit"
-                disabled={!isValid || isSubmitting}
+                disabled={isSubmitting}
               >
                 {translations.logIn}
               </Button>

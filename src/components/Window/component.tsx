@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
+
 import { NavBar } from "../NavBar";
 import { MainContent } from "../MainContent";
+
+import styles from "./styles.module.scss";
 
 export const Window: FunctionComponent<IWindow> = (
   {
@@ -8,12 +12,12 @@ export const Window: FunctionComponent<IWindow> = (
     children
   }
 ) => (
-  <>
+  <div className={styles.window} >
     <NavBar/>
-    <MainContent className={className}>
+    <MainContent className={classNames(className, styles.mainContent)}>
       {children}
     </MainContent>
-  </>
+  </div>
 );
 
 interface IWindow {

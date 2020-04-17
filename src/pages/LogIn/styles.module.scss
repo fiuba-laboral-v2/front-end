@@ -1,15 +1,19 @@
 @import "$styles/_variables.scss";
 
 .window {
-  display: flex;
-  margin: $navBarHeight auto auto;
+  margin: $navBarHeight 0 0;
   width: auto;
-  min-height: 100%;
 
   .loginMainContainer {
     display: flex;
+    flex-grow: 1;
 
     .logo {
+      background-image: url(fiubaLogo.png);
+      background-repeat: no-repeat;
+      background-position-x: right;
+      background-position-y: center;
+      background-size: cover;
       width: 70%;
     }
 
@@ -22,12 +26,15 @@
 @media (max-width: $mobileContainerThreshold) {
   .window {
     .loginMainContainer {
+      flex-direction: column;
+
       .logo {
-        display: none;
+        background-image: url(fiubaLogoMobile.png);
+        flex-grow: 1;
       }
 
-      .form {
-        width: 100%;
+      .logo, .form {
+        width: unset;
       }
     }
   }
