@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from "react";
 
-import { Window } from "$components/Window";
 import { LogInForm } from "./LogInForm";
 
 import styles from "./styles.module.scss";
+import { MainContent } from "../../components/MainContent";
 
 const LogIn: FunctionComponent = () => (
-  <Window className={styles.window}>
+  <MainContent className={styles.mainContent}>
     <div className={styles.loginMainContainer}>
       <div className={styles.logo} />
       <LogInForm className={styles.form}/>
     </div>
-  </Window>
+  </MainContent>
 );
 
 export { LogIn };

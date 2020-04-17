@@ -26,6 +26,10 @@
     .footer {
       display: flex;
       flex-direction: column;
+
+      .register {
+        margin-top: $bigSpacing;
+      }
     }
   }
 }

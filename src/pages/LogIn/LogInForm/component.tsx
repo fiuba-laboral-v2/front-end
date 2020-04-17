@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 import classNames from "classnames";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
@@ -57,6 +59,10 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
               >
                 {translations.logIn}
               </Button>
+              <div className={styles.register}>
+                <span> No tenes cuenta? </span>
+                <Link to={RoutesBuilder.applicant.signUp}> Registrate </Link>
+              </div>
             </div>
           </div>
         )}

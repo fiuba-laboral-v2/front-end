@@ -1,8 +1,9 @@
 @import "$styles/_variables.scss";
 
-.window {
-  margin: $navBarHeight 0 0;
+.mainContent {
+  margin: 0;
   width: auto;
+  min-height: 100vh;
 
   .loginMainContainer {
     display: flex;
@@ -24,7 +25,7 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .window {
+  .mainContent {
     .loginMainContainer {
       flex-direction: column;
 
