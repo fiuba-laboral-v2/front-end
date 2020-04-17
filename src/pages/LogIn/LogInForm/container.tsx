@@ -26,8 +26,8 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
               "login.email",
               "login.password",
               "login.prompt",
-              "login.DontHaveAnAccount",
-              "login.Register"
+              "login.dontHaveAnAccount",
+              "login.register"
             ]
         }
     }
