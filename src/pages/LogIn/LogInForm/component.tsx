@@ -60,8 +60,8 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 {translations.logIn}
               </Button>
               <div className={styles.register}>
-                <span> No tenes cuenta? </span>
-                <Link to={RoutesBuilder.applicant.signUp}> Registrate </Link>
+                <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
+                <Link to={RoutesBuilder.applicant.signUp}>{translations.register}</Link>
               </div>
             </div>
           </div>
@@ -76,6 +76,8 @@ interface ILogInFormTranslationsProps {
   email: string;
   password: string;
   logIn: string;
+  dontHaveAnAccount: string;
+  register: string;
 }
 
 interface ILogInFormProps {

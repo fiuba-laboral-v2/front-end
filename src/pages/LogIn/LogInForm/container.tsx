@@ -25,13 +25,15 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
               "login.enter",
               "login.email",
               "login.password",
-              "login.prompt"
+              "login.prompt",
+              "login.DontHaveAnAccount",
+              "login.Register"
             ]
         }
     }
   );
 
-  const [ title, email, password, logIn ] = getTranslations;
+  const [ title, email, password, logIn, dontHaveAnAccount, register ] = getTranslations;
 
   const onSubmit = async (
     values: ILogInFormValues,
@@ -52,7 +54,9 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
         title,
         email,
         password,
-        logIn
+        logIn,
+        dontHaveAnAccount,
+        register
       }}
     />
   );
