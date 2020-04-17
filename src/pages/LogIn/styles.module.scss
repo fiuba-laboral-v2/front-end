@@ -1,0 +1,35 @@
+@import "$styles/_variables.scss";
+
+.window {
+  display: flex;
+  margin: $navBarHeight auto auto;
+  width: auto;
+  min-height: 100%;
+
+  .loginMainContainer {
+    display: flex;
+
+    .logo {
+      width: 70%;
+    }
+
+    .form {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .window {
+    .loginMainContainer {
+      .logo {
+        display: none;
+      }
+
+      .form {
+        width: 100%;
+      }
+    }
+  }
+}
+

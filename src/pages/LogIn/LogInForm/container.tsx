@@ -11,7 +11,7 @@ import { ILogInFormValues } from "./interface";
 import { FormikHelpers } from "formik";
 import { RoutesBuilder } from "../../../models/RoutesBuilder";
 
-const LogInFormContainer: FunctionComponent = () => {
+const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const [ login ] = useMutation(LOGIN);
 
@@ -45,6 +45,7 @@ const LogInFormContainer: FunctionComponent = () => {
 
   return (
     <LogInForm
+      className={className}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
       translations={{
@@ -56,5 +57,9 @@ const LogInFormContainer: FunctionComponent = () => {
     />
   );
 };
+
+interface ILogInFormContainerProps {
+  className?: string;
+}
 
 export { LogInFormContainer };

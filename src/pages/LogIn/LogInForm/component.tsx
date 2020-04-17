@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
+import classNames from "classnames";
 
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
@@ -14,13 +15,14 @@ import { ILogInFormValues } from "./interface";
 
 const LogInForm: FunctionComponent<ILogInFormProps> = (
   {
+    className,
     translations,
     initialValues,
     onSubmit
   }
 ) => (
   <>
-    <div className={styles.mainContainer}>
+    <div className={classNames(styles.mainContainer, className)}>
       <Headline className={styles.title} headline={translations.title}/>
       <Formik
         initialValues={initialValues}
@@ -71,6 +73,7 @@ interface ILogInFormTranslationsProps {
 }
 
 interface ILogInFormProps {
+  className?: string;
   translations: ILogInFormTranslationsProps;
   initialValues: ILogInFormValues;
   onSubmit: (
