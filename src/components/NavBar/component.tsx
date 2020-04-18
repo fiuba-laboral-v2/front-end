@@ -59,18 +59,18 @@ export const NavBar: FunctionComponent<INavBarProps> = (
   );
 };
 
-interface INavBarTranslationsProps {
-  companies: string;
-  applicants: string;
-  jobOffers: string;
-  signUp: string;
-  logIn: string;
-  logOut: string;
-}
+// interface INavBarTranslationsProps {
+//   companies: string;
+//   applicants: string;
+//   jobOffers: string;
+//   signUp: string;
+//   logIn: string;
+//   logOut: string;
+// }
 
 interface INavBarProps {
   logOut: () => void;
   isLoggedIn: boolean;
   username: string;
-  translations: INavBarTranslationsProps;
+  translations: any;
 }

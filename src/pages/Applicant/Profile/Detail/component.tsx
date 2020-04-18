@@ -8,6 +8,7 @@ import { SectionDetail } from "$components/SectionDetail";
 import styles from "./styles.module.scss";
 import { IApplicant } from "$interfaces/Applicant";
 import { Description } from "$components/Description";
+import { ITranslations } from "./interface";
 
 const Detail: FunctionComponent<IApplicantDetailProps> = (
   {
@@ -35,11 +36,6 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
     }
   </div>
 );
-
-interface ITranslations {
-  padron: string;
-  capabilities: string;
-}
 
 interface IApplicantDetailProps {
   applicant: IApplicant;

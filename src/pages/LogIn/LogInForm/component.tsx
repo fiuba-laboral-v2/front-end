@@ -13,7 +13,7 @@ import { FormikValidator } from "$models/FormikValidator";
 import { validateEmail, validatePassword } from "validations-fiuba-laboral-v2";
 
 import styles from "./styles.module.scss";
-import { ILogInFormValues } from "./interface";
+import { ILogInFormValues, ILogInFormTranslationsProps } from "./interface";
 
 const LogInForm: FunctionComponent<ILogInFormProps> = (
   {
@@ -70,15 +70,6 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
     </div>
   </>
 );
-
-interface ILogInFormTranslationsProps {
-  title: string;
-  email: string;
-  password: string;
-  logIn: string;
-  dontHaveAnAccount: string;
-  register: string;
-}
 
 interface ILogInFormProps {
   className?: string;

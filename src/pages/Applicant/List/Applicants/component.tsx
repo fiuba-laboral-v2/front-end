@@ -12,14 +12,16 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     applicants,
     onClickEdit,
     onClickView,
-    editButtonText,
-    viewButtonText,
+    translations: {
+      editButtonText,
+      viewButtonText
+    },
     loading
   }) => {
   if (loading) {
     return (
       <>
-        <ListTitle titleTranslationPath={"applicants"} />
+        <ListTitle titleTranslationPath={"applicantList"} />
         <LoadingSpinner />
       </>
     );
@@ -27,7 +29,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
 
   return (
     <>
-      <ListTitle titleTranslationPath={"applicants"} />
+      <ListTitle titleTranslationPath={"applicantList"} />
       {
         applicants.map(applicant =>
           <div className={styles.row} key={applicant.uuid}>

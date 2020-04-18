@@ -5,10 +5,12 @@ import { ICareer } from "$interfaces/Applicant";
 
 const CareersDetail: FunctionComponent<ICareersProps> = (
   {
+    className,
     careers,
-    careersTitle,
-    creditsProgressTranslation,
-    className
+    translations: {
+      careersTitle,
+      creditsProgress
+    }
   }) => {
   const percentage = (career: ICareer) => {
     return ((career.creditsCount / career.credits) * 100).toFixed(2);
@@ -19,7 +21,7 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
       <ItemsDetail
         items={
           careers.map(career =>
-            `${career.description}: ${percentage(career)} ${creditsProgressTranslation}`
+            `${career.description}: ${percentage(career)} ${creditsProgress}`
           )
         }
         title={careersTitle}

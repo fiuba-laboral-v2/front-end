@@ -14,7 +14,7 @@ import {
   validatePassword
 } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpValues } from "./interface";
+import { ISignUpValues, ISignUpTranslations } from "./interface";
 import { FormSet } from "$components/FormSet";
 
 
@@ -138,17 +138,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 };
 
 interface ISignUpProps {
-  translations: {
-    title: string;
-    email: string;
-    password: string;
-    passwordConfirm: string;
-    name: string;
-    surname: string;
-    padron: string;
-    careersTitle: string;
-    submit: string;
-  };
+  translations: ISignUpTranslations;
   validateForm: (values: ISignUpValues) => string | undefined;
   onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
     void | Promise<any>;

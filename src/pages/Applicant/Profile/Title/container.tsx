@@ -1,29 +1,23 @@
 import React, { FunctionComponent } from "react";
-import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import { GET_TRANSLATIONS } from "$queries";
+import { useTranslations } from "$hooks/translations";
 import { Title } from "$components/Title";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { ITitleProps } from "$components/Title/interface";
 
 const TitleContainer: FunctionComponent = () => {
   const history = useHistory();
   const {
-    data: { getTranslations } = { getTranslations: [] },
+    translations,
     error
-  } = useQuery(GET_TRANSLATIONS, {
-      variables: {
-        paths: ["applicant.explanation", "applicant.title"]
-      }
-    }
-  );
-  if (error) history.push(RoutesBuilder.notFound);
+  } = useTranslations<ITitleProps>("applicantProfileTitle");
 
-  const [explanation, title] = getTranslations;
+  if (error) history.push(RoutesBuilder.notFound);
 
   return (
     <Title
-      title={title}
-      subtitle={explanation}
+      title={translations!.title}
+      subtitle={translations!.subtitle}
     />
   );
 };

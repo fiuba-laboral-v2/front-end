@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { FormikHelpers } from "formik";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_TRANSLATIONS } from "$queries";
+import { useMutation } from "@apollo/react-hooks";
+import { useTranslations } from "$hooks/translations";
 import { SAVE_APPLICANT, LOGIN } from "$mutations";
 import { Session } from "$models/Session";
-import SignUpTranslations from "./translations";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
-import { ISignUpValues } from "./interface";
+import { ISignUpValues, ISignUpTranslations } from "./interface";
 import { SignUp } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
@@ -18,11 +17,9 @@ const SignUpContainer: FunctionComponent = () => {
   const [ login ] = useMutation(LOGIN);
 
   const {
-    data: { getTranslations } = { getTranslations: [] },
+    translations,
     loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: SignUpTranslations } });
-
-  const translations = translationsMapper(getTranslations);
+  } = useTranslations<ISignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: ISignUpValues) => {
     const selectedCodes = values.careers.map(career => career.code);
@@ -69,37 +66,11 @@ const SignUpContainer: FunctionComponent = () => {
 
   return (
     <SignUp
-      translations={translations}
+      translations={translations!}
       validateForm={validateForm}
       onSubmit={onSubmit}
     />
   );
-};
-
-const translationsMapper = (translations: string[] = Array(10).fill("")) => {
-  const [
-    title,
-    email,
-    password,
-    passwordConfirm,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  ] = translations;
-
-  return {
-    title,
-    email,
-    password,
-    passwordConfirm,
-    name,
-    surname,
-    padron,
-    careersTitle,
-    submit
-  };
 };
 
 export { SignUpContainer };

@@ -1,17 +1,18 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
+import { useTranslations } from "$hooks/translations";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { GET_COMPANIES, GET_TRANSLATIONS } from "$queries";
+import { GET_COMPANIES } from "$queries";
 import { Companies } from "./component";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();
   const {
-    data: { getTranslations } = { getTranslations: [] },
+    translations,
     error: translationsError,
     loading: translationLoading
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["view"] } });
+  } = useTranslations<string>("companyListItem");
   const {
     data: { getCompanies } = { getCompanies: [] },
     error,
@@ -20,14 +21,12 @@ const CompaniesContainer: FunctionComponent = () => {
 
   if (translationsError || error) return <Fragment/>;
 
-  const [viewTranslation] = getTranslations;
-
   return (
     <Companies
       loading={translationLoading || loading}
       companies={getCompanies}
       onClickView={id => history.push(RoutesBuilder.company.detail(id))}
-      viewButtonText={viewTranslation}
+      viewButtonText={translations!}
     />
   );
 };

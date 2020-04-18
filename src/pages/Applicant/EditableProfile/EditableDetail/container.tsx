@@ -4,9 +4,10 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
+import { useTranslations } from "$hooks/translations";
+import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { IEditableDetailValues } from "./interface";
+import { IEditableDetailValues, IApplicantDetailEditableTranslations } from "./interface";
 import { UPDATE_APPLICANT } from "$mutations";
 
 const EditableDetailContainer: FunctionComponent = () => {
@@ -22,28 +23,10 @@ const EditableDetailContainer: FunctionComponent = () => {
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
   const {
-    data: { getTranslations } = { getTranslations: [] },
+    translations,
     error: translationsError,
     loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, {
-    variables: {
-      paths: [
-        "applicant.edit.title",
-        "applicant.edit.name",
-        "applicant.edit.surname",
-        "applicant.edit.links",
-        "applicant.edit.link",
-        "applicant.edit.linkTitle",
-        "applicant.edit.careers",
-        "applicant.edit.capabilities",
-        "applicant.edit.capability",
-        "applicant.edit.sections",
-        "applicant.edit.sectionTitle",
-        "applicant.edit.sectionContent",
-        "applicant.edit.submit"
-      ]
-    }
-  });
+  } = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
 
   if (applicantError || translationsError) {
     history.push(RoutesBuilder.notFound);
@@ -52,22 +35,6 @@ const EditableDetailContainer: FunctionComponent = () => {
   if (loadingApplicant || loadingTranslations) {
     return <LoadingSpinner/>;
   }
-
-  const [
-    titleTranslation,
-    nameTranslation,
-    surnameTranslation,
-    linksTranslation,
-    linkTranslation,
-    linkTitleTranslation,
-    careersTranslation,
-    capabilitiesTranslation,
-    capabilityTranslation,
-    sectionsTranslation,
-    sectionTitleTranslation,
-    sectionContentTranslation,
-    submitTranslation
-  ] = getTranslations;
 
   const onSubmit = async (values: IEditableDetailValues) => {
     const {
@@ -86,21 +53,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   return (
     <EditableDetail
       onSubmit={onSubmit}
-      translations={{
-        title: titleTranslation,
-        name: nameTranslation,
-        surname: surnameTranslation,
-        links: linksTranslation,
-        link: linkTranslation,
-        linkTitle: linkTitleTranslation,
-        careers: careersTranslation,
-        capabilities: capabilitiesTranslation,
-        capability: capabilityTranslation,
-        sections: sectionsTranslation,
-        sectionTitle: sectionTitleTranslation,
-        sectionContent: sectionContentTranslation,
-        submit: submitTranslation
-      }}
+      translations={translations!}
       initialValues={{
         uuid: applicant.uuid,
         name: applicant.name,

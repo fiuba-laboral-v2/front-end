@@ -99,6 +99,7 @@
     "$test": "src/test",
     "$src": "src",
     "$models": "src/models",
-    "$config": "src/config"
+    "$config": "src/config",
+    "$hooks": "src/hooks"
   }
 }

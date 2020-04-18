@@ -1,18 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { ICareerSelectorContainerProps } from "./interface";
 import { CareerSelector } from "./compontent";
+import { useTranslations } from "$hooks/translations";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
+import { GET_CAREERS } from "$queries";
 
 
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
   const {
-    data: { getTranslations } = { getTranslations: [] },
+    translations,
     error: translationsError,
     loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, {
-    variables: { paths: ["applicant.signUp.career", "applicant.signUp.credits"] }
-  });
+  } = useTranslations("careerSelector");
 
   const {
     data: { getCareers } = { getCareers: [] },
@@ -22,15 +21,10 @@ export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainer
 
   if (translationsError || loadingTranslations || careersError || loadingCareers) return (<div/>);
 
-  const [
-    careerLabel,
-    creditsLabel
-  ] = getTranslations;
-
   return (
     <CareerSelector
-      careerLabel={careerLabel}
-      creditsLabel={creditsLabel}
+      careerLabel={translations.careerLabel}
+      creditsLabel={translations.creditsLabel}
       options={getCareers}
       {...props}
     />
