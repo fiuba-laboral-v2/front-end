@@ -5,6 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { INavBarTranslations } from "./interface";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
@@ -59,18 +60,9 @@ export const NavBar: FunctionComponent<INavBarProps> = (
   );
 };
 
-// interface INavBarTranslationsProps {
-//   companies: string;
-//   applicants: string;
-//   jobOffers: string;
-//   signUp: string;
-//   logIn: string;
-//   logOut: string;
-// }
-
 interface INavBarProps {
   logOut: () => void;
   isLoggedIn: boolean;
   username: string;
-  translations: any;
+  translations: INavBarTranslations;
 }
