@@ -8,10 +8,11 @@ import { Session } from "$models/Session";
 import { IUser } from "$interfaces/User";
 
 import { NavBar } from "./component";
+import { INavBarTranslations } from "./interface";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { translations, loading: loadingTranslations } = useTranslations("navBar");
+  const { translations, loading: loadingTranslations } = useTranslations<INavBarTranslations>("navBar");
 
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
@@ -26,7 +27,7 @@ export const NavBarContainer: FunctionComponent = () => {
     <NavBar
       logOut={onLogOut}
       isLoggedIn={!error}
-      translations={translations}
+      translations={translations!}
       username={me.email}
     />
   );
