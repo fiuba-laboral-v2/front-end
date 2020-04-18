@@ -1,0 +1,45 @@
+@import "$styles/_variables.scss";
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: auto;
+  min-height: 100vh;
+
+  .loginMainContainer {
+    display: flex;
+    flex-grow: 1;
+
+    .logo {
+      background-image: url(fiubaLogo.png);
+      background-repeat: no-repeat;
+      background-position-x: right;
+      background-position-y: center;
+      background-size: cover;
+      width: 70%;
+    }
+
+    .form {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContent {
+    .loginMainContainer {
+      flex-direction: column;
+
+      .logo {
+        background-image: url(fiubaLogoMobile.png);
+        flex-grow: 1;
+      }
+
+      .logo, .form {
+        width: unset;
+      }
+    }
+  }
+}
+

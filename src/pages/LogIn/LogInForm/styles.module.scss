@@ -1,6 +1,11 @@
 @import "$styles/_variables.scss";
 
 .mainContainer {
+  padding: 100px 70px 70px;
+  background-color: #FCFCFC;
+  display: flex;
+  flex-direction: column;
+
   .title {
     margin-bottom: $bigSpacing;
   }
@@ -21,6 +26,14 @@
     .footer {
       display: flex;
       flex-direction: column;
+
+      .register {
+        margin-top: $bigSpacing;
+      }
+
+      .dontHaveAnAccount {
+        margin-right: $smallSpacing;
+      }
     }
   }
 }

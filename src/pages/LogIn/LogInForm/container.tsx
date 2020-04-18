@@ -11,7 +11,7 @@ import { ILogInFormValues } from "./interface";
 import { FormikHelpers } from "formik";
 import { RoutesBuilder } from "../../../models/RoutesBuilder";
 
-const LogInFormContainer: FunctionComponent = () => {
+const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const [ login ] = useMutation(LOGIN);
 
@@ -25,13 +25,15 @@ const LogInFormContainer: FunctionComponent = () => {
               "login.enter",
               "login.email",
               "login.password",
-              "login.prompt"
+              "login.prompt",
+              "login.dontHaveAnAccount",
+              "login.register"
             ]
         }
     }
   );
 
-  const [ title, email, password, logIn ] = getTranslations;
+  const [ title, email, password, logIn, dontHaveAnAccount, register ] = getTranslations;
 
   const onSubmit = async (
     values: ILogInFormValues,
@@ -45,16 +47,23 @@ const LogInFormContainer: FunctionComponent = () => {
 
   return (
     <LogInForm
+      className={className}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
       translations={{
         title,
         email,
         password,
-        logIn
+        logIn,
+        dontHaveAnAccount,
+        register
       }}
     />
   );
 };
+
+interface ILogInFormContainerProps {
+  className?: string;
+}
 
 export { LogInFormContainer };

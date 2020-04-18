@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
+import classNames from "classnames";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
@@ -14,20 +17,21 @@ import { ILogInFormValues } from "./interface";
 
 const LogInForm: FunctionComponent<ILogInFormProps> = (
   {
+    className,
     translations,
     initialValues,
     onSubmit
   }
 ) => (
   <>
-    <div className={styles.mainContainer}>
+    <div className={classNames(styles.mainContainer, className)}>
       <Headline className={styles.title} headline={translations.title}/>
       <Formik
         initialValues={initialValues}
         validateOnMount={true}
         onSubmit={onSubmit}
       >
-        {({ isValid, isSubmitting }) => (
+        {({ isSubmitting }) => (
           <div className={styles.body}>
             <Form translate="yes" className={styles.formContainer} id={"formName"}>
               <TextInput
@@ -51,10 +55,14 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 className="primary"
                 width="expand"
                 type="submit"
-                disabled={!isValid || isSubmitting}
+                disabled={isSubmitting}
               >
                 {translations.logIn}
               </Button>
+              <div className={styles.register}>
+                <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
+                <Link to={RoutesBuilder.applicant.signUp}>{translations.register}</Link>
+              </div>
             </div>
           </div>
         )}
@@ -68,9 +76,12 @@ interface ILogInFormTranslationsProps {
   email: string;
   password: string;
   logIn: string;
+  dontHaveAnAccount: string;
+  register: string;
 }
 
 interface ILogInFormProps {
+  className?: string;
   translations: ILogInFormTranslationsProps;
   initialValues: ILogInFormValues;
   onSubmit: (
