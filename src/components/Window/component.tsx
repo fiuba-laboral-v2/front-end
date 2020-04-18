@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-
 import { NavBar } from "../NavBar";
 import { MainContent } from "../MainContent";
 
