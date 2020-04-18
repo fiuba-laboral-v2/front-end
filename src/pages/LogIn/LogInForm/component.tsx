@@ -10,7 +10,7 @@ import Button from "$components/Button";
 import { Headline } from "$components/Headline";
 
 import { FormikValidator } from "$models/FormikValidator";
-import { validateEmail, validatePassword } from "validations-fiuba-laboral-v2";
+import { validateEmail, validateEmptyString } from "validations-fiuba-laboral-v2";
 
 import styles from "./styles.module.scss";
 import { ILogInFormValues } from "./interface";
@@ -46,7 +46,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 label={translations.password}
                 type="password"
                 className={styles.textInput}
-                validate={FormikValidator({ validator: validatePassword, mandatory: true })}
+                validate={FormikValidator({ validator: validateEmptyString, mandatory: true })}
               />
             </Form>
             <div className={styles.footer}>
