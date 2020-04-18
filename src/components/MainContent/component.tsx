@@ -1,18 +1,8 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const MainContent: FunctionComponent<IMainContent> = (
-  {
-    className,
-    children
-  }
-) => (
-  <div className={classNames(styles.mainContent, className)}>
+export const MainContent: FunctionComponent = ({ children }) => (
+  <div className={styles.mainContent}>
     {children}
   </div>
 );
-
-interface IMainContent {
-  className?: string;
-}
