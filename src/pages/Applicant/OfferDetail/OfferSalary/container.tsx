@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks/translations";
 import { OfferSalary } from "./component";
 import { IOfferSalaryContainerProps, IOfferSalaryTranslations } from "./interface";
@@ -11,18 +11,15 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
     className
   }
 ) => {
-  const history = useHistory();
-  const {
-    translations,
-    error
-  } = useTranslations<IOfferSalaryTranslations>("offerSalary");
+  const translations = useTranslations<IOfferSalaryTranslations>("offerSalary");
 
-  if (error) history.push(RoutesBuilder.notFound);
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <OfferSalary
       className={className}
-      translations={translations!}
+      translations={translations.data}
       offer={offer}
     />
   );

@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
 import { LOGIN } from "$mutations";
@@ -7,7 +7,7 @@ import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
 
-import { ILogInFormValues, ILogInFormTranslationsProps } from "./interface";
+import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
 import { FormikHelpers } from "formik";
 import { RoutesBuilder } from "../../../models/RoutesBuilder";
 
@@ -15,7 +15,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const history = useHistory();
   const [ login ] = useMutation(LOGIN);
 
-  const { translations, loading } = useTranslations<ILogInFormTranslationsProps>("login");
+  const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
   const onSubmit = async (
     values: ILogInFormValues,
@@ -27,14 +27,15 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     history.push(RoutesBuilder.applicant.home());
   };
 
-  if (loading) return <div/>;
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <LogInForm
       className={className}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
-      translations={translations!}
+      translations={translations.data}
     />
   );
 };

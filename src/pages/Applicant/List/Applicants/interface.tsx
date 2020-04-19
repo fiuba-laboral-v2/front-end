@@ -4,7 +4,7 @@ export interface IApplicantsProps {
   applicants: IApplicant[];
   onClickEdit: (uuid: string) => void;
   onClickView: (uuid: string) => void;
-  translations: IApplicantButtonsTranslations;
+  translations?: IApplicantButtonsTranslations;
   loading: boolean;
 }
 

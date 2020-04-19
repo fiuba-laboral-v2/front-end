@@ -1,23 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks/translations";
 import { Title } from "$components/Title";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITitleProps } from "$components/Title/interface";
 
 const TitleContainer: FunctionComponent = () => {
-  const history = useHistory();
-  const {
-    translations,
-    error
-  } = useTranslations<ITitleProps>("applicantProfileTitle");
+  const translations = useTranslations<ITitleProps>("applicantProfileTitle");
 
-  if (error) history.push(RoutesBuilder.notFound);
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <Title
-      title={translations!.title}
-      subtitle={translations!.subtitle}
+      title={translations.data.title}
+      subtitle={translations.data.subtitle}
     />
   );
 };

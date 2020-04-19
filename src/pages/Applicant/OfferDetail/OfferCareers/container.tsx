@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks/translations";
 import { OfferCareers } from "./component";
-import { IOfferCareersContainerProps, IOfferCareersComponentProps } from "./interface";
+import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
@@ -10,18 +10,15 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
     offer,
     className
   }) => {
-  const history = useHistory();
-  const {
-    translations,
-    error
-  } = useTranslations<IOfferCareersComponentProps>("offerCareer");
+  const translations = useTranslations<IOfferCareersComponentProps>("offerCareer");
 
-  if (error) history.push(RoutesBuilder.notFound);
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <OfferCareers
       className={className}
-      title={translations!.title}
+      title={translations.data.title}
       offer={offer}
     />
   );

@@ -10,3 +10,8 @@ export interface ICareerSelectorProps extends ICareerSelectorContainerProps {
   creditsLabel: string;
   options: ICareer[];
 }
+
+export interface ICareerSelectorTranslations {
+  career: string;
+  credits: string;
+}

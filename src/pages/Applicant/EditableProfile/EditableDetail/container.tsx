@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
@@ -7,7 +7,7 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
 import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { IEditableDetailValues, IApplicantDetailEditableTranslations } from "./interface";
+import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { UPDATE_APPLICANT } from "$mutations";
 
 const EditableDetailContainer: FunctionComponent = () => {
@@ -22,19 +22,10 @@ const EditableDetailContainer: FunctionComponent = () => {
     loading: loadingApplicant
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
-  const {
-    translations,
-    error: translationsError,
-    loading: loadingTranslations
-  } = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
+  const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
 
-  if (applicantError || translationsError) {
-    history.push(RoutesBuilder.notFound);
-  }
-
-  if (loadingApplicant || loadingTranslations) {
-    return <LoadingSpinner/>;
-  }
+  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
 
   const onSubmit = async (values: IEditableDetailValues) => {
     const {
@@ -53,7 +44,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   return (
     <EditableDetail
       onSubmit={onSubmit}
-      translations={translations!}
+      translations={translations.data}
       initialValues={{
         uuid: applicant.uuid,
         name: applicant.name,

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -12,11 +12,12 @@ import { INavBarTranslations } from "./interface";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { translations, loading: loadingTranslations } = useTranslations<INavBarTranslations>("navBar");
+  const translations = useTranslations<INavBarTranslations>("navBar");
 
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
-  if (loading || loadingTranslations) return <Fragment/>;
+  if (translations.loading || loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
 
   const onLogOut = () => {
     Session.logout();
@@ -27,7 +28,7 @@ export const NavBarContainer: FunctionComponent = () => {
     <NavBar
       logOut={onLogOut}
       isLoggedIn={!error}
-      translations={translations!}
+      translations={translations.data}
       username={me.email}
     />
   );

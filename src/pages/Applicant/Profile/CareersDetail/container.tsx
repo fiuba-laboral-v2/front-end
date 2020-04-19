@@ -1,21 +1,25 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { ICareersContainerProps, ICareerTranslations } from "./interface";
+import { Redirect } from "react-router-dom";
 import { CareersDetail } from "./component";
 import { useTranslations } from "$hooks/translations";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
   {
     careers,
     className
   }) => {
-  const { translations, loading } = useTranslations<ICareerTranslations>("careersDetail");
-  if (loading) return <Fragment/>;
+  const translations = useTranslations<ICareerTranslations>("careersDetail");
+
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <CareersDetail
       className={className}
       careers={careers}
-      translations={translations!}
+      translations={translations.data}
     />
   );
 };

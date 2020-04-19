@@ -1,25 +1,21 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { FormikHelpers } from "formik";
 import { useMutation } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
-import { SAVE_APPLICANT, LOGIN } from "$mutations";
+import { LOGIN, SAVE_APPLICANT } from "$mutations";
 import { Session } from "$models/Session";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useHistory } from "react-router-dom";
-import { ISignUpValues, ISignUpTranslations } from "./interface";
+import { Redirect, useHistory } from "react-router-dom";
+import { ISignUpTranslations, ISignUpValues } from "./interface";
 import { SignUp } from "./component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
-  const [ login ] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
-  const {
-    translations,
-    loading: loadingTranslations
-  } = useTranslations<ISignUpTranslations>("applicantSignUp");
+  const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: ISignUpValues) => {
     const selectedCodes = values.careers.map(career => career.code);
@@ -62,11 +58,12 @@ const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
   };
 
-  if (loadingTranslations) return <LoadingSpinner/>;
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <SignUp
-      translations={translations!}
+      translations={translations.data}
       validateForm={validateForm}
       onSubmit={onSubmit}
     />

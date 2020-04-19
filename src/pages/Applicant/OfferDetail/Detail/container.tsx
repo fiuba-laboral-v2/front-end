@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams, Redirect } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
 import { sortBy } from "lodash";
 
@@ -16,13 +16,9 @@ import { IDetailTranslations } from "./interface";
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
-  const [ saveJobApplication ] = useMutation(SAVE_JOB_APPLICATION);
+  const [saveJobApplication] = useMutation(SAVE_JOB_APPLICATION);
 
-  const {
-    translations,
-    error: translationsError,
-    loading: loadingTranslations
-  } = useTranslations<IDetailTranslations>("offerDetail");
+  const translations = useTranslations<IDetailTranslations>("offerDetail");
 
   const {
     data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IMyOffer },
@@ -30,10 +26,10 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
 
-  if (offerError || translationsError) return <Redirect to={RoutesBuilder.notFound} />;
-  if (loadingOffer  || loadingTranslations) return <LoadingSpinner/>;
+  if (offerError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (loadingOffer || translations.loading) return <LoadingSpinner/>;
 
-  offer.sections = sortBy(offer.sections, [ "displayOrder" ]);
+  offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
   const onSubmit = async (offerUuid: string) => {
     await saveJobApplication({ variables: { offerUuid } });
@@ -43,7 +39,7 @@ const DetailContainer: FunctionComponent = () => {
   return (
     <Detail
       apply={onSubmit}
-      translations={translations!}
+      translations={translations.data}
       goToCompany={RoutesBuilder.company.detail(offer.company.id)}
       offer={offer}
     />

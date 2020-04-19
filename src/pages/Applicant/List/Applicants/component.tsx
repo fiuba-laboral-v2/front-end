@@ -15,7 +15,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
     translations: {
       editButtonText,
       viewButtonText
-    },
+    } = {},
     loading
   }) => {
   if (loading) {

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -13,12 +13,7 @@ import { ITranslations } from "./interface";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  const history = useHistory();
-  const {
-    translations,
-    error: translationsError,
-    loading: loadingTranslations
-  } = useTranslations<ITranslations>("applicantProfileDetail");
+  const translations = useTranslations<ITranslations>("applicantProfileDetail");
 
   const {
     data: { getApplicant } = { getApplicant: {} as IApplicant },
@@ -29,13 +24,13 @@ const DetailContainer: FunctionComponent = () => {
     fetchPolicy: "no-cache"
   });
 
-  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
+  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
   applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
 
-  if (loadingApplicantData || loadingTranslations) {
+  if (loadingApplicantData || translations.loading) {
     return (
       <div className={styles.container}>
         <LoadingSpinner/>
@@ -46,7 +41,7 @@ const DetailContainer: FunctionComponent = () => {
   return (
     <Detail
       applicant={applicant}
-      translations={translations!}
+      translations={translations.data}
     />
   );
 };
