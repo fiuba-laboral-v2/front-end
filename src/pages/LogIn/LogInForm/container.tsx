@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/react-hooks";
+import { FormikHelpers } from "formik";
+
 import { LOGIN } from "$mutations";
 import { GET_TRANSLATIONS } from "$queries";
 import { Session } from "$models/Session";
@@ -8,8 +10,7 @@ import { Session } from "$models/Session";
 import { LogInForm } from "./component";
 
 import { ILogInFormValues } from "./interface";
-import { FormikHelpers } from "formik";
-import { RoutesBuilder } from "../../../models/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
@@ -37,10 +38,17 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
   const onSubmit = async (
     values: ILogInFormValues,
-    { setSubmitting }: FormikHelpers<ILogInFormValues>
+    { setSubmitting, setErrors }: FormikHelpers<ILogInFormValues>
   ) => {
-    const { data } = await login({ variables: values });
-    Session.login(data.login);
+    try {
+      const { data } = await login({ variables: values });
+      Session.login(data.login);
+    } catch (e) {
+      return setErrors({
+        email: e.message,
+        password: e.message
+      });
+    }
     setSubmitting(false);
     history.push(RoutesBuilder.applicant.home());
   };
