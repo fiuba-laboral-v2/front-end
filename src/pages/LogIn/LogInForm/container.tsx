@@ -43,14 +43,14 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     try {
       const { data } = await login({ variables: values });
       Session.login(data.login);
-      setSubmitting(false);
-      history.push(RoutesBuilder.applicant.home());
     } catch (e) {
-      setErrors({
+      return setErrors({
         email: e.message,
         password: e.message
       });
     }
+    setSubmitting(false);
+    history.push(RoutesBuilder.applicant.home());
   };
 
   return (
