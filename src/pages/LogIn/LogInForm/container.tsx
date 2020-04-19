@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { FormikHelpers, FormikErrors } from "formik";
+import { FormikHelpers } from "formik";
 
 import { LOGIN } from "$mutations";
 import { GET_TRANSLATIONS } from "$queries";
@@ -46,11 +46,10 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
       setSubmitting(false);
       history.push(RoutesBuilder.applicant.home());
     } catch (e) {
-      const errors: FormikErrors<ILogInFormValues> = {
+      setErrors({
         email: e.message,
         password: e.message
-      };
-      setErrors(errors);
+      });
     }
   };
 
