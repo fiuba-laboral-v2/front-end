@@ -18,14 +18,14 @@ const Companies: FunctionComponent<ICompaniesProps> = (
   if (loading) {
     return (
       <>
-        <ListTitle titleTranslationPath={"companies"} />
-        <LoadingSpinner />
+        <ListTitle titleTranslationPath={"companiesList"}/>
+        <LoadingSpinner/>
       </>
     );
   }
   return (
     <>
-      <ListTitle titleTranslationPath={"companies"} />
+      <ListTitle titleTranslationPath={"companiesList"}/>
       {
         companies.map(company =>
           <div className={styles.row} key={company.id}>

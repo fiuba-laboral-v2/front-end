@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
-import { IEditableDetailValues } from "./interface";
+import { IEditableDetailValues, IApplicantDetailEditableTranslations } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
 import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
@@ -136,22 +136,6 @@ interface IApplicantDetailEditableProps {
   initialValues: IEditableDetailValues;
   onSubmit: (applicant: IEditableDetailValues) => void;
   translations: IApplicantDetailEditableTranslations;
-}
-
-interface IApplicantDetailEditableTranslations {
-  title: string;
-  name: string;
-  surname: string;
-  links: string;
-  link: string;
-  linkTitle: string;
-  careers: string;
-  capabilities: string;
-  capability: string;
-  sections: string;
-  sectionTitle: string;
-  sectionContent: string;
-  submit: string;
 }
 
 export { EditableDetail };

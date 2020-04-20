@@ -1,21 +1,15 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { GET_TRANSLATIONS } from "$queries";
+import { useTranslations } from "$hooks/translations";
 import { IListTitleProps } from "./interface";
 import { Title } from "$components/Title";
+import { ITitleProps } from "../Title/interface";
 
 const ListTitleContainer: FunctionComponent<IListTitleProps> = ({ titleTranslationPath }) => {
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error
-  } = useQuery(
-    GET_TRANSLATIONS,
-    { variables: { paths: [titleTranslationPath] } }
-  );
-  if (error) return <Fragment/>;
+  const translations = useTranslations<ITitleProps>(titleTranslationPath);
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
 
-  const [titleTranslation] = getTranslations;
-  return <Title title={titleTranslation}/>;
+  return <Title title={translations.data.title}/>;
 };
 
 export { ListTitleContainer };

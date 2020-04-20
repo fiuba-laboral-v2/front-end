@@ -1,9 +1,8 @@
-import React, { FunctionComponent } from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { useHistory } from "react-router-dom";
-import { GET_TRANSLATIONS } from "$queries";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect } from "react-router-dom";
+import { useTranslations } from "$hooks/translations";
 import { OfferCareers } from "./component";
-import { IOfferCareersContainerProps } from "./interface";
+import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
@@ -11,20 +10,15 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
     offer,
     className
   }) => {
-  const history = useHistory();
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["offer.careersTitle"] } });
+  const translations = useTranslations<IOfferCareersComponentProps>("offerCareer");
 
-  if (error) history.push(RoutesBuilder.notFound);
-
-  const [title] = getTranslations;
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <OfferCareers
       className={className}
-      title={title}
+      title={translations.data.title}
       offer={offer}
     />
   );

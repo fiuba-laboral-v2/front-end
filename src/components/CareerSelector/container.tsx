@@ -1,17 +1,12 @@
-import React, { FunctionComponent } from "react";
-import { ICareerSelectorContainerProps } from "./interface";
+import React, { Fragment, FunctionComponent } from "react";
+import { ICareerSelectorContainerProps, ICareerSelectorTranslations } from "./interface";
 import { CareerSelector } from "./compontent";
+import { useTranslations } from "$hooks/translations";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
+import { GET_CAREERS } from "$queries";
 
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error: translationsError,
-    loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, {
-    variables: { paths: ["applicant.signUp.career", "applicant.signUp.credits"] }
-  });
+  const translations = useTranslations<ICareerSelectorTranslations>("careerSelector");
 
   const {
     data: { getCareers } = { getCareers: [] },
@@ -19,17 +14,13 @@ export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainer
     loading: loadingCareers
   } = useQuery(GET_CAREERS);
 
-  if (translationsError || loadingTranslations || careersError || loadingCareers) return (<div/>);
-
-  const [
-    careerLabel,
-    creditsLabel
-  ] = getTranslations;
+  if (translations.loading || translations.error) return <Fragment/>;
+  if (careersError || loadingCareers) return <Fragment/>;
 
   return (
     <CareerSelector
-      careerLabel={careerLabel}
-      creditsLabel={creditsLabel}
+      careerLabel={translations.data.career}
+      creditsLabel={translations.data.credits}
       options={getCareers}
       {...props}
     />

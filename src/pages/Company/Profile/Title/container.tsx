@@ -1,24 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { GET_TRANSLATIONS } from "$queries";
+import React, { Fragment, FunctionComponent } from "react";
+import { useTranslations } from "$hooks/translations";
 import { Title } from "$components/Title";
+import { ITitleProps } from "$components/Title/interface";
+import { Redirect } from "react-router-dom";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const TitleContainer: FunctionComponent = () => {
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error
-  } = useQuery(
-    GET_TRANSLATIONS,
-    { variables: { paths: ["company.explanation", "company.title"] } }
-  );
-  if (error) return <div />;
+  const translations = useTranslations<ITitleProps>("companyProfileTitle");
 
-  const [explanation, myCompany] = getTranslations;
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <Title
-      title={myCompany}
-      subtitle={explanation}
+      title={translations.data.title}
+      subtitle={translations.data.subtitle}
     />
   );
 };

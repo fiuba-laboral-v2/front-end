@@ -1,38 +1,22 @@
-import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import React, { Fragment, FunctionComponent } from "react";
+import { Redirect, useHistory } from "react-router-dom";
+import { useMutation } from "@apollo/react-hooks";
+import { useTranslations } from "$hooks/translations";
 import { FormikHelpers } from "formik";
 
 import { LOGIN } from "$mutations";
-import { GET_TRANSLATIONS } from "$queries";
 import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
 
-import { ILogInFormValues } from "./interface";
+import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const [login] = useMutation(LOGIN);
 
-  const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
-    GET_TRANSLATIONS,
-    {
-      variables: {
-        paths: [
-          "login.enter",
-          "login.email",
-          "login.password",
-          "login.prompt",
-          "login.dontHaveAnAccount",
-          "login.register"
-        ]
-      }
-    }
-  );
-
-  const [title, email, password, logIn, dontHaveAnAccount, register] = getTranslations;
+  const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
   const onSubmit = async (
     values: ILogInFormValues,
@@ -51,19 +35,15 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     history.push(RoutesBuilder.applicant.home());
   };
 
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+
   return (
     <LogInForm
       className={className}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
-      translations={{
-        title,
-        email,
-        password,
-        logIn,
-        dontHaveAnAccount,
-        register
-      }}
+      translations={translations.data}
     />
   );
 };

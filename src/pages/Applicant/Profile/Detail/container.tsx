@@ -1,25 +1,20 @@
 import React, { FunctionComponent } from "react";
-import { GET_APPLICANT, GET_TRANSLATIONS } from "$queries";
+import { GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
+import { useTranslations } from "$hooks/translations";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicant } from "$interfaces/Applicant";
 import { sortBy } from "lodash";
 import styles from "./styles.module.scss";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { ITranslations } from "./interface";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  const history = useHistory();
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error: translationsError,
-    loading: loadingTranslations
-  } = useQuery(
-    GET_TRANSLATIONS,
-    { variables: { paths: ["applicant.padron", "applicant.capabilities"] } }
-  );
+  const translations = useTranslations<ITranslations>("applicantProfileDetail");
+
   const {
     data: { getApplicant } = { getApplicant: {} as IApplicant },
     error: applicantError,
@@ -29,14 +24,13 @@ const DetailContainer: FunctionComponent = () => {
     fetchPolicy: "no-cache"
   });
 
-  if (applicantError || translationsError) history.push(RoutesBuilder.notFound);
+  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
   applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
-  const [padronTranslation, capabilitiesTranslation] = getTranslations;
 
-  if (loadingApplicantData || loadingTranslations) {
+  if (loadingApplicantData || translations.loading) {
     return (
       <div className={styles.container}>
         <LoadingSpinner/>
@@ -47,10 +41,7 @@ const DetailContainer: FunctionComponent = () => {
   return (
     <Detail
       applicant={applicant}
-      translations={{
-        padron: padronTranslation,
-        capabilities: capabilitiesTranslation
-      }}
+      translations={translations.data}
     />
   );
 };

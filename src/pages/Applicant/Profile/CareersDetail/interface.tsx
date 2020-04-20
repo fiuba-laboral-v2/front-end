@@ -1,10 +1,14 @@
 import { ICareer } from "$interfaces/Applicant";
 
+export interface ICareerTranslations {
+  careersTitle: string;
+  creditsProgress: string;
+}
+
 export interface ICareersProps {
   careers: ICareer[];
-  careersTitle: string;
-  creditsProgressTranslation: string;
   className?: string;
+  translations: ICareerTranslations;
 }
 
 export interface ICareersContainerProps {

@@ -11,3 +11,19 @@ export interface IEditableDetailValues {
   sections: ISection[];
   _form: string;
 }
+
+export interface IApplicantDetailEditableTranslations {
+  title: string;
+  name: string;
+  surname: string;
+  links: string;
+  link: string;
+  linkTitle: string;
+  careers: string;
+  capabilities: string;
+  capability: string;
+  sections: string;
+  sectionTitle: string;
+  sectionContent: string;
+  submit: string;
+}

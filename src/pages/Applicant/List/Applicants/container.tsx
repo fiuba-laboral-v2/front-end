@@ -1,34 +1,31 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { useHistory } from "react-router-dom";
-import { GET_APPLICANTS, GET_TRANSLATIONS } from "$queries";
+import { Redirect, useHistory } from "react-router-dom";
+import { useTranslations } from "$hooks/translations";
+import { GET_APPLICANTS } from "$queries";
 import { Applicants } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { IApplicantButtonsTranslations } from "./interface";
 
 const ApplicantsContainer: FunctionComponent = () => {
   const history = useHistory();
-  const {
-    data: { getTranslations } = { getTranslations: [] },
-    error: translationsError,
-    loading: translationLoading
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["edit", "view"] } });
+  const translations = useTranslations<IApplicantButtonsTranslations>("applicantListItem");
+
   const {
     data: { getApplicants } = { getApplicants: [] },
     error,
     loading
   } = useQuery(GET_APPLICANTS);
-  if (error || translationsError) history.push(RoutesBuilder.notFound);
 
-  const [editTranslation, viewTranslation] = getTranslations;
+  if (error || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
 
   return (
     <Applicants
-      loading={loading || translationLoading}
+      loading={loading || translations.loading}
       applicants={getApplicants}
       onClickEdit={(uuid: string) => history.push(RoutesBuilder.applicant.edit(uuid))}
       onClickView={(uuid: string) => history.push(RoutesBuilder.applicant.detail(uuid))}
-      editButtonText={editTranslation}
-      viewButtonText={viewTranslation}
+      translations={translations.data}
     />
   );
 };

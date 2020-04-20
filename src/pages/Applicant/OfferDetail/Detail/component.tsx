@@ -11,6 +11,7 @@ import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
 
 import styles from "./styles.module.scss";
+import { IDetailTranslations } from "./interface";
 
 const Detail: FunctionComponent<IDetailProps> = (
   {
@@ -60,10 +61,6 @@ const Detail: FunctionComponent<IDetailProps> = (
     </div>
   </div>
 );
-
-interface IDetailTranslations {
-  apply: string;
-}
 
 interface IDetailProps {
   offer: IMyOffer;

@@ -5,7 +5,7 @@ export interface IOfferWorkloadContainerProps {
   className?: string;
 }
 
-interface IOfferWorkloadTranslations {
+export interface IOfferWorkloadTranslations {
   title: string;
   hoursPerDay: string;
 }
