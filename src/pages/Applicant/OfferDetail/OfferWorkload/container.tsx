@@ -26,7 +26,7 @@ const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = 
 
   if (error) history.push(RoutesBuilder.notFound);
 
-  const [ title, hoursPerDay ] = getTranslations;
+  const [title, hoursPerDay] = getTranslations;
   return (
     <OfferWorkload
       className={className}

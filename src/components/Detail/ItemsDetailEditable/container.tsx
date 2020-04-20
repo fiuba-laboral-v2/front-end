@@ -10,7 +10,7 @@ const ItemsDetailEditableContainer: FunctionComponent<IItemsDetailEditableContai
     titleTranslation,
     children
   }) => {
-  const [ isAdding, setIsAdding ] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
 
   const onCheck = () => {
     onFinish();

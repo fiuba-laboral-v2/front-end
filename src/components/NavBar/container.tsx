@@ -34,7 +34,7 @@ export const NavBarContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.login);
   };
 
-  const [ companies, applicants, jobOffers, signUp, logIn, logOut ] = getTranslations;
+  const [companies, applicants, jobOffers, signUp, logIn, logOut] = getTranslations;
 
   return (
     <NavBar

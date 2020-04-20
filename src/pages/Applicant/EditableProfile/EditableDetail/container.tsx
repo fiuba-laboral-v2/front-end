@@ -13,7 +13,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
 
-  const [ updateApplicant ] = useMutation(UPDATE_APPLICANT);
+  const [updateApplicant] = useMutation(UPDATE_APPLICANT);
 
   const {
     data: { getApplicant: applicant } = { getApplicant: {} as IApplicant },

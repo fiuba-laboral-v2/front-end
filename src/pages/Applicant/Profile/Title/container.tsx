@@ -12,13 +12,13 @@ const TitleContainer: FunctionComponent = () => {
     error
   } = useQuery(GET_TRANSLATIONS, {
     variables: {
-      paths: [ "applicant.explanation", "applicant.title" ]
+      paths: ["applicant.explanation", "applicant.title"]
     }
   }
   );
   if (error) history.push(RoutesBuilder.notFound);
 
-  const [ explanation, title ] = getTranslations;
+  const [explanation, title] = getTranslations;
 
   return (
     <Title

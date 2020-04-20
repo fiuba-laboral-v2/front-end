@@ -20,7 +20,7 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
   );
   if (loading) return <Fragment/>;
 
-  const [ creditsProgressTranslation, careersTitleTranslation ] = data.getTranslations;
+  const [creditsProgressTranslation, careersTitleTranslation] = data.getTranslations;
   return (
     <CareersDetail
       className={className}

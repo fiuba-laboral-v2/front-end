@@ -28,7 +28,7 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
 
   if (error) history.push(RoutesBuilder.notFound);
 
-  const [ title, salaryFrom, salaryTo ] = getTranslations;
+  const [title, salaryFrom, salaryTo] = getTranslations;
 
   return (
     <OfferSalary

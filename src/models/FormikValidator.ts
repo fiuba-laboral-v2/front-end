@@ -8,7 +8,7 @@ export const FormikValidator = <Value>(
   } = {}
 ) => {
   return (value: Value) => {
-    if (mandatory && [ "", null, undefined, {} ].includes(value)) {
+    if (mandatory && ["", null, undefined, {}].includes(value)) {
       return "Este campo es obligatorio";
     }
 

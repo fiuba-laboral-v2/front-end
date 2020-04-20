@@ -14,7 +14,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
     translations
   }
 ) => {
-  const [ showMenu, setShowMenu ] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <div className={styles.navBar}>

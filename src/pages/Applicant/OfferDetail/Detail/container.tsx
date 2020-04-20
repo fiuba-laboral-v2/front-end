@@ -14,13 +14,13 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
-  const [ saveJobApplication ] = useMutation(SAVE_JOB_APPLICATION);
+  const [saveJobApplication] = useMutation(SAVE_JOB_APPLICATION);
 
   const {
     data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: loadingTranslations
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "offer.apply" ] } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["offer.apply"] } });
 
   const {
     data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IMyOffer },
@@ -31,8 +31,8 @@ const DetailContainer: FunctionComponent = () => {
   if (offerError || translationsError) return <Redirect to={RoutesBuilder.notFound} />;
   if (loadingOffer || loadingTranslations) return <LoadingSpinner/>;
 
-  const [ apply ] = getTranslations;
-  offer.sections = sortBy(offer.sections, [ "displayOrder" ]);
+  const [apply] = getTranslations;
+  offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
   const onSubmit = async (offerUuid: string) => {
     await saveJobApplication({ variables: { offerUuid } });

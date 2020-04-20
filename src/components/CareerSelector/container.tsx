@@ -10,7 +10,7 @@ export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainer
     error: translationsError,
     loading: loadingTranslations
   } = useQuery(GET_TRANSLATIONS, {
-    variables: { paths: [ "applicant.signUp.career", "applicant.signUp.credits" ] }
+    variables: { paths: ["applicant.signUp.career", "applicant.signUp.credits"] }
   });
 
   const {

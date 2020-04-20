@@ -33,7 +33,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     name: "",
     surname: "",
     padron: 0,
-    careers: [ careerInitialValue ],
+    careers: [careerInitialValue],
     _form: ""
   };
 

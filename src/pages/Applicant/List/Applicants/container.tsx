@@ -11,7 +11,7 @@ const ApplicantsContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: translationLoading
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "edit", "view" ] } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["edit", "view"] } });
   const {
     data: { getApplicants } = { getApplicants: [] },
     error,
@@ -19,7 +19,7 @@ const ApplicantsContainer: FunctionComponent = () => {
   } = useQuery(GET_APPLICANTS);
   if (error || translationsError) history.push(RoutesBuilder.notFound);
 
-  const [ editTranslation, viewTranslation ] = getTranslations;
+  const [editTranslation, viewTranslation] = getTranslations;
 
   return (
     <Applicants
