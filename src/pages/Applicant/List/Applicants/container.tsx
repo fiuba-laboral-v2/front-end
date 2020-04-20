@@ -30,5 +30,4 @@ const ApplicantsContainer: FunctionComponent = () => {
   );
 };
 
-
 export { ApplicantsContainer };

@@ -41,7 +41,7 @@ const Detail: FunctionComponent<IDetailProps> = (
       <div className={styles.leftBodyContainer}>
         <p className={styles.description}>{offer.description}</p>
         {
-          offer.sections?.map(({ displayOrder, title, text })  =>
+          offer.sections?.map(({ displayOrder, title, text }) =>
             <SectionDetail key={displayOrder} title={title} text={text}/>
           )
         }

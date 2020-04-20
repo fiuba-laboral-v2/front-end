@@ -61,5 +61,4 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
   );
 };
 
-
 export { Applicants };

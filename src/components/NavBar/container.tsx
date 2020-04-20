@@ -13,7 +13,6 @@ import { INavBarTranslations } from "./interface";
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<INavBarTranslations>("navBar");
-
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
 
   if (translations.loading || loading) return <Fragment/>;

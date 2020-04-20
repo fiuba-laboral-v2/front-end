@@ -14,9 +14,8 @@ import {
   validatePassword
 } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpValues, ISignUpTranslations } from "./interface";
+import { ISignUpTranslations, ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
-
 
 const SignUp: FunctionComponent<ISignUpProps> = (
   {

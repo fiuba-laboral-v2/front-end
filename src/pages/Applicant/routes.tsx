@@ -7,7 +7,6 @@ import { List } from "./List";
 import { Home } from "./Home";
 import { OfferDetail } from "./OfferDetail";
 
-
 const ApplicantRoutes: FunctionComponent = () => {
   const { path } = useRouteMatch();
 

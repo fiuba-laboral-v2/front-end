@@ -2,27 +2,35 @@ import React, { Fragment, FunctionComponent } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks/translations";
+import { FormikHelpers } from "formik";
+
 import { LOGIN } from "$mutations";
 import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
 
 import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
-import { FormikHelpers } from "formik";
-import { RoutesBuilder } from "../../../models/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
-  const [ login ] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
   const onSubmit = async (
     values: ILogInFormValues,
-    { setSubmitting }: FormikHelpers<ILogInFormValues>
+    { setSubmitting, setErrors }: FormikHelpers<ILogInFormValues>
   ) => {
-    const { data } = await login({ variables: values });
-    Session.login(data.login);
+    try {
+      const { data } = await login({ variables: values });
+      Session.login(data.login);
+    } catch (e) {
+      return setErrors({
+        email: e.message,
+        password: e.message
+      });
+    }
     setSubmitting(false);
     history.push(RoutesBuilder.applicant.home());
   };
