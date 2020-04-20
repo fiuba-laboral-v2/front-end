@@ -15,9 +15,7 @@ export const BaseSelector = <Option, Value>(
     ...autocompleteProps
   }: IBaseSelectorProps<Option, Value>
 ) => {
-  const [
-    defaultValue
-  ] = useState(options.find(option => getOptionValue(option) === initialValue));
+  const [defaultValue] = useState(options.find(option => getOptionValue(option) === initialValue));
 
   return (
     <Autocomplete<Option>
