@@ -14,27 +14,25 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
-  const [ login ] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
     GET_TRANSLATIONS,
     {
-      variables:
-        {
-          paths:
-            [
-              "login.enter",
-              "login.email",
-              "login.password",
-              "login.prompt",
-              "login.dontHaveAnAccount",
-              "login.register"
-            ]
-        }
+      variables: {
+        paths: [
+          "login.enter",
+          "login.email",
+          "login.password",
+          "login.prompt",
+          "login.dontHaveAnAccount",
+          "login.register"
+        ]
+      }
     }
   );
 
-  const [ title, email, password, logIn, dontHaveAnAccount, register ] = getTranslations;
+  const [title, email, password, logIn, dontHaveAnAccount, register] = getTranslations;
 
   const onSubmit = async (
     values: ILogInFormValues,

@@ -18,7 +18,6 @@ import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
 import { NumberInput } from "$components/NumberInput";
 
-
 const SignUp: FunctionComponent<ISignUpProps> = (
   {
     translations,

@@ -15,11 +15,11 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
   const {
     data: { getTranslations } = { getTranslations: [] },
     error
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "offer.careersTitle" ] } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["offer.careersTitle"] } });
 
   if (error) history.push(RoutesBuilder.notFound);
 
-  const [ title ] = getTranslations;
+  const [title] = getTranslations;
 
   return (
     <OfferCareers

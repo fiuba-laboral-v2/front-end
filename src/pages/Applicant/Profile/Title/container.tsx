@@ -11,10 +11,10 @@ const TitleContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     error
   } = useQuery(GET_TRANSLATIONS, {
-      variables: {
-        paths: ["applicant.explanation", "applicant.title"]
-      }
+    variables: {
+      paths: ["applicant.explanation", "applicant.title"]
     }
+  }
   );
   if (error) history.push(RoutesBuilder.notFound);
 

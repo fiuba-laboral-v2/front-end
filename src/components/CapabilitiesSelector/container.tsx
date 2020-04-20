@@ -5,8 +5,9 @@ import { ICapability } from "$interfaces/Capability";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CAPABILITIES } from "$queries";
 
-export const CapabilitiesSelectorContainer:
-  FunctionComponent<ICapabiltiesSelectorContainer> = props => {
+export const CapabilitiesSelectorContainer: FunctionComponent<
+  ICapabiltiesSelectorContainer
+> = props => {
   const {
     data: { getCapabilities: capabilities } = { getCapabilities: [] as ICapability[] },
     error: capabilitiesError,
