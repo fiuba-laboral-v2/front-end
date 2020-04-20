@@ -16,6 +16,7 @@ import {
 import { FormikValidator } from "$models/FormikValidator";
 import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
+import { NumberInput } from "$components/NumberInput";
 
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -26,14 +27,14 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   }
 ) => {
   const formName = "signUpForm";
-  const careerInitialValue = { code: "", creditsCount: 0 };
+  const careerInitialValue = { code: "", creditsCount: NaN };
   const initialValues: ISignUpValues = {
     email: "",
     password: "",
     passwordConfirm: "",
     name: "",
     surname: "",
-    padron: 0,
+    padron: NaN,
     careers: [careerInitialValue],
     _form: ""
   };
@@ -96,11 +97,9 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     className={styles.textInput}
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
-                  <TextInput
+                  <NumberInput
                     name="padron"
                     label={translations.padron}
-                    type="number"
-                    inputProps={{ min: 0, step: 1 }}
                     className={styles.textInput}
                     validate={FormikValidator({
                       validator: validateIntegerInRange({ min: { value: 0, include: false } }),

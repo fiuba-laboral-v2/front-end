@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import TextInput from "$components/TextInput";
 import { Selector } from "$components/Selector";
 
 import styles from "./styles.module.scss";
 import { ICareerSelectorProps } from "./interface";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
+import { NumberInput } from "../NumberInput";
 
 export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
   {
@@ -27,10 +27,9 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       getOptionValue={option => option.code}
       initialValue={value?.code}
     />
-    <TextInput
+    <NumberInput
       name={`careers.${index}.creditsCount`}
       label={creditsLabel}
-      type="number"
       fast={false}
       validate={FormikValidator({
         validator: validateIntegerInRange({
