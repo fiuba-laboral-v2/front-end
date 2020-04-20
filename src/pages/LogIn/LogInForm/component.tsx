@@ -55,7 +55,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 className="primary"
                 width="expand"
                 type="submit"
-                disabled={ isSubmitting}
+                disabled={isSubmitting}
               >
                 {translations.logIn}
               </Button>
