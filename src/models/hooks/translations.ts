@@ -32,7 +32,7 @@ interface ITranslationMapperParams {
   getTranslations: ITranslation[] | undefined;
 }
 
-const translationMapper = <T,>({ getTranslations }: ITranslationMapperParams): T | undefined => {
+const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): T | undefined => {
   const translations: any = {};
   if (getTranslations) {
     for (const { key, value } of getTranslations) {
@@ -43,12 +43,12 @@ const translationMapper = <T,>({ getTranslations }: ITranslationMapperParams): T
   }
 };
 
-const useTranslations = <T,>(path: string): UseTranslationsResult<T> => {
+const useTranslations = <T, >(path: string): UseTranslationsResult<T> => {
   const {
     data,
     loading,
     error
-  } = useQuery(GET_TRANSLATIONS, {variables: { path }});
+  } = useQuery(GET_TRANSLATIONS, { variables: { path } });
 
   return {
     ...(data && { data: translationMapper<T>(data) }),
