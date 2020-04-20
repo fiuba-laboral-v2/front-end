@@ -43,12 +43,12 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-const useTranslations = <T, >(path: string): UseTranslationsResult<T> => {
+const useTranslations = <T, >(translationGroup: string): UseTranslationsResult<T> => {
   const {
     data,
     loading,
     error
-  } = useQuery(GET_TRANSLATIONS, { variables: { path } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { translationGroup } });
 
   return {
     ...(data && { data: translationMapper<T>(data) }),
