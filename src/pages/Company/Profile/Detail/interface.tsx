@@ -1,6 +1,6 @@
 import { ICompany } from "$interfaces/Company";
 
 export interface ICompanyDetailProps {
-    company: ICompany;
-    loading: boolean;
+  company: ICompany;
+  loading: boolean;
 }

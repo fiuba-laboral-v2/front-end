@@ -10,13 +10,13 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
     className
   }) => {
   const { data, loading } = useQuery(GET_TRANSLATIONS, {
-      variables: {
-        paths: [
-          "applicant.creditsProgress",
-          "applicant.careers"
-        ]
-      }
+    variables: {
+      paths: [
+        "applicant.creditsProgress",
+        "applicant.careers"
+      ]
     }
+  }
   );
   if (loading) return <Fragment/>;
 

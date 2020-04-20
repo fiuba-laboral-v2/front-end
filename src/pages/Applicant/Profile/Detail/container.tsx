@@ -47,12 +47,10 @@ const DetailContainer: FunctionComponent = () => {
   return (
     <Detail
       applicant={applicant}
-      translations={
-        {
-          padron: padronTranslation,
-          capabilities: capabilitiesTranslation
-        }
-      }
+      translations={{
+        padron: padronTranslation,
+        capabilities: capabilitiesTranslation
+      }}
     />
   );
 };

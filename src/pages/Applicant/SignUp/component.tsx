@@ -17,7 +17,6 @@ import { FormikValidator } from "$models/FormikValidator";
 import { ISignUpValues } from "./interface";
 import { FormSet } from "$components/FormSet";
 
-
 const SignUp: FunctionComponent<ISignUpProps> = (
   {
     translations,

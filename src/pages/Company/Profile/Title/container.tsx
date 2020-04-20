@@ -13,7 +13,7 @@ const TitleContainer: FunctionComponent = () => {
   );
   if (error) return <div />;
 
-  const [ explanation, myCompany ] = getTranslations;
+  const [explanation, myCompany] = getTranslations;
 
   return (
     <Title

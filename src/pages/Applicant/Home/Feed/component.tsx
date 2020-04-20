@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 const OfferList = List as IList<IOffer>;
 
-const Feed: FunctionComponent<IFeedProps> = ({offers, onCardClick}) => (
+const Feed: FunctionComponent<IFeedProps> = ({ offers, onCardClick }) => (
   <div>
     <OfferList list={offers}>
       {offer => (
