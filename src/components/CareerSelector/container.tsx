@@ -4,7 +4,6 @@ import { CareerSelector } from "./compontent";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CAREERS, GET_TRANSLATIONS } from "$queries";
 
-
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
   const {
     data: { getTranslations } = { getTranslations: [] },
