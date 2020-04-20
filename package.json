@@ -104,6 +104,6 @@
     "$src": "src",
     "$models": "src/models",
     "$config": "src/config",
-    "$hooks": "src/hooks"
+    "$hooks": "src/models/hooks"
   }
 }
