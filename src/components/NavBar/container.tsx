@@ -13,18 +13,16 @@ export const NavBarContainer: FunctionComponent = () => {
   const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
     GET_TRANSLATIONS,
     {
-      variables:
-        {
-          paths:
-            [
-              "companies",
-              "applicants",
-              "jobOffers",
-              "applicant.signUp.title",
-              "login.prompt",
-              "logOut"
-            ]
-        }
+      variables: {
+        paths: [
+          "companies",
+          "applicants",
+          "jobOffers",
+          "applicant.signUp.title",
+          "login.prompt",
+          "logOut"
+        ]
+      }
     }
   );
   const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);

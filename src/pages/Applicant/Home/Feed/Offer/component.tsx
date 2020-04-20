@@ -5,7 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-const Offer: FunctionComponent<IOfferProps> = ({data: {company, ...props}}) => (
+const Offer: FunctionComponent<IOfferProps> = ({ data: { company, ...props } }) => (
   <div className={styles.container}>
     <CompanyLogo
       className={styles.desktopLogo}
@@ -13,7 +13,7 @@ const Offer: FunctionComponent<IOfferProps> = ({data: {company, ...props}}) => (
       logo={company.logo}
       size="extraLarge"
     />
-    <Info data={{company, ...props}}/>
+    <Info data={{ company, ...props }}/>
   </div>
 );
 

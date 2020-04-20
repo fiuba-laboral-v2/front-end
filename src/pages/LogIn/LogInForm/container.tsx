@@ -19,18 +19,16 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const { data: { getTranslations } = { getTranslations: [] } } = useQuery(
     GET_TRANSLATIONS,
     {
-      variables:
-        {
-          paths:
-            [
-              "login.enter",
-              "login.email",
-              "login.password",
-              "login.prompt",
-              "login.dontHaveAnAccount",
-              "login.register"
-            ]
-        }
+      variables: {
+        paths: [
+          "login.enter",
+          "login.email",
+          "login.password",
+          "login.prompt",
+          "login.dontHaveAnAccount",
+          "login.register"
+        ]
+      }
     }
   );
 

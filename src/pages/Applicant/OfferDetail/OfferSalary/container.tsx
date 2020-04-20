@@ -33,13 +33,11 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
   return (
     <OfferSalary
       className={className}
-      translations={
-        {
-          title,
-          salaryFrom,
-          salaryTo
-        }
-      }
+      translations={{
+        title,
+        salaryFrom,
+        salaryTo
+      }}
       offer={offer}
     />
   );

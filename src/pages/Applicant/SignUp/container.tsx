@@ -14,7 +14,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const [saveApplicant] = useMutation(SAVE_APPLICANT);
+  const [ saveApplicant ] = useMutation(SAVE_APPLICANT);
   const [ login ] = useMutation(LOGIN);
 
   const {

@@ -20,7 +20,7 @@ export const MultipleSelector = <Option, Value>(
     ...props
   }: IMultipleSelectorProps<Option, Value>
 ) => {
-  const [inputValue, setInputValue] = useState("");
+  const [ inputValue, setInputValue ] = useState("");
 
   return (
     <Field name={name} validate={validate}>
@@ -56,7 +56,7 @@ export const MultipleSelector = <Option, Value>(
                 getOptionValue(selectedOption) : stringToValue(inputValue);
               form.setFieldValue(
                 name,
-                unionBy(meta.value, [selectedValue], compareValuesBy)
+                unionBy(meta.value, [ selectedValue ], compareValuesBy)
               );
               setInputValue("");
             }}
@@ -66,7 +66,7 @@ export const MultipleSelector = <Option, Value>(
             onRemove={stringValue =>
               form.setFieldValue(
                 name,
-                differenceBy(meta.value, [stringToValue(stringValue)], compareValuesBy)
+                differenceBy(meta.value, [ stringToValue(stringValue) ], compareValuesBy)
               )
             }
           />

@@ -40,7 +40,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
         <TimeHumanizer since={createdAt} className={styles.time}/>
       </div>
       <JobSpecs
-        salary={{minimumSalary, maximumSalary}}
+        salary={{ minimumSalary, maximumSalary }}
         workload={hoursPerDay}
         className={styles.secondColumn}
       />

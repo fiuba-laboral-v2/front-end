@@ -30,12 +30,10 @@ const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = 
   return (
     <OfferWorkload
       className={className}
-      translations={
-        {
-          title,
-          hoursPerDay
-        }
-      }
+      translations={{
+        title,
+        hoursPerDay
+      }}
       offer={offer}
     />
   );

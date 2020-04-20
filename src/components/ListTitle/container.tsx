@@ -10,11 +10,11 @@ const ListTitleContainer: FunctionComponent<IListTitleProps> = ({ titleTranslati
     error
   } = useQuery(
     GET_TRANSLATIONS,
-    { variables: { paths: [titleTranslationPath] } }
+    { variables: { paths: [ titleTranslationPath ] } }
   );
   if (error) return <Fragment/>;
 
-  const [titleTranslation] = getTranslations;
+  const [ titleTranslation ] = getTranslations;
   return <Title title={titleTranslation}/>;
 };
 

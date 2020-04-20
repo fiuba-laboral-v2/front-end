@@ -9,7 +9,7 @@ const TitleContainer: FunctionComponent = () => {
     error
   } = useQuery(
     GET_TRANSLATIONS,
-    { variables: { paths: ["company.explanation", "company.title"] } }
+    { variables: { paths: [ "company.explanation", "company.title" ] } }
   );
   if (error) return <div />;
 

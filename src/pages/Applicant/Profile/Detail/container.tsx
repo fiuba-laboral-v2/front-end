@@ -18,7 +18,7 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingTranslations
   } = useQuery(
     GET_TRANSLATIONS,
-    { variables: { paths: ["applicant.padron", "applicant.capabilities"] } }
+    { variables: { paths: [ "applicant.padron", "applicant.capabilities" ] } }
   );
   const {
     data: { getApplicant } = { getApplicant: {} as IApplicant },
@@ -33,8 +33,8 @@ const DetailContainer: FunctionComponent = () => {
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];
-  applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
-  const [padronTranslation, capabilitiesTranslation] = getTranslations;
+  applicant.sections = sortBy(applicant.sections, [ "displayOrder" ]);
+  const [ padronTranslation, capabilitiesTranslation ] = getTranslations;
 
   if (loadingApplicantData || loadingTranslations) {
     return (
@@ -47,12 +47,10 @@ const DetailContainer: FunctionComponent = () => {
   return (
     <Detail
       applicant={applicant}
-      translations={
-        {
-          padron: padronTranslation,
-          capabilities: capabilitiesTranslation
-        }
-      }
+      translations={{
+        padron: padronTranslation,
+        capabilities: capabilitiesTranslation
+      }}
     />
   );
 };

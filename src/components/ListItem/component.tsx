@@ -10,7 +10,7 @@ const ListItem: FunctionComponent<IListItemProps> = (
     onClick
   }
 ) => {
-  const [touched, setTouched] = useState(false);
+  const [ touched, setTouched ] = useState(false);
   return (
     <div
       className={classnames(styles.listItem, className, {

@@ -11,7 +11,7 @@ const CompaniesContainer: FunctionComponent = () => {
     data: { getTranslations } = { getTranslations: [] },
     error: translationsError,
     loading: translationLoading
-  } = useQuery(GET_TRANSLATIONS, { variables: { paths: ["view"] } });
+  } = useQuery(GET_TRANSLATIONS, { variables: { paths: [ "view" ] } });
   const {
     data: { getCompanies } = { getCompanies: [] },
     error,
@@ -20,7 +20,7 @@ const CompaniesContainer: FunctionComponent = () => {
 
   if (translationsError || error) return <Fragment/>;
 
-  const [viewTranslation] = getTranslations;
+  const [ viewTranslation ] = getTranslations;
 
   return (
     <Companies
