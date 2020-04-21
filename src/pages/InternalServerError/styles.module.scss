@@ -4,43 +4,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $biggerSpacing;
-  margin-top: $biggerSpacing;
+  padding: $bigSpacing;
 
-  .mobileLogo {
-    display: none;
-  }
-
-  .desktopLogo {
+  .logo {
     display: flex;
-    margin-bottom: $bigSpacing;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-
-    .title {
-      display: flex;
-      margin-bottom: $normalSpacing;
-    }
-
-    .messageError {
-      display: flex;
-      margin-bottom: $bigSpacing;
-    }
+    margin-bottom: $biggerSpacing;
+    width: 500px;
   }
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .internalServerError {
-    .mobileLogo {
-      display: flex;
-      margin-bottom: $bigSpacing;
-    }
-
-    .desktopLogo {
-      display: none;
-    }
+  .internalServerError .logo {
+    width: 200px;
   }
 }
