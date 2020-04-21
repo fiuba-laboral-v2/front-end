@@ -15,8 +15,8 @@ export const NumberInput: FunctionComponent<INumberInputProps> = (
   }
 ) => {
   const fieldProps = {
-    name: name,
-    validate: validate,
+    name,
+    validate,
     children: ({ meta, form }: FieldProps<number>) => {
       const setFormValue = (stringValue: string) => {
         let value;
