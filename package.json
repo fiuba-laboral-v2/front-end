@@ -49,7 +49,7 @@
     "shortid": "2.2.15",
     "tslint": "5.20.1",
     "typescript": "~3.7.2",
-    "validations-fiuba-laboral-v2": "1.0.12"
+    "validations-fiuba-laboral-v2": "1.0.13"
   },
   "resolutions": {
     "@types/react": "16.9.34"
