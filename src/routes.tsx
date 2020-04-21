@@ -6,6 +6,7 @@ import { CompanyRoutes } from "$pages/Company/routes";
 import { LogIn } from "$pages/LogIn";
 import ApplicantRoutes from "$pages/Applicant/routes";
 import NotFound from "./pages/NotFound";
+import { InternalServerError } from "./pages/InternalServerError";
 import Configuration from "$config";
 
 const Routes: FunctionComponent = () => (
@@ -22,6 +23,9 @@ const Routes: FunctionComponent = () => (
       </Route>
       <Route path="/applicants">
         <ApplicantRoutes />
+      </Route>
+      <Route path="/error">
+        <InternalServerError />
       </Route>
       <Route>
         <NotFound />

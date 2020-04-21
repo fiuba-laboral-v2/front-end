@@ -1,0 +1,46 @@
+@import "$styles/_variables.scss";
+
+.internalServerError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $biggerSpacing;
+  margin-top: $biggerSpacing;
+
+  .mobileLogo {
+    display: none;
+  }
+
+  .desktopLogo {
+    display: flex;
+    margin-bottom: $bigSpacing;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      display: flex;
+      margin-bottom: $normalSpacing;
+    }
+
+    .messageError {
+      display: flex;
+      margin-bottom: $bigSpacing;
+    }
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .internalServerError {
+    .mobileLogo {
+      display: flex;
+      margin-bottom: $bigSpacing;
+    }
+
+    .desktopLogo {
+      display: none;
+    }
+  }
+}
