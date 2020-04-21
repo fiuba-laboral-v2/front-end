@@ -29,9 +29,9 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           onSubmit={onSubmit}
           validate={() => ({})}
         >
-          {({ values, isValid, isSubmitting }) => (
+          {({ values, isSubmitting }) => (
             <div className={styles.body}>
-              <Form translate="yes" className={styles.formContainer} id={formName}>
+              <Form className={styles.formContainer} id={formName}>
                 <div className={classNames(styles.fullName, styles.row)}>
                   <TextInput
                     className={styles.name}

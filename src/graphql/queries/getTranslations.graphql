@@ -1,5 +1,5 @@
-query getTranslations ($path: String!) {
-  getTranslations(path: $path){
+query getTranslations ($translationGroup: String!) {
+  getTranslations(translationGroup: $translationGroup){
     key
     value
   }

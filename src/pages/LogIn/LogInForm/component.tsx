@@ -33,7 +33,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
       >
         {({ isSubmitting }) => (
           <div className={styles.body}>
-            <Form translate="yes" className={styles.formContainer} id={"formName"}>
+            <Form className={styles.formContainer}>
               <TextInput
                 name="email"
                 label={translations.email}

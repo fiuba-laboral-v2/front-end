@@ -22,9 +22,9 @@
     "@types/lodash": "4.14.149",
     "@types/node": "12.0.0",
     "@types/node-sass": "4.11.0",
-    "@types/react": "16.9.0",
-    "@types/react-dom": "16.9.0",
-    "@types/react-router-dom": "5.1.3",
+    "@types/react": "16.9.34",
+    "@types/react-dom": "16.9.6",
+    "@types/react-router-dom": "5.1.4",
     "@types/shortid": "0.0.29",
     "apollo-boost": "0.4.7",
     "apollo-client": "2.6.8",
@@ -42,14 +42,17 @@
     "moment": "2.24.0",
     "node-sass": "4.13.0",
     "normalize.css": "8.0.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-router-dom": "5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "3.4.1",
     "shortid": "2.2.15",
     "tslint": "5.20.1",
     "typescript": "~3.7.2",
     "validations-fiuba-laboral-v2": "1.0.12"
+  },
+  "resolutions": {
+    "@types/react": "16.9.34"
   },
   "scripts": {
     "start": "NODE_ENV=development yarn run postinstall && react-scripts start",

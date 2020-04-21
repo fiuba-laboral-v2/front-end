@@ -59,9 +59,9 @@ const SignUp: FunctionComponent<ISignUpProps> = (
           validateOnMount={true}
           onSubmit={onSubmit}
         >
-          {({ values, isValid, isSubmitting, errors }) => (
+          {({ values, isSubmitting, errors }) => (
             <div className={styles.body}>
-              <Form translate="yes" className={styles.formContainer} id={formName}>
+              <Form className={styles.formContainer} id={formName}>
                 <div className={styles.textInputContainer}>
                   <TextInput
                     name="email"
