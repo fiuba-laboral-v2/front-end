@@ -20,7 +20,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
     <section className={styles.error}>
       <Title title={title}/>
       <img className={styles.logo} src={logo} alt={typeError}/>
-      <Link className={styles.link} to={RoutesBuilder.applicant.home}>
+      <Link className={styles.link} to={RoutesBuilder.applicant.home()}>
         <Button className="primary">{buttonMessage}</Button>
       </Link>
     </section>
