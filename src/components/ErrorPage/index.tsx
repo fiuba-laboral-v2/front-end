@@ -13,7 +13,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   }
 ) => (
   <section className={styles.error}>
-    <Headline headline={title}/>
+    <Headline color="dark">{title}</Headline>
     <img className={styles.imgSrc} src={imgSrc} alt={errorType}/>
     <Button onClick={onClickButton} className="primary">{buttonMessage}</Button>
   </section>

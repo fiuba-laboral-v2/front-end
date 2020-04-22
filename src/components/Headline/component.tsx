@@ -4,16 +4,22 @@ import classNames from "classnames";
 
 const Headline: FunctionComponent<IDetailHeadlineProps> = (
   {
-    headline,
-    className
+    className,
+    color = "light",
+    children
   }
 ) => (
-  <h2 className={classNames(styles.detailHeadline, className)}>{headline}</h2>
+  <h2
+    className={classNames(styles.detailHeadline, className, styles[color])}
+  >
+    {children}
+  </h2>
 );
 
 interface IDetailHeadlineProps {
-  headline: string;
   className?: string;
+  color?: "dark" | "light";
+
 }
 
 export { Headline };
