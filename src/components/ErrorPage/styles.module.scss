@@ -1,12 +1,12 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .error {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 4 * $biggerSpacing;
-  padding-right: $biggerSpacing;
   padding-left: $biggerSpacing;
+  padding-right: $biggerSpacing;
+  padding-top: 4 * $biggerSpacing;
 
   .imgSrc {
     height: 300px;

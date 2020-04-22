@@ -1,9 +1,10 @@
-$monospace: SFMono-Regular,
-Consolas,
-'Liberation Mono',
-Menlo,
-Courier,
-monospace;
+$monospace: sfmono-regular,
+  consolas,
+  "Liberation Mono",
+  menlo,
+  courier,
+  monospace;
+
 $navBarHeight: 60px;
 $pageMargin: 1.5vw;
 
@@ -22,13 +23,15 @@ $itemMarginBottom: 7px;
 $defaultBorderRadius: 15px;
 
 $mainBlueLight: #0fb3ff;
-$mainBlue: #0095DB;
+$mainBlue: #0095db;
 $mainBlueDark: #0073a8;
 $red: #f44336;
-$darkGrey: #40403F;
+$black: #000;
+$darkGrey: #40403f;
 $grey: #767676;
-$lightGrey: #BCBBD0;
-$lighterGrey: #F1F1F1;
+$lightGrey: #bcbbd0;
+$lighterGrey: #f1f1f1;
+$white: #fff;
 
 $detailContainerWidth: 880px;
 $detailContainerHorizontalPadding: 20px;

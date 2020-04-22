@@ -1,26 +1,28 @@
-@import "$styles/mixins/_text.scss";
-@import "$styles/_variables.scss";
+@import "$styles/mixins/_text";
+@import "$styles/_variables";
 
 .tag {
   @include text;
-  display: flex;
-  background: #26A69A;
-  color: #FFFFFF;
+
+  background: #26a69a;
   border-radius: 5px;
-  width: fit-content;
-  padding: 2px 4px;
+  color: #fff;
+  display: flex;
   font-style: normal;
   font-weight: normal;
   justify-content: center;
+  padding: 2px 4px;
+  width: fitcontent;
 }
 
 .removeButton {
-  color: white;
+  color: $white;
   font-size: $smallFontSize;
   line-height: unset;
   margin-left: 2px;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $lighterGrey;
   }
 }

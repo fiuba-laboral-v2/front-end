@@ -1,12 +1,12 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_title.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
 
 .detailHeadline {
   @include title;
 }
 
 .dark {
-  color: #1A6288;
+  color: #1a6288;
 }
 
 .light {
@@ -18,4 +18,3 @@
     word-break: break-word;
   }
 }
-

@@ -1,8 +1,8 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 @mixin title {
   color: $mainBlue;
-  margin: 0;
-  font-weight: bold;
   font-size: $biggerFontSize;
+  font-weight: bold;
+  margin: 0;
 }

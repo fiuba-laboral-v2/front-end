@@ -1,11 +1,12 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .subtitleContainer {
+  font-size: $bigFontSize;
+  font-weight: normal;
+  margin: 0;
+  word-break: break-word;
+
   :not(a) {
     color: $darkGrey;
   }
-  font-weight: normal;
-  font-size: $bigFontSize;
-  margin: 0;
-  word-break: break-word;
 }

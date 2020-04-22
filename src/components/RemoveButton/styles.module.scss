@@ -1,11 +1,11 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .remove {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: bold;
-  cursor: pointer;
   color: $darkGrey;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
   user-select: none;
 
   &:hover {
@@ -13,6 +13,6 @@
   }
 
   &:active {
-    color: black;
+    color: $black;
   }
 }

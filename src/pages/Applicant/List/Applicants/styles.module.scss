@@ -1,32 +1,32 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .row {
-  padding-bottom: $normalSpacing;
   margin-top: 0;
+  padding-bottom: $normalSpacing;
 
   .childrenContainer {
     display: flex;
     flex-direction: row;
 
     .name {
-      flex-grow: 1;
       align-self: center;
+      flex-grow: 1;
     }
+  }
+}
 
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      flex-shrink: 0;
-      align-self: flex-end;
+.buttons {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
 
-      :last-child {
-        margin-left: $normalSpacing;
-      }
+  :last-child {
+    margin-left: $normalSpacing;
+  }
 
-      :first-child {
-        margin-left: $normalSpacing;
-      }
-    }
+  :first-child {
+    margin-left: $normalSpacing;
   }
 }
 
@@ -36,15 +36,14 @@
       flex-direction: column;
 
       .name {
-        margin: 0 0 $normalSpacing;
         align-self: unset;
+        margin: 0 0 $normalSpacing;
       }
     }
 
     .buttons {
-      display: flex;
       align-self: flex-end;
+      display: flex;
     }
   }
 }
-

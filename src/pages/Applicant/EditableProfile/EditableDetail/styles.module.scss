@@ -1,7 +1,7 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_card.scss";
-@import "$styles/mixins/_title.scss";
-@import "$styles/mixins/_formSetMainColumn.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
+@import "$styles/mixins/_title";
+@import "$styles/mixins/_formSetMainColumn";
 
 .mainContainer {
   @include card;
@@ -20,8 +20,8 @@
 }
 
 .footer {
-  display: flex;
   align-self: flex-end;
+  display: flex;
 }
 
 .fullName {
@@ -31,7 +31,8 @@
     margin-right: $bigSpacing;
   }
 
-  .name, .surname {
+  .name,
+  .surname {
     width: 50%;
   }
 }
@@ -40,7 +41,8 @@
   margin-bottom: $bigSpacing;
 }
 
-.fullName, .capabilities {
+.fullName,
+.capabilities {
   width: 70%;
 }
 
@@ -48,12 +50,16 @@
   margin-top: $normalSpacing;
 }
 
-.section, .link {
+.section,
+.link {
   @include formSetMainColumn;
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .fullName, .capabilities, .section, .link {
+  .fullName,
+  .capabilities,
+  .section,
+  .link {
     width: 100%;
   }
 

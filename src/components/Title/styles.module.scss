@@ -1,10 +1,10 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_title.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
 
 .title {
   @include title;
 
-  color: #1A6288;
+  color: #1a6288;
   margin-bottom: $smallSpacing;
 }
 

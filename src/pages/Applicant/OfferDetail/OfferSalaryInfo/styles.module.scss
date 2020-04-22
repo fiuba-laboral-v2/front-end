@@ -1,16 +1,16 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .salaryInfo {
   display: flex;
 
   .salaryInfoText {
+    align-self: center;
     font-size: $normalFontSize;
     margin-right: 5px;
-    align-self: center;
   }
 
   .amount {
-    font-weight: bold;
     font-size: $bigFontSize;
+    font-weight: bold;
   }
 }

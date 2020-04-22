@@ -1,6 +1,6 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_card.scss";
-@import "$styles/mixins/_text.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
+@import "$styles/mixins/_text";
 
 .mainContainer {
   @include card;
@@ -12,40 +12,40 @@
     .companyLogo {
       margin-right: $bigSpacing;
     }
-
-    .rightHeader {
-      display: flex;
-      flex-direction: column;
-
-      .title {
-        margin-bottom: $smallSpacing;
-      }
-
-      .companyName {
-        margin-bottom: $normalSpacing;
-      }
-
-      .createdAt {
-        @include text;
-      }
-    }
   }
 
   .body {
     display: flex;
+  }
+}
 
-    .leftBodyContainer {
-      width: 70%;
-      margin-right: $bigSpacing;
-    }
+.leftBodyContainer {
+  margin-right: $bigSpacing;
+  width: 70%;
+}
 
-    .rightBodyContainer {
-      width: 30%;
+.rightBodyContainer {
+  width: 30%;
 
-      .offerInfo {
-        margin-bottom: $biggerSpacing;
-      }
-    }
+  .offerInfo {
+    margin-bottom: $biggerSpacing;
+  }
+}
+
+.rightHeader {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin-bottom: $smallSpacing;
+  }
+
+  .companyName {
+    margin-bottom: $normalSpacing;
+  }
+
+  .createdAt {
+    @include text;
   }
 }
 
@@ -72,7 +72,8 @@
     .body {
       flex-direction: column;
 
-      .leftBodyContainer, .rightBodyContainer {
+      .leftBodyContainer,
+      .rightBodyContainer {
         width: auto;
       }
 
@@ -87,4 +88,3 @@
     }
   }
 }
-

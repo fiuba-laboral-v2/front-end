@@ -1,10 +1,10 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .mainContainer {
-  padding: 100px 70px 70px;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
+  padding: 100px 70px 70px;
 
   .title {
     margin-bottom: $bigSpacing;
@@ -13,27 +13,27 @@
   .body {
     display: flex;
     flex-direction: column;
+  }
+}
 
-    .formContainer {
-      display: flex;
-      flex-direction: column;
+.formContainer {
+  display: flex;
+  flex-direction: column;
 
-      .textInput {
-        margin-bottom: $bigSpacing;
-      }
-    }
+  .textInput {
+    margin-bottom: $bigSpacing;
+  }
+}
 
-    .footer {
-      display: flex;
-      flex-direction: column;
+.footer {
+  display: flex;
+  flex-direction: column;
 
-      .register {
-        margin-top: $bigSpacing;
-      }
+  .register {
+    margin-top: $bigSpacing;
+  }
 
-      .dontHaveAnAccount {
-        margin-right: $smallSpacing;
-      }
-    }
+  .dontHaveAnAccount {
+    margin-right: $smallSpacing;
   }
 }

@@ -1,10 +1,11 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_card.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
 
 .container {
   @include card;
 
-  .headline, .firstContainerInfo {
+  .headline,
+  .firstContainerInfo {
     margin-bottom: 25px;
   }
 
@@ -17,8 +18,9 @@
     display: flex;
     flex-direction: row;
 
-    .capabilities, .careers {
-      width: 50%
+    .capabilities,
+    .careers {
+      width: 50%;
     }
 
     .capabilities {
@@ -32,8 +34,9 @@
     .capabilitiesAndCareersContainer {
       flex-direction: column;
 
-      .capabilities, .careers {
-        width: 100%
+      .capabilities,
+      .careers {
+        width: 100%;
       }
 
       .capabilities {

@@ -1,9 +1,9 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .mainContent {
-  margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   display: flex;
   flex-direction: column;
+  margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   width: $detailContainerWidth;
 }
 

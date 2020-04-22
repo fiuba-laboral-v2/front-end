@@ -1,11 +1,11 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_text.scss";
+@import "$styles/_variables";
+@import "$styles/mixins/_text";
 
 .text {
   @include text;
 
-  white-space: pre-wrap;
   margin-top: $smallSpacing;
+  white-space: pre-wrap;
 }
 
 .section {

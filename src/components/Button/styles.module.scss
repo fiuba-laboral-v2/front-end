@@ -1,26 +1,27 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_text.scss";
+@import "$styles/mixins/_text";
 
-$lightBlueBtn: #E6F7FF;
-$lightRedBtn: #FEE8E7;
+$lightBlueBtn: #e6f7ff;
+$lightRedBtn: #fee8e7;
 
 .main {
-  min-width: 85px;
-  min-height: 40px;
-  padding: 1px 14px 1px 14px;
+  @include text;
+
+  align-items: center;
   border-radius: 5px;
+  display: flex;
   font-style: normal;
   font-weight: bold;
-  @include text;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 40px;
+  min-width: 85px;
   outline: none;
+  padding: 1px 14px;
 }
 
 @mixin btnColors($border, $background, $textColor) {
-  border: 1px solid $border;
   background-color: $background;
+  border: 1px solid $border;
   color: $textColor;
 
   &:hover {
@@ -32,9 +33,9 @@ $lightRedBtn: #FEE8E7;
   }
 
   &:disabled {
-    color: transparentize(desaturate($textColor, 80%), 0.15);
-    border-color: transparentize(desaturate($border, 80%), 0.15);
     background-color: darken(desaturate($background, 80%), 5%);
+    border-color: transparentize(desaturate($border, 80%), 0.15);
+    color: transparentize(desaturate($textColor, 80%), 0.15);
     cursor: not-allowed;
   }
 }
@@ -43,7 +44,7 @@ $lightRedBtn: #FEE8E7;
   width: 100%;
 }
 
-.fit-content {
+.fitContent {
   width: fit-content;
 }
 

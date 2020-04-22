@@ -1,21 +1,21 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .mainContent {
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: auto;
   min-height: 100vh;
+  width: auto;
 
   .loginMainContainer {
     display: flex;
     flex-grow: 1;
 
     .logo {
-      background-image: url(fiubaLogo.png);
-      background-repeat: no-repeat;
+      background-image: url("fiubaLogo.png");
       background-position-x: right;
       background-position-y: center;
+      background-repeat: no-repeat;
       background-size: cover;
       width: 70%;
     }
@@ -32,14 +32,14 @@
       flex-direction: column;
 
       .logo {
-        background-image: url(fiubaLogoMobile.png);
+        background-image: url("fiubaLogoMobile.png");
         flex-grow: 1;
       }
 
-      .logo, .form {
+      .logo,
+      .form {
         width: unset;
       }
     }
   }
 }
-

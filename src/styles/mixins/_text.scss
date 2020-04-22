@@ -1,9 +1,9 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 @mixin text {
+  color: #4a4a48;
   font-size: $smallFontSize;
   line-height: 17px;
-  color: #4A4A48;
   margin: 0;
   word-break: break-word;
 }

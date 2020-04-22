@@ -1,6 +1,6 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .description {
-  white-space: pre-wrap;
   margin: $bigSpacing 0 0;
+  white-space: pre-wrap;
 }

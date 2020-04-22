@@ -1,16 +1,17 @@
-@import "$styles/_variables.scss";
+@import "$styles/_variables";
 
 .hoursInfo {
   display: flex;
+
   .hoursPerDay {
-    font-weight: bold;
-    font-size: $bigFontSize;
-    margin-right: 5px;
     align-self: center;
+    font-size: $bigFontSize;
+    font-weight: bold;
+    margin-right: 5px;
   }
 
   .hoursPerDayText {
-    font-size: $normalFontSize;
     align-self: center;
+    font-size: $normalFontSize;
   }
 }
