@@ -3,7 +3,7 @@ import { GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/useTranslations";
+import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicant } from "$interfaces/Applicant";
 import { sortBy } from "lodash";

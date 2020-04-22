@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useTranslations } from "$hooks/useTranslations";
+import { useTranslations } from "$hooks";
 import { IListTitleProps } from "./interface";
 import { Title } from "$components/Title";
 import { ITitleProps } from "../Title/interface";

@@ -14,7 +14,7 @@ import { useLogin } from "$hooks/useLogin";
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
-  const login = useLogin();
+  const [login] = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
@@ -55,16 +55,17 @@ const SignUpContainer: FunctionComponent = () => {
       },
       fetchPolicy: "no-cache"
     });
-    const { token, errors } = await login({ email, password });
-    setSubmitting(false);
-    if (token) {
-      Session.login(token);
+    try {
+      const loginResult = await login({ variables: { email, password } });
+      setSubmitting(false);
+      Session.login(loginResult.data.login);
       history.push(RoutesBuilder.applicant.edit(applicant.uuid));
-    } else {
+    } catch (error) {
       setErrors({
-        email: JSON.stringify(errors),
-        password: JSON.stringify(errors)
+        email: JSON.stringify(error),
+        password: JSON.stringify(error)
       });
+      setSubmitting(false);
     }
   };
 

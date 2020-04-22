@@ -12,7 +12,7 @@ import { ILoginVariables, useLogin } from "$hooks/useLogin";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
-  const login = useLogin();
+  const [login] = useLogin();
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
@@ -20,16 +20,17 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     values: ILoginVariables,
     { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
   ) => {
-    const { token, errors } = await login(values);
-    setSubmitting(false);
-    if (token) {
-      Session.login(token);
+    try {
+      const loginResult = await login({ variables: values });
+      setSubmitting(false);
+      Session.login(loginResult.data.login);
       history.push(RoutesBuilder.applicant.home());
-    } else {
+    } catch (error) {
       setErrors({
-        email: JSON.stringify(errors),
-        password: JSON.stringify(errors)
+        email: JSON.stringify(error),
+        password: JSON.stringify(error)
       });
+      setSubmitting(false);
     }
   };
 

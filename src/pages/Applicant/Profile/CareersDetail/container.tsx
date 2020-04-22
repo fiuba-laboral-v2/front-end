@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { ICareersContainerProps, ICareerTranslations } from "./interface";
 import { Redirect } from "react-router-dom";
 import { CareersDetail } from "./component";
-import { useTranslations } from "$hooks/useTranslations";
+import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
