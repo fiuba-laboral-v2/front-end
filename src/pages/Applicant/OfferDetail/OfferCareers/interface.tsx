@@ -6,5 +6,5 @@ export interface IOfferCareersContainerProps {
 }
 
 export interface IOfferCareersComponentProps extends IOfferCareersContainerProps {
-  title: string;
+  careersTitle: string;
 }

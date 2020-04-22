@@ -30,7 +30,7 @@ const Detail: FunctionComponent<IDetailProps> = (
         logo={offer.company.logo}
       />
       <div className={styles.rightHeader}>
-        <Headline className={styles.title} headline={offer.title}/>
+        <Headline className={styles.title}>{offer.title}</Headline>
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>

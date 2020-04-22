@@ -5,6 +5,14 @@
   @include title;
 }
 
+.dark {
+  color: #1A6288;
+}
+
+.light {
+  color: $mainBlue;
+}
+
 @media (max-width: $mobileContainerThreshold) {
   .detailHeadline {
     word-break: break-word;
