@@ -9,8 +9,21 @@
   padding-left: $biggerSpacing;
 
   .imgSrc {
-    width: 200px;
     margin-bottom: $biggerSpacing;
     margin-top: $biggerSpacing;
+  }
+}
+
+.small {
+  width: 200px;
+}
+
+.large {
+  width: 500px;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .error .imgSrc {
+    width: 200px;
   }
 }

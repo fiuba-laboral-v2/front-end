@@ -11,6 +11,7 @@ const NotFoundPage: FunctionComponent = () => {
       errorType="Not found"
       title="Parece que esta página no existe"
       imgSrc="images/brokenLink.svg"
+      imageSize="small"
       buttonMessage="Ir a la página principal"
     />
   );
