@@ -9,7 +9,7 @@ const NotFoundPage: FunctionComponent = () => {
   return (
     <Window>
       <ErrorPage
-        goTo={() => history.push(RoutesBuilder.applicant.home())}
+        onClickButton={() => history.push(RoutesBuilder.applicant.home())}
         errorType="Not found"
         title="Parece que esta página no existe"
         imgSrc="images/brokenLink.svg"

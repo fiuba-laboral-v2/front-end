@@ -11,13 +11,13 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
     imgSrc,
     imageSize,
     buttonMessage,
-    goTo
+    onClickButton
   }
 ) => (
   <section className={styles.error}>
     <Title title={title}/>
     <img className={classNames(styles.imgSrc, styles[imageSize])} src={imgSrc} alt={errorType}/>
-    <Button onClick={goTo} className="primary">{buttonMessage}</Button>
+    <Button onClick={onClickButton} className="primary">{buttonMessage}</Button>
   </section>
 );
 
@@ -27,5 +27,5 @@ interface IErrorPageProps {
   imgSrc: string;
   imageSize: "small" | "large";
   buttonMessage: string;
-  goTo: () => void;
+  onClickButton: () => void;
 }

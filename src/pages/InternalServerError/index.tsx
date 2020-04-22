@@ -6,7 +6,7 @@ export const InternalServerError: FunctionComponent = () => {
   const history = useHistory();
   return (
     <ErrorPage
-      goTo={() => history.goBack()}
+      onClickButton={() => history.goBack()}
       errorType="internal server error"
       title="Esta página ha dejado de funcionar"
       imgSrc="images/internalServerError.svg"
