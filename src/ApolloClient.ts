@@ -1,4 +1,4 @@
-import Client, { InMemoryCache, IdGetterObj } from "apollo-boost";
+import Client, { IdGetterObj, InMemoryCache } from "apollo-boost";
 import Configuration from "$config";
 
 const ApolloClient = new Client({
@@ -10,8 +10,12 @@ const ApolloClient = new Client({
       return `${__typename}_${uuid || id}`;
     }
   }),
-  headers: {
-    authorization: localStorage.getItem("token")
+  request: operation => {
+    operation.setContext({
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    });
   }
 });
 

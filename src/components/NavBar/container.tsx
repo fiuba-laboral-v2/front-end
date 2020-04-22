@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useApolloClient, useQuery } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks/useTranslations";
 import { ME } from "$queries";
 import { Session } from "$models/Session";
 import { IUser } from "$interfaces/User";

@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { Redirect } from "react-router-dom";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks/useTranslations";
 import { Title } from "$components/Title";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITitleProps } from "$components/Title/interface";

@@ -1,38 +1,36 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { Redirect, useHistory } from "react-router-dom";
-import { useMutation } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks/useTranslations";
 import { FormikHelpers } from "formik";
-
-import { LOGIN } from "$mutations";
 import { Session } from "$models/Session";
 
 import { LogInForm } from "./component";
 
-import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
+import { ILogInFormTranslationsProps } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { ILoginVariables, useLogin } from "$hooks/useLogin";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
-  const [login] = useMutation(LOGIN);
+  const login = useLogin();
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
   const onSubmit = async (
-    values: ILogInFormValues,
-    { setSubmitting, setErrors }: FormikHelpers<ILogInFormValues>
+    values: ILoginVariables,
+    { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
   ) => {
-    try {
-      const { data } = await login({ variables: values, fetchPolicy: "no-cache" });
-      Session.login(data.login);
-    } catch (e) {
-      return setErrors({
-        email: e.message,
-        password: e.message
+    const { token, errors } = await login(values);
+    if (token) {
+      Session.login(token);
+      history.push(RoutesBuilder.applicant.home());
+    } else {
+      setErrors({
+        email: JSON.stringify(errors),
+        password: JSON.stringify(errors)
       });
     }
     setSubmitting(false);
-    history.push(RoutesBuilder.applicant.home());
   };
 
   if (translations.loading) return <Fragment/>;

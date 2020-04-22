@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { ICareerSelectorContainerProps, ICareerSelectorTranslations } from "./interface";
 import { CareerSelector } from "./compontent";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks/useTranslations";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CAREERS } from "$queries";
 

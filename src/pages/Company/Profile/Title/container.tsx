@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks/useTranslations";
 import { Title } from "$components/Title";
 import { ITitleProps } from "$components/Title/interface";
 import { Redirect } from "react-router-dom";
