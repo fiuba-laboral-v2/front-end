@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2 * $biggerSpacing;
+  padding-top: 4 * $biggerSpacing;
+  padding-right: $biggerSpacing;
+  padding-left: $biggerSpacing;
 
   .imgSrc {
+    width: 200px;
     margin-bottom: $biggerSpacing;
-    width: 500px;
-    padding-top: $normalSpacing;
-    padding-bottom: $bigSpacing;
+    margin-top: $biggerSpacing;
   }
 }
