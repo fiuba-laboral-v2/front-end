@@ -50,10 +50,14 @@ const SignUpContainer: FunctionComponent = () => {
           email,
           password
         }
-      }
+      },
+      fetchPolicy: "no-cache"
     });
     setSubmitting(false);
-    const { data: loginData } = await login({ variables: { email, password } });
+    const { data: loginData } = await login({
+      variables: { email, password },
+      fetchPolicy: "no-cache"
+    });
     Session.login(loginData.login);
     history.push(RoutesBuilder.applicant.detail(applicant.uuid));
   };

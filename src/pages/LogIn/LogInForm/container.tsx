@@ -23,7 +23,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     { setSubmitting, setErrors }: FormikHelpers<ILogInFormValues>
   ) => {
     try {
-      const { data } = await login({ variables: values });
+      const { data } = await login({ variables: values, fetchPolicy: "no-cache" });
       Session.login(data.login);
     } catch (e) {
       return setErrors({
