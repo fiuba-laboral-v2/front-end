@@ -10,7 +10,6 @@ export const InternalServerError: FunctionComponent = () => {
       errorType="internal server error"
       title="Esta página ha dejado de funcionar"
       imgSrc="images/internalServerError.svg"
-      imageSize="large"
       buttonMessage="Cargar de nuevo"
     />
   );
