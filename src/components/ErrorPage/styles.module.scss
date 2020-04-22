@@ -1,0 +1,22 @@
+@import "$styles/_variables.scss";
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4 * $biggerSpacing;
+  padding-right: $biggerSpacing;
+  padding-left: $biggerSpacing;
+
+  .imgSrc {
+    height: 300px;
+    margin-bottom: $biggerSpacing;
+    margin-top: $biggerSpacing;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .error .imgSrc {
+    max-width: 90vw;
+  }
+}

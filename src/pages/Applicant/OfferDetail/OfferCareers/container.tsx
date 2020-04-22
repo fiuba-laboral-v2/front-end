@@ -18,7 +18,7 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
   return (
     <OfferCareers
       className={className}
-      title={translations.data.title}
+      careersTitle={translations.data.careersTitle}
       offer={offer}
     />
   );
