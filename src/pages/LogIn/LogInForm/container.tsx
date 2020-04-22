@@ -21,6 +21,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
   ) => {
     const { token, errors } = await login(values);
+    setSubmitting(false);
     if (token) {
       Session.login(token);
       history.push(RoutesBuilder.applicant.home());
@@ -30,7 +31,6 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
         password: JSON.stringify(errors)
       });
     }
-    setSubmitting(false);
   };
 
   if (translations.loading) return <Fragment/>;

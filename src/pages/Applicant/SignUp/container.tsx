@@ -56,6 +56,7 @@ const SignUpContainer: FunctionComponent = () => {
       fetchPolicy: "no-cache"
     });
     const { token, errors } = await login({ email, password });
+    setSubmitting(false);
     if (token) {
       Session.login(token);
       history.push(RoutesBuilder.applicant.edit(applicant.uuid));
@@ -65,7 +66,6 @@ const SignUpContainer: FunctionComponent = () => {
         password: JSON.stringify(errors)
       });
     }
-    setSubmitting(false);
   };
 
   if (translations.loading) return <Fragment/>;
