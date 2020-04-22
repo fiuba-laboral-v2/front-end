@@ -15,6 +15,8 @@ import { validateEmail } from "validations-fiuba-laboral-v2";
 import styles from "./styles.module.scss";
 import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
 
+const formName = "logInForm";
+
 const LogInForm: FunctionComponent<ILogInFormProps> = (
   {
     className,
@@ -33,7 +35,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
       >
         {({ isSubmitting }) => (
           <div className={styles.body}>
-            <Form className={styles.formContainer}>
+            <Form className={styles.formContainer} id={formName}>
               <TextInput
                 name="email"
                 label={translations.email}
@@ -51,7 +53,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
             </Form>
             <div className={styles.footer}>
               <Button
-                form={"formName"}
+                form={formName}
                 className="primary"
                 width="expand"
                 type="submit"
