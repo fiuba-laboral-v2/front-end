@@ -12,14 +12,14 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   {
     errorType,
     title,
-    logo,
+    imgSrc,
     buttonMessage
   }
 ) => (
   <Window>
     <section className={styles.error}>
       <Title title={title}/>
-      <img className={styles.logo} src={logo} alt={errorType}/>
+      <img className={styles.imgSrc} src={imgSrc} alt={errorType}/>
       <Link className={styles.link} to={RoutesBuilder.applicant.home()}>
         <Button className="primary">{buttonMessage}</Button>
       </Link>
@@ -30,6 +30,6 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
 interface IErrorPageProps {
   errorType: string;
   title: string;
-  logo: string;
+  imgSrc: string;
   buttonMessage: string;
 }
