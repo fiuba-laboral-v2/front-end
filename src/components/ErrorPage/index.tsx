@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   {
-    typeError,
+    errorType,
     title,
     logo,
     buttonMessage
@@ -19,7 +19,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   <Window>
     <section className={styles.error}>
       <Title title={title}/>
-      <img className={styles.logo} src={logo} alt={typeError}/>
+      <img className={styles.logo} src={logo} alt={errorType}/>
       <Link className={styles.link} to={RoutesBuilder.applicant.home()}>
         <Button className="primary">{buttonMessage}</Button>
       </Link>
@@ -28,7 +28,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
 );
 
 interface IErrorPageProps {
-  typeError: string;
+  errorType: string;
   title: string;
   logo: string;
   buttonMessage: string;

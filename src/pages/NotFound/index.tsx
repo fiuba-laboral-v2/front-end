@@ -3,7 +3,7 @@ import { ErrorPage } from "$components/ErrorPage";
 
 const NotFoundPage: FunctionComponent = () => (
   <ErrorPage
-    typeError="Not found"
+    errorType="Not found"
     title="Parece que esta página no existe"
     logo="images/brokenLink.svg"
     buttonMessage="Ir a la página principal"
