@@ -1,31 +1,42 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
+
+.menu {
+  :last-child {
+    margin-right: 0;
+  }
+
+  .logged {
+    display: none;
+  }
+}
 
 .navBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
   align-items: center;
   background: #233445;
-  color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-style: normal;
+  color: $white;
+  display: flex;
   font-size: $normalFontSize;
+  font-style: normal;
+  left: 0;
   padding: 0 $pageMargin;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 1;
 
   a {
-    color: white;
+    color: $white;
     font-weight: bold;
     text-decoration: none;
   }
 
-  a, p {
-    margin: 0 6px;
+  a,
+  p {
     display: inline-block;
     height: $navBarHeight;
     line-height: $navBarHeight;
+    margin: 0 6px;
 
     @media (max-width: 240px) {
       &.userName {
@@ -37,19 +48,11 @@
   .main :first-child {
     margin-left: 0;
   }
-
-  .menu :last-child {
-    margin-right: 0;
-  }
-
-  .menu {
-    .logged {
-      display: none;
-    }
-  }
 }
 
-.separator, .toggle, .menu {
+.separator,
+.toggle,
+.menu {
   flex-grow: 1;
 }
 
@@ -57,7 +60,8 @@
   display: none;
 }
 
-.main, .menu {
+.main,
+.menu {
   display: inline-flex;
   overflow: hidden;
 }
@@ -72,11 +76,12 @@
   }
 
   .main {
-    padding: 0 $pageMargin;
     flex-grow: 1;
+    padding: 0 $pageMargin;
   }
 
-  .main, .menu {
+  .main,
+  .menu {
     width: 100%;
   }
 

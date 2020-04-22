@@ -1,19 +1,28 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 html {
   font-size: 82.5%;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  background-color: #ededed;
+  color: #4a4a48;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: $smallFontSize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #4A4A48;
-  font-size: $smallFontSize;
-  background-color: #EDEDED;
+  margin: 0;
 }
 
 p {

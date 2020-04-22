@@ -1,9 +1,10 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .cardContainer {
-  width: 70%;
   margin: 0 auto;
   padding: $bigSpacing;
+  width: 70%;
+
   &:not(:last-child) {
     margin-bottom: $bigSpacing;
   }
@@ -11,8 +12,8 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .cardContainer {
-    width: unset;
     margin: 0;
     padding: $normalSpacing;
+    width: unset;
   }
 }

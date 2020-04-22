@@ -1,10 +1,10 @@
-@import "$styles/mixins/_subtitle.scss";
-@import "$styles/mixins/_text.scss";
-@import "$styles/_variables.scss";
+@import '$styles/mixins/_subtitle';
+@import '$styles/mixins/_text';
+@import '$styles/_variables';
 
 .content {
-  display: flex;
   align-items: flex-end;
+  display: flex;
 
   &:not(:last-child) {
     margin-bottom: $normalSpacing;
@@ -20,10 +20,12 @@
 
   p {
     @include text;
+
     margin: 0 0 0 $smallSpacing;
   }
 
-  h2, p {
+  h2,
+  p {
     margin-bottom: 1px;
   }
 }

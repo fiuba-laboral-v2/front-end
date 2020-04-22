@@ -1,14 +1,15 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_text.scss";
+@import '$styles/_variables';
+@import '$styles/mixins/_text';
 
 .mainContainer {
+  background-color: $lighterGrey;
+  border-radius: $defaultBorderRadius;
   display: flex;
   flex-direction: column;
-  background-color: $lighterGrey;
   padding: $normalSpacing;
-  border-radius: $defaultBorderRadius;
 
-  .careers, .hours {
+  .careers,
+  .hours {
     margin-bottom: $bigSpacing;
   }
 }

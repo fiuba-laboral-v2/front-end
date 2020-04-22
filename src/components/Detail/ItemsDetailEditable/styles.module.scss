@@ -1,4 +1,4 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .headers {
   display: flex;
@@ -6,10 +6,9 @@
 }
 
 .addIcon {
-  padding-left: 10px;
   margin-bottom: $itemMarginBottom;
+  padding-left: 10px;
 }
-
 
 .items {
   display: flex;
@@ -35,7 +34,6 @@
     .deleteIcon {
       padding-left: 10px;
     }
-
   }
 
   .footer {
@@ -50,8 +48,8 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .items {
-    margin: 20px 0 0 0;
     column-count: 1;
+    margin: 20px 0 0;
     max-width: 430px;
   }
 }

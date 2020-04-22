@@ -1,4 +1,4 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .header {
   display: flex;
@@ -16,15 +16,15 @@
 }
 
 .photos {
-  margin: 0 auto;
-  line-height: 0;
   column-count: 2;
   column-gap: $bigSpacing;
+  line-height: 0;
+  margin: 0 auto;
 
   img {
-    width: 100%;
     height: auto;
     padding: $bigSpacing 0 0 0;
+    width: 100%;
   }
 }
 

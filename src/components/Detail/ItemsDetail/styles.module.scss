@@ -1,4 +1,4 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .items {
   display: flex;
@@ -13,7 +13,7 @@
 @media (max-width: $mobileContainerThreshold) {
   .items {
     column-count: 1;
-    max-width: 430px;
     margin-top: 20px;
+    max-width: 430px;
   }
 }

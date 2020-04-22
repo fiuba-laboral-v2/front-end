@@ -1,12 +1,13 @@
-@import "$styles/mixins/_card.scss";
-@import "$styles/mixins/_title.scss";
-@import "$styles/_variables.scss";
+@import '$styles/mixins/_card';
+@import '$styles/mixins/_title';
+@import '$styles/_variables';
 
 .mainContainer {
   @include card;
 
   .title {
     @include title;
+
     margin-bottom: $normalSpacing;
   }
 
@@ -15,10 +16,10 @@
     flex-direction: column;
 
     .formContainer {
+      align-content: space-between;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      align-content: space-between;
       margin: 0;
     }
 

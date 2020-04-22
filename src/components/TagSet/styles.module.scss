@@ -1,4 +1,4 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 $separator: 7px;
 
@@ -6,11 +6,11 @@ $separator: 7px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: $separator;
   margin-bottom: -$separator;
+  margin-top: $separator;
 
   .item {
-    margin-right: $separator;
     margin-bottom: $separator;
+    margin-right: $separator;
   }
 }

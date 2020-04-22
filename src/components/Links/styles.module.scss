@@ -1,23 +1,23 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .links {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: $smallSpacing;
+}
 
-  .link {
-    display: flex;
-    flex-direction: row;
+.link {
+  display: flex;
+  flex-direction: row;
 
+  .divider {
+    margin: auto $smallSpacing;
+  }
+
+  &:last-child {
     .divider {
-      margin: auto $smallSpacing;
-    }
-
-    &:last-child {
-      .divider {
-        display: none;
-      }
+      display: none;
     }
   }
 }

@@ -1,14 +1,14 @@
-@import "$styles/_variables.scss";
-@import "$styles/mixins/_formSetMainColumn.scss";
+@import '$styles/_variables';
+@import '$styles/mixins/_formSetMainColumn';
 
 div.career {
   @include formSetMainColumn;
 }
 
 div.credits {
-  width: unset;
   flex-grow: 1;
   margin-left: $bigSpacing;
+  width: unset;
 }
 
 .fieldsContainer {
@@ -23,8 +23,8 @@ div.credits {
   }
 
   div.career {
-    width: 100%;
     margin-bottom: $normalSpacing;
+    width: 100%;
   }
 
   .fieldsContainer {

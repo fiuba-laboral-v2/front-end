@@ -1,6 +1,6 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 @mixin formSetMainColumn {
-  width: calc(0.7 * #{$detailContainerWidth - 2 * $biggerSpacing} - #{$bigSpacing});
   flex-shrink: 0;
+  width: calc(0.7 * #{$detailContainerWidth - 2 * $biggerSpacing} - #{$bigSpacing});
 }

@@ -1,84 +1,82 @@
-@import "$styles/_variables.scss";
+@import '$styles/_variables';
 
 .row {
-  padding-bottom: $normalSpacing;
   margin-top: 0;
+  padding-bottom: $normalSpacing;
+}
 
-  .childrenContainer {
-    .leftContainer {
-      display: none;
-    }
-
-    .rightContainer {
-      display: flex;
-      flex-direction: row;
-
-      .header {
-        display: flex;
-        flex-direction: row;
-        flex-grow: 1;
-
-        .name {
-          flex-grow: 1;
-          align-self: center;
-        }
-
-        .companyLogo {
-          margin-right: $normalSpacing;
-        }
-      }
-
-      .buttons {
-        display: flex;
-        flex-direction: row;
-        flex-shrink: 0;
-        align-self: flex-end;
-
-        :last-child {
-          margin-left: $normalSpacing;
-        }
-
-        :first-child {
-          margin-left: $normalSpacing;
-        }
-      }
-    }
+.childrenContainer {
+  .leftContainer {
+    display: none;
   }
 }
 
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .name {
+      align-self: center;
+      flex-grow: 1;
+    }
+
+    .companyLogo {
+      margin-right: $normalSpacing;
+    }
+  }
+
+  .buttons {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+
+    :last-child {
+      margin-left: $normalSpacing;
+    }
+
+    :first-child {
+      margin-left: $normalSpacing;
+    }
+  }
+}
 
 @media (max-width: $mobileContainerThreshold) {
   .row {
     .childrenContainer {
       display: flex;
       flex-direction: row;
+    }
+  }
 
-      .leftContainer {
-        display: flex;
-        margin-right: $normalSpacing;
+  .leftContainer {
+    display: flex;
+    margin-right: $normalSpacing;
+  }
+
+  .rightContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .header {
+      .name {
+        margin: 0 0 $normalSpacing;
       }
 
-      .rightContainer {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-
-        .header {
-
-          .name {
-            margin: 0 0 $normalSpacing;
-          }
-
-          .companyLogo {
-            display: none;
-          }
-        }
-
-        .buttons {
-          display: flex;
-          align-self: flex-end;
-        }
+      .companyLogo {
+        display: none;
       }
+    }
+
+    .buttons {
+      align-self: flex-end;
+      display: flex;
     }
   }
 }
