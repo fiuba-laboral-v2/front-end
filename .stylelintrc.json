@@ -18,6 +18,7 @@
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
     "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+$",
     "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "max-nesting-depth": 3
+    "max-nesting-depth": 3,
+    "string-quotes": "double"
   }
 }

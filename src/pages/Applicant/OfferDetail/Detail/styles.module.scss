@@ -1,6 +1,6 @@
-@import '$styles/_variables';
-@import '$styles/mixins/_card';
-@import '$styles/mixins/_text';
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
+@import "$styles/mixins/_text";
 
 .mainContainer {
   @include card;
