@@ -4,7 +4,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";

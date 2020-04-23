@@ -13,7 +13,8 @@ import { FormikValidator } from "$models/FormikValidator";
 import { validateEmail } from "validations-fiuba-laboral-v2";
 
 import styles from "./styles.module.scss";
-import { ILogInFormTranslationsProps, ILogInFormValues } from "./interface";
+import { ILogInFormTranslationsProps } from "./interface";
+import { ILoginVariables } from "$hooks/useLogin";
 
 const formName = "logInForm";
 
@@ -76,10 +77,10 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
 interface ILogInFormProps {
   className?: string;
   translations: ILogInFormTranslationsProps;
-  initialValues: ILogInFormValues;
+  initialValues: ILoginVariables;
   onSubmit: (
-    values: ILogInFormValues,
-    formikHelpers: FormikHelpers<ILogInFormValues>
+    values: ILoginVariables,
+    formikHelpers: FormikHelpers<ILoginVariables>
   ) => void | Promise<any>;
 }
 

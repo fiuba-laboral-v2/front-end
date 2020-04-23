@@ -1,19 +1,20 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { FormikHelpers } from "formik";
 import { useMutation } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/translations";
-import { LOGIN, SAVE_APPLICANT } from "$mutations";
+import { useTranslations } from "$hooks/useTranslations";
+import { SAVE_APPLICANT } from "$mutations";
 import { Session } from "$models/Session";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Redirect, useHistory } from "react-router-dom";
 import { ISignUpTranslations, ISignUpValues } from "./interface";
 import { SignUp } from "./component";
+import { useLogin } from "$hooks/useLogin";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
-  const [login] = useMutation(LOGIN);
+  const [login] = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
@@ -37,7 +38,8 @@ const SignUpContainer: FunctionComponent = () => {
       careers
     }: ISignUpValues,
     {
-      setSubmitting
+      setSubmitting,
+      setErrors
     }: FormikHelpers<ISignUpValues>
   ) => {
     const { data: { saveApplicant: applicant } } = await saveApplicant({
@@ -50,12 +52,21 @@ const SignUpContainer: FunctionComponent = () => {
           email,
           password
         }
-      }
+      },
+      fetchPolicy: "no-cache"
     });
-    setSubmitting(false);
-    const { data: loginData } = await login({ variables: { email, password } });
-    Session.login(loginData.login);
-    history.push(RoutesBuilder.applicant.detail(applicant.uuid));
+    try {
+      const loginResult = await login({ variables: { email, password } });
+      setSubmitting(false);
+      Session.login(loginResult.data.login);
+      history.push(RoutesBuilder.applicant.edit(applicant.uuid));
+    } catch (error) {
+      setErrors({
+        email: JSON.stringify(error),
+        password: JSON.stringify(error)
+      });
+      setSubmitting(false);
+    }
   };
 
   if (translations.loading) return <Fragment/>;

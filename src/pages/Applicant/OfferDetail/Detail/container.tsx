@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/translations";
+import { useTranslations } from "$hooks";
 import { sortBy } from "lodash";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
