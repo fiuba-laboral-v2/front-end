@@ -14,7 +14,7 @@ import { useLogin } from "$hooks/useLogin";
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const [saveApplicant] = useMutation(SAVE_APPLICANT);
-  const [login] = useLogin();
+  const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 

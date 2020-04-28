@@ -12,7 +12,7 @@ import { ILoginVariables, useLogin } from "$hooks/useLogin";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
-  const [login] = useLogin();
+  const login = useLogin();
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
