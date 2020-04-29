@@ -2,7 +2,7 @@ import { useMutation as apolloUseMutation } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { MutationHookOptions } from "@apollo/react-hooks/lib/types";
 import { MutationFunctionOptions, MutationResult } from "@apollo/react-common";
-import { handleError, IErrorHandlers } from "$models/handleError";
+import { handleError, ErrorHandlers } from "$models/handleError";
 
 export const useMutation = <TData = void, TVariables = void>(
   mutationNode: DocumentNode,
@@ -11,7 +11,7 @@ export const useMutation = <TData = void, TVariables = void>(
   const [mutation] = apolloUseMutation(mutationNode, options) as MutationTuple<TData, TVariables>;
   return async (
     variables: MutationFunctionOptions<TData, TVariables>,
-    handlers: IErrorHandlers
+    handlers: ErrorHandlers
   ) => {
     try {
       return await mutation(variables);

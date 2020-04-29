@@ -6,15 +6,13 @@ type ErrorName =
   "UserNotFound" |
   "MissingTranslationError";
 
-export interface IErrorHandlers {
-  UserEmailAlreadyExistsError?: () => void;
-  BadCredentials?: () => void;
-  UserNotFound?: () => void;
-  MissingTranslationError?: () => void;
+export type ErrorHandlers = {
+  [key in ErrorName]?: () => void;
+} & {
   DefaultError?: () => void;
-}
+};
 
-export const handleError = (errors: ApolloError, handlers: IErrorHandlers) => {
+export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
   let unknownErrorWasFound = false;
   for (const error of errors.graphQLErrors) {
     const data = error.extensions?.data;
