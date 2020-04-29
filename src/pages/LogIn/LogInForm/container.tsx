@@ -31,8 +31,8 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     const loginResult = await login(
       { variables: values },
       {
-        BadCredentials: () => badCredentialsMessage(setErrors),
-        UserNotFound: () => badCredentialsMessage(setErrors),
+        BadCredentialsError: () => badCredentialsMessage(setErrors),
+        UserNotFoundError: () => badCredentialsMessage(setErrors),
         DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );

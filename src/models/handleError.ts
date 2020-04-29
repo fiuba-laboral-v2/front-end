@@ -2,8 +2,8 @@ import { ApolloError } from "apollo-client";
 
 type ErrorName =
   "UserEmailAlreadyExistsError" |
-  "BadCredentials" |
-  "UserNotFound" |
+  "BadCredentialsError" |
+  "UserNotFoundError" |
   "MissingTranslationError";
 
 export type ErrorHandlers = {
