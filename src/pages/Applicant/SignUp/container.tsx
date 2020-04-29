@@ -1,20 +1,23 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { FormikHelpers } from "formik";
-import { useMutation } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks/useTranslations";
-import { SAVE_APPLICANT } from "$mutations";
-import { Session } from "$models/Session";
-
-import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Redirect, useHistory } from "react-router-dom";
-import { ISignUpTranslations, ISignUpValues } from "./interface";
+import { FormikHelpers } from "formik";
+import { SAVE_APPLICANT } from "$mutations";
+
 import { SignUp } from "./component";
+
 import { useLogin } from "$hooks/useLogin";
+import { useMutation } from "$hooks/useMutation";
+import { useTranslations } from "$hooks/useTranslations";
+import { Session } from "$models/Session";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
+import { ISignUpTranslations, ISignUpValues } from "./interface";
+import { IApplicantCareer, IApplicant } from "$interfaces/Applicant";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const [saveApplicant] = useMutation(SAVE_APPLICANT);
-  const [login] = useLogin();
+  const saveApplicant = useMutation<{ saveApplicant: IApplicant }, ISaveApplicant>(SAVE_APPLICANT);
+  const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
@@ -42,31 +45,32 @@ const SignUpContainer: FunctionComponent = () => {
       setErrors
     }: FormikHelpers<ISignUpValues>
   ) => {
-    const { data: { saveApplicant: applicant } } = await saveApplicant({
-      variables: {
-        name,
-        surname,
-        padron,
-        careers,
-        user: {
-          email,
-          password
-        }
+    const { data: { saveApplicant: applicant } } = await saveApplicant(
+      {
+        variables: {
+          name,
+          surname,
+          padron,
+          careers,
+          user: {
+            email,
+            password
+          }
+        },
+        fetchPolicy: "no-cache"
       },
-      fetchPolicy: "no-cache"
-    });
-    try {
-      const loginResult = await login({ variables: { email, password } });
-      setSubmitting(false);
-      Session.login(loginResult.data.login);
-      history.push(RoutesBuilder.applicant.edit(applicant.uuid));
-    } catch (error) {
-      setErrors({
-        email: JSON.stringify(error),
-        password: JSON.stringify(error)
-      });
-      setSubmitting(false);
-    }
+      {
+        UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
+        DefaultError: () => history.push(RoutesBuilder.internalServerError)
+      }
+    );
+    const loginResult = await login(
+      { variables: { email, password } },
+      { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
+    );
+    setSubmitting(false);
+    Session.login(loginResult.data.login);
+    history.push(RoutesBuilder.applicant.edit(applicant.uuid));
   };
 
   if (translations.loading) return <Fragment/>;
@@ -80,5 +84,16 @@ const SignUpContainer: FunctionComponent = () => {
     />
   );
 };
+
+interface ISaveApplicant {
+  user: {
+    email: string;
+    password: string;
+  };
+  name: string;
+  surname: string;
+  padron: number;
+  careers: IApplicantCareer[];
+}
 
 export { SignUpContainer };
