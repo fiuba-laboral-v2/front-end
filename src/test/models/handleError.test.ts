@@ -30,7 +30,7 @@ describe("handleError", () => {
   });
 
   it("should do nothing if there is no data in the error", () => {
-    const error = createError([]);
+    const error = createError([{}]);
     handleError(error, {});
   });
 
@@ -92,5 +92,32 @@ describe("handleError", () => {
     );
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(1);
+  });
+
+  it("should execute the UserEmailAlreadyExistsError and DefaultError", () => {
+    const error = createError(
+      [
+        { errorType: "UserEmailAlreadyExistsError" },
+        { errorType: "UnknownError" }
+      ]
+    );
+    const defaultErrorCallback = jest.fn();
+    const userEmailAlreadyExistsErrorCallback = jest.fn();
+    handleError(
+      error,
+      {
+        UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
+        DefaultError: defaultErrorCallback
+      }
+    );
+    expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
+    expect(defaultErrorCallback.mock.calls.length).toBe(1);
+  });
+
+  it("should execute the DefaultError if there is no data in the error", () => {
+    const error = createError([{}]);
+    const defaultErrorCallback = jest.fn();
+    handleError(error, { DefaultError: defaultErrorCallback });
+    expect(defaultErrorCallback.mock.calls.length).toBe(1);
   });
 });
