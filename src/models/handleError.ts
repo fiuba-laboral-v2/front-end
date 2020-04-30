@@ -4,12 +4,11 @@ type ErrorName =
   "UserEmailAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
-  "MissingTranslationError";
+  "MissingTranslationError" |
+  "DefaultError";
 
 export type ErrorHandlers = {
   [key in ErrorName]?: () => void;
-} & {
-  DefaultError?: () => void;
 };
 
 export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
