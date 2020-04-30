@@ -21,7 +21,7 @@ export const omitTypename = (variables: any) => {
 export const useMutation = <TVariables extends object = {}, TData extends object = {}>(
   mutation: DocumentNode,
   mutationHookOptions?: MutationHookOptions<TData, TVariables>
-) => {
+): MutationFunctionResult<TData, TVariables> => {
   const [mutationFunction] = apolloUseMutation(
     mutation,
     mutationHookOptions
@@ -30,12 +30,13 @@ export const useMutation = <TVariables extends object = {}, TData extends object
   return async (
     mutationFunctionOptions?: MutationFunctionOptions<TData, TVariables>,
     handlers?: ErrorHandlers
-  ) => {
+  ): Promise<ExecutionResult<TData>> => {
     try {
       const { variables, ...otherOptions } = mutationFunctionOptions || { variables: {} };
       return await mutationFunction({ variables: omitTypename(variables), ...otherOptions });
     } catch (error) {
-      return handleError(error, handlers || {}) as any;
+      handleError(error, handlers || {});
+      return {} as Promise<ExecutionResult<TData>>;
     }
   };
 };
@@ -44,6 +45,12 @@ type ExecutionResult<TData> = {
   data: TData;
   extensions?: Record<string, any>;
 };
+
+type MutationFunctionResult<TData, TVariables> =
+  (
+    options?: MutationFunctionOptions<TData, TVariables>,
+    handlers?: ErrorHandlers
+  ) => Promise<ExecutionResult<TData>>;
 
 type MutationFunction<TData, TVariables> =
   (options?: MutationFunctionOptions<TData, TVariables>) => Promise<ExecutionResult<TData>>;
