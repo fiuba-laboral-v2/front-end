@@ -16,5 +16,5 @@ export const RoutesBuilder = {
     detail: (id: number) => `/companies/${id}/`
   },
   notFound: "/*/",
-  internalServerError: "/error"
+  internalServerError: "/error/"
 };
