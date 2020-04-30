@@ -4,11 +4,10 @@ import { handleError } from "$models/handleError";
 
 interface ICreateGraphQLErrorProps {
   errorType?: string;
-  withNoData?: boolean;
 }
 
 describe("handleError", () => {
-  const createGraphQLError = ({ errorType, withNoData = false }: ICreateGraphQLErrorProps) => {
+  const createGraphQLError = ({ errorType }: ICreateGraphQLErrorProps) => {
     return new GraphQLError(
       "some message",
       undefined,
@@ -16,7 +15,7 @@ describe("handleError", () => {
       undefined,
       undefined,
       undefined,
-      withNoData ? undefined : { data: { errorType: errorType } }
+      errorType ? { data: { errorType: errorType } } : undefined
     );
   };
 
@@ -31,7 +30,7 @@ describe("handleError", () => {
   });
 
   it("should do nothing if there is no data in the error", () => {
-    const error = createError([{ withNoData: true }]);
+    const error = createError([]);
     handleError(error, {});
   });
 
