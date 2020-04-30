@@ -23,5 +23,7 @@ export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
       unknownErrorWasFound = true;
     }
   }
-  if (unknownErrorWasFound) return (handlers.DefaultError && handlers.DefaultError!()) || undefined;
+  if (!unknownErrorWasFound || !handlers.DefaultError) return;
+
+  handlers.DefaultError!();
 };
