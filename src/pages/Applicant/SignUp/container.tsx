@@ -1,22 +1,20 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { SAVE_APPLICANT } from "$mutations";
 
 import { SignUp } from "./component";
 
 import { useLogin } from "$hooks/useLogin";
-import { useMutation } from "$hooks/useMutation";
+import { useSaveApplicant } from "$hooks/useSaveApplicant";
 import { useTranslations } from "$hooks/useTranslations";
 import { Session } from "$models/Session";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { ISignUpTranslations, ISignUpValues } from "./interface";
-import { IApplicantCareer, IApplicant } from "$interfaces/Applicant";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const saveApplicant = useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(SAVE_APPLICANT);
+  const saveApplicant = useSaveApplicant();
   const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
@@ -84,16 +82,5 @@ const SignUpContainer: FunctionComponent = () => {
     />
   );
 };
-
-interface ISaveApplicant {
-  user: {
-    email: string;
-    password: string;
-  };
-  name: string;
-  surname: string;
-  padron: number;
-  careers: IApplicantCareer[];
-}
 
 export { SignUpContainer };
