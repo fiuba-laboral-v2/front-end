@@ -4,7 +4,7 @@ import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
 import { QueryResult } from "@apollo/react-common";
 import { handleError, ErrorHandlers } from "$models/handleError";
 
-export const useQuery = <TData = void, TVariables = void>(
+export const useQuery = <TVariables extends object = {}, TData extends object = {}>(
   node: DocumentNode,
   options?: QueryHookOptions<TData, TVariables>,
   handlers?: ErrorHandlers
