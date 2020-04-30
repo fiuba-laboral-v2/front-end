@@ -17,7 +17,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
 
-  const badCredentialsMessage = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
+  const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
     setErrors({
       email: "Email o contraseña inválidos",
       password: "Email o contraseña inválidos"
@@ -31,8 +31,8 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     const loginResult = await login(
       { variables: values },
       {
-        BadCredentialsError: () => badCredentialsMessage(setErrors),
-        UserNotFoundError: () => badCredentialsMessage(setErrors),
+        BadCredentialsError: () => setBadCredentialsError(setErrors),
+        UserNotFoundError: () => setBadCredentialsError(setErrors),
         DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );
