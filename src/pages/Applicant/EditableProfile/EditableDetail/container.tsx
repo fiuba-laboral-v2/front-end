@@ -3,18 +3,16 @@ import { Redirect, useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks";
+import { useQuery } from "@apollo/react-hooks";
+import { useTranslations, useUpdateApplicant } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
-import { UPDATE_APPLICANT } from "$mutations";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
   const history = useHistory();
-
-  const [updateApplicant] = useMutation(UPDATE_APPLICANT);
+  const updateApplicant = useUpdateApplicant();
 
   const {
     data: { getApplicant: applicant } = { getApplicant: {} as IApplicant },
@@ -28,17 +26,18 @@ const EditableDetailContainer: FunctionComponent = () => {
   if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
 
   const onSubmit = async (values: IEditableDetailValues) => {
-    const {
-      errors: updateApplicantErrors
-    } = await updateApplicant({
-      variables: {
-        ...values,
-        capabilities: values.capabilities.map(capability => capability.description),
-        careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
-      }
-    });
-    if (updateApplicantErrors) history.push(RoutesBuilder.notFound);
-    history.push(RoutesBuilder.applicant.detail(uuid!));
+    try {
+      await updateApplicant({
+        variables: {
+          ...values,
+          capabilities: values.capabilities.map(capability => capability.description),
+          careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
+        }
+      });
+      history.push(RoutesBuilder.applicant.detail(uuid!));
+    } catch (error) {
+      history.push(RoutesBuilder.notFound);
+    }
   };
 
   return (

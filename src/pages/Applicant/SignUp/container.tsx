@@ -16,7 +16,7 @@ import { IApplicantCareer, IApplicant } from "$interfaces/Applicant";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const saveApplicant = useMutation<{ saveApplicant: IApplicant }, ISaveApplicant>(SAVE_APPLICANT);
+  const saveApplicant = useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(SAVE_APPLICANT);
   const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
