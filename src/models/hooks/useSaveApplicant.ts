@@ -3,7 +3,7 @@ import { useMutation } from "$hooks";
 import { IApplicant, IApplicantCareer } from "$interfaces/Applicant";
 
 export const useSaveApplicant = () =>
-  useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(SAVE_APPLICANT);
+  useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(SAVE_APPLICANT, { fetchPolicy: "no-cache" });
 
 interface ISaveApplicant {
   user: {

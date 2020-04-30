@@ -54,20 +54,19 @@ const SignUpContainer: FunctionComponent = () => {
             email,
             password
           }
-        },
-        fetchPolicy: "no-cache"
+        }
       },
       {
         UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
         DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );
-    const loginResult = await login(
+    const { data: { login: token } } = await login(
       { variables: { email, password } },
       { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
     );
     setSubmitting(false);
-    Session.login(loginResult.data.login);
+    Session.login(token);
     history.push(RoutesBuilder.applicant.edit(applicant.uuid));
   };
 
