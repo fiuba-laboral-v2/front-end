@@ -38,13 +38,15 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
 
 const useTranslations = <T, >(translationGroup: string): UseTranslationsResult<T> => {
   let anErrorHasOccurred = false;
-  const { data, loading } = useQuery(
+  const { data, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
-    { variables: { translationGroup } },
     {
-      MissingTranslationError: () => {
-        alert("Un error inesperado ha ocurrido");
-        anErrorHasOccurred = true;
+      queryOptions: { variables: { translationGroup } },
+      handlers: {
+        MissingTranslationError: () => {
+          alert("Un error inesperado ha ocurrido");
+          anErrorHasOccurred = true;
+        }
       }
     }
   );

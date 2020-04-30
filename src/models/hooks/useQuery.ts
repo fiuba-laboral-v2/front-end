@@ -6,12 +6,16 @@ import { handleError, ErrorHandlers } from "$models/handleError";
 
 export const useQuery = <TVariables extends object = {}, TData extends object = {}>(
   node: DocumentNode,
-  options?: QueryHookOptions<TData, TVariables>,
-  handlers?: ErrorHandlers
+  options?: IOptions<TData, TVariables>
 ) => {
-  const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, options);
+  const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, options?.queryOptions);
   if (error) {
-    handleError(error, handlers || {});
+    handleError(error, options?.handlers || {});
   }
   return { data, loading } as QueryResult<TData, TVariables>;
 };
+
+interface IOptions<TData, TVariables> {
+  queryOptions?: QueryHookOptions<TData, TVariables>;
+  handlers?: ErrorHandlers;
+}
