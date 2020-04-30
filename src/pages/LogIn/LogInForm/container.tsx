@@ -19,8 +19,8 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
   const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
     setErrors({
-      email: "Email o contraseña inválidos",
-      password: "Email o contraseña inválidos"
+      email: translations.data?.badCredentialsMessage,
+      password: translations.data?.badCredentialsMessage
     });
   };
 

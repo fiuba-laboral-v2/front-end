@@ -5,4 +5,5 @@ export interface ILogInFormTranslationsProps {
   logIn: string;
   dontHaveAnAccount: string;
   register: string;
+  badCredentialsMessage: string;
 }
