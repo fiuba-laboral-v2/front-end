@@ -1,6 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useTranslations } from "$hooks/useTranslations";
 import { FormikHelpers, FormikErrors } from "formik";
 
 import { LogInForm } from "./component";
@@ -8,6 +7,7 @@ import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Session } from "$models/Session";
 import { ILoginVariables, useLogin } from "$hooks/useLogin";
+import { useTranslations } from "$hooks/useTranslations";
 
 import { ILogInFormTranslationsProps } from "./interface";
 
