@@ -37,15 +37,15 @@ describe("handleError", () => {
 
   it("should execute the default error", () => {
     const error = createError([{ errorType: "customError" }]);
-    const defaultCallback = jest.fn(() => undefined);
+    const defaultCallback = jest.fn();
     handleError(error, { DefaultError: defaultCallback });
     expect(defaultCallback.mock.calls.length).toBe(1);
   });
 
   it("should execute the BadCredentials error and not default", () => {
     const error = createError([{ errorType: "BadCredentialsError" }]);
-    const defaultErrorCallback = jest.fn(() => undefined);
-    const badCredentialsErrorCallback = jest.fn(() => undefined);
+    const defaultErrorCallback = jest.fn();
+    const badCredentialsErrorCallback = jest.fn();
     handleError(
       error,
       {
@@ -59,9 +59,9 @@ describe("handleError", () => {
 
   it("should only execute the UserEmailAlreadyExistsError", () => {
     const error = createError([{ errorType: "UserEmailAlreadyExistsError" }]);
-    const defaultErrorCallback = jest.fn(() => undefined);
-    const badCredentialsErrorCallback = jest.fn(() => undefined);
-    const userEmailAlreadyExistsErrorCallback = jest.fn(() => undefined);
+    const defaultErrorCallback = jest.fn();
+    const badCredentialsErrorCallback = jest.fn();
+    const userEmailAlreadyExistsErrorCallback = jest.fn();
     handleError(
       error,
       {
@@ -82,8 +82,8 @@ describe("handleError", () => {
         { errorType: "BadCredentialsError" }
       ]
     );
-    const badCredentialsErrorCallback = jest.fn(() => undefined);
-    const userEmailAlreadyExistsErrorCallback = jest.fn(() => undefined);
+    const badCredentialsErrorCallback = jest.fn();
+    const userEmailAlreadyExistsErrorCallback = jest.fn();
     handleError(
       error,
       {
