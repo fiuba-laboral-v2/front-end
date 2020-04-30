@@ -25,7 +25,7 @@ describe("handleError", () => {
   };
 
   it("should do nothing if no callback is given", () => {
-    const error = createError([{ errorType: "customError" }]);
+    const error = createError([{ errorType: "UnknownError" }]);
     handleError(error, {});
   });
 
@@ -34,8 +34,8 @@ describe("handleError", () => {
     handleError(error, {});
   });
 
-  it("should execute the default error", () => {
-    const error = createError([{ errorType: "customError" }]);
+  it("should execute the default error if an UnknownError was received", () => {
+    const error = createError([{ errorType: "UnknownError" }]);
     const defaultCallback = jest.fn();
     handleError(error, { DefaultError: defaultCallback });
     expect(defaultCallback.mock.calls.length).toBe(1);
