@@ -54,19 +54,19 @@ const SignUpContainer: FunctionComponent = () => {
             email,
             password
           }
+        },
+        handlers: {
+          UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
+          DefaultError: () => history.push(RoutesBuilder.internalServerError)
         }
-      },
-      {
-        UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
-        DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );
     if (saveApplicantData.error) return;
 
-    const loginResult = await login(
-      { variables: { email, password } },
-      { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
-    );
+    const loginResult = await login({
+      variables: { email, password },
+      handlers: { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
+    });
     if (loginResult.error) return;
 
     setSubmitting(false);

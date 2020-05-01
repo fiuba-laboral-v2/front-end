@@ -29,11 +29,13 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
   ) => {
     const loginResult = await login(
-      { variables: values },
       {
-        BadCredentialsError: () => setBadCredentialsError(setErrors),
-        UserNotFoundError: () => setBadCredentialsError(setErrors),
-        DefaultError: () => history.push(RoutesBuilder.internalServerError)
+        variables: values,
+        handlers: {
+          BadCredentialsError: () => setBadCredentialsError(setErrors),
+          UserNotFoundError: () => setBadCredentialsError(setErrors),
+          DefaultError: () => history.push(RoutesBuilder.internalServerError)
+        }
       }
     );
     if (loginResult.error) return;
