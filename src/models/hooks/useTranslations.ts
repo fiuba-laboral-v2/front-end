@@ -31,7 +31,7 @@ const useTranslations = <T, >(translationGroup: string) => {
   );
 
   return {
-    ...{ data: (data && { data: translationMapper<T>(data) }) },
+    ...{ data: (data && translationMapper<T>(data)) },
     loading,
     error
   } as UseQueryResult<T>;

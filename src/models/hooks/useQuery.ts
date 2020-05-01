@@ -29,7 +29,11 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   node: DocumentNode,
   options?: IOptions<TData, TVariables>
 ) => {
-  const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, options?.variables);
+  const { data, error, loading } = apolloUseQuery<TData, TVariables>(
+    node,
+    { variables: options?.variables }
+  );
+
   if (error) {
     handleError(error, options?.handlers || {});
   }
