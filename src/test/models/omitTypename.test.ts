@@ -1,4 +1,4 @@
-import { omitTypename } from "$hooks/useMutation";
+import { omitTypename } from "$models/omitTypename";
 
 const expectNotToChange = (value: any) =>
   expect(omitTypename(value)).toEqual(value);

@@ -43,7 +43,7 @@ const SignUpContainer: FunctionComponent = () => {
       setErrors
     }: FormikHelpers<ISignUpValues>
   ) => {
-    const { data: { saveApplicant: applicant } } = await saveApplicant(
+    const saveApplicantData = await saveApplicant(
       {
         variables: {
           name,
@@ -61,13 +61,17 @@ const SignUpContainer: FunctionComponent = () => {
         DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );
-    const { data: { login: token } } = await login(
+    if (saveApplicantData.error) return;
+
+    const loginResult = await login(
       { variables: { email, password } },
       { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
     );
+    if (loginResult.error) return;
+
     setSubmitting(false);
-    Session.login(token);
-    history.push(RoutesBuilder.applicant.edit(applicant.uuid));
+    Session.login(loginResult.data?.login);
+    history.push(RoutesBuilder.applicant.edit(saveApplicantData.data?.saveApplicant?.uuid));
   };
 
   if (translations.loading) return <Fragment/>;

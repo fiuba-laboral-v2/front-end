@@ -1,20 +1,5 @@
-import { useQuery } from "$hooks/useQuery";
+import { useQuery, UseQueryResult } from "$hooks/useQuery";
 import { GET_TRANSLATIONS } from "$queries";
-
-type UseTranslationsResult<T> =
-  ILoadingTranslations | ISuccessfulTranslations<T>;
-
-type ILoadingTranslations = {
-  data: undefined;
-  error: undefined;
-  loading: true;
-};
-
-type ISuccessfulTranslations<T> = {
-  data: T;
-  error: undefined;
-  loading: false;
-};
 
 interface ITranslation {
   key: string;
@@ -36,27 +21,20 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-const useTranslations = <T, >(translationGroup: string): UseTranslationsResult<T> => {
-  let anErrorHasOccurred = false;
-  const { data, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
+const useTranslations = <T, >(translationGroup: string) => {
+  const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
     {
-      queryOptions: { variables: { translationGroup } },
-      handlers: {
-        MissingTranslationError: () => {
-          alert("Un error inesperado ha ocurrido");
-          anErrorHasOccurred = true;
-        }
-      }
+      variables: { translationGroup },
+      handlers: { MissingTranslationError: () => alert("Un error inesperado ha ocurrido") }
     }
   );
 
-  if (anErrorHasOccurred) return { data: {} as T, loading: false } as UseTranslationsResult<T>;
-
   return {
-    ...(data && { data: translationMapper<T>(data) }),
-    loading
-  } as UseTranslationsResult<T>;
+    ...{ data: (data && { data: translationMapper<T>(data) }) },
+    loading,
+    error
+  } as UseQueryResult<T>;
 };
 
 export { useTranslations };

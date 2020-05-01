@@ -36,12 +36,15 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
         DefaultError: () => history.push(RoutesBuilder.internalServerError)
       }
     );
+    if (loginResult.error) return;
+
     setSubmitting(false);
     Session.login(loginResult.data.login);
     history.push(RoutesBuilder.applicant.home());
   };
 
   if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
 
   return (
     <LogInForm
