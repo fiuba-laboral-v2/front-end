@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 
 import { SignUp } from "./component";
@@ -75,7 +75,7 @@ const SignUpContainer: FunctionComponent = () => {
   };
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (translations.error) return <Fragment/>;
 
   return (
     <SignUp
