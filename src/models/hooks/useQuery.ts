@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery as apolloUseQuery } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
@@ -29,14 +30,16 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   node: DocumentNode,
   options?: IOptions<TData, TVariables>
 ) => {
+  const [alreadyHandledError, setAlreadyHandledError] = useState(false);
   const { data, error, loading } = apolloUseQuery<TData, TVariables>(
     node,
     { variables: options?.variables }
   );
-
-  if (error) {
+  if (error && !alreadyHandledError) {
     handleError(error, options?.handlers || {});
+    setAlreadyHandledError(true);
   }
+
   return { data, error, loading } as UseQueryResult<TData>;
 };
 
