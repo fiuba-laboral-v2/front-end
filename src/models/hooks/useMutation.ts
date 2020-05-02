@@ -2,43 +2,54 @@ import { useMutation as apolloUseMutation } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { MutationHookOptions } from "@apollo/react-hooks/lib/types";
 import { MutationFunctionOptions, MutationResult } from "@apollo/react-common";
-import { isArray, isPlainObject, omit } from "lodash";
-
-export const omitTypename = (variables: any) => {
-  if (!isPlainObject(variables)) return variables;
-  Object.keys(variables).forEach(key => {
-    if (isPlainObject(variables[key])) {
-      variables[key] = omitTypename(variables[key]);
-    }
-    if (isArray(variables[key])) {
-      variables[key] = variables[key].map((value: any) => omitTypename(value));
-    }
-  });
-  return omit(variables, "__typename");
-};
+import { handleError, ErrorHandlers } from "$models/handleError";
+import { omitTypename } from "$models/omitTypename";
+import { ApolloError } from "apollo-client";
 
 export const useMutation = <TVariables extends object = {}, TData extends object = {}>(
   mutation: DocumentNode,
   mutationHookOptions?: MutationHookOptions<TData, TVariables>
-): MutationFunction<TData, TVariables> => {
+): MutationFunctionResult<TData, TVariables> => {
   const [mutationFunction] = apolloUseMutation(
     mutation,
     mutationHookOptions
   ) as MutationTuple<TData, TVariables>;
 
-  return (mutationFunctionOptions?: MutationFunctionOptions<TData, TVariables>) => {
-    const { variables, ...otherOptions } = mutationFunctionOptions || { variables: {} };
-    return mutationFunction({ variables: omitTypename(variables), ...otherOptions });
+  return async (
+    options?: IMutationOptions<TData, TVariables>
+  ): Promise<UseMutationResult<TData>> => {
+    try {
+      const { variables, handlers, ...otherOptions } = options || { variables: {} };
+      return await mutationFunction({ variables: omitTypename(variables), ...otherOptions });
+    } catch (error) {
+      handleError(error, options?.handlers || {});
+      return { error, data: undefined };
+    }
   };
 };
 
-type ExecutionResult<TData> = {
-  data: TData;
-  extensions?: Record<string, any>;
+export type UseMutationResult<T> = IErroredMutation | ISuccessfulMutation<T>;
+
+type IErroredMutation = {
+  data: undefined;
+  error: ApolloError;
 };
 
+type ISuccessfulMutation<T> = {
+  data: T;
+  error: undefined;
+};
+
+interface IMutationOptions<TData, TVariables> extends MutationFunctionOptions<TData, TVariables> {
+  handlers?: ErrorHandlers;
+}
+
+type MutationFunctionResult<TData, TVariables> = (
+  options?: IMutationOptions<TData, TVariables>
+) => Promise<UseMutationResult<TData>>;
+
 type MutationFunction<TData, TVariables> =
-  (options?: MutationFunctionOptions<TData, TVariables>) => Promise<ExecutionResult<TData>>;
+  (options?: MutationFunctionOptions<TData, TVariables>) => Promise<UseMutationResult<TData>>;
 
 type MutationTuple<TData, TVariables> = [
   MutationFunction<TData, TVariables>,

@@ -1,41 +1,51 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import { useTranslations } from "$hooks/useTranslations";
-import { FormikHelpers } from "formik";
-import { Session } from "$models/Session";
+import { useHistory } from "react-router-dom";
+import { FormikHelpers, FormikErrors } from "formik";
 
 import { LogInForm } from "./component";
 
-import { ILogInFormTranslationsProps } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Session } from "$models/Session";
 import { ILoginVariables, useLogin } from "$hooks/useLogin";
+import { useTranslations } from "$hooks/useTranslations";
+
+import { ILogInFormTranslationsProps } from "./interface";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const login = useLogin();
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
+
+  const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
+    setErrors({
+      email: translations.data.badCredentialsMessage,
+      password: translations.data.badCredentialsMessage
+    });
+  };
 
   const onSubmit = async (
     values: ILoginVariables,
     { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
   ) => {
-    try {
-      const loginResult = await login({ variables: values });
-      setSubmitting(false);
-      Session.login(loginResult.data.login);
-      history.push(RoutesBuilder.applicant.home());
-    } catch (error) {
-      setErrors({
-        email: JSON.stringify(error),
-        password: JSON.stringify(error)
-      });
-      setSubmitting(false);
-    }
-  };
+    const loginResult = await login(
+      {
+        variables: values,
+        handlers: {
+          BadCredentialsError: () => setBadCredentialsError(setErrors),
+          UserNotFoundError: () => setBadCredentialsError(setErrors),
+          defaultHandler: () => history.push(RoutesBuilder.internalServerError)
+        }
+      }
+    );
+    if (loginResult.error) return;
 
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+    setSubmitting(false);
+    Session.login(loginResult.data.login);
+    history.push(RoutesBuilder.applicant.home());
+  };
 
   return (
     <LogInForm

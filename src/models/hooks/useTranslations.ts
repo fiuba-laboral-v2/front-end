@@ -1,27 +1,5 @@
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, UseQueryResult } from "$hooks/useQuery";
 import { GET_TRANSLATIONS } from "$queries";
-import { ApolloError } from "apollo-client";
-
-type UseTranslationsResult<T> =
-  ILoadingTranslations | IErroredTranslations | ISuccessfulTranslations<T>;
-
-type ILoadingTranslations = {
-  data: undefined;
-  error: undefined;
-  loading: true;
-};
-
-type IErroredTranslations = {
-  data: undefined;
-  error: ApolloError;
-  loading: false;
-};
-
-type ISuccessfulTranslations<T> = {
-  data: T;
-  error: undefined;
-  loading: false;
-};
 
 interface ITranslation {
   key: string;
@@ -43,18 +21,20 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-const useTranslations = <T, >(translationGroup: string): UseTranslationsResult<T> => {
-  const {
-    data,
-    loading,
-    error
-  } = useQuery(GET_TRANSLATIONS, { variables: { translationGroup } });
+const useTranslations = <T, >(translationGroup: string) => {
+  const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
+    GET_TRANSLATIONS,
+    {
+      variables: { translationGroup },
+      handlers: { MissingTranslationError: () => alert("Un error inesperado ha ocurrido") }
+    }
+  );
 
   return {
     ...(data && { data: translationMapper<T>(data) }),
     loading,
     error
-  } as UseTranslationsResult<T>;
+  } as UseQueryResult<T>;
 };
 
 export { useTranslations };
