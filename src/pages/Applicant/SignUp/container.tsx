@@ -70,8 +70,8 @@ const SignUpContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
-    Session.login(loginResult.data?.login);
-    history.push(RoutesBuilder.applicant.edit(saveApplicantResult.data?.saveApplicant?.uuid));
+    Session.login(loginResult.data.login);
+    history.push(RoutesBuilder.applicant.edit(saveApplicantResult.data.saveApplicant.uuid));
   };
 
   if (translations.loading) return <Fragment/>;
