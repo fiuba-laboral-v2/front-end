@@ -43,7 +43,7 @@ const SignUpContainer: FunctionComponent = () => {
       setErrors
     }: FormikHelpers<ISignUpValues>
   ) => {
-    const saveApplicantData = await saveApplicant(
+    const saveApplicantResult = await saveApplicant(
       {
         variables: {
           name,
@@ -61,7 +61,7 @@ const SignUpContainer: FunctionComponent = () => {
         }
       }
     );
-    if (saveApplicantData.error) return;
+    if (saveApplicantResult.error) return;
 
     const loginResult = await login({
       variables: { email, password },
@@ -71,7 +71,7 @@ const SignUpContainer: FunctionComponent = () => {
 
     setSubmitting(false);
     Session.login(loginResult.data?.login);
-    history.push(RoutesBuilder.applicant.edit(saveApplicantData.data?.saveApplicant?.uuid));
+    history.push(RoutesBuilder.applicant.edit(saveApplicantResult.data?.saveApplicant?.uuid));
   };
 
   if (translations.loading) return <Fragment/>;
