@@ -16,11 +16,13 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const login = useLogin();
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
 
   const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
     setErrors({
-      email: translations.data?.badCredentialsMessage,
-      password: translations.data?.badCredentialsMessage
+      email: translations.data.badCredentialsMessage,
+      password: translations.data.badCredentialsMessage
     });
   };
 
@@ -44,9 +46,6 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     Session.login(loginResult.data.login);
     history.push(RoutesBuilder.applicant.home());
   };
-
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Fragment/>;
 
   return (
     <LogInForm
