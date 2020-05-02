@@ -15,7 +15,9 @@ export const useMutation = <TVariables extends object = {}, TData extends object
     mutationHookOptions
   ) as MutationTuple<TData, TVariables>;
 
-  return async (options?: IOptions<TData, TVariables>): Promise<UseMutationResult<TData>> => {
+  return async (
+    options?: IMutationOptions<TData, TVariables>
+  ): Promise<UseMutationResult<TData>> => {
     try {
       const { variables, handlers, ...otherOptions } = options || { variables: {} };
       return await mutationFunction({ variables: omitTypename(variables), ...otherOptions });
@@ -38,12 +40,12 @@ type ISuccessfulMutation<T> = {
   error: undefined;
 };
 
-interface IOptions<TData, TVariables> extends MutationFunctionOptions<TData, TVariables> {
+interface IMutationOptions<TData, TVariables> extends MutationFunctionOptions<TData, TVariables> {
   handlers?: ErrorHandlers;
 }
 
 type MutationFunctionResult<TData, TVariables> = (
-  options?: IOptions<TData, TVariables>
+  options?: IMutationOptions<TData, TVariables>
 ) => Promise<UseMutationResult<TData>>;
 
 type MutationFunction<TData, TVariables> =

@@ -28,7 +28,7 @@ type ISuccessfulQuery<T> = {
 
 export const useQuery = <TVariables extends object = {}, TData extends object = {}>(
   node: DocumentNode,
-  options?: IOptions<TData, TVariables>
+  options?: IQueryOptions<TData, TVariables>
 ) => {
   const [alreadyHandledError, setAlreadyHandledError] = useState(false);
   const { handlers, ...apolloOptions } = options || { handlers: {} };
@@ -41,6 +41,6 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   return { data, error, loading } as UseQueryResult<TData>;
 };
 
-interface IOptions<TData, TVariables> extends QueryHookOptions<TData, TVariables> {
+interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVariables> {
   handlers?: ErrorHandlers;
 }
