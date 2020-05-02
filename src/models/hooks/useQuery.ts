@@ -34,7 +34,7 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   const { handlers, ...apolloOptions } = options || { handlers: {} };
   const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
   if (error && !alreadyHandledError) {
-    handleError(error, handlers || {});
+    handleError(error, handlers);
     setAlreadyHandledError(true);
   }
 

@@ -12,7 +12,7 @@ export type ErrorHandlers = {
   [key in HandlerName]?: () => void;
 };
 
-export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
+export const handleError = (errors: ApolloError, handlers: ErrorHandlers = {}) => {
   let unknownErrorWasFound = false;
   for (const error of errors.graphQLErrors) {
     const data = error.extensions?.data;
