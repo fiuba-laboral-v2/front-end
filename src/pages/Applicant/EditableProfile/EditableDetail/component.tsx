@@ -12,6 +12,7 @@ import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateName, validateURL } from "validations-fiuba-laboral-v2";
 import classNames from "classnames";
+import { IApplicantCareer, ILink } from "$interfaces/Applicant";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -29,7 +30,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           initialValues={initialValues}
           validateOnMount={true}
           onSubmit={onSubmit}
-          validate={validateForm}
+          validate={({ careers, links }) => validateForm({ careers, links })}
         >
           {({ values, isSubmitting, errors }) => (
             <div className={styles.body}>
@@ -145,7 +146,7 @@ interface IApplicantDetailEditableProps {
   initialValues: IEditableDetailValues;
   onSubmit: (applicant: IEditableDetailValues) => void;
   translations: IApplicantDetailEditableTranslations;
-  validateForm: (values: IEditableDetailValues) => object;
+  validateForm: ({ careers, links }: { careers: IApplicantCareer[]; links: ILink[]; }) => object;
 }
 
 export { EditableDetail };
