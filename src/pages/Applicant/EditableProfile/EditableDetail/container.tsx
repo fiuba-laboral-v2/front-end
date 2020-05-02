@@ -40,6 +40,31 @@ const EditableDetailContainer: FunctionComponent = () => {
     }
   };
 
+  const validateForm = ({ careers, links }: IEditableDetailValues) => {
+    const formErrors = [];
+    const selectedCodes = careers.map(career => career.code);
+    if (new Set(selectedCodes).size !== selectedCodes.length) {
+      formErrors.push("No se pueden repetir carreras");
+    }
+    if (selectedCodes.length === 0) {
+      formErrors.push("Debes elegir como mínimo una carrera");
+    }
+    const linksNames: string[] = [];
+    const linksUrls: string[] = [];
+    links.forEach(({ name, url }) => {
+      linksNames.push(name);
+      linksUrls.push(url);
+    });
+    if (new Set(linksNames).size !== linksNames.length) {
+      formErrors.push("No se pueden repetir los nombres de los links");
+    }
+    if (new Set(linksUrls).size !== linksUrls.length) {
+      formErrors.push("No se pueden repetir las urls de los links");
+    }
+
+    return { ...(formErrors.length > 0 && { _form: formErrors }) };
+  };
+
   return (
     <EditableDetail
       onSubmit={onSubmit}
@@ -54,8 +79,9 @@ const EditableDetailContainer: FunctionComponent = () => {
         )),
         capabilities: applicant.capabilities,
         sections: applicant.sections,
-        _form: ""
+        _form: []
       }}
+      validateForm={validateForm}
     />
   );
 };

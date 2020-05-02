@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { Form, Formik } from "formik";
+import isArray from "lodash/isArray";
 import TextInput from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
@@ -16,7 +17,8 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     initialValues,
     onSubmit,
-    translations
+    translations,
+    validateForm
   }) => {
   const formName = "editApplicantDetailForm";
   return (
@@ -27,9 +29,9 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           initialValues={initialValues}
           validateOnMount={true}
           onSubmit={onSubmit}
-          validate={() => ({})}
+          validate={validateForm}
         >
-          {({ values, isSubmitting }) => (
+          {({ values, isSubmitting, errors }) => (
             <div className={styles.body}>
               <Form className={styles.formContainer} id={formName}>
                 <div className={classNames(styles.fullName, styles.row)}>
@@ -115,14 +117,21 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                 </div>
               </Form>
               <div className={styles.footer}>
-                <Button
-                  form={formName}
-                  className="primary"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  {translations.submit}
-                </Button>
+                <div className={styles.formErrorsContainer}>
+                { isArray(errors?._form) && errors?._form?.map((error: string) =>
+                  <span key={error} className={styles.formError}>{error}</span>
+                )}
+                </div>
+                <div className={styles.submit}>
+                  <Button
+                    form={formName}
+                    className="primary"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {translations.submit}
+                  </Button>
+                </div>
               </div>
             </div>
           )}
@@ -136,6 +145,7 @@ interface IApplicantDetailEditableProps {
   initialValues: IEditableDetailValues;
   onSubmit: (applicant: IEditableDetailValues) => void;
   translations: IApplicantDetailEditableTranslations;
+  validateForm: (values: IEditableDetailValues) => object;
 }
 
 export { EditableDetail };
