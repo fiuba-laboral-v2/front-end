@@ -31,12 +31,10 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   options?: IOptions<TData, TVariables>
 ) => {
   const [alreadyHandledError, setAlreadyHandledError] = useState(false);
-  const { data, error, loading } = apolloUseQuery<TData, TVariables>(
-    node,
-    { variables: options?.variables }
-  );
+  const { handlers, ...apolloOptions } = options || { handlers: {} };
+  const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
   if (error && !alreadyHandledError) {
-    handleError(error, options?.handlers || {});
+    handleError(error, handlers || {});
     setAlreadyHandledError(true);
   }
 
