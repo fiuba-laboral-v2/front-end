@@ -37,7 +37,7 @@ describe("handleError", () => {
   it("should execute the default error if an UnknownError was received", () => {
     const error = createError([{ errorType: "UnknownError" }]);
     const defaultCallback = jest.fn();
-    handleError(error, { DefaultError: defaultCallback });
+    handleError(error, { defaultHandler: defaultCallback });
     expect(defaultCallback.mock.calls.length).toBe(1);
   });
 
@@ -49,7 +49,7 @@ describe("handleError", () => {
       error,
       {
         BadCredentialsError: badCredentialsErrorCallback,
-        DefaultError: defaultErrorCallback
+        defaultHandler: defaultErrorCallback
       }
       );
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(1);
@@ -66,7 +66,7 @@ describe("handleError", () => {
       {
         UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
         BadCredentialsError: badCredentialsErrorCallback,
-        DefaultError: defaultErrorCallback
+        defaultHandler: defaultErrorCallback
       }
     );
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
@@ -94,7 +94,7 @@ describe("handleError", () => {
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(1);
   });
 
-  it("should execute the UserEmailAlreadyExistsError and DefaultError", () => {
+  it("should execute the UserEmailAlreadyExistsError and defaultHandler", () => {
     const error = createError(
       [
         { errorType: "UserEmailAlreadyExistsError" },
@@ -107,17 +107,17 @@ describe("handleError", () => {
       error,
       {
         UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
-        DefaultError: defaultErrorCallback
+        defaultHandler: defaultErrorCallback
       }
     );
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
     expect(defaultErrorCallback.mock.calls.length).toBe(1);
   });
 
-  it("should execute the DefaultError if there is no data in the error", () => {
+  it("should execute the defaultHandler if there is no data in the error", () => {
     const error = createError([{}]);
     const defaultErrorCallback = jest.fn();
-    handleError(error, { DefaultError: defaultErrorCallback });
+    handleError(error, { defaultHandler: defaultErrorCallback });
     expect(defaultErrorCallback.mock.calls.length).toBe(1);
   });
 });

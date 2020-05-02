@@ -57,7 +57,7 @@ const SignUpContainer: FunctionComponent = () => {
         },
         handlers: {
           UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
-          DefaultError: () => history.push(RoutesBuilder.internalServerError)
+          defaultHandler: () => history.push(RoutesBuilder.internalServerError)
         }
       }
     );
@@ -65,7 +65,7 @@ const SignUpContainer: FunctionComponent = () => {
 
     const loginResult = await login({
       variables: { email, password },
-      handlers: { DefaultError: () => history.push(RoutesBuilder.internalServerError) }
+      handlers: { defaultHandler: () => history.push(RoutesBuilder.internalServerError) }
     });
     if (loginResult.error) return;
 

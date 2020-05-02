@@ -36,7 +36,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
         handlers: {
           BadCredentialsError: () => setBadCredentialsError(setErrors),
           UserNotFoundError: () => setBadCredentialsError(setErrors),
-          DefaultError: () => history.push(RoutesBuilder.internalServerError)
+          defaultHandler: () => history.push(RoutesBuilder.internalServerError)
         }
       }
     );

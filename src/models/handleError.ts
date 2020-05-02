@@ -4,11 +4,12 @@ type ErrorName =
   "UserEmailAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
-  "MissingTranslationError" |
-  "DefaultError";
+  "MissingTranslationError";
+
+type HandlerName = ErrorName | "defaultHandler";
 
 export type ErrorHandlers = {
-  [key in ErrorName]?: () => void;
+  [key in HandlerName]?: () => void;
 };
 
 export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
@@ -24,7 +25,7 @@ export const handleError = (errors: ApolloError, handlers: ErrorHandlers) => {
     }
   }
   if (!unknownErrorWasFound) return;
-  if (!handlers.DefaultError) return;
+  if (!handlers.defaultHandler) return;
 
-  handlers.DefaultError();
+  handlers.defaultHandler();
 };
