@@ -22,6 +22,17 @@
 .footer {
   align-self: flex-end;
   display: flex;
+  min-height: 51px;
+}
+
+.formError {
+  color: $red;
+  margin: auto $normalSpacing auto auto;
+}
+
+.formErrorsContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .fullName {
@@ -53,6 +64,11 @@
 .section,
 .link {
   @include formSetMainColumn;
+}
+
+.submit {
+  align-items: center;
+  display: flex;
 }
 
 @media (max-width: $mobileContainerThreshold) {

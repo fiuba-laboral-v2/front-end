@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useTranslations, useUpdateApplicant } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 
 const EditableDetailContainer: FunctionComponent = () => {
@@ -21,6 +22,34 @@ const EditableDetailContainer: FunctionComponent = () => {
   } = useQuery(GET_APPLICANT, { variables: { uuid } });
 
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
+
+  const validateForm = useCallback(
+    ({ careers, links }: IEditableDetailValues) => {
+      const formErrors = [];
+      const selectedCodes = careers.map(career => career.code);
+      if (hasUniqueValues(selectedCodes)) {
+        formErrors.push("No se pueden repetir carreras");
+      }
+      if (selectedCodes.length === 0) {
+        formErrors.push("Debes elegir como mínimo una carrera");
+      }
+      const linksNames: string[] = [];
+      const linksUrls: string[] = [];
+      links.forEach(({ name, url }) => {
+        linksNames.push(name);
+        linksUrls.push(url);
+      });
+      if (hasUniqueValues(linksNames)) {
+        formErrors.push("No se pueden repetir los nombres de los links");
+      }
+      if (hasUniqueValues(linksUrls)) {
+        formErrors.push("No se pueden repetir las urls de los links");
+      }
+
+      return { ...(formErrors.length > 0 && { _form: formErrors }) };
+    },
+    []
+  );
 
   if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
   if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
@@ -54,8 +83,9 @@ const EditableDetailContainer: FunctionComponent = () => {
         )),
         capabilities: applicant.capabilities,
         sections: applicant.sections,
-        _form: ""
+        _form: []
       }}
+      validateForm={validateForm}
     />
   );
 };
