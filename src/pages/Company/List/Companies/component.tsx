@@ -28,7 +28,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
       <ListTitle titleTranslationPath={"companiesList"}/>
       {
         companies.map(company =>
-          <div className={styles.row} key={company.id}>
+          <div className={styles.row} key={company.uuid}>
             <ListItem>
               <div className={styles.childrenContainer}>
                 <div className={styles.leftContainer}>
@@ -50,7 +50,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
                   </div>
                   <div className={styles.buttons}>
                     <Button
-                      onClick={() => onClickView(company.id)}
+                      onClick={() => onClickView(company.uuid)}
                       className="primary"
                     >
                       {viewButtonText}

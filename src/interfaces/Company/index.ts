@@ -1,5 +1,5 @@
 export interface ICompany {
-  id: number;
+  uuid: string;
   cuit: string;
   companyName: string;
   slogan?: string;

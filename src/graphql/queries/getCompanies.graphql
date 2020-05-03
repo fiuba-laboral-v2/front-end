@@ -1,6 +1,6 @@
 query getCompanies {
     getCompanies {
-        id
+        uuid
         companyName
         logo
     }

@@ -2,7 +2,7 @@ import { ICompany } from "$interfaces/Company";
 
 export interface ICompaniesProps {
   companies: ICompany[];
-  onClickView: (padron: number) => void;
+  onClickView: (uuid: string) => void;
   viewButtonText?: string;
   loading: boolean;
 }
