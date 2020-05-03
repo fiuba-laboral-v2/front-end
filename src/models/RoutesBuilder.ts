@@ -13,7 +13,7 @@ export const RoutesBuilder = {
   },
   company: {
     list: () => "/companies/",
-    detail: (id: number) => `/companies/${id}/`
+    detail: (uuid: string) => `/companies/${uuid}/`
   },
   notFound: "/*/",
   internalServerError: "/error/"

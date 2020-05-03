@@ -7,7 +7,7 @@ query {
     maximumSalary
     createdAt
     company {
-      id
+      uuid
       companyName
       logo
     }

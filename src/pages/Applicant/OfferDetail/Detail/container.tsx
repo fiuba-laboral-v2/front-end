@@ -40,7 +40,7 @@ const DetailContainer: FunctionComponent = () => {
     <Detail
       apply={onSubmit}
       translations={translations.data}
-      goToCompany={RoutesBuilder.company.detail(offer.company.id)}
+      goToCompany={RoutesBuilder.company.detail(offer.company.uuid)}
       offer={offer}
     />
   );

@@ -1,6 +1,6 @@
-query getCompanyById ($id: ID!) {
-    getCompanyById(id: $id) {
-        id
+query getCompanyByUuid ($uuid: ID!) {
+    getCompanyByUuid(uuid: $uuid) {
+        uuid
         cuit
         companyName
         slogan

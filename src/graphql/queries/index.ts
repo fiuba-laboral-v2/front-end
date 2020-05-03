@@ -1,7 +1,7 @@
 import { loader } from "graphql.macro";
 
 const GET_TRANSLATIONS = loader("./getTranslations.graphql");
-const GET_COMPANY_BY_ID = loader("./getCompanyById.graphql");
+const GET_COMPANY_BY_UUID = loader("./getCompanyByUuid.graphql");
 const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
@@ -14,7 +14,7 @@ const ME = loader("./me.graphql");
 export {
   ME,
   GET_TRANSLATIONS,
-  GET_COMPANY_BY_ID,
+  GET_COMPANY_BY_UUID,
   GET_CAREERS,
   GET_APPLICANT,
   GET_APPLICANTS,

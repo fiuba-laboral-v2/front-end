@@ -20,7 +20,7 @@ query ($uuid: ID!) {
             credits
         }
         company {
-            id
+            uuid
             companyName
             logo
         }
