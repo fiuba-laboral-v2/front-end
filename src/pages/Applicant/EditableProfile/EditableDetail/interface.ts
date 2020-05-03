@@ -9,7 +9,7 @@ export interface IEditableDetailValues {
   careers: IApplicantCareer[];
   capabilities: ICapability[];
   sections: ISection[];
-  _form: string;
+  _form: string[];
 }
 
 export interface IApplicantDetailEditableTranslations {

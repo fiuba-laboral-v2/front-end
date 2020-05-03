@@ -8,6 +8,7 @@ import { useLogin } from "$hooks/useLogin";
 import { useSaveApplicant } from "$hooks/useSaveApplicant";
 import { useTranslations } from "$hooks/useTranslations";
 import { Session } from "$models/Session";
+import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { ISignUpTranslations, ISignUpValues } from "./interface";
@@ -21,7 +22,7 @@ const SignUpContainer: FunctionComponent = () => {
 
   const validateForm = (values: ISignUpValues) => {
     const selectedCodes = values.careers.map(career => career.code);
-    if (new Set(selectedCodes).size !== selectedCodes.length) {
+    if (hasUniqueValues(selectedCodes)) {
       return "No se pueden repetir carreras";
     }
     if (selectedCodes.length === 0) {
