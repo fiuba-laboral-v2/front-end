@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useTranslations, useUpdateApplicant } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 
 const EditableDetailContainer: FunctionComponent = () => {
@@ -26,7 +27,7 @@ const EditableDetailContainer: FunctionComponent = () => {
     ({ careers, links }: IEditableDetailValues) => {
       const formErrors = [];
       const selectedCodes = careers.map(career => career.code);
-      if (new Set(selectedCodes).size !== selectedCodes.length) {
+      if (hasUniqueValues(selectedCodes)) {
         formErrors.push("No se pueden repetir carreras");
       }
       if (selectedCodes.length === 0) {
@@ -38,10 +39,10 @@ const EditableDetailContainer: FunctionComponent = () => {
         linksNames.push(name);
         linksUrls.push(url);
       });
-      if (new Set(linksNames).size !== linksNames.length) {
+      if (hasUniqueValues(linksNames)) {
         formErrors.push("No se pueden repetir los nombres de los links");
       }
-      if (new Set(linksUrls).size !== linksUrls.length) {
+      if (hasUniqueValues(linksUrls)) {
         formErrors.push("No se pueden repetir las urls de los links");
       }
 
