@@ -9,9 +9,9 @@ interface ISaveApplicant {
   user: {
     email: string;
     password: string;
+    name: string;
+    surname: string;
   };
-  name: string;
-  surname: string;
   padron: number;
   careers: IApplicantCareer[];
 }

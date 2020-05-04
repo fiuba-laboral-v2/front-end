@@ -1,8 +1,10 @@
 query getApplicants {
     getApplicants {
         uuid
-        name
-        surname
+        user {
+            name
+            surname
+        }
         padron
     }
 }
