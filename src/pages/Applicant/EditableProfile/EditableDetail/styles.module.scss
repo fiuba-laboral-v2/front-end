@@ -61,6 +61,7 @@
   margin-top: $normalSpacing;
 }
 
+.description,
 .section,
 .link {
   @include formSetMainColumn;
@@ -72,10 +73,11 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .fullName,
   .capabilities,
-  .section,
-  .link {
+  .description,
+  .fullName,
+  .link,
+  .section {
     width: 100%;
   }
 

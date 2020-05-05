@@ -5,6 +5,7 @@ export interface IEditableDetailValues {
   uuid: string;
   name: string;
   surname: string;
+  description: string;
   links: ILink[];
   careers: IApplicantCareer[];
   capabilities: ICapability[];
@@ -16,6 +17,7 @@ export interface IApplicantDetailEditableTranslations {
   title: string;
   name: string;
   surname: string;
+  description: string;
   links: string;
   link: string;
   linkTitle: string;
