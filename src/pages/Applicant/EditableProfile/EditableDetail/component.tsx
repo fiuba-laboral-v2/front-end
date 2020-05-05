@@ -48,6 +48,15 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                 </div>
+                <div className={styles.row}>
+                  <div className={styles.description}>
+                    <TextInput
+                      name={"description"}
+                      label={translations.description}
+                      multiline
+                    />
+                  </div>
+                </div>
                 <div className={styles.capabilities}>
                   <Subtitle>{translations.capabilities}</Subtitle>
                   <CapabilitiesSelector label={translations.capability}/>
