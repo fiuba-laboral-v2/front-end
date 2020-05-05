@@ -1,5 +1,8 @@
 query {
     me {
+        uuid
         email
+        name
+        surname
     }
 }

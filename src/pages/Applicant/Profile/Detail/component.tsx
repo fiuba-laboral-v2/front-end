@@ -17,7 +17,7 @@ const Detail: FunctionComponent<IApplicantDetailProps> = (
   }) => (
   <div className={styles.container}>
     <div className={styles.headline}>
-      <Headline>{`${applicant.name} ${applicant.surname}`}</Headline>
+      <Headline>{`${applicant.user.name} ${applicant.user.surname}`}</Headline>
       <Links links={applicant.links}/>
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>

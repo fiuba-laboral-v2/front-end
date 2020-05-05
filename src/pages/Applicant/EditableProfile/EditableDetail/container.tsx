@@ -54,11 +54,20 @@ const EditableDetailContainer: FunctionComponent = () => {
   if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
   if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
 
-  const onSubmit = async (values: IEditableDetailValues) => {
+  const onSubmit = async (
+    {
+      name,
+      surname,
+      ...values
+    }: IEditableDetailValues) => {
     try {
       await updateApplicant({
         variables: {
           ...values,
+          user: {
+            name,
+            surname
+          },
           capabilities: values.capabilities.map(capability => capability.description),
           careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
         }
@@ -75,8 +84,8 @@ const EditableDetailContainer: FunctionComponent = () => {
       translations={translations.data}
       initialValues={{
         uuid: applicant.uuid,
-        name: applicant.name,
-        surname: applicant.surname,
+        name: applicant.user.name,
+        surname: applicant.user.surname,
         description: applicant.description || "",
         links: applicant.links,
         careers: applicant.careers.map(({ code, creditsCount }) => (

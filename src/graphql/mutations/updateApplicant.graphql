@@ -1,18 +1,20 @@
 mutation updateApplicant(
-  $uuid: ID!, $padron: Int, $name: String, $surname: String, $description: String,
+  $uuid: ID!, $user: UserUpdateInput,$padron: Int, $description: String,
   $careers: [CareerCredits], $capabilities: [String], $sections: [SectionInput],
   $links: [LinkInput]
 ) 
 {
   updateApplicant(
-    uuid: $uuid, padron: $padron, name: $name, surname: $surname description: $description,
+    uuid: $uuid, padron: $padron, user: $user, description: $description,
     careers: $careers, capabilities: $capabilities, sections: $sections, links: $links
   ) 
   {
     uuid
     padron
-    name
-    surname
+    user {
+      name
+      surname
+    }
     description
     capabilities {
       uuid
