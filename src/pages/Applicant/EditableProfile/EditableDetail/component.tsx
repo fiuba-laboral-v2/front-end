@@ -12,6 +12,7 @@ import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateName, validateURL } from "validations-fiuba-laboral-v2";
 import classNames from "classnames";
+import { FormSection } from "$components/FormSection";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -49,13 +50,15 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                   />
                 </div>
                 <div className={styles.row}>
-                  <div className={styles.description}>
-                    <TextInput
-                      name={"description"}
-                      label={translations.description}
-                      multiline
-                    />
-                  </div>
+                  <FormSection>
+                    <div className={styles.description}>
+                      <TextInput
+                        name={"description"}
+                        label={translations.description}
+                        multiline
+                      />
+                    </div>
+                  </FormSection>
                 </div>
                 <div className={styles.capabilities}>
                   <Subtitle>{translations.capabilities}</Subtitle>
