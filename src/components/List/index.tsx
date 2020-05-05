@@ -8,14 +8,12 @@ interface IListProps<T> {
   children(args: T): ReactNode;
 }
 
-export type IList<T = any> = React.FC<IListProps<T>>;
-
-const List: IList = (
+const List = <T, >(
   {
     list,
     children,
     className
-  }
+  }: IListProps<T>
 ) => (
   <div className={classNames(styles.list, className)}>
     {list.map(children)}

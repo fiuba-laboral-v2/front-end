@@ -5,7 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 import { useQuery } from "@apollo/react-hooks";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 const FeedContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -16,7 +16,7 @@ const FeedContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFERS);
 
-  if (offerError) history.push(RoutesBuilder.notFound);
+  if (offerError) return <Redirect to={RoutesBuilder.internalServerError}/>;
   if (loadingOffer) return <LoadingSpinner/>;
 
   return (

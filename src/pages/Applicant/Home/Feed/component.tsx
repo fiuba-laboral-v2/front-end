@@ -1,16 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { IList, List } from "$components/List";
+import { List } from "$components/List";
 import { ListItem } from "$components/ListItem";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-const OfferList = List as IList<IOffer>;
-
 const Feed: FunctionComponent<IFeedProps> = ({ offers, onCardClick }) => (
   <div>
-    <OfferList list={offers}>
+    <List list={offers}>
       {offer => (
         <ListItem
           key={offer.uuid}
@@ -19,9 +17,9 @@ const Feed: FunctionComponent<IFeedProps> = ({ offers, onCardClick }) => (
         >
           <Offer data={offer}/>
         </ListItem>
-        )
+      )
       }
-    </OfferList>
+    </List>
   </div>
 );
 

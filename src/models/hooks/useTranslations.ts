@@ -26,7 +26,7 @@ const useTranslations = <T, >(translationGroup: string) => {
     GET_TRANSLATIONS,
     {
       variables: { translationGroup },
-      handlers: { MissingTranslationError: () => alert("Un error inesperado ha ocurrido") }
+      errorHandlers: { MissingTranslationError: () => alert("Un error inesperado ha ocurrido") }
     }
   );
 
