@@ -47,13 +47,13 @@ const SignUpContainer: FunctionComponent = () => {
     const saveApplicantResult = await saveApplicant(
       {
         variables: {
-          name,
-          surname,
           padron,
           careers,
           user: {
             email,
-            password
+            password,
+            name,
+            surname
           }
         },
         handlers: {

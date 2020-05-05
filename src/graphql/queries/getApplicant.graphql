@@ -1,8 +1,10 @@
 query GetApplicant($uuid: ID!) {
     getApplicant(uuid: $uuid) {
         uuid
-        name
-        surname
+        user {
+            name
+            surname
+        }
         padron
         description
         capabilities {

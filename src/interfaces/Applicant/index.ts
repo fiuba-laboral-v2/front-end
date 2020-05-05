@@ -1,3 +1,4 @@
+import { IUser } from "../User";
 import { ICapability } from "../Capability";
 import { IOffer } from "../Offer";
 
@@ -23,8 +24,7 @@ export interface ILink {
 
 export interface IApplicant {
   uuid: string;
-  name: string;
-  surname: string;
+  user: IUser;
   padron: number;
   description?: string;
   links: ILink[];

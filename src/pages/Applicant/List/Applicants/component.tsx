@@ -36,7 +36,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
             <ListItem>
               <div className={styles.childrenContainer}>
                 <Subtitle className={styles.name}>
-                  {`${applicant.name} ${applicant.surname}`}
+                  {`${applicant.user.name} ${applicant.user.surname}`}
                 </Subtitle>
                 <div className={styles.buttons}>
                   <Button
