@@ -4,14 +4,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-left: $biggerSpacing;
-  padding-right: $biggerSpacing;
-  padding-top: 4 * $biggerSpacing;
+  max-height: calc(100vh - #{4 * $biggerSpacing});
+  padding: 0 $biggerSpacing;
 
   .imgSrc {
-    height: 300px;
     margin-bottom: $biggerSpacing;
     margin-top: $biggerSpacing;
+    max-height: 250px;
+    min-height: 75px;
   }
 }
 

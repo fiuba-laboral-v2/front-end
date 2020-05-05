@@ -4,6 +4,7 @@ type ErrorName =
   "UserEmailAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
+  "AuthenticationError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";

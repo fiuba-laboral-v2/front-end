@@ -1,5 +1,6 @@
 import Client, { IdGetterObj, InMemoryCache } from "apollo-boost";
 import Configuration from "$config";
+import { Session } from "$models/Session";
 
 const ApolloClient = new Client({
   uri: Configuration.application_base_url,
@@ -12,9 +13,7 @@ const ApolloClient = new Client({
   }),
   request: operation => {
     operation.setContext({
-      headers: {
-        authorization: localStorage.getItem("token")
-      }
+      headers: { authorization: Session.getToken() }
     });
   }
 });

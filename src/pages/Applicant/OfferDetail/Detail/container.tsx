@@ -33,7 +33,7 @@ const DetailContainer: FunctionComponent = () => {
 
   const onSubmit = async (offerUuid: string) => {
     await saveJobApplication({ variables: { offerUuid } });
-    history.push(RoutesBuilder.applicant.home());
+    history.push(RoutesBuilder.applicant.home);
   };
 
   return (

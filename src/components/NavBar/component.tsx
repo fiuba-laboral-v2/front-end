@@ -30,15 +30,15 @@ export const NavBar: FunctionComponent<INavBarProps> = (
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.list()}>{translations.companies}
+          to={RoutesBuilder.company.list}>{translations.companies}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.list()}>{translations.applicants}
+          to={RoutesBuilder.applicant.list}>{translations.applicants}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.home()}>{translations.jobOffers}
+          to={RoutesBuilder.applicant.home}>{translations.jobOffers}
         </Link>
         <div className={styles.separator}/>
         <div className={styles.user}>

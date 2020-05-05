@@ -31,10 +31,10 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
   options?: IQueryOptions<TData, TVariables>
 ) => {
   const [alreadyHandledError, setAlreadyHandledError] = useState(false);
-  const { handlers, ...apolloOptions } = options || { handlers: {} };
+  const { errorHandlers, ...apolloOptions } = options || { errorHandlers: {} };
   const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
   if (error && !alreadyHandledError) {
-    handleError(error, handlers);
+    handleError(error, errorHandlers);
     setAlreadyHandledError(true);
   }
 
@@ -42,5 +42,5 @@ export const useQuery = <TVariables extends object = {}, TData extends object = 
 };
 
 interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVariables> {
-  handlers?: ErrorHandlers;
+  errorHandlers?: ErrorHandlers;
 }
