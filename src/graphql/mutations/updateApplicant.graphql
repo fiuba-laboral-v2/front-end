@@ -33,7 +33,6 @@ mutation updateApplicant(
       displayOrder
     }
     links {
-      uuid
       name
       url
     }
