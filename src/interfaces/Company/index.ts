@@ -7,6 +7,6 @@ export interface ICompany {
   logo?: string;
   website?: string;
   email?: string;
-  phoneNumbers?: number[];
+  phoneNumbers?: string[];
   photos?: string[];
 }

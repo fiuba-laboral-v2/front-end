@@ -24,7 +24,6 @@ query GetApplicant($uuid: ID!) {
             displayOrder
         }
         links {
-            uuid
             name
             url
         }
