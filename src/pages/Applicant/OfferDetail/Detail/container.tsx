@@ -24,7 +24,7 @@ const DetailContainer: FunctionComponent = () => {
     data: { getOfferByUuid: offer } = { getOfferByUuid: {} as IMyOffer },
     error: offerError,
     loading: loadingOffer
-  } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
+  } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid }, fetchPolicy: "no-cache" });
 
   if (offerError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
   if (loadingOffer || translations.loading) return <LoadingSpinner/>;
