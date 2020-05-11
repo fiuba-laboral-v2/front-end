@@ -1,28 +1,23 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 import { Register } from "./component";
 
 import { useTranslations } from "$hooks/useTranslations";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { IRegisterTranslations, defaultTranslations } from "./interface";
+import { IRegisterTranslations } from "./interface";
 
 const RegisterContainer: FunctionComponent = () => {
   const history = useHistory();
-  let translations = {} as IRegisterTranslations;
-  const translationsResponse = useTranslations<IRegisterTranslations>("register");
-  if (translationsResponse.loading) return <Fragment/>;
-  if (translationsResponse.error) {
-    translations = defaultTranslations;
-  } else {
-    translations = translationsResponse.data;
-  }
+  const translations = useTranslations<IRegisterTranslations>("register");
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError} />;
 
   return (
     <Register
       onClickRegisterApplicant={() => history.push(RoutesBuilder.applicant.signUp)}
       onClickRegisterCompany={() => alert("Próximamente en cines")}
-      translations={translations}
+      translations={translations.data}
     />
   );
 };
