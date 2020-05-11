@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
 import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
@@ -26,7 +25,7 @@ const Register: FunctionComponent<IRegisterProps> = (
       <section className={styles.body}>
         <ListItem
           key="applicant"
-          className={classNames(styles.card, styles.applicantCard)}
+          className={styles.applicantCard}
           onClick={onClickRegisterApplicant}
         >
           <SchoolIcon className={styles.cardLogo} fontSize="large"/>
@@ -34,7 +33,7 @@ const Register: FunctionComponent<IRegisterProps> = (
         </ListItem>
         <ListItem
           key="company"
-          className={classNames(styles.card, styles.companyCard)}
+          className={styles.companyCard}
           onClick={onClickRegisterCompany}
         >
           <BusinessIcon className={styles.cardLogo} fontSize="large"/>

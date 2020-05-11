@@ -30,7 +30,8 @@
   justify-content: center;
   margin-top: $bigSpacing;
 
-  .card {
+  .companyCard,
+  .applicantCard {
     align-self: center;
     cursor: pointer;
     display: flex;
