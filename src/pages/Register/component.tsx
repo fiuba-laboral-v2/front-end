@@ -7,12 +7,14 @@ import { NavBar } from "$components/NavBar";
 import { ListItem } from "$components/ListItem";
 import { Subtitle } from "$components/Subtitle";
 
+import { IRegisterProps } from "./interface";
 import styles from "./styles.module.scss";
 
 const Register: FunctionComponent<IRegisterProps> = (
   {
     onClickRegisterApplicant,
-    onClickRegisterCompany
+    onClickRegisterCompany,
+    translations
   }
 ) => (
   <>
@@ -28,7 +30,7 @@ const Register: FunctionComponent<IRegisterProps> = (
           onClick={onClickRegisterApplicant}
         >
           <SchoolIcon color="primary" className={styles.cardLogo} fontSize="large"/>
-          <Subtitle className={styles.cardText}> Registrarme como alumno </Subtitle>
+          <Subtitle className={styles.cardText}>{translations.registerAsApplicant}</Subtitle>
         </ListItem>
         <ListItem
           key="company"
@@ -36,16 +38,11 @@ const Register: FunctionComponent<IRegisterProps> = (
           onClick={onClickRegisterCompany}
         >
           <BusinessIcon color="primary" className={styles.cardLogo} fontSize="large"/>
-          <Subtitle className={styles.cardText}> Registrarme como empresa </Subtitle>
+          <Subtitle className={styles.cardText}>{translations.registerAsCompany}</Subtitle>
         </ListItem>
       </section>
     </section>
   </>
 );
-
-interface IRegisterProps {
-  onClickRegisterApplicant: () => void;
-  onClickRegisterCompany: () => void;
-}
 
 export { Register };
