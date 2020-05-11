@@ -1,6 +1,6 @@
 @import "$styles/mixins/_card";
 
-.listItem {
+.clickableCard {
   @include card;
 
   padding: 15px;

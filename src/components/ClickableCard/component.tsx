@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
-const ListItem: FunctionComponent<IListItemProps> = (
+export const ClickableCard: FunctionComponent<IClickableCardProps> = (
   {
     children,
     className,
@@ -13,7 +13,7 @@ const ListItem: FunctionComponent<IListItemProps> = (
   const [touched, setTouched] = useState(false);
   return (
     <div
-      className={classnames(styles.listItem, className, {
+      className={classNames(styles.clickableCard, className, {
         [styles.hoverable]: onClick,
         [styles.touched]: touched
       })}
@@ -27,9 +27,7 @@ const ListItem: FunctionComponent<IListItemProps> = (
   );
 };
 
-interface IListItemProps {
+interface IClickableCardProps {
   className?: string;
   onClick?: () => void;
 }
-
-export { ListItem };
