@@ -1,0 +1,76 @@
+@import "$styles/_variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
+  margin-top: $navBarHeight;
+}
+
+.header {
+  background-image: url("header.jpg");
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+  justify-content: center;
+
+  .logo {
+    align-self: center;
+  }
+}
+
+.body {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: $bigSpacing;
+
+  .card {
+    align-self: center;
+    cursor: pointer;
+    display: flex;
+    height: fit-content;
+    max-width: 300px;
+    min-height: 40px;
+    padding: $bigSpacing;
+    width: 30%;
+  }
+
+  .companyCard {
+    margin-left: $biggerSpacing;
+  }
+}
+
+.cardLogo {
+  align-self: center;
+  margin-right: $bigSpacing;
+}
+
+.cardText {
+  align-self: center;
+  color: $mainBlueDark;
+  word-break: break-word;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .container {
+    .header {
+      height: 150px;
+    }
+
+    .body {
+      align-items: center;
+      flex-direction: column;
+
+      .companyCard {
+        margin-left: 0;
+        margin-top: $bigSpacing;
+      }
+    }
+  }
+}

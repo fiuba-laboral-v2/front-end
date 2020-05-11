@@ -51,7 +51,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
               :
               <>
                 <Link to={RoutesBuilder.login}>{translations.logIn}</Link>
-                <Link to={RoutesBuilder.applicant.signUp}>{translations.signUp}</Link>
+                <Link to={RoutesBuilder.register}>{translations.signUp}</Link>
               </>
           }
         </div>

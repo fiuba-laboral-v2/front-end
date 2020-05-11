@@ -40,6 +40,11 @@ export const MaterialUITheme = createMuiTheme({
       shrink: {
         maxWidth: "130%"
       }
+    },
+    MuiSvgIcon: {
+      colorPrimary: {
+        color: "#0073a8"
+      }
     }
   }
 });
