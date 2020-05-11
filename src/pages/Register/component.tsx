@@ -29,7 +29,7 @@ const Register: FunctionComponent<IRegisterProps> = (
           className={classNames(styles.card, styles.applicantCard)}
           onClick={onClickRegisterApplicant}
         >
-          <SchoolIcon color="primary" className={styles.cardLogo} fontSize="large"/>
+          <SchoolIcon className={styles.cardLogo} fontSize="large"/>
           <Subtitle className={styles.cardText}>{translations.registerAsApplicant}</Subtitle>
         </ListItem>
         <ListItem
@@ -37,7 +37,7 @@ const Register: FunctionComponent<IRegisterProps> = (
           className={classNames(styles.card, styles.companyCard)}
           onClick={onClickRegisterCompany}
         >
-          <BusinessIcon color="primary" className={styles.cardLogo} fontSize="large"/>
+          <BusinessIcon className={styles.cardLogo} fontSize="large"/>
           <Subtitle className={styles.cardText}>{translations.registerAsCompany}</Subtitle>
         </ListItem>
       </section>
