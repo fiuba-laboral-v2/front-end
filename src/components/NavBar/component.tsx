@@ -45,7 +45,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
           {
             isLoggedIn ?
               <>
-                <p className={styles.userName}>{username}</p>
+                <p className={styles.user}>{username}</p>
                 <Link onClick={logOut} to="#">{translations.logOut}</Link>
               </>
               :

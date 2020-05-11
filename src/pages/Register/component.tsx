@@ -16,7 +16,7 @@ const Register: FunctionComponent<IRegisterProps> = (
     translations
   }
 ) => (
-  <>
+  <section className={styles.register}>
     <NavBar/>
     <section className={styles.container}>
       <section className={styles.header}>
@@ -33,7 +33,7 @@ const Register: FunctionComponent<IRegisterProps> = (
         </ClickableCard>
       </section>
     </section>
-  </>
+  </section>
 );
 
 export { Register };

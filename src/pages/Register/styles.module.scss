@@ -1,10 +1,15 @@
 @import "$styles/_variables";
 
+.register {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  height: 100vh;
   margin-top: $navBarHeight;
 }
 
@@ -15,7 +20,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  flex-direction: column;
   height: 260px;
   justify-content: center;
 
@@ -28,11 +32,10 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  margin-top: $bigSpacing;
+  margin-top: 2 * $biggerSpacing;
 
   .companyCard,
   .applicantCard {
-    align-self: center;
     cursor: pointer;
     display: flex;
     height: fit-content;
@@ -60,19 +63,23 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .container {
-    .header {
-      height: 150px;
+  .header {
+    height: 150px;
+  }
+
+  .body {
+    align-items: center;
+    flex-direction: column;
+
+    .companyCard,
+    .applicantCard {
+      margin-left: $biggerSpacing;
+      margin-right: $biggerSpacing;
+      width: unset;
     }
 
-    .body {
-      align-items: center;
-      flex-direction: column;
-
-      .companyCard {
-        margin-left: 0;
-        margin-top: $bigSpacing;
-      }
+    .companyCard {
+      margin-top: $bigSpacing;
     }
   }
 }
