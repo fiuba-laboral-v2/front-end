@@ -123,3 +123,11 @@
     margin: auto 0 auto auto;
   }
 }
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .menu {
+    .user {
+      flex-direction: column;
+    }
+  }
+}
