@@ -2,9 +2,11 @@ import { ApolloError } from "apollo-client";
 
 type ErrorName =
   "UserEmailAlreadyExistsError" |
+  "CompanyCuitAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
   "AuthenticationError" |
+  "ValidationError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";

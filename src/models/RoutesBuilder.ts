@@ -11,6 +11,7 @@ export const RoutesBuilder = {
   },
   company: {
     list: "/companies",
+    signUp: "/companies/registro",
     detail: (uuid: string) => `/companies/${uuid}`
   },
   notFound: "/*",

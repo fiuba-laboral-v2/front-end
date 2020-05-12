@@ -1,5 +1,8 @@
+import { IUser } from "$interfaces/User";
+
 export interface ICompany {
   uuid: string;
+  user: IUser;
   cuit: string;
   companyName: string;
   slogan?: string;
