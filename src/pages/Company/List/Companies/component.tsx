@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ICompaniesProps } from "./interface";
 import styles from "./styles.module.scss";
-import { ListItem } from "$components/ListItem";
+import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import Button from "$components/Button";
 import { CompanyLogo } from "$components/CompanyLogo";
@@ -29,7 +29,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
       {
         companies.map(company =>
           <div className={styles.row} key={company.uuid}>
-            <ListItem>
+            <ClickableCard>
               <div className={styles.childrenContainer}>
                 <div className={styles.leftContainer}>
                   <CompanyLogo
@@ -58,7 +58,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
                   </div>
                 </div>
               </div>
-            </ListItem>
+            </ClickableCard>
           </div>
         )
       }

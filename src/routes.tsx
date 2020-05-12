@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Route, Switch, HashRouter } from "react-router-dom";
 
 import Home from "$pages/Home";
+import { Register } from "$pages/Register";
 import { CompanyRoutes } from "$pages/Company/routes";
 import { LogIn } from "$pages/LogIn";
 import ApplicantRoutes from "$pages/Applicant/routes";
@@ -14,6 +15,9 @@ const Routes: FunctionComponent = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route exact path="/register">
+        <Register />
       </Route>
       <Route exact path="/login">
         <LogIn />

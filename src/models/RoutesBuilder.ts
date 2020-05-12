@@ -1,5 +1,6 @@
 export const RoutesBuilder = {
   login: "/login",
+  register: "/register",
   applicant: {
     home: "/applicants",
     list: "/applicants/list",

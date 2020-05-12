@@ -45,13 +45,13 @@ export const NavBar: FunctionComponent<INavBarProps> = (
           {
             isLoggedIn ?
               <>
-                <p className={styles.userName}>{username}</p>
+                <p className={styles.username}>{username}</p>
                 <Link onClick={logOut} to="#">{translations.logOut}</Link>
               </>
               :
               <>
                 <Link to={RoutesBuilder.login}>{translations.logIn}</Link>
-                <Link to={RoutesBuilder.applicant.signUp}>{translations.signUp}</Link>
+                <Link to={RoutesBuilder.register}>{translations.signUp}</Link>
               </>
           }
         </div>
