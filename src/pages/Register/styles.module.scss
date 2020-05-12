@@ -1,0 +1,105 @@
+@import "$styles/_variables";
+
+.register {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: $navBarHeight;
+}
+
+.header {
+  background-image: url("header.jpg");
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 260px;
+  justify-content: center;
+
+  .logo {
+    align-self: center;
+  }
+}
+
+.body {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: 2 * $biggerSpacing;
+
+  .companyCard,
+  .applicantCard {
+    cursor: pointer;
+    display: flex;
+    height: fit-content;
+    max-width: 300px;
+    min-height: 40px;
+    padding: $bigSpacing;
+    width: 30%;
+  }
+
+  .companyCard {
+    margin-left: $biggerSpacing;
+  }
+}
+
+.cardLogo {
+  align-self: center;
+  color: $mainBlueDark;
+  margin-right: $bigSpacing;
+}
+
+.cardText {
+  color: $mainBlueDark;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .header {
+    height: 150px;
+  }
+
+  .body {
+    align-items: center;
+    flex-direction: column;
+
+    .companyCard,
+    .applicantCard {
+      margin-left: $biggerSpacing;
+      margin-right: $biggerSpacing;
+      width: unset;
+    }
+
+    .companyCard {
+      margin-top: $bigSpacing;
+    }
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .header {
+    height: 100px;
+  }
+
+  .body {
+    .companyCard,
+    .applicantCard {
+      flex-direction: column;
+    }
+  }
+
+  .cardLogo {
+    margin-bottom: $bigSpacing;
+    margin-right: 0;
+  }
+
+  .cardText {
+    word-break: normal;
+  }
+}

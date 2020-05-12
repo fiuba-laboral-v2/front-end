@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { List } from "$components/List";
-import { ListItem } from "$components/ListItem";
+import { ClickableCard } from "$components/ClickableCard";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 
@@ -10,13 +10,13 @@ const Feed: FunctionComponent<IFeedProps> = ({ offers, onCardClick }) => (
   <div>
     <List list={offers}>
       {offer => (
-        <ListItem
+        <ClickableCard
           key={offer.uuid}
           className={styles.cardContainer}
           onClick={() => onCardClick(offer.uuid)}
         >
           <Offer data={offer}/>
-        </ListItem>
+        </ClickableCard>
       )
       }
     </List>

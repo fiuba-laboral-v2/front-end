@@ -64,7 +64,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
               </Button>
               <div className={styles.register}>
                 <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
-                <Link to={RoutesBuilder.applicant.signUp}>{translations.register}</Link>
+                <Link to={RoutesBuilder.register}>{translations.register}</Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantsProps } from "./interface";
-import { ListItem } from "$components/ListItem";
+import { ClickableCard } from "$components/ClickableCard";
 import styles from "./styles.module.scss";
 import Button from "$components/Button";
 import { ListTitle } from "$components/ListTitle";
@@ -33,7 +33,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
       {
         applicants.map(applicant =>
           <div className={styles.row} key={applicant.uuid}>
-            <ListItem>
+            <ClickableCard>
               <div className={styles.childrenContainer}>
                 <Subtitle className={styles.name}>
                   {`${applicant.user.name} ${applicant.user.surname}`}
@@ -53,7 +53,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
                   </Button>
                 </div>
               </div>
-            </ListItem>
+            </ClickableCard>
           </div>
         )
       }

@@ -1,0 +1,1 @@
+export { ClickableCard } from "./component";
