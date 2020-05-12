@@ -21,6 +21,7 @@ export interface ISignUpFormValues extends ISignUpValues {
 }
 
 export interface ISignUpTranslations {
+  title: string;
   email: string;
   password: string;
   passwordConfirm: string;

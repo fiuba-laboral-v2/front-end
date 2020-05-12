@@ -3,7 +3,7 @@ import { Form, Formik, FormikErrors } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
 import styles from "./styles.module.scss";
-import { ISignUpFormValues } from "./interface";
+import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 
 import Button from "../../../components/Button";
 import { Window } from "../../../components/Window";
@@ -12,17 +12,11 @@ import { UserInput } from "../../../components/UserInput";
 
 import { FormikValidator } from "../../../models/FormikValidator";
 
-import {
-  validateCuit,
-  validateEmail,
-  validateName,
-  validatePassword,
-  validateURL
-} from "validations-fiuba-laboral-v2";
+import { validateCuit, validateName, validateURL } from "validations-fiuba-laboral-v2";
 
 const formName = "signUpForm";
 
-const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
+const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => {
   const initialValues: ISignUpFormValues = {
     user: {
       email: "",
@@ -43,7 +37,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
   return (
     <Window>
       <div className={styles.mainContainer}>
-        <h1 className={styles.title}>{"tiiitlee"}</h1>
+        <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={initialValues}
           validate={values => {
@@ -60,33 +54,33 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
             <>
               <Form id={formName}>
                 <UserInput
-                  email={{ name: "user.email", label: "emailll" }}
-                  password={{ name: "user.password", label: "passwrodss" }}
-                  passwordConfirm={{ name: "passwordConfirm", label: "passwordConfirmmmmm" }}
-                  name={{ name: "user.name", label: "nameee" }}
-                  surname={{ name: "user.surname", label: "surnameee" }}
+                  email={{ name: "user.email", label: translations.email }}
+                  password={{ name: "user.password", label: translations.password }}
+                  passwordConfirm={{ name: "passwordConfirm", label: translations.passwordConfirm }}
+                  name={{ name: "user.name", label: translations.name }}
+                  surname={{ name: "user.surname", label: translations.surname }}
                 />
                 <TextInput
                   name="companyName"
-                  label={"companyNameeeeee"}
+                  label={translations.companyName}
                   validate={FormikValidator({ validator: validateName, mandatory: true })}
                 />
                 <TextInput
                   name="cuit"
-                  label={"cuitttttt"}
+                  label={translations.cuit}
                   validate={FormikValidator({ validator: validateCuit, mandatory: true })}
                 />
                 <TextInput
                   name="slogan"
-                  label={"slogannnnnn"}
+                  label={translations.slogan}
                 />
                 <TextInput
                   name="description"
-                  label={"descriptionnnn"}
+                  label={translations.description}
                 />
                 <TextInput
                   name="website"
-                  label={"websiteeeee"}
+                  label={translations.website}
                   validate={FormikValidator({ validator: validateURL, mandatory: true })}
                 />
               </Form>
@@ -96,7 +90,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
                 type="submit"
                 disabled={isSubmitting}
               >
-                {"submeeeeeeet"}
+                {translations.submit}
               </Button>
             </>
           )}
@@ -107,6 +101,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
 };
 
 interface ISignUpProps {
+  translations: ISignUpTranslations;
   onSubmit: (
     values: ISignUpFormValues,
     formikHelpers: FormikHelpers<ISignUpFormValues>
