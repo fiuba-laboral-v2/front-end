@@ -11,39 +11,37 @@ export const UserInput: FunctionComponent<IUserInputProps> = (
     name,
     surname
   }
-) => {
-  return (
-    <>
-      <TextInput
-        name={email.name}
-        label={email.label}
-        type="email"
-        validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-      />
-      <TextInput
-        name={password.name}
-        label={password.label}
-        type="password"
-        validate={FormikValidator({ validator: validatePassword, mandatory: true })}
-      />
-      <TextInput
-        name={passwordConfirm.name}
-        label={passwordConfirm.label}
-        type="password"
-      />
-      <TextInput
-        name={name.name}
-        label={name.label}
-        validate={FormikValidator({ validator: validateName, mandatory: true })}
-      />
-      <TextInput
-        name={surname.name}
-        label={surname.label}
-        validate={FormikValidator({ validator: validateName, mandatory: true })}
-      />
-    </>
-  );
-};
+) => (
+  <>
+    <TextInput
+      name={email.name}
+      label={email.label}
+      type="email"
+      validate={FormikValidator({ validator: validateEmail, mandatory: true })}
+    />
+    <TextInput
+      name={password.name}
+      label={password.label}
+      type="password"
+      validate={FormikValidator({ validator: validatePassword, mandatory: true })}
+    />
+    <TextInput
+      name={passwordConfirm.name}
+      label={passwordConfirm.label}
+      type="password"
+    />
+    <TextInput
+      name={name.name}
+      label={name.label}
+      validate={FormikValidator({ validator: validateName, mandatory: true })}
+    />
+    <TextInput
+      name={surname.name}
+      label={surname.label}
+      validate={FormikValidator({ validator: validateName, mandatory: true })}
+    />
+  </>
+);
 
 interface IField {
   name: string;
