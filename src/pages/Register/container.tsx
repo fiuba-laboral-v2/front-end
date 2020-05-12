@@ -16,7 +16,7 @@ const RegisterContainer: FunctionComponent = () => {
   return (
     <Register
       onClickRegisterApplicant={() => history.push(RoutesBuilder.applicant.signUp)}
-      onClickRegisterCompany={() => alert("Próximamente en cines")}
+      onClickRegisterCompany={() => history.push(RoutesBuilder.company.signUp)}
       translations={translations.data}
     />
   );
