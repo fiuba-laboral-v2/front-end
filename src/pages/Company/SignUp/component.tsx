@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikErrors } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
 import styles from "./styles.module.scss";
@@ -8,6 +8,7 @@ import { ISignUpFormValues } from "./interface";
 import Button from "../../../components/Button";
 import { Window } from "../../../components/Window";
 import TextInput from "../../../components/TextInput";
+import { UserInput } from "../../../components/UserInput";
 
 import { FormikValidator } from "../../../models/FormikValidator";
 
@@ -45,44 +46,26 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
         <h1 className={styles.title}>{"tiiitlee"}</h1>
         <Formik
           initialValues={initialValues}
+          validate={values => {
+            const errors: FormikErrors<ISignUpFormValues> = {};
+            if (values.user.password !== values.passwordConfirm) {
+              errors.passwordConfirm = "Las contraseñas no coinciden";
+            }
+            return errors;
+          }}
           validateOnMount={true}
           onSubmit={onSubmit}
         >
           {({ values, isSubmitting, errors }) => (
             <>
               <Form id={formName}>
-                <TextInput
-                  name="user.email"
-                  label={"emailllll"}
-                  type="email"
-                  className={styles.textInput}
-                  validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-                />
-                <TextInput
-                  name="user.password"
-                  label={"passworddddd"}
-                  type="password"
-                  className={styles.textInput}
-                  validate={FormikValidator({ validator: validatePassword, mandatory: true })}
-                />
-                <TextInput
-                  name="passwordConfirm"
-                  label={"passwordConfirmmmmm"}
-                  type="password"
-                  className={styles.textInput}
-                />
-                <TextInput
-                  name="user.name"
-                  label={"nameeeee"}
-                  className={styles.textInput}
-                  validate={FormikValidator({ validator: validateName, mandatory: true })}
-                />
-                <TextInput
-                  name="user.surname"
-                  label={"surnameeeeee"}
-                  className={styles.textInput}
-                  validate={FormikValidator({ validator: validateName, mandatory: true })}
-                />
+                <UserInput fields={{
+                  email: { name: "user.email", label: "emailll" },
+                  password: { name: "user.password", label: "passwrodss" },
+                  passwordConfirm: { name: "passwordConfirm", label: "passwordConfirmmmmm" },
+                  name: { name: "user.name", label: "nameee" },
+                  surname: { name: "user.surname", label: "surnameee" }
+                }}/>
                 <TextInput
                   name="companyName"
                   label={"companyNameeeeee"}
