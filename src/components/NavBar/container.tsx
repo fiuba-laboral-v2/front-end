@@ -30,7 +30,7 @@ export const NavBarContainer: FunctionComponent = () => {
       logOut={onLogOut}
       isLoggedIn={!error}
       translations={translations.data}
-      username={`${me.name} ${me.surname}`}
+      username={me.name}
     />
   );
 };
