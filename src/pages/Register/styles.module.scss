@@ -57,9 +57,7 @@
 }
 
 .cardText {
-  align-self: center;
   color: $mainBlueDark;
-  word-break: break-word;
 }
 
 @media (max-width: $mobileContainerThreshold) {
@@ -81,5 +79,27 @@
     .companyCard {
       margin-top: $bigSpacing;
     }
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .header {
+    height: 100px;
+  }
+
+  .body {
+    .companyCard,
+    .applicantCard {
+      flex-direction: column;
+    }
+  }
+
+  .cardLogo {
+    margin-bottom: $bigSpacing;
+    margin-right: 0;
+  }
+
+  .cardText {
+    word-break: normal;
   }
 }
