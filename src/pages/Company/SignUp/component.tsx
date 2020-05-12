@@ -59,13 +59,13 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit }) => {
           {({ values, isSubmitting, errors }) => (
             <>
               <Form id={formName}>
-                <UserInput fields={{
-                  email: { name: "user.email", label: "emailll" },
-                  password: { name: "user.password", label: "passwrodss" },
-                  passwordConfirm: { name: "passwordConfirm", label: "passwordConfirmmmmm" },
-                  name: { name: "user.name", label: "nameee" },
-                  surname: { name: "user.surname", label: "surnameee" }
-                }}/>
+                <UserInput
+                  email={{ name: "user.email", label: "emailll" }}
+                  password={{ name: "user.password", label: "passwrodss" }}
+                  passwordConfirm={{ name: "passwordConfirm", label: "passwordConfirmmmmm" }}
+                  name={{ name: "user.name", label: "nameee" }}
+                  surname={{ name: "user.surname", label: "surnameee" }}
+                />
                 <TextInput
                   name="companyName"
                   label={"companyNameeeeee"}

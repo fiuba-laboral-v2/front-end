@@ -5,36 +5,40 @@ import { validateEmail, validateName, validatePassword } from "validations-fiuba
 
 export const UserInput: FunctionComponent<IUserInputProps> = (
   {
-    fields
+    email,
+    password,
+    passwordConfirm,
+    name,
+    surname
   }
 ) => {
   return (
     <>
       <TextInput
-        name={fields.email.name}
-        label={fields.email.label}
+        name={email.name}
+        label={email.label}
         type="email"
         validate={FormikValidator({ validator: validateEmail, mandatory: true })}
       />
       <TextInput
-        name={fields.password.name}
-        label={fields.password.label}
+        name={password.name}
+        label={password.label}
         type="password"
         validate={FormikValidator({ validator: validatePassword, mandatory: true })}
       />
       <TextInput
-        name={fields.passwordConfirm.name}
-        label={fields.passwordConfirm.label}
+        name={passwordConfirm.name}
+        label={passwordConfirm.label}
         type="password"
       />
       <TextInput
-        name={fields.name.name}
-        label={fields.name.label}
+        name={name.name}
+        label={name.label}
         validate={FormikValidator({ validator: validateName, mandatory: true })}
       />
       <TextInput
-        name={fields.surname.name}
-        label={fields.surname.label}
+        name={surname.name}
+        label={surname.label}
         validate={FormikValidator({ validator: validateName, mandatory: true })}
       />
     </>
@@ -46,14 +50,10 @@ interface IField {
   label: string;
 }
 
-interface IFields {
+interface IUserInputProps {
   email: IField;
   password: IField;
   passwordConfirm: IField;
   name: IField;
   surname: IField;
-}
-
-interface IUserInputProps {
-  fields: IFields;
 }
