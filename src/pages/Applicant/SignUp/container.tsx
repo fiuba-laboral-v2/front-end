@@ -4,9 +4,7 @@ import { FormikHelpers } from "formik";
 
 import { SignUp } from "./component";
 
-import { useLogin } from "$hooks/useLogin";
-import { useSaveApplicant } from "$hooks/useSaveApplicant";
-import { useTranslations } from "$hooks/useTranslations";
+import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { Session } from "$models/Session";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";

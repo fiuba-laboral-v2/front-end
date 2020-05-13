@@ -14,7 +14,7 @@ import { validateEmail } from "validations-fiuba-laboral-v2";
 
 import styles from "./styles.module.scss";
 import { ILogInFormTranslationsProps } from "./interface";
-import { ILoginVariables } from "$hooks/useLogin";
+import { ILoginVariables } from "$hooks";
 
 const formName = "logInForm";
 

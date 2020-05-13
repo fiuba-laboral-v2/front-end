@@ -1,13 +1,12 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers, FormikErrors } from "formik";
+import { FormikErrors, FormikHelpers } from "formik";
 
 import { LogInForm } from "./component";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Session } from "$models/Session";
-import { ILoginVariables, useLogin } from "$hooks/useLogin";
-import { useTranslations } from "$hooks/useTranslations";
+import { ILoginVariables, useLogin, useTranslations } from "$hooks";
 
 import { ILogInFormTranslationsProps } from "./interface";
 
