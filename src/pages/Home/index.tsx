@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useQuery } from "$hooks/useQuery";
+import { useQuery } from "$hooks";
 import { ME } from "$queries";
 
 const Home: FunctionComponent = () => {

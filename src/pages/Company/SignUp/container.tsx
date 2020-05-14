@@ -2,9 +2,8 @@ import React, { FunctionComponent } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 
-import { useCreateCompany } from "$hooks/useCreateCompany";
+import { useCreateCompany, useTranslations } from "$hooks";
 import { useLogin } from "../../../models/hooks";
-import { useTranslations } from "$hooks";
 import { Session } from "$models/Session";
 
 import { SignUp } from "./component";

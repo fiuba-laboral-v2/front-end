@@ -3,7 +3,7 @@ import { Redirect, useHistory } from "react-router-dom";
 
 import { Register } from "./component";
 
-import { useTranslations } from "$hooks/useTranslations";
+import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IRegisterTranslations } from "./interface";
 

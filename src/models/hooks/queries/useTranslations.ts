@@ -1,5 +1,6 @@
-import { useQuery, UseQueryResult } from "$hooks/useQuery";
+import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
+import { UseQueryResult } from "../useQuery";
 
 interface ITranslation {
   key: string;
