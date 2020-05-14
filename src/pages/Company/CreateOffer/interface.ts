@@ -6,7 +6,7 @@ export interface ICreateOfferValues {
   maximumSalary: number;
 }
 
-interface ICreateOfferTranslations {
+export interface ICreateOfferTranslations {
   formTitle: string;
   offerTitle: string;
   description: string;

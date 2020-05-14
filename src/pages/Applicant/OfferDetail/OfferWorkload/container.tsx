@@ -13,7 +13,7 @@ const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = 
   const translations = useTranslations<IOfferWorkloadTranslations>("offerWorkload");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
 
   return (
     <OfferWorkload
