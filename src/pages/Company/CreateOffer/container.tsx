@@ -1,12 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { CreateOffer } from "./component";
-import { useCreateOffer } from "$hooks";
+import { useCreateOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
+import { ICreateOfferTranslations } from "./interface";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
   const createOffer = useCreateOffer();
+  const translations = useTranslations<ICreateOfferTranslations>("createOffer");
+
+  if (translations.loading) return <LoadingSpinner/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
 
   return <CreateOffer
     onSubmit={async values => {
@@ -19,14 +25,6 @@ export const CreateOfferContainer: FunctionComponent = () => {
       if (response.error) return;
       history.push(RoutesBuilder.applicant.offerDetail(response.data.createOffer.uuid));
     }}
-    translations={{
-      formTitle: "formTitle",
-      offerTitle: "offerTitle",
-      description: "description",
-      hoursPerDay: "hoursPerDay",
-      minimumSalary: "minimumSalary",
-      maximumSalary: "maximumSalary",
-      submit: "submit"
-    }}
+    translations={translations.data}
   />;
 };
