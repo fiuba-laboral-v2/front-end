@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { FormikErrors, FormikHelpers } from "formik";
 
 import { LogInForm } from "./component";
@@ -16,7 +16,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
 
   const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
     setErrors({

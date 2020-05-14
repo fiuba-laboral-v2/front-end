@@ -9,7 +9,7 @@ const TitleContainer: FunctionComponent = () => {
   const translations = useTranslations<ITitleProps>("companyProfileTitle");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
 
   return (
     <Title
