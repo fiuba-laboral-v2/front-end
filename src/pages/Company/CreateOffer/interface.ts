@@ -4,6 +4,7 @@ export interface ICreateOfferValues {
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
+  _form: string;
 }
 
 export interface ICreateOfferTranslations {

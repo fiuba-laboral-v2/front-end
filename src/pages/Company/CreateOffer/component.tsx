@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import TextInput from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
-import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
+import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { Window } from "$components/Window";
 import { ICreateOfferProps, ICreateOfferValues } from "./interface";
 import styles from "../SignUp/styles.module.scss";
@@ -23,11 +23,21 @@ export const CreateOffer: FunctionComponent<ICreateOfferProps> = ({ onSubmit, tr
             description: "",
             hoursPerDay: NaN,
             minimumSalary: NaN,
-            maximumSalary: NaN
+            maximumSalary: NaN,
+            _form: ""
           }}
           onSubmit={onSubmit}
+          validate={values => {
+            if (isNaN(values.minimumSalary)) return;
+            if (isNaN(values.maximumSalary)) return;
+            try {
+              validateSalaryRange(values.minimumSalary, values.maximumSalary);
+            } catch ({ message }) {
+              return { _form: message };
+            }
+          }}
         >
-          {({ values, isSubmitting }) =>
+          {({ errors, isSubmitting }) =>
             <>
               <Form className={styles.formContainer} id={formName}>
                 <TextInput
@@ -71,6 +81,7 @@ export const CreateOffer: FunctionComponent<ICreateOfferProps> = ({ onSubmit, tr
                   })}
                 />
               </Form>
+              <span>{errors._form}</span>
               <Button
                 form={formName}
                 className="primary"
