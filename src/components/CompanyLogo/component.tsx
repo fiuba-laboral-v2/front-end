@@ -8,10 +8,11 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
     companyName,
     logo,
     size,
-    className
+    className,
+    onClick
   }
 ) => (
-  <div className={classNames(styles.logoContainer, className, styles[size])}>
+  <div className={classNames(styles.logoContainer, className, styles[size])} onClick={onClick}>
     <img
       className={styles.logo}
       src={logo}
