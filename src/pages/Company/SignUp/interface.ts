@@ -29,6 +29,7 @@ export interface ISignUpTranslations {
   name: string;
   surname: string;
   cuit: string;
+  companyEmail: string;
   companyName: string;
   slogan: string;
   description: string;

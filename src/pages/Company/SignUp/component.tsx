@@ -80,7 +80,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
                 />
                 <TextInput
                   name="email"
-                  label={"Email de la empresaaaaaaaa"}
+                  label={translations.companyEmail}
                   validate={FormikValidator({ validator: validateEmail, mandatory: true })}
                 />
                 <TextInput
