@@ -9,7 +9,7 @@ import { Session } from "$models/Session";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { ISignUpTranslations, ISignUpValues } from "./interface";
+import { ISignUpTranslations, ISignUpFormValues } from "./interface";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const SignUpContainer: FunctionComponent = () => {
 
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
-  const validateForm = (values: ISignUpValues) => {
+  const validateForm = (values: ISignUpFormValues) => {
     const selectedCodes = values.careers.map(career => career.code);
     if (hasUniqueValues(selectedCodes)) {
       return "No se pueden repetir carreras";
@@ -30,32 +30,20 @@ const SignUpContainer: FunctionComponent = () => {
 
   const onSubmit = async (
     {
-      email,
-      password,
-      name,
-      surname,
-      padron,
-      careers
-    }: ISignUpValues,
+      _form,
+      passwordConfirm,
+      ...applicantValues
+    }: ISignUpFormValues,
     {
       setSubmitting,
       setErrors
-    }: FormikHelpers<ISignUpValues>
+    }: FormikHelpers<ISignUpFormValues>
   ) => {
     const saveApplicantResult = await saveApplicant(
       {
-        variables: {
-          padron,
-          careers,
-          user: {
-            email,
-            password,
-            name,
-            surname
-          }
-        },
+        variables: applicantValues,
         handlers: {
-          UserEmailAlreadyExistsError: () => setErrors({ email: `Este email ya existe` }),
+          UserEmailAlreadyExistsError: () => setErrors({ user: { email: `Este email ya existe` } }),
           defaultHandler: () => history.push(RoutesBuilder.internalServerError)
         }
       }
@@ -63,7 +51,7 @@ const SignUpContainer: FunctionComponent = () => {
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
-      variables: { email, password },
+      variables: { email: applicantValues.user.email, password: applicantValues.user.password },
       handlers: { defaultHandler: () => history.push(RoutesBuilder.internalServerError) }
     });
     if (loginResult.error) return;

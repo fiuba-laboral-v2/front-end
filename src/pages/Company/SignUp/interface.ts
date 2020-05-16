@@ -1,21 +1,6 @@
-export interface IUserInput {
-  email: string;
-  password: string;
-  name: string;
-  surname: string;
-}
+import { ICreateCompany } from "$hooks";
 
-export interface ISignUpValues {
-  user: IUserInput;
-  cuit: string;
-  companyName: string;
-  slogan: string;
-  description: string;
-  logo: string;
-  website: string;
-}
-
-export interface ISignUpFormValues extends ISignUpValues {
+export interface ISignUpFormValues extends ICreateCompany {
   _form: string;
   passwordConfirm: string;
 }

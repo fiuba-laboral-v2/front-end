@@ -10,3 +10,10 @@ export interface IEditableUser {
   name?: string;
   surname?: string;
 }
+
+export interface IUserInput {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+}
