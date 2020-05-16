@@ -11,9 +11,7 @@ export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
   }
 ) => (
   <div className={className}>
-    <ImageUpload onChange={images => {
-      setLogo(name, images[0].dataURL);
-    }}>
+    <ImageUpload onChange={images => setLogo(name, images[0].dataURL)}>
       {({ imageList, onImageUpload }) => (
         <CompanyLogo
           onClick={imageList[0]?.onUpdate || onImageUpload}

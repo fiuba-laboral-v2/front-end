@@ -5,7 +5,7 @@ export const ImageUpload: FunctionComponent<IImageUploadProps> = (
   {
     defaultValue,
     onChange,
-    maxNumber = 1,
+    maxNumber,
     maxFileSize = 5,
     multiple,
     acceptType = ["jpg", "gif", "png", "jpeg"],
@@ -25,9 +25,9 @@ export const ImageUpload: FunctionComponent<IImageUploadProps> = (
 );
 
 interface IErrors {
-  maxNumber?: number;
-  acceptType?: AcceptType[];
-  maxFileSize?: number[];
+  maxNumber: boolean;
+  acceptType: boolean;
+  maxFileSize: boolean;
 }
 
 interface IChildren {
@@ -39,16 +39,17 @@ interface IChildren {
 
 interface IImage {
   dataURL: string;
-  key: string;
-  onUpdate: () => void;
-  onRemove: () => void;
+  file?: File;
+  key?: string;
+  onUpdate?: () => void;
+  onRemove?: () => void;
 }
 
 type AcceptType = "jpg" | "gif" | "png" | "jpeg";
 
 interface IImageUploadProps {
-  children: (values: IChildren) => React.ReactElement;
-  onChange: (images: IImage[]) => void;
+  children?: (values: IChildren) => React.ReactNode;
+  onChange?: (images: IImage[]) => void;
   defaultValue?: IImage;
   maxNumber?: number;
   maxFileSize?: number;
