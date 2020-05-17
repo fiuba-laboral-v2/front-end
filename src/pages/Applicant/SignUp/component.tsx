@@ -5,7 +5,7 @@ import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { NumberInput } from "$components/NumberInput";
-import { UserInput } from "../../../components/UserInput";
+import { UserInput } from "$components/UserInput";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
