@@ -9,6 +9,7 @@ export interface ISignUpValues {
   user: IUserInput;
   cuit: string;
   companyName: string;
+  email: string;
   slogan: string;
   description: string;
   logo: string;
@@ -28,6 +29,7 @@ export interface ISignUpTranslations {
   name: string;
   surname: string;
   cuit: string;
+  companyEmail: string;
   companyName: string;
   slogan: string;
   description: string;

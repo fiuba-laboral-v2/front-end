@@ -3,4 +3,5 @@ export interface ICompanyLogoProps {
   logo?: string;
   size: "small" | "medium" | "large" | "extraLarge";
   className?: string;
+  onClick?: () => void;
 }
