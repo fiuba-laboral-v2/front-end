@@ -50,7 +50,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             }
 
             if (values.user.password !== values.user.passwordConfirm) {
-              errors.user!.passwordConfirm = "Las contraseñas no coinciden";
+              errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
             }
             return errors;
           }}

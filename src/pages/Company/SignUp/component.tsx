@@ -43,7 +43,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           validate={values => {
             const errors: FormikErrors<ISignUpFormValues> = {};
             if (values.user.password !== values.user.passwordConfirm) {
-              errors.user!.passwordConfirm = "Las contraseñas no coinciden";
+              errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
             }
             return errors;
           }}
