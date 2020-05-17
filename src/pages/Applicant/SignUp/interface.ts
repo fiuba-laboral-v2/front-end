@@ -1,13 +1,12 @@
-import { IApplicantCareer } from "$interfaces/Applicant";
+import { ISaveApplicant } from "$hooks";
+import { IUserInput } from "$interfaces/User";
 
-export interface ISignUpValues {
-  email: string;
-  password: string;
+export interface IUserFormInput extends IUserInput {
   passwordConfirm: string;
-  name: string;
-  surname: string;
-  padron: number;
-  careers: IApplicantCareer[];
+}
+
+export interface ISignUpFormValues extends ISaveApplicant {
+  user: IUserFormInput;
   _form: string;
 }
 

@@ -1,6 +1,7 @@
 import { CREATE_COMPANY } from "$mutations";
 import { useMutation } from "$hooks";
 import { ICompany } from "$interfaces/Company";
+import { IUserInput } from "$interfaces/User";
 
 export const useCreateCompany = () =>
   useMutation<ICreateCompany, { createCompany: ICompany }>(
@@ -8,13 +9,8 @@ export const useCreateCompany = () =>
     { fetchPolicy: "no-cache" }
   );
 
-interface ICreateCompany {
-  user: {
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-  };
+export interface ICreateCompany {
+  user: IUserInput;
   cuit: string;
   companyName: string;
   slogan?: string;

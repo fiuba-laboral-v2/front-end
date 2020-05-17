@@ -1,22 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik, FormikErrors } from "formik";
 
-import TextInput from "$components/TextInput";
 import { CareerSelector } from "$components/CareerSelector";
 import Button from "$components/Button";
+import { FormSet } from "$components/FormSet";
+import { NumberInput } from "$components/NumberInput";
+import { UserInput } from "$components/UserInput";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
-import {
-  validateEmail,
-  validateIntegerInRange,
-  validateName,
-  validatePassword
-} from "validations-fiuba-laboral-v2";
+import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpTranslations, ISignUpValues } from "./interface";
-import { FormSet } from "$components/FormSet";
-import { NumberInput } from "$components/NumberInput";
+import { ISignUpTranslations, ISignUpFormValues } from "./interface";
 
 const SignUp: FunctionComponent<ISignUpProps> = (
   {
@@ -27,12 +22,14 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 ) => {
   const formName = "signUpForm";
   const careerInitialValue = { code: "", creditsCount: NaN };
-  const initialValues: ISignUpValues = {
-    email: "",
-    password: "",
-    passwordConfirm: "",
-    name: "",
-    surname: "",
+  const initialValues: ISignUpFormValues = {
+    user: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+      name: "",
+      surname: ""
+    },
     padron: NaN,
     careers: [careerInitialValue],
     _form: ""
@@ -45,15 +42,15 @@ const SignUp: FunctionComponent<ISignUpProps> = (
         <Formik
           initialValues={initialValues}
           validate={values => {
-            const errors: FormikErrors<ISignUpValues> = {};
+            const errors: FormikErrors<ISignUpFormValues> = {};
 
             const formErrorMessage = validateForm(values);
             if (formErrorMessage) {
               errors._form = formErrorMessage;
             }
 
-            if (values.password !== values.passwordConfirm) {
-              errors.passwordConfirm = "Las contraseñas no coinciden";
+            if (values.user.password !== values.user.passwordConfirm) {
+              errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
             }
             return errors;
           }}
@@ -64,37 +61,14 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             <div className={styles.body}>
               <Form className={styles.formContainer} id={formName}>
                 <div className={styles.textInputContainer}>
-                  <TextInput
-                    name="email"
-                    label={translations.email}
-                    type="email"
-                    className={styles.textInput}
-                    validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-                  />
-                  <TextInput
-                    name="password"
-                    label={translations.password}
-                    type="password"
-                    className={styles.textInput}
-                    validate={FormikValidator({ validator: validatePassword, mandatory: true })}
-                  />
-                  <TextInput
-                    name="passwordConfirm"
-                    label={translations.passwordConfirm}
-                    type="password"
-                    className={styles.textInput}
-                  />
-                  <TextInput
-                    name="name"
-                    label={translations.name}
-                    className={styles.textInput}
-                    validate={FormikValidator({ validator: validateName, mandatory: true })}
-                  />
-                  <TextInput
-                    name="surname"
-                    label={translations.surname}
-                    className={styles.textInput}
-                    validate={FormikValidator({ validator: validateName, mandatory: true })}
+                  <UserInput
+                    email={{ name: "user.email", label: translations.email }}
+                    password={{ name: "user.password", label: translations.password }}
+                    passwordConfirm={
+                      { name: "user.passwordConfirm", label: translations.passwordConfirm }
+                    }
+                    name={{ name: "user.name", label: translations.name }}
+                    surname={{ name: "user.surname", label: translations.surname }}
                   />
                   <NumberInput
                     name="padron"
@@ -137,8 +111,8 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 
 interface ISignUpProps {
   translations: ISignUpTranslations;
-  validateForm: (values: ISignUpValues) => string | undefined;
-  onSubmit: (values: ISignUpValues, formikHelpers: FormikHelpers<ISignUpValues>) =>
+  validateForm: (values: ISignUpFormValues) => string | undefined;
+  onSubmit: (values: ISignUpFormValues, formikHelpers: FormikHelpers<ISignUpFormValues>) =>
     void | Promise<any>;
 }
 
