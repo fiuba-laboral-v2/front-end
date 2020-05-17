@@ -28,8 +28,7 @@ export const CreateOffer: FunctionComponent<ICreateOfferProps> = ({ onSubmit, tr
           }}
           onSubmit={onSubmit}
           validate={values => {
-            if (isNaN(values.minimumSalary)) return;
-            if (isNaN(values.maximumSalary)) return;
+            if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
             try {
               validateSalaryRange(values.minimumSalary, values.maximumSalary);
             } catch ({ message }) {
