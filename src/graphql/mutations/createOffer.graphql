@@ -1,0 +1,23 @@
+mutation createOffer (
+    $title: String!,
+    $description: String!,
+    $hoursPerDay: Int!,
+    $minimumSalary: Int!,
+    $maximumSalary: Int!
+) {
+    createOffer(
+        title: $title,
+        description: $description,
+        hoursPerDay: $hoursPerDay,
+        minimumSalary: $minimumSalary,
+        maximumSalary: $maximumSalary
+    ) {
+        uuid
+        title
+        description
+        hoursPerDay
+        minimumSalary
+        maximumSalary
+        createdAt
+    }
+}
