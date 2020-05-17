@@ -3,7 +3,7 @@ import { useMutation } from "$hooks";
 import { IOffer } from "$interfaces/Offer";
 
 export const useCreateOffer = () =>
-  useMutation<ICreateOffer, { createOffer: IOffer }>(CREATE_OFFER);
+  useMutation<ICreateOffer, { createOffer: IOffer & { company: never } }>(CREATE_OFFER);
 
 interface ICreateOffer {
   title: string;
