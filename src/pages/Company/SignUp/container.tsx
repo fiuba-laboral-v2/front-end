@@ -22,11 +22,18 @@ export const SignUpContainer: FunctionComponent = () => {
   if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
 
   const onSubmit = async (
-    { _form, passwordConfirm, ...values }: ISignUpFormValues,
+    {
+      _form,
+      user: {
+        passwordConfirm,
+        ...userAttributes
+      },
+      ...companyValues
+    }: ISignUpFormValues,
     { setErrors, setSubmitting }: FormikHelpers<ISignUpFormValues>
   ) => {
     const createCompanyResult = await createCompany({
-      variables: values,
+      variables: { user: userAttributes, ...companyValues },
       handlers: {
         UserEmailAlreadyExistsError: () => setErrors({ user: { email: "Este email ya existe" } }),
         CompanyCuitAlreadyExistsError: () => setErrors({ cuit: "Este cuit ya existe" }),
@@ -37,7 +44,7 @@ export const SignUpContainer: FunctionComponent = () => {
     if (createCompanyResult.error) return;
 
     const loginResult = await login({
-      variables: { email: values.user.email , password: values.user.password },
+      variables: { email: userAttributes.email , password: userAttributes.password },
       handlers: { defaultHandler: () => history.push(RoutesBuilder.internalServerError) }
     });
     if (loginResult.error) return;

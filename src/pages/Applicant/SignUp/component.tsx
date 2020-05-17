@@ -26,10 +26,10 @@ const SignUp: FunctionComponent<ISignUpProps> = (
     user: {
       email: "",
       password: "",
+      passwordConfirm: "",
       name: "",
       surname: ""
     },
-    passwordConfirm: "",
     padron: NaN,
     careers: [careerInitialValue],
     _form: ""
@@ -49,8 +49,8 @@ const SignUp: FunctionComponent<ISignUpProps> = (
               errors._form = formErrorMessage;
             }
 
-            if (values.user.password !== values.passwordConfirm) {
-              errors.passwordConfirm = "Las contraseñas no coinciden";
+            if (values.user.password !== values.user.passwordConfirm) {
+              errors.user!.passwordConfirm = "Las contraseñas no coinciden";
             }
             return errors;
           }}
@@ -65,7 +65,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     email={{ name: "user.email", label: translations.email }}
                     password={{ name: "user.password", label: translations.password }}
                     passwordConfirm={
-                      { name: "passwordConfirm", label: translations.passwordConfirm }
+                      { name: "user.passwordConfirm", label: translations.passwordConfirm }
                     }
                     name={{ name: "user.name", label: translations.name }}
                     surname={{ name: "user.surname", label: translations.surname }}

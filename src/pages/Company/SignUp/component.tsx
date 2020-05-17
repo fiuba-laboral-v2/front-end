@@ -21,6 +21,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
     user: {
       email: "",
       password: "",
+      passwordConfirm: "",
       name: "",
       surname: ""
     },
@@ -30,8 +31,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
     description: "",
     logo: "",
     website: "",
-    _form: "",
-    passwordConfirm: ""
+    _form: ""
   };
 
   return (
@@ -42,21 +42,23 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           initialValues={initialValues}
           validate={values => {
             const errors: FormikErrors<ISignUpFormValues> = {};
-            if (values.user.password !== values.passwordConfirm) {
-              errors.passwordConfirm = "Las contraseñas no coinciden";
+            if (values.user.password !== values.user.passwordConfirm) {
+              errors.user!.passwordConfirm = "Las contraseñas no coinciden";
             }
             return errors;
           }}
           validateOnMount={true}
           onSubmit={onSubmit}
         >
-          {({ values, isSubmitting, errors }) => (
+          {({ isSubmitting }) => (
             <>
               <Form id={formName}>
                 <UserInput
                   email={{ name: "user.email", label: translations.email }}
                   password={{ name: "user.password", label: translations.password }}
-                  passwordConfirm={{ name: "passwordConfirm", label: translations.passwordConfirm }}
+                  passwordConfirm={
+                    { name: "user.passwordConfirm", label: translations.passwordConfirm }
+                  }
                   name={{ name: "user.name", label: translations.name }}
                   surname={{ name: "user.surname", label: translations.surname }}
                 />
