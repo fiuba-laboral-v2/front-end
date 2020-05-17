@@ -60,7 +60,10 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           {({ setFieldValue, isSubmitting }) => (
             <>
               <Form id={formName}>
-                <CompanyLogoInput className={styles.logo} name="logo" setLogo={setFieldValue}/>
+                <CompanyLogoInput
+                  className={styles.logo}
+                  setLogo={(logo: string) => setFieldValue("logo", logo)}
+                />
                 <UserInput
                   email={{ name: "user.email", label: translations.email }}
                   password={{ name: "user.password", label: translations.password }}

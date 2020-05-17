@@ -5,17 +5,16 @@ import { CompanyLogo } from "$components/CompanyLogo";
 
 export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
   {
-    name,
     setLogo,
     className
   }
 ) => (
   <div className={className}>
-    <ImageUpload onChange={images => setLogo(name, images[0].dataURL)}>
+    <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
       {({ imageList, onImageUpload }) => (
         <CompanyLogo
           onClick={imageList[0]?.onUpdate || onImageUpload}
-          companyName={name}
+          companyName={"companyName"}
           logo={imageList[0]?.dataURL || "images/companyDefaultLogo.png"}
           size="extraLarge"
         />
@@ -25,7 +24,6 @@ export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
 );
 
 interface ICompanyLogoInputProps {
-  name: string;
-  setLogo: (name: string, logo: string) => void;
+  setLogo: (logo: string) => void;
   className?: string;
 }
