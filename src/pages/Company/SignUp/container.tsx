@@ -3,7 +3,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 
 import { useCreateCompany, useTranslations } from "$hooks";
-import { useLogin } from "../../../models/hooks";
+import { useLogin } from "$models/hooks";
 import { Session } from "$models/Session";
 
 import { SignUp } from "./component";
