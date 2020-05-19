@@ -1,0 +1,28 @@
+@import "$styles/mixins/_text";
+@import "$styles/_variables";
+
+.text {
+  @include text;
+
+  color: $black;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.dropzone {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  &:hover {
+    opacity: 50%;
+    transition: opacity 0.3s ease-out;
+
+    .text {
+      visibility: visible;
+    }
+  }
+}

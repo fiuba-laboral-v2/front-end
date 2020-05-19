@@ -9,7 +9,8 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
     logo,
     size,
     className,
-    onClick
+    onClick,
+    children
   }
 ) => (
   <div className={classNames(styles.logoContainer, className, styles[size])} onClick={onClick}>
@@ -18,6 +19,7 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
       src={logo}
       alt={`${companyName} logo`}
     />
+    {children}
   </div>
 );
 
