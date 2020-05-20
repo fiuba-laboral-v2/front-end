@@ -57,10 +57,11 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           validateOnMount={true}
           onSubmit={onSubmit}
         >
-          {({ setFieldValue, isSubmitting }) => (
+          {({ values, setFieldValue, isSubmitting }) => (
             <>
               <Form id={formName}>
                 <CompanyLogoInput
+                  companyName={values.companyName}
                   className={styles.logo}
                   setLogo={(logo: string) => setFieldValue("logo", logo)}
                 />

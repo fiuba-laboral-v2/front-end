@@ -8,6 +8,7 @@ import { ICompanyLogoInputContainerProps, ICompanyLogoInputTranslations } from "
 
 export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputContainerProps> = (
   {
+    companyName,
     className,
     setLogo
   }
@@ -18,6 +19,7 @@ export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputConta
 
   return (
     <CompanyLogoInput
+      companyName={companyName}
       translations={translations.data}
       setLogo={setLogo}
       className={className}
