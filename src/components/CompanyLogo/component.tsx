@@ -17,7 +17,7 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
     <img
       className={styles.logo}
       src={logo}
-      alt={`Logo de ${companyName || "la empresa"}`}
+      alt={companyName || "Logo de la empresa"}
     />
     {children}
   </div>
