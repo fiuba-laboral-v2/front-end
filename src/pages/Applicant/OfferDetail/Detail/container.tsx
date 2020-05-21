@@ -30,19 +30,18 @@ const DetailContainer: FunctionComponent = () => {
 
   offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
-  const onSubmit = async (offerUuid: string) => {
+  const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
       variables: { offerUuid },
-      handlers: {
-        JobApplicationAlreadyExistsError: () => alert("Ya estás postulado")
-      }
+      handlers: { JobApplicationAlreadyExistsError: () => alert(translations.data.alreadyApplied) },
+      update: cache => cache.writeData({ id: `Offer_${offerUuid}`, data: { hasApplied: true } })
     });
-    if (!error) alert("Postulado!");
+    if (!error) alert(translations.data.applySuccess);
   };
 
   return (
     <Detail
-      apply={onSubmit}
+      apply={apply}
       translations={translations.data}
       goToCompany={RoutesBuilder.company.detail(offer.company.uuid)}
       offer={offer}
