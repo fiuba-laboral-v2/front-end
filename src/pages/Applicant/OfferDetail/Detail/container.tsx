@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks";
+import { Redirect, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
+import { useMutation, useTranslations } from "$hooks";
 import { sortBy } from "lodash";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -15,8 +15,7 @@ import { IDetailTranslations } from "./interface";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  const history = useHistory();
-  const [saveJobApplication] = useMutation(SAVE_JOB_APPLICATION);
+  const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
 
   const translations = useTranslations<IDetailTranslations>("offerDetail");
 
@@ -32,8 +31,13 @@ const DetailContainer: FunctionComponent = () => {
   offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
   const onSubmit = async (offerUuid: string) => {
-    await saveJobApplication({ variables: { offerUuid } });
-    history.push(RoutesBuilder.applicant.home);
+    const { error } = await saveJobApplication({
+      variables: { offerUuid },
+      handlers: {
+        JobApplicationAlreadyExistsError: () => alert("Ya estás postulado")
+      }
+    });
+    if (!error) alert("Postulado!");
   };
 
   return (
