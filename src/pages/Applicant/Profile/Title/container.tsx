@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { Title } from "$components/Title";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITitleProps } from "$components/Title/interface";
+import { Redirect } from "$components/Redirect";
 
 const TitleContainer: FunctionComponent = () => {
   const translations = useTranslations<ITitleProps>("applicantProfileTitle");

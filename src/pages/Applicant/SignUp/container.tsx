@@ -1,15 +1,13 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-
 import { SignUp } from "./component";
-
+import { Redirect } from "$components/Redirect";
 import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { Session } from "$models/Session";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-
-import { ISignUpTranslations, ISignUpFormValues } from "./interface";
+import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();

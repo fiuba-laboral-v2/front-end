@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { OfferCareers } from "./component";
 import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Redirect } from "$components/Redirect";
 
 const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
   {

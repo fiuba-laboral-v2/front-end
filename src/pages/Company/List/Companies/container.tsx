@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_COMPANIES } from "$queries";
 import { Companies } from "./component";
 import { ICompaniesTranslations } from "./interface";
+import { Redirect } from "$components/Redirect";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();

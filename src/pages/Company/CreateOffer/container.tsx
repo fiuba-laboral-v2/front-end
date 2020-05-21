@@ -2,9 +2,10 @@ import React, { FunctionComponent } from "react";
 import { CreateOffer } from "./component";
 import { useCreateOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ICreateOfferTranslations } from "./interface";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { Redirect } from "$components/Redirect";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();

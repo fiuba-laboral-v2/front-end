@@ -1,13 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FormikErrors, FormikHelpers } from "formik";
-
+import { Redirect } from "$components/Redirect";
 import { LogInForm } from "./component";
-
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Session } from "$models/Session";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
-
 import { ILogInFormTranslationsProps } from "./interface";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {

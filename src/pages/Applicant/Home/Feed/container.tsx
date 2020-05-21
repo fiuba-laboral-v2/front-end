@@ -5,7 +5,8 @@ import { IOffer } from "$interfaces/Offer";
 import { useQuery } from "@apollo/react-hooks";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "$components/Redirect";
 
 const FeedContainer: FunctionComponent = () => {
   const history = useHistory();

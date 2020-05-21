@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { OfferWorkload } from "./component";
 import { IOfferWorkloadContainerProps, IOfferWorkloadTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Redirect } from "$components/Redirect";
 
 const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = (
   {

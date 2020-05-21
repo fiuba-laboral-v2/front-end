@@ -1,6 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect } from "react-router-dom";
-
+import { Redirect } from "$components/Redirect";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { CompanyLogoInput } from "./component";
