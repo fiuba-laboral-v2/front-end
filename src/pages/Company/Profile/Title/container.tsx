@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { Title } from "$components/Title";
 import { ITitleProps } from "$components/Title/interface";
-import { Redirect } from "react-router-dom";
+import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const TitleContainer: FunctionComponent = () => {

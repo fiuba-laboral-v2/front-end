@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks";
 import { sortBy } from "lodash";
-
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
 import { SAVE_JOB_APPLICATION } from "$mutations";
 import { IMyOffer } from "$interfaces/Applicant";
-
 import { Detail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IDetailTranslations } from "./interface";
+import { Redirect } from "$components/Redirect";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();

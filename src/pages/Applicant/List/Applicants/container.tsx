@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { GET_APPLICANTS } from "$queries";
 import { Applicants } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicantButtonsTranslations } from "./interface";
+import { Redirect } from "$components/Redirect";
 
 const ApplicantsContainer: FunctionComponent = () => {
   const history = useHistory();

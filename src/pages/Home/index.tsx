@@ -1,8 +1,8 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
-import { Redirect } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useQuery } from "$hooks";
 import { ME } from "$queries";
+import { Redirect } from "$components/Redirect";
 
 const Home: FunctionComponent = () => {
   const [loggedIn, setLoggedIn] = useState(true);

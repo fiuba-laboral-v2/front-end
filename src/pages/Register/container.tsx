@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 import { Register } from "./component";
+import { Redirect } from "$components/Redirect";
 
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
