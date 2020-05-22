@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useTranslations } from "$hooks";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
+import { useMutation, useTranslations } from "$hooks";
 import { sortBy } from "lodash";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
@@ -14,9 +14,7 @@ import { Redirect } from "$components/Redirect";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-  const history = useHistory();
-  const [saveJobApplication] = useMutation(SAVE_JOB_APPLICATION);
-
+  const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IDetailTranslations>("offerDetail");
 
   const {
@@ -30,14 +28,18 @@ const DetailContainer: FunctionComponent = () => {
 
   offer.sections = sortBy(offer.sections, ["displayOrder"]);
 
-  const onSubmit = async (offerUuid: string) => {
-    await saveJobApplication({ variables: { offerUuid } });
-    history.push(RoutesBuilder.applicant.home);
+  const apply = async (offerUuid: string) => {
+    const { error } = await saveJobApplication({
+      variables: { offerUuid },
+      handlers: { JobApplicationAlreadyExistsError: () => alert(translations.data.alreadyApplied) },
+      update: cache => cache.writeData({ id: `Offer_${offerUuid}`, data: { hasApplied: true } })
+    });
+    if (!error) alert(translations.data.applySuccess);
   };
 
   return (
     <Detail
-      apply={onSubmit}
+      apply={apply}
       translations={translations.data}
       goToCompany={RoutesBuilder.company.detail(offer.company.uuid)}
       offer={offer}
