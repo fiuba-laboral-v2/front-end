@@ -2,7 +2,7 @@ import { useMutation as apolloUseMutation } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { MutationHookOptions } from "@apollo/react-hooks/lib/types";
 import { MutationFunctionOptions, MutationResult } from "@apollo/react-common";
-import { handleError, ErrorHandlers } from "$models/handleError";
+import { ErrorHandlers, handleError } from "$models/handleError";
 import { omitTypename } from "$models/omitTypename";
 import { ApolloError } from "apollo-client";
 
@@ -40,7 +40,8 @@ type ISuccessfulMutation<T> = {
   error: undefined;
 };
 
-interface IMutationOptions<TData, TVariables> extends MutationFunctionOptions<TData, TVariables> {
+export interface IMutationOptions<TData, TVariables>
+  extends MutationFunctionOptions<TData, TVariables> {
   handlers?: ErrorHandlers;
 }
 

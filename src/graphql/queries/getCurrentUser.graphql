@@ -1,5 +1,5 @@
 query {
-    me {
+    getCurrentUser {
         uuid
         email
         name
