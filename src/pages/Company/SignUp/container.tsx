@@ -1,16 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-
 import { useCreateCompany, useTranslations } from "$hooks";
 import { useLogin } from "$models/hooks";
 import { Session } from "$models/Session";
-
+import { Redirect } from "$components/Redirect";
 import { SignUp } from "./component";
-import { LoadingSpinner } from "../../../components/LoadingSpinner";
-
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
-import { RoutesBuilder } from "../../../models/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
