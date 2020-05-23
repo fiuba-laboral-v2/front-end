@@ -17,7 +17,7 @@ const FeedContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFERS);
 
-  if (offerError) return <Redirect to={RoutesBuilder.internalServerError}/>;
+  if (offerError) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   if (loadingOffer) return <LoadingSpinner/>;
 
   return (

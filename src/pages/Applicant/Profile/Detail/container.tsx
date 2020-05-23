@@ -25,7 +25,7 @@ const DetailContainer: FunctionComponent = () => {
     fetchPolicy: "no-cache"
   });
 
-  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.public.notFound}/>;
 
   const applicant: IApplicant = getApplicant;
   applicant.links = applicant.links || [];

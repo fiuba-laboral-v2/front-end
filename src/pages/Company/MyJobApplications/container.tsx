@@ -14,12 +14,12 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
     GET_JOB_APPLICATIONS_BY_COMPANY,
     {
       errorHandlers: {
-        UnauthorizedError: () => history.push(RoutesBuilder.forbidden),
-        AuthenticationError: () => history.push(RoutesBuilder.login)
+        UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden),
+        AuthenticationError: () => history.push(RoutesBuilder.public.login)
       }
     }
   );
-  if (response.error) return <Redirect to={RoutesBuilder.internalServerError} />;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError} />;
   if (response.loading) return <LoadingSpinner />;
 
   return (

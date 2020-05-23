@@ -23,7 +23,7 @@ const DetailContainer: FunctionComponent = () => {
     loading: loadingOffer
   } = useQuery(GET_OFFER_BY_UUID, { variables: { uuid } });
 
-  if (offerError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (offerError || translations.error) return <Redirect to={RoutesBuilder.public.notFound}/>;
   if (loadingOffer || translations.loading) return <LoadingSpinner/>;
 
   offer.sections = sortBy(offer.sections, ["displayOrder"]);

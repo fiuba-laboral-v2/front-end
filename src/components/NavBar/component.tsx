@@ -38,7 +38,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.home}>{translations.jobOffers}
+          to={RoutesBuilder.applicant.offerList}>{translations.jobOffers}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
@@ -54,8 +54,8 @@ export const NavBar: FunctionComponent<INavBarProps> = (
               </>
               :
               <>
-                <Link to={RoutesBuilder.login}>{translations.logIn}</Link>
-                <Link to={RoutesBuilder.register}>{translations.signUp}</Link>
+                <Link to={RoutesBuilder.public.login}>{translations.logIn}</Link>
+                <Link to={RoutesBuilder.public.register}>{translations.signUp}</Link>
               </>
           }
         </div>
@@ -67,6 +67,6 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 interface INavBarProps {
   logOut: () => void;
   isLoggedIn: boolean;
-  username: string;
+  username?: string;
   translations: INavBarTranslations;
 }

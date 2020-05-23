@@ -52,7 +52,7 @@ const EditableDetailContainer: FunctionComponent = () => {
     []
   );
 
-  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.public.notFound}/>;
   if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
 
   const onSubmit = async (
@@ -75,7 +75,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       });
       history.push(RoutesBuilder.applicant.detail(uuid!));
     } catch (error) {
-      history.push(RoutesBuilder.notFound);
+      history.push(RoutesBuilder.public.notFound);
     }
   };
 

@@ -13,14 +13,14 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const translations = useTranslations<ICreateOfferTranslations>("createOffer");
 
   if (translations.loading) return <LoadingSpinner/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return <CreateOffer
     onSubmit={async values => {
       const response = await createOffer({
         variables: values,
         handlers: {
-          defaultHandler: () => history.push(RoutesBuilder.internalServerError)
+          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError)
         }
       });
       if (response.error) return;
