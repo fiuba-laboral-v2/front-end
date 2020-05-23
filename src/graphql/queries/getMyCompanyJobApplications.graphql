@@ -1,6 +1,0 @@
-query getMyCompanyJobApplications {
-    getMyCompanyJobApplications {
-        offerUuid
-        applicantUuid
-    }
-}
