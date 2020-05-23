@@ -1,9 +1,5 @@
 import { IJobApplication } from "$interfaces/JobApplication";
 
-export interface IJobApplicationContainerProps {
+export interface IJobApplicationProps {
   jobApplication: IJobApplication;
-}
-
-export interface IJobApplicationProps extends IJobApplicationContainerProps {
-  applicantDetailRoute: string;
 }

@@ -4,13 +4,13 @@ import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IJobApplicationProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
-    jobApplication,
-    applicantDetailRoute
+    jobApplication
   }) => {
   return (
     <ClickableCard className={styles.card}>
@@ -20,7 +20,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         </Subtitle>
         <hr className={styles.separator}/>
         <Subtitle className={styles.applicantName}>
-          <Link to={applicantDetailRoute}>
+          <Link to={RoutesBuilder.applicant.detail(jobApplication.applicant.uuid)}>
             {`${jobApplication.applicant.user.name} ${jobApplication.applicant.user.surname}`}
           </Link>
         </Subtitle>
