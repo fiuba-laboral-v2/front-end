@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery as apolloUseQuery } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
-import { handleError, ErrorHandlers } from "$models/handleError";
+import { ErrorHandlers, handleError } from "$models/handleError";
 import { ApolloError } from "apollo-client";
 
 export type UseQueryResult<T> =
@@ -26,7 +26,7 @@ type ISuccessfulQuery<T> = {
   loading: false;
 };
 
-export const useQuery = <TVariables extends object = {}, TData extends object = {}>(
+export const useQuery = <TVariables = {}, TData = {}>(
   node: DocumentNode,
   options?: IQueryOptions<TData, TVariables>
 ) => {
