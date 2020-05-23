@@ -12,7 +12,8 @@ export const RoutesBuilder = {
   company: {
     list: "/companies",
     signUp: "/companies/registro",
-    detail: (uuid: string) => `/companies/${uuid}`
+    detail: (uuid: string) => `/companies/${uuid}`,
+    jobApplications: "/companies/postulaciones"
   },
   notFound: "/*",
   internalServerError: "/error",
