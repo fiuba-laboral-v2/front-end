@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { MyJobApplications } from "./component";
+import { Redirect } from "$components/Redirect";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { useQuery } from "$models/hooks";
@@ -14,12 +15,11 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
     {
       errorHandlers: {
         UnauthorizedError: () => history.push(RoutesBuilder.forbidden),
-        AuthenticationError: () => history.push(RoutesBuilder.login),
-        defaultHandler: () => history.push(RoutesBuilder.internalServerError)
+        AuthenticationError: () => history.push(RoutesBuilder.login)
       }
     }
   );
-  if (response.error) return <Fragment />;
+  if (response.error) return <Redirect to={RoutesBuilder.internalServerError} />;
   if (response.loading) return <LoadingSpinner />;
 
   return (
