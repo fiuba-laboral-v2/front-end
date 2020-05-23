@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { MyJobApplications } from "./component";
 import { Redirect } from "$components/Redirect";
