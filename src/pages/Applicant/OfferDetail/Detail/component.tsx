@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { IMyOffer } from "$interfaces/Applicant";
-
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
@@ -9,7 +8,6 @@ import { SectionDetail } from "$components/SectionDetail";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
-
 import styles from "./styles.module.scss";
 import { IDetailTranslations } from "./interface";
 
@@ -54,6 +52,7 @@ const Detail: FunctionComponent<IDetailProps> = (
           width="expand"
           type="submit"
           disabled={offer.hasApplied}
+          title={offer.hasApplied ? translations.alreadyApplied : ""}
         >
           {translations.apply}
         </Button>

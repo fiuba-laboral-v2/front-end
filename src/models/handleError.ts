@@ -7,6 +7,7 @@ type ErrorName =
   "UserNotFoundError" |
   "AuthenticationError" |
   "ValidationError" |
+  "JobApplicationAlreadyExistsError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";
