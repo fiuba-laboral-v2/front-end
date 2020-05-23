@@ -1,16 +1,22 @@
-import React, { FunctionComponent } from "react";
-import { Route, Switch } from "react-router-dom";
 import { InternalServerError } from "./InternalServerError";
-import NotFound from "./NotFound";
 import { LogIn } from "./LogIn";
 import { Register } from "./Register";
 import Home from "./Home";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+import { NotFound } from "./NotFound";
 
-export const PublicRoutes: FunctionComponent = () =>
-  <Switch>
-    <Route exact path="/" component={Home}/>
-    <Route exact path="/register" component={Register}/>
-    <Route exact path="/login" component={LogIn}/>
-    <Route path="/error" component={InternalServerError}/>
-    <Route component={NotFound}/>
-  </Switch>;
+const {
+  home,
+  register,
+  login,
+  internalServerError,
+  notFound
+} = RoutesBuilder.public;
+
+export const PublicRoutes = [
+  { path: home, component: Home },
+  { path: register, component: Register },
+  { path: login, component: LogIn },
+  { path: internalServerError, component: InternalServerError },
+  { path: notFound, component: NotFound }
+];

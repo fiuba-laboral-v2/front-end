@@ -17,13 +17,13 @@ export const NavBarContainer: FunctionComponent = () => {
 
   if (translations.loading || currentUser.loading) return <Fragment/>;
   if (translations.error || currentUser.error) {
-    return <Redirect to={RoutesBuilder.internalServerError}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   }
 
   const onLogOut = async () => {
     Session.logout();
     await client.clearStore();
-    history.push(RoutesBuilder.login);
+    history.push(RoutesBuilder.public.login);
   };
 
   return (

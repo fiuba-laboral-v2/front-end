@@ -32,7 +32,7 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  margin-top: 2 * $biggerSpacing;
+  margin: 2 * $biggerSpacing 0;
 
   .companyCard,
   .applicantCard {

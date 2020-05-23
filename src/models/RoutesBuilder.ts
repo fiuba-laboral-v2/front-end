@@ -1,20 +1,27 @@
+const applicantURLRoot = "postulante";
+const companyURLRoot = "empresa";
+
 export const RoutesBuilder = {
-  login: "/login",
-  register: "/register",
   applicant: {
-    home: "/applicants",
-    list: "/applicants/list",
-    detail: (uuid: string) => `/applicants/${uuid}`,
-    edit: (uuid: string) => `/applicants/${uuid}/edit`,
-    signUp: "/applicants/sign-up",
-    offerDetail: (uuid: string) => `/applicants/offers/${uuid}`
+    offerList: `/${applicantURLRoot}/ofertas`,
+    list: `/${applicantURLRoot}/list`,
+    detail: (uuid: string) => `/${applicantURLRoot}/${uuid}`,
+    edit: (uuid: string) => `/${applicantURLRoot}/${uuid}/edit`,
+    signUp: `/${applicantURLRoot}/sign-up`,
+    offerDetail: (uuid: string) => `/${applicantURLRoot}/offers/${uuid}`
   },
   company: {
-    list: "/companies",
-    signUp: "/companies/registro",
-    detail: (uuid: string) => `/companies/${uuid}`
+    list: `/${companyURLRoot}`,
+    signUp: `/${companyURLRoot}/registro`,
+    createOffer: `/${companyURLRoot}/oferta/crear`,
+    detail: (uuid: string) => `/${companyURLRoot}/${uuid}`
   },
-  notFound: "/*",
-  internalServerError: "/error",
-  forbidden: "/*"
+  public: {
+    home: "/",
+    register: "/register",
+    login: "/login",
+    internalServerError: "/error",
+    notFound: "/404",
+    forbidden: "/404"
+  }
 };
