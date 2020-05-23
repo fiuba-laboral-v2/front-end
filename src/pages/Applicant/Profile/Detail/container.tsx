@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { GET_APPLICANT } from "$queries";
 import { Detail } from "./component";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -10,6 +10,7 @@ import { sortBy } from "lodash";
 import styles from "./styles.module.scss";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ITranslations } from "./interface";
+import { Redirect } from "$components/Redirect";
 
 const DetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();

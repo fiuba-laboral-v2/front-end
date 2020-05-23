@@ -8,6 +8,7 @@ type ErrorName =
   "AuthenticationError" |
   "UnauthorizedError" |
   "ValidationError" |
+  "JobApplicationAlreadyExistsError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";

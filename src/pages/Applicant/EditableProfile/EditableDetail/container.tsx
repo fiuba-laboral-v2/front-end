@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useCallback } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
@@ -9,6 +9,7 @@ import { GET_APPLICANT } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
+import { Redirect } from "$components/Redirect";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
