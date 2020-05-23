@@ -5,5 +5,5 @@ import { GET_CURRENT_USER } from "$queries";
 export const useCurrentUser = () => useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
 
 interface IUseCurrentUser {
-  getCurrentUser: IUser | undefined;
+  getCurrentUser: (IUser & { applicant?: { uuid: string } }) | undefined;
 }

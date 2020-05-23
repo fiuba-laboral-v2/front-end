@@ -15,5 +15,6 @@ export const RoutesBuilder = {
     detail: (uuid: string) => `/companies/${uuid}`
   },
   notFound: "/*",
-  internalServerError: "/error"
+  internalServerError: "/error",
+  forbidden: "/*"
 };
