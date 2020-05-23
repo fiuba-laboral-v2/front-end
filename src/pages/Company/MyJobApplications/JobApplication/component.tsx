@@ -20,7 +20,9 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         </Subtitle>
         <hr className={styles.separator}/>
         <Subtitle className={styles.applicantName}>
-          <Link to={applicantDetailRoute}>{jobApplication.applicant.user.name}</Link>
+          <Link to={applicantDetailRoute}>
+            {`${jobApplication.applicant.user.name} ${jobApplication.applicant.user.surname}`}
+          </Link>
         </Subtitle>
       </div>
       <TimeHumanizer
