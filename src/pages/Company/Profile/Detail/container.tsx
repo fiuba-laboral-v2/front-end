@@ -14,7 +14,7 @@ const DetailContainer: FunctionComponent = () => {
     error,
     loading
   } = useQuery(GET_COMPANY_BY_UUID, { variables: { uuid } });
-  if (error) history.push(RoutesBuilder.notFound);
+  if (error) history.push(RoutesBuilder.public.notFound);
 
   return <Detail loading={loading} company={company}/>;
 };

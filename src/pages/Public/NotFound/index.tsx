@@ -4,12 +4,12 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ErrorPage } from "$components/ErrorPage";
 import { Window } from "$components/Window";
 
-const NotFoundPage: FunctionComponent = () => {
+export const NotFound: FunctionComponent = () => {
   const history = useHistory();
   return (
     <Window>
       <ErrorPage
-        onClickButton={() => history.push(RoutesBuilder.applicant.home)}
+        onClickButton={() => history.push(RoutesBuilder.applicant.offerList)}
         errorType="Not found"
         title="Parece que esta página no existe"
         imgSrc="images/brokenLink.svg"
@@ -18,5 +18,3 @@ const NotFoundPage: FunctionComponent = () => {
     </Window>
   );
 };
-
-export default NotFoundPage;

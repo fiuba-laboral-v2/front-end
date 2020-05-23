@@ -17,7 +17,7 @@ const CompaniesContainer: FunctionComponent = () => {
     loading
   } = useQuery(GET_COMPANIES);
 
-  if (translations.error || error) return <Redirect to={RoutesBuilder.notFound}/>;
+  if (translations.error || error) return <Redirect to={RoutesBuilder.public.notFound}/>;
 
   return (
     <Companies

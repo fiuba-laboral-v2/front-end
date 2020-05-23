@@ -4,7 +4,7 @@ import ApolloClient from "./ApolloClient";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import Routes from "./routes";
+import Routes from "./routes/routes";
 import { MaterialUITheme } from "./materialUITheme";
 
 const App: FunctionComponent = () => (

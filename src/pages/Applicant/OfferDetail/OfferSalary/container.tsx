@@ -14,7 +14,7 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
   const translations = useTranslations<IOfferSalaryTranslations>("offerSalary");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return (
     <OfferSalary

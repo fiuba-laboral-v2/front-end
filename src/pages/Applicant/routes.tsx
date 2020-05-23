@@ -1,37 +1,25 @@
-import React, { FunctionComponent } from "react";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { SignUp } from "./SignUp";
 import Profile from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
 import { Home } from "./Home";
 import { OfferDetail } from "./OfferDetail";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
-const ApplicantRoutes: FunctionComponent = () => {
-  const { path } = useRouteMatch();
+const {
+  offerList,
+  list,
+  signUp,
+  detail,
+  edit,
+  offerDetail
+} = RoutesBuilder.applicant;
 
-  return (
-    <Switch>
-      <Route exact path={`${path}/`}>
-        <Home />
-      </Route>
-      <Route exact path={`${path}/list`}>
-        <List />
-      </Route>
-      <Route exact path={`${path}/sign-up`}>
-        <SignUp />
-      </Route>
-      <Route exact path={`${path}/:id`}>
-        <Profile />
-      </Route>
-      <Route exact path="/applicants/:id/edit">
-        <EditableProfile />
-      </Route>
-      <Route exact path="/applicants/offers/:id">
-        <OfferDetail />
-      </Route>
-    </Switch>
-  );
-};
-
-export default ApplicantRoutes;
+export const ApplicantRoutes = [
+  { path: offerList, component: Home },
+  { path: list, component: List },
+  { path: signUp, component: SignUp, public: true },
+  { path: detail(":id"), component: Profile },
+  { path: edit(":id"), component: EditableProfile },
+  { path: offerDetail(":id"), component: OfferDetail }
+];

@@ -11,7 +11,7 @@ const RegisterContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<IRegisterTranslations>("register");
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError} />;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return (
     <Register

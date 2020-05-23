@@ -4,5 +4,8 @@ query {
         email
         name
         surname
+        applicant {
+            uuid
+        }
     }
 }

@@ -45,7 +45,7 @@ const SignUpContainer: FunctionComponent = () => {
         variables: { user: userAttributes, ...applicantValues },
         handlers: {
           UserEmailAlreadyExistsError: () => setErrors({ user: { email: `Este email ya existe` } }),
-          defaultHandler: () => history.push(RoutesBuilder.internalServerError)
+          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError)
         }
       }
     );
@@ -53,7 +53,7 @@ const SignUpContainer: FunctionComponent = () => {
 
     const loginResult = await login({
       variables: { email: userAttributes.email, password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.internalServerError) }
+      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.internalServerError) }
     });
     if (loginResult.error) return;
 
@@ -63,7 +63,7 @@ const SignUpContainer: FunctionComponent = () => {
   };
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return (
     <SignUp

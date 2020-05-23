@@ -13,7 +13,7 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
   const translations = useTranslations<ICareerTranslations>("careersDetail");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return (
     <CareersDetail
