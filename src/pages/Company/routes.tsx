@@ -4,6 +4,7 @@ import { Profile } from "./Profile";
 import { List } from "./List";
 import { SignUp } from "./SignUp";
 import { CreateOffer } from "./CreateOffer";
+import { MyJobApplications } from "./MyJobApplications";
 
 const CompanyRoutes: FunctionComponent = () => {
   const { path } = useRouteMatch();
@@ -18,6 +19,9 @@ const CompanyRoutes: FunctionComponent = () => {
       </Route>
       <Route exact path={`${path}/oferta/crear`}>
         <CreateOffer />
+      </Route>
+      <Route exact path={`${path}/postulaciones`}>
+        <MyJobApplications />
       </Route>
       <Route exact path={`${path}/:id`}>
         <Profile />

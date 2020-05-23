@@ -1,0 +1,32 @@
+@import "$styles/_variables";
+
+.card {
+  display: flex;
+
+  .leftContainer {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .separator {
+    background: $lightGrey;
+    border: 0;
+    height: auto;
+    margin: 0;
+    width: 1px;
+  }
+
+  .offerTitle,
+  .separator {
+    margin-right: 20px;
+  }
+
+  .applicantName {
+    align-self: center;
+  }
+
+  .createdAt {
+    align-self: flex-end;
+    flex-shrink: 1;
+  }
+}
