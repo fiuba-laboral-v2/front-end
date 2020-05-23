@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { JobApplication } from "./JobApplication";
 import { Window } from "$components/Window";
-
-import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IJobApplication } from "$interfaces/JobApplication";
 
 export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
@@ -11,11 +9,9 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
   }
 ) => (
   <Window>
-    {
-      jobApplications.map(jobApplication =>
-        <JobApplication key={jobApplication.applicant.uuid} jobApplication={jobApplication} />
-      )
-    }
+    {jobApplications.map(jobApplication =>
+      <JobApplication key={jobApplication.applicant.uuid} jobApplication={jobApplication} />
+    )}
   </Window>
 );
 
