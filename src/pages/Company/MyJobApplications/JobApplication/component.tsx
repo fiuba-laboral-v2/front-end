@@ -10,24 +10,27 @@ import styles from "./styles.module.scss";
 
 export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
-    jobApplication
+    jobApplication: {
+      offer,
+      applicant
+    }
   }) => {
   return (
     <ClickableCard className={styles.card}>
       <div className={styles.leftContainer}>
         <Subtitle className={styles.offerTitle}>
-          {jobApplication.offer.title}
+          {offer.title}
         </Subtitle>
         <hr className={styles.separator}/>
         <Subtitle className={styles.applicantName}>
-          <Link to={RoutesBuilder.applicant.detail(jobApplication.applicant.uuid)}>
-            {`${jobApplication.applicant.user.name} ${jobApplication.applicant.user.surname}`}
+          <Link to={RoutesBuilder.applicant.detail(applicant.uuid)}>
+            {`${applicant.user.name} ${applicant.user.surname}`}
           </Link>
         </Subtitle>
       </div>
       <TimeHumanizer
         className={styles.createdAt}
-        since={parseInt(jobApplication.offer.createdAt, 10)}
+        since={parseInt(offer.createdAt, 10)}
       />
     </ClickableCard>
   );
