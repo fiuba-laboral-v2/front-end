@@ -6,6 +6,7 @@ type ErrorName =
   "BadCredentialsError" |
   "UserNotFoundError" |
   "AuthenticationError" |
+  "UnauthorizedError" |
   "ValidationError" |
   "JobApplicationAlreadyExistsError" |
   "MissingTranslationError";

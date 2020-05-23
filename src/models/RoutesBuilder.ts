@@ -14,6 +14,7 @@ export const RoutesBuilder = {
     list: `/${companyURLRoot}`,
     signUp: `/${companyURLRoot}/registro`,
     createOffer: `/${companyURLRoot}/oferta/crear`,
+    jobApplications: "/companies/postulaciones",
     detail: (uuid: string) => `/${companyURLRoot}/${uuid}`
   },
   public: {

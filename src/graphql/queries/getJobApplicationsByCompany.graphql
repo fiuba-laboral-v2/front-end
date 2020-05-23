@@ -1,0 +1,15 @@
+query getJobApplicationsByCompany {
+    getJobApplicationsByCompany {
+        offer {
+            uuid
+            title
+        }
+        applicant {
+            uuid
+            user {
+                name
+                surname
+            }
+        }
+    }
+}
