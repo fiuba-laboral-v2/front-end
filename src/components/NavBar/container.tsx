@@ -1,23 +1,24 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useApolloClient, useQuery } from "@apollo/react-hooks";
+import { useApolloClient } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
-import { ME } from "$queries";
 import { Session } from "$models/Session";
-import { IUser } from "$interfaces/User";
-
 import { NavBar } from "./component";
 import { INavBarTranslations } from "./interface";
+import { Redirect } from "../Redirect";
+import { useCurrentUser } from "$hooks/queries/useCurrentUser";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
-  const { data: { me } = { me: {} as IUser }, error, loading } = useQuery(ME);
+  const currentUser = useCurrentUser();
 
-  if (translations.loading || loading) return <Fragment/>;
-  if (translations.error) return <Fragment/>;
+  if (translations.loading || currentUser.loading) return <Fragment/>;
+  if (translations.error || currentUser.error) {
+    return <Redirect to={RoutesBuilder.internalServerError}/>;
+  }
 
   const onLogOut = async () => {
     Session.logout();
@@ -28,9 +29,9 @@ export const NavBarContainer: FunctionComponent = () => {
   return (
     <NavBar
       logOut={onLogOut}
-      isLoggedIn={!error}
+      isLoggedIn={!!currentUser.data}
       translations={translations.data}
-      username={me.name}
+      username={currentUser.data.getCurrentUser?.name || ""}
     />
   );
 };
