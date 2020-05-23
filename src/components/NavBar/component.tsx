@@ -63,6 +63,6 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 interface INavBarProps {
   logOut: () => void;
   isLoggedIn: boolean;
-  username: string;
+  username?: string;
   translations: INavBarTranslations;
 }

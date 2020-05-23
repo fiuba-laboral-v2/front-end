@@ -29,9 +29,9 @@ export const NavBarContainer: FunctionComponent = () => {
   return (
     <NavBar
       logOut={onLogOut}
-      isLoggedIn={!!currentUser.data}
+      isLoggedIn={!!currentUser.data.getCurrentUser}
       translations={translations.data}
-      username={currentUser.data.getCurrentUser?.name || ""}
+      username={currentUser.data.getCurrentUser?.name}
     />
   );
 };

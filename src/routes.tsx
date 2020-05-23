@@ -1,39 +1,16 @@
 import React, { FunctionComponent } from "react";
-import { Route, Switch, HashRouter } from "react-router-dom";
-
-import Home from "$pages/Home";
-import { Register } from "$pages/Register";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { CompanyRoutes } from "$pages/Company/routes";
-import { LogIn } from "$pages/LogIn";
 import ApplicantRoutes from "$pages/Applicant/routes";
-import NotFound from "./pages/NotFound";
-import { InternalServerError } from "./pages/InternalServerError";
 import Configuration from "$config";
+import { PublicRoutes } from "./pages/Public/routes";
 
 const Routes: FunctionComponent = () => (
   <HashRouter basename={Configuration.sub_domain}>
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/register">
-        <Register />
-      </Route>
-      <Route exact path="/login">
-        <LogIn />
-      </Route>
-      <Route path="/companies">
-        <CompanyRoutes />
-      </Route>
-      <Route path="/applicants">
-        <ApplicantRoutes />
-      </Route>
-      <Route path="/error">
-        <InternalServerError />
-      </Route>
-      <Route>
-        <NotFound />
-      </Route>
+      <Route path="/applicants" component={ApplicantRoutes}/>
+      <Route path="/companies" component={CompanyRoutes}/>
+      <Route component={PublicRoutes}/>
     </Switch>
   </HashRouter>
 );
