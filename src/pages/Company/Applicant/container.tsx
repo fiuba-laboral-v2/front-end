@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useParams } from "react-router-dom";
 import { GET_APPLICANT } from "$queries";
 import { useQuery } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -19,7 +20,7 @@ export const ApplicantContainer: FunctionComponent = () => {
     }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.forbidden}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <Applicant applicant={response.data.getApplicant}/>;
