@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { RouteProps } from "react-router-dom";
-import { UserRoute } from "./UserRoute";
+import { UserRoute, IGenericUserRoute } from "./UserRoute";
 
-export const CompanyRoute: FunctionComponent<RouteProps & { public?: boolean }> = props => {
-  return <UserRoute userType="company" {...props} />;
-};
+export const CompanyRoute: FunctionComponent<IGenericUserRoute> = props =>
+  <UserRoute userType="company" {...props} />;

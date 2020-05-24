@@ -10,7 +10,7 @@ const {
   forbidden
 } = RoutesBuilder.public;
 
-export const UserRoute: FunctionComponent<ICustomRoute> = props => {
+export const UserRoute: FunctionComponent<IUserRoute> = props => {
   const currentUser = useCurrentUser();
 
   if (currentUser.loading) return <Fragment/>;
@@ -25,7 +25,10 @@ export const UserRoute: FunctionComponent<ICustomRoute> = props => {
   return <Route {...props}/>;
 };
 
-interface ICustomRoute extends RouteProps {
+export interface IGenericUserRoute extends RouteProps {
   public?: boolean;
+}
+
+export interface IUserRoute extends IGenericUserRoute {
   userType: "applicant" | "company";
 }
