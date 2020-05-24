@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
 import { GET_MY_APPLICANT_PROFILE } from "$queries";
 import { useQuery } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -11,20 +10,12 @@ import { Profile } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 
 export const ProfileContainer: FunctionComponent = () => {
-  const history = useHistory();
-
   const response = useQuery<{}, { getCurrentUser: { applicant: IApplicant } }>(
     GET_MY_APPLICANT_PROFILE,
-    {
-      fetchPolicy: "no-cache",
-      errorHandlers: {
-        UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden),
-        AuthenticationError: () => history.push(RoutesBuilder.public.login)
-      }
-    }
+    { fetchPolicy: "no-cache" }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.forbidden}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <Profile applicant={response.data.getCurrentUser.applicant}/>;
