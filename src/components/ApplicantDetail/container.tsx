@@ -18,7 +18,6 @@ export const ApplicantDetailContainer: FunctionComponent<IDetailContainerContain
 
   if (translations.loading) return <LoadingSpinner/>;
 
-  applicant.links = applicant.links || [];
   applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
 
   return (

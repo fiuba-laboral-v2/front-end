@@ -1,6 +1,8 @@
-query {
+query getMyApplicantProfile {
     getCurrentUser {
+        uuid
         applicant {
+            uuid
             user {
                 uuid
                 email
