@@ -3,6 +3,7 @@ export interface INavBarTranslations {
   applicants: string;
   jobOffers: string;
   jobApplications: string;
+  createOffer: string;
   signUp: string;
   logIn: string;
   logOut: string;
