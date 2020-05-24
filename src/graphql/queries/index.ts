@@ -10,7 +10,7 @@ const GET_COMPANIES = loader("./getCompanies.graphql");
 const GET_OFFER_BY_UUID = loader("./getOfferByUuid.graphql");
 const GET_OFFERS = loader("./getOffers.graphql");
 const GET_CURRENT_USER = loader("./getCurrentUser.graphql");
-const GET_JOB_APPLICATIONS_BY_COMPANY = loader("./getJobApplicationsByCompany.graphql");
+const GET_MY_JOB_APPLICATIONS = loader("./getMyLatestJobApplications.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -23,5 +23,5 @@ export {
   GET_OFFER_BY_UUID,
   GET_CAPABILITIES,
   GET_OFFERS,
-  GET_JOB_APPLICATIONS_BY_COMPANY
+  GET_MY_JOB_APPLICATIONS
 };
