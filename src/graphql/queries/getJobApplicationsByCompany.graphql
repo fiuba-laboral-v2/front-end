@@ -3,6 +3,7 @@ query getJobApplicationsByCompany {
         offer {
             uuid
             title
+            createdAt
         }
         applicant {
             uuid
