@@ -13,6 +13,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
     className,
     jobApplication: {
+      createdAt,
       offer,
       applicant
     }
@@ -32,7 +33,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
       </div>
       <TimeHumanizer
         className={styles.createdAt}
-        since={parseInt(offer.createdAt, 10)}
+        since={parseInt(createdAt, 10)}
       />
     </ClickableCard>
   );
