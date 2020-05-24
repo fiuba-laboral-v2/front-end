@@ -46,7 +46,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
                     {editButtonText}
                   </Button>
                   <Button
-                    onClick={() => onClickView(applicant.uuid)}
+                    onClick={onClickView}
                     className="primary"
                   >
                     {viewButtonText}

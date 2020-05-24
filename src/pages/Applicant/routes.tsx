@@ -1,5 +1,5 @@
 import { SignUp } from "./SignUp";
-import Profile from "./Profile";
+import { Profile } from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
 import { Home } from "./Home";
@@ -19,7 +19,7 @@ export const ApplicantRoutes = [
   { path: offerList, component: Home },
   { path: list, component: List },
   { path: signUp, component: SignUp, public: true },
-  { path: detail(":id"), component: Profile },
+  { path: detail, component: Profile },
   { path: edit(":id"), component: EditableProfile },
   { path: offerDetail(":id"), component: OfferDetail }
 ];

@@ -26,7 +26,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         </Subtitle>
         <hr className={styles.separator}/>
         <Subtitle className={styles.applicantName}>
-          <Link to={RoutesBuilder.applicant.detail(applicant.uuid)}>
+          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
             {`${applicant.user.name} ${applicant.user.surname}`}
           </Link>
         </Subtitle>

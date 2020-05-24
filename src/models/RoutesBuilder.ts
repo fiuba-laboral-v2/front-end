@@ -5,7 +5,7 @@ export const RoutesBuilder = {
   applicant: {
     offerList: `/${applicantURLRoot}/ofertas`,
     list: `/${applicantURLRoot}/list`,
-    detail: (uuid: string) => `/${applicantURLRoot}/${uuid}`,
+    detail: `/${applicantURLRoot}/perfil`,
     edit: (uuid: string) => `/${applicantURLRoot}/${uuid}/edit`,
     signUp: `/${applicantURLRoot}/sign-up`,
     offerDetail: (uuid: string) => `/${applicantURLRoot}/offers/${uuid}`
@@ -14,8 +14,9 @@ export const RoutesBuilder = {
     list: `/${companyURLRoot}`,
     signUp: `/${companyURLRoot}/registro`,
     createOffer: `/${companyURLRoot}/oferta/crear`,
-    jobApplications: "/companies/postulaciones",
-    detail: (uuid: string) => `/${companyURLRoot}/${uuid}`
+    jobApplications: `/${companyURLRoot}/postulaciones`,
+    detail: (uuid: string) => `/${companyURLRoot}/${uuid}`,
+    applicantDetail: (uuid: string) => `/${companyURLRoot}/postulantes/${uuid}`
   },
   public: {
     home: "/",

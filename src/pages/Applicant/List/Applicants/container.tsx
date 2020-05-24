@@ -25,7 +25,7 @@ const ApplicantsContainer: FunctionComponent = () => {
       loading={loading || translations.loading}
       applicants={getApplicants}
       onClickEdit={(uuid: string) => history.push(RoutesBuilder.applicant.edit(uuid))}
-      onClickView={(uuid: string) => history.push(RoutesBuilder.applicant.detail(uuid))}
+      onClickView={() => history.push(RoutesBuilder.applicant.detail)}
       translations={translations.data}
     />
   );

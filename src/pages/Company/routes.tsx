@@ -3,6 +3,7 @@ import { List } from "./List";
 import { SignUp } from "./SignUp";
 import { CreateOffer } from "./CreateOffer";
 import { MyJobApplications } from "./MyJobApplications";
+import { Applicant } from "./Applicant";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -10,7 +11,8 @@ const {
   signUp,
   createOffer,
   jobApplications,
-  detail
+  detail,
+  applicantDetail
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -18,5 +20,6 @@ export const CompanyRoutes = [
   { path: signUp, component: SignUp },
   { path: createOffer, component: CreateOffer },
   { path: jobApplications, component: MyJobApplications },
-  { path: detail(":id"), component: Profile }
+  { path: detail(":id"), component: Profile },
+  { path: applicantDetail(":id"), component: Applicant }
 ];
