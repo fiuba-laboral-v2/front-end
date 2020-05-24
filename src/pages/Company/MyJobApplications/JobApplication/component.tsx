@@ -1,22 +1,24 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { IJobApplicationProps } from "./interfaces";
+import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
 
 export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
+    className,
     jobApplication: {
       offer,
       applicant
     }
   }) => {
   return (
-    <ClickableCard className={styles.card}>
+    <ClickableCard className={classNames(styles.card, className)}>
       <div className={styles.leftContainer}>
         <Subtitle className={styles.offerTitle}>
           {offer.title}
@@ -35,3 +37,8 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
     </ClickableCard>
   );
 };
+
+interface IJobApplicationProps {
+  className: string;
+  jobApplication: IJobApplication;
+}

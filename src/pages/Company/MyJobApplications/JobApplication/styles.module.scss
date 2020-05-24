@@ -30,3 +30,36 @@
     flex-shrink: 1;
   }
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .card {
+    flex-direction: column;
+
+    .leftContainer {
+      flex-direction: column;
+    }
+
+    .offerTitle,
+    .separator {
+      margin-right: 0;
+    }
+
+    .separator {
+      height: 1px;
+      margin: $normalSpacing 0;
+      width: auto;
+    }
+
+    .applicantName {
+      align-self: unset;
+    }
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .card {
+    .leftContainer {
+      margin-bottom: $normalSpacing;
+    }
+  }
+}

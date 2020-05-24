@@ -1,0 +1,7 @@
+@import "$styles/_variables";
+
+.card {
+  &:not(:last-child) {
+    margin-bottom: $bigSpacing;
+  }
+}
