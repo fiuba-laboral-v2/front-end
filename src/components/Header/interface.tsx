@@ -1,4 +1,4 @@
-export interface ITitleProps {
+export interface IHeaderProps {
   title: string;
   subtitle?: string;
 }
