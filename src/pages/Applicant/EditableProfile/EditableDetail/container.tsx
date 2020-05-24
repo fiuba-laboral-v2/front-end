@@ -73,7 +73,7 @@ const EditableDetailContainer: FunctionComponent = () => {
           careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
         }
       });
-      history.push(RoutesBuilder.applicant.detail(uuid!));
+      history.push(RoutesBuilder.applicant.detail);
     } catch (error) {
       history.push(RoutesBuilder.public.notFound);
     }

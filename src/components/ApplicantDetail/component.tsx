@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
-import { CapabilitiesDetail } from "$pages/Applicant/Profile/CapabilitiesDetail";
-import { CareersDetail } from "$pages/Applicant/Profile/CareersDetail";
+import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
+import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
 
 import styles from "./styles.module.scss";
@@ -10,7 +10,7 @@ import { IApplicant } from "$interfaces/Applicant";
 import { Description } from "$components/Description";
 import { ITranslations } from "./interface";
 
-const Detail: FunctionComponent<IApplicantDetailProps> = (
+export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
     translations
@@ -41,5 +41,3 @@ interface IApplicantDetailProps {
   applicant: IApplicant;
   translations: ITranslations;
 }
-
-export { Detail };

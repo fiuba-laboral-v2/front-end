@@ -1,0 +1,36 @@
+query {
+    getCurrentUser {
+        applicant {
+            user {
+                uuid
+                email
+                name
+                surname
+            }
+            uuid
+            padron
+            description
+            capabilities {
+                uuid
+                description
+            }
+            careers {
+                code
+                description
+                credits
+                creditsCount
+            }
+            sections {
+                uuid
+                title
+                text
+                displayOrder
+            }
+            links {
+                name
+                url
+            }
+
+        }
+    }
+}
