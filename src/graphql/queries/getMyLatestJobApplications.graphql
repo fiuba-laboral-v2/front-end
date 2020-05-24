@@ -1,8 +1,10 @@
-query getJobApplicationsByCompany {
-    getJobApplicationsByCompany {
+query getMyLatestJobApplications {
+    getMyLatestJobApplications {
+        createdAt
         offer {
             uuid
             title
+            createdAt
         }
         applicant {
             uuid

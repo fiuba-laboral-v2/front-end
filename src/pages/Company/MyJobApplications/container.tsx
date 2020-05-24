@@ -6,12 +6,12 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { useQuery } from "$models/hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { GET_JOB_APPLICATIONS_BY_COMPANY } from "$queries";
+import { GET_MY_JOB_APPLICATIONS } from "$queries";
 
 export const MyJobApplicationsContainer: FunctionComponent = () => {
   const history = useHistory();
-  const response = useQuery<{}, { getJobApplicationsByCompany: IJobApplication[] }>(
-    GET_JOB_APPLICATIONS_BY_COMPANY,
+  const response = useQuery<{}, { getMyLatestJobApplications: IJobApplication[] }>(
+    GET_MY_JOB_APPLICATIONS,
     {
       errorHandlers: {
         UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden),
@@ -23,6 +23,6 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
   if (response.loading) return <LoadingSpinner />;
 
   return (
-    <MyJobApplications jobApplications={response.data.getJobApplicationsByCompany}/>
+    <MyJobApplications jobApplications={response.data.getMyLatestJobApplications}/>
   );
 };

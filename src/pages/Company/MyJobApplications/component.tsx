@@ -3,6 +3,7 @@ import { List } from "$components/List";
 import { JobApplication } from "./JobApplication";
 import { Window } from "$components/Window";
 import { IJobApplication } from "$interfaces/JobApplication";
+import styles from "./styles.module.scss";
 
 export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
   {
@@ -12,7 +13,11 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
   <Window>
     <List list={jobApplications}>
       {jobApplication =>
-        <JobApplication key={jobApplication.applicant.uuid} jobApplication={jobApplication} />
+        <JobApplication
+          className={styles.card}
+          key={`${jobApplication.offer.uuid} ${jobApplication.applicant.uuid}`}
+          jobApplication={jobApplication}
+        />
       }
     </List>
   </Window>
