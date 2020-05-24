@@ -10,7 +10,7 @@ const {
   forbidden
 } = RoutesBuilder.public;
 
-export const CustomRoute: FunctionComponent<ICustomRoute> = props => {
+export const UserRoute: FunctionComponent<ICustomRoute> = props => {
   const currentUser = useCurrentUser();
 
   if (currentUser.loading) return <Fragment/>;
