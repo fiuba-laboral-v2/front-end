@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
-import { ITitleProps } from "./interface";
+import { IHeaderProps } from "./interface";
 import classNames from "classnames";
 
-const Title: FunctionComponent<ITitleProps> = (
+const Header: FunctionComponent<IHeaderProps> = (
   {
     title,
     subtitle
@@ -16,4 +16,4 @@ const Title: FunctionComponent<ITitleProps> = (
   </div>
 );
 
-export { Title };
+export { Header };

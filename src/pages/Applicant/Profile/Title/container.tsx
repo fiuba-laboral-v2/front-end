@@ -1,18 +1,18 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
-import { Title } from "$components/Title";
+import { Header } from "$components/Header";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ITitleProps } from "$components/Title/interface";
+import { IHeaderProps } from "$components/Header/interface";
 import { Redirect } from "$components/Redirect";
 
 const TitleContainer: FunctionComponent = () => {
-  const translations = useTranslations<ITitleProps>("applicantProfileTitle");
+  const translations = useTranslations<IHeaderProps>("applicantProfileTitle");
 
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
 
   return (
-    <Title
+    <Header
       title={translations.data.title}
       subtitle={translations.data.subtitle}
     />
