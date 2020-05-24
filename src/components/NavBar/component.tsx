@@ -44,6 +44,10 @@ export const NavBar: FunctionComponent<INavBarProps> = (
           className={classNames({ [styles.logged]: !isLoggedIn })}
           to={RoutesBuilder.company.jobApplications}>{translations.jobApplications}
         </Link>
+        <Link
+          className={classNames({ [styles.logged]: !isLoggedIn })}
+          to={RoutesBuilder.company.createOffer}>{translations.createOffer}
+        </Link>
         <div className={styles.separator}/>
         <div className={styles.user}>
           {
