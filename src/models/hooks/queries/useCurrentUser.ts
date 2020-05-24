@@ -1,7 +1,5 @@
 import { useQuery } from "../useQuery";
 import { IUser } from "$interfaces/User";
-import { IApplicant } from "$interfaces/Applicant";
-import { ICompany } from "$interfaces/Company";
 import { GET_CURRENT_USER } from "$queries";
 
 export const useCurrentUser = () => useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
@@ -17,10 +15,10 @@ export interface ICurrentUser extends IUser {
 
 export interface ICurrentApplicant extends IUser {
   company?: undefined;
-  applicant: IApplicant;
+  applicant: { uuid: string };
 }
 
 export interface ICurrentCompany extends IUser {
-  company: ICompany;
+  company: { uuid: string };
   applicant?: undefined;
 }
