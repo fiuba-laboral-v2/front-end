@@ -14,12 +14,10 @@ export const ApplicantContainer: FunctionComponent = () => {
 
   const response = useQuery<{}, { getApplicant: IApplicant }>(
     GET_APPLICANT,
-    {
-      variables: { uuid }
-    }
+    { variables: { uuid } }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.forbidden}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <Applicant applicant={response.data.getApplicant}/>;
