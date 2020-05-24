@@ -11,8 +11,7 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export const ProfileContainer: FunctionComponent = () => {
   const response = useQuery<{}, { getCurrentUser: { applicant: IApplicant } }>(
-    GET_MY_APPLICANT_PROFILE,
-    { fetchPolicy: "no-cache" }
+    GET_MY_APPLICANT_PROFILE
   );
 
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;

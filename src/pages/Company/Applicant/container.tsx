@@ -15,7 +15,6 @@ export const ApplicantContainer: FunctionComponent = () => {
   const response = useQuery<{}, { getApplicant: IApplicant }>(
     GET_APPLICANT,
     {
-      fetchPolicy: "no-cache",
       variables: { uuid }
     }
   );
