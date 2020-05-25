@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Link as ReactLink, LinkProps } from "react-router-dom";
+import { Link as ReactRouterLink, LinkProps } from "react-router-dom";
 
 export const Link: FunctionComponent<LinkProps> = (
   {
@@ -7,4 +7,4 @@ export const Link: FunctionComponent<LinkProps> = (
     ...props
   }
 ) =>
-  <ReactLink onClick={onClick} {...props}/>;
+  <ReactRouterLink onClick={onClick} {...props}/>;
