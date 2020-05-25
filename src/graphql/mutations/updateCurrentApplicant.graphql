@@ -1,0 +1,50 @@
+mutation updateCurrentApplicant(
+  $user: UserUpdateInput,
+  $padron: Int,
+  $description: String,
+  $careers: [CareerCredits],
+  $capabilities: [String],
+  $sections: [SectionInput],
+  $links: [LinkInput]
+) 
+{
+  updateCurrentApplicant(
+    padron: $padron,
+    user: $user,
+    description: $description,
+    careers: $careers,
+    capabilities: $capabilities,
+    sections: $sections,
+    links: $links
+  ) 
+  {
+    uuid
+    padron
+    user {
+      uuid
+      name
+      surname
+    }
+    description
+    capabilities {
+      uuid
+      description
+    }
+    careers {
+      code
+      description
+      credits
+      creditsCount
+    }
+    sections {
+      uuid
+      title
+      text
+      displayOrder
+    }
+    links {
+      name
+      url
+    }
+  }
+}

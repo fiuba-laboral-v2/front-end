@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { IApplicant } from "$interfaces/Applicant";
 import { sortBy } from "lodash";
 import { ApplicantDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
-import { ITranslations } from "./interface";
+import { IApplicantDetailContainerProps, ITranslations } from "./interface";
 
-export const ApplicantDetailContainer: FunctionComponent<IDetailContainerContainerProps> = (
+export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = (
   {
-    applicant
+    applicant,
+    editButton
   }
 ) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
@@ -24,10 +24,7 @@ export const ApplicantDetailContainer: FunctionComponent<IDetailContainerContain
     <ApplicantDetail
       applicant={applicant}
       translations={translations.data}
+      editButton={editButton}
     />
   );
 };
-
-interface IDetailContainerContainerProps {
-  applicant: IApplicant;
-}

@@ -59,7 +59,7 @@ const SignUpContainer: FunctionComponent = () => {
 
     setSubmitting(false);
     Session.login(loginResult.data.login);
-    history.push(RoutesBuilder.applicant.edit(saveApplicantResult.data.saveApplicant.uuid));
+    history.push(RoutesBuilder.applicant.editMyProfile);
   };
 
   if (translations.loading) return <Fragment/>;

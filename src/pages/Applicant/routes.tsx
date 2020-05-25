@@ -13,7 +13,7 @@ const {
   list,
   signUp,
   myProfile,
-  edit,
+  editMyProfile,
   offerDetail,
   companyProfile,
   companies
@@ -24,7 +24,7 @@ export const ApplicantRoutes = [
   { path: list, component: List },
   { path: signUp, component: SignUp, public: true },
   { path: myProfile, component: Profile },
-  { path: edit(":id"), component: EditableProfile },
+  { path: editMyProfile, component: EditableProfile },
   { path: offerDetail(":id"), component: OfferDetail },
   { path: companyProfile(":id"), component: CompanyProfile },
   { path: companies, component: Companies }

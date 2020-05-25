@@ -1,9 +1,15 @@
 mutation SaveApplicant(
-  $padron: Int!, $user: UserInput!, $careers: [CareerCredits]!,
-  $description: String, $capabilities: [String]
+  $padron: Int!,
+  $user: UserInput!,
+  $careers: [CareerCredits]!,
+  $description: String,
+  $capabilities: [String]
   ) {
   saveApplicant(
-    padron: $padron, user: $user, description: $description, careers: $careers,
+    padron: $padron,
+    user: $user,
+    description: $description,
+    careers: $careers,
     capabilities: $capabilities
   ) {
     uuid

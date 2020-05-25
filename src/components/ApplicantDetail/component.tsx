@@ -6,18 +6,23 @@ import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
 
 import styles from "./styles.module.scss";
-import { IApplicant } from "$interfaces/Applicant";
 import { Description } from "$components/Description";
-import { ITranslations } from "./interface";
+import { IApplicantDetailProps } from "./interface";
 
 export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
-    translations
+    translations,
+    editButton
   }) => (
   <div className={styles.container}>
     <div className={styles.headline}>
-      <Headline>{`${applicant.user.name} ${applicant.user.surname}`}</Headline>
+      <div className={styles.header}>
+        <Headline className={styles.applicantName}>{
+          `${applicant.user.name} ${applicant.user.surname}`
+        }</Headline>
+        {editButton}
+      </div>
       <Links links={applicant.links}/>
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
@@ -36,8 +41,3 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     }
   </div>
 );
-
-interface IApplicantDetailProps {
-  applicant: IApplicant;
-  translations: ITranslations;
-}
