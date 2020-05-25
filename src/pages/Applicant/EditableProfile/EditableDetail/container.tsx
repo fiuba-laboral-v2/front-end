@@ -2,12 +2,11 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
-import { useTranslations, useUpdateCurrentApplicant } from "$hooks";
+import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { Redirect } from "$components/Redirect";
-import { useMyApplicantProfile } from "$hooks";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
