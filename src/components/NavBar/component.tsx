@@ -5,11 +5,12 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import styles from "./styles.module.scss";
 import classNames from "classnames";
-import { INavBarTranslations } from "./interface";
+import { INavBarLink, INavBarTranslations } from "./interface";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
     logOut,
+    links,
     isLoggedIn,
     username,
     translations
@@ -28,26 +29,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         </div>
       </div>
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
-        <Link
-          className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.list}>{translations.companies}
-        </Link>
-        <Link
-          className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.list}>{translations.applicants}
-        </Link>
-        <Link
-          className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.applicant.offerList}>{translations.jobOffers}
-        </Link>
-        <Link
-          className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.jobApplications}>{translations.jobApplications}
-        </Link>
-        <Link
-          className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.createOffer}>{translations.createOffer}
-        </Link>
+        {links.map(link => <Link to={link.path}>{link.title}</Link>)}
         <div className={styles.separator}/>
         <div className={styles.user}>
           {
@@ -70,6 +52,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
 
 interface INavBarProps {
   logOut: () => void;
+  links: INavBarLink[];
   isLoggedIn: boolean;
   username?: string;
   translations: INavBarTranslations;

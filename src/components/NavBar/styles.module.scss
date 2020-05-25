@@ -1,13 +1,7 @@
 @import "$styles/_variables";
 
-.menu {
-  :last-child {
-    margin-right: 0;
-  }
-
-  .logged {
-    display: none;
-  }
+.menu :last-child {
+  margin-right: 0;
 }
 
 .navBar {
