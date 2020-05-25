@@ -41,7 +41,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
     setSubmitting(false);
     Session.login(loginResult.data.login);
-    history.push(RoutesBuilder.applicant.offerList);
+    history.push(RoutesBuilder.public.home);
   };
 
   return (

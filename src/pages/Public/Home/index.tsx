@@ -4,6 +4,7 @@ import { Redirect } from "$components/Redirect";
 import { useCurrentUser } from "$hooks/queries/useCurrentUser";
 
 const { offerList } = RoutesBuilder.applicant;
+const { jobApplications } = RoutesBuilder.company;
 const { internalServerError, login } = RoutesBuilder.public;
 
 const Home: FunctionComponent = () => {
@@ -12,9 +13,9 @@ const Home: FunctionComponent = () => {
   if (currentUser.loading) return <Fragment/>;
   if (currentUser.error) return <Redirect to={internalServerError}/>;
 
-  const isLoggedIn = currentUser.data.getCurrentUser;
-
-  return <Redirect to={isLoggedIn ? offerList : login}/>;
+  if (currentUser.data.getCurrentUser?.applicant) return <Redirect to={offerList}/>;
+  if (currentUser.data.getCurrentUser?.company) return <Redirect to={jobApplications}/>;
+  return <Redirect to={login}/>;
 };
 
 export default Home;
