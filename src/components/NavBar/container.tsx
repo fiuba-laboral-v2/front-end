@@ -30,7 +30,8 @@ export const NavBarContainer: FunctionComponent = () => {
   if (currentUser.data.getCurrentUser?.company) {
     links = [
       { path: RoutesBuilder.company.jobApplications, title: translations.data.jobApplications },
-      { path: RoutesBuilder.company.createOffer, title: translations.data.createOffer }
+      { path: RoutesBuilder.company.createOffer, title: translations.data.createOffer },
+      { path: RoutesBuilder.company.myProfile, title: translations.data.myCompanyProfile }
     ];
   }
 
