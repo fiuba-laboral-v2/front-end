@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
@@ -18,16 +18,23 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
       applicant
     }
   }) => {
+  const history = useHistory();
   return (
-    <ClickableCard className={classNames(styles.card, className)}>
+    <ClickableCard
+      className={classNames(styles.card, className)}
+      onClick={() => history.push(RoutesBuilder.company.applicantDetail(applicant.uuid))}
+    >
       <div className={styles.leftContainer}>
-        <Subtitle className={styles.offerTitle}>
-          {offer.title}
+        <Subtitle className={styles.applicantName}>
+          {`${applicant.user.name} ${applicant.user.surname}`}
         </Subtitle>
         <hr className={styles.separator}/>
-        <Subtitle className={styles.applicantName}>
-          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
-            {`${applicant.user.name} ${applicant.user.surname}`}
+        <Subtitle className={styles.offerTitle}>
+          <Link
+            to={RoutesBuilder.company.offer(offer.uuid)}
+            onClick={event => event.stopPropagation()}
+          >
+            {offer.title}
           </Link>
         </Subtitle>
       </div>

@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { IMyOffer } from "$interfaces/Applicant";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
@@ -9,9 +8,12 @@ import { TimeHumanizer } from "$components/TimeHumanizer";
 import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
 import styles from "./styles.module.scss";
-import { IDetailTranslations } from "./interface";
+import { sortBy } from "lodash";
+import { IOfferDetailTranslations } from "./interface";
+import { IOffer } from "$interfaces/Offer";
+import { IMyOffer } from "$interfaces/Applicant";
 
-const Detail: FunctionComponent<IDetailProps> = (
+export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
     apply,
     offer,
@@ -39,33 +41,34 @@ const Detail: FunctionComponent<IDetailProps> = (
       <div className={styles.leftBodyContainer}>
         <p className={styles.description}>{offer.description}</p>
         {
-          offer.sections?.map(({ displayOrder, title, text }) =>
+          sortBy(offer.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) =>
             <SectionDetail key={displayOrder} title={title} text={text}/>
           )
         }
       </div>
       <div className={styles.rightBodyContainer}>
         <OfferInfo className={styles.offerInfo} offer={offer}/>
-        <Button
-          onClick={() => apply(offer.uuid)}
-          className="primary"
-          width="expand"
-          type="submit"
-          disabled={offer.hasApplied}
-          title={offer.hasApplied ? translations.alreadyApplied : ""}
-        >
-          {translations.apply}
-        </Button>
+        {
+          apply && translations && "hasApplied" in offer &&
+            <Button
+              onClick={() => apply!(offer.uuid)}
+              className="primary"
+              width="expand"
+              type="submit"
+              disabled={offer.hasApplied}
+              title={offer.hasApplied ? translations.alreadyApplied : ""}
+            >
+              {translations.apply}
+            </Button>
+        }
       </div>
     </div>
   </div>
 );
 
-interface IDetailProps {
-  offer: IMyOffer;
+interface IOfferDetailProps {
+  offer: IMyOffer | IOffer;
   goToCompany: string;
-  translations: IDetailTranslations;
-  apply: (offerUuid: string) => void;
+  apply?: (offerUuid: string) => void;
+  translations?: IOfferDetailTranslations;
 }
-
-export { Detail };
