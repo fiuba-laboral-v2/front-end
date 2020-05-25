@@ -29,6 +29,15 @@
   }
 }
 
+.header {
+  display: flex;
+}
+
+.applicantName {
+  flex-grow: 1;
+  margin: 0 $bigSpacing 0 0;
+}
+
 @media (max-width: $mobileContainerThreshold) {
   .container {
     .capabilitiesAndCareersContainer {
@@ -43,5 +52,15 @@
         margin-right: 0;
       }
     }
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .header {
+    flex-direction: column;
+  }
+
+  .applicantName {
+    margin: $bigSpacing 0 0 0;
   }
 }

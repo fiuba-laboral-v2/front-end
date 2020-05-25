@@ -1,17 +1,18 @@
-mutation updateApplicant(
-  $uuid: ID!, $user: UserUpdateInput,$padron: Int, $description: String,
+mutation updateCurrentApplicant(
+  $user: UserUpdateInput, $padron: Int, $description: String,
   $careers: [CareerCredits], $capabilities: [String], $sections: [SectionInput],
   $links: [LinkInput]
 ) 
 {
-  updateApplicant(
-    uuid: $uuid, padron: $padron, user: $user, description: $description,
+  updateCurrentApplicant(
+    padron: $padron, user: $user, description: $description,
     careers: $careers, capabilities: $capabilities, sections: $sections, links: $links
   ) 
   {
     uuid
     padron
     user {
+      uuid
       name
       surname
     }

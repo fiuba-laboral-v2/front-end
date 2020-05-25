@@ -15,21 +15,6 @@
   }
 }
 
-.buttons {
-  align-self: flex-end;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-
-  :last-child {
-    margin-left: $normalSpacing;
-  }
-
-  :first-child {
-    margin-left: $normalSpacing;
-  }
-}
-
 @media (max-width: $mobileContainerThreshold) {
   .row {
     .childrenContainer {
@@ -39,11 +24,6 @@
         align-self: unset;
         margin: 0 0 $normalSpacing;
       }
-    }
-
-    .buttons {
-      align-self: flex-end;
-      display: flex;
     }
   }
 }

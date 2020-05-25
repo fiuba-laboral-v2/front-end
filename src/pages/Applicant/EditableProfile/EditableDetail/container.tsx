@@ -1,33 +1,24 @@
 import React, { FunctionComponent, useCallback } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
-import { IApplicant } from "$interfaces/Applicant";
-import { useQuery } from "@apollo/react-hooks";
-import { useTranslations, useUpdateApplicant } from "$hooks";
-import { GET_APPLICANT } from "$queries";
+import { useTranslations, useUpdateCurrentApplicant } from "$hooks";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { Redirect } from "$components/Redirect";
+import { useMyApplicantProfile } from "$hooks";
 
 const EditableDetailContainer: FunctionComponent = () => {
-  const { id: uuid } = useParams();
   const history = useHistory();
-  const updateApplicant = useUpdateApplicant();
-
-  const {
-    data: { getApplicant: applicant } = { getApplicant: {} as IApplicant },
-    error: applicantError,
-    loading: loadingApplicant
-  } = useQuery(GET_APPLICANT, { variables: { uuid } });
-
+  const updateApplicant = useUpdateCurrentApplicant();
+  const applicantProfile = useMyApplicantProfile();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
 
   const validateForm = useCallback(
-    ({ careers, links }: IEditableDetailValues) => {
+    ({ careers: selectedCareers, links: selectedLinks }: IEditableDetailValues) => {
       const formErrors = [];
-      const selectedCodes = careers.map(career => career.code);
+      const selectedCodes = selectedCareers.map(career => career.code);
       if (hasUniqueValues(selectedCodes)) {
         formErrors.push("No se pueden repetir carreras");
       }
@@ -36,7 +27,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       }
       const linksNames: string[] = [];
       const linksUrls: string[] = [];
-      links.forEach(({ name, url }) => {
+      selectedLinks.forEach(({ name, url }) => {
         linksNames.push(name);
         linksUrls.push(url);
       });
@@ -52,8 +43,10 @@ const EditableDetailContainer: FunctionComponent = () => {
     []
   );
 
-  if (applicantError || translations.error) return <Redirect to={RoutesBuilder.public.notFound}/>;
-  if (loadingApplicant || translations.loading) return <LoadingSpinner/>;
+  if (applicantProfile.error || translations.error) {
+    return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  }
+  if (applicantProfile.loading || translations.loading) return <LoadingSpinner/>;
 
   const onSubmit = async (
     {
@@ -79,21 +72,31 @@ const EditableDetailContainer: FunctionComponent = () => {
     }
   };
 
+  const {
+    uuid,
+    user,
+    description = "",
+    links,
+    careers,
+    capabilities,
+    sections
+  } = applicantProfile.data.getCurrentUser.applicant;
+
   return (
     <EditableDetail
       onSubmit={onSubmit}
       translations={translations.data}
       initialValues={{
-        uuid: applicant.uuid,
-        name: applicant.user.name,
-        surname: applicant.user.surname,
-        description: applicant.description || "",
-        links: applicant.links,
-        careers: applicant.careers.map(({ code, creditsCount }) => (
+        uuid,
+        name: user.name,
+        surname: user.surname,
+        description,
+        links,
+        careers: careers.map(({ code, creditsCount }) => (
           { code, creditsCount: creditsCount }
         )),
-        capabilities: applicant.capabilities,
-        sections: applicant.sections,
+        capabilities,
+        sections,
         _form: []
       }}
       validateForm={validateForm}

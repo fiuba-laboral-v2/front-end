@@ -1,12 +1,12 @@
-import { UPDATE_APPLICANT } from "$mutations";
+import { UPDATE_CURRENT_APPLICANT } from "$mutations";
 import { useMutation } from "$hooks";
 import { IEditableUser } from "$interfaces/User";
 import { IApplicantCareer, ILink, ISection } from "$interfaces/Applicant";
 
-export const useUpdateApplicant = () =>
-  useMutation<IUpdateApplicantVariables>(UPDATE_APPLICANT);
+export const useUpdateCurrentApplicant = () =>
+  useMutation<IUpdateCurrentApplicantVariables>(UPDATE_CURRENT_APPLICANT);
 
-export interface IUpdateApplicantVariables {
+export interface IUpdateCurrentApplicantVariables {
   uuid: string;
   user: IEditableUser;
   links: ILink[];
