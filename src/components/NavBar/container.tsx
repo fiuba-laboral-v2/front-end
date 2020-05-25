@@ -23,7 +23,8 @@ export const NavBarContainer: FunctionComponent = () => {
   let links: INavBarLink[] = [];
   if (currentUser.data.getCurrentUser?.applicant) {
     links = [
-      { path: RoutesBuilder.applicant.offerList, title: translations.data.jobOffers }
+      { path: RoutesBuilder.applicant.offerList, title: translations.data.jobOffers },
+      { path: RoutesBuilder.applicant.myProfile, title: translations.data.myProfile }
     ];
   }
   if (currentUser.data.getCurrentUser?.company) {

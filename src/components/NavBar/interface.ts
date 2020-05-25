@@ -7,6 +7,7 @@ export interface INavBarTranslations {
   signUp: string;
   logIn: string;
   logOut: string;
+  myProfile: string;
 }
 
 export interface INavBarLink {
