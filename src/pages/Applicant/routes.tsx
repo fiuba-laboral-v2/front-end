@@ -4,6 +4,8 @@ import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
 import { Home } from "./Home";
 import { OfferDetail } from "./OfferDetail";
+import { CompanyProfile } from "./Company";
+import { Companies } from "./Companies";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -12,7 +14,9 @@ const {
   signUp,
   detail,
   edit,
-  offerDetail
+  offerDetail,
+  companyProfile,
+  companies
 } = RoutesBuilder.applicant;
 
 export const ApplicantRoutes = [
@@ -21,5 +25,7 @@ export const ApplicantRoutes = [
   { path: signUp, component: SignUp, public: true },
   { path: detail, component: Profile },
   { path: edit(":id"), component: EditableProfile },
-  { path: offerDetail(":id"), component: OfferDetail }
+  { path: offerDetail(":id"), component: OfferDetail },
+  { path: companyProfile(":id"), component: CompanyProfile },
+  { path: companies, component: Companies }
 ];

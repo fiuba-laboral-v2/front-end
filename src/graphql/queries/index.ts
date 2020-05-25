@@ -12,6 +12,7 @@ const GET_OFFERS = loader("./getOffers.graphql");
 const GET_CURRENT_USER = loader("./getCurrentUser.graphql");
 const GET_MY_JOB_APPLICATIONS = loader("./getMyLatestJobApplications.graphql");
 const GET_MY_APPLICANT_PROFILE = loader("./getMyApplicantProfile.graphql");
+const GET_MY_COMPANY_PROFILE = loader("./getMyCompanyProfile.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -25,5 +26,6 @@ export {
   GET_CAPABILITIES,
   GET_OFFERS,
   GET_MY_JOB_APPLICATIONS,
-  GET_MY_APPLICANT_PROFILE
+  GET_MY_APPLICANT_PROFILE,
+  GET_MY_COMPANY_PROFILE
 };

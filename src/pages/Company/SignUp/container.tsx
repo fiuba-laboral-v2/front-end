@@ -49,7 +49,7 @@ export const SignUpContainer: FunctionComponent = () => {
 
     setSubmitting(false);
     Session.login(loginResult.data.login);
-    history.push(RoutesBuilder.company.detail(createCompanyResult.data.createCompany.uuid));
+    history.push(RoutesBuilder.company.myProfile);
   };
 
   return (

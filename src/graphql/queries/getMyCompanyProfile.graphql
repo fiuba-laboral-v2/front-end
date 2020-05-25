@@ -1,0 +1,17 @@
+query getMyCompanyProfile {
+    getCurrentUser {
+        uuid
+        company {
+            uuid
+            cuit
+            companyName
+            slogan
+            description
+            logo
+            website
+            email
+            phoneNumbers
+            photos
+        }
+    }
+}

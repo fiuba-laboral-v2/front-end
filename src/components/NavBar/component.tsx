@@ -30,7 +30,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}
-          to={RoutesBuilder.company.list}>{translations.companies}
+          to={RoutesBuilder.applicant.companies}>{translations.companies}
         </Link>
         <Link
           className={classNames({ [styles.logged]: !isLoggedIn })}

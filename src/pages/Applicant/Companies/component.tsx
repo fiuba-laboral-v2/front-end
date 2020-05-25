@@ -7,6 +7,7 @@ import Button from "$components/Button";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { Window } from "$components/Window";
 
 const Companies: FunctionComponent<ICompaniesProps> = (
   {
@@ -17,14 +18,14 @@ const Companies: FunctionComponent<ICompaniesProps> = (
   }) => {
   if (loading) {
     return (
-      <>
+      <Window>
         <ListTitle titleTranslationPath={"companiesList"}/>
         <LoadingSpinner/>
-      </>
+      </Window>
     );
   }
   return (
-    <>
+    <Window>
       <ListTitle titleTranslationPath={"companiesList"}/>
       {
         companies.map(company =>
@@ -62,7 +63,7 @@ const Companies: FunctionComponent<ICompaniesProps> = (
           </div>
         )
       }
-    </>
+    </Window>
   );
 };
 
