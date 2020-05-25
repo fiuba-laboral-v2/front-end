@@ -21,7 +21,7 @@ export const OfferDetail: FunctionComponent<IOfferDetail> = (
         offer={offer}
         applyButton={
           <Button
-            onClick={() => apply!(offer.uuid)}
+            onClick={() => apply(offer.uuid)}
             className="primary"
             width="expand"
             type="submit"
