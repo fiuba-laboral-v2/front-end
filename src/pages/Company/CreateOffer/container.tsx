@@ -24,7 +24,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
         }
       });
       if (response.error) return;
-      history.push(RoutesBuilder.applicant.offerDetail(response.data.createOffer.uuid));
+      history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
     }}
     translations={translations.data}
   />;
