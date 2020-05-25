@@ -32,7 +32,7 @@ const Detail: FunctionComponent<IDetailProps> = (
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>
-        <TimeHumanizer className={styles.createdAt} since={parseInt(offer.createdAt, 10)}/>
+        <TimeHumanizer className={styles.createdAt} since={offer.createdAt}/>
       </div>
     </div>
     <div className={styles.body}>

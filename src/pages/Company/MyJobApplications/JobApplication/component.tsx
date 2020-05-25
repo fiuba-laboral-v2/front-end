@@ -33,7 +33,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
       </div>
       <TimeHumanizer
         className={styles.createdAt}
-        since={parseInt(createdAt, 10)}
+        since={createdAt}
       />
     </ClickableCard>
   );
