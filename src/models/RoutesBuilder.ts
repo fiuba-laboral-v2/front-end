@@ -15,6 +15,7 @@ export const RoutesBuilder = {
   company: {
     signUp: `/${companyURLRoot}/registro`,
     createOffer: `/${companyURLRoot}/oferta/crear`,
+    offer: (uuid: string) => `/${companyURLRoot}/ofertas/${uuid}`,
     jobApplications: `/${companyURLRoot}/postulaciones`,
     myProfile: `/${companyURLRoot}/perfil`,
     applicantDetail: (uuid: string) => `/${companyURLRoot}/postulantes/${uuid}`

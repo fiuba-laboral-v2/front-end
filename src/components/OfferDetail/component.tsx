@@ -1,22 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { IMyOffer } from "$interfaces/Applicant";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { TimeHumanizer } from "$components/TimeHumanizer";
-import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
 import styles from "./styles.module.scss";
-import { IDetailTranslations } from "./interface";
+import { sortBy } from "lodash";
+import { IOffer } from "$interfaces/Offer";
+import { IMyOffer } from "$interfaces/Applicant";
 
-const Detail: FunctionComponent<IDetailProps> = (
+export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
-    apply,
+    applyButton,
     offer,
-    goToCompany,
-    translations
+    goToCompany
   }
 ) => (
   <div className={styles.mainContainer}>
@@ -39,33 +38,21 @@ const Detail: FunctionComponent<IDetailProps> = (
       <div className={styles.leftBodyContainer}>
         <p className={styles.description}>{offer.description}</p>
         {
-          offer.sections?.map(({ displayOrder, title, text }) =>
+          sortBy(offer.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) =>
             <SectionDetail key={displayOrder} title={title} text={text}/>
           )
         }
       </div>
       <div className={styles.rightBodyContainer}>
         <OfferInfo className={styles.offerInfo} offer={offer}/>
-        <Button
-          onClick={() => apply(offer.uuid)}
-          className="primary"
-          width="expand"
-          type="submit"
-          disabled={offer.hasApplied}
-          title={offer.hasApplied ? translations.alreadyApplied : ""}
-        >
-          {translations.apply}
-        </Button>
+        {applyButton}
       </div>
     </div>
   </div>
 );
 
-interface IDetailProps {
-  offer: IMyOffer;
+interface IOfferDetailProps {
+  applyButton?: React.ReactElement;
+  offer: IMyOffer | IOffer;
   goToCompany: string;
-  translations: IDetailTranslations;
-  apply: (offerUuid: string) => void;
 }
-
-export { Detail };

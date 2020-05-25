@@ -16,7 +16,7 @@
     width: 1px;
   }
 
-  .offerTitle,
+  .applicantName,
   .separator {
     margin-right: $bigSpacing;
   }
@@ -37,6 +37,7 @@
 
     .leftContainer {
       flex-direction: column;
+      margin-bottom: $smallSpacing;
     }
 
     .offerTitle,
@@ -52,14 +53,6 @@
 
     .applicantName {
       align-self: unset;
-    }
-  }
-}
-
-@media (max-width: $smallMobileContainerThreshold) {
-  .card {
-    .leftContainer {
-      margin-bottom: $normalSpacing;
     }
   }
 }
