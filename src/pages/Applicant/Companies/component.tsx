@@ -1,18 +1,17 @@
 import React, { FunctionComponent } from "react";
-import { ICompaniesProps } from "./interface";
-import styles from "./styles.module.scss";
 import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Window } from "$components/Window";
+import { ICompany } from "$interfaces/Company";
+import styles from "./styles.module.scss";
 
-const Companies: FunctionComponent<ICompaniesProps> = (
+export const Companies: FunctionComponent<ICompaniesProps> = (
   {
     companies,
     onClickView,
-    viewButtonText,
     loading
   }) => {
   if (loading) {
@@ -49,4 +48,8 @@ const Companies: FunctionComponent<ICompaniesProps> = (
   );
 };
 
-export { Companies };
+interface ICompaniesProps {
+  companies: ICompany[];
+  onClickView: (uuid: string) => void;
+  loading: boolean;
+}
