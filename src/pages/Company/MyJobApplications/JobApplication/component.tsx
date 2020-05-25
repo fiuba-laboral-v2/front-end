@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Link } from "$components/Link";
 import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
@@ -30,10 +31,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         </Subtitle>
         <hr className={styles.separator}/>
         <Subtitle className={styles.offerTitle}>
-          <Link
-            to={RoutesBuilder.company.offer(offer.uuid)}
-            onClick={event => event.stopPropagation()}
-          >
+          <Link to={RoutesBuilder.company.offer(offer.uuid)}>
             {offer.title}
           </Link>
         </Subtitle>
