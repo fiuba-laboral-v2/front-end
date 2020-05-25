@@ -19,13 +19,11 @@ export const OfferDetailContainer: FunctionComponent = () => {
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   if (response.loading) return <LoadingSpinner/>;
 
-  const offer = response.data.getOfferByUuid;
-
   return (
     <Window>
       <OfferDetail
         goToCompany={RoutesBuilder.company.myProfile}
-        offer={offer}
+        offer={response.data.getOfferByUuid}
       />
     </Window>
   );
