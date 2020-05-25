@@ -5,20 +5,17 @@ import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { TimeHumanizer } from "$components/TimeHumanizer";
-import Button from "$components/Button";
 import { OfferInfo } from "../OfferInfo";
 import styles from "./styles.module.scss";
 import { sortBy } from "lodash";
-import { IOfferDetailTranslations } from "./interface";
 import { IOffer } from "$interfaces/Offer";
 import { IMyOffer } from "$interfaces/Applicant";
 
 export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
-    apply,
+    applyButton,
     offer,
-    goToCompany,
-    translations
+    goToCompany
   }
 ) => (
   <div className={styles.mainContainer}>
@@ -48,27 +45,14 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
       </div>
       <div className={styles.rightBodyContainer}>
         <OfferInfo className={styles.offerInfo} offer={offer}/>
-        {
-          apply && translations && "hasApplied" in offer &&
-            <Button
-              onClick={() => apply!(offer.uuid)}
-              className="primary"
-              width="expand"
-              type="submit"
-              disabled={offer.hasApplied}
-              title={offer.hasApplied ? translations.alreadyApplied : ""}
-            >
-              {translations.apply}
-            </Button>
-        }
+        {applyButton}
       </div>
     </div>
   </div>
 );
 
 interface IOfferDetailProps {
+  applyButton?: React.ReactElement;
   offer: IMyOffer | IOffer;
   goToCompany: string;
-  apply?: (offerUuid: string) => void;
-  translations?: IOfferDetailTranslations;
 }

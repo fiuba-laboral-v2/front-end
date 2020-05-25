@@ -4,18 +4,15 @@ import { useQuery, useMutation, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_OFFER_BY_UUID } from "$queries";
 import { SAVE_JOB_APPLICATION } from "$mutations";
-import { OfferDetail } from "$components/OfferDetail";
+import { OfferDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
-import { Window } from "$components/Window";
-import { IOfferDetailTranslations } from "$components/OfferDetail/interface";
+import { IOfferDetailTranslations } from "./interfaces";
 import { IMyOffer } from "$interfaces/Applicant";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const { id: uuid } = useParams();
-
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
-
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
 
   const response = useQuery<{ uuid?: string }, { getOfferByUuid: IMyOffer }>(
@@ -37,16 +34,11 @@ export const OfferDetailContainer: FunctionComponent = () => {
     if (!error) alert(translations.data.applySuccess);
   };
 
-  const offer = response.data.getOfferByUuid;
-
   return (
-    <Window>
-      <OfferDetail
-        translations={translations.data}
-        apply={apply}
-        goToCompany={RoutesBuilder.applicant.companyProfile(offer.company.uuid)}
-        offer={offer}
-      />
-    </Window>
+    <OfferDetail
+      offer={response.data.getOfferByUuid}
+      apply={apply}
+      translations={translations.data}
+    />
   );
 };
