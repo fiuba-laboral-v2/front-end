@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { ICompanyDetailProps } from "./interface";
 
 import { Headline } from "$components/Headline";
 import { Subtitle } from "$components/Subtitle";
@@ -8,9 +7,9 @@ import { Description } from "$components/Description";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
 import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
 import { CompanyLogo } from "$components/CompanyLogo";
-import { LoadingSpinner } from "$components/LoadingSpinner";
+import { ICompany } from "$interfaces/Company";
 
-const Detail: FunctionComponent<ICompanyDetailProps> = (
+export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
     company: {
       companyName,
@@ -20,12 +19,9 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
       website = "",
       description = "",
       photos = []
-    },
-    loading
+    }
   }
 ) => {
-  if (loading) return <LoadingSpinner />;
-
   return (
     <DetailMainContainer>
       <div className={styles.header}>
@@ -51,4 +47,6 @@ const Detail: FunctionComponent<ICompanyDetailProps> = (
   );
 };
 
-export { Detail };
+interface ICompanyDetailProps {
+  company: ICompany;
+}

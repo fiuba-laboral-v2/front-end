@@ -23,7 +23,7 @@ const CompaniesContainer: FunctionComponent = () => {
     <Companies
       loading={translations.loading || loading}
       companies={getCompanies}
-      onClickView={uuid => history.push(RoutesBuilder.company.detail(uuid))}
+      onClickView={uuid => history.push(RoutesBuilder.applicant.companyProfile(uuid))}
       viewButtonText={translations.data?.view}
     />
   );

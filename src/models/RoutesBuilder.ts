@@ -8,14 +8,15 @@ export const RoutesBuilder = {
     myProfile: `/${applicantURLRoot}/perfil`,
     edit: (uuid: string) => `/${applicantURLRoot}/${uuid}/edit`,
     signUp: `/${applicantURLRoot}/sign-up`,
-    offerDetail: (uuid: string) => `/${applicantURLRoot}/offers/${uuid}`
+    offerDetail: (uuid: string) => `/${applicantURLRoot}/offers/${uuid}`,
+    companyProfile: (uuid: string) => `/${applicantURLRoot}/empresas/${uuid}`,
+    companies: `/${applicantURLRoot}/empresas`
   },
   company: {
-    list: `/${companyURLRoot}`,
     signUp: `/${companyURLRoot}/registro`,
     createOffer: `/${companyURLRoot}/oferta/crear`,
     jobApplications: `/${companyURLRoot}/postulaciones`,
-    detail: (uuid: string) => `/${companyURLRoot}/${uuid}`,
+    myProfile: `/${companyURLRoot}/perfil`,
     applicantDetail: (uuid: string) => `/${companyURLRoot}/postulantes/${uuid}`
   },
   public: {
