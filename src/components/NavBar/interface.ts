@@ -8,3 +8,8 @@ export interface INavBarTranslations {
   logIn: string;
   logOut: string;
 }
+
+export interface INavBarLink {
+  path: string;
+  title: string;
+}

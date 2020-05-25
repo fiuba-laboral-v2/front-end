@@ -10,7 +10,7 @@ const {
   offerList,
   list,
   signUp,
-  detail,
+  myProfile,
   edit,
   offerDetail
 } = RoutesBuilder.applicant;
@@ -19,7 +19,7 @@ export const ApplicantRoutes = [
   { path: offerList, component: Home },
   { path: list, component: List },
   { path: signUp, component: SignUp, public: true },
-  { path: detail, component: Profile },
+  { path: myProfile, component: Profile },
   { path: edit(":id"), component: EditableProfile },
   { path: offerDetail(":id"), component: OfferDetail }
 ];
