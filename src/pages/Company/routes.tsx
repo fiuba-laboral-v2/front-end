@@ -14,7 +14,7 @@ const {
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
-  { path: signUp, component: SignUp },
+  { path: signUp, component: SignUp, public: true },
   { path: createOffer, component: CreateOffer },
   { path: jobApplications, component: MyJobApplications },
   { path: myProfile, component: Profile },

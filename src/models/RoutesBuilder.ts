@@ -5,7 +5,7 @@ export const RoutesBuilder = {
   applicant: {
     offerList: `/${applicantURLRoot}/ofertas`,
     list: `/${applicantURLRoot}/list`,
-    detail: `/${applicantURLRoot}/perfil`,
+    myProfile: `/${applicantURLRoot}/perfil`,
     edit: (uuid: string) => `/${applicantURLRoot}/${uuid}/edit`,
     signUp: `/${applicantURLRoot}/sign-up`,
     offerDetail: (uuid: string) => `/${applicantURLRoot}/offers/${uuid}`,

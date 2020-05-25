@@ -5,7 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
 import { Session } from "$models/Session";
 import { NavBar } from "./component";
-import { INavBarTranslations } from "./interface";
+import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser } from "$hooks/queries/useCurrentUser";
 
@@ -20,6 +20,20 @@ export const NavBarContainer: FunctionComponent = () => {
     return <Redirect to={RoutesBuilder.public.internalServerError}/>;
   }
 
+  let links: INavBarLink[] = [];
+  if (currentUser.data.getCurrentUser?.applicant) {
+    links = [
+      { path: RoutesBuilder.applicant.offerList, title: translations.data.jobOffers },
+      { path: RoutesBuilder.applicant.myProfile, title: translations.data.myProfile }
+    ];
+  }
+  if (currentUser.data.getCurrentUser?.company) {
+    links = [
+      { path: RoutesBuilder.company.jobApplications, title: translations.data.jobApplications },
+      { path: RoutesBuilder.company.createOffer, title: translations.data.createOffer }
+    ];
+  }
+
   const onLogOut = async () => {
     Session.logout();
     await client.clearStore();
@@ -29,6 +43,7 @@ export const NavBarContainer: FunctionComponent = () => {
   return (
     <NavBar
       logOut={onLogOut}
+      links={links}
       isLoggedIn={!!currentUser.data.getCurrentUser}
       translations={translations.data}
       username={currentUser.data.getCurrentUser?.name}
