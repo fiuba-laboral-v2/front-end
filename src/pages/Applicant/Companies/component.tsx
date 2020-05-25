@@ -3,7 +3,6 @@ import { ICompaniesProps } from "./interface";
 import styles from "./styles.module.scss";
 import { ClickableCard } from "$components/ClickableCard";
 import { Subtitle } from "$components/Subtitle";
-import Button from "$components/Button";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -24,43 +23,26 @@ const Companies: FunctionComponent<ICompaniesProps> = (
       </Window>
     );
   }
+
   return (
     <Window>
       <ListTitle titleTranslationPath={"companiesList"}/>
       {
         companies.map(company =>
-          <div className={styles.row} key={company.uuid}>
-            <ClickableCard>
-              <div className={styles.childrenContainer}>
-                <div className={styles.leftContainer}>
-                  <CompanyLogo
-                    size={"medium"}
-                    companyName={company.companyName}
-                    logo={company.logo}
-                  />
-                </div>
-                <div className={styles.rightContainer}>
-                  <div className={styles.header}>
-                    <CompanyLogo
-                      className={styles.companyLogo}
-                      size={"small"}
-                      companyName={company.companyName}
-                      logo={company.logo}
-                    />
-                    <Subtitle className={styles.name}>{company.companyName}</Subtitle>
-                  </div>
-                  <div className={styles.buttons}>
-                    <Button
-                      onClick={() => onClickView(company.uuid)}
-                      className="primary"
-                    >
-                      {viewButtonText}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </ClickableCard>
-          </div>
+          <ClickableCard
+            key={company.uuid}
+            className={styles.row}
+            onClick={() => onClickView(company.uuid)}>
+            <div className={styles.childrenContainer}>
+              <CompanyLogo
+                className={styles.companyLogo}
+                size="small"
+                companyName={company.companyName}
+                logo={company.logo}
+              />
+              <Subtitle className={styles.name}>{company.companyName}</Subtitle>
+            </div>
+          </ClickableCard>
         )
       }
     </Window>

@@ -1,82 +1,36 @@
 @import "$styles/_variables";
 
 .row {
-  margin-top: 0;
-  padding-bottom: $normalSpacing;
+  margin: 0 auto;
+  padding: $bigSpacing;
+  width: 70%;
+
+  &:not(:last-child) {
+    margin-bottom: $bigSpacing;
+  }
 }
 
 .childrenContainer {
-  .leftContainer {
-    display: none;
-  }
-}
-
-.rightContainer {
   display: flex;
   flex-direction: row;
 
-  .header {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-
-    .name {
-      align-self: center;
-      flex-grow: 1;
-    }
-
-    .companyLogo {
-      margin-right: $normalSpacing;
-    }
-  }
-
-  .buttons {
-    align-self: flex-end;
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-
-    :last-child {
-      margin-left: $normalSpacing;
-    }
-
-    :first-child {
-      margin-left: $normalSpacing;
-    }
-  }
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .row {
-    .childrenContainer {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-
-  .leftContainer {
+  .companyLogo {
     display: flex;
     margin-right: $normalSpacing;
   }
 
-  .rightContainer {
+  .name {
+    align-self: center;
     display: flex;
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .childrenContainer {
     flex-direction: column;
-    flex-grow: 1;
 
-    .header {
-      .name {
-        margin: 0 0 $normalSpacing;
-      }
-
-      .companyLogo {
-        display: none;
-      }
-    }
-
-    .buttons {
-      align-self: flex-end;
-      display: flex;
+    .companyLogo {
+      margin-bottom: $smallFontSize;
     }
   }
 }

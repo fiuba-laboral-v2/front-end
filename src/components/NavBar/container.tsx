@@ -24,7 +24,8 @@ export const NavBarContainer: FunctionComponent = () => {
   if (currentUser.data.getCurrentUser?.applicant) {
     links = [
       { path: RoutesBuilder.applicant.offerList, title: translations.data.jobOffers },
-      { path: RoutesBuilder.applicant.myProfile, title: translations.data.myProfile }
+      { path: RoutesBuilder.applicant.myProfile, title: translations.data.myProfile },
+      { path: RoutesBuilder.applicant.companies, title: translations.data.companies }
     ];
   }
   if (currentUser.data.getCurrentUser?.company) {
