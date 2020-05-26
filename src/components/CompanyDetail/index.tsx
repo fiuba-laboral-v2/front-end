@@ -11,6 +11,7 @@ import { ICompany } from "$interfaces/Company";
 
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
+    editButton,
     company: {
       companyName,
       email = "",
@@ -35,6 +36,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <Subtitle className={styles.companySlogan}>{slogan}</Subtitle>
           <DetailContactMe email={email} website={website}/>
         </div>
+        <div className={styles.editButton}>{editButton}</div>
       </div>
       <Description description={description}/>
       <section className={styles.photos}>
@@ -49,4 +51,5 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
 
 interface ICompanyDetailProps {
   company: ICompany;
+  editButton?: React.ReactElement;
 }

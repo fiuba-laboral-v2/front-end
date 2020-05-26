@@ -8,7 +8,7 @@
 
 .mainInfo {
   flex-grow: 1;
-  margin-left: 36px;
+  margin-left: $biggerSpacing;
 }
 
 .companySlogan {
@@ -29,6 +29,10 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
+  .editButton {
+    margin-top: $normalSpacing;
+  }
+
   .header {
     flex-direction: column;
   }
