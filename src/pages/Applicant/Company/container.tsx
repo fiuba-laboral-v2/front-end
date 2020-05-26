@@ -17,7 +17,7 @@ export const CompanyProfileContainer: FunctionComponent = () => {
     { variables: { uuid } }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <CompanyProfile company={response.data.getCompanyByUuid}/>;

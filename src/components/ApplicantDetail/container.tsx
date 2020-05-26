@@ -14,7 +14,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   }
 ) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   if (translations.loading) return <LoadingSpinner/>;
 

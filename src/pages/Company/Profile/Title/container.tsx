@@ -9,7 +9,7 @@ const TitleContainer: FunctionComponent = () => {
   const translations = useTranslations<IHeaderProps>("companyProfileTitle");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <Header

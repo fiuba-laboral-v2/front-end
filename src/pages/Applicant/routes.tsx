@@ -20,12 +20,12 @@ const {
 } = RoutesBuilder.applicant;
 
 export const ApplicantRoutes = [
-  { path: offerList, component: Home },
-  { path: list, component: List },
-  { path: signUp, component: SignUp, public: true },
-  { path: myProfile, component: Profile },
-  { path: editMyProfile, component: EditableProfile },
+  { path: offerList(), component: Home },
+  { path: list(), component: List },
+  { path: signUp(), component: SignUp, public: true },
+  { path: myProfile(), component: Profile },
+  { path: editMyProfile(), component: EditableProfile },
   { path: offerDetail(":id"), component: OfferDetail },
   { path: companyProfile(":id"), component: CompanyProfile },
-  { path: companies, component: Companies }
+  { path: companies(), component: Companies }
 ];

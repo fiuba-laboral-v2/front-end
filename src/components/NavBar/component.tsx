@@ -40,8 +40,8 @@ export const NavBar: FunctionComponent<INavBarProps> = (
               </>
               :
               <>
-                <Link to={RoutesBuilder.public.login}>{translations.logIn}</Link>
-                <Link to={RoutesBuilder.public.register}>{translations.signUp}</Link>
+                <Link to={RoutesBuilder.public.login()}>{translations.logIn}</Link>
+                <Link to={RoutesBuilder.public.register()}>{translations.signUp}</Link>
               </>
           }
         </div>
