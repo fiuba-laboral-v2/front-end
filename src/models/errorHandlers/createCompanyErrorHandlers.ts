@@ -8,7 +8,7 @@ interface ICreateCompanyErrorHandlers extends ISaveCompanyErrorHandlersErrors {
   user: { email: string; };
 }
 
-export const createCompanyErrorHandlers = <T>(
+export const createCompanyErrorHandlers = (
   {
     setErrors,
     history

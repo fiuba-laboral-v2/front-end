@@ -32,7 +32,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
             <Form id={formName}>
               <CompanyLogoInput
                 className={styles.logo}
-                defaultLogo={values.logo}
+                initialValue={values.logo}
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
               <CompanyFields />

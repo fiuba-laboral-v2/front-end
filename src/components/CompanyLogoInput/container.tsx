@@ -9,7 +9,7 @@ export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputConta
   {
     className,
     setLogo,
-    defaultLogo
+    initialValue
   }
 ) => {
   const translations = useTranslations<ICompanyLogoInputTranslations>("CompanyLogoInput");
@@ -18,7 +18,7 @@ export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputConta
 
   return (
     <CompanyLogoInput
-      defaultLogo={defaultLogo}
+      initialValue={initialValue}
       translations={translations.data}
       setLogo={setLogo}
       className={className}

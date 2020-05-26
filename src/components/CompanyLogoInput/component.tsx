@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
   {
-    defaultLogo,
+    initialValue,
     setLogo,
     translations,
     className
@@ -16,14 +16,13 @@ export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
 ) => (
   <div className={className}>
     <ImageUpload
-      defaultValue={defaultLogo ? [{ dataURL: defaultLogo }] : undefined}
       onChange={images => setLogo(images[0].dataURL)}
     >
       {({ imageList, onImageUpload }) => (
         <CompanyLogo
           className={styles.dropzone}
           onClick={imageList[0]?.onUpdate || onImageUpload}
-          logo={imageList[0]?.dataURL || "images/imageUpload.png"}
+          logo={imageList[0]?.dataURL || initialValue || "images/imageUpload.png"}
           size="extraLarge"
         >
           <span className={styles.text}>{translations.uploadLogo}</span>
