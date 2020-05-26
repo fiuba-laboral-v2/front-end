@@ -2,16 +2,12 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useEditOffer, useQuery, useTranslations } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import {
-  EditOffer as EditOfferComponent,
-  ICreateOfferValues,
-  IEditOfferTranslations
-} from "$components/EditOffer";
+import { EditOffer, ICreateOfferValues, IEditOfferTranslations } from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
 import { IOffer } from "$interfaces/Offer";
 import { GET_COMPANY_OFFER_BY_UUID } from "$queries";
 
-export const EditOffer: FunctionComponent = () => {
+export const EditOfferContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const { uuid } = useParams();
@@ -32,7 +28,7 @@ export const EditOffer: FunctionComponent = () => {
     history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
   };
 
-  return <EditOfferComponent
+  return <EditOffer
     translations={translations.data}
     initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
     onSubmit={onSubmit}

@@ -6,7 +6,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 
-export const CreateOffer: FunctionComponent = () => {
+export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
   const createOffer = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
