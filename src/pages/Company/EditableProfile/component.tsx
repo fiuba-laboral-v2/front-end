@@ -1,16 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
-
-import Button from "$components/Button";
 import { Window } from "$components/Window";
 import { CompanyLogoInput } from "$components/CompanyLogoInput";
 import { CompanyFields } from "$components/CompanyFields";
 
 import styles from "./styles.module.scss";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
-
-const formName = "EditableProfileForm";
+import { FormFooter } from "$components/FormFooter";
 
 export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
   {
@@ -29,22 +26,18 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
       >
         {({ values, setFieldValue, isSubmitting }) => (
           <>
-            <Form id={formName}>
+            <Form>
               <CompanyLogoInput
                 className={styles.logo}
                 initialValue={values.logo}
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
-              <CompanyFields />
+              <CompanyFields/>
+              <FormFooter
+                isSubmitting={isSubmitting}
+                submitButtonText={translations.submit}
+              />
             </Form>
-            <Button
-              form={formName}
-              className="primary"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {translations.submit}
-            </Button>
           </>
         )}
       </Formik>
