@@ -1,4 +1,5 @@
 export interface ICompanyLogoInputContainerProps {
+  initialValue?: string;
   setLogo: (logo: string) => void;
   className?: string;
 }

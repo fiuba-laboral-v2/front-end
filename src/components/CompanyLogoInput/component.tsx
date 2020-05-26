@@ -8,18 +8,21 @@ import styles from "./styles.module.scss";
 
 export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
   {
+    initialValue,
     setLogo,
     translations,
     className
   }
 ) => (
   <div className={className}>
-    <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
+    <ImageUpload
+      onChange={images => setLogo(images[0].dataURL)}
+    >
       {({ imageList, onImageUpload }) => (
         <CompanyLogo
           className={styles.dropzone}
           onClick={imageList[0]?.onUpdate || onImageUpload}
-          logo={imageList[0]?.dataURL || "images/imageUpload.png"}
+          logo={imageList[0]?.dataURL || initialValue || "images/imageUpload.png"}
           size="extraLarge"
         >
           <span className={styles.text}>{translations.uploadLogo}</span>

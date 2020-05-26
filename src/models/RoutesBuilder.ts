@@ -52,6 +52,9 @@ export const RoutesBuilder = {
     myProfile: () =>
       companyRoute(PROFILE),
 
+    editMyProfile: () =>
+      companyRoute(PROFILE, EDIT),
+
     createOffer: () =>
       companyRoute(OFFERS, CREATE),
 

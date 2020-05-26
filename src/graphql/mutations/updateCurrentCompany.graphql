@@ -1,0 +1,32 @@
+mutation (
+    $cuit: String,
+    $companyName: String,
+    $slogan: String,
+    $description: String,
+    $logo: String,
+    $website: String,
+    $email: String,
+    $phoneNumbers: [String],
+    $photos: [String]) {
+    updateCurrentCompany(
+        cuit: $cuit,
+        companyName: $companyName,
+        slogan: $slogan, description: $description,
+        logo: $logo,
+        website: $website,
+        email: $email,
+        phoneNumbers: $phoneNumbers,
+        photos: $photos
+    ) {
+        uuid
+        cuit
+        companyName
+        slogan
+        description
+        logo
+        website
+        email
+        phoneNumbers
+        photos
+    }
+}

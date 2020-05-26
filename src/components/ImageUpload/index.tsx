@@ -52,7 +52,7 @@ type AcceptType = "jpg" | "gif" | "png" | "jpeg";
 interface IImageUploadProps {
   children?: (values: IChildren) => React.ReactNode;
   onChange?: (images: IImage[]) => void;
-  defaultValue?: IImage;
+  defaultValue?: IImage[];
   maxNumber?: number;
   maxFileSize?: number;
   multiple?: boolean;
