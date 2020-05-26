@@ -55,6 +55,9 @@ export const RoutesBuilder = {
     createOffer: () =>
       companyRoute(OFFERS, CREATE),
 
+    editOffer: (uuid: string) =>
+      companyRoute(OFFERS, uuid, EDIT),
+
     offer: (uuid: string) =>
       companyRoute(OFFERS, uuid),
 
