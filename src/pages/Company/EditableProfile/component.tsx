@@ -27,10 +27,12 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
         validateOnMount={true}
         onSubmit={onUpdate}
       >
-        {({ setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue, isSubmitting }) => (
           <>
             <Form id={formName}>
               <CompanyLogoInput
+                className={styles.logo}
+                defaultLogo={values.logo}
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
               <CompanyFields />
