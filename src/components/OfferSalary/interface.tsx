@@ -6,7 +6,7 @@ export interface IOfferSalaryContainerProps {
 }
 
 export interface IOfferSalaryTranslations {
-  title: string;
+  salaryTitle: string;
   salaryFrom: string;
   salaryTo: string;
 }

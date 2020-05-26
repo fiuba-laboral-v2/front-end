@@ -12,7 +12,8 @@ const OfferSalary: FunctionComponent<IOfferSalaryProps> = (
     translations,
     className
   }) => (
-    <OfferInfoItem className={classNames(styles.salary, className)} title={translations.title}>
+    <OfferInfoItem className={classNames(styles.salary, className)}
+                   title={translations.salaryTitle}>
       <OfferSalaryInfo
         label={translations.salaryFrom}
         amount={offer.minimumSalary}
