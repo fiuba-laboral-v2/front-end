@@ -9,6 +9,7 @@ import { SignUp } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -32,12 +33,7 @@ export const SignUpContainer: FunctionComponent = () => {
   ) => {
     const createCompanyResult = await createCompany({
       variables: { user: userAttributes, ...companyValues },
-      handlers: {
-        UserEmailAlreadyExistsError: () => setErrors({ user: { email: "Este email ya existe" } }),
-        CompanyCuitAlreadyExistsError: () => setErrors({ cuit: "Este cuit ya existe" }),
-        ValidationError: () => setErrors({ _form: "Hubo un error: Revise los valores ingresados" }),
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-      }
+      handlers: createCompanyErrorHandlers({ setErrors, history })
     });
     if (createCompanyResult.error) return;
 

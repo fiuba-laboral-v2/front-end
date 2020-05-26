@@ -7,13 +7,14 @@ import { EditableProfile } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IEditableProfileTranslations, IEditableProfileFormValues } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
 
 export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
   const updateCurrentCompany = useUpdateCurrentCompany();
   const companyProfile = useMyCompanyProfile();
 
-  const translations = useTranslations<IEditableProfileTranslations>("editableCompanyProfile");
+  const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
   if (translations.loading || companyProfile.loading) return <LoadingSpinner/>;
   if (translations.error || companyProfile.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
@@ -28,11 +29,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   ) => {
     const updateCompanyResult = await updateCurrentCompany({
       variables: companyValues,
-      handlers: {
-        CompanyCuitAlreadyExistsError: () => setErrors({ cuit: "Este cuit ya existe" }),
-        ValidationError: () => setErrors({ _form: "Hubo un error: Revise los valores ingresados" }),
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-      }
+      handlers: saveCompanyErrorHandlers({ setErrors, history })
     });
     if (updateCompanyResult.error) return;
 

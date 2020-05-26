@@ -112,6 +112,7 @@
     "$src": "src",
     "$models": "src/models",
     "$config": "src/config",
-    "$hooks": "src/models/hooks"
+    "$hooks": "src/models/hooks",
+    "$errorHandlers": "src/models/errorHandlers"
   }
 }
