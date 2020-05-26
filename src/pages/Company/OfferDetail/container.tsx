@@ -24,18 +24,22 @@ export const OfferDetailContainer: FunctionComponent = () => {
   }
   if (response.loading || translations.loading) return <LoadingSpinner/>;
 
+  const offer = response.data.getOfferByUuid;
+
   return (
     <Window>
       <OfferDetail
         editButton={
           <Button
             className={"primary"}
-            onClick={() => history.push(RoutesBuilder.public.notFound())}>
+            onClick={() => history.push(
+              RoutesBuilder.company.editOffer(offer.uuid)
+            )}>
             {translations.data.edit}
           </Button>
         }
         goToCompany={RoutesBuilder.company.myProfile()}
-        offer={response.data.getOfferByUuid}
+        offer={offer}
       />
     </Window>
   );
