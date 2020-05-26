@@ -8,11 +8,10 @@ export const InternalServerError: FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <ErrorPage
-        onClickButton={() => history.goBack()}
-        errorType="internal server error"
         title="Esta página ha dejado de funcionar"
-        imgSrc="images/internalServerError.svg"
         buttonMessage="Cargar de nuevo"
+        onClickButton={() => history.goBack()}
+        icon={<img src={"images/internalServerError.svg"} alt={"Error desconocido"}/>}
       />
     </div>
   );

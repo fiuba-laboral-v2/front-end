@@ -3,16 +3,18 @@ import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ErrorPage } from "$components/ErrorPage";
 import { Window } from "$components/Window";
+import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
+import styles from "./styles.module.scss";
 
-export const NotFound: FunctionComponent = () => {
+export const Forbidden: FunctionComponent = () => {
   const history = useHistory();
   return (
     <Window>
       <ErrorPage
-        title="Parece que esta página no existe"
+        title="Acceso denegado"
         buttonMessage="Ir a la página principal"
         onClickButton={() => history.push(RoutesBuilder.public.home())}
-        icon={<img src={"images/brokenLink.svg"} alt={"Página inexistente"}/>}
+        icon={<RemoveCircleOutlineIcon className={styles.icon}/>}
       />
     </Window>
   );

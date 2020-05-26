@@ -1,28 +1,26 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactElement } from "react";
 import { Headline } from "$components/Headline";
 import Button from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   {
-    errorType,
     title,
-    imgSrc,
+    icon,
     buttonMessage,
     onClickButton
   }
 ) => (
   <section className={styles.error}>
     <Headline color="dark">{title}</Headline>
-    <img className={styles.imgSrc} src={imgSrc} alt={errorType}/>
+    <div className={styles.imgSrc}>{icon}</div>
     <Button onClick={onClickButton} className="primary">{buttonMessage}</Button>
   </section>
 );
 
 interface IErrorPageProps {
-  errorType: string;
   title: string;
-  imgSrc: string;
   buttonMessage: string;
   onClickButton: () => void;
+  icon: ReactElement;
 }
