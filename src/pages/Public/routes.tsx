@@ -4,13 +4,15 @@ import { Register } from "./Register";
 import Home from "./Home";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { NotFound } from "./NotFound";
+import { Forbidden } from "./Forbidden";
 
 const {
   home,
   register,
   login,
   internalServerError,
-  notFound
+  notFound,
+  forbidden
 } = RoutesBuilder.public;
 
 export const PublicRoutes = [
@@ -18,5 +20,6 @@ export const PublicRoutes = [
   { path: register(), component: Register },
   { path: login(), component: LogIn },
   { path: internalServerError(), component: InternalServerError },
-  { path: notFound(), component: NotFound }
+  { path: notFound(), component: NotFound },
+  { path: forbidden(), component: Forbidden }
 ];

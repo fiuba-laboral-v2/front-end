@@ -8,10 +8,17 @@
   padding: 0 $biggerSpacing;
 
   .imgSrc {
+    display: flex;
+    flex-direction: column;
     margin-bottom: $biggerSpacing;
     margin-top: $biggerSpacing;
     max-height: 250px;
     min-height: 75px;
+    width: 100%;
+
+    > * {
+      min-height: 0;
+    }
   }
 }
 

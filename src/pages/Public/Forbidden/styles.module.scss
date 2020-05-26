@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+
+svg.icon {
+  color: $red;
+  flex-shrink: 1;
+  height: unset;
+  width: unset;
+}
