@@ -25,7 +25,7 @@ export const ApplicantRoutes = [
   { path: signUp(), component: SignUp, public: true },
   { path: myProfile(), component: Profile },
   { path: editMyProfile(), component: EditableProfile },
-  { path: offerDetail(":id"), component: OfferDetail },
-  { path: companyProfile(":id"), component: CompanyProfile },
+  { path: offerDetail(":uuid"), component: OfferDetail },
+  { path: companyProfile(":uuid"), component: CompanyProfile },
   { path: companies(), component: Companies }
 ];

@@ -18,8 +18,8 @@ const {
 export const CompanyRoutes = [
   { path: signUp(), component: SignUp, public: true },
   { path: createOffer(), component: CreateOffer },
-  { path: offer(":id"), component: OfferDetail },
+  { path: offer(":uuid"), component: OfferDetail },
   { path: jobApplications(), component: MyJobApplications },
   { path: myProfile(), component: Profile },
-  { path: applicantDetail(":id"), component: Applicant }
+  { path: applicantDetail(":uuid"), component: Applicant }
 ];
