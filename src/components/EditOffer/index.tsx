@@ -4,11 +4,9 @@ import TextInput from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { Window } from "$components/Window";
-import Button from "$components/Button";
 import { NumberInput } from "$components/NumberInput";
 import styles from "./styles.module.scss";
-
-const formName = "editOfferForm";
+import { FormFooter } from "$components/FormFooter";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   {
@@ -36,7 +34,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
         >
           {({ errors, isSubmitting }) =>
             <>
-              <Form className={styles.formContainer} id={formName}>
+              <Form className={styles.formContainer}>
                 <TextInput
                   name="title"
                   label={translations.offerTitle}
@@ -77,16 +75,12 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                     mandatory: true
                   })}
                 />
+                <FormFooter
+                  isSubmitting={isSubmitting}
+                  submitButtonText={translations.submit}
+                  formError={errors._form}
+                />
               </Form>
-              <span>{errors._form}</span>
-              <Button
-                form={formName}
-                className="primary"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                {translations.submit}
-              </Button>
             </>
           }
         </Formik>

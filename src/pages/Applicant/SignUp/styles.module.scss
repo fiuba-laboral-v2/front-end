@@ -22,12 +22,6 @@
       justify-content: space-around;
       margin: 0;
     }
-
-    .footer {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-    }
   }
 }
 
@@ -47,14 +41,12 @@ div.textInput {
   margin-bottom: $normalSpacing;
 }
 
-.formError {
-  align-self: flex-end;
-  color: $red;
-  margin: auto $normalSpacing auto auto;
+.footer {
+  margin-top: $bigSpacing;
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .mainContainer .body .footer {
+  .mainContainer .body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

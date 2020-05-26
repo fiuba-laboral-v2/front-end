@@ -1,0 +1,21 @@
+@import "$styles/_variables";
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.formError {
+  align-self: flex-end;
+  color: $red;
+  margin: auto $normalSpacing auto auto;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
