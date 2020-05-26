@@ -13,7 +13,7 @@ export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputConta
 ) => {
   const translations = useTranslations<ICompanyLogoInputTranslations>("CompanyLogoInput");
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <CompanyLogoInput

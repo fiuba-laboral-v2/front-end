@@ -14,9 +14,9 @@ const {
 } = RoutesBuilder.public;
 
 export const PublicRoutes = [
-  { path: home, component: Home },
-  { path: register, component: Register },
-  { path: login, component: LogIn },
-  { path: internalServerError, component: InternalServerError },
-  { path: notFound, component: NotFound }
+  { path: home(), component: Home },
+  { path: register(), component: Register },
+  { path: login(), component: LogIn },
+  { path: internalServerError(), component: InternalServerError },
+  { path: notFound(), component: NotFound }
 ];

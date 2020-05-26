@@ -12,7 +12,7 @@ import { ICompany } from "$interfaces/Company";
 export const ProfileContainer: FunctionComponent = () => {
   const response = useQuery<{}, { getCurrentUser: { company: ICompany } }>(GET_MY_COMPANY_PROFILE);
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <Profile company={response.data.getCurrentUser.company}/>;

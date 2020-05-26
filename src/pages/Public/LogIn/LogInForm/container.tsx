@@ -14,7 +14,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
     setErrors({
@@ -33,7 +33,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
         handlers: {
           BadCredentialsError: () => setBadCredentialsError(setErrors),
           UserNotFoundError: () => setBadCredentialsError(setErrors),
-          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError)
+          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
         }
       }
     );
@@ -41,7 +41,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 
     setSubmitting(false);
     Session.login(loginResult.data.login);
-    history.push(RoutesBuilder.public.home);
+    history.push(RoutesBuilder.public.home());
   };
 
   return (

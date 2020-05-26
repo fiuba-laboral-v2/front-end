@@ -43,7 +43,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   );
 
   if (applicantProfile.error || translations.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
   if (applicantProfile.loading || translations.loading) return <LoadingSpinner/>;
 
@@ -65,9 +65,9 @@ const EditableDetailContainer: FunctionComponent = () => {
           careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
         }
       });
-      history.push(RoutesBuilder.applicant.myProfile);
+      history.push(RoutesBuilder.applicant.myProfile());
     } catch (error) {
-      history.push(RoutesBuilder.public.notFound);
+      history.push(RoutesBuilder.public.notFound());
     }
   };
 

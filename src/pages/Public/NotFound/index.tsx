@@ -9,7 +9,7 @@ export const NotFound: FunctionComponent = () => {
   return (
     <Window>
       <ErrorPage
-        onClickButton={() => history.push(RoutesBuilder.applicant.offerList)}
+        onClickButton={() => history.push(RoutesBuilder.applicant.offerList())}
         errorType="Not found"
         title="Parece que esta página no existe"
         imgSrc="images/brokenLink.svg"

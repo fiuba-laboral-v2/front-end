@@ -16,13 +16,13 @@ export const OfferDetailContainer: FunctionComponent = () => {
     { variables: { uuid } }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return (
     <Window>
       <OfferDetail
-        goToCompany={RoutesBuilder.company.myProfile}
+        goToCompany={RoutesBuilder.company.myProfile()}
         offer={response.data.getOfferByUuid}
       />
     </Window>

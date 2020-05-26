@@ -17,7 +17,7 @@ export const ApplicantContainer: FunctionComponent = () => {
     { variables: { uuid } }
   );
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   if (response.loading) return <LoadingSpinner/>;
 
   return <Applicant applicant={response.data.getApplicant}/>;

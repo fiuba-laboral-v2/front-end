@@ -17,29 +17,47 @@ export const NavBarContainer: FunctionComponent = () => {
 
   if (translations.loading || currentUser.loading) return <Fragment/>;
   if (translations.error || currentUser.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
   let links: INavBarLink[] = [];
   if (currentUser.data.getCurrentUser?.applicant) {
     links = [
-      { path: RoutesBuilder.applicant.offerList, title: translations.data.jobOffers },
-      { path: RoutesBuilder.applicant.myProfile, title: translations.data.myProfile },
-      { path: RoutesBuilder.applicant.companies, title: translations.data.companies }
+      {
+        path: RoutesBuilder.applicant.offerList(),
+        title: translations.data.jobOffers
+      },
+      {
+        path: RoutesBuilder.applicant.myProfile(),
+        title: translations.data.myProfile
+      },
+      {
+        path: RoutesBuilder.applicant.companies(),
+        title: translations.data.companies
+      }
     ];
   }
   if (currentUser.data.getCurrentUser?.company) {
     links = [
-      { path: RoutesBuilder.company.jobApplications, title: translations.data.jobApplications },
-      { path: RoutesBuilder.company.createOffer, title: translations.data.createOffer },
-      { path: RoutesBuilder.company.myProfile, title: translations.data.myCompanyProfile }
+      {
+        path: RoutesBuilder.company.jobApplications(),
+        title: translations.data.jobApplications
+      },
+      {
+        path: RoutesBuilder.company.createOffer(),
+        title: translations.data.createOffer
+      },
+      {
+        path: RoutesBuilder.company.myProfile(),
+        title: translations.data.myCompanyProfile
+      }
     ];
   }
 
   const onLogOut = async () => {
     Session.logout();
     await client.clearStore();
-    history.push(RoutesBuilder.public.login);
+    history.push(RoutesBuilder.public.login());
   };
 
   return (

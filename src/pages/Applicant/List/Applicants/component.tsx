@@ -9,7 +9,6 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 const Applicants: FunctionComponent<IApplicantsProps> = (
   {
     applicants,
-    onClickView,
     loading
   }) => {
   if (loading) {
@@ -27,7 +26,7 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
       {
         applicants.map(applicant =>
           <div className={styles.row} key={applicant.uuid}>
-            <ClickableCard onClick={onClickView}>
+            <ClickableCard>
               <div className={styles.childrenContainer}>
                 <Subtitle className={styles.name}>
                   {`${applicant.user.name} ${applicant.user.surname}`}

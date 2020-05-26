@@ -21,7 +21,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   );
 
   if (response.error || translations.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
   if (response.loading || translations.loading) return <LoadingSpinner/>;
 

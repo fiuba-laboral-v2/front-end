@@ -13,7 +13,7 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
   const translations = useTranslations<IOfferCareersComponentProps>("offerCareer");
 
   if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <OfferCareers

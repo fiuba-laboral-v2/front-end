@@ -17,7 +17,7 @@ export const SignUpContainer: FunctionComponent = () => {
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
   if (translations.loading) return <LoadingSpinner/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError}/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   const onSubmit = async (
     {
@@ -36,20 +36,20 @@ export const SignUpContainer: FunctionComponent = () => {
         UserEmailAlreadyExistsError: () => setErrors({ user: { email: "Este email ya existe" } }),
         CompanyCuitAlreadyExistsError: () => setErrors({ cuit: "Este cuit ya existe" }),
         ValidationError: () => setErrors({ _form: "Hubo un error: Revise los valores ingresados" }),
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError)
+        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
       }
     });
     if (createCompanyResult.error) return;
 
     const loginResult = await login({
       variables: { email: userAttributes.email , password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.internalServerError) }
+      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.internalServerError()) }
     });
     if (loginResult.error) return;
 
     setSubmitting(false);
     Session.login(loginResult.data.login);
-    history.push(RoutesBuilder.company.myProfile);
+    history.push(RoutesBuilder.company.myProfile());
   };
 
   return (

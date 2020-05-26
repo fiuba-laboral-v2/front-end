@@ -17,7 +17,7 @@ const Routes: FunctionComponent = () => (
       {ApplicantRoutes.map(props => <ApplicantRoute exact key={props.path} {...props}/>)}
       {CompanyRoutes.map(props => <CompanyRoute exact key={props.path} {...props}/>)}
       {PublicRoutes.map(props => <Route exact key={props.path} {...props}/>)}
-      <Redirect to={notFound}/>
+      <Redirect to={notFound()}/>
     </Switch>
   </HashRouter>
 );

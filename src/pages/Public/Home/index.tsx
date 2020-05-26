@@ -11,11 +11,11 @@ const Home: FunctionComponent = () => {
   const currentUser = useCurrentUser();
 
   if (currentUser.loading) return <Fragment/>;
-  if (currentUser.error) return <Redirect to={internalServerError}/>;
+  if (currentUser.error) return <Redirect to={internalServerError()}/>;
 
-  if (currentUser.data.getCurrentUser?.applicant) return <Redirect to={offerList}/>;
-  if (currentUser.data.getCurrentUser?.company) return <Redirect to={jobApplications}/>;
-  return <Redirect to={login}/>;
+  if (currentUser.data.getCurrentUser?.applicant) return <Redirect to={offerList()}/>;
+  if (currentUser.data.getCurrentUser?.company) return <Redirect to={jobApplications()}/>;
+  return <Redirect to={login()}/>;
 };
 
 export default Home;
