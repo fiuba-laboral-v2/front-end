@@ -13,36 +13,43 @@ import {
 
 export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
   {
-    translations
+    translations: {
+      companyName,
+      cuit,
+      email,
+      slogan,
+      description,
+      website
+    }
   }
 ) => (
   <>
     <TextInput
       name="companyName"
-      label={translations.companyName}
+      label={companyName}
       validate={FormikValidator({ validator: validateName, mandatory: true })}
     />
     <TextInput
       name="cuit"
-      label={translations.cuit}
+      label={cuit}
       validate={FormikValidator({ validator: validateCuit, mandatory: true })}
     />
     <TextInput
       name="email"
-      label={translations.email}
+      label={email}
       validate={FormikValidator({ validator: validateEmail, mandatory: true })}
     />
     <TextInput
       name="slogan"
-      label={translations.slogan}
+      label={slogan}
     />
     <TextInput
       name="description"
-      label={translations.description}
+      label={description}
     />
     <TextInput
       name="website"
-      label={translations.website}
+      label={website}
       validate={FormikValidator({ validator: validateURL, mandatory: true })}
     />
   </>
