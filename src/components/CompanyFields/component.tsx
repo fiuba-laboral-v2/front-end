@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import TextInput from "$components/TextInput";
+import { TextInput } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 import { ICompanyFieldsProps } from "./interface";
 
@@ -46,6 +46,7 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
     <TextInput
       name="description"
       label={description}
+      multiline
     />
     <TextInput
       name="website"

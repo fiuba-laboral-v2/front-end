@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
-import TextInput from "$components/TextInput";
+import { TextInput } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { Window } from "$components/Window";
@@ -44,6 +44,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                   name="description"
                   label={translations.description}
                   validate={FormikValidator({ mandatory: true })}
+                  multiline
                 />
                 <NumberInput
                   name="hoursPerDay"
