@@ -1,5 +1,12 @@
 @import "$styles/mixins/_textInput";
+@import "$styles/_variables";
 
 div.textInput {
   @include textInput;
+
+  margin-bottom: $normalSpacing;
+}
+
+div.withoutMargin {
+  margin: 0;
 }

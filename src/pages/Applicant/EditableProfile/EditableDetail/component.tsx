@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { Form, Formik } from "formik";
 import isArray from "lodash/isArray";
-import TextInput from "$components/TextInput";
+import { TextInput } from "$components/TextInput";
 import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
 import { IEditableDetailValues, IApplicantDetailEditableTranslations } from "./interface";
@@ -37,12 +37,14 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
               <Form className={styles.formContainer} id={formName}>
                 <div className={classNames(styles.fullName, styles.row)}>
                   <TextInput
+                    withoutMargin
                     className={styles.name}
                     name={"name"}
                     label={translations.name}
                     validate={FormikValidator({ validator: validateName, mandatory: true })}
                   />
                   <TextInput
+                    withoutMargin
                     className={styles.surname}
                     name={"surname"}
                     label={translations.surname}
@@ -78,6 +80,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                           validate={FormikValidator({ mandatory: true })}
                         />
                         <TextInput
+                          withoutMargin
                           name={`links.${index}.url`}
                           label={translations.link}
                           type="url"

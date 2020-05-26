@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import TextInput from "$components/TextInput";
+import { TextInput } from "$components/TextInput";
 import { FormikValidator } from "../../models/FormikValidator";
 import { validateEmail, validateName, validatePassword } from "validations-fiuba-laboral-v2";
 

@@ -11,7 +11,8 @@ export const NumberInput: FunctionComponent<INumberInputProps> = (
     label,
     className,
     validate,
-    fast = true
+    fast = true,
+    withoutMargin = false
   }
 ) => {
   const fieldProps = {
@@ -29,7 +30,11 @@ export const NumberInput: FunctionComponent<INumberInputProps> = (
       return (
         <TextField
           label={label}
-          className={classNames(styles.textInput, className)}
+          className={classNames(
+            styles.textInput,
+            className,
+            { [styles.withoutMargin]: withoutMargin }
+          )}
           defaultValue={isNaN(meta.value) ? "" : meta.value.toString(10)}
           onBlur={() => form.setFieldTouched(name, true)}
           onFocus={event => setFormValue(event.target.value)}
@@ -50,4 +55,5 @@ interface INumberInputProps {
   className?: string;
   validate: FieldValidator;
   fast?: boolean;
+  withoutMargin?: boolean;
 }

@@ -28,6 +28,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       initialValue={value?.code}
     />
     <NumberInput
+      withoutMargin
       name={`careers.${index}.creditsCount`}
       label={creditsLabel}
       fast={false}
