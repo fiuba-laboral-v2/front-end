@@ -48,6 +48,10 @@ export const NavBarContainer: FunctionComponent = () => {
         title: translations.data.createOffer
       },
       {
+        path: RoutesBuilder.company.myOffers(),
+        title: translations.data.myOffers
+      },
+      {
         path: RoutesBuilder.company.myProfile(),
         title: translations.data.myCompanyProfile
       }

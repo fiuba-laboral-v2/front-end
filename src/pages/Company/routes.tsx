@@ -3,6 +3,7 @@ import { EditableProfile } from "./EditableProfile";
 import { SignUp } from "./SignUp";
 import { CreateOffer } from "./CreateOffer";
 import { OfferDetail } from "./OfferDetail";
+import { MyOffers } from "./MyOffers";
 import { MyJobApplications } from "./MyJobApplications";
 import { Applicant } from "./Applicant";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -13,6 +14,7 @@ const {
   createOffer,
   editOffer,
   offer,
+  myOffers,
   jobApplications,
   myProfile,
   editMyProfile,
@@ -21,6 +23,7 @@ const {
 
 export const CompanyRoutes = [
   { path: signUp(), component: SignUp, public: true },
+  { path: myOffers(), component: MyOffers },
   { path: createOffer(), component: CreateOffer },
   { path: editOffer(":uuid"), component: EditOffer },
   { path: offer(":uuid"), component: OfferDetail },

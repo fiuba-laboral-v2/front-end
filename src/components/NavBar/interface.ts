@@ -9,6 +9,7 @@ export interface INavBarTranslations {
   logOut: string;
   myProfile: string;
   myCompanyProfile: string;
+  myOffers: string;
 }
 
 export interface INavBarLink {
