@@ -2,7 +2,11 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useEditOffer, useQuery, useTranslations } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { EditOffer as EditOfferComponent, IEditOfferTranslations } from "$components/EditOffer";
+import {
+  EditOffer as EditOfferComponent,
+  ICreateOfferValues,
+  IEditOfferTranslations
+} from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
 import { IOffer } from "$interfaces/Offer";
 import { GET_COMPANY_OFFER_BY_UUID } from "$queries";
@@ -22,13 +26,15 @@ export const EditOffer: FunctionComponent = () => {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
+  const onSubmit = async (values: ICreateOfferValues) => {
+    const response = await editOffer({ variables: values });
+    if (response.error) return history.push(RoutesBuilder.public.internalServerError());
+    history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
+  };
+
   return <EditOfferComponent
     translations={translations.data}
     initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
-    onSubmit={async values => {
-      const response = await editOffer({ variables: values });
-      if (response.error) return history.push(RoutesBuilder.public.internalServerError());
-      history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
-    }}
+    onSubmit={onSubmit}
   />;
 };

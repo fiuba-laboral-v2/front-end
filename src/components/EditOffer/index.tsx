@@ -95,7 +95,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   );
 };
 
-interface ICreateOfferValues {
+export interface ICreateOfferValues {
   title: string;
   description: string;
   hoursPerDay: number;
