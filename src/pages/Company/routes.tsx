@@ -1,4 +1,5 @@
 import { Profile } from "./Profile";
+import { EditableProfile } from "./EditableProfile";
 import { SignUp } from "./SignUp";
 import { CreateOffer } from "./CreateOffer";
 import { OfferDetail } from "./OfferDetail";
@@ -12,6 +13,7 @@ const {
   offer,
   jobApplications,
   myProfile,
+  editMyProfile,
   applicantDetail
 } = RoutesBuilder.company;
 
@@ -21,5 +23,6 @@ export const CompanyRoutes = [
   { path: offer(":uuid"), component: OfferDetail },
   { path: jobApplications(), component: MyJobApplications },
   { path: myProfile(), component: Profile },
+  { path: editMyProfile(), component: EditableProfile },
   { path: applicantDetail(":uuid"), component: Applicant }
 ];
