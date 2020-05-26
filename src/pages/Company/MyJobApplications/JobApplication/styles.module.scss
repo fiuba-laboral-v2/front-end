@@ -23,11 +23,18 @@
 
   .applicantName {
     align-self: center;
+    width: 30%;
+  }
+
+  .offerTitle {
+    width: 70%;
   }
 
   .createdAt {
     align-self: flex-end;
     flex-shrink: 1;
+    text-align: end;
+    width: 100px;
   }
 }
 
@@ -53,6 +60,12 @@
 
     .applicantName {
       align-self: unset;
+    }
+
+    .applicantName,
+    .offerTitle,
+    .createdAt {
+      width: unset;
     }
   }
 }
