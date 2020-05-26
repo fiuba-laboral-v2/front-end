@@ -1,15 +1,15 @@
-const applicants = "postulantes";
-const companies = "empresas";
-const applications = "postulaciones";
-const offers = "ofertas";
-const profile = "perfil";
-const signUp = "registro";
-const login = "iniciar-sesion";
-const edit = "editar";
-const create = "crear";
-const error = "error";
-const notFound = "pagina-inexistente";
-const forbidden = "permiso-faltante";
+const APPLICANTS = "postulantes";
+const COMPANIES = "empresas";
+const APPLICATIONS = "postulaciones";
+const OFFERS = "ofertas";
+const PROFILE = "perfil";
+const SIGN_UP = "registro";
+const LOGIN = "iniciar-sesion";
+const EDIT = "editar";
+const CREATE = "crear";
+const ERROR = "error";
+const NOT_FOUND = "pagina-inexistente";
+const FORBIDDEN = "permiso-faltante";
 
 const routeBuilder = (urlPrefix: string) =>
   (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
@@ -22,47 +22,66 @@ export const RoutesBuilder = {
   applicant: {
     list: () =>
       "/todos-los-postulantes", // TODO: /admin/postulantes
+
     signUp: () =>
-      applicantRoute(signUp),
+      applicantRoute(SIGN_UP),
+
     myProfile: () =>
-      applicantRoute(profile),
+      applicantRoute(PROFILE),
+
     editMyProfile: () =>
-      applicantRoute(profile, edit),
+      applicantRoute(PROFILE, EDIT),
+
     offerList: () =>
-      applicantRoute(offers),
+      applicantRoute(OFFERS),
+
     offerDetail: (uuid: string) =>
-      applicantRoute(offers, uuid),
+      applicantRoute(OFFERS, uuid),
+
     companies: () =>
-      applicantRoute(companies),
+      applicantRoute(COMPANIES),
+
     companyProfile: (uuid: string) =>
-      applicantRoute(companies, uuid)
+      applicantRoute(COMPANIES, uuid)
   },
+
   company: {
     signUp: () =>
-      companyRoute(signUp),
+      companyRoute(SIGN_UP),
+
     myProfile: () =>
-      companyRoute(profile),
+      companyRoute(PROFILE),
+
     createOffer: () =>
-      companyRoute(offers, create),
+      companyRoute(OFFERS, CREATE),
+
     offer: (uuid: string) =>
-      companyRoute(offers, uuid),
+      companyRoute(OFFERS, uuid),
+
     jobApplications: () =>
-      companyRoute(applications),
+      companyRoute(APPLICATIONS),
+
     applicantDetail: (uuid: string) =>
-      companyRoute(applicants, uuid)
+      companyRoute(APPLICANTS, uuid)
   },
+
   public: {
     home: () =>
       publicRoute(),
+
     register: () =>
-      publicRoute(signUp),
+      publicRoute(SIGN_UP),
+
     login: () =>
-      publicRoute(login),
+      publicRoute(LOGIN),
+
     internalServerError: () =>
-      publicRoute(error),
+      publicRoute(ERROR),
+
     notFound: () =>
-      publicRoute(notFound),
+      publicRoute(NOT_FOUND),
+
     forbidden: () =>
-      publicRoute(forbidden)
+      publicRoute(FORBIDDEN)
   }
 };
