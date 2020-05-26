@@ -1,0 +1,25 @@
+mutation editOffer (
+    $uuid: ID!
+    $title: String!,
+    $description: String!,
+    $hoursPerDay: Int!,
+    $minimumSalary: Int!,
+    $maximumSalary: Int!
+) {
+    editOffer(
+        uuid: $uuid,
+        title: $title,
+        description: $description,
+        hoursPerDay: $hoursPerDay,
+        minimumSalary: $minimumSalary,
+        maximumSalary: $maximumSalary
+    ) {
+        uuid
+        title
+        description
+        hoursPerDay
+        minimumSalary
+        maximumSalary
+        createdAt
+    }
+}

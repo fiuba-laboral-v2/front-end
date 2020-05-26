@@ -4,28 +4,26 @@ import TextInput from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { Window } from "$components/Window";
-import { ICreateOfferProps, ICreateOfferValues } from "./interface";
-import styles from "../SignUp/styles.module.scss";
 import Button from "$components/Button";
 import { NumberInput } from "$components/NumberInput";
+import styles from "./styles.module.scss";
 
-const formName = "createOfferForm";
+const formName = "editOfferForm";
 
-export const CreateOffer: FunctionComponent<ICreateOfferProps> = ({ onSubmit, translations }) => {
+export const EditOffer: FunctionComponent<ICreateOfferProps> = (
+  {
+    onSubmit,
+    translations,
+    initialValues
+  }
+) => {
   return (
     <Window>
       <div className={styles.mainContainer}>
-        <h1 className={styles.title}>{translations.formTitle}</h1>
+        <h1 className={styles.title}>{translations.create}</h1>
         <Formik
           <ICreateOfferValues>
-          initialValues={{
-            title: "",
-            description: "",
-            hoursPerDay: NaN,
-            minimumSalary: NaN,
-            maximumSalary: NaN,
-            _form: ""
-          }}
+          initialValues={initialValues}
           onSubmit={onSubmit}
           validate={values => {
             if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
@@ -96,3 +94,29 @@ export const CreateOffer: FunctionComponent<ICreateOfferProps> = ({ onSubmit, tr
     </Window>
   );
 };
+
+interface ICreateOfferValues {
+  title: string;
+  description: string;
+  hoursPerDay: number;
+  minimumSalary: number;
+  maximumSalary: number;
+  _form: string;
+}
+
+export interface IEditOfferTranslations {
+  create: string;
+  edit: string;
+  offerTitle: string;
+  description: string;
+  hoursPerDay: string;
+  minimumSalary: string;
+  maximumSalary: string;
+  submit: string;
+}
+
+interface ICreateOfferProps {
+  initialValues: ICreateOfferValues;
+  onSubmit: (values: ICreateOfferValues) => void;
+  translations: IEditOfferTranslations;
+}

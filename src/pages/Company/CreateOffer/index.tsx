@@ -1,21 +1,28 @@
 import React, { FunctionComponent } from "react";
-import { CreateOffer } from "./component";
 import { useCreateOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
-import { ICreateOfferTranslations } from "./interface";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
+import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 
-export const CreateOfferContainer: FunctionComponent = () => {
+export const CreateOffer: FunctionComponent = () => {
   const history = useHistory();
   const createOffer = useCreateOffer();
-  const translations = useTranslations<ICreateOfferTranslations>("createOffer");
+  const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
   if (translations.loading) return <LoadingSpinner/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  return <CreateOffer
+  return <EditOffer
+    initialValues={{
+      title: "",
+      description: "",
+      hoursPerDay: NaN,
+      minimumSalary: NaN,
+      maximumSalary: NaN,
+      _form: ""
+    }}
     onSubmit={async values => {
       const response = await createOffer({
         variables: values,
