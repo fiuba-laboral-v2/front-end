@@ -11,7 +11,7 @@ import { IOfferDetailTranslations } from "./interfaces";
 import { IMyOffer } from "$interfaces/Applicant";
 
 export const OfferDetailContainer: FunctionComponent = () => {
-  const { id: uuid } = useParams();
+  const { uuid } = useParams();
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
 

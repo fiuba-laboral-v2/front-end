@@ -11,7 +11,7 @@ import { CompanyProfile } from "./component";
 import { ICompany } from "$interfaces/Company";
 
 export const CompanyProfileContainer: FunctionComponent = () => {
-  const { id: uuid } = useParams();
+  const { uuid } = useParams();
   const response = useQuery<{}, { getCompanyByUuid: ICompany }>(
     GET_COMPANY_BY_UUID,
     { variables: { uuid } }

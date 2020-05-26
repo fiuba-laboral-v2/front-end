@@ -36,8 +36,13 @@
   display: flex;
   flex-direction: column;
 
+  .titleContainer {
+    display: flex;
+  }
+
   .title {
-    margin-bottom: $smallSpacing;
+    flex-grow: 1;
+    margin: 0 $bigSpacing $smallSpacing 0;
   }
 
   .companyName {
@@ -86,5 +91,15 @@
         order: 2;
       }
     }
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .titleContainer {
+    flex-direction: column;
+  }
+
+  .title {
+    margin: $bigSpacing 0 $smallSpacing 0;
   }
 }

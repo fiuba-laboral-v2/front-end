@@ -10,7 +10,7 @@ import { Applicant } from "./component";
 import { IApplicant } from "$interfaces/Applicant";
 
 export const ApplicantContainer: FunctionComponent = () => {
-  const { id: uuid } = useParams();
+  const { uuid } = useParams();
 
   const response = useQuery<{}, { getApplicant: IApplicant }>(
     GET_APPLICANT,
