@@ -4,19 +4,11 @@ import { FormikHelpers } from "formik/dist/types";
 
 import Button from "$components/Button";
 import { Window } from "$components/Window";
-import TextInput from "$components/TextInput";
 import { CompanyLogoInput } from "$components/CompanyLogoInput";
+import { CompanyFields } from "$components/CompanyFields";
 
 import styles from "./styles.module.scss";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
-import { FormikValidator } from "$models/FormikValidator";
-
-import {
-  validateCuit,
-  validateEmail,
-  validateName,
-  validateURL
-} from "validations-fiuba-laboral-v2";
 
 const formName = "EditableProfileForm";
 
@@ -41,34 +33,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
               <CompanyLogoInput
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
-              <TextInput
-                name="companyName"
-                label={translations.companyName}
-                validate={FormikValidator({ validator: validateName, mandatory: true })}
-              />
-              <TextInput
-                name="cuit"
-                label={translations.cuit}
-                validate={FormikValidator({ validator: validateCuit, mandatory: true })}
-              />
-              <TextInput
-                name="email"
-                label={translations.companyEmail}
-                validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-              />
-              <TextInput
-                name="slogan"
-                label={translations.slogan}
-              />
-              <TextInput
-                name="description"
-                label={translations.description}
-              />
-              <TextInput
-                name="website"
-                label={translations.website}
-                validate={FormikValidator({ validator: validateURL, mandatory: true })}
-              />
+              <CompanyFields />
             </Form>
             <Button
               form={formName}

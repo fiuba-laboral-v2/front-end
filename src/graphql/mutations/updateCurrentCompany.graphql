@@ -18,6 +18,7 @@ mutation (
         phoneNumbers: $phoneNumbers,
         photos: $photos
     ) {
+        uuid
         cuit
         companyName
         slogan

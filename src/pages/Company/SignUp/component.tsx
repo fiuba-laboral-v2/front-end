@@ -7,18 +7,8 @@ import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 
 import Button from "$components/Button";
 import { Window } from "$components/Window";
-import TextInput from "$components/TextInput";
+import { CompanyFields } from "$components/CompanyFields";
 import { UserInput } from "$components/UserInput";
-import { CompanyLogoInput } from "$components/CompanyLogoInput";
-
-import { FormikValidator } from "$models/FormikValidator";
-
-import {
-  validateCuit,
-  validateEmail,
-  validateName,
-  validateURL
-} from "validations-fiuba-laboral-v2";
 
 const formName = "signUpForm";
 
@@ -36,7 +26,6 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
     email: "",
     slogan: "",
     description: "",
-    logo: "",
     website: "",
     _form: ""
   };
@@ -57,13 +46,9 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           validateOnMount={true}
           onSubmit={onSubmit}
         >
-          {({ setFieldValue, isSubmitting }) => (
+          {({ isSubmitting }) => (
             <>
               <Form id={formName}>
-                <CompanyLogoInput
-                  className={styles.logo}
-                  setLogo={(logo: string) => setFieldValue("logo", logo)}
-                />
                 <UserInput
                   email={{ name: "user.email", label: translations.email }}
                   password={{ name: "user.password", label: translations.password }}
@@ -73,34 +58,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
                   name={{ name: "user.name", label: translations.name }}
                   surname={{ name: "user.surname", label: translations.surname }}
                 />
-                <TextInput
-                  name="companyName"
-                  label={translations.companyName}
-                  validate={FormikValidator({ validator: validateName, mandatory: true })}
-                />
-                <TextInput
-                  name="cuit"
-                  label={translations.cuit}
-                  validate={FormikValidator({ validator: validateCuit, mandatory: true })}
-                />
-                <TextInput
-                  name="email"
-                  label={translations.companyEmail}
-                  validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-                />
-                <TextInput
-                  name="slogan"
-                  label={translations.slogan}
-                />
-                <TextInput
-                  name="description"
-                  label={translations.description}
-                />
-                <TextInput
-                  name="website"
-                  label={translations.website}
-                  validate={FormikValidator({ validator: validateURL, mandatory: true })}
-                />
+                <CompanyFields />
               </Form>
               <Button
                 form={formName}

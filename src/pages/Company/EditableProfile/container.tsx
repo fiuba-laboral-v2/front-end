@@ -13,7 +13,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const updateCurrentCompany = useUpdateCurrentCompany();
   const companyProfile = useMyCompanyProfile();
 
-  const translations = useTranslations<IEditableProfileTranslations>("companySignUp");
+  const translations = useTranslations<IEditableProfileTranslations>("editableCompanyProfile");
   if (translations.loading || companyProfile.loading) return <LoadingSpinner/>;
   if (translations.error || companyProfile.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;

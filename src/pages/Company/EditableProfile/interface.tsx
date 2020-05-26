@@ -6,12 +6,5 @@ export interface IEditableProfileFormValues extends IUpdateCurrentCompanyVariabl
 
 export interface IEditableProfileTranslations {
   title: string;
-  cuit: string;
-  companyEmail: string;
-  companyName: string;
-  slogan: string;
-  description: string;
-  logo: string;
-  website: string;
   submit: string;
 }

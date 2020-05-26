@@ -16,12 +16,5 @@ export interface ISignUpTranslations {
   passwordConfirm: string;
   name: string;
   surname: string;
-  cuit: string;
-  companyEmail: string;
-  companyName: string;
-  slogan: string;
-  description: string;
-  logo: string;
-  website: string;
   submit: string;
 }
