@@ -35,7 +35,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = (
             <div className={styles.childrenContainer}>
               <CompanyLogo
                 className={styles.companyLogo}
-                size="small"
+                size="large"
                 companyName={company.companyName}
                 logo={company.logo}
               />
