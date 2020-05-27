@@ -1,0 +1,27 @@
+query getMyOffers{
+  getMyOffers {
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    createdAt
+    sections {
+        uuid
+        title
+        text
+        displayOrder
+    }
+    careers {
+        code
+        description
+        credits
+    }
+    company {
+        uuid
+        companyName
+        logo
+    }
+  }
+}
