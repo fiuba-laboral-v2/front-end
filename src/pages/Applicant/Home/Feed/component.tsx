@@ -20,8 +20,7 @@ const Feed: FunctionComponent<IFeedProps> = ({ title, offers, onCardClick }) => 
           >
             <Offer data={offer}/>
           </ClickableCard>
-        )
-        }
+        )}
       </List>
     </div>
   </Window>
