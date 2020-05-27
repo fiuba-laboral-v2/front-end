@@ -10,6 +10,7 @@ import { FormFooter } from "$components/FormFooter";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   {
+    title,
     onSubmit,
     translations,
     initialValues
@@ -18,7 +19,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   return (
     <Window>
       <div className={styles.mainContainer}>
-        <h1 className={styles.title}>{translations.create}</h1>
+        <h1 className={styles.title}>{title}</h1>
         <Formik
           <ICreateOfferValues>
           initialValues={initialValues}
@@ -111,6 +112,7 @@ export interface IEditOfferTranslations {
 }
 
 interface ICreateOfferProps {
+  title: string;
   initialValues: ICreateOfferValues;
   onSubmit: (values: ICreateOfferValues) => void;
   translations: IEditOfferTranslations;

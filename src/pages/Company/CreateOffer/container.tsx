@@ -15,6 +15,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return <EditOffer
+    title={translations.data.create}
     initialValues={{
       title: "",
       description: "",
