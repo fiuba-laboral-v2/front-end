@@ -1,6 +1,7 @@
 import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
 import { UseQueryResult } from "../useQuery";
+import { useSnackbar } from "notistack";
 
 interface ITranslation {
   key: string;
@@ -23,11 +24,15 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
 };
 
 const useTranslations = <T, >(translationGroup: string) => {
+  const { enqueueSnackbar } = useSnackbar();
   const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
     {
       variables: { translationGroup },
-      errorHandlers: { MissingTranslationError: () => alert("Un error inesperado ha ocurrido") }
+      errorHandlers: {
+        MissingTranslationError: () =>
+          enqueueSnackbar("Un error inesperado ha ocurrido", { variant: "error" })
+      }
     }
   );
 
