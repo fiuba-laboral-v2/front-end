@@ -42,6 +42,7 @@
     "moment": "2.24.0",
     "node-sass": "4.13.0",
     "normalize.css": "8.0.1",
+    "notistack": "0.9.16",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-images-uploading": "2.1.1",

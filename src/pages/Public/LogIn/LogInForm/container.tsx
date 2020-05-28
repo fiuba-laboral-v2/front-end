@@ -11,7 +11,6 @@ import { ILogInFormTranslationsProps } from "./interface";
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const login = useLogin();
-
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;

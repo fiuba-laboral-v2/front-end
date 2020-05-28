@@ -1,9 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 export const MaterialUITheme = createMuiTheme({
-  shape: {
-    borderRadius: 0
-  },
   palette: {
     primary: {
       main: "#000000"
@@ -14,6 +11,16 @@ export const MaterialUITheme = createMuiTheme({
     fontFamily: "inherit"
   },
   overrides: {
+    MuiButton: {
+      textSizeSmall: {
+        fontSize: 15
+      }
+    },
+    MuiSnackbarContent: {
+      message: {
+        fontSize: 15
+      }
+    },
     MuiInput: {
       underline: {
         "&:before, &:after": {
