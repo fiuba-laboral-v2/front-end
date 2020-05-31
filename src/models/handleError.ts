@@ -5,6 +5,9 @@ type ErrorName =
   "CompanyCuitAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
+  "OfferNotFound" |
+  "ApplicantNotFound" |
+  "CompanyNotFoundError" |
   "AuthenticationError" |
   "UnauthorizedError" |
   "ValidationError" |
@@ -29,6 +32,7 @@ export const handleError = (errors: ApolloError, handlers: ErrorHandlers = {}) =
       unknownErrorWasFound = true;
     }
   }
+  if (errors && errors.graphQLErrors.length === 0) unknownErrorWasFound = true;
   if (!unknownErrorWasFound) return;
   if (!handlers.defaultHandler) return;
 

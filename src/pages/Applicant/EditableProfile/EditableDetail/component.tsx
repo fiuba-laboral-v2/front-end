@@ -3,9 +3,8 @@ import styles from "./styles.module.scss";
 import { Form, Formik } from "formik";
 import isArray from "lodash/isArray";
 import { TextInput } from "$components/TextInput";
-import Button from "$components/Button";
 import { FormSet } from "$components/FormSet";
-import { IEditableDetailValues, IApplicantDetailEditableTranslations } from "./interface";
+import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
 import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
@@ -13,6 +12,7 @@ import { FormikValidator } from "$models/FormikValidator";
 import { validateName, validateURL } from "validations-fiuba-laboral-v2";
 import classNames from "classnames";
 import { FormSection } from "$components/FormSection";
+import { SubmitButton } from "$components/SubmitButton";
 
 const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
@@ -138,14 +138,15 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                 )}
                 </div>
                 <div className={styles.submit}>
-                  <Button
+                  <SubmitButton
                     form={formName}
                     className="primary"
                     type="submit"
                     disabled={isSubmitting}
+                    errors={errors}
                   >
                     {translations.submit}
-                  </Button>
+                  </SubmitButton>
                 </div>
               </div>
             </div>

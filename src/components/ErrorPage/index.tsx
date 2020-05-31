@@ -7,8 +7,8 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
   {
     title,
     icon,
-    buttonMessage,
-    onClickButton
+    buttonMessage = "Ir a la página principal",
+    onClickButton = () => window.location.href = window.location.pathname + window.location.search
   }
 ) => (
   <section className={styles.error}>
@@ -20,7 +20,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
 
 interface IErrorPageProps {
   title: string;
-  buttonMessage: string;
-  onClickButton: () => void;
+  buttonMessage?: string;
+  onClickButton?: () => void;
   icon: ReactElement;
 }

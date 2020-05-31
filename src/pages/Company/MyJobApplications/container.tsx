@@ -14,8 +14,7 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
     GET_MY_JOB_APPLICATIONS,
     {
       errorHandlers: {
-        UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden()),
-        AuthenticationError: () => history.push(RoutesBuilder.public.login())
+        UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
       }
     }
   );

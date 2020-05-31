@@ -11,7 +11,7 @@ const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();
   const response = useQuery<{}, { getCompanies: ICompany[] }>(GET_COMPANIES);
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.notFound()}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <Companies

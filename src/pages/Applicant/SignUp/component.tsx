@@ -92,7 +92,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                   className={styles.footer}
                   isSubmitting={isSubmitting}
                   submitButtonText={translations.submit}
-                  formError={errors._form}
+                  errors={errors}
                 />
               </Form>
             </div>

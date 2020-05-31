@@ -7,9 +7,12 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { Redirect } from "$components/Redirect";
+import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { useSnackbar } from "notistack";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const updateApplicant = useUpdateCurrentApplicant();
   const applicantProfile = useMyApplicantProfile();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
@@ -47,28 +50,17 @@ const EditableDetailContainer: FunctionComponent = () => {
   }
   if (applicantProfile.loading || translations.loading) return <LoadingSpinner/>;
 
-  const onSubmit = async (
-    {
-      name,
-      surname,
-      ...values
-    }: IEditableDetailValues) => {
-    try {
-      await updateApplicant({
-        variables: {
-          ...values,
-          user: {
-            name,
-            surname
-          },
-          capabilities: values.capabilities.map(capability => capability.description),
-          careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
-        }
-      });
-      history.push(RoutesBuilder.applicant.myProfile());
-    } catch (error) {
-      history.push(RoutesBuilder.public.notFound());
-    }
+  const onSubmit = async ({ name, surname, ...values }: IEditableDetailValues) => {
+    const result = await updateApplicant({
+      variables: {
+        ...values,
+        user: { name, surname },
+        capabilities: values.capabilities.map(capability => capability.description),
+        careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
+      },
+      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+    });
+    if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
   };
 
   const {

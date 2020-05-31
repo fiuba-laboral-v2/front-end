@@ -3,6 +3,7 @@ import {
   ISaveCompanyErrorHandlersErrors,
   saveCompanyErrorHandlers
 } from "./saveCompanyErrorHandlers";
+import { handleValidationError } from "./handleValidationError";
 
 interface ICreateCompanyErrorHandlers extends ISaveCompanyErrorHandlersErrors {
   user: { email: string; };
@@ -11,10 +12,13 @@ interface ICreateCompanyErrorHandlers extends ISaveCompanyErrorHandlersErrors {
 export const createCompanyErrorHandlers = (
   {
     setErrors,
-    history
+    enqueueSnackbar
   }: ISaveCompanyErrorHandlers<ICreateCompanyErrorHandlers>
 ) =>
   ({
-    UserEmailAlreadyExistsError: () => setErrors({ user: { email: "Este email ya existe" } }),
-    ...saveCompanyErrorHandlers({ setErrors, history })
+    UserEmailAlreadyExistsError: handleValidationError(
+      { enqueueSnackbar },
+      () => setErrors({ user: { email: "Este email ya existe" } })
+    ),
+    ...saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
   });

@@ -8,12 +8,15 @@ import { Session } from "$models/Session";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { useSnackbar } from "notistack";
+import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const saveApplicant = useSaveApplicant();
   const login = useLogin();
-
+  const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: ISignUpFormValues) => {
@@ -43,17 +46,19 @@ const SignUpContainer: FunctionComponent = () => {
     const saveApplicantResult = await saveApplicant(
       {
         variables: { user: userAttributes, ...applicantValues },
-        handlers: {
-          UserEmailAlreadyExistsError: () => setErrors({ user: { email: `Este email ya existe` } }),
-          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-        }
+        errorHandlers: formErrorHandlers({ enqueueSnackbar })({
+          UserEmailAlreadyExistsError: handleValidationError(
+            { enqueueSnackbar },
+            () => setErrors({ user: { email: `Este email ya existe` } })
+          )
+        })
       }
     );
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
       variables: { email: userAttributes.email, password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.internalServerError()) }
+      errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
 

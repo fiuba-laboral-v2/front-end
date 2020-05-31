@@ -19,10 +19,10 @@ export const useMutation = <TVariables extends object = {}, TData extends object
     options?: IMutationOptions<TData, TVariables>
   ): Promise<UseMutationResult<TData>> => {
     try {
-      const { variables, handlers, ...otherOptions } = options || { variables: {} };
+      const { variables, errorHandlers, ...otherOptions } = options || { variables: {} };
       return await mutationFunction({ variables: omitTypename(variables), ...otherOptions });
     } catch (error) {
-      handleError(error, options?.handlers || {});
+      handleError(error, options?.errorHandlers || {});
       return { error, data: undefined };
     }
   };
@@ -42,7 +42,7 @@ type ISuccessfulMutation<T> = {
 
 export interface IMutationOptions<TData, TVariables>
   extends MutationFunctionOptions<TData, TVariables> {
-  handlers?: ErrorHandlers;
+  errorHandlers?: ErrorHandlers;
 }
 
 type MutationFunctionResult<TData, TVariables> = (

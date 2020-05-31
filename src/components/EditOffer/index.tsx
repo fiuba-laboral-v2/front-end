@@ -80,7 +80,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                 <FormFooter
                   isSubmitting={isSubmitting}
                   submitButtonText={translations.submit}
-                  formError={errors._form}
+                  errors={errors}
                 />
               </Form>
             </>
