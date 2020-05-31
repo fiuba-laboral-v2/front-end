@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useOfferByUuid, useTranslations } from "$hooks";
+import { useCompanyOfferByUuid, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { OfferDetail } from "$components/OfferDetail";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -11,7 +11,7 @@ import Button from "$components/Button";
 export const OfferDetailContainer: FunctionComponent = () => {
   const history = useHistory();
   const { uuid } = useParams();
-  const response = useOfferByUuid(uuid);
+  const response = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
 
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
