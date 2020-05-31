@@ -35,13 +35,13 @@ export const SignUpContainer: FunctionComponent = () => {
   ) => {
     const createCompanyResult = await createCompany({
       variables: { user: userAttributes, ...companyValues },
-      handlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+      errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
     });
     if (createCompanyResult.error) return;
 
     const loginResult = await login({
       variables: { email: userAttributes.email , password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
+      errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
 

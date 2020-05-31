@@ -46,7 +46,7 @@ const SignUpContainer: FunctionComponent = () => {
     const saveApplicantResult = await saveApplicant(
       {
         variables: { user: userAttributes, ...applicantValues },
-        handlers: formErrorHandlers({ enqueueSnackbar })({
+        errorHandlers: formErrorHandlers({ enqueueSnackbar })({
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },
             () => setErrors({ user: { email: `Este email ya existe` } })
@@ -58,7 +58,7 @@ const SignUpContainer: FunctionComponent = () => {
 
     const loginResult = await login({
       variables: { email: userAttributes.email, password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
+      errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
 

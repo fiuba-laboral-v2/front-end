@@ -31,7 +31,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   ) => {
     const updateCompanyResult = await updateCurrentCompany({
       variables: companyValues,
-      handlers: saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+      errorHandlers: saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
     });
     if (updateCompanyResult.error) return;
 

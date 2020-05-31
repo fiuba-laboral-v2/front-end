@@ -58,7 +58,7 @@ const EditableDetailContainer: FunctionComponent = () => {
         capabilities: values.capabilities.map(capability => capability.description),
         careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
       },
-      handlers: formErrorHandlers({ enqueueSnackbar })()
+      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
     if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
   };

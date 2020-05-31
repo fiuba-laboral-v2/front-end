@@ -30,7 +30,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
     onSubmit={async values => {
       const response = await createOffer({
         variables: values,
-        handlers: formErrorHandlers({ enqueueSnackbar })()
+        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
       });
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));

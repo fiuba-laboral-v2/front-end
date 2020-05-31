@@ -30,7 +30,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
       variables: { offerUuid },
-      handlers: {
+      errorHandlers: {
         JobApplicationAlreadyExistsError: () =>
           enqueueSnackbar(translations.data.alreadyApplied, { variant: "error" })
       },
