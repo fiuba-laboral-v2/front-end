@@ -12,7 +12,7 @@ const ApplicantsContainer: FunctionComponent = () => {
     loading
   } = useQuery(GET_APPLICANTS);
 
-  if (error) return <Redirect to={RoutesBuilder.public.notFound()}/>;
+  if (error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <Applicants

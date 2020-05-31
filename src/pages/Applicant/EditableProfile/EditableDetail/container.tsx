@@ -67,7 +67,7 @@ const EditableDetailContainer: FunctionComponent = () => {
       });
       history.push(RoutesBuilder.applicant.myProfile());
     } catch (error) {
-      history.push(RoutesBuilder.public.notFound());
+      history.push(RoutesBuilder.public.internalServerError());
     }
   };
 
