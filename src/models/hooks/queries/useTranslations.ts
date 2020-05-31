@@ -2,6 +2,7 @@ import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
 import { UseQueryResult } from "../useQuery";
 import { useSnackbar } from "notistack";
+import { handleGenericError } from "$models/errorHandlers/handleGenericError";
 
 interface ITranslation {
   key: string;
@@ -30,8 +31,7 @@ const useTranslations = <T, >(translationGroup: string) => {
     {
       variables: { translationGroup },
       errorHandlers: {
-        MissingTranslationError: () =>
-          enqueueSnackbar("Un error inesperado ha ocurrido", { variant: "error" })
+        MissingTranslationError: () => handleGenericError({ enqueueSnackbar })
       }
     }
   );

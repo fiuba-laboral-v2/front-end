@@ -5,9 +5,12 @@ import { useHistory } from "react-router-dom";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
+import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { useSnackbar } from "notistack";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const createOffer = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
@@ -27,9 +30,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
     onSubmit={async values => {
       const response = await createOffer({
         variables: values,
-        handlers: {
-          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-        }
+        handlers: formErrorHandlers({ enqueueSnackbar })()
       });
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));

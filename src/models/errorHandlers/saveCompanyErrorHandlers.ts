@@ -1,6 +1,7 @@
-import { RoutesBuilder } from "../RoutesBuilder";
 import { FormikErrors } from "formik";
-import { History } from "history";
+import { OptionsObject, SnackbarKey, SnackbarMessage } from "notistack";
+import { formErrorHandlers } from "./formErrorHandlers";
+import { handleValidationError } from "./handleValidationError";
 
 export interface ISaveCompanyErrorHandlersErrors {
   cuit: string;
@@ -9,17 +10,18 @@ export interface ISaveCompanyErrorHandlersErrors {
 
 export interface ISaveCompanyErrorHandlers<T> {
   setErrors: (error: FormikErrors<T>) => void;
-  history: History;
+  enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
 }
 
 export const saveCompanyErrorHandlers = (
   {
     setErrors,
-    history
+    enqueueSnackbar
   }: ISaveCompanyErrorHandlers<ISaveCompanyErrorHandlersErrors>
 ) =>
-  ({
-    CompanyCuitAlreadyExistsError: () => setErrors({ cuit: "Este cuit ya existe" }),
-    ValidationError: () => setErrors({ _form: "Hubo un error: Revise los valores ingresados" }),
-    defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
+  formErrorHandlers({ enqueueSnackbar })({
+    CompanyCuitAlreadyExistsError: handleValidationError(
+      { enqueueSnackbar },
+      () => setErrors({ cuit: "Este cuit ya existe" })
+    )
   });

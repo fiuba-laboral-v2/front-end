@@ -6,7 +6,6 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Link } from "$components/Link";
 import { TextInput } from "$components/TextInput";
-import Button from "$components/Button";
 import { Headline } from "$components/Headline";
 
 import { FormikValidator } from "$models/FormikValidator";
@@ -15,6 +14,7 @@ import { validateEmail } from "validations-fiuba-laboral-v2";
 import styles from "./styles.module.scss";
 import { ILogInFormTranslationsProps } from "./interface";
 import { ILoginVariables } from "$hooks";
+import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "logInForm";
 
@@ -34,7 +34,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
         validateOnMount={true}
         onSubmit={onSubmit}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, errors }) => (
           <div className={styles.body}>
             <Form className={styles.formContainer} id={formName}>
               <TextInput
@@ -53,15 +53,16 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
               />
             </Form>
             <div className={styles.footer}>
-              <Button
+              <SubmitButton
                 form={formName}
                 className="primary"
                 width="expand"
                 type="submit"
                 disabled={isSubmitting}
+                errors={errors}
               >
                 {translations.logIn}
-              </Button>
+              </SubmitButton>
               <div className={styles.register}>
                 <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
                 <Link to={RoutesBuilder.public.register()}>{translations.register}</Link>

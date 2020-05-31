@@ -24,7 +24,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
         validateOnMount={true}
         onSubmit={onUpdate}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ values, setFieldValue, isSubmitting, errors }) => (
           <>
             <Form>
               <CompanyLogoInput
@@ -36,6 +36,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
               <FormFooter
                 isSubmitting={isSubmitting}
                 submitButtonText={translations.submit}
+                errors={errors}
               />
             </Form>
           </>

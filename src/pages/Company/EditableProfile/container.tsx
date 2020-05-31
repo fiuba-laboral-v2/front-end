@@ -1,16 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useMyCompanyProfile, useUpdateCurrentCompany, useTranslations } from "$hooks";
+import { useMyCompanyProfile, useTranslations, useUpdateCurrentCompany } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { EditableProfile } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { IEditableProfileTranslations, IEditableProfileFormValues } from "./interface";
+import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
+import { useSnackbar } from "notistack";
 
 export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const updateCurrentCompany = useUpdateCurrentCompany();
   const companyProfile = useMyCompanyProfile();
 
@@ -29,7 +31,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   ) => {
     const updateCompanyResult = await updateCurrentCompany({
       variables: companyValues,
-      handlers: saveCompanyErrorHandlers({ setErrors, history })
+      handlers: saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
     });
     if (updateCompanyResult.error) return;
 

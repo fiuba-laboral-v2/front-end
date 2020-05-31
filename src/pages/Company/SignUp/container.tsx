@@ -10,9 +10,11 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
+import { useSnackbar } from "notistack";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const createCompany = useCreateCompany();
   const login = useLogin();
 
@@ -33,13 +35,13 @@ export const SignUpContainer: FunctionComponent = () => {
   ) => {
     const createCompanyResult = await createCompany({
       variables: { user: userAttributes, ...companyValues },
-      handlers: createCompanyErrorHandlers({ setErrors, history })
+      handlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
     });
     if (createCompanyResult.error) return;
 
     const loginResult = await login({
       variables: { email: userAttributes.email , password: userAttributes.password },
-      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.internalServerError()) }
+      handlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
 

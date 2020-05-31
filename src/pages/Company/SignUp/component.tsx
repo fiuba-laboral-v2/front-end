@@ -4,11 +4,10 @@ import { FormikHelpers } from "formik/dist/types";
 
 import styles from "./styles.module.scss";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
-
-import Button from "$components/Button";
 import { Window } from "$components/Window";
 import { CompanyFields } from "$components/CompanyFields";
 import { UserInput } from "$components/UserInput";
+import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "signUpForm";
 
@@ -46,7 +45,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           validateOnMount={true}
           onSubmit={onSubmit}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, errors }) => (
             <>
               <Form id={formName}>
                 <UserInput
@@ -58,16 +57,17 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
                   name={{ name: "user.name", label: translations.name }}
                   surname={{ name: "user.surname", label: translations.surname }}
                 />
-                <CompanyFields />
+                <CompanyFields/>
               </Form>
-              <Button
+              <SubmitButton
                 form={formName}
                 className="primary"
                 type="submit"
                 disabled={isSubmitting}
+                errors={errors}
               >
                 {translations.submit}
-              </Button>
+              </SubmitButton>
             </>
           )}
         </Formik>

@@ -7,20 +7,18 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Session } from "$models/Session";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
 import { ILogInFormTranslationsProps } from "./interface";
+import { useSnackbar } from "notistack";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const login = useLogin();
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) => {
-    setErrors({
-      email: translations.data.badCredentialsMessage,
-      password: translations.data.badCredentialsMessage
-    });
-  };
+  const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) =>
+    enqueueSnackbar(translations.data.badCredentialsMessage, { variant: "error" });
 
   const onSubmit = async (
     values: ILoginVariables,

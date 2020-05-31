@@ -6,9 +6,12 @@ import { EditOffer, ICreateOfferValues, IEditOfferTranslations } from "$componen
 import { useHistory, useParams } from "react-router-dom";
 import { IOffer } from "$interfaces/Offer";
 import { GET_COMPANY_OFFER_BY_UUID } from "$queries";
+import { useSnackbar } from "notistack";
+import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const { uuid } = useParams();
   const editOffer = useEditOffer();
@@ -23,8 +26,11 @@ export const EditOfferContainer: FunctionComponent = () => {
   }
 
   const onSubmit = async (values: ICreateOfferValues) => {
-    const response = await editOffer({ variables: values });
-    if (response.error) return history.push(RoutesBuilder.public.internalServerError());
+    const response = await editOffer({
+      variables: values,
+      handlers: formErrorHandlers({ enqueueSnackbar })()
+    });
+    if (response.error) return;
     history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
   };
 
