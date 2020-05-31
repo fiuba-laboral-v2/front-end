@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useCompanyOfferByUuid, useEditOffer, useTranslations } from "$hooks";
+import { useOfferByUuid, useEditOffer, useTranslations } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer, ICreateOfferValues, IEditOfferTranslations } from "$components/EditOffer";
@@ -13,7 +13,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const { uuid } = useParams();
   const editOffer = useEditOffer();
-  const getOffer = useCompanyOfferByUuid(uuid);
+  const getOffer = useOfferByUuid(uuid);
 
   if (translations.loading || getOffer.loading || getOffer.error) return <Fragment/>;
   if (translations.error) {

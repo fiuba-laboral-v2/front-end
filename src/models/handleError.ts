@@ -6,6 +6,7 @@ type ErrorName =
   "BadCredentialsError" |
   "UserNotFoundError" |
   "OfferNotFound" |
+  "ApplicantNotFound" |
   "AuthenticationError" |
   "UnauthorizedError" |
   "ValidationError" |

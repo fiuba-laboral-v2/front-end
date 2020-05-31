@@ -4,7 +4,7 @@ import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const useCompanyOfferByUuid = (uuid?: string) => {
+export const useOfferByUuid = (uuid?: string) => {
   const history = useHistory();
   return useQuery<{ uuid?: string }, { getOfferByUuid: IOffer }>(
     GET_COMPANY_OFFER_BY_UUID,

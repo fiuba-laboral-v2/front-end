@@ -10,8 +10,6 @@ export const NotFound: FunctionComponent = () => {
     <Window>
       <ErrorPage
         title="Parece que esta página no existe"
-        buttonMessage="Ir a la página principal"
-        onClickButton={() => history.push(RoutesBuilder.public.home())}
         icon={<img src={"images/brokenLink.svg"} alt={"Página inexistente"}/>}
       />
     </Window>
