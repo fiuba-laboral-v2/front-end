@@ -4,6 +4,7 @@ import { IButtonProps } from "../Button/interface";
 import { FormikErrors } from "formik";
 import { useSnackbar } from "notistack";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
+import { isEmpty, keys } from "lodash";
 
 export const SubmitButton = <Values, >(
   { errors, ...props }: ISubmitButtonProps<Values>
@@ -12,7 +13,7 @@ export const SubmitButton = <Values, >(
 
   return <Button
     onClick={() => {
-      if (JSON.stringify(errors) !== "{}") handleValidationError({ enqueueSnackbar })();
+      if (!isEmpty(keys(errors))) handleValidationError({ enqueueSnackbar })();
     }}
     {...props}
   />;
