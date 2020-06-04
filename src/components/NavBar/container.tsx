@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { useApolloClient } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
-import { Session } from "$models/Session";
 import { NavBar } from "./component";
 import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
@@ -59,7 +58,6 @@ export const NavBarContainer: FunctionComponent = () => {
   }
 
   const onLogOut = async () => {
-    Session.logout();
     await client.clearStore();
     history.push(RoutesBuilder.public.login());
   };
