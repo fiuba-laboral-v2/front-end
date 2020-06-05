@@ -3,17 +3,17 @@ import { useHistory } from "react-router-dom";
 import { useApolloClient } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
-import { Session } from "$models/Session";
 import { NavBar } from "./component";
 import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
-import { useCurrentUser } from "$hooks/queries/useCurrentUser";
+import { useCurrentUser, useLogout } from "$hooks";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
   const currentUser = useCurrentUser();
+  const logout = useLogout();
 
   if (translations.loading || currentUser.loading) return <Fragment/>;
   if (translations.error || currentUser.error) {
@@ -59,8 +59,8 @@ export const NavBarContainer: FunctionComponent = () => {
   }
 
   const onLogOut = async () => {
-    Session.logout();
     await client.clearStore();
+    await logout();
     history.push(RoutesBuilder.public.login());
   };
 

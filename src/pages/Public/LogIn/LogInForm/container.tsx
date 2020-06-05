@@ -4,7 +4,6 @@ import { FormikErrors, FormikHelpers } from "formik";
 import { Redirect } from "$components/Redirect";
 import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Session } from "$models/Session";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
 import { ILogInFormTranslationsProps } from "./interface";
 import { useSnackbar } from "notistack";
@@ -37,7 +36,6 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     if (loginResult.error) return;
 
     setSubmitting(false);
-    Session.login(loginResult.data.login);
     history.push(RoutesBuilder.public.home());
   };
 

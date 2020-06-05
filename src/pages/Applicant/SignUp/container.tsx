@@ -4,7 +4,6 @@ import { FormikHelpers } from "formik";
 import { SignUp } from "./component";
 import { Redirect } from "$components/Redirect";
 import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
-import { Session } from "$models/Session";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
@@ -63,7 +62,6 @@ const SignUpContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
-    Session.login(loginResult.data.login);
     history.push(RoutesBuilder.applicant.editMyProfile());
   };
 

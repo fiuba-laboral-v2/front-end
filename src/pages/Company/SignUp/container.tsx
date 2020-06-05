@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useCreateCompany, useTranslations } from "$hooks";
 import { useLogin } from "$models/hooks";
-import { Session } from "$models/Session";
 import { Redirect } from "$components/Redirect";
 import { SignUp } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -46,7 +45,6 @@ export const SignUpContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
-    Session.login(loginResult.data.login);
     history.push(RoutesBuilder.company.myProfile());
   };
 
