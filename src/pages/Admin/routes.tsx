@@ -6,5 +6,5 @@ const {
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
-  { path: home(), component: Home, public: true }
+  { path: home(), component: Home }
 ];
