@@ -30,5 +30,5 @@ export interface IGenericUserRoute extends RouteProps {
 }
 
 export interface IUserRoute extends IGenericUserRoute {
-  userType: "applicant" | "company";
+  userType: "applicant" | "company" | "isAdmin";
 }

@@ -4,6 +4,7 @@ query getCurrentUser {
         email
         name
         surname
+        isAdmin
         applicant {
             uuid
         }

@@ -16,9 +16,15 @@ const routeBuilder = (urlPrefix: string) =>
 
 const applicantRoute = routeBuilder("/postulante");
 const companyRoute = routeBuilder("/empresa");
+const adminRoute = routeBuilder("/admin");
 const publicRoute = routeBuilder("");
 
 export const RoutesBuilder = {
+  admin: {
+    home: () =>
+      adminRoute("")
+  },
+
   applicant: {
     list: () =>
       "/todos-los-postulantes", // TODO: /admin/postulantes
