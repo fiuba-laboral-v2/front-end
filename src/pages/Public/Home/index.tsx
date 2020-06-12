@@ -14,7 +14,7 @@ const Home: FunctionComponent = () => {
   if (currentUser.loading) return <Fragment/>;
   if (currentUser.error) return <Redirect to={internalServerError()}/>;
 
-  if (currentUser.data.getCurrentUser?.isAdmin) return <Redirect to={adminHome()}/>;
+  if (currentUser.data.getCurrentUser?.admin) return <Redirect to={adminHome()}/>;
   if (currentUser.data.getCurrentUser?.applicant) return <Redirect to={offerList()}/>;
   if (currentUser.data.getCurrentUser?.company) return <Redirect to={jobApplications()}/>;
   return <Redirect to={login()}/>;

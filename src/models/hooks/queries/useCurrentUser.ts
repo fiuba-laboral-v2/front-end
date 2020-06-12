@@ -9,19 +9,19 @@ interface IUseCurrentUser {
 }
 
 export interface IAdminUser extends IUser {
-  isAdmin: true;
+  admin: { userUuid: string; };
   company?: undefined;
   applicant?: undefined;
 }
 
 export interface ICurrentApplicant extends IUser {
-  isAdmin: false;
+  admin?: undefined;
   company?: undefined;
   applicant: { uuid: string };
 }
 
 export interface ICurrentCompany extends IUser {
-  isAdmin: false;
+  admin?: undefined;
   company: { uuid: string };
   applicant?: undefined;
 }
