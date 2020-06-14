@@ -21,16 +21,17 @@ describe("CurrentUser", () => {
   });
 
   it("returns a valid current company user", () => {
+    const companyAttributes = {
+      uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+      approvalStatus: ApprovalStatus.pending
+    };
     const currentUser = CurrentUser({
       data: {
         getCurrentUser: {
           email: "companyUser@company.com",
           name: "eric",
           surname: "Clapton",
-          company: {
-            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-            approvalStatus: ApprovalStatus.pending
-          }
+          company: companyAttributes
         }
       },
       loading: false,
@@ -39,6 +40,7 @@ describe("CurrentUser", () => {
     expect(currentUser.isCompany()).toBe(true);
     expect(currentUser.isApplicant()).toBe(false);
     expect(currentUser.isAdmin()).toBe(false);
+    expect(currentUser.company()).toMatchObject(companyAttributes);
   });
 
   it("returns a valid current admin user", () => {
