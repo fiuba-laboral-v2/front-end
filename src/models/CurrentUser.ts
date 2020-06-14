@@ -3,7 +3,7 @@ import { IUseCurrentUser } from "./hooks/queries/useCurrentUser";
 import { ICompany } from "$interfaces/Company";
 import { CurrentCompany, Company } from "./CurrentCompany";
 
-export const buildCurrentUser = (
+export const CurrentUser = (
   currentUserResponse: UseQueryResult<IUseCurrentUser>
 ): CurrentUser => {
   const currentUser: CurrentUser = {
