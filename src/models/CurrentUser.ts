@@ -1,7 +1,7 @@
 import { UseQueryResult } from "./hooks/useQuery";
 import { IUseCurrentUser } from "./hooks/queries/useCurrentUser";
 import { ICompany } from "$interfaces/Company";
-import { buildCurrentCompany, Company } from "./CurrentCompany";
+import { CurrentCompany, Company } from "./CurrentCompany";
 
 export const buildCurrentUser = (
   currentUserResponse: UseQueryResult<IUseCurrentUser>
@@ -11,7 +11,7 @@ export const buildCurrentUser = (
     isCompany: () => !!currentUser.data?.getCurrentUser?.company,
     isApplicant: () => !!currentUser.data?.getCurrentUser?.applicant,
     isAdmin: () => !!currentUser.data?.getCurrentUser?.admin,
-    company: () => buildCurrentCompany(currentUser.data?.getCurrentUser?.company as ICompany)
+    company: () => CurrentCompany(currentUser.data?.getCurrentUser?.company as ICompany)
   };
   return currentUser;
 };

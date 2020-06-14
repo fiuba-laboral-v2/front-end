@@ -2,7 +2,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
 import { RoutesBuilder } from "./RoutesBuilder";
 
-export const buildCurrentCompany = (currentCompanyResponse: ICompany): Company => {
+export const CurrentCompany = (currentCompanyResponse: ICompany): Company => {
   const company: Company = {
     ...currentCompanyResponse,
     isPending: () => company.approvalStatus === ApprovalStatus.pending,
@@ -10,16 +10,17 @@ export const buildCurrentCompany = (currentCompanyResponse: ICompany): Company =
     isApproved: () => company.approvalStatus === ApprovalStatus.approved,
     getHomeRoute: () => {
       if (company.isApproved()) return RoutesBuilder.company.jobApplications();
+      if (company.isPending()) return RoutesBuilder.company.editMyProfile();
 
-      return RoutesBuilder.company.editMyProfile();
+      return RoutesBuilder.company.myProfile();
     },
     availableRoutesInPendingStatus: () => {
-      const { myProfile } = RoutesBuilder.company;
-      return [myProfile()];
-    },
-    availableRoutesInRejectedStatus: () => {
       const { editMyProfile, myProfile } = RoutesBuilder.company;
       return [editMyProfile(), myProfile()];
+    },
+    availableRoutesInRejectedStatus: () => {
+      const { myProfile } = RoutesBuilder.company;
+      return [myProfile()];
     },
     isRouteDisabled: (route: string) => {
       if (company.isApproved()) return false;
