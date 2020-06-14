@@ -63,6 +63,13 @@ export const NavBarContainer: FunctionComponent = () => {
     ];
   }
 
+  const toolTipMessage = () => {
+    if (currentUser.isCompany()) {
+      if (currentUser.company().isPending()) return "pendingProfile";
+      if (currentUser.company().isRejected()) return "rejectedProfile";
+    }
+  };
+
   const onLogOut = async () => {
     await client.clearStore();
     await logout();
@@ -74,6 +81,7 @@ export const NavBarContainer: FunctionComponent = () => {
       logOut={onLogOut}
       links={links}
       isLoggedIn={!!currentUser.data.getCurrentUser}
+      toolTipMessage={toolTipMessage()}
       translations={translations.data}
       username={currentUser.data.getCurrentUser?.name}
     />

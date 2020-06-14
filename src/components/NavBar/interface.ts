@@ -10,6 +10,8 @@ export interface INavBarTranslations {
   myProfile: string;
   myCompanyProfile: string;
   myOffers: string;
+  pendingProfile: string;
+  rejectedProfile: string;
 }
 
 export interface INavBarLink {

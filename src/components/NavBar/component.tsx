@@ -15,6 +15,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
     links,
     isLoggedIn,
     username,
+    toolTipMessage,
     translations
   }
 ) => {
@@ -34,7 +35,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         {links.map(link =>
           <Link
             disabled={link.disabled}
-            disabledTitle="pending"
+            disabledTitle={toolTipMessage && translations[toolTipMessage]}
             key={link.path}
             to={link.path}
           >
@@ -67,4 +68,5 @@ interface INavBarProps {
   isLoggedIn: boolean;
   username?: string;
   translations: INavBarTranslations;
+  toolTipMessage?: "pendingProfile" | "rejectedProfile";
 }
