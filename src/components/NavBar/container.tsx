@@ -38,22 +38,27 @@ export const NavBarContainer: FunctionComponent = () => {
     ];
   }
   if (currentUser.isCompany()) {
+    const company = currentUser.company();
     links = [
       {
         path: RoutesBuilder.company.jobApplications(),
-        title: translations.data.jobApplications
+        title: translations.data.jobApplications,
+        disabled: company.isRouteDisabled(RoutesBuilder.company.jobApplications())
       },
       {
         path: RoutesBuilder.company.createOffer(),
-        title: translations.data.createOffer
+        title: translations.data.createOffer,
+        disabled: company.isRouteDisabled(RoutesBuilder.company.createOffer())
       },
       {
         path: RoutesBuilder.company.myOffers(),
-        title: translations.data.myOffers
+        title: translations.data.myOffers,
+        disabled: company.isRouteDisabled(RoutesBuilder.company.myOffers())
       },
       {
         path: RoutesBuilder.company.myProfile(),
-        title: translations.data.myCompanyProfile
+        title: translations.data.myCompanyProfile,
+        disabled: company.isRouteDisabled(RoutesBuilder.company.myProfile())
       }
     ];
   }

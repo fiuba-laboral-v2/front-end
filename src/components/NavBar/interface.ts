@@ -15,4 +15,5 @@ export interface INavBarTranslations {
 export interface INavBarLink {
   path: string;
   title: string;
+  disabled?: boolean;
 }

@@ -12,6 +12,21 @@ export const buildCurrentCompany = (currentCompanyResponse: ICompany): Company =
       if (company.isApproved()) return RoutesBuilder.company.jobApplications();
 
       return RoutesBuilder.company.editMyProfile();
+    },
+    availableRoutesInPendingStatus: () => {
+      const { myProfile } = RoutesBuilder.company;
+      return [myProfile()];
+    },
+    availableRoutesInRejectedStatus: () => {
+      const { editMyProfile, myProfile } = RoutesBuilder.company;
+      return [editMyProfile(), myProfile()];
+    },
+    isRouteDisabled: (route: string) => {
+      if (company.isApproved()) return false;
+      if (company.isPending()) {
+        return !company.availableRoutesInPendingStatus().includes(route);
+      }
+      return !company.availableRoutesInRejectedStatus().includes(route);
     }
   };
   return company;
@@ -24,4 +39,7 @@ export interface ICompanyProps {
   isRejected: () => boolean;
   isApproved: () => boolean;
   getHomeRoute: () => string;
+  isRouteDisabled: (route: string) => boolean;
+  availableRoutesInPendingStatus: () => string[];
+  availableRoutesInRejectedStatus: () => string[];
 }
