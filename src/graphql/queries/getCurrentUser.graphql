@@ -12,6 +12,7 @@ query getCurrentUser {
         }
         company {
             uuid
+            approvalStatus
         }
     }
 }

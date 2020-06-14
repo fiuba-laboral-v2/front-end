@@ -21,7 +21,7 @@ export const NavBarContainer: FunctionComponent = () => {
   }
 
   let links: INavBarLink[] = [];
-  if (currentUser.data.getCurrentUser?.applicant) {
+  if (currentUser.isApplicant()) {
     links = [
       {
         path: RoutesBuilder.applicant.offerList(),
@@ -37,7 +37,7 @@ export const NavBarContainer: FunctionComponent = () => {
       }
     ];
   }
-  if (currentUser.data.getCurrentUser?.company) {
+  if (currentUser.isCompany()) {
     links = [
       {
         path: RoutesBuilder.company.jobApplications(),

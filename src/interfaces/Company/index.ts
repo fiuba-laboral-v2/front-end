@@ -1,4 +1,5 @@
 import { IUser } from "$interfaces/User";
+import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface ICompany {
   uuid: string;
@@ -10,6 +11,7 @@ export interface ICompany {
   logo?: string;
   website?: string;
   email?: string;
+  approvalStatus: ApprovalStatus;
   phoneNumbers?: string[];
   photos?: string[];
 }
