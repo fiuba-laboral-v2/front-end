@@ -3,7 +3,7 @@ import { Link as ReactRouterLink, LinkProps } from "react-router-dom";
 import styles from "./styles.module.scss";
 import Tooltip from "@material-ui/core/Tooltip";
 
-export const Link: FunctionComponent<LinkProps & ILink> = (
+export const Link: FunctionComponent<ILink> = (
   {
     onClick = event => event.stopPropagation(),
     disabledTitle,
@@ -14,20 +14,16 @@ export const Link: FunctionComponent<LinkProps & ILink> = (
     event.stopPropagation();
     onClick(event);
   };
+  const child = <ReactRouterLink onClick={handleOnClick} {...props}/>;
+  if (!disabledTitle) return child;
 
-  if (disabledTitle) {
-    return (
-      <Tooltip interactive title={disabledTitle}>
-        <span className={styles.disabled}>
-          <a href={props.to.toString()}>{props.children}</a>
-        </span>
-      </Tooltip>
-    );
-  }
-
-  return <ReactRouterLink onClick={handleOnClick} {...props}/>;
+  return (
+    <Tooltip interactive title={disabledTitle}>
+      <div className={styles.disabled}>{child}</div>
+    </Tooltip>
+  );
 };
 
-interface ILink {
+interface ILink extends LinkProps {
   disabledTitle?: string;
 }
