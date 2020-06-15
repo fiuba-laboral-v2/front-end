@@ -7,6 +7,7 @@ import { NavBar } from "./component";
 import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
+import { Permissions } from "$models/Permissions";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -38,37 +39,30 @@ export const NavBarContainer: FunctionComponent = () => {
     ];
   }
   if (currentUser.isCompany()) {
-    const company = currentUser.company();
+    const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
     links = [
       {
-        path: RoutesBuilder.company.jobApplications(),
+        path: jobApplications(),
         title: translations.data.jobApplications,
-        disabled: company.isRouteDisabled(RoutesBuilder.company.jobApplications())
+        translationKey: Permissions.getAccessError(currentUser, jobApplications())
       },
       {
-        path: RoutesBuilder.company.createOffer(),
+        path: createOffer(),
         title: translations.data.createOffer,
-        disabled: company.isRouteDisabled(RoutesBuilder.company.createOffer())
+        translationKey: Permissions.getAccessError(currentUser, createOffer())
       },
       {
-        path: RoutesBuilder.company.myOffers(),
+        path: myOffers(),
         title: translations.data.myOffers,
-        disabled: company.isRouteDisabled(RoutesBuilder.company.myOffers())
+        translationKey: Permissions.getAccessError(currentUser, myOffers())
       },
       {
-        path: RoutesBuilder.company.myProfile(),
+        path: myProfile(),
         title: translations.data.myCompanyProfile,
-        disabled: company.isRouteDisabled(RoutesBuilder.company.myProfile())
+        translationKey: Permissions.getAccessError(currentUser, myProfile())
       }
     ];
   }
-
-  const toolTipMessage = () => {
-    if (currentUser.isCompany()) {
-      if (currentUser.company().isPending()) return "pendingProfile";
-      if (currentUser.company().isRejected()) return "rejectedProfile";
-    }
-  };
 
   const onLogOut = async () => {
     await client.clearStore();
@@ -81,7 +75,6 @@ export const NavBarContainer: FunctionComponent = () => {
       logOut={onLogOut}
       links={links}
       isLoggedIn={!!currentUser.data.getCurrentUser}
-      toolTipMessage={toolTipMessage()}
       translations={translations.data}
       username={currentUser.data.getCurrentUser?.name}
     />

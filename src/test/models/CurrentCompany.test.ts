@@ -52,58 +52,6 @@ describe("CurrentCompany", () => {
     expect(company.isPending()).toBe(false);
   });
 
-  it("returns all available routes when the company is in pending status", () => {
-    const company = CurrentCompany({
-      ...companyAttributes,
-      approvalStatus: ApprovalStatus.pending
-    });
-    expect(company.availableRoutesInPendingStatus()).toEqual(
-      expect.arrayContaining([
-        RoutesBuilder.company.editMyProfile(),
-        RoutesBuilder.company.myProfile()
-      ])
-    );
-  });
-
-  it("returns all available routes when the company is in rejected status", () => {
-    const company = CurrentCompany({
-      ...companyAttributes,
-      approvalStatus: ApprovalStatus.rejected
-    });
-    expect(company.availableRoutesInPendingStatus()).toEqual(
-      expect.arrayContaining([
-        RoutesBuilder.company.myProfile()
-      ])
-    );
-  });
-
-  it("returns that all routes are not disabled when status is approved", () => {
-    const company = CurrentCompany({
-      ...companyAttributes,
-      approvalStatus: ApprovalStatus.approved
-    });
-    const {
-      signUp,
-      myProfile,
-      editMyProfile,
-      createOffer,
-      editOffer,
-      offer,
-      myOffers,
-      jobApplications,
-      applicantDetail
-    } = RoutesBuilder.company;
-    expect(company.isRouteDisabled(signUp())).toBe(false);
-    expect(company.isRouteDisabled(myProfile())).toBe(false);
-    expect(company.isRouteDisabled(editMyProfile())).toBe(false);
-    expect(company.isRouteDisabled(createOffer())).toBe(false);
-    expect(company.isRouteDisabled(editOffer("uuid"))).toBe(false);
-    expect(company.isRouteDisabled(offer("uuid"))).toBe(false);
-    expect(company.isRouteDisabled(myOffers())).toBe(false);
-    expect(company.isRouteDisabled(jobApplications())).toBe(false);
-    expect(company.isRouteDisabled(applicantDetail("uuid"))).toBe(false);
-  });
-
   it("returns company profile edit page if the status is pending", () => {
     const company = CurrentCompany({
       ...companyAttributes,

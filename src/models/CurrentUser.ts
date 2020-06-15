@@ -23,4 +23,4 @@ interface ICurrentUser {
   company: () => Company;
 }
 
-type CurrentUser = UseQueryResult<IUseCurrentUser> & ICurrentUser;
+export type CurrentUser = UseQueryResult<IUseCurrentUser> & ICurrentUser;

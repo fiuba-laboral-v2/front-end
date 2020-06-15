@@ -6,7 +6,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 export const Link: FunctionComponent<LinkProps & ILink> = (
   {
     onClick = event => event.stopPropagation(),
-    disabled,
     disabledTitle,
     ...props
   }
@@ -16,7 +15,7 @@ export const Link: FunctionComponent<LinkProps & ILink> = (
     onClick(event);
   };
 
-  if (disabled) {
+  if (disabledTitle) {
     return (
       <Tooltip interactive title={disabledTitle}>
         <span className={styles.disabled}>
@@ -30,6 +29,5 @@ export const Link: FunctionComponent<LinkProps & ILink> = (
 };
 
 interface ILink {
-  disabled?: boolean;
   disabledTitle?: string;
 }
