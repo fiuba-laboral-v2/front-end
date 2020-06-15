@@ -34,7 +34,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         {links.map(link =>
           <Link
             key={link.path}
-            disabledTitle={link.translationKey && translations[link.translationKey]}
+            disabledTitle={link.tooltipMessage}
             to={link.path}
           >
             {link.title}

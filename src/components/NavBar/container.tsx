@@ -22,6 +22,10 @@ export const NavBarContainer: FunctionComponent = () => {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
+  const getTooltipMessage = (translationKey?: "pendingProfile" | "rejectedProfile") => {
+    return translationKey && translations.data[translationKey];
+  };
+
   const currentUser = CurrentUser(currentUserResponse.data.getCurrentUser);
   let links: INavBarLink[] = [];
   if (currentUser?.applicant) {
@@ -40,28 +44,31 @@ export const NavBarContainer: FunctionComponent = () => {
       }
     ];
   }
+
   if (currentUser?.company) {
     const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
     links = [
       {
         path: jobApplications(),
         title: translations.data.jobApplications,
-        translationKey: Permissions.getAccessError(currentUser, jobApplications())
+        tooltipMessage: getTooltipMessage(
+          Permissions.getAccessError(currentUser, jobApplications())
+        )
       },
       {
         path: createOffer(),
         title: translations.data.createOffer,
-        translationKey: Permissions.getAccessError(currentUser, createOffer())
+        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, createOffer()))
       },
       {
         path: myOffers(),
         title: translations.data.myOffers,
-        translationKey: Permissions.getAccessError(currentUser, myOffers())
+        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, myOffers()))
       },
       {
         path: myProfile(),
         title: translations.data.myCompanyProfile,
-        translationKey: Permissions.getAccessError(currentUser, myProfile())
+        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, myProfile()))
       }
     ];
   }
