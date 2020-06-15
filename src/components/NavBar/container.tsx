@@ -26,7 +26,7 @@ export const NavBarContainer: FunctionComponent = () => {
     return translationKey && translations.data[translationKey];
   };
 
-  const currentUser = CurrentUser(currentUserResponse.data.getCurrentUser);
+  const currentUser = currentUserResponse.data.getCurrentUser;
   let links: INavBarLink[] = [];
   if (currentUser?.applicant) {
     links = [
