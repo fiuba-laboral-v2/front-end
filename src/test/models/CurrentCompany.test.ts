@@ -1,6 +1,5 @@
 import { CurrentCompany } from "$models/CurrentCompany";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { RoutesBuilder } from "../../models/RoutesBuilder";
 
 describe("CurrentCompany", () => {
   it("creates a valid company", () => {
@@ -40,21 +39,5 @@ describe("CurrentCompany", () => {
     expect(company.isRejected()).toBe(true);
     expect(company.isApproved()).toBe(false);
     expect(company.isPending()).toBe(false);
-  });
-
-  it("returns company profile edit page if the status is pending", () => {
-    const company = CurrentCompany({
-      uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-      approvalStatus: ApprovalStatus.pending
-    });
-    expect(company.getHomeRoute()).toEqual(RoutesBuilder.company.editMyProfile());
-  });
-
-  it("returns company profile page if the status is rejected", () => {
-    const company = CurrentCompany({
-      uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-      approvalStatus: ApprovalStatus.rejected
-    });
-    expect(company.getHomeRoute()).toEqual(RoutesBuilder.company.myProfile());
   });
 });
