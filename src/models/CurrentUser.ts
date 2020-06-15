@@ -1,5 +1,4 @@
 import { UseCurrentUser } from "./hooks/queries/useCurrentUser";
-import { ICompany } from "$interfaces/Company";
 import { IUser } from "$interfaces/User";
 import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 
@@ -8,7 +7,7 @@ export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefine
 
   return {
     ...attributes,
-    company: attributes.company && CurrentCompany(attributes.company as ICompany),
+    company: attributes.company && CurrentCompany(attributes.company),
     applicant: attributes.applicant,
     admin: attributes.admin
   };

@@ -1,8 +1,7 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { ICompany } from "$interfaces/Company";
 import { RoutesBuilder } from "./RoutesBuilder";
 
-export const CurrentCompany = (attributes: ICompany): ICurrentCompany => {
+export const CurrentCompany = (attributes: ICurrentCompanyProps): ICurrentCompany => {
   const company: ICurrentCompany = {
     ...attributes,
     isPending: () => company.approvalStatus === ApprovalStatus.pending,
@@ -18,7 +17,12 @@ export const CurrentCompany = (attributes: ICompany): ICurrentCompany => {
   return company;
 };
 
-export interface ICurrentCompany extends ICompany {
+interface ICurrentCompanyProps {
+  uuid: string;
+  approvalStatus: ApprovalStatus;
+}
+
+export interface ICurrentCompany extends ICurrentCompanyProps {
   isPending: () => boolean;
   isRejected: () => boolean;
   isApproved: () => boolean;
