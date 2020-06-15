@@ -13,9 +13,3 @@ export interface INavBarTranslations {
   pendingProfile: string;
   rejectedProfile: string;
 }
-
-export interface INavBarLink {
-  path: string;
-  title: string;
-  tooltipMessage?: string;
-}

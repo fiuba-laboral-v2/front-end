@@ -4,10 +4,11 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
 import { NavBar } from "./component";
-import { INavBarLink, INavBarTranslations } from "./interface";
+import { INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
-import { Permissions } from "$models/Permissions";
+import { NavBarBuilder } from "$models/NavBarBuilder";
+import { INavBarLink } from "$models/NavBarBuilder/Interfaces";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -21,56 +22,9 @@ export const NavBarContainer: FunctionComponent = () => {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
-  const getTooltipMessage = (translationKey?: "pendingProfile" | "rejectedProfile") => {
-    return translationKey && translations.data[translationKey];
-  };
-
   const currentUser = currentUserResponse.data.getCurrentUser;
   let links: INavBarLink[] = [];
-  if (currentUser?.applicant) {
-    links = [
-      {
-        path: RoutesBuilder.applicant.offerList(),
-        title: translations.data.jobOffers
-      },
-      {
-        path: RoutesBuilder.applicant.myProfile(),
-        title: translations.data.myProfile
-      },
-      {
-        path: RoutesBuilder.applicant.companies(),
-        title: translations.data.companies
-      }
-    ];
-  }
-
-  if (currentUser?.company) {
-    const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
-    links = [
-      {
-        path: jobApplications(),
-        title: translations.data.jobApplications,
-        tooltipMessage: getTooltipMessage(
-          Permissions.getAccessError(currentUser, jobApplications())
-        )
-      },
-      {
-        path: createOffer(),
-        title: translations.data.createOffer,
-        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, createOffer()))
-      },
-      {
-        path: myOffers(),
-        title: translations.data.myOffers,
-        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, myOffers()))
-      },
-      {
-        path: myProfile(),
-        title: translations.data.myCompanyProfile,
-        tooltipMessage: getTooltipMessage(Permissions.getAccessError(currentUser, myProfile()))
-      }
-    ];
-  }
+  if (currentUser) links = NavBarBuilder.getLinks(currentUser!, translations.data);
 
   const onLogOut = async () => {
     await client.clearStore();
