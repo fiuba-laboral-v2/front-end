@@ -8,7 +8,6 @@ import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
 import { Permissions } from "$models/Permissions";
-import { CurrentUser } from "$models/CurrentUser";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
