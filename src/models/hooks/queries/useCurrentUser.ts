@@ -2,14 +2,14 @@ import { useQuery } from "../useQuery";
 import { IUser } from "$interfaces/User";
 import { GET_CURRENT_USER } from "$queries";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { CurrentUser } from "../../CurrentUser";
 
-export const useCurrentUser = () =>
-  CurrentUser(useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER));
+export const useCurrentUser = () => useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
 
 export interface IUseCurrentUser {
-  getCurrentUser: IAdminUser | ICurrentApplicant | ICurrentCompany | undefined;
+  getCurrentUser: UseCurrentUser | undefined;
 }
+
+export type UseCurrentUser = IAdminUser | ICurrentApplicant | ICurrentCompany;
 
 export interface IAdminUser extends IUser {
   admin: { userUuid: string; };

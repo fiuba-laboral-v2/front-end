@@ -1,19 +1,18 @@
-import { UseQueryResult } from "./hooks/useQuery";
-import { IUseCurrentUser } from "./hooks/queries/useCurrentUser";
+import { UseCurrentUser } from "./hooks/queries/useCurrentUser";
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 import { CurrentCompany, Company } from "./CurrentCompany";
 
-export const CurrentUser = (
-  currentUserResponse: UseQueryResult<IUseCurrentUser>
-): CurrentUser => {
-  const currentUser: CurrentUser = {
-    ...currentUserResponse,
-    isCompany: () => !!currentUser.data?.getCurrentUser?.company,
-    isApplicant: () => !!currentUser.data?.getCurrentUser?.applicant,
-    isAdmin: () => !!currentUser.data?.getCurrentUser?.admin,
-    company: () => CurrentCompany(currentUser.data?.getCurrentUser?.company as ICompany)
+export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefined => {
+  if (!attributes) return;
+
+  return {
+    ...attributes,
+    isCompany: () => !!attributes.company,
+    isApplicant: () => !!attributes.applicant,
+    isAdmin: () => !!attributes.admin,
+    company: () => CurrentCompany(attributes.company as ICompany)
   };
-  return currentUser;
 };
 
 interface ICurrentUser {
@@ -23,4 +22,4 @@ interface ICurrentUser {
   company: () => Company;
 }
 
-export type CurrentUser = UseQueryResult<IUseCurrentUser> & ICurrentUser;
+export type CurrentUser = IUser & ICurrentUser;

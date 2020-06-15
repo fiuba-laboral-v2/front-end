@@ -8,21 +8,23 @@ import { INavBarLink, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
 import { Permissions } from "$models/Permissions";
+import { CurrentUser } from "$models/CurrentUser";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
-  const currentUser = useCurrentUser();
+  const currentUserResponse = useCurrentUser();
   const logout = useLogout();
 
-  if (translations.loading || currentUser.loading) return <Fragment/>;
-  if (translations.error || currentUser.error) {
+  if (translations.loading || currentUserResponse.loading) return <Fragment/>;
+  if (translations.error || currentUserResponse.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
+  const currentUser = CurrentUser(currentUserResponse.data.getCurrentUser);
   let links: INavBarLink[] = [];
-  if (currentUser.isApplicant()) {
+  if (currentUser?.isApplicant()) {
     links = [
       {
         path: RoutesBuilder.applicant.offerList(),
@@ -38,7 +40,7 @@ export const NavBarContainer: FunctionComponent = () => {
       }
     ];
   }
-  if (currentUser.isCompany()) {
+  if (currentUser?.isCompany()) {
     const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
     links = [
       {
@@ -74,9 +76,9 @@ export const NavBarContainer: FunctionComponent = () => {
     <NavBar
       logOut={onLogOut}
       links={links}
-      isLoggedIn={!!currentUser.data.getCurrentUser}
+      isLoggedIn={!!currentUser}
       translations={translations.data}
-      username={currentUser.data.getCurrentUser?.name}
+      username={currentUser?.name}
     />
   );
 };

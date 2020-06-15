@@ -23,17 +23,11 @@ describe("Permissions", () => {
       applicantDetail
     } = RoutesBuilder.company;
     const createCurrentCompanyUser = (status: ApprovalStatus) => CurrentUser({
-      data: {
-        getCurrentUser: {
-          ...userAttributes,
-          company: {
-            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-            approvalStatus: status
-          }
-        }
-      },
-      loading: false,
-      error: undefined
+      ...userAttributes,
+      company: {
+        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        approvalStatus: status
+      }
     });
 
     const expectRoutesAccessToBeFalseIfStatusIsNotApproved = (currentUser: CurrentUser) => {
