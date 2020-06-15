@@ -1,5 +1,5 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { CurrentUser } from "$models/CurrentUser";
+import { CurrentUser, ICurrentUser } from "$models/CurrentUser";
 import { Permissions } from "$models/Permissions";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
@@ -30,7 +30,7 @@ describe("Permissions", () => {
       }
     });
 
-    const expectRoutesAccessToBeFalseIfStatusIsNotApproved = (currentUser: CurrentUser) => {
+    const expectRoutesAccessToBeFalseIfStatusIsNotApproved = (currentUser: ICurrentUser) => {
       expect(Permissions.canAccess(currentUser, signUp())).toBe(false);
       expect(Permissions.canAccess(currentUser, createOffer())).toBe(false);
       expect(Permissions.canAccess(currentUser, editOffer("uuid"))).toBe(false);

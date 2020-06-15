@@ -2,7 +2,7 @@ import { UseCurrentUser } from "./hooks/queries/useCurrentUser";
 import { IUser } from "$interfaces/User";
 import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 
-export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefined => {
+export const CurrentUser = (attributes?: UseCurrentUser): ICurrentUser | undefined => {
   if (!attributes) return;
 
   return {
@@ -13,10 +13,8 @@ export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefine
   };
 };
 
-interface ICurrentUser {
+export interface ICurrentUser extends IUser {
   company: ICurrentCompany | undefined;
   applicant: { uuid: string } | undefined;
   admin: { userUuid: string } | undefined;
 }
-
-export type CurrentUser = IUser & ICurrentUser;
