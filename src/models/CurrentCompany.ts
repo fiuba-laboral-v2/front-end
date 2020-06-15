@@ -2,9 +2,9 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
 import { RoutesBuilder } from "./RoutesBuilder";
 
-export const CurrentCompany = (currentCompanyResponse: ICompany): Company => {
+export const CurrentCompany = (attributes: ICompany): Company => {
   const company: Company = {
-    ...currentCompanyResponse,
+    ...attributes,
     isPending: () => company.approvalStatus === ApprovalStatus.pending,
     isRejected: () => company.approvalStatus === ApprovalStatus.rejected,
     isApproved: () => company.approvalStatus === ApprovalStatus.approved,
