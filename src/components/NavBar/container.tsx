@@ -24,7 +24,7 @@ export const NavBarContainer: FunctionComponent = () => {
 
   const currentUser = currentUserResponse.data.getCurrentUser;
   let links: INavBarLink[] = [];
-  if (currentUser) links = NavBarBuilder.getLinks(currentUser!, translations.data);
+  if (currentUser) links = NavBarBuilder.getLinks(currentUser, translations.data);
 
   const onLogOut = async () => {
     await client.clearStore();
