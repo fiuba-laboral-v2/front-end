@@ -1,7 +1,7 @@
 import { UseCurrentUser } from "./hooks/queries/useCurrentUser";
 import { ICompany } from "$interfaces/Company";
 import { IUser } from "$interfaces/User";
-import { CurrentCompany, Company } from "./CurrentCompany";
+import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 
 export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefined => {
   if (!attributes) return;
@@ -19,7 +19,7 @@ interface ICurrentUser {
   isCompany: () => boolean;
   isApplicant: () => boolean;
   isAdmin: () => boolean;
-  company: () => Company;
+  company: () => ICurrentCompany;
 }
 
 export type CurrentUser = IUser & ICurrentUser;
