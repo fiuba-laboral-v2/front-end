@@ -14,9 +14,9 @@ const Home: FunctionComponent = () => {
   if (currentUserResponse.error) return <Redirect to={internalServerError()}/>;
 
   const currentUser = CurrentUser(currentUserResponse.data.getCurrentUser);
-  if (currentUser?.isAdmin()) return <Redirect to={adminHome()}/>;
-  if (currentUser?.isApplicant()) return <Redirect to={offerList()}/>;
-  if (currentUser?.isCompany()) return <Redirect to={currentUser.company().getHomeRoute()}/>;
+  if (currentUser?.admin) return <Redirect to={adminHome()}/>;
+  if (currentUser?.applicant) return <Redirect to={offerList()}/>;
+  if (currentUser?.company) return <Redirect to={currentUser.company.getHomeRoute()}/>;
   return <Redirect to={login()}/>;
 };
 

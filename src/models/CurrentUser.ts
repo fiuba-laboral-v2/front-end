@@ -8,18 +8,16 @@ export const CurrentUser = (attributes?: UseCurrentUser): CurrentUser | undefine
 
   return {
     ...attributes,
-    isCompany: () => !!attributes.company,
-    isApplicant: () => !!attributes.applicant,
-    isAdmin: () => !!attributes.admin,
-    company: () => CurrentCompany(attributes.company as ICompany)
+    company: attributes.company && CurrentCompany(attributes.company as ICompany),
+    applicant: attributes.applicant,
+    admin: attributes.admin
   };
 };
 
 interface ICurrentUser {
-  isCompany: () => boolean;
-  isApplicant: () => boolean;
-  isAdmin: () => boolean;
-  company: () => ICurrentCompany;
+  company: ICurrentCompany | undefined;
+  applicant: { uuid: string } | undefined;
+  admin: { userUuid: string } | undefined;
 }
 
 export type CurrentUser = IUser & ICurrentUser;

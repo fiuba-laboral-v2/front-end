@@ -9,9 +9,9 @@ describe("CurrentUser", () => {
       surname: "Clapton",
       applicant: { uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
     });
-    expect(currentUser?.isApplicant()).toBe(true);
-    expect(currentUser?.isCompany()).toBe(false);
-    expect(currentUser?.isAdmin()).toBe(false);
+    expect(currentUser?.applicant).not.toBeUndefined();
+    expect(currentUser?.company).toBeUndefined();
+    expect(currentUser?.admin).toBeUndefined();
   });
 
   it("returns a valid current company user", () => {
@@ -25,10 +25,9 @@ describe("CurrentUser", () => {
       surname: "Clapton",
       company: companyAttributes
     });
-    expect(currentUser?.isCompany()).toBe(true);
-    expect(currentUser?.isApplicant()).toBe(false);
-    expect(currentUser?.isAdmin()).toBe(false);
-    expect(currentUser?.company()).toMatchObject(companyAttributes);
+    expect(currentUser?.applicant).toBeUndefined();
+    expect(currentUser?.admin).toBeUndefined();
+    expect(currentUser?.company).toMatchObject(companyAttributes);
   });
 
   it("returns a valid current admin user", () => {
@@ -40,8 +39,8 @@ describe("CurrentUser", () => {
         userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
       }
     });
-    expect(currentUser?.isAdmin()).toBe(true);
-    expect(currentUser?.isCompany()).toBe(false);
-    expect(currentUser?.isApplicant()).toBe(false);
+    expect(currentUser?.admin).not.toBeUndefined();
+    expect(currentUser?.company).toBeUndefined();
+    expect(currentUser?.applicant).toBeUndefined();
   });
 });
