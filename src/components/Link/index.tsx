@@ -3,7 +3,7 @@ import { Link as ReactRouterLink, LinkProps } from "react-router-dom";
 import styles from "./styles.module.scss";
 import Tooltip from "@material-ui/core/Tooltip";
 
-export const Link: FunctionComponent<ILink> = (
+export const Link: FunctionComponent<ILinkProps> = (
   {
     onClick = event => event.stopPropagation(),
     disabledTitle,
@@ -24,6 +24,6 @@ export const Link: FunctionComponent<ILink> = (
   );
 };
 
-interface ILink extends LinkProps {
+interface ILinkProps extends LinkProps {
   disabledTitle?: string;
 }
