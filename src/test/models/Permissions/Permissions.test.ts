@@ -61,7 +61,7 @@ describe("Permissions", () => {
         ]);
       });
 
-      it("returns true if status is rejected myProfile route", () => {
+      it("returns true if status is rejected for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
         expect(Permissions.canAccess(currentCompany!, myProfile())).toBe(true);
       });
