@@ -5,7 +5,7 @@
 
 .disabled > a {
   color: currentColor;
-  display: inline-block;  /* For IE11/ MS Edge bug */
+  display: inline-block; // https://css-tricks.com/how-to-disable-links/#thats-not-enough-i-want-something-more-complex-so-that-i-can-look-smarter
   pointer-events: none;
   text-decoration: none;
 }
