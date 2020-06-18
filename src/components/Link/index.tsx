@@ -6,7 +6,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 export const Link: FunctionComponent<ILinkProps> = (
   {
     onClick = event => event.stopPropagation(),
-    disabledTitle,
+    disabledErrorMessage,
     ...props
   }
 ) => {
@@ -15,15 +15,15 @@ export const Link: FunctionComponent<ILinkProps> = (
     onClick(event);
   };
   const reactRouterLink = <ReactRouterLink onClick={handleOnClick} {...props}/>;
-  if (!disabledTitle) return reactRouterLink;
+  if (!disabledErrorMessage) return reactRouterLink;
 
   return (
-    <Tooltip interactive title={disabledTitle}>
+    <Tooltip interactive title={disabledErrorMessage}>
       <div className={styles.disabled}>{reactRouterLink}</div>
     </Tooltip>
   );
 };
 
 interface ILinkProps extends LinkProps {
-  disabledTitle?: string;
+  disabledErrorMessage?: string;
 }

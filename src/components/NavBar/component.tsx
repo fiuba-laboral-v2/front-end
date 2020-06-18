@@ -35,7 +35,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         {links.map(link =>
           <Link
             key={link.path}
-            disabledTitle={link.tooltipMessage}
+            disabledErrorMessage={link.tooltipMessage}
             to={link.path}
           >
             {link.title}
