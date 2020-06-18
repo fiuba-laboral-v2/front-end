@@ -1,6 +1,6 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export const CurrentCompany = (attributes: ICurrentCompanyProps): ICurrentCompany => {
+export const CurrentCompany = (attributes: ICurrentCompanyAttributes): ICurrentCompany => {
   const company: ICurrentCompany = {
     ...attributes,
     isPending: () => company.approvalStatus === ApprovalStatus.pending,
@@ -10,12 +10,12 @@ export const CurrentCompany = (attributes: ICurrentCompanyProps): ICurrentCompan
   return company;
 };
 
-interface ICurrentCompanyProps {
+interface ICurrentCompanyAttributes {
   uuid: string;
   approvalStatus: ApprovalStatus;
 }
 
-export interface ICurrentCompany extends ICurrentCompanyProps {
+export interface ICurrentCompany extends ICurrentCompanyAttributes {
   isPending: () => boolean;
   isRejected: () => boolean;
   isApproved: () => boolean;
