@@ -4,8 +4,8 @@ import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
 
 export const ApplicantNavBarLinks = {
-  create: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] => {
-    return [
+  create: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] =>
+    [
       {
         path: RoutesBuilder.applicant.offerList(),
         title: translations.jobOffers
@@ -18,6 +18,5 @@ export const ApplicantNavBarLinks = {
         path: RoutesBuilder.applicant.companies(),
         title: translations.companies
       }
-    ];
-  }
+    ]
 };
