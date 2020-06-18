@@ -14,12 +14,12 @@ export const Link: FunctionComponent<ILinkProps> = (
     event.stopPropagation();
     onClick(event);
   };
-  const reactLink = <ReactRouterLink onClick={handleOnClick} {...props}/>;
-  if (!disabledTitle) return reactLink;
+  const reactRouterLink = <ReactRouterLink onClick={handleOnClick} {...props}/>;
+  if (!disabledTitle) return reactRouterLink;
 
   return (
     <Tooltip interactive title={disabledTitle}>
-      <div className={styles.disabled}>{reactLink}</div>
+      <div className={styles.disabled}>{reactRouterLink}</div>
     </Tooltip>
   );
 };
