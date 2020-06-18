@@ -1,8 +1,8 @@
-import { useQuery } from "../useQuery";
+import { useQuery } from "$hooks/useQuery";
 import { IUser } from "$interfaces/User";
 import { GET_CURRENT_USER } from "$queries";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CurrentUser } from "$models/CurrentUser";
+import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
 
 export const useCurrentUser = () => {
   const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
@@ -17,10 +17,10 @@ export const useCurrentUser = () => {
 };
 
 export interface IUseCurrentUser {
-  getCurrentUser: UseCurrentUser | undefined;
+  getCurrentUser: TCurrentUser | undefined;
 }
 
-export type UseCurrentUser = IAdminUser | ICurrentApplicant | ICurrentCompany;
+export type TCurrentUser = IAdminUser | ICurrentApplicant | ICurrentCompany;
 
 export interface IAdminUser extends IUser {
   admin: { userUuid: string; };
@@ -36,9 +36,6 @@ export interface ICurrentApplicant extends IUser {
 
 export interface ICurrentCompany extends IUser {
   admin?: undefined;
-  company: {
-    uuid: string;
-    approvalStatus: ApprovalStatus
-  };
+  company: ICurrentCompanyAttributes;
   applicant?: undefined;
 }

@@ -1,8 +1,8 @@
-import { UseCurrentUser } from "./hooks/queries/useCurrentUser";
+import { TCurrentUser } from "./hooks/queries/useCurrentUser";
 import { IUser } from "$interfaces/User";
 import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 
-export const CurrentUser = (attributes?: UseCurrentUser): ICurrentUser | undefined => {
+export const CurrentUser = (attributes?: TCurrentUser): ICurrentUser | undefined => {
   if (!attributes) return;
 
   return {

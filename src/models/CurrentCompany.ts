@@ -10,7 +10,7 @@ export const CurrentCompany = (attributes: ICurrentCompanyAttributes): ICurrentC
   return company;
 };
 
-interface ICurrentCompanyAttributes {
+export interface ICurrentCompanyAttributes {
   uuid: string;
   approvalStatus: ApprovalStatus;
 }
