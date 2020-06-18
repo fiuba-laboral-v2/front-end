@@ -8,7 +8,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { INavBarTranslations } from "./interface";
-import { INavBarLink } from "$models/NavBarBuilder/Interfaces";
+import { INavBarLink } from "$models/NavBarLinks/Interfaces";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {

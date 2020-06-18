@@ -3,7 +3,7 @@ import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
 
-export const ApplicantNavBarBuilder = {
+export const ApplicantNavBarLinks = {
   getLinks: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] => {
     return [
       {

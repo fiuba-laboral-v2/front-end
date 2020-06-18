@@ -1,9 +1,9 @@
-import { NavBarBuilder } from "$models/NavBarBuilder";
+import { NavBarLinks } from "$models/NavBarLinks";
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-describe("NavBarBuilder", () => {
+describe("NavBarLinks", () => {
   const translations = {
     companies: "companies",
     applicants: "applicants",
@@ -36,7 +36,7 @@ describe("NavBarBuilder", () => {
 
     it("returns a list of company links in the navBar in pending status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(NavBarBuilder.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
@@ -61,7 +61,7 @@ describe("NavBarBuilder", () => {
 
     it("returns a list of company links in the navBar in rejected status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(NavBarBuilder.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
@@ -86,7 +86,7 @@ describe("NavBarBuilder", () => {
 
     it("returns a list of company links in the navBar in approved status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-      expect(NavBarBuilder.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications
@@ -115,7 +115,7 @@ describe("NavBarBuilder", () => {
 
     it("returns a list of applicant links in the navBar", () => {
       const currentApplicant = createCurrentApplicant();
-      expect(NavBarBuilder.getLinks(currentApplicant!, translations)).toEqual([
+      expect(NavBarLinks.getLinks(currentApplicant!, translations)).toEqual([
         {
           path: RoutesBuilder.applicant.offerList(),
           title: translations.jobOffers
@@ -140,7 +140,7 @@ describe("NavBarBuilder", () => {
 
     it("returns an empty list of admin links in the navBar", () => {
       const currentAdmin = createCurrentAdmin();
-      expect(NavBarBuilder.getLinks(currentAdmin!, translations)).toEqual([]);
+      expect(NavBarLinks.getLinks(currentAdmin!, translations)).toEqual([]);
     });
   });
 });
