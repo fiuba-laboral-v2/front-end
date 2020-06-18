@@ -36,7 +36,7 @@ describe("NavBarLinks", () => {
 
     it("returns a list of company links in the navBar in pending status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.create(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
@@ -61,7 +61,7 @@ describe("NavBarLinks", () => {
 
     it("returns a list of company links in the navBar in rejected status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.create(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
@@ -86,7 +86,7 @@ describe("NavBarLinks", () => {
 
     it("returns a list of company links in the navBar in approved status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-      expect(NavBarLinks.getLinks(currentCompany!, translations)).toEqual([
+      expect(NavBarLinks.create(currentCompany!, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications
@@ -115,7 +115,7 @@ describe("NavBarLinks", () => {
 
     it("returns a list of applicant links in the navBar", () => {
       const currentApplicant = createCurrentApplicant();
-      expect(NavBarLinks.getLinks(currentApplicant!, translations)).toEqual([
+      expect(NavBarLinks.create(currentApplicant!, translations)).toEqual([
         {
           path: RoutesBuilder.applicant.offerList(),
           title: translations.jobOffers
@@ -140,7 +140,7 @@ describe("NavBarLinks", () => {
 
     it("returns an empty list of admin links in the navBar", () => {
       const currentAdmin = createCurrentAdmin();
-      expect(NavBarLinks.getLinks(currentAdmin!, translations)).toEqual([]);
+      expect(NavBarLinks.create(currentAdmin!, translations)).toEqual([]);
     });
   });
 });

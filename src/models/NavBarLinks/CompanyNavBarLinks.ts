@@ -6,7 +6,7 @@ import { INavBarTranslations } from "$components/NavBar/interface";
 import { INavBarLink } from "./Interfaces";
 
 export const CompanyNavBarLinks = {
-  getLinks: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] => {
+  create: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] => {
     const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
     const { getAccessError } = Permissions;
     return [
