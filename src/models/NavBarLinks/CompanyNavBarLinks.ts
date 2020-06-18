@@ -21,17 +21,26 @@ export const CompanyNavBarLinks = {
       {
         path: createOffer(),
         title: translations.createOffer,
-        tooltipMessage: getTooltipMessage(translations, getAccessError(currentUser, createOffer()))
+        tooltipMessage: getTooltipMessage(
+          translations,
+          getAccessError(currentUser, createOffer())
+        )
       },
       {
         path: myOffers(),
         title: translations.myOffers,
-        tooltipMessage: getTooltipMessage(translations, getAccessError(currentUser, myOffers()))
+        tooltipMessage: getTooltipMessage(
+          translations,
+          getAccessError(currentUser, myOffers())
+        )
       },
       {
         path: myProfile(),
         title: translations.myCompanyProfile,
-        tooltipMessage: getTooltipMessage(translations, getAccessError(currentUser, myProfile()))
+        tooltipMessage: getTooltipMessage(
+          translations,
+          getAccessError(currentUser, myProfile())
+        )
       }
     ];
   }
