@@ -4,7 +4,7 @@ import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
 
 export const ApplicantNavBarLinks = {
-  create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] =>
+  create: (_: TCurrentUser, translations: INavBarTranslations): INavBarLink[] =>
     [
       {
         path: RoutesBuilder.applicant.offerList(),
