@@ -12,7 +12,7 @@ const Home: FunctionComponent = () => {
   if (currentUserResponse.error) return <Redirect to={internalServerError()}/>;
 
   const currentUser = currentUserResponse.data.getCurrentUser;
-  if (currentUser) return <Redirect to={Router.getHomeRoute(currentUser)}/>;
+  if (currentUser) return <Redirect to={Router.home(currentUser)}/>;
   return <Redirect to={login()}/>;
 };
 
