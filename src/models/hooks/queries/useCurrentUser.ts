@@ -8,7 +8,9 @@ export const useCurrentUser = () => {
 
   return {
     ...response,
-    data: { getCurrentUser: CurrentUser(response.data?.getCurrentUser) }
+    data: {
+      getCurrentUser: response.data?.getCurrentUser && CurrentUser(response.data?.getCurrentUser)
+    }
   };
 };
 

@@ -21,17 +21,17 @@ describe("Router", () => {
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-      expect(Router.getHomeRoute(currentCompany!)).toEqual(RoutesBuilder.company.jobApplications());
+      expect(Router.getHomeRoute(currentCompany)).toEqual(RoutesBuilder.company.jobApplications());
     });
 
     it("returns editMyProfile route if status is pending", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(Router.getHomeRoute(currentCompany!)).toEqual(RoutesBuilder.company.editMyProfile());
+      expect(Router.getHomeRoute(currentCompany)).toEqual(RoutesBuilder.company.editMyProfile());
     });
 
     it("returns myProfile route if status is rejected", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(Router.getHomeRoute(currentCompany!)).toEqual(RoutesBuilder.company.myProfile());
+      expect(Router.getHomeRoute(currentCompany)).toEqual(RoutesBuilder.company.myProfile());
     });
   });
 
@@ -43,7 +43,7 @@ describe("Router", () => {
 
     it("returns offerList route", () => {
       const currentApplicant = createCurrentApplicantUser();
-      expect(Router.getHomeRoute(currentApplicant!)).toEqual(RoutesBuilder.applicant.offerList());
+      expect(Router.getHomeRoute(currentApplicant)).toEqual(RoutesBuilder.applicant.offerList());
     });
   });
 
@@ -55,7 +55,7 @@ describe("Router", () => {
 
     it("returns home route", () => {
       const currentAdmin = createCurrentAdmin();
-      expect(Router.getHomeRoute(currentAdmin!)).toEqual(RoutesBuilder.admin.home());
+      expect(Router.getHomeRoute(currentAdmin)).toEqual(RoutesBuilder.admin.home());
     });
   });
 });

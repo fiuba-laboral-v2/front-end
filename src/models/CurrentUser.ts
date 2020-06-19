@@ -2,10 +2,8 @@ import { IUser } from "$interfaces/User";
 import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 import { TCurrentUserAttributes } from "./hooks/queries/useCurrentUser";
 
-export const CurrentUser = (attributes?: TCurrentUserAttributes): TCurrentUser | undefined => {
-  if (!attributes) return;
-
-  if (attributes.company) return { ...attributes, company: CurrentCompany(attributes.company) };
+export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser => {
+  if (attributes?.company) return { ...attributes, company: CurrentCompany(attributes.company) };
   return attributes;
 };
 
@@ -24,13 +22,13 @@ interface IAdminUser<TAdmin> extends IUser {
 }
 
 interface ICurrentApplicantUser<TApplicant> extends IUser {
+  applicant: TApplicant;
   admin?: undefined;
   company?: undefined;
-  applicant: TApplicant;
 }
 
 interface ICurrentCompanyUser<TCompany> extends IUser {
-  admin?: undefined;
   company: TCompany;
+  admin?: undefined;
   applicant?: undefined;
 }
