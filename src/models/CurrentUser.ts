@@ -1,20 +1,36 @@
-import { TCurrentUser } from "./hooks/queries/useCurrentUser";
 import { IUser } from "$interfaces/User";
 import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
+import { TCurrentUserAttributes } from "./hooks/queries/useCurrentUser";
 
-export const CurrentUser = (attributes?: TCurrentUser): ICurrentUser | undefined => {
+export const CurrentUser = (attributes?: TCurrentUserAttributes): TCurrentUser | undefined => {
   if (!attributes) return;
 
-  return {
-    ...attributes,
-    company: attributes.company && CurrentCompany(attributes.company),
-    applicant: attributes.applicant,
-    admin: attributes.admin
-  };
+  if (attributes.company) return { ...attributes, company: CurrentCompany(attributes.company) };
+  return attributes;
 };
 
-export interface ICurrentUser extends IUser {
-  company: ICurrentCompany | undefined;
-  applicant: { uuid: string } | undefined;
-  admin: { userUuid: string } | undefined;
+export type TCurrentUser =
+  TGenericCurrentUser<{ userUuid: string; }, { uuid: string; }, ICurrentCompany>;
+
+export type TGenericCurrentUser<TAdmin, TApplicant, TCompany> =
+  IAdminUser<TAdmin> |
+  ICurrentApplicantUser<TApplicant> |
+  ICurrentCompanyUser<TCompany>;
+
+interface IAdminUser<TAdmin> extends IUser {
+  admin: TAdmin;
+  company?: undefined;
+  applicant?: undefined;
+}
+
+interface ICurrentApplicantUser<TApplicant> extends IUser {
+  admin?: undefined;
+  company?: undefined;
+  applicant: TApplicant;
+}
+
+interface ICurrentCompanyUser<TCompany> extends IUser {
+  admin?: undefined;
+  company: TCompany;
+  applicant?: undefined;
 }

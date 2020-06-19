@@ -1,5 +1,5 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { CurrentUser, ICurrentUser } from "$models/CurrentUser";
+import { CurrentUser, TCurrentUser } from "$models/CurrentUser";
 import { Permissions } from "$models/Permissions";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
@@ -31,7 +31,7 @@ describe("Permissions", () => {
     });
 
     const expectRouteAccessToBe = (
-      currentUser: ICurrentUser,
+      currentUser: TCurrentUser,
       expected: boolean,
       routes: Array<() => string>
     ) =>

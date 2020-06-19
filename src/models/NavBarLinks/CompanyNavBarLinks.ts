@@ -1,4 +1,4 @@
-import { ICurrentUser } from "$models/CurrentUser";
+import { TCurrentUser } from "$models/CurrentUser";
 import { RoutesBuilder } from "../RoutesBuilder";
 import { Permissions } from "../Permissions";
 import { getTooltipMessage } from "./getTooltipMessage";
@@ -6,7 +6,7 @@ import { INavBarTranslations } from "$components/NavBar/interface";
 import { INavBarLink } from "./Interfaces";
 
 export const CompanyNavBarLinks = {
-  create: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] => {
+  create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] => {
     const { jobApplications, createOffer, myOffers, myProfile } = RoutesBuilder.company;
     const { getAccessError } = Permissions;
     return [

@@ -1,10 +1,10 @@
-import { ICurrentUser } from "$models/CurrentUser";
+import { TCurrentUser } from "$models/CurrentUser";
 import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
 
 export const ApplicantNavBarLinks = {
-  create: (currentUser: ICurrentUser, translations: INavBarTranslations): INavBarLink[] =>
+  create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] =>
     [
       {
         path: RoutesBuilder.applicant.offerList(),
