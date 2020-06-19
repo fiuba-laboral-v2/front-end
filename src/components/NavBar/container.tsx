@@ -8,7 +8,6 @@ import { INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
 import { NavBarLinks } from "$models/NavBarLinks";
-import { INavBarLink } from "$models/NavBarLinks/Interfaces";
 
 export const NavBarContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -23,8 +22,7 @@ export const NavBarContainer: FunctionComponent = () => {
   }
 
   const currentUser = currentUserResponse.data.getCurrentUser;
-  let links: INavBarLink[] = [];
-  if (currentUser) links = NavBarLinks.create(currentUser, translations.data);
+  const links = currentUser ? NavBarLinks.create(currentUser, translations.data) : [];
 
   const onLogOut = async () => {
     await client.clearStore();
