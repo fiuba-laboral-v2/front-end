@@ -2,6 +2,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CurrentUser, TCurrentUser } from "$models/CurrentUser";
 import { Permissions } from "$models/Permissions";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { PendingCompanyError, RejectedCompanyError } from "$models/Errors";
 
 describe("Permissions", () => {
   const userAttributes = {
@@ -30,118 +31,110 @@ describe("Permissions", () => {
       }
     });
 
-    const expectRouteAccessToBe = (
+    const expectToThrowCheckErrorForRoutes = (
       currentUser: TCurrentUser,
-      expected: boolean,
-      routes: Array<() => string>
+      routes: Array<() => string>,
+      error: object
     ) =>
-      routes.forEach(route => expect(Permissions.canAccess(currentUser, route())).toBe(expected));
+      routes.forEach(route => expect(() => Permissions.check(currentUser, route())).toThrow(error));
 
-    describe("canAccess", () => {
-      it("returns true if status is pending for myProfile route", () => {
+    describe("check", () => {
+      it("does not throw error if status is pending for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-        expect(Permissions.canAccess(currentCompany!, myProfile())).toBe(true);
+        expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
       });
 
-      it("returns true if status is pending editMyProfile route", () => {
+      it("does not throw error if status is pending for editMyProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-        expect(Permissions.canAccess(currentCompany!, editMyProfile())).toBe(true);
+        expect(() => Permissions.check(currentCompany, editMyProfile())).not.toThrow();
       });
 
-      it("returns false if status is pending for the rest of the routes", () => {
+      it("throws error if status is pending for some specific routes", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-        expectRouteAccessToBe(currentCompany!, false, [
-          () => signUp(),
-          () => createOffer(),
-          () => editOffer("uuid"),
-          () => offer("uuid"),
-          () => myOffers(),
-          () => jobApplications(),
-          () => applicantDetail("uuid")
-        ]);
+        expectToThrowCheckErrorForRoutes(
+          currentCompany,
+          [
+            () => signUp(),
+            () => createOffer(),
+            () => editOffer("uuid"),
+            () => offer("uuid"),
+            () => myOffers(),
+            () => jobApplications(),
+            () => applicantDetail("uuid")
+          ],
+          PendingCompanyError
+        );
       });
 
-      it("returns true if status is rejected for myProfile route", () => {
+      it("does not throw error if status is rejected for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-        expect(Permissions.canAccess(currentCompany!, myProfile())).toBe(true);
+        expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
       });
 
       it("returns false if status is rejected for the rest of the routes", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-        expectRouteAccessToBe(currentCompany!, false, [
-          () => editMyProfile(),
-          () => signUp(),
-          () => createOffer(),
-          () => editOffer("uuid"),
-          () => offer("uuid"),
-          () => myOffers(),
-          () => jobApplications(),
-          () => applicantDetail("uuid")
-        ]);
+        expectToThrowCheckErrorForRoutes(
+          currentCompany,
+          [
+            () => editMyProfile(),
+            () => signUp(),
+            () => createOffer(),
+            () => editOffer("uuid"),
+            () => offer("uuid"),
+            () => myOffers(),
+            () => jobApplications(),
+            () => applicantDetail("uuid")
+          ],
+          RejectedCompanyError
+        );
       });
 
-      it("returns true if the company status is approved for signUp route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, signUp())).toBe(true);
+      describe("When is approved", () => {
+        it("does not throw error if the company status is approved for signUp route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, signUp())).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for myProfile route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for editMyProfile route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, editMyProfile())).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for createOffer route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, createOffer())).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for editOffer route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, editOffer("uuid"))).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for offer route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, offer("uuid"))).not.toThrow();
+        });
+
+        it("does not throw error if the company status is approved for myOffers route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, myOffers())).not.toThrow();
+        });
+
+        it("does not throw error if company status is approved for jobApplications route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, jobApplications())).not.toThrow();
+        });
+
+        it("does not throw error if company status is approved for applicantDetail route", () => {
+          const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
+          expect(() => Permissions.check(currentCompany, applicantDetail("uuid"))).not.toThrow();
+        });
       });
-
-      it("returns true if the company status is approved for myProfile route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, myProfile())).toBe(true);
-      });
-
-      it("returns true if the company status is approved for editMyProfile route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, editMyProfile())).toBe(true);
-      });
-
-      it("returns true if the company status is approved for createOffer route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, createOffer())).toBe(true);
-      });
-
-      it("returns true if the company status is approved for editOffer route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, editOffer("uuid"))).toBe(true);
-      });
-
-      it("returns true if the company status is approved for offer route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, offer("uuid"))).toBe(true);
-      });
-
-      it("returns true if the company status is approved for myOffers route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, myOffers())).toBe(true);
-      });
-
-      it("returns true if the company status is approved for jobApplications route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, jobApplications())).toBe(true);
-      });
-
-      it("returns true if the company status is approved for applicantDetail route", () => {
-        const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-        expect(Permissions.canAccess(currentCompany!, applicantDetail("uuid"))).toBe(true);
-      });
-    });
-
-    it("return pendingProfile translation key if status is pending", () => {
-      const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(
-        Permissions.getAccessError(currentCompany!, jobApplications())
-      ).toEqual(
-        "pendingProfile"
-      );
-    });
-
-    it("return rejectedProfile translation key if status is rejected", () => {
-      const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(
-        Permissions.getAccessError(currentCompany!, jobApplications())
-      ).toEqual(
-        "rejectedProfile"
-      );
     });
   });
 });
