@@ -71,7 +71,7 @@ describe("Permissions", () => {
         expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
       });
 
-      it("returns false if status is rejected for the rest of the routes", () => {
+      it("throws error if status is rejected for some specific routes", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
         expectToThrowCheckErrorForRoutes(
           currentCompany,
