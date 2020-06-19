@@ -1,11 +1,14 @@
 import React, { FunctionComponent, useState } from "react";
+
 import { Link } from "$components/Link";
 import MenuIcon from "@material-ui/icons/Menu";
+
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import styles from "./styles.module.scss";
 import classNames from "classnames";
-import { INavBarLink, INavBarTranslations } from "./interface";
+import { INavBarTranslations } from "./interface";
+import { INavBarLink } from "$models/NavBarLinks/Interfaces";
 
 export const NavBar: FunctionComponent<INavBarProps> = (
   {
@@ -29,7 +32,15 @@ export const NavBar: FunctionComponent<INavBarProps> = (
         </div>
       </div>
       <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
-        {links.map(link => <Link key={link.path} to={link.path}>{link.title}</Link>)}
+        {links.map(link =>
+          <Link
+            key={link.path}
+            disabledErrorMessage={link.tooltipMessage}
+            to={link.path}
+          >
+            {link.title}
+          </Link>
+        )}
         <div className={styles.separator}/>
         <div className={styles.user}>
           {

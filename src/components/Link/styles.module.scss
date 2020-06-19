@@ -1,0 +1,11 @@
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.disabled > a {
+  color: currentColor;
+  display: inline-block; // https://css-tricks.com/how-to-disable-links/#thats-not-enough-i-want-something-more-complex-so-that-i-can-look-smarter
+  pointer-events: none;
+  text-decoration: none;
+}

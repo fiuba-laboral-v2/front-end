@@ -8,6 +8,7 @@ query getCompanyByUuid ($uuid: ID!) {
         logo
         website
         email
+        approvalStatus
         phoneNumbers
         photos
     }

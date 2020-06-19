@@ -1,27 +1,25 @@
-import { useQuery } from "../useQuery";
-import { IUser } from "$interfaces/User";
+import { useQuery } from "$hooks/useQuery";
 import { GET_CURRENT_USER } from "$queries";
+import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
+import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
 
-export const useCurrentUser = () => useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
+export const useCurrentUser = () => {
+  const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
 
-interface IUseCurrentUser {
-  getCurrentUser: IAdminUser | ICurrentApplicant | ICurrentCompany | undefined;
+  return {
+    ...response,
+    data: {
+      getCurrentUser: response.data?.getCurrentUser && CurrentUser(response.data?.getCurrentUser)
+    }
+  };
+};
+
+export interface IUseCurrentUser {
+  getCurrentUser: TCurrentUserAttributes | undefined;
 }
 
-export interface IAdminUser extends IUser {
-  admin: { userUuid: string; };
-  company?: undefined;
-  applicant?: undefined;
-}
-
-export interface ICurrentApplicant extends IUser {
-  admin?: undefined;
-  company?: undefined;
-  applicant: { uuid: string };
-}
-
-export interface ICurrentCompany extends IUser {
-  admin?: undefined;
-  company: { uuid: string };
-  applicant?: undefined;
-}
+export type TCurrentUserAttributes = TGenericCurrentUser<
+  { userUuid: string; },
+  { uuid: string; },
+  ICurrentCompanyAttributes
+>;

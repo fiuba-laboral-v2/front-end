@@ -1,22 +1,18 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Router } from "$models/Router";
 import { Redirect } from "$components/Redirect";
 import { useCurrentUser } from "$hooks/queries/useCurrentUser";
 
-const { offerList } = RoutesBuilder.applicant;
-const { jobApplications } = RoutesBuilder.company;
-const { home: adminHome } = RoutesBuilder.admin;
 const { internalServerError, login } = RoutesBuilder.public;
 
 const Home: FunctionComponent = () => {
-  const currentUser = useCurrentUser();
+  const currentUserResponse = useCurrentUser();
+  if (currentUserResponse.loading) return <Fragment/>;
+  if (currentUserResponse.error) return <Redirect to={internalServerError()}/>;
 
-  if (currentUser.loading) return <Fragment/>;
-  if (currentUser.error) return <Redirect to={internalServerError()}/>;
-
-  if (currentUser.data.getCurrentUser?.admin) return <Redirect to={adminHome()}/>;
-  if (currentUser.data.getCurrentUser?.applicant) return <Redirect to={offerList()}/>;
-  if (currentUser.data.getCurrentUser?.company) return <Redirect to={jobApplications()}/>;
+  const currentUser = currentUserResponse.data.getCurrentUser;
+  if (currentUser) return <Redirect to={Router.home(currentUser)}/>;
   return <Redirect to={login()}/>;
 };
 
