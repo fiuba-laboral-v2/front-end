@@ -32,7 +32,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
                 initialValue={values.logo}
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
-              <CompanyFields/>
+              <CompanyFields edit/>
               <FormFooter
                 isSubmitting={isSubmitting}
                 submitButtonText={translations.submit}
