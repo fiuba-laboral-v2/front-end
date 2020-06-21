@@ -15,11 +15,7 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .mainContent {
+  .mainContent.focusCenter {
     width: 90vw;
-  }
-
-  .wide {
-    width: 100%;
   }
 }
