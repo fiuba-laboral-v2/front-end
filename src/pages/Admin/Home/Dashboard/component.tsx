@@ -7,7 +7,7 @@ import { Chores } from "./Chores";
 import styles from "./styles.module.scss";
 
 const Dashboard: FunctionComponent = () => (
-  <Window width="wide" fixed={false}>
+  <Window width="fullWidth" fixed={false}>
     <div className={styles.mainContent}>
       <Menu/>
       <Chores/>

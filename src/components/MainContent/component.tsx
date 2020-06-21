@@ -11,5 +11,5 @@ export const MainContent: FunctionComponent<IMainContentProps> =
 );
 
 export interface IMainContentProps {
-  width?: "focusCenter" | "wide";
+  width?: "narrow" | "fullWidth";
 }
