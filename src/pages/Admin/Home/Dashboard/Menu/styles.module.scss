@@ -6,6 +6,12 @@
 }
 
 .companyDescription {
+  display: inline;
+  font-size: $smallFontSize;
+  margin: $smallSpacing;
+}
+
+.tooltip {
   display: none;
 }
 
@@ -21,14 +27,19 @@
   grid-area: "menu";
   grid-column: 1;
   grid-row: 1 / 3;
+  width: 200px;
 }
 
-.menuContent:hover {
-  width: 200px;
-
+@media (max-width: $hdContainerThreshold) {
   .companyDescription {
-    display: inline;
-    font-size: $smallFontSize;
-    margin: $smallSpacing;
+    display: none;
+  }
+
+  .menuContent {
+    width: unset;
+  }
+
+  .tooltip {
+    display: unset;
   }
 }

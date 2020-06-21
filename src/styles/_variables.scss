@@ -36,6 +36,7 @@ $dashboardBackgroundWhite: #f6f5f5;
 
 $detailContainerWidth: 880px;
 $detailContainerHorizontalPadding: 20px;
+$hdContainerThreshold: 1280px;
 $mobileContainerThreshold: $detailContainerWidth + 2 * $detailContainerHorizontalPadding;
 $smallMobileContainerThreshold: 320px;
 $headerContainerPadding: 10px;
