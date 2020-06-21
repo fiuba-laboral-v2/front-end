@@ -1,4 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { DashBoard } from "./DashBoard";
+import { Dashboard } from "./Dashboard";
 
-export const Home: FunctionComponent = () => <DashBoard />;
+export const Home: FunctionComponent = () => <Dashboard/>;

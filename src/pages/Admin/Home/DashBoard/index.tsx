@@ -1,1 +1,0 @@
-export { DashBoard } from "./component";

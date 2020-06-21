@@ -6,14 +6,14 @@ import { Chores } from "./Chores";
 
 import styles from "./styles.module.scss";
 
-const DashBoard: FunctionComponent = () => (
+const Dashboard: FunctionComponent = () => (
   <Window width="wide" fixed={false}>
     <div className={styles.mainContent}>
-      <Menu />
-      <Chores />
-      <Details />
+      <Menu/>
+      <Chores/>
+      <Details/>
     </div>
   </Window>
 );
 
-export { DashBoard };
+export { Dashboard };
