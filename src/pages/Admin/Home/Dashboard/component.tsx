@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Window } from "$components/Window";
 import { Menu } from "./Menu";
 import { Detail } from "./Detail";
-import { Chores } from "./Chores";
+import { PendingApprovableList } from "./PendingApprovableList";
 
 import styles from "./styles.module.scss";
 
@@ -10,7 +10,7 @@ const Dashboard: FunctionComponent = () => (
   <Window width="fullWidth" fixed={false}>
     <div className={styles.mainContent}>
       <Menu/>
-      <Chores/>
+      <PendingApprovableList/>
       <Detail/>
     </div>
   </Window>
