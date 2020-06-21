@@ -9,7 +9,7 @@ import { IMyOffer } from "$interfaces/Applicant";
 const useOfferByUuid = <Data>(query: DocumentNode, uuid?: string) => {
   const history = useHistory();
   return useQuery<{ uuid?: string }, { getOfferByUuid: Data }>(
-    GET_COMPANY_OFFER_BY_UUID,
+    query,
     {
       variables: { uuid },
       errorHandlers: {
