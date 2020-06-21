@@ -1,0 +1,1 @@
+export { Chores } from "./component";

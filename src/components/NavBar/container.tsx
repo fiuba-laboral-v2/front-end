@@ -9,7 +9,7 @@ import { Redirect } from "../Redirect";
 import { useCurrentUser, useLogout } from "$hooks";
 import { NavBarLinks } from "$models/NavBarLinks";
 
-export const NavBarContainer: FunctionComponent = () => {
+export const NavBarContainer: FunctionComponent<INavBarProps> = ({ fixed = true }) => {
   const history = useHistory();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
@@ -35,8 +35,13 @@ export const NavBarContainer: FunctionComponent = () => {
       logOut={onLogOut}
       links={links}
       isLoggedIn={!!currentUser}
+      fixed={fixed}
       translations={translations.data}
       username={currentUser?.name}
     />
   );
 };
+
+interface INavBarProps {
+  fixed?: boolean;
+}

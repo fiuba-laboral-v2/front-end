@@ -3,12 +3,23 @@
 .mainContent {
   display: flex;
   flex-direction: column;
+}
+
+.focusCenter {
   margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   width: $detailContainerWidth;
+}
+
+.wide {
+  width: 100%;
 }
 
 @media (max-width: $mobileContainerThreshold) {
   .mainContent {
     width: 90vw;
+  }
+
+  .wide {
+    width: 100%;
   }
 }
