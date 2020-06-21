@@ -1,0 +1,45 @@
+@import "$styles/_variables";
+
+.company {
+  display: flex;
+  justify-content: space-around;
+}
+
+.companyDescription {
+  display: inline;
+  font-size: $smallFontSize;
+  margin: $smallSpacing;
+}
+
+.tooltip {
+  display: none;
+}
+
+.companyIcon {
+  color: #d71508;
+  margin: $smallSpacing;
+}
+
+.menuContent {
+  align-items: center;
+  background-color: $dashboardBackgroundWhite;
+  display: flex;
+  grid-area: "menu";
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 200px;
+}
+
+@media (max-width: $hdContainerThreshold) {
+  .companyDescription {
+    display: none;
+  }
+
+  .menuContent {
+    width: unset;
+  }
+
+  .tooltip {
+    display: unset;
+  }
+}

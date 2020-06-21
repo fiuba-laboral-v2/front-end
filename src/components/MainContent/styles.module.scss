@@ -3,12 +3,20 @@
 .mainContent {
   display: flex;
   flex-direction: column;
+}
+
+.narrow {
   margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   width: $detailContainerWidth;
 }
 
+.fullWidth {
+  margin-top: $navBarHeight;
+  width: 100%;
+}
+
 @media (max-width: $mobileContainerThreshold) {
-  .mainContent {
+  .mainContent.narrow {
     width: 90vw;
   }
 }

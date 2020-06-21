@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
+import classnames from "classnames";
 
 import { Link } from "$components/Link";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,7 +23,7 @@ export const NavBar: FunctionComponent<INavBarProps> = (
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className={styles.navBar}>
+    <div className={classnames(styles.navBar)}>
       <div className={styles.main}>
         <div className={styles.toggle}>
           <div className={styles.separator}/>
