@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 const Menu: FunctionComponent = () => (
   <div className={styles.menuContent}>
     <div className={styles.company}>
-      <BusinessIcon className={styles.companyLogo} fontSize="default"/>
+      <BusinessIcon className={styles.companyIcon} fontSize="default"/>
       <p className={styles.companyDescription}>Registro de empresa pendiente</p>
     </div>
   </div>
