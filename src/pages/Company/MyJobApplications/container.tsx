@@ -9,6 +9,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_MY_JOB_APPLICATIONS } from "$queries";
 
 export const MyJobApplicationsContainer: FunctionComponent = () => {
+  document.title = "Mis postulaciones";
   const history = useHistory();
   const response = useQuery<{}, { getMyLatestJobApplications: IJobApplication[] }>(
     GET_MY_JOB_APPLICATIONS,

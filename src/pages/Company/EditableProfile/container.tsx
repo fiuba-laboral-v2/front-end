@@ -11,6 +11,7 @@ import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandler
 import { useSnackbar } from "notistack";
 
 export const EditableProfileContainer: FunctionComponent = () => {
+  document.title = "Editar el perfil de mi empresa";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const updateCurrentCompany = useUpdateCurrentCompany();

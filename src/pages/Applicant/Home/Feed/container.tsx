@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { Redirect } from "$components/Redirect";
 
 const FeedContainer: FunctionComponent = () => {
+  document.title = "Ofertas";
   const history = useHistory();
 
   const {

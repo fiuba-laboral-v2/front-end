@@ -8,6 +8,7 @@ import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 
 export const EditOfferContainer: FunctionComponent = () => {
+  document.title = "Editar oferta";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");

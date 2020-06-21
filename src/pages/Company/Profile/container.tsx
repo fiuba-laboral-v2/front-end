@@ -9,6 +9,7 @@ import { Profile } from "./component";
 import { IProfileTranslations } from "./interface";
 
 export const ProfileContainer: FunctionComponent = () => {
+  document.title = "Perfil de mi empresa";
   const history = useHistory();
   const response = useMyCompanyProfile();
   const translations = useTranslations<IProfileTranslations>("editableCompanyProfile");

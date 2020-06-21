@@ -12,6 +12,7 @@ import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHan
 import { useSnackbar } from "notistack";
 
 export const SignUpContainer: FunctionComponent = () => {
+  document.title = "Registrarme como empresa";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const createCompany = useCreateCompany();

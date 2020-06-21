@@ -12,6 +12,7 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 
 const SignUpContainer: FunctionComponent = () => {
+  document.title = "Registrarme como postulante";
   const history = useHistory();
   const saveApplicant = useSaveApplicant();
   const login = useLogin();

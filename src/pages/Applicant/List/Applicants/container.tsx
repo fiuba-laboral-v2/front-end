@@ -6,6 +6,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Redirect } from "$components/Redirect";
 
 const ApplicantsContainer: FunctionComponent = () => {
+  document.title = "Postulantes";
   const {
     data: { getApplicants } = { getApplicants: [] },
     error,

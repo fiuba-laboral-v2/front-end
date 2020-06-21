@@ -7,6 +7,7 @@ import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import styles from "./styles.module.scss";
 
 export const Forbidden: FunctionComponent = () => {
+  document.title = "Acceso denegado";
   const history = useHistory();
   return (
     <Window>

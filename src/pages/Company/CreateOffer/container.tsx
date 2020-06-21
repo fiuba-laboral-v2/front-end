@@ -9,6 +9,7 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
 
 export const CreateOfferContainer: FunctionComponent = () => {
+  document.title = "Crear oferta";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const createOffer = useCreateOffer();

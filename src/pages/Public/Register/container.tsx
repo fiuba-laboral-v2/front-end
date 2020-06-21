@@ -8,6 +8,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IRegisterTranslations } from "./interface";
 
 const RegisterContainer: FunctionComponent = () => {
+  document.title = "Registrarse";
   const history = useHistory();
   const translations = useTranslations<IRegisterTranslations>("register");
   if (translations.loading) return <Fragment/>;

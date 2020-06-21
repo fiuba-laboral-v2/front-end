@@ -9,6 +9,7 @@ import { IOffer } from "$interfaces/Offer";
 import { Feed } from "../../Applicant/Home/Feed/component";
 
 export const MyOffersContainer: FunctionComponent = () => {
+  document.title = "Mis ofertas";
   const history = useHistory();
   const response = useQuery<{ uuid?: string }, { getMyOffers: IOffer[] }>(GET_MY_OFFERS);
   const translations = useTranslations<ITranslations>("MyOffers");

@@ -9,6 +9,7 @@ import { Window } from "$components/Window";
 import Button from "$components/Button";
 
 export const OfferDetailContainer: FunctionComponent = () => {
+  document.title = "Detalle de oferta";
   const history = useHistory();
   const { uuid } = useParams();
   const response = useCompanyOfferByUuid(uuid);

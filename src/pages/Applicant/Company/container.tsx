@@ -5,6 +5,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { CompanyProfile } from "./component";
 
 export const CompanyProfileContainer: FunctionComponent = () => {
+  document.title = "Perfil de empresa";
   const { uuid } = useParams();
   const response = useCompanyByUuid(uuid);
 

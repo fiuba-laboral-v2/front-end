@@ -11,6 +11,7 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
 
 const EditableDetailContainer: FunctionComponent = () => {
+  document.title = "Editar mi perfil";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const updateApplicant = useUpdateCurrentApplicant();

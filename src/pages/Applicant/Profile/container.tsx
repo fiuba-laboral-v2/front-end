@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { ITranslations } from "./interface";
 
 export const ProfileContainer: FunctionComponent = () => {
+  document.title = "Mi perfil";
   const response = useMyApplicantProfile();
   const history = useHistory();
   const translations = useTranslations<ITranslations>("applicantProfileDetail");

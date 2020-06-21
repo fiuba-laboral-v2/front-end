@@ -5,6 +5,7 @@ import { Applicant } from "./component";
 import { useApplicantByUuid } from "$hooks";
 
 export const ApplicantContainer: FunctionComponent = () => {
+  document.title = "Perfil de postulante";
   const { uuid } = useParams();
   const response = useApplicantByUuid(uuid);
 

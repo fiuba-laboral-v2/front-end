@@ -8,6 +8,7 @@ import { Redirect } from "$components/Redirect";
 import { ICompany } from "$interfaces/Company";
 
 const CompaniesContainer: FunctionComponent = () => {
+  document.title = "Empresas";
   const history = useHistory();
   const response = useQuery<{}, { getCompanies: ICompany[] }>(GET_COMPANIES);
 

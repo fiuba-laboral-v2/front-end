@@ -10,6 +10,7 @@ import { IOfferDetailTranslations } from "./interfaces";
 import { useSnackbar } from "notistack";
 
 export const OfferDetailContainer: FunctionComponent = () => {
+  document.title = "Detalle de oferta";
   const { uuid } = useParams();
   const { enqueueSnackbar } = useSnackbar();
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);

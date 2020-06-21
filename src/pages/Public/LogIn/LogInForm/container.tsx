@@ -9,6 +9,7 @@ import { ILogInFormTranslationsProps } from "./interface";
 import { useSnackbar } from "notistack";
 
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
+  document.title = "Iniciar sesion";
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const login = useLogin();
