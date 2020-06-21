@@ -12,7 +12,12 @@
   display: flex;
   font-size: $normalFontSize;
   font-style: normal;
+  left: 0;
   padding: 0 $pageMargin;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
 
   a {
     color: $white;
@@ -37,14 +42,6 @@
   .main :first-child {
     margin-left: 0;
   }
-}
-
-.fixed {
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }
 
 .separator,

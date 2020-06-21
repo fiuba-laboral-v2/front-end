@@ -17,14 +17,13 @@ export const NavBar: FunctionComponent<INavBarProps> = (
     links,
     isLoggedIn,
     username,
-    fixed = true,
     translations
   }
 ) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className={classnames(styles.navBar, { [styles.fixed]: fixed })}>
+    <div className={classnames(styles.navBar)}>
       <div className={styles.main}>
         <div className={styles.toggle}>
           <div className={styles.separator}/>
@@ -67,7 +66,6 @@ interface INavBarProps {
   logOut: () => void;
   links: INavBarLink[];
   isLoggedIn: boolean;
-  fixed?: boolean;
   username?: string;
   translations: INavBarTranslations;
 }

@@ -4,7 +4,7 @@ import classnames from "classnames";
 import styles from "./styles.module.scss";
 
 export const MainContent: FunctionComponent<IMainContentProps> =
- ({ width = "focusCenter", children }) => (
+ ({ width = "narrow", children }) => (
   <div className={classnames(styles.mainContent, styles[width])}>
     {children}
   </div>

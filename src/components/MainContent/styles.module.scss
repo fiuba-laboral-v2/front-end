@@ -5,17 +5,18 @@
   flex-direction: column;
 }
 
-.focusCenter {
+.narrow {
   margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
   width: $detailContainerWidth;
 }
 
-.wide {
+.fullWidth {
+  margin-top: $navBarHeight;
   width: 100%;
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .mainContent.focusCenter {
+  .mainContent.narrow {
     width: 90vw;
   }
 }
