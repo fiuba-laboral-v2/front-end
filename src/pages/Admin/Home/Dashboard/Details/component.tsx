@@ -4,9 +4,9 @@ import styles from "./styles.module.scss";
 
 const Details: FunctionComponent = () => (
   <>
-    <div className={styles.detailsInfo}>
+    <div className={styles.info}>
     </div>
-    <div className={styles.detailsContent}>
+    <div className={styles.content}>
     </div>
   </>
 );
