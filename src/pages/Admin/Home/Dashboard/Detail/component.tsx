@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 
-const Details: FunctionComponent = () => (
+const Detail: FunctionComponent = () => (
   <>
     <div className={styles.info}>
     </div>
@@ -11,4 +11,4 @@ const Details: FunctionComponent = () => (
   </>
 );
 
-export { Details };
+export { Detail };

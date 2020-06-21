@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Window } from "$components/Window";
 import { Menu } from "./Menu";
-import { Details } from "./Details";
+import { Detail } from "./Detail";
 import { Chores } from "./Chores";
 
 import styles from "./styles.module.scss";
@@ -11,7 +11,7 @@ const Dashboard: FunctionComponent = () => (
     <div className={styles.mainContent}>
       <Menu/>
       <Chores/>
-      <Details/>
+      <Detail/>
     </div>
   </Window>
 );
