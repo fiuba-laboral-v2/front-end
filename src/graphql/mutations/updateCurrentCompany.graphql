@@ -1,5 +1,4 @@
 mutation (
-    $cuit: String,
     $companyName: String,
     $slogan: String,
     $description: String,
@@ -9,7 +8,6 @@ mutation (
     $phoneNumbers: [String],
     $photos: [String]) {
     updateCurrentCompany(
-        cuit: $cuit,
         companyName: $companyName,
         slogan: $slogan, description: $description,
         logo: $logo,
