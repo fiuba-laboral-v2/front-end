@@ -1,23 +1,20 @@
 import React, { FunctionComponent } from "react";
 import { NavBar } from "../NavBar";
 import { MainContent } from "../MainContent";
+import { INavBarProps } from "../NavBar/container";
+import { IMainContentProps } from "../MainContent/component";
 
-export const Window: FunctionComponent<IWindowProps> = (
+export const Window: FunctionComponent<INavBarProps & IMainContentProps> = (
   {
-    fixedNavbar = true,
-    width = "focusCenter",
+    fixed,
+    width,
     children
   }
 ) => (
   <>
-    <NavBar fixed={fixedNavbar} />
-    <MainContent width={width} >
+    <NavBar fixed={fixed}/>
+    <MainContent width={width}>
       {children}
     </MainContent>
   </>
 );
-
-interface IWindowProps {
-  fixedNavbar?: boolean;
-  width?: "focusCenter" | "wide";
-}

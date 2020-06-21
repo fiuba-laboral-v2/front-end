@@ -10,6 +10,6 @@ export const MainContent: FunctionComponent<IMainContentProps> =
   </div>
 );
 
-interface IMainContentProps {
+export interface IMainContentProps {
   width?: "focusCenter" | "wide";
 }

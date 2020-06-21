@@ -42,6 +42,6 @@ export const NavBarContainer: FunctionComponent<INavBarProps> = ({ fixed = true 
   );
 };
 
-interface INavBarProps {
+export interface INavBarProps {
   fixed?: boolean;
 }
