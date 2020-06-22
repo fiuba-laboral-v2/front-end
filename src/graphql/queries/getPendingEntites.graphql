@@ -1,0 +1,9 @@
+query getPendingEntities {
+  getPendingEntities {
+    ... on Company {
+      __typename
+      uuid
+      companyName
+    }
+  }
+}

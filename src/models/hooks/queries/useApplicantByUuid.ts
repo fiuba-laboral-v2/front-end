@@ -1,4 +1,4 @@
-import { useQuery } from "$hooks/useQuery";
+import { useQuery } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";

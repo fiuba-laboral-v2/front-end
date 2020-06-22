@@ -1,4 +1,4 @@
-import { useQuery } from "$hooks/useQuery";
+import { useQuery } from "$hooks";
 import { GET_COMPANY_OFFER_BY_UUID, GET_OFFER_BY_UUID } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
