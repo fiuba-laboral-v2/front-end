@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 
-const Detail: FunctionComponent = () => (
+const AdminTaskDetail: FunctionComponent = () => (
   <>
     <div className={styles.info}>
     </div>
@@ -11,4 +11,4 @@ const Detail: FunctionComponent = () => (
   </>
 );
 
-export { Detail };
+export { AdminTaskDetail };

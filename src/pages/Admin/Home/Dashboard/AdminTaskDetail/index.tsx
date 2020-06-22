@@ -1,0 +1,1 @@
+export { AdminTaskDetail } from "./component";
