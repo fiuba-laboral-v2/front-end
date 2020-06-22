@@ -4,7 +4,7 @@ import { ClickableCard } from "$components/ClickableCard";
 import { ApprovableEntity } from "../ApprovableEntity";
 import styles from "./styles.module.scss";
 
-export const List: FunctionComponent<IListProps> = ({ approvableEntities }) => <>
+export const ListBody: FunctionComponent<IListProps> = ({ approvableEntities }) => <>
   {approvableEntities.map(entity =>
     <ClickableCard key={entity.uuid} className={styles.card}>
       <ApprovableEntity approvableEntity={entity}/>

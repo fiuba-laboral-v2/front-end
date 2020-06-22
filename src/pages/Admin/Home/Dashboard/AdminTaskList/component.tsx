@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
-import { List } from "./List";
+import { List } from "./ListBody";
 
 export const AdminTaskList: FunctionComponent = () => (
   <>
