@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Router } from "$models/Router";
 import { Redirect } from "$components/Redirect";
-import { useCurrentUser } from "$hooks/queries/useCurrentUser";
+import { useCurrentUser } from "$hooks";
 
 const { internalServerError, login } = RoutesBuilder.public;
 

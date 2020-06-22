@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 
-export const PendingApprovableList: FunctionComponent = () => (
+const AdminTaskDetail: FunctionComponent = () => (
   <>
     <div className={styles.info}>
     </div>
@@ -10,3 +10,5 @@ export const PendingApprovableList: FunctionComponent = () => (
     </div>
   </>
 );
+
+export { AdminTaskDetail };

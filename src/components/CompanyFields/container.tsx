@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { CompanyFields } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
-import { useTranslations } from "$hooks/queries";
+import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICompanyFieldsContainerProps, ICompanyFieldsTranslations } from "./interface";
 
