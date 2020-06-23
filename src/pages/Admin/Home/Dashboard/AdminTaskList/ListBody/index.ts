@@ -1,1 +1,1 @@
-export { ListContainer as List } from "./container";
+export { ListBodyContainer as ListBody } from "./container";

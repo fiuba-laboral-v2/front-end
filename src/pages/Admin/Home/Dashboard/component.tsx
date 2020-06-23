@@ -6,14 +6,16 @@ import { AdminTaskList } from "./AdminTaskList";
 
 import styles from "./styles.module.scss";
 
-const Dashboard: FunctionComponent = () => (
-  <Window width="fullWidth">
-    <div className={styles.mainContent}>
-      <Menu/>
-      <AdminTaskList/>
-      <AdminTaskDetail/>
-    </div>
-  </Window>
-);
+const Dashboard: FunctionComponent = () => {
+  return (
+    <Window width="fullWidth">
+      <div className={styles.mainContent}>
+        <Menu/>
+        <AdminTaskList/>
+        <AdminTaskDetail/>
+      </div>
+    </Window>
+  );
+};
 
 export { Dashboard };

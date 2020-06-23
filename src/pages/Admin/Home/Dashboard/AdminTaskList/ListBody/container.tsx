@@ -4,7 +4,7 @@ import { usePendingEntities } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-export const ListContainer: FunctionComponent = () => {
+export const ListBodyContainer: FunctionComponent = () => {
   const response = usePendingEntities();
 
   if (response.loading) return <Fragment/>;
