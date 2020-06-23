@@ -4,9 +4,7 @@ import { CompanyDetail } from "$components/CompanyDetail";
 
 export const CompanyDetailContent: FunctionComponent<ICompanyDetailContentProps> = (
   { company }
-) => {
-  return <CompanyDetail company={company}/>;
-};
+) => <CompanyDetail company={company}/>;
 
 export interface ICompanyDetailContentProps {
   company: ICompany;
