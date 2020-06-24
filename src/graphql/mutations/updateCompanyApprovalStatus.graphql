@@ -1,0 +1,11 @@
+mutation saveJobApplication(
+  $uuid: ID!,
+  $approvalStatus: ApprovalStatus!
+) {
+  updateCompanyApprovalStatus(
+    uuid: $uuid,
+    approvalStatus: $approvalStatus
+  ) {
+    uuid
+  }
+}
