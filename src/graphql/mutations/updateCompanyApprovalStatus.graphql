@@ -1,4 +1,4 @@
-mutation saveJobApplication(
+mutation updateCompanyApprovalStatus(
   $uuid: ID!,
   $approvalStatus: ApprovalStatus!
 ) {
