@@ -5,16 +5,22 @@ import { ApprovableEntity } from "../ApprovableEntity";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
 
-export const ListBody: FunctionComponent<IListProps> = ({ approvableEntities }) => (
+export const ListBody: FunctionComponent<IListBodyProps> = (
+  {
+    approvableEntities,
+    onSelectTask
+  }
+) => (
   <List list={approvableEntities}>
     {entity =>
-      <ClickableCard key={entity.uuid} className={styles.card}>
+      <ClickableCard key={entity.uuid} className={styles.card} onClick={() => onSelectTask(entity)}>
         <ApprovableEntity approvableEntity={entity}/>
       </ClickableCard>
     }
   </List>
 );
 
-interface IListProps {
+interface IListBodyProps {
   approvableEntities: IApprovable[];
+  onSelectTask: (task: IApprovable) => void;
 }
