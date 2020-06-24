@@ -4,13 +4,12 @@ import { ApprovableCompany } from "../ApprovableCompany";
 
 export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
   { approvableEntity }
-) => {
-  if (approvableEntity.__typename === "Company") {
-    return <ApprovableCompany approvableEntity={approvableEntity}/>;
-  } else {
-    return <></>;
+) => <>
+  {
+    approvableEntity.__typename === "Company" &&
+    <ApprovableCompany approvableEntity={approvableEntity}/>
   }
-};
+</>;
 
 interface IApprovableEntityProps {
   approvableEntity: IApprovable;

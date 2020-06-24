@@ -5,20 +5,19 @@ import { CompanyDetailContent } from "./CompanyDetailContent";
 
 export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
   { selectedTask }
-) => {
-  let content;
-  if (!selectedTask) {
-    content = <div>seleccionate una</div>;
-  } else if (selectedTask.__typename === "Company") {
-    content = (<CompanyDetailContent selectedCompany={selectedTask}/>);
-  }
-  return (
-    <>
-      <div className={styles.info}></div>
-      <div className={styles.content}>{content}</div>
-    </>
-  );
-};
+) => <>
+  <div className={styles.info}/>
+  <div className={styles.content}>
+    {
+      !selectedTask &&
+      <div>seleccionate una</div>
+    }
+    {
+      selectedTask?.__typename === "Company" &&
+      <CompanyDetailContent selectedCompany={selectedTask}/>
+    }
+  </div>
+</>;
 
 interface IAdminTaskDetailProps {
   selectedTask?: IApprovable;
