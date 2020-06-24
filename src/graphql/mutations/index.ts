@@ -9,6 +9,7 @@ const CREATE_OFFER = loader("./createOffer.graphql");
 const EDIT_OFFER = loader("./editOffer.graphql");
 const LOGIN = loader("./login.graphql");
 const LOGOUT = loader("./logout.graphql");
+const UPDATE_COMPANY_APPROVAL_STATUS = loader("./updateCompanyApprovalStatus.graphql");
 
 export {
   LOGIN,
@@ -20,4 +21,5 @@ export {
   CREATE_OFFER,
   EDIT_OFFER,
   UPDATE_CURRENT_COMPANY,
+  UPDATE_COMPANY_APPROVAL_STATUS
 };
