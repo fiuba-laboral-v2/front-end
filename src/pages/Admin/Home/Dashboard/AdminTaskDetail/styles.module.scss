@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+.info {
+  background-color: $dashboardBackgroundWhite;
+  grid-area: "detailsInfo";
+}
+
+.content {
+  background-color: $dashboardBackgroundWhite;
+  grid-area: "detailsContent";
+}

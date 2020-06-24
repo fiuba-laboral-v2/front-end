@@ -7,6 +7,10 @@ export interface ICompanyFieldsTranslations {
   website: string;
 }
 
-export interface ICompanyFieldsProps {
+export interface ICompanyFieldsContainerProps {
+  edit?: boolean;
+}
+
+export interface ICompanyFieldsProps extends ICompanyFieldsContainerProps {
   translations: ICompanyFieldsTranslations;
 }

@@ -1,4 +1,4 @@
-import { useQuery } from "$hooks/useQuery";
+import { useQuery } from "$hooks";
 import { GET_CURRENT_USER } from "$queries";
 import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
 import { ICurrentCompanyAttributes } from "$models/CurrentCompany";

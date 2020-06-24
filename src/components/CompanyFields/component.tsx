@@ -20,7 +20,8 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
       slogan,
       description,
       website
-    }
+    },
+    edit
   }
 ) => (
   <>
@@ -29,11 +30,11 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
       label={companyName}
       validate={FormikValidator({ validator: validateName, mandatory: true })}
     />
-    <TextInput
-      name="cuit"
-      label={cuit}
-      validate={FormikValidator({ validator: validateCuit, mandatory: true })}
-    />
+    {!edit && <TextInput
+        name="cuit"
+        label={cuit}
+        validate={FormikValidator({ validator: validateCuit, mandatory: true })}
+    />}
     <TextInput
       name="email"
       label={email}

@@ -1,8 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { Window } from "$components/Window";
+import { Dashboard } from "./Dashboard";
 
-export const Home: FunctionComponent = () => (
-  <Window>
-    <span> Soon </span>
-  </Window>
-);
+export const Home: FunctionComponent = () => <Dashboard/>;
