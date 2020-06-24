@@ -3,6 +3,7 @@ import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { CompanyDetailInfo } from "./component";
 import { useSnackbar } from "notistack";
+import { ApprovalStatus } from "../../../../../../interfaces/ApprovalStatus";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   { selectedCompany }
@@ -10,7 +11,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const { enqueueSnackbar } = useSnackbar();
 
-  return <CompanyDetailInfo setStatus={async status => {
+  const setStatus = async (status: ApprovalStatus) => {
     const result = await updateCompanyApprovalStatus({
       variables: {
         uuid: selectedCompany.uuid,
@@ -22,8 +23,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     } else {
       enqueueSnackbar("success!", { variant: "success" });
     }
-  }
-  }/>;
+  };
+
+  return <CompanyDetailInfo setStatus={setStatus}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {
