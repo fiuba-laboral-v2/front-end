@@ -3,4 +3,8 @@ import { GET_PENDING_ENTITIES } from "$queries";
 import { IApprovable } from "$interfaces/Approvable";
 
 export const usePendingEntities = () =>
-  useQuery<{}, { getPendingEntities: IApprovable[] }>(GET_PENDING_ENTITIES);
+  useQuery<{}, IUsePendingEntities>(GET_PENDING_ENTITIES);
+
+export interface IUsePendingEntities {
+  getPendingEntities: IApprovable[];
+}

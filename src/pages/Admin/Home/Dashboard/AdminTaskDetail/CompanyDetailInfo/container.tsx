@@ -3,7 +3,7 @@ import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { CompanyDetailInfo } from "./component";
 import { useSnackbar } from "notistack";
-import { ApprovalStatus } from "../../../../../../interfaces/ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   { selectedCompany }
