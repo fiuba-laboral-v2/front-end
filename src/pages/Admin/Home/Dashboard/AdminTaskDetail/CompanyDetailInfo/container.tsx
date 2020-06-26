@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { IApprovableCompany } from "$interfaces/Approvable";
+import { IApprovable, IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
+import { GET_PENDING_ENTITIES } from "$queries";
 import { CompanyDetailInfo } from "./component";
 import { useSnackbar } from "notistack";
-import { ApprovalStatus } from "../../../../../../interfaces/ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   { selectedCompany }
@@ -16,6 +17,19 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
       variables: {
         uuid: selectedCompany.uuid,
         approvalStatus: status
+      },
+      update: cache => {
+        const response = cache.readQuery<{ getPendingEntities: IApprovable[] }>(
+          { query: GET_PENDING_ENTITIES }
+          );
+        cache.writeQuery({
+          query: GET_PENDING_ENTITIES,
+          data: {
+            getPendingEntities: response?.getPendingEntities.filter(entity =>
+              entity.uuid !== selectedCompany.uuid
+            )
+          }
+        });
       }
     });
     if (result.error) {
