@@ -33,7 +33,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       />
       <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
     </div>
-    <Description description={applicant.description}/>
+    <Description>{applicant.description}</Description>
     {
       applicant.sections?.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>

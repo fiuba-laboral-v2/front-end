@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.emptyDetailContent {
+  align-items: center;
+  background-color: $dashboardBackgroundWhite;
+  display: flex;
+  flex-direction: column;
+  grid-row: detailsInfo / detailsContent;
+  justify-content: center;
+
+  .selectToStartArrow {
+    margin-bottom: $smallSpacing;
+  }
+}

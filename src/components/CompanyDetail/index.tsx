@@ -38,7 +38,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         </div>
         <div className={styles.editButton}>{editButton}</div>
       </div>
-      <Description description={description}/>
+      <Description>{description}</Description>
       <section className={styles.photos}>
         {
           photos.map((source, index) =>
