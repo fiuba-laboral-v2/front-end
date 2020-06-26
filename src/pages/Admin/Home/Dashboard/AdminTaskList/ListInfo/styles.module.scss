@@ -1,0 +1,10 @@
+@import "$styles/_variables";
+
+.pendingTasks {
+  font-size: $bigFontSize;
+  margin-bottom: $bigSpacing;
+}
+
+.pendingCount {
+  font-weight: bold;
+}

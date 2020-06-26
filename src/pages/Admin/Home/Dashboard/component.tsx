@@ -14,7 +14,10 @@ const Dashboard: FunctionComponent = () => {
       <div className={styles.mainContent}>
         <Menu/>
         <AdminTaskList onSelectTask={setSelectedTask}/>
-        <AdminTaskDetail selectedTask={selectedTask}/>
+        <AdminTaskDetail
+          selectedTask={selectedTask}
+          onStatusUpdate={() => setSelectedTask(undefined)}
+        />
       </div>
     </Window>
   );

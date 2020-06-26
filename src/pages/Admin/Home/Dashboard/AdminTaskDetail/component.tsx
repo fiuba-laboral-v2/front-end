@@ -8,7 +8,8 @@ import styles from "./styles.module.scss";
 
 export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
   {
-    selectedTask
+    selectedTask,
+    onStatusUpdate
   }
 ) => {
   if (!selectedTask) return <EmptyDetailContent/>;
@@ -18,7 +19,7 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
       <div className={styles.info}>
         {
           selectedTask.__typename === "Company" &&
-          <CompanyDetailInfo selectedCompany={selectedTask}/>
+          <CompanyDetailInfo selectedCompany={selectedTask} onStatusUpdate={onStatusUpdate}/>
         }
       </div>
       <div className={styles.content}>
@@ -33,4 +34,5 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
 
 interface IAdminTaskDetailProps {
   selectedTask?: IApprovable;
+  onStatusUpdate: () => void;
 }
