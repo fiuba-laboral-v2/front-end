@@ -7,22 +7,16 @@
 
 .content {
   background-color: $dashboardBackgroundWhite;
-  display: flex;
   grid-area: "detailsContent";
 }
 
 .emptyContentDetail {
-  align-self: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 
   .selectToStartArrow {
     margin-bottom: $smallSpacing;
-  }
-
-  .description,
-  .selectToStartArrow {
-    align-self: center;
   }
 }
