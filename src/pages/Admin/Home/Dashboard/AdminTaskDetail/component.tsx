@@ -1,35 +1,36 @@
 import React, { FunctionComponent } from "react";
 import { CompanyDetailContent } from "./CompanyDetailContent";
 import { CompanyDetailInfo } from "./CompanyDetailInfo";
-import { Description } from "$components/Description";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { EmptyDetailContent } from "./EmptyDetailContent";
+import { IApprovable } from "$interfaces/Approvable";
 
-import { IAdminTaskDetailProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
   {
-    selectedTask,
-    translations
+    selectedTask
   }
-) => <>
-  <div className={styles.info}>
-    {
-      selectedTask?.__typename === "Company" &&
-      <CompanyDetailInfo selectedCompany={selectedTask}/>
-    }
-  </div>
-  <div className={styles.content}>
-    {
-      !selectedTask &&
-      <div className={styles.emptyContentDetail}>
-          <ArrowBackIcon className={styles.selectToStartArrow}/>
-          <Description>{translations.selectToStart}</Description>
-      </div>
-    }
-    {
-      selectedTask?.__typename === "Company" &&
-      <CompanyDetailContent selectedCompany={selectedTask}/>
-    }
-  </div>
-</>;
+) => (
+  <>
+    <div className={styles.info}>
+      {
+        selectedTask?.__typename === "Company" &&
+        <CompanyDetailInfo selectedCompany={selectedTask}/>
+      }
+    </div>
+    <div className={styles.content}>
+      {
+        !selectedTask &&
+        <EmptyDetailContent/>
+      }
+      {
+        selectedTask?.__typename === "Company" &&
+        <CompanyDetailContent selectedCompany={selectedTask}/>
+      }
+    </div>
+  </>
+);
+
+interface IAdminTaskDetailProps {
+  selectedTask?: IApprovable;
+}

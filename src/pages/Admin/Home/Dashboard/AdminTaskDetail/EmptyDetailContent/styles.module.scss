@@ -1,0 +1,12 @@
+@import "$styles/_variables";
+
+.emptyDetailContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .selectToStartArrow {
+    margin-bottom: $smallSpacing;
+  }
+}
