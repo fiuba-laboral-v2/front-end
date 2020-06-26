@@ -9,7 +9,7 @@ export const Menu: FunctionComponent<IMenu> = ({ translations }) => (
   <div className={styles.menuContent}>
     <div className={styles.company}>
       <Tooltip
-          classes={{ tooltip: styles.tooltip }}
+        classes={{ tooltip: styles.tooltip }}
         title={translations.companyIconTitle}
         placement="right"
       >
