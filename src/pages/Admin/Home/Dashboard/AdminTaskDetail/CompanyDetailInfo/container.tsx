@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { IApprovable, IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { GET_PENDING_ENTITIES } from "$queries";
+import { IUsePendingEntities } from "$hooks/queries";
 import { CompanyDetailInfo } from "./component";
 import { useSnackbar } from "notistack";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
@@ -19,9 +20,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
         approvalStatus: status
       },
       update: cache => {
-        const response = cache.readQuery<{ getPendingEntities: IApprovable[] }>(
-          { query: GET_PENDING_ENTITIES }
-          );
+        const response = cache.readQuery<IUsePendingEntities>({ query: GET_PENDING_ENTITIES });
         cache.writeQuery({
           query: GET_PENDING_ENTITIES,
           data: {
