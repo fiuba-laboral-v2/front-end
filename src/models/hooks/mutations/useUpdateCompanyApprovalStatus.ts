@@ -13,7 +13,6 @@ export const useUpdateCompanyApprovalStatus = () => {
         const response = cache.readQuery<IUsePendingEntities>({ query: GET_PENDING_ENTITIES });
         if (!response?.getPendingEntities) return;
         const pendingEntities = response.getPendingEntities;
-        reject(pendingEntities, ["uuid", variables.uuid]);
         cache.writeQuery({
           query: GET_PENDING_ENTITIES,
           data: { getPendingEntities: reject(pendingEntities, ["uuid", variables.uuid]) }
