@@ -1,11 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ListBody } from "./component";
-import { usePendingEntities } from "$hooks";
+import { IAdminTaskListContainerProps } from "./interface";
+import { usePendingEntities } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { IApprovable } from "$interfaces/Approvable";
+import { AdminTaskList } from "./component";
 
-export const ListBodyContainer: FunctionComponent<IListBodyContainerProps> = (
+export const AdminTaskListContainer: FunctionComponent<IAdminTaskListContainerProps> = (
   { onSelectTask }
 ) => {
   const response = usePendingEntities();
@@ -13,12 +13,8 @@ export const ListBodyContainer: FunctionComponent<IListBodyContainerProps> = (
   if (response.loading) return <Fragment/>;
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  return <ListBody
+  return <AdminTaskList
     approvableEntities={response.data.getPendingEntities}
     onSelectTask={onSelectTask}
   />;
 };
-
-interface IListBodyContainerProps {
-  onSelectTask: (task: IApprovable) => void;
-}

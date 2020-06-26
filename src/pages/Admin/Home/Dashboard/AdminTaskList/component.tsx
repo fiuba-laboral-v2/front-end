@@ -2,20 +2,16 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 import { ListBody } from "./ListBody";
-import { IApprovable } from "$interfaces/Approvable";
+import { IAdminTaskListProps } from "./interface";
 
 export const AdminTaskList: FunctionComponent<IAdminTaskListProps> = (
-  { onSelectTask }
+  { onSelectTask, approvableEntities }
 ) => (
   <>
     <div className={styles.info}>
     </div>
     <div className={styles.content}>
-      <ListBody onSelectTask={onSelectTask}/>
+      <ListBody onSelectTask={onSelectTask} approvableEntities={approvableEntities}/>
     </div>
   </>
 );
-
-interface IAdminTaskListProps {
-  onSelectTask: (task: IApprovable) => void;
-}
