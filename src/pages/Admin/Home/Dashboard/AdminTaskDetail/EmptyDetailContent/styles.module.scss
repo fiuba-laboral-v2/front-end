@@ -2,9 +2,11 @@
 
 .emptyDetailContent {
   align-items: center;
+  background-color: $dashboardBackgroundWhite;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  grid-row: detailsInfo / detailsContent;
+  justify-content: center;
 
   .selectToStartArrow {
     margin-bottom: $smallSpacing;
