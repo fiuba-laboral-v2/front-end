@@ -1,22 +1,25 @@
 import React, { FunctionComponent } from "react";
 import BusinessIcon from "@material-ui/icons/Business";
-
-import styles from "./styles.module.scss";
 import Tooltip from "@material-ui/core/Tooltip";
 
-const companyIconTitle = "Registro de empresa pendiente";
+import { IMenuTranslations } from "./interfaces";
+import styles from "./styles.module.scss";
 
-const Menu: FunctionComponent = () => (
+export const Menu: FunctionComponent<IMenu> = ({ translations }) => (
   <div className={styles.menuContent}>
     <div className={styles.company}>
-      <Tooltip classes={{ tooltip: styles.tooltip }}
-               title={companyIconTitle}
-               placement="right">
+      <Tooltip
+          classes={{ tooltip: styles.tooltip }}
+        title={translations.companyIconTitle}
+        placement="right"
+      >
         <BusinessIcon className={styles.companyIcon} fontSize="default"/>
       </Tooltip>
-      <p className={styles.companyDescription}>{companyIconTitle}</p>
+      <p className={styles.companyDescription}>{translations.companyIconTitle}</p>
     </div>
   </div>
 );
 
-export { Menu };
+interface IMenu {
+  translations: IMenuTranslations;
+}
