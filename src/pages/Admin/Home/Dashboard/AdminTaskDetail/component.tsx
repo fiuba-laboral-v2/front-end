@@ -24,7 +24,7 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
       !selectedTask &&
       <div className={styles.emptyContentDetail}>
           <ArrowBackIcon className={styles.selectToStartArrow}/>
-          <Description description={translations.selectToStart}/>
+          <Description className={styles.description}>{translations.selectToStart}</Description>
       </div>
     }
     {

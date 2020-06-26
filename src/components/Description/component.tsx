@@ -1,14 +1,20 @@
 import React, { Fragment, FunctionComponent } from "react";
+import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const Description: FunctionComponent<IDetailDescriptionProps> = ({ description }) => {
-  if (!description) return <Fragment/>;
+export const Description: FunctionComponent<IDetailDescriptionProps> = (
+  {
+    className,
+    children
+  }
+) => {
+  if (!children) return <Fragment/>;
 
   return (
-    <p className={styles.description}>{description}</p>
+    <p className={classNames(styles.description, className)}>{children}</p>
   );
 };
 
 interface IDetailDescriptionProps {
-  description?: string;
+  className?: string;
 }
