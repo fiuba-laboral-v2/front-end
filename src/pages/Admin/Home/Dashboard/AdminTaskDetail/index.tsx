@@ -1,1 +1,1 @@
-export { AdminTaskDetail } from "./component";
+export { AdminTaskDetailContainer as AdminTaskDetail } from "./container";

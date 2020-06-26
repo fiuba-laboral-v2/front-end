@@ -9,3 +9,13 @@
   background-color: $dashboardBackgroundWhite;
   grid-area: "detailsContent";
 }
+
+.emptyContentDetail {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .selectToStartArrow {
+    margin-bottom: $smallSpacing;
+  }
+}

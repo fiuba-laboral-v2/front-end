@@ -1,11 +1,17 @@
 import React, { FunctionComponent } from "react";
-import styles from "./styles.module.scss";
-import { IApprovable } from "$interfaces/Approvable";
 import { CompanyDetailContent } from "./CompanyDetailContent";
 import { CompanyDetailInfo } from "./CompanyDetailInfo";
+import { Description } from "$components/Description";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
+import { IAdminTaskDetailProps } from "./interfaces";
+import styles from "./styles.module.scss";
 
 export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
-  { selectedTask }
+  {
+    selectedTask,
+    translations
+  }
 ) => <>
   <div className={styles.info}>
     {
@@ -16,7 +22,10 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
   <div className={styles.content}>
     {
       !selectedTask &&
-      <div>seleccionate una</div>
+      <div className={styles.emptyContentDetail}>
+          <ArrowBackIcon className={styles.selectToStartArrow}/>
+          <Description description={translations.selectToStart}/>
+      </div>
     }
     {
       selectedTask?.__typename === "Company" &&
@@ -24,7 +33,3 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
     }
   </div>
 </>;
-
-interface IAdminTaskDetailProps {
-  selectedTask?: IApprovable;
-}
