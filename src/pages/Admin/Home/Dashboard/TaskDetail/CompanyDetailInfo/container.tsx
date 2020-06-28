@@ -6,7 +6,7 @@ import { useSnackbar } from "notistack";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  { selectedCompany }
+  { selectedCompany, onStatusUpdate }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const { enqueueSnackbar } = useSnackbar();
@@ -18,11 +18,11 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
         approvalStatus: status
       }
     });
-    if (result.error) {
-      enqueueSnackbar("error!", { variant: "error" });
-    } else {
-      enqueueSnackbar("success!", { variant: "success" });
-    }
+
+    if (result.error) return enqueueSnackbar("error!", { variant: "error" });
+
+    enqueueSnackbar("success!", { variant: "success" });
+    onStatusUpdate();
   };
 
   return <CompanyDetailInfo setStatus={setStatus}/>;
@@ -30,6 +30,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
 interface ICompanyDetailInfoContainerProps {
   selectedCompany: IApprovableCompany;
+  onStatusUpdate: () => void;
 }
 
 export { CompanyDetailInfoContainer };

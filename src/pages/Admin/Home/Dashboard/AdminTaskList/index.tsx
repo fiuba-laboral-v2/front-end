@@ -1,1 +1,0 @@
-export { AdminTaskList } from "./component";
