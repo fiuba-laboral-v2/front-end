@@ -1,15 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { IApprovableCompany } from "$interfaces/Approvable";
-import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
-import { CompanyDetailInfo } from "./component";
+import React, { FunctionComponent, Fragment } from "react";
 import { useSnackbar } from "notistack";
+
+import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
+import { useCompanyByUuid } from "$hooks/queries";
+
+import { IApprovableCompany } from "$interfaces/Approvable";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+
+import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   { selectedCompany }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const { enqueueSnackbar } = useSnackbar();
+  const response = useCompanyByUuid(selectedCompany.uuid);
 
   const setStatus = async (status: ApprovalStatus) => {
     const result = await updateCompanyApprovalStatus({
@@ -25,7 +30,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     }
   };
 
-  return <CompanyDetailInfo setStatus={setStatus}/>;
+  if (response.error || response.loading) return <Fragment />;
+
+  return <CompanyDetailInfo setStatus={setStatus} company={response.data.getCompanyByUuid}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {
