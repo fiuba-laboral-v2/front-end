@@ -1,0 +1,26 @@
+@import "$styles/_variables";
+
+.companyName {
+  color: $mainBlueDark;
+  font-size: $largeSpacing;
+  margin-right: $bigSpacing;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: $bigSpacing $biggerSpacing 0;
+}
+
+.main {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: $black;
+  font-size: $largeSpacing;
+  margin-right: $normalSpacing;
+}

@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.userDetails {
+  p {
+    font-size: $bigFontSize;
+    margin-bottom: $smallSpacing;
+  }
+}
+
+.userInfo {
+  color: $black;
+  font-size: $bigFontSize;
+  margin-left: $smallSpacing;
+}

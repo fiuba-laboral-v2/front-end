@@ -1,55 +1,8 @@
 @import "$styles/_variables";
 
-.actions {
-  align-self: flex-end;
-  display: flex;
-
-  button {
-    margin: 0 0 $normalSpacing $biggerSpacing;
-  }
-}
-
-.companyName {
-  color: $mainBlueDark;
-  font-size: $largeSpacing;
-  margin-right: $bigSpacing;
-}
-
 .details {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin: $normalSpacing $biggerSpacing $normalSpacing;
-}
-
-.header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: $bigSpacing $biggerSpacing 0;
-}
-
-.main {
-  align-items: baseline;
-  display: flex;
-  justify-content: space-between;
-}
-
-.title {
-  color: $black;
-  font-size: $largeSpacing;
-  margin-right: $normalSpacing;
-}
-
-.userDetails {
-  p {
-    font-size: $bigFontSize;
-    margin-bottom: $smallSpacing;
-  }
-}
-
-.userInfo {
-  color: $black;
-  font-size: $bigFontSize;
-  margin-left: $smallSpacing;
 }
