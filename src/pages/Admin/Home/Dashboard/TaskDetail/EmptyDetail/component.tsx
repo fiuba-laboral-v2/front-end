@@ -2,19 +2,19 @@ import React, { FunctionComponent } from "react";
 import { Description } from "$components/Description";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import styles from "./styles.module.scss";
-import { IEmptyDetailContentTranslations } from "./interfaces";
+import { IEmptyDetailTranslations } from "./interfaces";
 
-export const EmptyDetailContent: FunctionComponent<IEmptyDetailContentProps> = (
+export const EmptyDetail: FunctionComponent<IEmptyDetailProps> = (
   {
     translations
   }
 ) => (
-  <div className={styles.emptyDetailContent}>
+  <div className={styles.emptyDetail}>
     <ArrowBackIcon className={styles.selectToStartArrow}/>
     <Description>{translations.selectToStart}</Description>
   </div>
 );
 
-interface IEmptyDetailContentProps {
-  translations: IEmptyDetailContentTranslations;
+interface IEmptyDetailProps {
+  translations: IEmptyDetailTranslations;
 }

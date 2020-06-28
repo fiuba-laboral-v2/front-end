@@ -13,7 +13,10 @@ const Dashboard: FunctionComponent = () => {
     <Window width="fullWidth">
       <div className={styles.mainContent}>
         <Menu/>
-        <TaskList onSelectTask={setSelectedTask}/>
+        <TaskList
+          selectedTask={selectedTask}
+          onSelectTask={setSelectedTask}
+        />
         <TaskDetail
           selectedTask={selectedTask}
           onStatusUpdate={() => setSelectedTask(undefined)}

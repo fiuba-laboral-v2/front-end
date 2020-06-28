@@ -1,11 +1,16 @@
 @import "$styles/_variables";
 
-.info {
+.info,
+.content {
   background-color: $dashboardBackgroundWhite;
-  grid-area: "detailsInfo";
 }
 
 .content {
-  background-color: $dashboardBackgroundWhite;
-  grid-area: "detailsContent";
+  overflow-y: auto;
+}
+
+.taskDetail {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

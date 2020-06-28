@@ -1,11 +1,11 @@
 @import "$styles/_variables";
 
-.emptyDetailContent {
+.emptyDetail {
   align-items: center;
   background-color: $dashboardBackgroundWhite;
   display: flex;
   flex-direction: column;
-  grid-row: detailsInfo / detailsContent;
+  height: 100%;
   justify-content: center;
 
   .selectToStartArrow {

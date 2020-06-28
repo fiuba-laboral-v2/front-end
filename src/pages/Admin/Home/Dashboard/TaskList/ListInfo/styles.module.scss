@@ -2,7 +2,7 @@
 
 .pendingTasks {
   font-size: $bigFontSize;
-  margin-bottom: $bigSpacing;
+  margin: $biggerSpacing $bigSpacing 0 $bigSpacing;
 }
 
 .pendingCount {

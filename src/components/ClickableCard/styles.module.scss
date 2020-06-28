@@ -3,7 +3,12 @@
 .clickableCard {
   @include card;
 
+  border: solid 1px transparent;
   padding: 15px;
+}
+
+.selected {
+  background-color: $selectedColor;
 }
 
 .hoverable {
@@ -26,7 +31,8 @@
     z-index: -1;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &.selected::after {
     opacity: 1;
   }
 }
