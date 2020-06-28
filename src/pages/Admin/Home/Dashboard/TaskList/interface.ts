@@ -6,4 +6,9 @@ export interface ITaskListContainerProps {
 
 export interface ITaskListProps extends ITaskListContainerProps {
   approvableEntities: IApprovable[];
+  translations: ITaskListTranslations;
+}
+
+export interface ITaskListTranslations {
+  pendingTasks: string;
 }

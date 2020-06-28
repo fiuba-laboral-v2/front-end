@@ -5,15 +5,13 @@ import { ListBody } from "./ListBody";
 import { ITaskListProps } from "./interface";
 import { ListInfo } from "./ListInfo";
 
-export const TaskList: FunctionComponent<ITaskListProps> = (
-  { onSelectTask, approvableEntities }
-) => (
+export const TaskList: FunctionComponent<ITaskListProps> = props => (
   <>
     <div className={styles.info}>
-      <ListInfo approvableEntities={approvableEntities}/>
+      <ListInfo {...props}/>
     </div>
     <div className={styles.content}>
-      <ListBody onSelectTask={onSelectTask} approvableEntities={approvableEntities}/>
+      <ListBody {...props}/>
     </div>
   </>
 );
