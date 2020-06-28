@@ -1,7 +1,10 @@
-.content {
-  grid-area: "listContent";
+.taskList {
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
-.info {
-  grid-area: "listInfo";
+.content {
+  overflow-y: auto;
 }

@@ -6,12 +6,12 @@ import { ITaskListProps } from "./interface";
 import { ListInfo } from "./ListInfo";
 
 export const TaskList: FunctionComponent<ITaskListProps> = props => (
-  <>
+  <div className={styles.taskList}>
     <div className={styles.info}>
       <ListInfo {...props}/>
     </div>
     <div className={styles.content}>
       <ListBody {...props}/>
     </div>
-  </>
+  </div>
 );
