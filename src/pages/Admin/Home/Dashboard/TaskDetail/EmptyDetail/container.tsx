@@ -1,15 +1,15 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { EmptyDetailContent } from "./component";
+import { EmptyDetail } from "./component";
 import { Redirect } from "$components/Redirect";
 import { useTranslations } from "$models/hooks/queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { IEmptyDetailContentTranslations } from "./interfaces";
+import { IEmptyDetailTranslations } from "./interfaces";
 
-export const EmptyDetailContentContainer: FunctionComponent = () => {
-  const translations = useTranslations<IEmptyDetailContentTranslations>("emptyDetailContent");
+export const EmptyDetailContainer: FunctionComponent = () => {
+  const translations = useTranslations<IEmptyDetailTranslations>("adminEmptyDetail");
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  return <EmptyDetailContent translations={translations.data} />;
+  return <EmptyDetail translations={translations.data} />;
 };

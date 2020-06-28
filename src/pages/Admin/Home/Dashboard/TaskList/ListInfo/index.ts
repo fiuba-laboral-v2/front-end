@@ -1,0 +1,1 @@
+export { ListInfo } from "./component";

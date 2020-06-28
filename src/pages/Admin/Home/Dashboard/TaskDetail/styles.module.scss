@@ -1,0 +1,16 @@
+@import "$styles/_variables";
+
+.info,
+.content {
+  background-color: $dashboardBackgroundWhite;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.taskDetail {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

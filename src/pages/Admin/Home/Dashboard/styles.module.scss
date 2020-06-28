@@ -1,13 +1,7 @@
 @import "$styles/_variables";
 
 .mainContent {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-areas:
-    "menu listInfo detailsInfo "
-    "menu listContent detailsContent ";
-  grid-template-columns: 1fr 8fr 16fr;
-  grid-template-rows: 1fr 3fr;
+  display: flex;
   height: calc(100vh - #{$navBarHeight});
-  justify-items: stretch;
+  overflow: hidden;
 }
