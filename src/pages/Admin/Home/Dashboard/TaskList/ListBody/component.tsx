@@ -8,12 +8,18 @@ import styles from "./styles.module.scss";
 export const ListBody: FunctionComponent<IListBodyProps> = (
   {
     approvableEntities,
-    onSelectTask
+    onSelectTask,
+    selectedTask
   }
 ) => (
   <List list={approvableEntities}>
     {entity =>
-      <ClickableCard key={entity.uuid} className={styles.card} onClick={() => onSelectTask(entity)}>
+      <ClickableCard
+        key={entity.uuid}
+        className={styles.card}
+        onClick={() => onSelectTask(entity)}
+        selected={entity.uuid === selectedTask?.uuid}
+      >
         <ApprovableEntity approvableEntity={entity}/>
       </ClickableCard>
     }
@@ -23,4 +29,5 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
 interface IListBodyProps {
   approvableEntities: IApprovable[];
   onSelectTask: (task: IApprovable) => void;
+  selectedTask?: IApprovable;
 }

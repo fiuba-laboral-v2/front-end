@@ -6,7 +6,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TaskList } from "./component";
 
 export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
-  { onSelectTask }
+  { onSelectTask, selectedTask }
 ) => {
   const response = usePendingEntities();
   const translations = useTranslations<ITaskListTranslations>("adminTaskList");
@@ -20,6 +20,7 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   return <TaskList
     approvableEntities={response.data.getPendingEntities}
     onSelectTask={onSelectTask}
+    selectedTask={selectedTask}
     translations={translations.data}
   />;
 };

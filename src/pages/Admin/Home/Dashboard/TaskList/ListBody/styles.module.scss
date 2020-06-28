@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
 .card {
-  margin: $normalSpacing $bigSpacing;
+  margin: $smallSpacing $bigSpacing;
+
+  &:first-child {
+    margin-top: $bigSpacing;
+  }
 }
