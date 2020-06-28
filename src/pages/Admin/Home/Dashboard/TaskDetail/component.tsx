@@ -6,7 +6,7 @@ import { IApprovable } from "$interfaces/Approvable";
 
 import styles from "./styles.module.scss";
 
-export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
+export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
     selectedTask,
     onStatusUpdate
@@ -32,7 +32,7 @@ export const AdminTaskDetail: FunctionComponent<IAdminTaskDetailProps> = (
   );
 };
 
-interface IAdminTaskDetailProps {
+interface ITaskDetailProps {
   selectedTask?: IApprovable;
   onStatusUpdate: () => void;
 }
