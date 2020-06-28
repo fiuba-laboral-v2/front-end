@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import { Window } from "$components/Window";
 import { Menu } from "./Menu";
 import { AdminTaskDetail } from "./AdminTaskDetail";
-import { AdminTaskList } from "./AdminTaskList";
+import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IApprovable } from "$interfaces/Approvable";
 
@@ -13,7 +13,7 @@ const Dashboard: FunctionComponent = () => {
     <Window width="fullWidth">
       <div className={styles.mainContent}>
         <Menu/>
-        <AdminTaskList onSelectTask={setSelectedTask}/>
+        <TaskList onSelectTask={setSelectedTask}/>
         <AdminTaskDetail
           selectedTask={selectedTask}
           onStatusUpdate={() => setSelectedTask(undefined)}

@@ -2,10 +2,10 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 import { ListBody } from "./ListBody";
-import { IAdminTaskListProps } from "./interface";
+import { ITaskListProps } from "./interface";
 import { ListInfo } from "./ListInfo";
 
-export const AdminTaskList: FunctionComponent<IAdminTaskListProps> = (
+export const TaskList: FunctionComponent<ITaskListProps> = (
   { onSelectTask, approvableEntities }
 ) => (
   <>
