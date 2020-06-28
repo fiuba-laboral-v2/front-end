@@ -7,7 +7,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IEmptyDetailTranslations } from "./interfaces";
 
 export const EmptyDetailContainer: FunctionComponent = () => {
-  const translations = useTranslations<IEmptyDetailTranslations>("emptyDetailContent");
+  const translations = useTranslations<IEmptyDetailTranslations>("adminEmptyDetail");
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
