@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
-import BusinessIcon from "@material-ui/icons/Business";
 import Tooltip from "@material-ui/core/Tooltip";
-
 import { IMenuTranslations } from "./interfaces";
+import { CompanyIcon } from "../CompanyIcon/component";
 import styles from "./styles.module.scss";
 
 export const Menu: FunctionComponent<IMenu> = ({ translations }) => (
@@ -13,7 +12,7 @@ export const Menu: FunctionComponent<IMenu> = ({ translations }) => (
         title={translations.companyIconTitle}
         placement="right"
       >
-        <BusinessIcon className={styles.companyIcon} fontSize="default"/>
+        <CompanyIcon className={styles.companyIcon}/>
       </Tooltip>
       <p className={styles.companyDescription}>{translations.companyIconTitle}</p>
     </div>

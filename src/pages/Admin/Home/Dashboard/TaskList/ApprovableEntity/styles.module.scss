@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.approvableEntity {
+  display: flex;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.name {
+  font-size: $normalFontSize;
+  font-weight: bold;
+}
