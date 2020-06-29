@@ -10,9 +10,10 @@ const DetailContactMe: FunctionComponent<IDetailContactMeProps> = (
   }
 ) => (
   <div className={styles.contactInfo}>
-    <Subtitle><a href={`mailto: ${email}`}>{email}</a></Subtitle>
-    <span className={styles.contactInfoDivider}> — </span>
-    <Subtitle>
+    <Subtitle className={styles.email}>
+      <a href={`mailto: ${email}`}>{email}</a>
+    </Subtitle>
+    <Subtitle className={styles.website}>
       <a target="_blank" rel="noopener noreferrer" href={website}>{website}</a>
     </Subtitle>
   </div>
