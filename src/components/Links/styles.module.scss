@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: $smallSpacing;
 }
 
 .link {
@@ -25,6 +24,10 @@
 @media (max-width: $mobileContainerThreshold) {
   .links {
     flex-direction: column;
+
+    .link {
+      margin-top: $smallSpacing;
+    }
 
     .link .divider {
       display: none;
