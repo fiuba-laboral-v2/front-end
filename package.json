@@ -9,6 +9,8 @@
   ],
   "dependencies": {
     "@apollo/react-hooks": "3.1.3",
+    "@graphql-codegen/cli": "1.15.4",
+    "@graphql-codegen/fragment-matcher": "1.15.4",
     "@material-ui/core": "4.9.0",
     "@material-ui/icons": "4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
@@ -72,7 +74,8 @@
     "postinstall": "link-module-alias",
     "stash": "git stash -u --keep-index",
     "unstash": "git stash pop",
-    "check-unstaged": "bash scripts/check_unstaged.sh"
+    "check-unstaged": "bash scripts/check_unstaged.sh",
+    "generate": "graphql-codegen --config ./src/config/codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -108,6 +111,7 @@
     "$interfaces": "src/interfaces",
     "$pages": "src/pages",
     "$queries": "src/graphql/queries",
+    "$typenames": "src/graphql/typenames",
     "$mutations": "src/graphql/mutations",
     "$styles": "src/styles",
     "$test": "src/test",
