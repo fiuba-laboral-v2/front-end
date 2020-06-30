@@ -8,9 +8,9 @@
 .title {
   @include title;
 
-  margin-bottom: $normalSpacing;
+  margin-bottom: $spacing-m;
 }
 
 .logo {
-  margin-bottom: $bigSpacing;
+  margin-bottom: $spacing-l;
 }

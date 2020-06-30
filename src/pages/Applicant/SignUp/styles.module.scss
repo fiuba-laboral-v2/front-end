@@ -8,7 +8,7 @@
   .title {
     @include title;
 
-    margin-bottom: $normalSpacing;
+    margin-bottom: $spacing-m;
   }
 
   .body {
@@ -38,11 +38,11 @@
 }
 
 div.textInput {
-  margin-bottom: $normalSpacing;
+  margin-bottom: $spacing-m;
 }
 
 .footer {
-  margin-top: $bigSpacing;
+  margin-top: $spacing-l;
 }
 
 @media (max-width: $mobileContainerThreshold) {

@@ -8,29 +8,29 @@
 
 .mainInfo {
   flex-grow: 1;
-  margin-left: $biggerSpacing;
+  margin-left: $spacing-xxl;
 }
 
 .companySlogan {
-  margin-top: $smallSpacing;
+  margin-top: $spacing-s;
 }
 
 .photos {
   column-count: 2;
-  column-gap: $bigSpacing;
+  column-gap: $spacing-l;
   line-height: 0;
   margin: 0 auto;
 
   img {
     height: auto;
-    padding: $bigSpacing 0 0 0;
+    padding: $spacing-l 0 0 0;
     width: 100%;
   }
 }
 
 @media (max-width: $mobileContainerThreshold) {
   .editButton {
-    margin-top: $normalSpacing;
+    margin-top: $spacing-m;
   }
 
   .header {
