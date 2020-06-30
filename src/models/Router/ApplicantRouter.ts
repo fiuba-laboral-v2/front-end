@@ -1,4 +1,3 @@
-import { ICurrentCompany } from "../CurrentCompany";
 import { RoutesBuilder } from "../RoutesBuilder";
 import { ICurrentApplicant } from "../CurrentApplicant";
 

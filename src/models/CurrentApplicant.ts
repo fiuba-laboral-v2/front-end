@@ -1,22 +1,11 @@
 import { ApprovalStatus } from "../interfaces/ApprovalStatus";
+import { CurrentApprovable } from "./CurrentApprovable";
 
-export const CurrentApplicant = (attributes: ICurrentApplicantAttributes): ICurrentApplicant => {
-  const applicant: ICurrentApplicant = {
-    ...attributes,
-    isPending: () => applicant.approvalStatus === ApprovalStatus.pending,
-    isRejected: () => applicant.approvalStatus === ApprovalStatus.rejected,
-    isApproved: () => applicant.approvalStatus === ApprovalStatus.approved
-  };
-  return applicant;
-};
+export const CurrentApplicant = CurrentApprovable<ICurrentApplicantAttributes>();
 
-export interface ICurrentApplicantAttributes {
+export type ICurrentApplicantAttributes = {
   uuid: string;
   approvalStatus: ApprovalStatus;
-}
+};
 
-export interface ICurrentApplicant extends ICurrentApplicantAttributes {
-  isPending: () => boolean;
-  isRejected: () => boolean;
-  isApproved: () => boolean;
-}
+export type ICurrentApplicant = CurrentApprovable & ICurrentApplicantAttributes;

@@ -1,22 +1,11 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { CurrentApprovable } from "./CurrentApprovable";
 
-export const CurrentCompany = (attributes: ICurrentCompanyAttributes): ICurrentCompany => {
-  const company: ICurrentCompany = {
-    ...attributes,
-    isPending: () => company.approvalStatus === ApprovalStatus.pending,
-    isRejected: () => company.approvalStatus === ApprovalStatus.rejected,
-    isApproved: () => company.approvalStatus === ApprovalStatus.approved
-  };
-  return company;
-};
+export const CurrentCompany = CurrentApprovable<ICurrentCompanyAttributes>();
 
-export interface ICurrentCompanyAttributes {
+export type ICurrentCompanyAttributes = {
   uuid: string;
   approvalStatus: ApprovalStatus;
-}
+};
 
-export interface ICurrentCompany extends ICurrentCompanyAttributes {
-  isPending: () => boolean;
-  isRejected: () => boolean;
-  isApproved: () => boolean;
-}
+export type ICurrentCompany = CurrentApprovable & ICurrentCompanyAttributes;
