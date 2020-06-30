@@ -6,10 +6,7 @@ import styles from "./styles.module.scss";
 
 export const CompanyDetailContent: FunctionComponent<ICompanyDetailContentProps> = (
   { company }
-) =>
-  <div className={styles.companyDetailsContainer}>
-    <CompanyDetail company={company}/>
-  </div>;
+) => <CompanyDetail className={styles.companyDetailsContainer} company={company}/>;
 
 export interface ICompanyDetailContentProps {
   company: ICompany;

@@ -20,11 +20,12 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
       website = "",
       description = "",
       photos = []
-    }
+    },
+    className
   }
 ) => {
   return (
-    <DetailMainContainer>
+    <DetailMainContainer className={className}>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"
@@ -52,4 +53,5 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
 interface ICompanyDetailProps {
   company: ICompany;
   editButton?: React.ReactElement;
+  className?: string;
 }
