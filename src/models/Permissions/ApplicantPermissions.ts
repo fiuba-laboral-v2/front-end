@@ -1,7 +1,6 @@
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICurrentApplicant } from "../CurrentApplicant";
-import { PendingApplicantError } from "../Errors/PendingApplicantError";
-import { RejectedApplicantError } from "../Errors/RejectedApplicantError";
+import { PendingApplicantError, RejectedApplicantError } from "../Errors";
 
 const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
   RoutesBuilder.applicant.editMyProfile(),

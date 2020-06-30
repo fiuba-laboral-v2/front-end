@@ -1,9 +1,12 @@
 import { INavBarTranslations } from "$components/NavBar/interface";
-import { PendingCompanyError, RejectedCompanyError } from "../Errors";
+import {
+  PendingApplicantError,
+  PendingCompanyError,
+  RejectedApplicantError,
+  RejectedCompanyError
+} from "../Errors";
 import { TCurrentUser } from "../CurrentUser";
 import { Permissions } from "../Permissions";
-import { RejectedApplicantError } from "../Errors/RejectedApplicantError";
-import { PendingApplicantError } from "../Errors/PendingApplicantError";
 
 export const getTooltipMessage = (
   currentUser: TCurrentUser,
