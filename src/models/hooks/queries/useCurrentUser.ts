@@ -2,6 +2,7 @@ import { useQuery } from "$hooks";
 import { GET_CURRENT_USER } from "$queries";
 import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
 import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
+import { ICurrentApplicantAttributes } from "$models/CurrentApplicant";
 
 export const useCurrentUser = () => {
   const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
@@ -20,6 +21,6 @@ export interface IUseCurrentUser {
 
 export type TCurrentUserAttributes = TGenericCurrentUser<
   { userUuid: string; },
-  { uuid: string; },
+  ICurrentApplicantAttributes,
   ICurrentCompanyAttributes
 >;
