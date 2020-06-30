@@ -75,7 +75,7 @@
     "stash": "git stash -u --keep-index",
     "unstash": "git stash pop",
     "check-unstaged": "bash scripts/check_unstaged.sh",
-    "generate": "graphql-codegen --config ./src/config/codegen.yml"
+    "schema:update": "graphql-codegen --config ./src/config/codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"
