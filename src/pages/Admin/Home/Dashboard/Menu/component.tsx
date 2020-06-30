@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { IMenuTranslations } from "./interfaces";
-import { CompanyIcon } from "../CompanyIcon/component";
+import { CompanyIcon } from "../CompanyIcon";
 import styles from "./styles.module.scss";
 
 export const Menu: FunctionComponent<IMenu> = ({ translations }) => (
