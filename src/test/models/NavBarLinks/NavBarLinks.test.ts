@@ -108,13 +108,16 @@ describe("NavBarLinks", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicant = () => CurrentUser({
+    const createCurrentApplicant = (approvalStatus: ApprovalStatus) => CurrentUser({
       ...userAttributes,
-      applicant: { uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
+      applicant: {
+        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        approvalStatus
+      }
     });
 
-    it("returns a list of applicant links in the navBar", () => {
-      const currentApplicant = createCurrentApplicant();
+    it("returns a list of applicant links in the navBar in approved status", () => {
+      const currentApplicant = createCurrentApplicant(ApprovalStatus.approved);
       expect(NavBarLinks.create(currentApplicant, translations)).toEqual([
         {
           path: RoutesBuilder.applicant.offerList(),
@@ -127,6 +130,46 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.applicant.companies(),
           title: translations.companies
+        }
+      ]);
+    });
+
+    it("returns a list of applicant links in the navBar in pending status", () => {
+      const currentApplicant = createCurrentApplicant(ApprovalStatus.pending);
+      expect(NavBarLinks.create(currentApplicant, translations)).toEqual([
+        {
+          path: RoutesBuilder.applicant.offerList(),
+          title: translations.jobOffers,
+          tooltipMessage: translations.pendingProfile
+        },
+        {
+          path: RoutesBuilder.applicant.myProfile(),
+          title: translations.myProfile
+        },
+        {
+          path: RoutesBuilder.applicant.companies(),
+          title: translations.companies,
+          tooltipMessage: translations.pendingProfile
+        }
+      ]);
+    });
+
+    it("returns a list of applicant links in the navBar in rejected status", () => {
+      const currentApplicant = createCurrentApplicant(ApprovalStatus.rejected);
+      expect(NavBarLinks.create(currentApplicant, translations)).toEqual([
+        {
+          path: RoutesBuilder.applicant.offerList(),
+          title: translations.jobOffers,
+          tooltipMessage: translations.rejectedProfile
+        },
+        {
+          path: RoutesBuilder.applicant.myProfile(),
+          title: translations.myProfile
+        },
+        {
+          path: RoutesBuilder.applicant.companies(),
+          title: translations.companies,
+          tooltipMessage: translations.rejectedProfile
         }
       ]);
     });
