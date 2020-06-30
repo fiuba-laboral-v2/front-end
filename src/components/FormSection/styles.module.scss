@@ -4,11 +4,11 @@
   background: #f1f1f1;
   border-radius: $defaultBorderRadius;
   display: flex;
-  margin-top: $normalSpacing;
-  padding: $normalSpacing $bigSpacing;
+  margin-top: $spacing-m;
+  padding: $spacing-m $spacing-l;
 
   &:last-child {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }
 

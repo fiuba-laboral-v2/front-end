@@ -4,7 +4,7 @@
 div.textInput {
   @include textInput;
 
-  margin-bottom: $normalSpacing;
+  margin-bottom: $spacing-m;
 }
 
 div.withoutMargin {

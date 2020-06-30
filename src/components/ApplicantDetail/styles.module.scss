@@ -24,7 +24,7 @@
     }
 
     .capabilities {
-      margin-right: $bigSpacing;
+      margin-right: $spacing-l;
     }
   }
 }
@@ -35,7 +35,7 @@
 
 .applicantName {
   flex-grow: 1;
-  margin: 0 $bigSpacing 0 0;
+  margin: 0 $spacing-l 0 0;
 }
 
 @media (max-width: $mobileContainerThreshold) {
@@ -61,6 +61,6 @@
   }
 
   .applicantName {
-    margin: $bigSpacing 0 0 0;
+    margin: $spacing-l 0 0 0;
   }
 }

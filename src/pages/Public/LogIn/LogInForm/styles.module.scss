@@ -7,7 +7,7 @@
   padding: 100px 70px 70px;
 
   .title {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 
   .body {
@@ -21,7 +21,7 @@
   flex-direction: column;
 
   .textInput {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }
 
@@ -30,10 +30,10 @@
   flex-direction: column;
 
   .register {
-    margin-top: $bigSpacing;
+    margin-top: $spacing-l;
   }
 
   .dontHaveAnAccount {
-    margin-right: $smallSpacing;
+    margin-right: $spacing-s;
   }
 }

@@ -5,12 +5,12 @@
 
   .salaryInfoText {
     align-self: center;
-    font-size: $normalFontSize;
+    font-size: $fontSize-m;
     margin-right: 5px;
   }
 
   .amount {
-    font-size: $bigFontSize;
+    font-size: $fontSize-l;
     font-weight: bold;
   }
 }

@@ -5,11 +5,11 @@
   @include title;
 
   color: #1a6288;
-  margin-bottom: $smallSpacing;
+  margin-bottom: $spacing-s;
 }
 
 .container {
-  margin-bottom: $biggerSpacing;
+  margin-bottom: $spacing-xxl;
 }
 
 .noMargin {

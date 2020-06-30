@@ -7,8 +7,8 @@
 .companyDescription {
   align-self: center;
   display: inline;
-  font-size: $smallFontSize;
-  margin: $smallSpacing;
+  font-size: $fontSize-s;
+  margin: $spacing-s;
 }
 
 .tooltip {
@@ -16,7 +16,7 @@
 }
 
 .companyIcon {
-  margin: $smallSpacing;
+  margin: $spacing-s;
 }
 
 .menuContent {

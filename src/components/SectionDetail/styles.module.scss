@@ -4,12 +4,12 @@
 .text {
   @include text;
 
-  margin-top: $smallSpacing;
+  margin-top: $spacing-s;
   white-space: pre-wrap;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  margin-top: $bigSpacing;
+  margin-top: $spacing-l;
 }
