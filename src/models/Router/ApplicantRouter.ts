@@ -1,8 +1,8 @@
 import { RoutesBuilder } from "../RoutesBuilder";
-import { ICurrentApplicant } from "../CurrentApplicant";
+import { TCurrentApplicant } from "../CurrentApplicant";
 
 export const ApplicantRouter = {
-  home: (currentApplicant: ICurrentApplicant) => {
+  home: (currentApplicant: TCurrentApplicant) => {
     if (currentApplicant.isApproved()) return RoutesBuilder.applicant.offerList();
     if (currentApplicant.isPending()) return RoutesBuilder.applicant.editMyProfile();
 

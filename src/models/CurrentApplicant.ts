@@ -1,11 +1,11 @@
 import { ApprovalStatus } from "../interfaces/ApprovalStatus";
 import { CurrentApprovable } from "./CurrentApprovable";
 
-export const CurrentApplicant = CurrentApprovable<ICurrentApplicantAttributes>();
+export const CurrentApplicant = CurrentApprovable<TCurrentApplicantAttributes>();
 
-export type ICurrentApplicantAttributes = {
+export type TCurrentApplicantAttributes = {
   uuid: string;
   approvalStatus: ApprovalStatus;
 };
 
-export type ICurrentApplicant = CurrentApprovable & ICurrentApplicantAttributes;
+export type TCurrentApplicant = CurrentApprovable & TCurrentApplicantAttributes;

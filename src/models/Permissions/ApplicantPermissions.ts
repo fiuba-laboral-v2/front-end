@@ -1,5 +1,5 @@
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ICurrentApplicant } from "../CurrentApplicant";
+import { TCurrentApplicant } from "../CurrentApplicant";
 import { PendingApplicantError, RejectedApplicantError } from "../Errors";
 
 const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
@@ -12,7 +12,7 @@ const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [
 ];
 
 export const ApplicantPermissions = {
-  check: (currentApplicant: ICurrentApplicant, route: string) => {
+  check: (currentApplicant: TCurrentApplicant, route: string) => {
     if (currentApplicant.isPending() && !AVAILABLE_ROUTES_IN_PENDING_STATUS.includes(route)) {
       throw new PendingApplicantError();
     }
