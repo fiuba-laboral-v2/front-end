@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Configuration from "$config";
+import { Configuration } from "$config";
 import { PublicRoutes } from "../pages/Public/routes";
 import { RoutesBuilder } from "../models/RoutesBuilder";
 import { CompanyRoutes } from "../pages/Company/routes";

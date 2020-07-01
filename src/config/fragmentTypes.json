@@ -1,0 +1,18 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "Approvable",
+        "possibleTypes": [
+          {
+            "name": "Company"
+          },
+          {
+            "name": "Applicant"
+          }
+        ]
+      }
+    ]
+  }
+}
