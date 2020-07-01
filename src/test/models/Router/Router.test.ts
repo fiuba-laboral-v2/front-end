@@ -11,11 +11,11 @@ describe("Router", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (status: ApprovalStatus) => CurrentUser({
+    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => CurrentUser({
       ...userAttributes,
       company: {
         uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus: status
+        approvalStatus
       }
     });
 
@@ -36,14 +36,27 @@ describe("Router", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicantUser = () => CurrentUser({
+    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => CurrentUser({
       ...userAttributes,
-      applicant: { uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
+      applicant: {
+        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        approvalStatus
+      }
     });
 
-    it("returns offerList route", () => {
-      const currentApplicant = createCurrentApplicantUser();
+    it("returns offerList route if status is approved", () => {
+      const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
       expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.offerList());
+    });
+
+    it("returns editMyProfile route if status is pending", () => {
+      const currentApplicant = createCurrentApplicantUser(ApprovalStatus.pending);
+      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.editMyProfile());
+    });
+
+    it("returns myProfile route if status is rejected", () => {
+      const currentApplicant = createCurrentApplicantUser(ApprovalStatus.rejected);
+      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.myProfile());
     });
   });
 

@@ -27,7 +27,7 @@
 
 .formError {
   color: $red;
-  margin: auto $normalSpacing auto auto;
+  margin: auto $spacing-m auto auto;
 }
 
 .formErrorsContainer {
@@ -39,7 +39,7 @@
   display: flex;
 
   .name {
-    margin-right: $bigSpacing;
+    margin-right: $spacing-l;
   }
 
   .name,
@@ -49,7 +49,7 @@
 }
 
 .capabilities {
-  margin-bottom: $bigSpacing;
+  margin-bottom: $spacing-l;
 }
 
 .fullName,
@@ -58,7 +58,7 @@
 }
 
 .row {
-  margin-top: $normalSpacing;
+  margin-top: $spacing-m;
 }
 
 .description,

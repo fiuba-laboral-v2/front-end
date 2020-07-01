@@ -9,6 +9,7 @@ query getCurrentUser {
         }
         applicant {
             uuid
+            approvalStatus
         }
         company {
             uuid

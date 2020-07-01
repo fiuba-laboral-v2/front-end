@@ -7,7 +7,10 @@ describe("CurrentUser", () => {
       email: "companyUser@company.com",
       name: "eric",
       surname: "Clapton",
-      applicant: { uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
+      applicant: {
+        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        approvalStatus: ApprovalStatus.pending
+      }
     });
     expect(currentUser?.applicant).not.toBeUndefined();
     expect(currentUser?.company).toBeUndefined();

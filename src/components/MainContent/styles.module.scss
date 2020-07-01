@@ -6,7 +6,7 @@
 }
 
 .narrow {
-  margin: ($navBarHeight + $biggerSpacing) auto $biggerSpacing;
+  margin: ($navBarHeight + $spacing-xxl) auto $spacing-xxl;
   width: $detailContainerWidth;
 }
 

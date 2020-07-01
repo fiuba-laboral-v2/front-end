@@ -5,13 +5,13 @@
 
   .hoursPerDay {
     align-self: center;
-    font-size: $bigFontSize;
+    font-size: $fontSize-l;
     font-weight: bold;
     margin-right: 5px;
   }
 
   .hoursPerDayText {
     align-self: center;
-    font-size: $normalFontSize;
+    font-size: $fontSize-m;
   }
 }

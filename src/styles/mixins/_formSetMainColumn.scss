@@ -2,5 +2,5 @@
 
 @mixin formSetMainColumn {
   flex-shrink: 0;
-  width: calc(0.7 * #{$detailContainerWidth - 2 * $biggerSpacing} - #{$bigSpacing});
+  width: calc(0.7 * #{$detailContainerWidth - 2 * $spacing-xxl} - #{$spacing-l});
 }

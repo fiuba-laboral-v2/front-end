@@ -15,7 +15,7 @@
 
 @media (max-width: $mobileContainerThreshold) {
   .detailHeadline {
-    margin-top: $bigSpacing;
+    margin-top: $spacing-l;
     word-break: break-word;
   }
 }

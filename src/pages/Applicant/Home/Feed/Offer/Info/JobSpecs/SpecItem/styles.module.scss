@@ -7,21 +7,21 @@
   display: flex;
 
   &:not(:last-child) {
-    margin-bottom: $normalSpacing;
+    margin-bottom: $spacing-m;
   }
 
   h2 {
     @include subtitle;
 
     font-weight: normal;
-    line-height: $bigFontSize;
-    margin: 0 0 0 $normalSpacing;
+    line-height: $fontSize-l;
+    margin: 0 0 0 $spacing-m;
   }
 
   p {
     @include text;
 
-    margin: 0 0 0 $smallSpacing;
+    margin: 0 0 0 $spacing-s;
   }
 
   h2,

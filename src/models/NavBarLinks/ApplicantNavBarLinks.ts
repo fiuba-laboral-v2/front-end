@@ -2,21 +2,27 @@ import { TCurrentUser } from "$models/CurrentUser";
 import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
+import { getTooltipMessage } from "./getTooltipMessage";
+
+const { offerList, myProfile, companies } = RoutesBuilder.applicant;
 
 export const ApplicantNavBarLinks = {
-  create: (_: TCurrentUser, translations: INavBarTranslations): INavBarLink[] =>
+  create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] =>
     [
       {
-        path: RoutesBuilder.applicant.offerList(),
-        title: translations.jobOffers
+        path: offerList(),
+        title: translations.jobOffers,
+        tooltipMessage: getTooltipMessage(currentUser, translations, offerList())
       },
       {
-        path: RoutesBuilder.applicant.myProfile(),
-        title: translations.myProfile
+        path: myProfile(),
+        title: translations.myProfile,
+        tooltipMessage: getTooltipMessage(currentUser, translations, myProfile())
       },
       {
-        path: RoutesBuilder.applicant.companies(),
-        title: translations.companies
+        path: companies(),
+        title: translations.companies,
+        tooltipMessage: getTooltipMessage(currentUser, translations, companies())
       }
     ]
 };

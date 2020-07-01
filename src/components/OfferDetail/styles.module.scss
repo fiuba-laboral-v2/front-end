@@ -7,10 +7,10 @@
 
   .header {
     display: flex;
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
 
     .companyLogo {
-      margin-right: $bigSpacing;
+      margin-right: $spacing-l;
     }
   }
 
@@ -20,7 +20,7 @@
 }
 
 .leftBodyContainer {
-  margin-right: $bigSpacing;
+  margin-right: $spacing-l;
   width: 70%;
 }
 
@@ -39,11 +39,11 @@
 
   .title {
     flex-grow: 1;
-    margin: 0 $bigSpacing $smallSpacing 0;
+    margin: 0 $spacing-l $spacing-s 0;
   }
 
   .companyName {
-    margin-bottom: $normalSpacing;
+    margin-bottom: $spacing-m;
   }
 
   .createdAt {
@@ -63,7 +63,7 @@
       flex-direction: column;
 
       .companyLogo {
-        margin: 0 0 $bigSpacing;
+        margin: 0 0 $spacing-l;
       }
 
       .rightHeader {
@@ -80,7 +80,7 @@
       }
 
       .rightBodyContainer {
-        margin-bottom: $bigSpacing;
+        margin-bottom: $spacing-l;
         order: 1;
       }
 
@@ -97,6 +97,6 @@
   }
 
   .title {
-    margin: $bigSpacing 0 $smallSpacing 0;
+    margin: $spacing-l 0 $spacing-s 0;
   }
 }
