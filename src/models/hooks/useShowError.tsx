@@ -1,7 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import Button from "$components/Button";
-import { History } from "history";
 import {
   useSnackbar,
   OptionsObject,
@@ -10,10 +8,10 @@ import {
   VariantType
 } from "notistack";
 
-const reloadAction = (history: History) => (
+const reloadAction = () => (
   <Button
     className="danger"
-    onClick={() => history.goBack()}
+    onClick={() => window.location.href = window.location.pathname + window.location.search}
   >
     Recargar
   </Button>
@@ -25,19 +23,17 @@ const getMessage = (message?: string, variant?: VariantType) => {
   return message;
 };
 
-const showError = ({ enqueueSnackbar, history, message, reloadPrompt, ...options }: IShowError) => {
-  const action = reloadPrompt ? reloadAction(history) : undefined;
+const showError = ({ enqueueSnackbar, message, reloadPrompt, ...options }: IShowError) => {
+  const action = reloadPrompt ? reloadAction() : undefined;
   return enqueueSnackbar(getMessage(message, options.variant), { ...options, action });
 };
 
 export const useShowError = () => {
-  const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  return (options: IUseShowError) => showError({ ...options, history, enqueueSnackbar });
+  return (options: IUseShowError) => showError({ ...options, enqueueSnackbar });
 };
 
 interface IShowError extends IUseShowError {
-  history: History;
   enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
 }
 
