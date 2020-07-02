@@ -2,9 +2,9 @@ import { useSnackbar } from "./useSnackbar";
 
 export const useShowSuccess = () => {
   const snackbar = useSnackbar();
-  return (options: IShowError) => snackbar({ ...options, variant: "success" });
+  return (options: IShowSuccess) => snackbar({ ...options, variant: "success" });
 };
 
-interface IShowError {
+interface IShowSuccess {
   message: string;
 }
