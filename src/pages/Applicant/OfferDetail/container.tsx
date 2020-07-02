@@ -7,11 +7,13 @@ import { OfferDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { IOfferDetailTranslations } from "./interfaces";
-import { useSnackBar } from "$hooks/snackBar/useSnackBar";
+import { useShowError } from "$hooks/snackBar/useShowError";
+import { useShowSuccess } from "$hooks/snackBar/useShowSuccess";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const { uuid } = useParams();
-  const showError = useSnackBar();
+  const showError = useShowError();
+  const showSuccess = useShowSuccess();
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const response = useApplicantOfferByUuid(uuid);
@@ -24,11 +26,11 @@ export const OfferDetailContainer: FunctionComponent = () => {
       variables: { offerUuid },
       errorHandlers: {
         JobApplicationAlreadyExistsError: () =>
-          showError({ message: translations.data.alreadyApplied, variant: "error" })
+          showError({ message: translations.data.alreadyApplied })
       },
       update: cache => cache.writeData({ id: `Offer_${offerUuid}`, data: { hasApplied: true } })
     });
-    if (!error) showError({ message: translations.data.applySuccess, variant: "success" });
+    if (!error) showSuccess({ message: translations.data.applySuccess });
   };
 
   return (

@@ -2,7 +2,8 @@ import React, { Fragment, FunctionComponent } from "react";
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useTranslations } from "$hooks/queries/useTranslations";
-import { useSnackBar } from "$hooks/snackBar/useSnackBar";
+import { useShowError } from "$hooks/snackBar/useShowError";
+import { useShowSuccess } from "$hooks/snackBar/useShowSuccess";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { CompanyDetailInfo } from "./component";
 import { Redirect } from "$components/Redirect";
@@ -14,7 +15,8 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
-  const showError = useSnackBar();
+  const showError = useShowError();
+  const showSuccess = useShowSuccess();
 
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
@@ -32,9 +34,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
       }
     });
 
-    if (result.error) return showError({ variant: "error", reloadPrompt: true });
+    if (result.error) return showError({ reloadPrompt: true });
 
-    showError({ message: successMessage(status), variant: "success" });
+    showSuccess({ message: successMessage(status) });
     onStatusUpdate();
   };
 

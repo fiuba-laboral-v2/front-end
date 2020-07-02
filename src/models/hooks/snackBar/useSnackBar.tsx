@@ -4,8 +4,7 @@ import {
   useSnackbar,
   OptionsObject,
   SnackbarMessage,
-  SnackbarKey,
-  VariantType
+  SnackbarKey
 } from "notistack";
 
 const reloadAction = () => (
@@ -17,15 +16,9 @@ const reloadAction = () => (
   </Button>
 );
 
-const getMessage = (message?: string, variant?: VariantType) => {
-  if (message) return message;
-  if (variant === "error") return "Hubo un error";
-  return message;
-};
-
 const snackBar = ({ enqueueSnackbar, message, reloadPrompt, ...options }: IShowError) => {
   const action = reloadPrompt ? reloadAction() : undefined;
-  return enqueueSnackbar(getMessage(message, options.variant), { ...options, action });
+  return enqueueSnackbar(message, { ...options, action });
 };
 
 export const useSnackBar = () => {
