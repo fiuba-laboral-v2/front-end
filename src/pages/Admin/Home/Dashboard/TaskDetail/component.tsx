@@ -3,6 +3,7 @@ import { CompanyDetailContent } from "./CompanyDetailContent";
 import { CompanyDetailInfo } from "./CompanyDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { IApprovable } from "$interfaces/Approvable";
+import { COMPANY } from "$typenames";
 
 import styles from "./styles.module.scss";
 
@@ -18,13 +19,13 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
       <>
         <div className={styles.info}>
           {
-            selectedTask.__typename === "Company" &&
+            selectedTask.__typename === COMPANY &&
             <CompanyDetailInfo selectedCompany={selectedTask} onStatusUpdate={onStatusUpdate}/>
           }
         </div>
         <div className={styles.content}>
           {
-            selectedTask.__typename === "Company" &&
+            selectedTask.__typename === COMPANY &&
             <CompanyDetailContent selectedCompany={selectedTask}/>
           }
         </div>

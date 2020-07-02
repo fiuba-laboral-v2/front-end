@@ -1,24 +1,5 @@
 @import "$styles/_variables";
 
-.company {
-  display: flex;
-}
-
-.companyDescription {
-  align-self: center;
-  display: inline;
-  font-size: $fontSize-s;
-  margin: $spacing-s;
-}
-
-.tooltip {
-  display: none;
-}
-
-.companyIcon {
-  margin: $spacing-s;
-}
-
 .menuContent {
   background-color: $dashboardBackgroundWhite;
   display: flex;
@@ -30,15 +11,7 @@
 }
 
 @media (max-width: $hdContainerThreshold) {
-  .companyDescription {
-    display: none;
-  }
-
   .menuContent {
     width: unset;
-  }
-
-  .tooltip {
-    display: unset;
   }
 }
