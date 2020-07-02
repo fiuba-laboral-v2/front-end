@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useTranslations } from "$hooks/queries/useTranslations";
-import { useSnackBar } from "$hooks/useSnackBar";
+import { useSnackBar } from "$hooks/snackBar/useSnackBar";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { CompanyDetailInfo } from "./component";
 import { Redirect } from "$components/Redirect";
