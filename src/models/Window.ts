@@ -4,5 +4,5 @@ const HASH = window.location.hash;
 
 export const Window = {
   reload: () => window.location.href = PATH_NAME + SEARCH + HASH,
-  goToHome: () => window.location.href = PATH_NAME + SEARCH
+  goHome: () => window.location.href = PATH_NAME + SEARCH
 };

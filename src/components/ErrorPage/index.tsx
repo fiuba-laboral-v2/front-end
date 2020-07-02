@@ -9,7 +9,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
     title,
     icon,
     buttonMessage = "Ir a la página principal",
-    onClickButton = Window.goToHome
+    onClickButton = Window.goHome
   }
 ) => (
   <section className={styles.error}>
