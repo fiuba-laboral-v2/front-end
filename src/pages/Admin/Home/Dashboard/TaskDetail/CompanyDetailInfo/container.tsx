@@ -13,7 +13,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   { selectedCompany, onStatusUpdate }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
-  const translations = useTranslations<IApprovalActionsTranslations>("");
+  const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const { enqueueSnackbar } = useSnackbar();
 
   if (translations.loading) return <Fragment/>;
