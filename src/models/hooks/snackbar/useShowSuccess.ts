@@ -1,8 +1,8 @@
-import { useSnackbar } from "./useSnackbar";
+import { useSnackbar } from "notistack";
 
 export const useShowSuccess = () => {
-  const snackbar = useSnackbar();
-  return (options: IShowSuccess) => snackbar({ ...options, variant: "success" });
+  const { enqueueSnackbar } = useSnackbar();
+  return ({ message }: IShowSuccess) => enqueueSnackbar(message, { variant: "success" });
 };
 
 interface IShowSuccess {
