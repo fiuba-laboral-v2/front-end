@@ -1,4 +1,4 @@
 export interface IApprovalActionsTranslations {
-  success: string;
-  error: string;
+  approved: string;
+  rejected: string;
 }

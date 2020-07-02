@@ -2,11 +2,11 @@ import React, { Fragment, FunctionComponent } from "react";
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useTranslations } from "$hooks/queries/useTranslations";
+import { useShowError } from "$hooks/useShowError";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { CompanyDetailInfo } from "./component";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useSnackbar } from "notistack";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
@@ -14,10 +14,15 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
 
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+
+  const successMessage = (status: ApprovalStatus) => {
+    if (status === ApprovalStatus.approved) return translations.data.approved;
+    return translations.data.rejected;
+  };
 
   const setStatus = async (status: ApprovalStatus) => {
     const result = await updateCompanyApprovalStatus({
@@ -27,9 +32,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
       }
     });
 
-    if (result.error) return enqueueSnackbar(translations.data.error, { variant: "error" });
+    if (result.error) return showError({ variant: "error", reloadPrompt: true });
 
-    enqueueSnackbar(translations.data.success, { variant: "success" });
+    showError({ message: successMessage(status), variant: "success" });
     onStatusUpdate();
   };
 
