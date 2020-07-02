@@ -8,17 +8,10 @@ import {
   SnackbarKey
 } from "notistack";
 
-const reloadAction = () => (
-  <Button
-    className="danger"
-    onClick={Window.reload}
-  >
-    Recargar
-  </Button>
-);
+const reloadAction = <Button className="danger" onClick={Window.reload}>Recargar</Button>;
 
 const snackBar = ({ enqueueSnackbar, message, reloadPrompt, ...options }: IShowError) => {
-  const action = reloadPrompt ? reloadAction() : undefined;
+  const action = reloadPrompt ? reloadAction : undefined;
   return enqueueSnackbar(message, { ...options, action });
 };
 
