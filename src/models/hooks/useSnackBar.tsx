@@ -23,14 +23,14 @@ const getMessage = (message?: string, variant?: VariantType) => {
   return message;
 };
 
-const showError = ({ enqueueSnackbar, message, reloadPrompt, ...options }: IShowError) => {
+const snackBar = ({ enqueueSnackbar, message, reloadPrompt, ...options }: IShowError) => {
   const action = reloadPrompt ? reloadAction() : undefined;
   return enqueueSnackbar(getMessage(message, options.variant), { ...options, action });
 };
 
-export const useShowError = () => {
+export const useSnackBar = () => {
   const { enqueueSnackbar } = useSnackbar();
-  return (options: IUseShowError) => showError({ ...options, enqueueSnackbar });
+  return (options: IUseShowError) => snackBar({ ...options, enqueueSnackbar });
 };
 
 interface IShowError extends IUseShowError {

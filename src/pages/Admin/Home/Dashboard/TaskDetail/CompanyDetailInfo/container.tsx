@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useTranslations } from "$hooks/queries/useTranslations";
-import { useShowError } from "$hooks/useShowError";
+import { useSnackBar } from "$hooks/useSnackBar";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { CompanyDetailInfo } from "./component";
 import { Redirect } from "$components/Redirect";
@@ -14,7 +14,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
-  const showError = useShowError();
+  const showError = useSnackBar();
 
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
