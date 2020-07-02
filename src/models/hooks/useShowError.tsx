@@ -6,7 +6,8 @@ import {
   useSnackbar,
   OptionsObject,
   SnackbarMessage,
-  SnackbarKey
+  SnackbarKey,
+  VariantType
 } from "notistack";
 
 const reloadAction = (history: History) => (
@@ -18,10 +19,15 @@ const reloadAction = (history: History) => (
   </Button>
 );
 
+const getMessage = (message?: string, variant?: VariantType) => {
+  if (message) return message;
+  if (variant === "error") return "Hubo un error";
+  return message;
+};
+
 const showError = ({ enqueueSnackbar, history, message, reloadPrompt, ...options }: IShowError) => {
-  const msg = reloadPrompt ? "Hubo un error" : message;
   const action = reloadPrompt ? reloadAction(history) : undefined;
-  return enqueueSnackbar(msg, { ...options, action });
+  return enqueueSnackbar(getMessage(message, options.variant), { ...options, action });
 };
 
 export const useShowError = () => {
