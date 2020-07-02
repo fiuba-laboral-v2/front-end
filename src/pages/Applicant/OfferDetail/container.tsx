@@ -7,11 +7,13 @@ import { OfferDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { IOfferDetailTranslations } from "./interfaces";
-import { useSnackbar } from "notistack";
+import { useShowError } from "$hooks/snackbar/useShowError";
+import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const { uuid } = useParams();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
+  const showSuccess = useShowSuccess();
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const response = useApplicantOfferByUuid(uuid);
@@ -24,11 +26,11 @@ export const OfferDetailContainer: FunctionComponent = () => {
       variables: { offerUuid },
       errorHandlers: {
         JobApplicationAlreadyExistsError: () =>
-          enqueueSnackbar(translations.data.alreadyApplied, { variant: "error" })
+          showError({ message: translations.data.alreadyApplied })
       },
       update: cache => cache.writeData({ id: `Offer_${offerUuid}`, data: { hasApplied: true } })
     });
-    if (!error) enqueueSnackbar(translations.data.applySuccess, { variant: "success" });
+    if (!error) showSuccess({ message: translations.data.applySuccess });
   };
 
   return (
