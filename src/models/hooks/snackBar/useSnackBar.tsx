@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "$components/Button";
+import { reload } from "$models/reload";
 import {
   useSnackbar,
   OptionsObject,
@@ -10,7 +11,7 @@ import {
 const reloadAction = () => (
   <Button
     className="danger"
-    onClick={() => window.location.href = window.location.pathname + window.location.search}
+    onClick={reload}
   >
     Recargar
   </Button>
