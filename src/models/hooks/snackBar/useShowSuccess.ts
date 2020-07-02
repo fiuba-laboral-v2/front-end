@@ -7,5 +7,4 @@ export const useShowSuccess = () => {
 
 interface IShowError {
   message: string;
-  reloadPrompt?: boolean;
 }
