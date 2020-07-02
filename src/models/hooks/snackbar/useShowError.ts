@@ -1,8 +1,8 @@
-import { useSnackBar } from "./useSnackBar";
+import { useSnackbar } from "./useSnackbar";
 
 export const useShowError = () => {
-  const snackBar = useSnackBar();
-  return ({ message, reloadPrompt }: IShowError) => snackBar({
+  const snackbar = useSnackbar();
+  return ({ message, reloadPrompt }: IShowError) => snackbar({
     message: message ? message : "Hubo un error",
     reloadPrompt,
     variant: "error"

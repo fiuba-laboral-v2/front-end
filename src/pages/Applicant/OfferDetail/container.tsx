@@ -7,8 +7,8 @@ import { OfferDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { IOfferDetailTranslations } from "./interfaces";
-import { useShowError } from "$hooks/snackBar/useShowError";
-import { useShowSuccess } from "$hooks/snackBar/useShowSuccess";
+import { useShowError } from "$hooks/snackbar/useShowError";
+import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const { uuid } = useParams();
