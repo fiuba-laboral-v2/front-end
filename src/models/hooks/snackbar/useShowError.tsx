@@ -9,7 +9,7 @@ export const useShowError = () => {
   const { enqueueSnackbar } = useSnackbar();
   return ({ message, reloadPrompt }: IShowError) => {
     return enqueueSnackbar(
-      message ? message : "Hubo un error",
+      message || "Hubo un error",
       {
         action: reloadPrompt ? reloadAction : undefined,
         variant: "error"
