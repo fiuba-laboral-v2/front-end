@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import DoneIcon from "@material-ui/icons/Done";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import Button from "$components/Button";
 
@@ -11,16 +13,18 @@ export const Actions: FunctionComponent<IActionsProps> = (
 ) => <>
   <div className={styles.actions}>
     <Button
-      className="primary"
-      onClick={() => setStatus(ApprovalStatus.approved)}
-    >
-      Aprobar
-    </Button>
-    <Button
       className="danger"
       onClick={() => setStatus(ApprovalStatus.rejected)}
     >
+      <HighlightOffIcon className={styles.icons}/>
       Rechazar
+    </Button>
+    <Button
+      className="primary"
+      onClick={() => setStatus(ApprovalStatus.approved)}
+    >
+      <DoneIcon className={styles.icons}/>
+      Aprobar
     </Button>
   </div>
 </>;

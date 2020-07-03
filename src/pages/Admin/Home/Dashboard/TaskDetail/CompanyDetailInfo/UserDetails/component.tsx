@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
-
+import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
+import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { ICompany } from "$interfaces/Company";
 
 import styles from "./styles.module.scss";
@@ -8,18 +9,24 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
   { company }
 ) => <>
   <div className={styles.userDetails}>
-    <p>
-      Usuario:
-      <span className={styles.userInfo}>Marta Meli</span>
-    </p>
-    <p>
-      Email:
-      <span className={styles.userInfo}>martameli@mercadolibre.com</span>
-    </p>
-    <p>
-      Cuit:
-      <span className={styles.userInfo}>{company.cuit}</span>
-    </p>
+    <div className={styles.firstRow}>
+      <div className={styles.userInfo}>
+        <PersonOutlinedIcon/>
+        <p>
+          Marta Meli
+        </p>
+      </div>
+      <p className={styles.cuit}>
+        Cuit:
+        <span>{company.cuit}</span>
+      </p>
+    </div>
+    <div className={styles.userInfo}>
+      <EmailOutlinedIcon />
+      <p>
+        martameli@mercadolibre.com
+      </p>
+    </div>
   </div>
 </>;
 

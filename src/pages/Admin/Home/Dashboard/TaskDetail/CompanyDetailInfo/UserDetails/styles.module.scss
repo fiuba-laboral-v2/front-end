@@ -7,8 +7,28 @@
   }
 }
 
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cuit {
+  display: flex;
+
+  span {
+    color: $black;
+    margin-left: $spacing-s;
+  }
+}
+
 .userInfo {
+  align-items: center;
   color: $black;
+  display: flex;
   font-size: $fontSize-l;
-  margin-left: $spacing-s;
+  margin-right: $spacing-m;
+
+  p {
+    margin-left: $spacing-s;
+  }
 }
