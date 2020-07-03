@@ -1,0 +1,20 @@
+query getPendingEntities {
+  getPendingEntities {
+    __typename
+    ... on Company {
+      __typename
+      uuid
+      companyName
+    }
+    ... on Applicant {
+      __typename
+      uuid
+      user {
+        uuid
+        email
+        name
+        surname
+      }
+    }
+  }
+}

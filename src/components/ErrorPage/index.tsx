@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactElement } from "react";
 import { Headline } from "$components/Headline";
 import Button from "$components/Button";
+import { Window } from "$models/Window";
 import styles from "./styles.module.scss";
 
 export const ErrorPage: FunctionComponent<IErrorPageProps> = (
@@ -8,7 +9,7 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = (
     title,
     icon,
     buttonMessage = "Ir a la página principal",
-    onClickButton = () => window.location.href = window.location.pathname + window.location.search
+    onClickButton = Window.goHome
   }
 ) => (
   <section className={styles.error}>

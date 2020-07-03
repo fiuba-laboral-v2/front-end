@@ -1,0 +1,30 @@
+@import "$styles/_variables";
+
+.tab {
+  display: flex;
+}
+
+.description {
+  align-self: center;
+  display: inline;
+  font-size: $fontSize-s;
+  margin: $spacing-s;
+}
+
+.tooltip {
+  display: none;
+}
+
+.icon {
+  margin: $spacing-s;
+}
+
+@media (max-width: $hdContainerThreshold) {
+  .description {
+    display: none;
+  }
+
+  .tooltip {
+    display: unset;
+  }
+}

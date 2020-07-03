@@ -6,10 +6,10 @@
   border-radius: $defaultBorderRadius;
   display: flex;
   flex-direction: column;
-  padding: $normalSpacing;
+  padding: $spacing-m;
 
   .careers,
   .hours {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }

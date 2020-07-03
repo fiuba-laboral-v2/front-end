@@ -2,22 +2,22 @@
 
 .cardContainer {
   margin: 0 auto;
-  padding: $bigSpacing;
+  padding: $spacing-l;
   width: 70%;
 
   &:not(:last-child) {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }
 
 .title {
-  margin-bottom: $biggerSpacing;
+  margin-bottom: $spacing-xxl;
 }
 
 @media (max-width: $mobileContainerThreshold) {
   .cardContainer {
     margin: 0;
-    padding: $normalSpacing;
+    padding: $spacing-m;
     width: unset;
   }
 }

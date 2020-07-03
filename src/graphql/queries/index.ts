@@ -15,7 +15,7 @@ const GET_CURRENT_USER = loader("./getCurrentUser.graphql");
 const GET_MY_JOB_APPLICATIONS = loader("./getMyLatestJobApplications.graphql");
 const GET_MY_APPLICANT_PROFILE = loader("./getMyApplicantProfile.graphql");
 const GET_MY_COMPANY_PROFILE = loader("./getMyCompanyProfile.graphql");
-const GET_PENDING_ENTITIES = loader("./getPendingEntites.graphql");
+const GET_PENDING_ENTITIES = loader("./getPendingEntities.graphql");
 
 export {
   GET_CURRENT_USER,

@@ -1,7 +1,12 @@
-import { IdGetterObj, InMemoryCache } from "apollo-boost";
+import { IdGetterObj, InMemoryCache, IntrospectionFragmentMatcher } from "apollo-boost";
 import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
-import Configuration from "$config";
+import introspectionResult from "./config/fragmentTypes.json";
+import { Configuration } from "$config";
+
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: introspectionResult
+});
 
 const client = new ApolloClient({
   link: createHttpLink({
@@ -9,6 +14,7 @@ const client = new ApolloClient({
     credentials: "include"
   }),
   cache: new InMemoryCache({
+    fragmentMatcher,
     dataIdFromObject: ({ uuid, id, __typename }: IObject) => {
       const key = uuid || id;
       if (!key) return null;

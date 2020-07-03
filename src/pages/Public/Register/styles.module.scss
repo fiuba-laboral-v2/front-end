@@ -32,7 +32,7 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  margin: 2 * $biggerSpacing 0;
+  margin: 2 * $spacing-xxl 0;
 
   .companyCard,
   .applicantCard {
@@ -41,19 +41,19 @@
     height: fit-content;
     max-width: 300px;
     min-height: 40px;
-    padding: $bigSpacing;
+    padding: $spacing-l;
     width: 30%;
   }
 
   .companyCard {
-    margin-left: $biggerSpacing;
+    margin-left: $spacing-xxl;
   }
 }
 
 .cardLogo {
   align-self: center;
   color: $mainBlueDark;
-  margin-right: $bigSpacing;
+  margin-right: $spacing-l;
 }
 
 .cardText {
@@ -71,13 +71,13 @@
 
     .companyCard,
     .applicantCard {
-      margin-left: $biggerSpacing;
-      margin-right: $biggerSpacing;
+      margin-left: $spacing-xxl;
+      margin-right: $spacing-xxl;
       width: unset;
     }
 
     .companyCard {
-      margin-top: $bigSpacing;
+      margin-top: $spacing-l;
     }
   }
 }
@@ -95,7 +95,7 @@
   }
 
   .cardLogo {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
     margin-right: 0;
   }
 

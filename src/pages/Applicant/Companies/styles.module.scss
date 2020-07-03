@@ -2,11 +2,11 @@
 
 .row {
   margin: 0 auto;
-  padding: $normalSpacing;
+  padding: $spacing-m;
   width: 70%;
 
   &:not(:last-child) {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }
 
@@ -16,7 +16,7 @@
 
   .companyLogo {
     display: flex;
-    margin-right: $normalSpacing;
+    margin-right: $spacing-m;
   }
 
   .name {
@@ -30,7 +30,7 @@
     flex-direction: column;
 
     .companyLogo {
-      margin-bottom: $smallFontSize;
+      margin-bottom: $fontSize-s;
     }
   }
 }

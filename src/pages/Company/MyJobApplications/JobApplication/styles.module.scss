@@ -18,7 +18,7 @@
 
   .applicantName,
   .separator {
-    margin-right: $bigSpacing;
+    margin-right: $spacing-l;
   }
 
   .applicantName {
@@ -44,7 +44,7 @@
 
     .leftContainer {
       flex-direction: column;
-      margin-bottom: $smallSpacing;
+      margin-bottom: $spacing-s;
     }
 
     .offerTitle,
@@ -54,7 +54,7 @@
 
     .separator {
       height: 1px;
-      margin: $normalSpacing 0;
+      margin: $spacing-m 0;
       width: auto;
     }
 

@@ -1,9 +1,9 @@
 @import "$styles/_variables";
 
 .card {
-  margin: $smallSpacing $bigSpacing;
+  margin: $spacing-s $spacing-l;
 
   &:first-child {
-    margin-top: $bigSpacing;
+    margin-top: $spacing-l;
   }
 }

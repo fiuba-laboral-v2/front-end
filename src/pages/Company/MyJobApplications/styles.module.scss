@@ -2,6 +2,6 @@
 
 .card {
   &:not(:last-child) {
-    margin-bottom: $bigSpacing;
+    margin-bottom: $spacing-l;
   }
 }

@@ -1,8 +1,8 @@
 @import "$styles/_variables";
 
 .pendingTasks {
-  font-size: $bigFontSize;
-  margin: $biggerSpacing $bigSpacing 0 $bigSpacing;
+  font-size: $fontSize-l;
+  margin: $spacing-xxl $spacing-l 0 $spacing-l;
 }
 
 .pendingCount {

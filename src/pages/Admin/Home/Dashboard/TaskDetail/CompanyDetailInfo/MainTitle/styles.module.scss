@@ -2,15 +2,15 @@
 
 .companyName {
   color: $mainBlueDark;
-  font-size: $largeFontSize;
-  margin-right: $bigSpacing;
+  font-size: $fontSize-l;
+  margin-right: $spacing-l;
 }
 
 .header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: $bigSpacing $biggerSpacing 0;
+  margin: $spacing-l $spacing-xxl 0;
 }
 
 .main {
@@ -21,6 +21,6 @@
 
 .title {
   color: $black;
-  font-size: $largeFontSize;
-  margin-right: $normalSpacing;
+  font-size: $fontSize-l;
+  margin-right: $spacing-m;
 }

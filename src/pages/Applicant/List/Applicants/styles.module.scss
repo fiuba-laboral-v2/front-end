@@ -2,7 +2,7 @@
 
 .row {
   margin-top: 0;
-  padding-bottom: $normalSpacing;
+  padding-bottom: $spacing-m;
 
   .childrenContainer {
     display: flex;
@@ -22,7 +22,7 @@
 
       .name {
         align-self: unset;
-        margin: 0 0 $normalSpacing;
+        margin: 0 0 $spacing-m;
       }
     }
   }

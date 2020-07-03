@@ -9,7 +9,7 @@
 .formError {
   align-self: flex-end;
   color: $red;
-  margin: auto $normalSpacing auto auto;
+  margin: auto $spacing-m auto auto;
 }
 
 @media (max-width: $mobileContainerThreshold) {

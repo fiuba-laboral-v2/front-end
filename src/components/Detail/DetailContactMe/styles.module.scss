@@ -1,21 +1,10 @@
 @import "$styles/_variables";
 
 .contactInfo {
-  display: flex;
-  flex-direction: row;
-  margin-top: $smallSpacing;
-
-  .contactInfoDivider {
-    margin: auto $smallSpacing;
-  }
+  display: block;
 }
 
-@media (max-width: $mobileContainerThreshold) {
-  .contactInfo {
-    display: block;
-
-    .contactInfoDivider {
-      display: none;
-    }
-  }
+.email,
+.website {
+  margin-top: $spacing-s;
 }

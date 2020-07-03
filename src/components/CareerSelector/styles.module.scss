@@ -7,7 +7,7 @@ div.career {
 
 div.credits {
   flex-grow: 1;
-  margin-left: $bigSpacing;
+  margin-left: $spacing-l;
   width: unset;
 }
 
@@ -23,7 +23,7 @@ div.credits {
   }
 
   div.career {
-    margin-bottom: $normalSpacing;
+    margin-bottom: $spacing-m;
     width: 100%;
   }
 
