@@ -2,13 +2,13 @@
 
 .userDetails {
   p {
-    font-size: $bigFontSize;
-    margin-bottom: $smallSpacing;
+    font-size: $fontSize-l;
+    margin-bottom: $spacing-s;
   }
 }
 
 .userInfo {
   color: $black;
-  font-size: $bigFontSize;
-  margin-left: $smallSpacing;
+  font-size: $fontSize-l;
+  margin-left: $spacing-s;
 }
