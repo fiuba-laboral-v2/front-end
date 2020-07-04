@@ -11,4 +11,9 @@
 .name {
   font-size: $fontSize-m;
   font-weight: bold;
+  margin-bottom: $spacing-s / 2;
+}
+
+.icon {
+  align-self: center;
 }
