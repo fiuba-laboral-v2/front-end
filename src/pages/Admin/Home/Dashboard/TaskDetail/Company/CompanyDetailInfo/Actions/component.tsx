@@ -16,14 +16,14 @@ export const Actions: FunctionComponent<IActionsProps> = (
       className="danger"
       onClick={() => setStatus(ApprovalStatus.rejected)}
     >
-      <HighlightOffIcon className={styles.icons}/>
+      <HighlightOffIcon className={styles.icons} fontSize="small"/>
       Rechazar
     </Button>
     <Button
       className="primary"
       onClick={() => setStatus(ApprovalStatus.approved)}
     >
-      <DoneIcon className={styles.icons}/>
+      <DoneIcon className={styles.icons} fontSize="small"/>
       Aprobar
     </Button>
   </div>

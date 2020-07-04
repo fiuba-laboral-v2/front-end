@@ -1,16 +1,10 @@
 @import "$styles/_variables";
 
-.companyName {
-  color: $mainBlueDark;
-  font-size: $fontSize-xl;
-  margin-right: $spacing-l;
-  margin-top: $spacing-s;
-}
-
 .header {
   align-items: center;
+  color: $darkerGrey;
   display: block;
-  margin: $spacing-l $spacing-xxl 0;
+  margin: $spacing-xl $spacing-l 0;
 }
 
 .main {
@@ -19,7 +13,6 @@
 }
 
 .title {
-  color: $black;
-  font-size: $fontSize-l;
+  font-size: $fontSize-xl;
   margin-right: $spacing-m;
 }

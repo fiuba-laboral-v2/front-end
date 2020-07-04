@@ -6,6 +6,10 @@
 
   button {
     height: 15px;
-    margin: 0 0 $spacing-m $spacing-xxl;
+    margin: 0 0 0 $spacing-m;
   }
+}
+
+.icons {
+  margin: 0 $spacing-s / 2 0 -1px;
 }

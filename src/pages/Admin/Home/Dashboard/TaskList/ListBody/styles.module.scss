@@ -6,4 +6,8 @@
   &:first-child {
     margin-top: $spacing-l;
   }
+
+  &:last-child {
+    margin-bottom: $spacing-l;
+  }
 }

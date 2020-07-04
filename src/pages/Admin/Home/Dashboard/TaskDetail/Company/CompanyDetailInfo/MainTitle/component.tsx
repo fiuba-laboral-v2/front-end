@@ -16,9 +16,6 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = (
     </p>
     <TimeHumanizer since={"1592951226327"}/>
   </div>
-  <p className={styles.companyName}>
-    {company.companyName}
-  </p>
 </div>;
 
 export interface IMainTitleProps {
