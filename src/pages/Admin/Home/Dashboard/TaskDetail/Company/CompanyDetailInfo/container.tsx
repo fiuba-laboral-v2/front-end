@@ -1,19 +1,24 @@
-import React, { Fragment, FunctionComponent } from "react";
-import { IApprovableCompany } from "$interfaces/Approvable";
+import React, { FunctionComponent, Fragment } from "react";
+
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
+import { useCompanyByUuid } from "$hooks/queries";
+
+import { IApprovableCompany } from "$interfaces/Approvable";
 import { useTranslations } from "$hooks/queries/useTranslations";
 import { useShowError } from "$hooks/snackbar/useShowError";
 import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
-import { CompanyDetailInfo } from "./component";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+
+import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   { selectedCompany, onStatusUpdate }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
+  const response = useCompanyByUuid(selectedCompany.uuid);
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const showError = useShowError();
   const showSuccess = useShowSuccess();
@@ -40,7 +45,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     onStatusUpdate();
   };
 
-  return <CompanyDetailInfo setStatus={setStatus}/>;
+  if (response.error || response.loading) return <Fragment />;
+
+  return <CompanyDetailInfo setStatus={setStatus} company={response.data.getCompanyByUuid}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {

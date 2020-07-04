@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+
+.details {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: $fontSize-s $fontSize-xxl $fontSize-m;
+}
