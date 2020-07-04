@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { CompanyDetailContent } from "./CompanyDetailContent";
-import { CompanyDetailInfo } from "./CompanyDetailInfo";
+import { CompanyDetailContent } from "./Company/CompanyDetailContent";
+import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
+import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { IApprovable } from "$interfaces/Approvable";
-import { COMPANY } from "$typenames";
+import { COMPANY, APPLICANT } from "$typenames";
 
 import styles from "./styles.module.scss";
 
@@ -27,6 +28,10 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
           {
             selectedTask.__typename === COMPANY &&
             <CompanyDetailContent selectedCompany={selectedTask}/>
+          }
+          {
+            selectedTask.__typename === APPLICANT &&
+            <ApplicantDetailContent selectedApplicant={selectedTask}/>
           }
         </div>
       </>
