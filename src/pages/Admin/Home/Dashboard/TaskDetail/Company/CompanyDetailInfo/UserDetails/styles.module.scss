@@ -1,10 +1,7 @@
 @import "$styles/_variables";
 
 .userDetails {
-  p {
-    font-size: $fontSize-l;
-    margin-bottom: $spacing-s;
-  }
+  font-size: $fontSize-l;
 }
 
 .firstRow {
@@ -13,6 +10,7 @@
 }
 
 .cuit {
+  align-items: center;
   display: flex;
 
   span {
@@ -27,8 +25,8 @@
   display: flex;
   font-size: $fontSize-l;
   margin-right: $spacing-m;
+}
 
-  p {
-    margin-left: $spacing-s;
-  }
+.userInfoText {
+  margin-left: $spacing-s;
 }

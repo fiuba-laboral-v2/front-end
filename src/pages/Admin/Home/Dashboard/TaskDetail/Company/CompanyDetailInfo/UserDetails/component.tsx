@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { ICompany } from "$interfaces/Company";
-import { Subtitle } from "$components/Subtitle";
 
 import styles from "./styles.module.scss";
 
@@ -13,9 +12,9 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
     <div className={styles.firstRow}>
       <div className={styles.userInfo}>
         <PersonOutlinedIcon/>
-        <Subtitle>
+        <p className={styles.userInfoText}>
           Marta Meli
-        </Subtitle>
+        </p>
       </div>
       <p className={styles.cuit}>
         Cuit:
@@ -24,9 +23,9 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
     </div>
     <div className={styles.userInfo}>
       <EmailOutlinedIcon />
-      <Subtitle>
+      <p className={styles.userInfoText}>
         martameli@mercadolibre.com
-      </Subtitle>
+      </p>
     </div>
   </div>
 );
