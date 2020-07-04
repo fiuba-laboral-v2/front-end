@@ -1,0 +1,34 @@
+@import "$styles/_variables";
+
+.userDetails {
+  p {
+    font-size: $fontSize-l;
+    margin-bottom: $spacing-s;
+  }
+}
+
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cuit {
+  display: flex;
+
+  span {
+    color: $black;
+    margin-left: $spacing-s;
+  }
+}
+
+.userInfo {
+  align-items: center;
+  color: $black;
+  display: flex;
+  font-size: $fontSize-l;
+  margin-right: $spacing-m;
+
+  p {
+    margin-left: $spacing-s;
+  }
+}

@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+.actions {
+  align-self: flex-end;
+  display: flex;
+
+  button {
+    height: 15px;
+    margin: 0 0 $spacing-m $spacing-xxl;
+  }
+}
