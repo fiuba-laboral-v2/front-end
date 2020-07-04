@@ -11,18 +11,18 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
   <div className={styles.userDetails}>
     <div className={styles.firstRow}>
       <div className={styles.userInfo}>
-        <PersonOutlinedIcon/>
+        <PersonOutlinedIcon className={styles.label}/>
         <p className={styles.userInfoText}>
           Marta Meli
         </p>
       </div>
       <p className={styles.cuit}>
-        Cuit:
+        <span className={styles.label}>Cuit:</span>
         <span>{company.cuit}</span>
       </p>
     </div>
     <div className={styles.userInfo}>
-      <EmailOutlinedIcon />
+      <EmailOutlinedIcon className={styles.label}/>
       <p className={styles.userInfoText}>
         martameli@mercadolibre.com
       </p>

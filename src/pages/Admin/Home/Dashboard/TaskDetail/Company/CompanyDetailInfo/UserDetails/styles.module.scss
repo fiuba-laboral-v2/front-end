@@ -14,14 +14,16 @@
   display: flex;
 
   span {
-    color: $black;
     margin-left: $spacing-s;
   }
 }
 
+.label {
+  color: $darkerGrey;
+}
+
 .userInfo {
   align-items: center;
-  color: $black;
   display: flex;
   font-size: $fontSize-l;
   margin-right: $spacing-m;
