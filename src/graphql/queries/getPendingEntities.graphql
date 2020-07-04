@@ -1,6 +1,5 @@
-query getPendingEntities {
-  getPendingEntities {
-    __typename
+query GetPendingEntities($approvableEntityTypes: [ApprovableEntityType]) {
+  getPendingEntities(approvableEntityTypes: $approvableEntityTypes) {
     ... on Company {
       __typename
       uuid

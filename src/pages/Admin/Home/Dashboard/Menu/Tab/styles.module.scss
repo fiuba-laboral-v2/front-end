@@ -15,7 +15,12 @@
   display: none;
 }
 
-.icon {
+input {
+  align-self: center;
+}
+
+.icon,
+input {
   margin: $spacing-s;
 }
 

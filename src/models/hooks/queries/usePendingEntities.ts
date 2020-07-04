@@ -1,9 +1,12 @@
 import { useQuery } from "$hooks";
 import { GET_PENDING_ENTITIES } from "$queries";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable, IApprovableFilter } from "$interfaces/Approvable/";
 
-export const usePendingEntities = () =>
-  useQuery<{}, IUsePendingEntities>(GET_PENDING_ENTITIES);
+export const usePendingEntities = (filter: IApprovableFilter) =>
+  useQuery<IApprovableFilter, IUsePendingEntities>(
+    GET_PENDING_ENTITIES,
+    { variables: filter }
+  );
 
 export interface IUsePendingEntities {
   getPendingEntities: IApprovable[];

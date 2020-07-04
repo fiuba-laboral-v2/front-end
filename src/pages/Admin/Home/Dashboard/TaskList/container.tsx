@@ -6,9 +6,13 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TaskList } from "./component";
 
 export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
-  { onSelectTask, selectedTask }
+  {
+    onSelectTask,
+    selectedTask,
+    filter
+  }
 ) => {
-  const response = usePendingEntities();
+  const response = usePendingEntities(filter);
   const translations = useTranslations<ITaskListTranslations>("adminTaskList");
 
   if (response.loading || translations.loading) return <Fragment/>;
