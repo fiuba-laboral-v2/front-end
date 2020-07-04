@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 export const Actions: FunctionComponent<IActionsProps> = (
   { setStatus }
-) => <>
+) => (
   <div className={styles.actions}>
     <Button
       className="danger"
@@ -27,7 +27,7 @@ export const Actions: FunctionComponent<IActionsProps> = (
       Aprobar
     </Button>
   </div>
-</>;
+);
 
 export interface IActionsProps {
   setStatus: (status: ApprovalStatus) => void;
