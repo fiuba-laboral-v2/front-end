@@ -27,11 +27,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
         <div className={styles.content}>
           {
             selectedTask.__typename === COMPANY &&
-            <CompanyDetailContent selectedCompany={selectedTask}/>
+            <CompanyDetailContent companyUuid={selectedTask.uuid}/>
           }
           {
             selectedTask.__typename === APPLICANT &&
-            <ApplicantDetailContent selectedApplicant={selectedTask}/>
+            <ApplicantDetailContent applicantUuid={selectedTask.uuid}/>
           }
         </div>
       </>
