@@ -1,5 +1,4 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_overflowYOverlay";
 
 .info,
 .content {
@@ -7,7 +6,8 @@
 }
 
 .content {
-  @include overflowYOverlay;
+  overflow-y: auto;
+  overflow-y: overlay;
 }
 
 .taskDetail {
