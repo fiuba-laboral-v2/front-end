@@ -22,7 +22,6 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   const addType = async (entityType: ApprovableEntityType) => {
     let entityTypes = filter.approvableEntityTypes || [];
     if (entityTypes.includes(entityType)) {
-      if (entityTypes.length === 1) return;
       entityTypes = reject(entityTypes, type => type !== entityType);
     } else {
       entityTypes = [...entityTypes, entityType];
