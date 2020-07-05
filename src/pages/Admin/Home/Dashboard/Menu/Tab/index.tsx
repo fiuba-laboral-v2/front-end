@@ -2,15 +2,16 @@ import React, { FunctionComponent } from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import styles from "./styles.module.scss";
 
-export const Tab: FunctionComponent<ICompanyTabProps> = (
+export const Tab: FunctionComponent<ITabProps> = (
   {
     iconTitle,
     Icon,
-    onClick
+    onClick,
+    selected
   }
 ) => (
   <div className={styles.tab}>
-    <input type="checkbox" onClick={onClick}/>
+    <input type="checkbox" onClick={onClick} checked={selected}/>
     <Tooltip
       classes={{ tooltip: styles.tooltip }}
       title={iconTitle}
@@ -22,7 +23,8 @@ export const Tab: FunctionComponent<ICompanyTabProps> = (
   </div>
 );
 
-interface ICompanyTabProps {
+interface ITabProps {
+  selected: boolean;
   iconTitle: string;
   Icon: FunctionComponent<IIcon>;
   onClick: () => void;

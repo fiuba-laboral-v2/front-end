@@ -14,6 +14,7 @@ export const DashboardContainer: FunctionComponent = () => {
 
   return (
     <Dashboard
+      refetchApprovableEntities={response.refetch}
       approvableEntities={response.data.getPendingEntities}
       selectedTask={selectedTask}
       setSelectedTask={setSelectedTask}

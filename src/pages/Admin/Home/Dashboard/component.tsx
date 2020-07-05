@@ -5,9 +5,11 @@ import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
+import { TRefetchPendingEntities } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
+    refetchApprovableEntities,
     approvableEntities,
     selectedTask,
     setSelectedTask,
@@ -17,7 +19,11 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
 ) => (
   <Window width="fullWidth">
     <div className={styles.mainContent}>
-      <Menu filter={filter} onSelectFilter={setFilter}/>
+      <Menu
+        refetchApprovableEntities={refetchApprovableEntities}
+        filter={filter}
+        onSelectFilter={setFilter}
+      />
       <TaskList
         approvableEntities={approvableEntities}
         selectedTask={selectedTask}
@@ -37,4 +43,5 @@ interface IDashboardProps {
   filter: IApprovableFilter;
   setFilter: (filter: IApprovableFilter) => void;
   approvableEntities: IApprovable[];
+  refetchApprovableEntities: TRefetchPendingEntities;
 }
