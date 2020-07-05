@@ -17,8 +17,12 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   const toggleType = (selected: boolean, entityType: ApprovableEntityType) => {
-    const removeType = () => types.filter(type => type !== entityType);
-    const changedTypes = selected ? [...types, entityType] : removeType();
+    let changedTypes;
+    if (selected) {
+      changedTypes = [...types, entityType];
+    } else {
+      changedTypes = types.filter(type => type !== entityType);
+    }
     onFilterByType(changedTypes);
   };
 
