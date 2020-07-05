@@ -7,7 +7,9 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
-  const [filter, setFilter] = useState<IApprovableFilter>({});
+  const [filter, setFilter] = useState<IApprovableFilter>({
+    approvableEntityTypes: ["Company", "Applicant"]
+  });
   const response = usePendingEntities(filter);
   if (response.loading) return <Fragment/>;
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
