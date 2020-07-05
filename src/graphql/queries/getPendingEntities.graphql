@@ -3,11 +3,13 @@ query GetPendingEntities($approvableEntityTypes: [ApprovableEntityType]) {
     ... on Company {
       __typename
       uuid
+      createdAt
       companyName
     }
     ... on Applicant {
       __typename
       uuid
+      createdAt
       user {
         uuid
         email

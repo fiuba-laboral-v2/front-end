@@ -3,7 +3,8 @@ import { IApprovable } from "$interfaces/Approvable";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import styles from "./styles.module.scss";
-import { COMPANY, APPLICANT } from "$typenames";
+import { APPLICANT, COMPANY } from "$typenames";
+import { TimeHumanizer } from "$components/TimeHumanizer";
 
 export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
   { approvableEntity }
@@ -24,8 +25,9 @@ export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
   return <div className={styles.approvableEntity}>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
+      <TimeHumanizer since={approvableEntity.createdAt}/>
     </div>
-    <Icon/>
+    <Icon className={styles.icon}/>
   </div>;
 };
 
