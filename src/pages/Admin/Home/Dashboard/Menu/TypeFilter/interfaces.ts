@@ -1,4 +1,4 @@
-import { ApprovableEntityType, IApprovableFilter } from "$interfaces/Approvable";
+import { ApprovableEntityType } from "$interfaces/Approvable";
 
 export interface ITypeFilterTranslations {
   companyIconTitle: string;

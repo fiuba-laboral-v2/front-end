@@ -12,7 +12,7 @@ export const Tab: FunctionComponent<ITabProps> = (
   }
 ) => (
   <div className={styles.tab}>
-    <Checkbox onClick={onClick} checked={selected} className={styles.checkbox}/>
+    <Checkbox onClick={onClick} checked={selected} className={styles.checkbox} color="secondary"/>
     <Tooltip
       classes={{ tooltip: styles.tooltip }}
       title={iconTitle}
