@@ -3,6 +3,7 @@ import { Tab } from "./Tab";
 import { CompanyIcon } from "../CompanyIcon";
 import { ApplicantIcon } from "../ApplicantIcon";
 import { IMenuProps } from "./interfaces";
+import { APPLICANT, COMPANY } from "$typenames";
 import styles from "./styles.module.scss";
 
 export const Menu: FunctionComponent<IMenuProps> = (
@@ -14,16 +15,16 @@ export const Menu: FunctionComponent<IMenuProps> = (
 ) => (
   <div className={styles.menuContent}>
     <Tab
-      selected={filter.approvableEntityTypes?.includes("Company") || false}
+      selected={filter.approvableEntityTypes.includes(COMPANY)}
       Icon={CompanyIcon}
       iconTitle={translations.companyIconTitle}
-      onClick={() => addEntityType("Company")}
+      onClick={() => addEntityType(COMPANY)}
     />
     <Tab
-      selected={filter.approvableEntityTypes?.includes("Applicant") || false}
+      selected={filter.approvableEntityTypes.includes(APPLICANT)}
       Icon={ApplicantIcon}
       iconTitle={translations.applicantIconTitle}
-      onClick={() => addEntityType("Applicant")}
+      onClick={() => addEntityType(APPLICANT)}
     />
   </div>
 );
