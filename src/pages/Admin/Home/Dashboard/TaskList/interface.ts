@@ -1,13 +1,12 @@
-import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
+import { IApprovable } from "$interfaces/Approvable";
 
 export interface ITaskListContainerProps {
   onSelectTask: (task: IApprovable) => void;
   selectedTask?: IApprovable;
-  filter: IApprovableFilter;
+  approvableEntities: IApprovable[];
 }
 
-export interface ITaskListProps extends Omit<ITaskListContainerProps, "filter"> {
-  approvableEntities: IApprovable[];
+export interface ITaskListProps extends ITaskListContainerProps {
   translations: ITaskListTranslations;
 }
 

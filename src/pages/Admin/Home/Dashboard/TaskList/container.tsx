@@ -1,28 +1,23 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { ITaskListContainerProps, ITaskListTranslations } from "./interface";
-import { usePendingEntities, useTranslations } from "$hooks/queries";
+import { useTranslations } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TaskList } from "./component";
 
 export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   {
+    approvableEntities,
     onSelectTask,
-    selectedTask,
-    filter
+    selectedTask
   }
 ) => {
-  const response = usePendingEntities(filter);
   const translations = useTranslations<ITaskListTranslations>("adminTaskList");
-
-  if (response.loading || translations.loading) return <Fragment/>;
-
-  if (response.error || translations.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  }
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return <TaskList
-    approvableEntities={response.data.getPendingEntities}
+    approvableEntities={approvableEntities}
     onSelectTask={onSelectTask}
     selectedTask={selectedTask}
     translations={translations.data}
