@@ -4,11 +4,12 @@ import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
 import { usePendingEntities } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { APPLICANT, COMPANY } from "$typenames";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
   const [filter, setFilter] = useState<IApprovableFilter>({
-    approvableEntityTypes: ["Company", "Applicant"]
+    approvableEntityTypes: [APPLICANT, COMPANY]
   });
   const response = usePendingEntities(filter);
   if (response.loading) return <Fragment/>;
