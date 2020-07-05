@@ -11,7 +11,7 @@ export const Tab: FunctionComponent<ITabProps> = (
   }
 ) => (
   <div className={styles.tab}>
-    <input type="checkbox" onClick={onClick} checked={selected}/>
+    <input type="checkbox" onClick={onClick} checked={selected} className={styles.checkbox}/>
     <Tooltip
       classes={{ tooltip: styles.tooltip }}
       title={iconTitle}
