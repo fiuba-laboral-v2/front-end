@@ -5,7 +5,6 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IMenuTranslations, IMenuContainerProps } from "./interfaces";
 import { ApprovableEntityType } from "$interfaces/Approvable";
 import { Menu } from "./component";
-import { filter as reject } from "lodash";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   {
@@ -22,7 +21,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   const addType = async (entityType: ApprovableEntityType) => {
     let entityTypes = filter.approvableEntityTypes || [];
     if (entityTypes.includes(entityType)) {
-      entityTypes = reject(entityTypes, type => type !== entityType);
+      entityTypes = entityTypes.filter(type => type !== entityType);
     } else {
       entityTypes = [...entityTypes, entityType];
     }
