@@ -14,6 +14,6 @@ export interface IMenuContainerProps {
 
 export interface IMenuProps {
   translations: IMenuTranslations;
-  addEntityType: (entityType: ApprovableEntityType) => void;
+  addType: (entityType: ApprovableEntityType) => void;
   filter: IApprovableFilter;
 }

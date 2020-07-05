@@ -19,7 +19,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const addEntityType = async (entityType: ApprovableEntityType) => {
+  const addType = async (entityType: ApprovableEntityType) => {
     let entityTypes = filter.approvableEntityTypes || [];
     if (entityTypes.includes(entityType)) {
       if (entityTypes.length === 1) return;
@@ -36,7 +36,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
     <Menu
       filter={filter}
       translations={transactions.data}
-      addEntityType={addEntityType}
+      addType={addType}
     />
   );
 };

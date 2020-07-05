@@ -10,7 +10,7 @@ export const Menu: FunctionComponent<IMenuProps> = (
   {
     filter,
     translations,
-    addEntityType
+    addType
   }
 ) => (
   <div className={styles.menuContent}>
@@ -18,13 +18,13 @@ export const Menu: FunctionComponent<IMenuProps> = (
       selected={filter.approvableEntityTypes.includes(COMPANY)}
       Icon={CompanyIcon}
       iconTitle={translations.companyIconTitle}
-      onClick={() => addEntityType(COMPANY)}
+      onClick={() => addType(COMPANY)}
     />
     <Tab
       selected={filter.approvableEntityTypes.includes(APPLICANT)}
       Icon={ApplicantIcon}
       iconTitle={translations.applicantIconTitle}
-      onClick={() => addEntityType(APPLICANT)}
+      onClick={() => addType(APPLICANT)}
     />
   </div>
 );

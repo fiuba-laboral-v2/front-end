@@ -1,4 +1,4 @@
-query GetPendingEntities($approvableEntityTypes: [ApprovableEntityType]) {
+query GetPendingEntities($approvableEntityTypes: [ApprovableEntityType]!) {
   getPendingEntities(approvableEntityTypes: $approvableEntityTypes) {
     ... on Company {
       __typename
