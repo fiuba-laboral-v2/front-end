@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
-import { usePendingEntities } from "../../../../models/hooks/queries";
-import { Redirect } from "../../../../components/Redirect";
-import { RoutesBuilder } from "../../../../models/RoutesBuilder";
+import { usePendingEntities } from "$hooks/queries";
+import { Redirect } from "$components/Redirect";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
