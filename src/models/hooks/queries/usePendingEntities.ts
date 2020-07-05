@@ -6,10 +6,7 @@ import { ApolloQueryResult } from "apollo-client/core/types";
 export const usePendingEntities = (filter: IApprovableFilter) =>
   useQuery<IApprovableFilter, IUsePendingEntities>(
     GET_PENDING_ENTITIES,
-    {
-      variables: filter,
-      fetchPolicy: "cache-and-network"
-    }
+    { variables: filter }
   );
 
 export type TRefetchPendingEntities = (
