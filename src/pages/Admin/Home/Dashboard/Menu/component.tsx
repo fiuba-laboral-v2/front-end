@@ -12,7 +12,7 @@ export const Menu: FunctionComponent<IMenuProps> = (
   <div className={styles.menuContent}>
     <TypeFilter
       types={filter.approvableEntityTypes}
-      onChangeFilter={onFilterByType}
+      onFilterByType={onFilterByType}
     />
   </div>
 );

@@ -9,7 +9,7 @@ import { ApprovableEntityType } from "$interfaces/Approvable";
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {
     types,
-    onChangeFilter
+    onFilterByType
   }
 ) => {
   const transactions = useTranslations<ITypeFilterTranslations>("adminMenu");
@@ -19,7 +19,7 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
   const toggleType = (selected: boolean, entityType: ApprovableEntityType) => {
     const removeType = () => types.filter(type => type !== entityType);
     const changedTypes = selected ? [...types, entityType] : removeType();
-    onChangeFilter(changedTypes);
+    onFilterByType(changedTypes);
   };
 
   return (

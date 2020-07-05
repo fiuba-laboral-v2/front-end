@@ -7,7 +7,7 @@ export interface ITypeFilterTranslations {
 
 export interface ITypeFilterContainerProps {
   types: ApprovableEntityType[];
-  onChangeFilter: (types: ApprovableEntityType[]) => void;
+  onFilterByType: (types: ApprovableEntityType[]) => void;
 }
 
 export interface ITypeFilterProps {
