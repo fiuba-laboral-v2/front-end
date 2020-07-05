@@ -20,10 +20,9 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   const addEntityType = async (entityType: ApprovableEntityType) => {
-    let entityTypes: ApprovableEntityType[] | undefined = filter.approvableEntityTypes || [];
+    let entityTypes = filter.approvableEntityTypes || [];
     if (entityTypes.includes(entityType)) {
       entityTypes = reject(entityTypes, type => type !== entityType);
-      if (entityTypes.length === 0) entityTypes = undefined;
     } else {
       entityTypes = [...entityTypes, entityType];
     }
