@@ -1,11 +1,6 @@
 import { ApprovableEntityType, IApprovableFilter } from "$interfaces/Approvable";
 import { TRefetchPendingEntities } from "$hooks/queries";
 
-export interface IMenuTranslations {
-  companyIconTitle: string;
-  applicantIconTitle: string;
-}
-
 export interface IMenuContainerProps {
   filter: IApprovableFilter;
   onSelectFilter: (filter: IApprovableFilter) => void;
@@ -13,7 +8,6 @@ export interface IMenuContainerProps {
 }
 
 export interface IMenuProps {
-  translations: IMenuTranslations;
-  addType: (entityType: ApprovableEntityType) => void;
+  onFilterByType: (types: ApprovableEntityType[]) => void;
   filter: IApprovableFilter;
 }
