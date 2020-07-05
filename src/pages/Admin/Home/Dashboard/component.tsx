@@ -1,29 +1,47 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { Window } from "$components/Window";
 import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
+import { TRefetchPendingEntities } from "$hooks/queries";
 
-const Dashboard: FunctionComponent = () => {
-  const [selectedTask, setSelectedTask] = useState<IApprovable>();
+export const Dashboard: FunctionComponent<IDashboardProps> = (
+  {
+    refetchApprovableEntities,
+    approvableEntities,
+    selectedTask,
+    setSelectedTask,
+    filter,
+    setFilter
+  }
+) => (
+  <Window width="fullWidth">
+    <div className={styles.mainContent}>
+      <Menu
+        refetchApprovableEntities={refetchApprovableEntities}
+        filter={filter}
+        onSelectFilter={setFilter}
+      />
+      <TaskList
+        approvableEntities={approvableEntities}
+        selectedTask={selectedTask}
+        onSelectTask={setSelectedTask}
+      />
+      <TaskDetail
+        selectedTask={selectedTask}
+        onStatusUpdate={() => setSelectedTask(undefined)}
+      />
+    </div>
+  </Window>
+);
 
-  return (
-    <Window width="fullWidth">
-      <div className={styles.mainContent}>
-        <Menu/>
-        <TaskList
-          selectedTask={selectedTask}
-          onSelectTask={setSelectedTask}
-        />
-        <TaskDetail
-          selectedTask={selectedTask}
-          onStatusUpdate={() => setSelectedTask(undefined)}
-        />
-      </div>
-    </Window>
-  );
-};
-
-export { Dashboard };
+interface IDashboardProps {
+  selectedTask?: IApprovable;
+  setSelectedTask: (task?: IApprovable) => void;
+  filter: IApprovableFilter;
+  setFilter: (filter: IApprovableFilter) => void;
+  approvableEntities: IApprovable[];
+  refetchApprovableEntities: TRefetchPendingEntities;
+}

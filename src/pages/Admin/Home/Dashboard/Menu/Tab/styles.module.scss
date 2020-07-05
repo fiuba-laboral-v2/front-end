@@ -15,7 +15,12 @@
   display: none;
 }
 
-.icon {
+.checkbox {
+  align-self: center;
+}
+
+.icon,
+.checkbox {
   margin: $spacing-s;
 }
 

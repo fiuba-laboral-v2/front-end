@@ -16,3 +16,9 @@ export interface IApprovableApplicant {
 }
 
 export type IApprovable = IApprovableCompany | IApprovableApplicant;
+
+export type ApprovableEntityType = COMPANY_TYPE | APPLICANT_TYPE;
+
+export interface IApprovableFilter {
+  approvableEntityTypes: ApprovableEntityType[];
+}

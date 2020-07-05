@@ -4,24 +4,28 @@ import { DocumentNode } from "graphql";
 import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
 import { ErrorHandlers, handleError } from "$models/handleError";
 import { ApolloError } from "apollo-client";
+import { ApolloQueryResult } from "apollo-client/core/types";
 
-export type UseQueryResult<T> =
-  ILoadingQuery | IErroredQuery | ISuccessfulQuery<T>;
+export type UseQueryResult<TVariables, TData> =
+  ILoadingQuery | IErroredQuery | ISuccessfulQuery<TVariables, TData>;
 
 type ILoadingQuery = {
   data: undefined;
+  refetch: undefined;
   error: undefined;
   loading: true;
 };
 
 type IErroredQuery = {
   data: undefined;
+  refetch: undefined;
   error: ApolloError;
   loading: false;
 };
 
-type ISuccessfulQuery<T> = {
-  data: T;
+type ISuccessfulQuery<TVariables, TData> = {
+  data: TData;
+  refetch: (variables: TVariables) => Promise<ApolloQueryResult<TData>>;
   error: undefined;
   loading: false;
 };
@@ -32,13 +36,13 @@ export const useQuery = <TVariables = {}, TData = {}>(
 ) => {
   const [alreadyHandledError, setAlreadyHandledError] = useState(false);
   const { errorHandlers, ...apolloOptions } = options || { errorHandlers: {} };
-  const { data, error, loading } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
+  const { data, error, loading, refetch } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
   if (error && !alreadyHandledError) {
     handleError(error, errorHandlers);
     setAlreadyHandledError(true);
   }
 
-  return { data, error, loading } as UseQueryResult<TData>;
+  return { data, error, loading, refetch } as UseQueryResult<TVariables, TData>;
 };
 
 interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVariables> {

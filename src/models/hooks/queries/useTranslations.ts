@@ -40,7 +40,7 @@ const useTranslations = <T, >(translationGroup: string) => {
     ...(data && { data: translationMapper<T>(data) }),
     loading,
     error
-  } as UseQueryResult<T>;
+  } as UseQueryResult<string, T>;
 };
 
 export { useTranslations };
