@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { ApprovableTypeTab } from "./component";
 import { IApprovableTypeTabContainerProps } from "./interfaces";
 import { APPLICANT, COMPANY } from "$typenames";
@@ -13,9 +13,8 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
     types
   }
 ) => {
-  const [selected, setSelected] = useState(types.includes(type));
   const toggleSelected = () => {
-    setSelected(!selected);
+    const selected = types.includes(type);
     onClick(!selected, type);
   };
 
@@ -28,7 +27,7 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
   return (
     <ApprovableTypeTab
       Icon={getIcon()}
-      selected={selected}
+      selected={types.includes(type)}
       toggleSelected={toggleSelected}
       iconTitle={iconTitle}
     />
