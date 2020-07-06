@@ -24,8 +24,15 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
     throw new Error(`type: ${type} is not supported`);
   };
 
+  const getColor = () => {
+    if (type === COMPANY) return "red";
+    if (type === APPLICANT) return "blue";
+    throw new Error(`type: ${type} is not supported`);
+  };
+
   return (
     <ApprovableTypeTab
+      color={getColor()}
       Icon={getIcon()}
       selected={types.includes(type)}
       toggleSelected={toggleSelected}

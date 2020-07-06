@@ -4,6 +4,7 @@ import { IApprovableTypeTabProps } from "./interfaces";
 
 export const ApprovableTypeTab: FunctionComponent<IApprovableTypeTabProps> = (
   {
+    color,
     iconTitle,
     Icon,
     toggleSelected,
@@ -12,6 +13,7 @@ export const ApprovableTypeTab: FunctionComponent<IApprovableTypeTabProps> = (
 ) => {
   return (
     <Tab
+      color={color}
       selected={selected}
       iconTitle={iconTitle}
       Icon={Icon}

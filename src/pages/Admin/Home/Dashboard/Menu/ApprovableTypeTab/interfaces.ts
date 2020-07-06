@@ -9,6 +9,7 @@ export interface IApprovableTypeTabContainerProps {
 }
 
 export interface IApprovableTypeTabProps {
+  color: "red" | "blue";
   iconTitle: string;
   Icon: FunctionComponent<IIcon>;
   toggleSelected: () => void;
