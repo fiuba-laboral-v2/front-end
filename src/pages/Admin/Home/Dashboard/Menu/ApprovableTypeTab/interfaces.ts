@@ -2,6 +2,7 @@ import { ApprovableEntityType } from "$interfaces/Approvable";
 import { FunctionComponent } from "react";
 
 export interface IApprovableTypeTabContainerProps {
+  className?: string;
   iconTitle: string;
   types: ApprovableEntityType[];
   type: ApprovableEntityType;
@@ -9,6 +10,7 @@ export interface IApprovableTypeTabContainerProps {
 }
 
 export interface IApprovableTypeTabProps {
+  className?: string;
   color: "red" | "blue";
   iconTitle: string;
   Icon: FunctionComponent<IIcon>;

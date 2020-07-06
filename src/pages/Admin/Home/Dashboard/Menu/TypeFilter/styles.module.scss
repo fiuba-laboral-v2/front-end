@@ -3,11 +3,12 @@
 .typeFilterContainer {
   display: flex;
   flex-direction: column;
+}
 
-  > *:nth-child(n) {
-    margin-bottom: $spacing-s;
-    margin-right: $spacing-s;
-  }
+.approvableTypeTab,
+.title {
+  margin-bottom: $spacing-s;
+  margin-right: $spacing-s;
 }
 
 .title {

@@ -14,12 +14,14 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
   <section className={styles.typeFilterContainer}>
     <p className={styles.title}>{translations.title}</p>
     <ApprovableTypeTab
+      className={styles.approvableTypeTab}
       iconTitle={translations.companyIconTitle}
       types={types}
       type={COMPANY}
       onClick={toggleType}
     />
     <ApprovableTypeTab
+      className={styles.approvableTypeTab}
       iconTitle={translations.applicantIconTitle}
       types={types}
       type={APPLICANT}

@@ -7,6 +7,7 @@ import { ApplicantIcon } from "../../ApplicantIcon";
 
 export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabContainerProps> = (
   {
+    className,
     iconTitle,
     onClick,
     type,
@@ -32,6 +33,7 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
 
   return (
     <ApprovableTypeTab
+      className={className}
       color={getColor()}
       Icon={getIcon()}
       selected={types.includes(type)}

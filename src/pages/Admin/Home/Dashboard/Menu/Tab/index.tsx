@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 
 export const Tab: FunctionComponent<ITabProps> = (
   {
+    className,
     color,
     iconTitle,
     Icon,
@@ -14,7 +15,7 @@ export const Tab: FunctionComponent<ITabProps> = (
   }
 ) => (
   <div
-    className={classNames(styles[color], styles[selected ? "selected" : ""])}
+    className={classNames(className, styles[color], styles[selected ? "selected" : ""])}
     onClick={onClick}
   >
     <Checkbox checked={selected} className={styles.checkbox}/>
@@ -30,6 +31,7 @@ export const Tab: FunctionComponent<ITabProps> = (
 );
 
 interface ITabProps {
+  className?: string;
   color: "red" | "blue";
   selected: boolean;
   iconTitle: string;
