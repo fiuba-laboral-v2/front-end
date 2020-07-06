@@ -15,7 +15,6 @@ export const Checkbox: FunctionComponent<CheckboxProps> = (
     onClick={onClick}
     checked={checked}
     className={className}
-    checkedIcon={<CheckBoxIcon fontSize="small" color="inherit" className={styles.checkedIcon}/>}
-    color="default"
+    checkedIcon={<CheckBoxIcon fontSize="small" className={styles.checkedIcon}/>}
   />
 );
