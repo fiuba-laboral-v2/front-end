@@ -20,7 +20,7 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
       onClick={toggleType}
     />
     <ApprovableTypeTab
-      iconTitle={translations.companyIconTitle}
+      iconTitle={translations.applicantIconTitle}
       types={types}
       type={APPLICANT}
       onClick={toggleType}
