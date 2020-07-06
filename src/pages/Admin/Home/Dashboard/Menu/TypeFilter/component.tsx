@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react";
 import { ApprovableTypeTab } from "../ApprovableTypeTab";
 import { ITypeFilterProps } from "./interfaces";
 import { APPLICANT, COMPANY } from "$typenames";
+import styles from "./styles.module.scss";
+
 export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
   {
     translations,
@@ -9,7 +11,8 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
     toggleType
   }
 ) => (
-  <>
+  <section className={styles.typeFilterContainer}>
+    <p className={styles.title}>Tipo</p>
     <ApprovableTypeTab
       iconTitle={translations.companyIconTitle}
       types={types}
@@ -22,5 +25,5 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
       type={APPLICANT}
       onClick={toggleType}
     />
-  </>
+  </section>
 );
