@@ -12,7 +12,7 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
   }
 ) => (
   <section className={styles.typeFilterContainer}>
-    <p className={styles.title}>Tipo</p>
+    <p className={styles.title}>{translations.title}</p>
     <ApprovableTypeTab
       iconTitle={translations.companyIconTitle}
       types={types}

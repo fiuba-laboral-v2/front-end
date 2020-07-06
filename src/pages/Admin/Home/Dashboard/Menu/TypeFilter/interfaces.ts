@@ -1,6 +1,7 @@
 import { ApprovableEntityType } from "$interfaces/Approvable";
 
 export interface ITypeFilterTranslations {
+  title: string;
   companyIconTitle: string;
   applicantIconTitle: string;
 }
