@@ -22,7 +22,7 @@
 }
 
 .blue {
-  @include backgroundColor($applicantPurple);
+  @include backgroundColor($applicantColor);
 }
 
 .description {
