@@ -18,11 +18,11 @@
 }
 
 .red {
-  @include backgroundColor(#d71508);
+  @include backgroundColor($companyRed);
 }
 
 .blue {
-  @include backgroundColor(#605dca);
+  @include backgroundColor($applicantPurple);
 }
 
 .description {
