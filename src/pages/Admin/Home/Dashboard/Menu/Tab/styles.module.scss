@@ -18,7 +18,7 @@
 }
 
 .red {
-  @include backgroundColor($companyRed);
+  @include backgroundColor($companyColor);
 }
 
 .blue {
