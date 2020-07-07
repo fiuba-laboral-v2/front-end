@@ -30,6 +30,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         onSelectTask={setSelectedTask}
       />
       <TaskDetail
+        refetchApprovableEntities={() => refetchApprovableEntities(filter)}
         selectedTask={selectedTask}
         onStatusUpdate={() => setSelectedTask(undefined)}
       />
