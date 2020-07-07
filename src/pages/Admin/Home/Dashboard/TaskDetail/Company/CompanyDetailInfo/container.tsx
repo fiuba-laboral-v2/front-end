@@ -22,7 +22,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus({ refetchApprovableEntities });
-  const response = useCompanyByUuid(selectedCompany.uuid);
+  const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const showError = useShowError();
   const showSuccess = useShowSuccess();

@@ -2,6 +2,7 @@ import { loader } from "graphql.macro";
 
 const GET_TRANSLATIONS = loader("./getTranslations.graphql");
 const GET_COMPANY_BY_UUID = loader("./getCompanyByUuid.graphql");
+const GET_COMPANY_BY_UUID_WITH_USERS = loader("./getCompanyByUuidWithUsers.graphql");
 const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
@@ -21,6 +22,7 @@ export {
   GET_CURRENT_USER,
   GET_TRANSLATIONS,
   GET_COMPANY_BY_UUID,
+  GET_COMPANY_BY_UUID_WITH_USERS,
   GET_CAREERS,
   GET_APPLICANT,
   GET_APPLICANTS,
