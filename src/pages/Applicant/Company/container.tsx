@@ -6,7 +6,7 @@ import { CompanyProfile } from "./component";
 
 export const CompanyProfileContainer: FunctionComponent = () => {
   const { uuid } = useParams();
-  const response = useCompanyByUuid(uuid);
+  const response = useCompanyByUuid({ uuid });
 
   if (response.error || response.loading) return <LoadingSpinner/>;
 

@@ -1,4 +1,4 @@
-query getCompanyByUuid ($uuid: ID!) {
+query getCompanyByUuidWithUsers ($uuid: ID!) {
   getCompanyByUuid(uuid: $uuid) {
     uuid
     cuit
@@ -12,5 +12,11 @@ query getCompanyByUuid ($uuid: ID!) {
     phoneNumbers
     photos
     createdAt
+    users {
+      uuid
+      email
+      name
+      surname
+    }
   }
 }

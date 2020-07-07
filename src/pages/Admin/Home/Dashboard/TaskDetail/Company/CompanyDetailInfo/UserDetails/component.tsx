@@ -1,30 +1,32 @@
 import React, { FunctionComponent } from "react";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
+
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 
 import styles from "./styles.module.scss";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = (
-  { company }
+  { company, user, translation }
 ) => (
   <div className={styles.userDetails}>
     <div className={styles.firstRow}>
       <div className={styles.userInfo}>
         <PersonOutlinedIcon className={styles.label}/>
         <p className={styles.userInfoText}>
-          Marta Meli
+          {`${user.name} ${user.surname}`}
         </p>
       </div>
       <p className={styles.cuit}>
-        <span className={styles.label}>Cuit:</span>
+        <span className={styles.label}>{translation}</span>
         <span>{company.cuit}</span>
       </p>
     </div>
     <div className={styles.userInfo}>
       <EmailOutlinedIcon className={styles.label}/>
       <p className={styles.userInfoText}>
-        martameli@mercadolibre.com
+        {user.email}
       </p>
     </div>
   </div>
@@ -32,4 +34,6 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
 
 export interface IUserDetailsProps {
   company: ICompany;
+  user: IUser;
+  translation: string;
 }

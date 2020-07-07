@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useCompanyByUuid } from "$hooks/queries";
@@ -15,10 +15,10 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  { selectedCompany, onStatusUpdate }
+  { selectedCompany, onStatusUpdate, refetchApprovableEntities }
 ) => {
-  const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
-  const response = useCompanyByUuid(selectedCompany.uuid);
+  const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus({ refetchApprovableEntities });
+  const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const showError = useShowError();
   const showSuccess = useShowSuccess();
@@ -47,12 +47,15 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   if (response.error || response.loading) return <Fragment />;
 
-  return <CompanyDetailInfo setStatus={setStatus} company={response.data.getCompanyByUuid}/>;
+  const company = response.data.getCompanyByUuid;
+
+  return <CompanyDetailInfo setStatus={setStatus} company={company}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {
   selectedCompany: IApprovableCompany;
   onStatusUpdate: () => void;
+  refetchApprovableEntities: () => void;
 }
 
 export { CompanyDetailInfoContainer };

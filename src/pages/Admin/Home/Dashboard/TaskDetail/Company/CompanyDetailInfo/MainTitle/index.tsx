@@ -1,1 +1,1 @@
-export { MainTitle } from "./component";
+export { MainTitleContainer as MainTitle } from "./container";

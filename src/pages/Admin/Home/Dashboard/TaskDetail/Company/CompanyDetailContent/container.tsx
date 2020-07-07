@@ -8,7 +8,7 @@ const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentCont
     companyUuid
   }
 ) => {
-  const response = useCompanyByUuid(companyUuid);
+  const response = useCompanyByUuid({ uuid: companyUuid });
   if (response.error || response.loading) return <LoadingSpinner/>;
   return <CompanyDetailContent company={response.data.getCompanyByUuid}/>;
 };
