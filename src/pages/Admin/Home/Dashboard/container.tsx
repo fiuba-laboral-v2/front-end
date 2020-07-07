@@ -5,6 +5,7 @@ import { usePendingEntities } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { APPLICANT, COMPANY } from "$typenames";
+import { find } from "lodash";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
@@ -13,12 +14,13 @@ export const DashboardContainer: FunctionComponent = () => {
   });
   const response = usePendingEntities(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  const approvableEntities = response.data?.getPendingEntities;
 
   return (
     <Dashboard
       refetchApprovableEntities={response.refetch}
-      approvableEntities={response.data?.getPendingEntities}
-      selectedTask={selectedTask}
+      approvableEntities={approvableEntities}
+      selectedTask={find(approvableEntities, ["uuid", selectedTask?.uuid])}
       setSelectedTask={setSelectedTask}
       filter={filter}
       setFilter={setFilter}
