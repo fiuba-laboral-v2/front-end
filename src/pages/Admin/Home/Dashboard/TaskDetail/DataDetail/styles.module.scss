@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.data {
+  align-items: center;
+  display: flex;
+
+  span {
+    margin-left: $spacing-s;
+  }
+}
+
+.label {
+  color: $darkerGrey;
+}
