@@ -1,7 +1,28 @@
 @import "$styles/_variables";
 
-.tab {
+@mixin backgroundColor($color) {
+  background-color: lighten($color, 60%);
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  cursor: pointer;
   display: flex;
+  flex-direction: row;
+
+  &.selected {
+    background-color: lighten($color, 30%);
+  }
+
+  &:hover {
+    background-color: lighten($color, 35%);
+  }
+}
+
+.red {
+  @include backgroundColor($companyColor);
+}
+
+.blue {
+  @include backgroundColor($applicantColor);
 }
 
 .description {

@@ -1,0 +1,18 @@
+@import "$styles/_variables";
+
+.typeFilterContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.approvableTypeTab,
+.title {
+  margin-bottom: $spacing-s;
+  margin-right: $spacing-s;
+}
+
+.title {
+  color: $grey;
+  font-size: $fontSize-s;
+  margin-left: $spacing-s;
+}
