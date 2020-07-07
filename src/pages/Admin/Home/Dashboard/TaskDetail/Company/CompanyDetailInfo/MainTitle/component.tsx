@@ -7,17 +7,18 @@ import { ICompany } from "$interfaces/Company";
 import styles from "./styles.module.scss";
 
 export const MainTitle: FunctionComponent<IMainTitleProps> = (
-  { company }
+  { company, title }
 ) =>
 <div className={styles.header}>
   <div className={styles.main}>
     <p className={styles.title}>
-      Registro de Empresa
+      {title}
     </p>
-    <TimeHumanizer since={"1592951226327"}/>
+    <TimeHumanizer since={company.createdAt}/>
   </div>
 </div>;
 
 export interface IMainTitleProps {
   company: ICompany;
+  title: string;
 }

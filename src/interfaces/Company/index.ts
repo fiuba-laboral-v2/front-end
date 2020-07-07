@@ -11,7 +11,9 @@ export interface ICompany {
   logo?: string;
   website?: string;
   email?: string;
+  createdAt: string;
   approvalStatus: ApprovalStatus;
   phoneNumbers?: string[];
   photos?: string[];
+  users: IUser[];
 }

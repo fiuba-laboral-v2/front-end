@@ -47,7 +47,10 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   if (response.error || response.loading) return <Fragment />;
 
-  return <CompanyDetailInfo setStatus={setStatus} company={response.data.getCompanyByUuid}/>;
+  const company = response.data.getCompanyByUuid;
+  const [user] = company.users;
+
+  return <CompanyDetailInfo setStatus={setStatus} company={company} user={user}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {

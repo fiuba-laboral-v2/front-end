@@ -1,1 +1,1 @@
-export { UserDetails } from "./component";
+export { UserDetailsContainer as UserDetails } from "./container";
