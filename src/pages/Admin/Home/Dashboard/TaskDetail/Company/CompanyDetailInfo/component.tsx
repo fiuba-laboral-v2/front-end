@@ -13,11 +13,9 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
     company
   }
 ) => (
-  <>
-    <DetailInfo setStatus={setStatus} mainTitle={<MainTitle company={company}/>}>
-      <UserDetails company={company} />
-    </DetailInfo>
-  </>
+  <DetailInfo setStatus={setStatus} mainTitle={<MainTitle company={company}/>}>
+    <UserDetails company={company} />
+  </DetailInfo>
 );
 
 export interface ICompanyDetailInfoProps {
