@@ -9,8 +9,7 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
   }
 ) => {
   const translations = useTranslations<IAdminCompanyDetails>("adminCompanyDetails");
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Fragment/>;
+  if (translations.loading || translations.error) return <Fragment/>;
 
   return (
     <UserDetails
