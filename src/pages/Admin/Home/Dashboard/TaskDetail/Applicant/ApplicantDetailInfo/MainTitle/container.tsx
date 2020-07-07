@@ -7,8 +7,8 @@ import { useTranslations } from "$hooks/queries";
 
 export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = ({ applicant }) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
-  const padron = translations.loading || translations.error ? "" : translations.data.padron;
-  return <MainTitle title={padron} createdAt={applicant.createdAt}/>;
+  const title = translations.loading || translations.error ? "" : translations.data.title;
+  return <MainTitle title={title} createdAt={applicant.createdAt}/>;
 };
 
 export interface IMainTitleContainerProps {
@@ -16,5 +16,5 @@ export interface IMainTitleContainerProps {
 }
 
 interface IAdminCompanyMainTitle {
-  padron: string;
+  title: string;
 }
