@@ -31,7 +31,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
           }
           {
             selectedTask.__typename === APPLICANT &&
-            <ApplicantDetailInfo selectedApplicant={selectedTask} onStatusUpdate={onStatusUpdate}/>
+            <ApplicantDetailInfo
+                selectedApplicant={selectedTask}
+                onStatusUpdate={onStatusUpdate}
+                refetchApprovableEntities={refetchApprovableEntities}
+            />
           }
         </div>
         <div className={styles.content}>
