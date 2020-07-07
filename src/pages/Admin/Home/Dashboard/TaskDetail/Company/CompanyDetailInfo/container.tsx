@@ -18,7 +18,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   { selectedCompany, onStatusUpdate, refetchApprovableEntities }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus({ refetchApprovableEntities });
-  const response = useCompanyByUuid(selectedCompany.uuid);
+  const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const showError = useShowError();
   const showSuccess = useShowSuccess();
@@ -48,9 +48,8 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   if (response.error || response.loading) return <Fragment />;
 
   const company = response.data.getCompanyByUuid;
-  const [user] = company.users;
 
-  return <CompanyDetailInfo setStatus={setStatus} company={company} user={user}/>;
+  return <CompanyDetailInfo setStatus={setStatus} company={company}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {
