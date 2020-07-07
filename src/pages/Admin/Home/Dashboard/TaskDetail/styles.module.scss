@@ -8,6 +8,10 @@
 .content {
   overflow-y: auto;
   overflow-y: overlay;
+
+  > * {
+    margin: $spacing-s $spacing-l $spacing-l;
+  }
 }
 
 .taskDetail {
