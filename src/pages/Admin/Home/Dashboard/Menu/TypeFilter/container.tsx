@@ -12,7 +12,7 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
     onFilterByType
   }
 ) => {
-  const transactions = useTranslations<ITypeFilterTranslations>("adminMenu");
+  const transactions = useTranslations<ITypeFilterTranslations>("typeFilterMenu");
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 

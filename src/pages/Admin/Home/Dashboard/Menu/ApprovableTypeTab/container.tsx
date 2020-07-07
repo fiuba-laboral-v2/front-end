@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { ApprovableTypeTab } from "./component";
 import { IApprovableTypeTabContainerProps } from "./interfaces";
-import { APPLICANT, COMPANY } from "$typenames";
-import { CompanyIcon } from "../../CompanyIcon";
-import { ApplicantIcon } from "../../ApplicantIcon";
 
 export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabContainerProps> = (
   {
+    color,
+    Icon,
+    className,
     iconTitle,
     onClick,
     type,
@@ -18,15 +18,11 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
     onClick(!selected, type);
   };
 
-  const getIcon = () => {
-    if (type === COMPANY) return CompanyIcon;
-    if (type === APPLICANT) return ApplicantIcon;
-    throw new Error(`type: ${type} is not supported`);
-  };
-
   return (
     <ApprovableTypeTab
-      Icon={getIcon()}
+      className={className}
+      color={color}
+      Icon={Icon}
       selected={types.includes(type)}
       toggleSelected={toggleSelected}
       iconTitle={iconTitle}
