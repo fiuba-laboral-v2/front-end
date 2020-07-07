@@ -3,6 +3,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IApplicant } from "$interfaces/Applicant";
 import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "./UserDetails";
+import { MainTitle } from "./MainTitle";
 
 export const ApplicantDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   {
@@ -11,7 +12,7 @@ export const ApplicantDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   }
 ) => (
   <>
-    <DetailInfo title={"Registro de Postulante"} createdAt={"1592951226327"} setStatus={setStatus}>
+    <DetailInfo setStatus={setStatus} mainTitle={<MainTitle applicant={applicant}/>}>
       <UserDetails applicant={applicant}/>
     </DetailInfo>
   </>

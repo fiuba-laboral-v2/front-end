@@ -1,19 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Actions } from "../Actions";
-import { MainTitle } from "../MainTitle";
 
 import styles from "./styles.module.scss";
 
 export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   {
-    title,
-    createdAt,
+    mainTitle,
     setStatus,
     children
   }
 ) => <>
-  <MainTitle title={title} createdAt={createdAt}/>
+  {mainTitle}
   <div className={styles.details}>
     {children}
     <Actions setStatus={setStatus} />
@@ -21,7 +19,6 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
 </>;
 
 export interface ICompanyDetailInfoProps {
-  title: string;
-  createdAt: string;
+  mainTitle: React.ReactElement;
   setStatus: (status: ApprovalStatus) => void;
 }

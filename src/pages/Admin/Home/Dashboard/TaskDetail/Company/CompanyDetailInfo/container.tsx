@@ -15,7 +15,10 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  { selectedCompany, onStatusUpdate }
+  {
+    selectedCompany,
+    onStatusUpdate
+  }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus();
   const response = useCompanyByUuid(selectedCompany.uuid);
@@ -47,7 +50,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   if (response.error || response.loading) return <Fragment />;
 
-  return <CompanyDetailInfo setStatus={setStatus} company={response.data.getCompanyByUuid}/>;
+  const company = response.data.getCompanyByUuid;
+
+  return <CompanyDetailInfo setStatus={setStatus} company={company}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {

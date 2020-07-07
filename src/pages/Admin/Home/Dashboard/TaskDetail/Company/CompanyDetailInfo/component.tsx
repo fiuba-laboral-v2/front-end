@@ -4,6 +4,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
 
 import { UserDetails } from "./UserDetails";
+import { MainTitle } from "./MainTitle";
 import { DetailInfo } from "../../DetailInfo";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
@@ -13,7 +14,7 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   }
 ) => (
   <>
-    <DetailInfo title={"Registro de Empresa"} createdAt={"1592951226327"} setStatus={setStatus}>
+    <DetailInfo setStatus={setStatus} mainTitle={<MainTitle company={company}/>}>
       <UserDetails company={company} />
     </DetailInfo>
   </>
