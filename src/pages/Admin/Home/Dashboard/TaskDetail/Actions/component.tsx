@@ -9,7 +9,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import styles from "./styles.module.scss";
 
 export const Actions: FunctionComponent<IActionsProps> = (
-  { setStatus }
+  { setStatus, translations: { reject, approve } }
 ) => (
   <div className={styles.actions}>
     <Button
@@ -17,18 +17,22 @@ export const Actions: FunctionComponent<IActionsProps> = (
       onClick={() => setStatus(ApprovalStatus.rejected)}
     >
       <HighlightOffIcon className={styles.icons} fontSize="small"/>
-      Rechazar
+      {reject}
     </Button>
     <Button
       className="primary"
       onClick={() => setStatus(ApprovalStatus.approved)}
     >
       <DoneIcon className={styles.icons} fontSize="small"/>
-      Aprobar
+      {approve}
     </Button>
   </div>
 );
 
 export interface IActionsProps {
   setStatus: (status: ApprovalStatus) => void;
+  translations: {
+    approve: string;
+    reject: string;
+  };
 }
