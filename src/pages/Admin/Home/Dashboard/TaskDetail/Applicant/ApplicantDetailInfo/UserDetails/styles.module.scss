@@ -1,0 +1,34 @@
+@import "$styles/_variables";
+
+.userDetails {
+  font-size: $fontSize-l;
+}
+
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.padron {
+  align-items: center;
+  display: flex;
+
+  span {
+    margin-left: $spacing-s;
+  }
+}
+
+.label {
+  color: $darkerGrey;
+}
+
+.userInfo {
+  align-items: center;
+  display: flex;
+  font-size: $fontSize-l;
+  margin-right: $spacing-m;
+}
+
+.userInfoText {
+  margin-left: $spacing-s;
+}
