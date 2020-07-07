@@ -5,14 +5,15 @@ import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { IApprovable } from "$interfaces/Approvable";
-import { COMPANY, APPLICANT } from "$typenames";
+import { APPLICANT, COMPANY } from "$typenames";
 
 import styles from "./styles.module.scss";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
     selectedTask,
-    onStatusUpdate
+    onStatusUpdate,
+    refetchApprovableEntities
   }
 ) => {
   let children = <EmptyDetail/>;
@@ -22,7 +23,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
         <div className={styles.info}>
           {
             selectedTask.__typename === COMPANY &&
-            <CompanyDetailInfo selectedCompany={selectedTask} onStatusUpdate={onStatusUpdate}/>
+            <CompanyDetailInfo
+                selectedCompany={selectedTask}
+                onStatusUpdate={onStatusUpdate}
+                refetchApprovableEntities={refetchApprovableEntities}
+            />
           }
           {
             selectedTask.__typename === APPLICANT &&
@@ -48,4 +53,5 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
 interface ITaskDetailProps {
   selectedTask?: IApprovable;
   onStatusUpdate: () => void;
+  refetchApprovableEntities: () => void;
 }
