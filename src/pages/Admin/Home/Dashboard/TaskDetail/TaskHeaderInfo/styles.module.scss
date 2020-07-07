@@ -1,6 +1,6 @@
 @import "$styles/_variables";
 
-.userInfo {
+.taskHeaderInfo {
   align-items: center;
   display: flex;
   font-size: $fontSize-l;
@@ -11,6 +11,6 @@
   color: $darkerGrey;
 }
 
-.userInfoText {
+.infoText {
   margin-left: $spacing-s;
 }
