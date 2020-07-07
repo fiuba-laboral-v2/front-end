@@ -7,8 +7,3 @@ export interface IUserDetailsContainerProps {
 export interface IUserDetailsTranslations {
   padron: string;
 }
-
-export interface IUserDetailsProps extends IUserDetailsContainerProps {
-  applicant: IApplicant;
-  translations: IUserDetailsTranslations;
-}

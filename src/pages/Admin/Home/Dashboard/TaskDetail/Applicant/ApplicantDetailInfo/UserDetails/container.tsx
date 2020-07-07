@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { UserDetails } from "./component";
+import { UserDetails } from "../../../UserDetails";
 import { IUserDetailsContainerProps } from "./interfaces";
 
 export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps> = (
@@ -7,5 +7,11 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
     applicant
   }
 ) => {
-  return <UserDetails applicant={applicant} translations={{ padron: "Padrón" }}/>;
+  return (
+    <UserDetails
+      user={applicant.user}
+      additionalInfoTitle="Padrón"
+      additionalInfo={applicant.padron.toString()}
+    />
+  );
 };

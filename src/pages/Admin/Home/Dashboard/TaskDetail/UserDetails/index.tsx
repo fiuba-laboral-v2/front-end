@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from "react";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
-import { IUserDetailsProps } from "./interfaces";
+import { IUser } from "$interfaces/User";
 import styles from "./styles.module.scss";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = (
   {
-    applicant,
-    translations
+    user,
+    additionalInfo,
+    additionalInfoTitle
   }
 ) => (
   <div className={styles.userDetails}>
@@ -15,19 +16,25 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
       <div className={styles.userInfo}>
         <PersonOutlinedIcon className={styles.label}/>
         <p className={styles.userInfoText}>
-          {`${applicant.user.name} ${applicant.user.surname}`}
+          {`${user.name} ${user.surname}`}
         </p>
       </div>
-      <p className={styles.padron}>
-        <span className={styles.label}>{`${translations.padron}:`}</span>
-        <span>{applicant.padron}</span>
+      <p className={styles.additionalInfo}>
+        <span className={styles.label}>{additionalInfoTitle}</span>
+        <span>{additionalInfo}</span>
       </p>
     </div>
     <div className={styles.userInfo}>
       <EmailOutlinedIcon className={styles.label}/>
       <p className={styles.userInfoText}>
-        {applicant.user.email}
+        {user.email}
       </p>
     </div>
   </div>
 );
+
+interface IUserDetailsProps {
+  user: IUser;
+  additionalInfoTitle: string;
+  additionalInfo: string;
+}
