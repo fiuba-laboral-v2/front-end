@@ -4,20 +4,20 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
 
 import { UserDetails } from "./UserDetails";
-import { Actions } from "./Actions";
-import { MainTitle } from "./MainTitle";
-
-import styles from "./styles.module.scss";
+import { DetailInfo } from "../../DetailInfo";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
-  { setStatus, company }
-) => <>
-  <MainTitle company={company}/>
-  <div className={styles.details}>
-    <UserDetails company={company} />
-    <Actions setStatus={setStatus} />
-  </div>
-</>;
+  {
+    setStatus,
+    company
+  }
+) => (
+  <>
+    <DetailInfo title={"Registro de Empresa"} createdAt={"1592951226327"} setStatus={setStatus}>
+      <UserDetails company={company} />
+    </DetailInfo>
+  </>
+);
 
 export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus) => void;

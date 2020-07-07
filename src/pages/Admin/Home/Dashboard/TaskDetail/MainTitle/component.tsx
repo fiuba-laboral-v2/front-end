@@ -1,23 +1,23 @@
 import React, { FunctionComponent } from "react";
-
 import { TimeHumanizer } from "$components/TimeHumanizer";
-
-import { ICompany } from "$interfaces/Company";
-
 import styles from "./styles.module.scss";
 
 export const MainTitle: FunctionComponent<IMainTitleProps> = (
-  { company }
+  {
+    title,
+    createdAt
+  }
 ) =>
 <div className={styles.header}>
   <div className={styles.main}>
     <p className={styles.title}>
-      Registro de Empresa
+      {title}
     </p>
-    <TimeHumanizer since={"1592951226327"}/>
+    <TimeHumanizer since={createdAt}/>
   </div>
 </div>;
 
 export interface IMainTitleProps {
-  company: ICompany;
+  title: string;
+  createdAt: string;
 }
