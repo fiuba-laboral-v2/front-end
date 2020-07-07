@@ -4,7 +4,7 @@ import { TRefetchPendingEntities } from "$hooks/queries";
 export interface IMenuContainerProps {
   filter: IApprovableFilter;
   onSelectFilter: (filter: IApprovableFilter) => void;
-  refetchApprovableEntities: TRefetchPendingEntities;
+  refetchApprovableEntities?: TRefetchPendingEntities;
 }
 
 export interface IMenuProps {

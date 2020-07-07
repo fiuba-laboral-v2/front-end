@@ -30,7 +30,9 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         onSelectTask={setSelectedTask}
       />
       <TaskDetail
-        refetchApprovableEntities={() => refetchApprovableEntities(filter)}
+        refetchApprovableEntities={() =>
+          refetchApprovableEntities && refetchApprovableEntities(filter)
+        }
         selectedTask={selectedTask}
         onStatusUpdate={() => setSelectedTask(undefined)}
       />
@@ -43,6 +45,6 @@ interface IDashboardProps {
   setSelectedTask: (task?: IApprovable) => void;
   filter: IApprovableFilter;
   setFilter: (filter: IApprovableFilter) => void;
-  approvableEntities: IApprovable[];
-  refetchApprovableEntities: TRefetchPendingEntities;
+  approvableEntities?: IApprovable[];
+  refetchApprovableEntities?: TRefetchPendingEntities;
 }

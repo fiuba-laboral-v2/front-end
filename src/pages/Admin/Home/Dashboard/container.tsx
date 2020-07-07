@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
 import { usePendingEntities } from "$hooks/queries";
@@ -12,13 +12,12 @@ export const DashboardContainer: FunctionComponent = () => {
     approvableEntityTypes: [APPLICANT, COMPANY]
   });
   const response = usePendingEntities(filter);
-  if (response.loading) return <Fragment/>;
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <Dashboard
       refetchApprovableEntities={response.refetch}
-      approvableEntities={response.data.getPendingEntities}
+      approvableEntities={response.data?.getPendingEntities}
       selectedTask={selectedTask}
       setSelectedTask={setSelectedTask}
       filter={filter}

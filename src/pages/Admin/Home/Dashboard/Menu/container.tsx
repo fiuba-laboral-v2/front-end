@@ -13,7 +13,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   const onFilterByType = async (types: ApprovableEntityType[]) => {
     const changedFilter = { ...filter, approvableEntityTypes: types };
     onSelectFilter({ ...filter, approvableEntityTypes: types });
-    await refetchApprovableEntities(changedFilter);
+    if (refetchApprovableEntities) await refetchApprovableEntities(changedFilter);
   };
 
   return (
