@@ -15,7 +15,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
   <div className={styles.userDetails}>
     <div className={styles.firstRow}>
       <UserInfo
-        text={company.users[0].name}
+        text={`${company.users[0].name} ${company.users[0].surname}`}
         Icon={PersonOutlinedIcon}
       />
       <DataDetail title={translations.cuit} value={company.cuit}/>
