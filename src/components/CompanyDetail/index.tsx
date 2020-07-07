@@ -20,12 +20,11 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
       website = "",
       description = "",
       photos = []
-    },
-    className
+    }
   }
 ) => {
   return (
-    <DetailMainContainer className={className}>
+    <DetailMainContainer>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"
