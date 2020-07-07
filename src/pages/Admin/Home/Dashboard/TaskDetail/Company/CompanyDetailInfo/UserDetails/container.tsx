@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
-import { ICompany } from "$interfaces/Company";
-import { UserDetails } from "../../../UserDetails";
+import React, { Fragment, FunctionComponent } from "react";
+import { UserDetails } from "./component";
+import { IUserDetailsContainerProps, IAdminCompanyDetails } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 
 export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps> = (
@@ -9,21 +9,13 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
   }
 ) => {
   const translations = useTranslations<IAdminCompanyDetails>("adminCompanyDetails");
-  const cuit = translations.loading || translations.error ? "" : translations.data.cuit;
-  const [user] = company.users;
+  if (translations.loading) return <Fragment/>;
+  if (translations.error) return <Fragment/>;
+
   return (
     <UserDetails
-      user={user}
-      additionalInfoTitle={cuit}
-      additionalInfo={company.cuit}
+      company={company}
+      translations={translations.data}
     />
   );
 };
-
-export interface IUserDetailsContainerProps {
-  company: ICompany;
-}
-
-interface IAdminCompanyDetails {
-  cuit: string;
-}

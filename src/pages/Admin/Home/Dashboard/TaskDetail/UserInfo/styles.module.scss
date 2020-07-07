@@ -1,0 +1,16 @@
+@import "$styles/_variables";
+
+.userInfo {
+  align-items: center;
+  display: flex;
+  font-size: $fontSize-l;
+  margin-right: $spacing-m;
+}
+
+.label {
+  color: $darkerGrey;
+}
+
+.userInfoText {
+  margin-left: $spacing-s;
+}

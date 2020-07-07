@@ -4,6 +4,11 @@ export interface IUserDetailsContainerProps {
   applicant: IApplicant;
 }
 
+export interface IUserDetailsProps extends IUserDetailsContainerProps {
+  applicant: IApplicant;
+  translations: IUserDetailsTranslations;
+}
+
 export interface IUserDetailsTranslations {
   padron: string;
 }
