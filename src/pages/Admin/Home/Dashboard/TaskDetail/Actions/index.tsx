@@ -1,1 +1,1 @@
-export { Actions } from "./component";
+export { ActionsContainer as Actions } from "./container";
