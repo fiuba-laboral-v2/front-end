@@ -1,24 +1,20 @@
-import React, { FunctionComponent } from "react";
-
-import { ICompany } from "$interfaces/Company";
-
+import React, { Fragment, FunctionComponent } from "react";
 import { UserDetails } from "./component";
+import { IUserDetailsContainerProps, IAdminCompanyDetails } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 
 export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps> = (
-  { company }
+  {
+    company
+  }
 ) => {
   const translations = useTranslations<IAdminCompanyDetails>("adminCompanyDetails");
-  const translation = translations.loading || translations.error ? "" : translations.data.cuit;
-  const [user] = company.users;
+  if (translations.loading || translations.error) return <Fragment/>;
 
-  return <UserDetails company={company} user={user} translation={translation}/>;
+  return (
+    <UserDetails
+      company={company}
+      translations={translations.data}
+    />
+  );
 };
-
-export interface IUserDetailsContainerProps {
-  company: ICompany;
-}
-
-interface IAdminCompanyDetails {
-  cuit: string;
-}

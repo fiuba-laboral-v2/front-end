@@ -3,7 +3,6 @@ import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface ICompany {
   uuid: string;
-  user: IUser;
   cuit: string;
   companyName: string;
   slogan?: string;

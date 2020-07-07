@@ -25,6 +25,7 @@ export interface ILink {
 export interface IApplicant {
   uuid: string;
   user: IUser;
+  createdAt: string;
   padron: number;
   description?: string;
   links: ILink[];

@@ -7,25 +7,17 @@ import styles from "./styles.module.scss";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = (
   {
-    company: {
-      cuit,
-      users: [{
-        email,
-        name,
-        surname
-      }]
-    },
+    applicant,
     translations
   }
 ) => (
   <div className={styles.userDetails}>
     <div className={styles.firstRow}>
       <TaskHeaderInfo
-        value={`${name} ${surname}`}
-        Icon={PersonOutlinedIcon}
-      />
-      <TaskHeaderInfo title={translations.cuit} value={cuit}/>
+        value={`${applicant.user.name} ${applicant.user.surname}`}
+        Icon={PersonOutlinedIcon}/>
+      <TaskHeaderInfo title={translations.padron} value={applicant.padron.toString()}/>
     </div>
-    <TaskHeaderInfo value={email} Icon={EmailOutlinedIcon}/>
+    <TaskHeaderInfo value={applicant.user.email} Icon={EmailOutlinedIcon}/>
   </div>
 );

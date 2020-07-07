@@ -1,20 +1,18 @@
 import React, { FunctionComponent } from "react";
 
-import { ICompany } from "$interfaces/Company";
+import { IApplicant } from "$interfaces/Applicant";
 
 import { MainTitle } from "../../../MainTitle";
 import { useTranslations } from "$hooks/queries";
 
-export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
-  { company }
-) => {
-  const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
+export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = ({ applicant }) => {
+  const translations = useTranslations<IAdminCompanyMainTitle>("adminApplicantMainTitle");
   const title = translations.loading || translations.error ? "" : translations.data.title;
-  return <MainTitle title={title} createdAt={company.createdAt}/>;
+  return <MainTitle title={title} createdAt={applicant.createdAt}/>;
 };
 
 export interface IMainTitleContainerProps {
-  company: ICompany;
+  applicant: IApplicant;
 }
 
 interface IAdminCompanyMainTitle {

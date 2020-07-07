@@ -15,7 +15,11 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  { selectedCompany, onStatusUpdate, refetchApprovableEntities }
+  {
+    selectedCompany,
+    onStatusUpdate,
+    refetchApprovableEntities
+  }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus({ refetchApprovableEntities });
   const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
