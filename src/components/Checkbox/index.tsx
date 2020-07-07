@@ -1,20 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { Checkbox as MaterialCheckbox, CheckboxProps } from "@material-ui/core";
 import CheckboxIcon from "@material-ui/icons/CheckBox";
-import styles from "./styles.module.scss";
 
-export const Checkbox: FunctionComponent<CheckboxProps> = (
+export const Checkbox: FunctionComponent<CheckboxProps & { checkboxClassName: string }> = (
   {
     className,
     onClick,
-    checked
+    checked,
+    checkboxClassName
   }
 ) => (
   <MaterialCheckbox
+    disabled
     size="small"
     onClick={onClick}
     checked={checked}
     className={className}
-    checkedIcon={<CheckboxIcon fontSize="small" className={styles.checkedIcon}/>}
+    checkedIcon={<CheckboxIcon fontSize="small" className={checkboxClassName}/>}
   />
 );

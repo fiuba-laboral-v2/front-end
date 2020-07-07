@@ -14,20 +14,29 @@ export const Tab: FunctionComponent<ITabProps> = (
     selected
   }
 ) => (
-  <div
-    className={classNames(className, styles[color], styles[selected ? "selected" : ""])}
-    onClick={onClick}
+  <Tooltip
+    classes={{ tooltip: styles.tooltip }}
+    title={iconTitle}
+    placement="right"
   >
-    <Checkbox checked={selected} className={styles.checkbox}/>
-    <Tooltip
-      classes={{ tooltip: styles.tooltip }}
-      title={iconTitle}
-      placement="right"
+    <div
+      className={classNames(
+        styles.container,
+        className,
+        styles[color],
+        styles[selected ? "selected" : ""]
+      )}
+      onClick={onClick}
     >
+      <Checkbox
+        checked={selected}
+        className={styles.checkbox}
+        checkboxClassName={classNames(styles.checkboxIcon, styles[color])}
+      />
       <div><Icon className={styles.icon}/></div>
-    </Tooltip>
-    <p className={styles.description}>{iconTitle}</p>
-  </div>
+      <p className={classNames(styles.description, styles[color])}>{iconTitle}</p>
+    </div>
+  </Tooltip>
 );
 
 interface ITabProps {
