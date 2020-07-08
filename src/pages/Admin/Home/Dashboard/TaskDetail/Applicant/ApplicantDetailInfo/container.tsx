@@ -1,21 +1,32 @@
-import React, { FunctionComponent, Fragment } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
+import { useUpdateApprovable } from "$hooks";
 import { IApprovableApplicant } from "$interfaces/Approvable";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
+import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 
 export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   {
+    refetchApprovableEntities,
     selectedApplicant,
     onStatusUpdate
   }
 ) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
+  const updateApprovable = useUpdateApprovable({
+    documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
+    refetchApprovableEntities
+  });
+
   if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
-    alert(`status: ${status} Todavia falta en el back la mutation`);
-    onStatusUpdate();
+    await updateApprovable({
+      uuid: selectedApplicant.uuid,
+      status: status,
+      onStatusUpdate
+    });
   };
 
   return <ApplicantDetailInfo setStatus={setStatus} applicant={response.data.getApplicant}/>;
@@ -24,4 +35,5 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
 interface ICompanyDetailInfoContainerProps {
   selectedApplicant: IApprovableApplicant;
   onStatusUpdate: () => void;
+  refetchApprovableEntities: () => void;
 }

@@ -39,6 +39,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <ApplicantDetailInfo
                 selectedApplicant={selectedTask}
                 onStatusUpdate={onStatusUpdate}
+                refetchApprovableEntities={refetchApprovableEntities}
             />
           }
         </div>
