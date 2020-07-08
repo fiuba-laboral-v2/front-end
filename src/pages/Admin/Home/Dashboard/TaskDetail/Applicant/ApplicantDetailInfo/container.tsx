@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
-import { useUpdateApprovable } from "$hooks";
+import { useUpdateApprovableStatus } from "$hooks";
 import { IApprovableApplicant } from "$interfaces/Approvable";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
@@ -14,7 +14,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   }
 ) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
-  const updateApprovable = useUpdateApprovable({
+  const updateApprovable = useUpdateApprovableStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchApprovableEntities
   });
