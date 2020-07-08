@@ -6,7 +6,6 @@ export interface IUserDetailsContainerProps {
 }
 
 export interface IUserDetailsProps extends IUserDetailsContainerProps {
-  company: ICompany<IUser>;
   translations: IAdminCompanyDetails;
 }
 
