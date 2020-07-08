@@ -1,10 +1,14 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useUpdateApprovable } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
+
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { CompanyDetailInfo } from "./component";
+import { IUser } from "$interfaces/User";
+
 import { UPDATE_COMPANY_APPROVAL_STATUS } from "$mutations";
+
+import { CompanyDetailInfo } from "./component";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   {
@@ -17,7 +21,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchApprovableEntities
   });
-  const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
+  const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {

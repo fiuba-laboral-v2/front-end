@@ -3,6 +3,7 @@ import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { TaskHeaderInfo } from "../../../TaskHeaderInfo";
 import { IUserDetailsProps } from "./interfaces";
+
 import styles from "./styles.module.scss";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = (

@@ -4,28 +4,28 @@ import { GET_COMPANY_BY_UUID_WITH_USERS } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 
-export const useCompanyByUuid = (
+export const useCompanyByUuid = <T extends IUser | undefined = undefined>(
   {
     uuid,
-    withUsers
-  }: IUseCompanyByUuid = { withUsers: false }
+    withUsers = false
+  }: IUseCompanyByUuid
 ) => {
   const history = useHistory();
   const query = withUsers ? GET_COMPANY_BY_UUID_WITH_USERS : GET_COMPANY_BY_UUID;
-  return useQuery<{}, { getCompanyByUuid: ICompany }>(
-    query,
-    {
-      variables: { uuid },
-      errorHandlers: {
-        CompanyNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-      }
+  const options = {
+    variables: { uuid },
+    errorHandlers: {
+      CompanyNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
+      defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  );
+  };
+
+  return useQuery<{}, { getCompanyByUuid: ICompany<T> }>(query, options);
 };
 
 interface IUseCompanyByUuid {
-  uuid?: string;
+  uuid: string;
   withUsers?: boolean;
 }
