@@ -1,0 +1,12 @@
+mutation updateApplicantApprovalStatus(
+    $uuid: ID!,
+    $approvalStatus: ApprovalStatus!
+) {
+    updateApplicantApprovalStatus(
+        uuid: $uuid,
+        approvalStatus: $approvalStatus
+    ) {
+        uuid
+        approvalStatus
+    }
+}
