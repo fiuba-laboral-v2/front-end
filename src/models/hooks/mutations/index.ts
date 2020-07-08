@@ -8,3 +8,4 @@ export * from "./useUpdateCurrentApplicant";
 export * from "./useUpdateCurrentCompany";
 export * from "./useUpdateCompanyApprovalStatus";
 export * from "./useUpdateApplicantApprovalStatus";
+export * from "./useUpdateApprovableEntityStatus";
