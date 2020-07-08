@@ -2,7 +2,7 @@ import { useMutation } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { DocumentNode } from "graphql";
 
-export const useUpdateApprovableEntityStatus = (
+export const useUpdateApprovableStatusMutation = (
   {
     documentNode,
     refetchApprovableEntities
