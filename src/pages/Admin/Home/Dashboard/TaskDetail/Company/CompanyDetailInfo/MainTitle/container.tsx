@@ -6,7 +6,7 @@ import { IUser } from "$interfaces/User";
 import { MainTitle } from "../../../MainTitle";
 import { useTranslations } from "$hooks/queries";
 
-export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
+export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps<IUser | undefined>> = (
   { company }
 ) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
@@ -14,8 +14,8 @@ export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
   return <MainTitle title={title} createdAt={company.createdAt}/>;
 };
 
-export interface IMainTitleContainerProps {
-  company: ICompany<IUser | undefined>;
+export interface IMainTitleContainerProps<T extends IUser | undefined> {
+  company: ICompany<T>;
 }
 
 interface IAdminCompanyMainTitle {
