@@ -5,16 +5,19 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentContainerProps> = (
   {
-    companyUuid
+    companyUuid,
+    scrollToTop
   }
 ) => {
   const response = useCompanyByUuid({ uuid: companyUuid });
   if (response.error || response.loading) return <LoadingSpinner/>;
+  scrollToTop();
   return <CompanyDetailContent company={response.data.getCompanyByUuid}/>;
 };
 
 interface ICompanyDetailContentContainerProps {
   companyUuid: string;
+  scrollToTop: () => void;
 }
 
 export { CompanyDetailContentContainer };
