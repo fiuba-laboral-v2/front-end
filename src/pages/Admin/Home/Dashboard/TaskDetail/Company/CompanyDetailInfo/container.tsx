@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useUpdateApprovable } from "$hooks";
+import { useUpdateApprovableStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 import { IApprovableCompany } from "$interfaces/Approvable";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
@@ -13,7 +13,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     refetchApprovableEntities
   }
 ) => {
-  const updateApprovable = useUpdateApprovable({
+  const updateApprovable = useUpdateApprovableStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchApprovableEntities
   });
