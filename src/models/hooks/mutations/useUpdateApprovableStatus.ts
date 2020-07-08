@@ -1,10 +1,10 @@
-import { ApprovalStatus } from "../../../interfaces/ApprovalStatus";
-import { useShowError } from "../snackbar/useShowError";
-import { useShowSuccess } from "../snackbar/useShowSuccess";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { useShowError } from "$hooks/snackbar/useShowError";
+import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
 import { useUpdateApprovableStatusMutation } from "$hooks/mutations";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { DocumentNode } from "graphql";
-import { useTranslations } from "../queries";
+import { useTranslations } from "$hooks/queries";
 
 const successMessage = (status: ApprovalStatus, translations: IApprovalActionsTranslations) => {
   if (status === ApprovalStatus.approved) return translations.approved;
