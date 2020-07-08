@@ -2,15 +2,17 @@ import React, { Fragment, FunctionComponent } from "react";
 
 import { useUpdateCompanyApprovalStatus } from "$hooks/mutations";
 import { useCompanyByUuid } from "$hooks/queries";
-
-import { IApprovableCompany } from "$interfaces/Approvable";
 import { useTranslations } from "$hooks/queries/useTranslations";
 import { useShowError } from "$hooks/snackbar/useShowError";
 import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
+
+import { IApprovableCompany } from "$interfaces/Approvable";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { IUser } from "$interfaces/User";
+
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 import { CompanyDetailInfo } from "./component";
 
@@ -22,7 +24,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   }
 ) => {
   const updateCompanyApprovalStatus = useUpdateCompanyApprovalStatus({ refetchApprovableEntities });
-  const response = useCompanyByUuid({ uuid: selectedCompany.uuid, withUsers: true });
+  const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   const translations = useTranslations<IApprovalActionsTranslations>("approvalActions");
   const showError = useShowError();
   const showSuccess = useShowSuccess();

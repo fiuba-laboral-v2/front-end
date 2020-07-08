@@ -5,10 +5,14 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { CompanyProfile } from "./component";
 
 export const CompanyProfileContainer: FunctionComponent = () => {
-  const { uuid } = useParams();
+  const { uuid } = useParams<IRouteParams>();
   const response = useCompanyByUuid({ uuid });
 
   if (response.error || response.loading) return <LoadingSpinner/>;
 
   return <CompanyProfile company={response.data.getCompanyByUuid}/>;
 };
+
+interface IRouteParams {
+  uuid: string;
+}

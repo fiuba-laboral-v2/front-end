@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 
 import { MainTitle } from "../../../MainTitle";
 import { useTranslations } from "$hooks/queries";
@@ -14,7 +15,7 @@ export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
 };
 
 export interface IMainTitleContainerProps {
-  company: ICompany;
+  company: ICompany<IUser | undefined>;
 }
 
 interface IAdminCompanyMainTitle {

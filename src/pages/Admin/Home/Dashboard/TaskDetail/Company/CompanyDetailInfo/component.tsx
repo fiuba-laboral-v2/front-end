@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
@@ -20,5 +21,5 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
 
 export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus) => void;
-  company: ICompany;
+  company: ICompany<IUser>;
 }
