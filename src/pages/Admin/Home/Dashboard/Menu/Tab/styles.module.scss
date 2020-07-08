@@ -1,28 +1,39 @@
 @import "$styles/_variables";
 
-@mixin backgroundColor($color) {
-  background-color: lighten($color, 60%);
+@mixin containerStyles($color) {
+  background-color: transparentize($color, 1);
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
-
-  &.selected {
-    background-color: lighten($color, 30%);
-  }
+  padding-right: $spacing-m;
 
   &:hover {
-    background-color: lighten($color, 35%);
+    background-color: transparentize($color, 0.95);
+  }
+
+  &.selected {
+    background-color: transparentize($color, 0.85);
+  }
+
+  &:active {
+    background-color: transparentize($color, 0.9);
   }
 }
 
-.red {
-  @include backgroundColor($companyColor);
+.container {
+  &.red {
+    @include containerStyles($companyColor);
+  }
+
+  &.blue {
+    @include containerStyles($applicantColor);
+  }
 }
 
-.blue {
-  @include backgroundColor($applicantColor);
+.checkboxIcon {
+  padding: 0;
 }
 
 .description {
@@ -30,10 +41,29 @@
   display: inline;
   font-size: $fontSize-s;
   margin: $spacing-s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.description,
+.checkboxIcon {
+  &.red {
+    color: $companyColor;
+  }
+
+  &.blue {
+    color: $applicantColor;
+  }
 }
 
 .tooltip {
   display: none;
+}
+
+.description,
+.tooltip {
+  user-select: none;
 }
 
 .checkbox {
@@ -42,7 +72,7 @@
 
 .icon,
 .checkbox {
-  margin: $spacing-s;
+  margin: $spacing-s 0;
 }
 
 @media (max-width: $hdContainerThreshold) {

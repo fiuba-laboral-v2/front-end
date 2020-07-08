@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({ since, className }) => (
   <p className={classNames(styles.time, className)}>
-    {upperFirst(moment(parseInt(since, 10)).fromNow())}
+    {upperFirst(moment(since).fromNow())}
   </p>
 );
 

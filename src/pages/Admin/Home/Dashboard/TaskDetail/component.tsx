@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
@@ -16,6 +16,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
     refetchApprovableEntities
   }
 ) => {
+  const contentContainer = useRef<HTMLDivElement>(null);
+  const scrollToTop = () => {
+    contentContainer.current?.scrollTo(0, 0);
+  };
+
   let children = <EmptyDetail/>;
   if (selectedTask) {
     children = (
@@ -31,17 +36,27 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
           }
           {
             selectedTask.__typename === APPLICANT &&
-            <ApplicantDetailInfo selectedApplicant={selectedTask} onStatusUpdate={onStatusUpdate}/>
+            <ApplicantDetailInfo
+                selectedApplicant={selectedTask}
+                onStatusUpdate={onStatusUpdate}
+                refetchApprovableEntities={refetchApprovableEntities}
+            />
           }
         </div>
-        <div className={styles.content}>
+        <div className={styles.content} ref={contentContainer}>
           {
             selectedTask.__typename === COMPANY &&
-            <CompanyDetailContent companyUuid={selectedTask.uuid}/>
+            <CompanyDetailContent
+                companyUuid={selectedTask.uuid}
+                scrollToTop={scrollToTop}
+            />
           }
           {
             selectedTask.__typename === APPLICANT &&
-            <ApplicantDetailContent applicantUuid={selectedTask.uuid}/>
+            <ApplicantDetailContent
+                applicantUuid={selectedTask.uuid}
+                scrollToTop={scrollToTop}
+            />
           }
         </div>
       </>
