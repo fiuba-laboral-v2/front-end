@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { IApprovable } from "$interfaces/AdminTask";
+import { AdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import styles from "./styles.module.scss";
@@ -32,5 +32,5 @@ export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
 };
 
 interface IApprovableEntityProps {
-  approvableEntity: IApprovable;
+  approvableEntity: AdminTask;
 }

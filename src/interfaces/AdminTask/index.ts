@@ -16,7 +16,7 @@ export interface IApprovableApplicant {
   user: IUser;
 }
 
-export type IApprovable = IApprovableCompany | IApprovableApplicant;
+export type AdminTask = IApprovableCompany | IApprovableApplicant;
 
 export type AdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 

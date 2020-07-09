@@ -1,9 +1,9 @@
-import { IApprovable } from "$interfaces/AdminTask";
+import { AdminTask } from "$interfaces/AdminTask";
 
 export interface ITaskListContainerProps {
-  onSelectTask: (task: IApprovable) => void;
-  selectedTask?: IApprovable;
-  approvableEntities?: IApprovable[];
+  onSelectTask: (task: AdminTask) => void;
+  selectedTask?: AdminTask;
+  adminTasks?: AdminTask[];
 }
 
 export interface ITaskListProps extends ITaskListContainerProps {

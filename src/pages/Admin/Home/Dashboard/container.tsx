@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
-import { IApprovable, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { AdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { useGetAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -9,7 +9,7 @@ import { find } from "lodash";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const DashboardContainer: FunctionComponent = () => {
-  const [selectedTask, setSelectedTask] = useState<IApprovable>();
+  const [selectedTask, setSelectedTask] = useState<AdminTask>();
   const [filter, setFilter] = useState<IAdminTasksFilter>({
     adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]
@@ -21,7 +21,7 @@ export const DashboardContainer: FunctionComponent = () => {
   return (
     <Dashboard
       refetchApprovableEntities={response.refetch}
-      approvableEntities={approvableEntities}
+      adminTasks={approvableEntities}
       selectedTask={find(approvableEntities, ["uuid", selectedTask?.uuid])}
       setSelectedTask={setSelectedTask}
       filter={filter}
