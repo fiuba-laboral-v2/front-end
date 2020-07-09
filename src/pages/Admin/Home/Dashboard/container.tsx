@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
-import { IApprovable, IApprovableFilter } from "$interfaces/AdminTask";
+import { IApprovable, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { useGetAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -10,7 +10,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
-  const [filter, setFilter] = useState<IApprovableFilter>({
+  const [filter, setFilter] = useState<IAdminTasksFilter>({
     adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]
   });

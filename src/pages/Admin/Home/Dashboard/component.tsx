@@ -4,7 +4,7 @@ import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { IApprovable, IApprovableFilter } from "$interfaces/AdminTask";
+import { IApprovable, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { TRefetchGetApprovables } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
@@ -43,8 +43,8 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
 interface IDashboardProps {
   selectedTask?: IApprovable;
   setSelectedTask: (task?: IApprovable) => void;
-  filter: IApprovableFilter;
-  setFilter: (filter: IApprovableFilter) => void;
+  filter: IAdminTasksFilter;
+  setFilter: (filter: IAdminTasksFilter) => void;
   approvableEntities?: IApprovable[];
   refetchApprovableEntities?: TRefetchGetApprovables;
 }

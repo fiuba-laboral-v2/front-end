@@ -1,13 +1,13 @@
-import { ApprovableEntityType, IApprovableFilter } from "$interfaces/AdminTask";
+import { ApprovableEntityType, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { TRefetchGetApprovables } from "$hooks/queries";
 
 export interface IMenuContainerProps {
-  filter: IApprovableFilter;
-  onSelectFilter: (filter: IApprovableFilter) => void;
+  filter: IAdminTasksFilter;
+  onSelectFilter: (filter: IAdminTasksFilter) => void;
   refetchApprovableEntities?: TRefetchGetApprovables;
 }
 
 export interface IMenuProps {
   onFilterByType: (types: ApprovableEntityType[]) => void;
-  filter: IApprovableFilter;
+  filter: IAdminTasksFilter;
 }
