@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
-import { useUpdateApprovableStatus } from "$hooks";
+import { useUpdateAdminTaskStatus } from "$hooks";
 import { IApprovableApplicant } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
@@ -14,7 +14,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   }
 ) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
-  const updateApprovable = useUpdateApprovableStatus({
+  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks
   });
@@ -22,7 +22,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
-    await updateApprovable({
+    await updateAdminTaskStatus({
       uuid: selectedApplicant.uuid,
       status: status,
       onStatusUpdate

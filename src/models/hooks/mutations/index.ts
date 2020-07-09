@@ -7,4 +7,4 @@ export * from "./useSaveApplicant";
 export * from "./useUpdateCurrentApplicant";
 export * from "./useUpdateCurrentCompany";
 export * from "./useUpdateApprovableStatusMutation";
-export * from "./useUpdateApprovableStatus";
+export * from "./useUpdateAdminTaskStatus";

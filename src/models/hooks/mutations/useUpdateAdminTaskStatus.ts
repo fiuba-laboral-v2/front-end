@@ -22,7 +22,7 @@ const useGetTranslations = () => {
   return translationsResponse.data;
 };
 
-export const useUpdateApprovableStatus = (
+export const useUpdateAdminTaskStatus = (
   {
     documentNode,
     refetchAdminTasks
@@ -31,7 +31,7 @@ export const useUpdateApprovableStatus = (
   const translations = useGetTranslations();
   const showError = useShowError();
   const showSuccess = useShowSuccess();
-  const updateApprovableStatus = useUpdateApprovableStatusMutation({
+  const updateAdminTaskStatus = useUpdateApprovableStatusMutation({
     documentNode,
     refetchAdminTasks
   });
@@ -42,7 +42,7 @@ export const useUpdateApprovableStatus = (
       onStatusUpdate
     }: IUpdateApprovable
   ) => {
-    const result = await updateApprovableStatus({
+    const result = await updateAdminTaskStatus({
       variables: {
         uuid: uuid,
         approvalStatus: status

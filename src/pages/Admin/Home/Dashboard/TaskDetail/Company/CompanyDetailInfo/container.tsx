@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useUpdateApprovableStatus } from "$hooks";
+import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 
 import { IApprovableCompany } from "$interfaces/AdminTask";
@@ -17,7 +17,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     refetchAdminTasks
   }
 ) => {
-  const updateApprovable = useUpdateApprovableStatus({
+  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchAdminTasks
   });
@@ -25,7 +25,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
-    await updateApprovable({
+    await updateAdminTaskStatus({
       uuid: selectedCompany.uuid,
       status: status,
       onStatusUpdate
