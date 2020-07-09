@@ -11,7 +11,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   }
 ) => {
   const onFilterByType = async (types: AdminTaskType[]) => {
-    const changedFilter = { ...filter, approvableEntityTypes: types };
+    const changedFilter = { ...filter, adminTaskTypes: types };
     onSelectFilter({ ...filter, adminTaskTypes: types });
     if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);
   };

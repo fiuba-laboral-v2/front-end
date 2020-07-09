@@ -14,5 +14,5 @@ export interface ITypeFilterContainerProps {
 export interface ITypeFilterProps {
   translations: ITypeFilterTranslations;
   types: AdminTaskType[];
-  toggleType: (selected: boolean, entityType: AdminTaskType) => void;
+  toggleType: (selected: boolean, adminTaskType: AdminTaskType) => void;
 }

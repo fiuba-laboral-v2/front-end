@@ -20,7 +20,7 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
         onClick={() => onSelectTask(adminTask)}
         selected={adminTask.uuid === selectedTask?.uuid}
       >
-        <ApprovableEntity approvableEntity={adminTask}/>
+        <ApprovableEntity adminTask={adminTask}/>
       </ClickableCard>
     }
   </List>

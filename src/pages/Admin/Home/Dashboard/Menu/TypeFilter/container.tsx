@@ -16,12 +16,12 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const toggleType = (selected: boolean, entityType: AdminTaskType) => {
+  const toggleType = (selected: boolean, adminTaskType: AdminTaskType) => {
     let changedTypes;
     if (selected) {
-      changedTypes = [...types, entityType];
+      changedTypes = [...types, adminTaskType];
     } else {
-      changedTypes = types.filter(type => type !== entityType);
+      changedTypes = types.filter(type => type !== adminTaskType);
     }
     onFilterByType(changedTypes);
   };
