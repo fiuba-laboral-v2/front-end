@@ -5,11 +5,11 @@ import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { AdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
-import { TRefetchGetApprovables } from "$hooks/queries";
+import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
-    refetchApprovableEntities,
+    refetchGetAdminTasks,
     adminTasks,
     selectedTask,
     setSelectedTask,
@@ -20,7 +20,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
   <Window width="fullWidth">
     <div className={styles.mainContent}>
       <Menu
-        refetchApprovableEntities={refetchApprovableEntities}
+        refetchGetAdminTasks={refetchGetAdminTasks}
         filter={filter}
         onSelectFilter={setFilter}
       />
@@ -30,8 +30,8 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         onSelectTask={setSelectedTask}
       />
       <TaskDetail
-        refetchApprovableEntities={() =>
-          refetchApprovableEntities && refetchApprovableEntities(filter)
+        refetchAdminTasks={() =>
+          refetchGetAdminTasks && refetchGetAdminTasks(filter)
         }
         selectedTask={selectedTask}
         onStatusUpdate={() => setSelectedTask(undefined)}
@@ -46,5 +46,5 @@ interface IDashboardProps {
   filter: IAdminTasksFilter;
   setFilter: (filter: IAdminTasksFilter) => void;
   adminTasks?: AdminTask[];
-  refetchApprovableEntities?: TRefetchGetApprovables;
+  refetchGetAdminTasks?: TRefetchGetAdminTasks;
 }

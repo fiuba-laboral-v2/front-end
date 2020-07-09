@@ -1,10 +1,10 @@
 import { AdminTaskType, IAdminTasksFilter } from "$interfaces/AdminTask";
-import { TRefetchGetApprovables } from "$hooks/queries";
+import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export interface IMenuContainerProps {
   filter: IAdminTasksFilter;
   onSelectFilter: (filter: IAdminTasksFilter) => void;
-  refetchApprovableEntities?: TRefetchGetApprovables;
+  refetchGetAdminTasks?: TRefetchGetAdminTasks;
 }
 
 export interface IMenuProps {

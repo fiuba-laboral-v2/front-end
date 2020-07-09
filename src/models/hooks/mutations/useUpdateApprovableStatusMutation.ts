@@ -5,20 +5,20 @@ import { DocumentNode } from "graphql";
 export const useUpdateApprovableStatusMutation = (
   {
     documentNode,
-    refetchApprovableEntities
+    refetchAdminTasks
   }: IUseUpdateApprovableStatus
 ) => {
   const mutation = useMutation<IUseUpdateApprovableStatusVariables>(documentNode);
   return async ({ variables }: IMutationVariables) => {
     const mutationFunctionResult = await mutation({ variables });
-    refetchApprovableEntities();
+    refetchAdminTasks();
     return mutationFunctionResult;
   };
 };
 
 interface IUseUpdateApprovableStatus {
   documentNode: DocumentNode;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
 interface IMutationVariables {

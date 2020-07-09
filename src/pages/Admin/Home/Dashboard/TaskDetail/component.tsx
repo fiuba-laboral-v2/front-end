@@ -13,7 +13,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
     selectedTask,
     onStatusUpdate,
-    refetchApprovableEntities
+    refetchAdminTasks
   }
 ) => {
   const contentContainer = useRef<HTMLDivElement>(null);
@@ -31,7 +31,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <CompanyDetailInfo
                 selectedCompany={selectedTask}
                 onStatusUpdate={onStatusUpdate}
-                refetchApprovableEntities={refetchApprovableEntities}
+                refetchAdminTasks={refetchAdminTasks}
             />
           }
           {
@@ -39,7 +39,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <ApplicantDetailInfo
                 selectedApplicant={selectedTask}
                 onStatusUpdate={onStatusUpdate}
-                refetchApprovableEntities={refetchApprovableEntities}
+                refetchAdminTasks={refetchAdminTasks}
             />
           }
         </div>
@@ -68,5 +68,5 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
 interface ITaskDetailProps {
   selectedTask?: AdminTask;
   onStatusUpdate: () => void;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }

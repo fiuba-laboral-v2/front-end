@@ -9,7 +9,7 @@ export const useGetAdminTasks = (filter: IAdminTasksFilter) =>
     { variables: filter, fetchPolicy: "no-cache" }
   );
 
-export type TRefetchGetApprovables = (
+export type TRefetchGetAdminTasks = (
   filter: IAdminTasksFilter
 ) => Promise<ApolloQueryResult<IUseGetAdminTasks>>;
 

@@ -16,13 +16,13 @@ export const DashboardContainer: FunctionComponent = () => {
   });
   const response = useGetAdminTasks(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  const approvableEntities = response.data?.getAdminTasks;
+  const adminTasks = response.data?.getAdminTasks;
 
   return (
     <Dashboard
-      refetchApprovableEntities={response.refetch}
-      adminTasks={approvableEntities}
-      selectedTask={find(approvableEntities, ["uuid", selectedTask?.uuid])}
+      refetchGetAdminTasks={response.refetch}
+      adminTasks={adminTasks}
+      selectedTask={find(adminTasks, ["uuid", selectedTask?.uuid])}
       setSelectedTask={setSelectedTask}
       filter={filter}
       setFilter={setFilter}

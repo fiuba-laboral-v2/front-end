@@ -25,7 +25,7 @@ const useGetTranslations = () => {
 export const useUpdateApprovableStatus = (
   {
     documentNode,
-    refetchApprovableEntities
+    refetchAdminTasks
   }: IUseUpdateApprovable
 ) => {
   const translations = useGetTranslations();
@@ -33,7 +33,7 @@ export const useUpdateApprovableStatus = (
   const showSuccess = useShowSuccess();
   const updateApprovableStatus = useUpdateApprovableStatusMutation({
     documentNode,
-    refetchApprovableEntities
+    refetchAdminTasks
   });
   return async (
     {
@@ -58,7 +58,7 @@ export const useUpdateApprovableStatus = (
 
 interface IUseUpdateApprovable {
   documentNode: DocumentNode;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
 interface IUpdateApprovable {

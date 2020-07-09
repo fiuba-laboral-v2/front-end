@@ -14,12 +14,12 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   {
     selectedCompany,
     onStatusUpdate,
-    refetchApprovableEntities
+    refetchAdminTasks
   }
 ) => {
   const updateApprovable = useUpdateApprovableStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
-    refetchApprovableEntities
+    refetchAdminTasks
   });
   const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   if (response.error || response.loading) return <Fragment />;
@@ -40,7 +40,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 interface ICompanyDetailInfoContainerProps {
   selectedCompany: IApprovableCompany;
   onStatusUpdate: () => void;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
 export { CompanyDetailInfoContainer };

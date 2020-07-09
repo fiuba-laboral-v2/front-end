@@ -5,7 +5,7 @@ import { Menu } from "./component";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   {
-    refetchApprovableEntities,
+    refetchGetAdminTasks,
     filter,
     onSelectFilter
   }
@@ -13,7 +13,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   const onFilterByType = async (types: AdminTaskType[]) => {
     const changedFilter = { ...filter, approvableEntityTypes: types };
     onSelectFilter({ ...filter, adminTaskTypes: types });
-    if (refetchApprovableEntities) await refetchApprovableEntities(changedFilter);
+    if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);
   };
 
   return (

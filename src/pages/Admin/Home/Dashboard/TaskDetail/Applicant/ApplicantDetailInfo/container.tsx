@@ -8,7 +8,7 @@ import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 
 export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   {
-    refetchApprovableEntities,
+    refetchAdminTasks,
     selectedApplicant,
     onStatusUpdate
   }
@@ -16,7 +16,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   const response = useApplicantByUuid(selectedApplicant.uuid);
   const updateApprovable = useUpdateApprovableStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
-    refetchApprovableEntities
+    refetchAdminTasks
   });
 
   if (response.error || response.loading) return <Fragment />;
@@ -35,5 +35,5 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
 interface ICompanyDetailInfoContainerProps {
   selectedApplicant: IApprovableApplicant;
   onStatusUpdate: () => void;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
