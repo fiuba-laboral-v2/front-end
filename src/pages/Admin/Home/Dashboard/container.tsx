@@ -11,12 +11,12 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<IApprovable>();
   const [filter, setFilter] = useState<IApprovableFilter>({
-    approvableEntityTypes: [APPLICANT, COMPANY],
+    adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]
   });
   const response = useGetApprovables(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  const approvableEntities = response.data?.getApprovables;
+  const approvableEntities = response.data?.getAdminTasks;
 
   return (
     <Dashboard

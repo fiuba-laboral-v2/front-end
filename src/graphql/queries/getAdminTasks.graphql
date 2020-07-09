@@ -1,9 +1,9 @@
-query GetApprovables(
-  $approvableEntityTypes: [ApprovableEntityType]!,
+query GetAdminTasks(
+  $adminTaskTypes: [AdminTaskType]!,
   $statuses: [ApprovalStatus]!
 ) {
-  getApprovables(
-    approvableEntityTypes: $approvableEntityTypes,
+  getAdminTasks(
+    adminTaskTypes: $adminTaskTypes,
     statuses: $statuses
   ) {
     ... on Company {
