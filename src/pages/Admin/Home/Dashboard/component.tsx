@@ -5,7 +5,7 @@ import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
-import { TRefetchPendingEntities } from "$hooks/queries";
+import { TRefetchGetApprovables } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
@@ -46,5 +46,5 @@ interface IDashboardProps {
   filter: IApprovableFilter;
   setFilter: (filter: IApprovableFilter) => void;
   approvableEntities?: IApprovable[];
-  refetchApprovableEntities?: TRefetchPendingEntities;
+  refetchApprovableEntities?: TRefetchGetApprovables;
 }

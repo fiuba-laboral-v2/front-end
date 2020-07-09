@@ -1,10 +1,10 @@
 import { ApprovableEntityType, IApprovableFilter } from "$interfaces/Approvable";
-import { TRefetchPendingEntities } from "$hooks/queries";
+import { TRefetchGetApprovables } from "$hooks/queries";
 
 export interface IMenuContainerProps {
   filter: IApprovableFilter;
   onSelectFilter: (filter: IApprovableFilter) => void;
-  refetchApprovableEntities?: TRefetchPendingEntities;
+  refetchApprovableEntities?: TRefetchGetApprovables;
 }
 
 export interface IMenuProps {
