@@ -1,4 +1,4 @@
-import { ApprovableEntityType } from "$interfaces/Approvable";
+import { ApprovableEntityType } from "$interfaces/AdminTask";
 
 export interface ITypeFilterTranslations {
   title: string;

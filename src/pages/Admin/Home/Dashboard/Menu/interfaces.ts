@@ -1,4 +1,4 @@
-import { ApprovableEntityType, IApprovableFilter } from "$interfaces/Approvable";
+import { ApprovableEntityType, IApprovableFilter } from "$interfaces/AdminTask";
 import { TRefetchGetApprovables } from "$hooks/queries";
 
 export interface IMenuContainerProps {

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable } from "$interfaces/AdminTask";
 import styles from "./styles.module.scss";
 import { ITaskListTranslations } from "../interface";
 

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable } from "$interfaces/AdminTask";
 import { ClickableCard } from "$components/ClickableCard";
 import { ApprovableEntity } from "../ApprovableEntity";
 import { List } from "$components/List";

@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import styles from "./styles.module.scss";

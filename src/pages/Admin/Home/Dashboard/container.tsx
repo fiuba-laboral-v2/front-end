@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
-import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
+import { IApprovable, IApprovableFilter } from "$interfaces/AdminTask";
 import { useGetAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";

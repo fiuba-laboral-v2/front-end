@@ -4,7 +4,7 @@ import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TypeFilter } from "./component";
 import { ITypeFilterContainerProps, ITypeFilterTranslations } from "./interfaces";
-import { ApprovableEntityType } from "$interfaces/Approvable";
+import { ApprovableEntityType } from "$interfaces/AdminTask";
 
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {

@@ -1,4 +1,4 @@
-import { ApprovableEntityType } from "$interfaces/Approvable";
+import { ApprovableEntityType } from "$interfaces/AdminTask";
 import { FunctionComponent } from "react";
 
 export interface IApprovableTypeTabContainerProps {

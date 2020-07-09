@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useUpdateApprovableStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 
-import { IApprovableCompany } from "$interfaces/Approvable";
+import { IApprovableCompany } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IUser } from "$interfaces/User";
 

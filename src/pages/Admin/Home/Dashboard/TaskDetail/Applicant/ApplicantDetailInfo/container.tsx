@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
 import { useUpdateApprovableStatus } from "$hooks";
-import { IApprovableApplicant } from "$interfaces/Approvable";
+import { IApprovableApplicant } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";

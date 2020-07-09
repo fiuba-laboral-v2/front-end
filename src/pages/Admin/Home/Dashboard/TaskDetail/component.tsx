@@ -4,7 +4,7 @@ import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
-import { IApprovable } from "$interfaces/Approvable";
+import { IApprovable } from "$interfaces/AdminTask";
 import { APPLICANT, COMPANY } from "$typenames";
 
 import styles from "./styles.module.scss";

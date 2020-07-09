@@ -4,7 +4,7 @@ import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
+import { IApprovable, IApprovableFilter } from "$interfaces/AdminTask";
 import { TRefetchGetApprovables } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
