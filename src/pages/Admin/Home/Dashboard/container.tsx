@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
-import { useGetApprovables } from "$hooks/queries";
+import { useGetAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { APPLICANT, COMPANY } from "$typenames";
@@ -14,7 +14,7 @@ export const DashboardContainer: FunctionComponent = () => {
     adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]
   });
-  const response = useGetApprovables(filter);
+  const response = useGetAdminTasks(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   const approvableEntities = response.data?.getAdminTasks;
 

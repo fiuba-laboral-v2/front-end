@@ -3,7 +3,7 @@ import { GET_ADMIN_TASKS } from "$queries";
 import { IApprovable, IApprovableFilter } from "$interfaces/Approvable/";
 import { ApolloQueryResult } from "apollo-client/core/types";
 
-export const useGetApprovables = (filter: IApprovableFilter) =>
+export const useGetAdminTasks = (filter: IApprovableFilter) =>
   useQuery<IApprovableFilter, IUseGetApprovables>(
     GET_ADMIN_TASKS,
     { variables: filter, fetchPolicy: "no-cache" }
