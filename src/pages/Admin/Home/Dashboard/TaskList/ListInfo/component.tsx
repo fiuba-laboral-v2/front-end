@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { AdminTask } from "$interfaces/AdminTask";
+import { TAdminTask } from "$interfaces/AdminTask";
 import styles from "./styles.module.scss";
 import { ITaskListTranslations } from "../interface";
 
@@ -13,6 +13,6 @@ export const ListInfo: FunctionComponent<IListInfoProps> = (
 );
 
 interface IListInfoProps {
-  adminTasks: AdminTask[];
+  adminTasks: TAdminTask[];
   translations: ITaskListTranslations;
 }

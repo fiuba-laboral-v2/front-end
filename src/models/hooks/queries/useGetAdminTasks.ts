@@ -1,6 +1,6 @@
 import { useQuery } from "$hooks";
 import { GET_ADMIN_TASKS } from "$queries";
-import { AdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { ApolloQueryResult } from "apollo-client/core/types";
 
 export const useGetAdminTasks = (filter: IAdminTasksFilter) =>
@@ -14,5 +14,5 @@ export type TRefetchGetAdminTasks = (
 ) => Promise<ApolloQueryResult<IUseGetAdminTasks>>;
 
 interface IUseGetAdminTasks {
-  getAdminTasks: AdminTask[];
+  getAdminTasks: TAdminTask[];
 }

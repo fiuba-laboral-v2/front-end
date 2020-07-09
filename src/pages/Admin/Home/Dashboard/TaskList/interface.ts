@@ -1,9 +1,9 @@
-import { AdminTask } from "$interfaces/AdminTask";
+import { TAdminTask } from "$interfaces/AdminTask";
 
 export interface ITaskListContainerProps {
-  onSelectTask: (task: AdminTask) => void;
-  selectedTask?: AdminTask;
-  adminTasks?: AdminTask[];
+  onSelectTask: (task: TAdminTask) => void;
+  selectedTask?: TAdminTask;
+  adminTasks?: TAdminTask[];
 }
 
 export interface ITaskListProps extends ITaskListContainerProps {

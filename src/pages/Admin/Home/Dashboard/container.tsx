@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
-import { AdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { useGetAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -9,7 +9,7 @@ import { find } from "lodash";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const DashboardContainer: FunctionComponent = () => {
-  const [selectedTask, setSelectedTask] = useState<AdminTask>();
+  const [selectedTask, setSelectedTask] = useState<TAdminTask>();
   const [filter, setFilter] = useState<IAdminTasksFilter>({
     adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]

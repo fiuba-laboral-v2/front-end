@@ -4,7 +4,7 @@ import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { AdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
@@ -41,10 +41,10 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
 );
 
 interface IDashboardProps {
-  selectedTask?: AdminTask;
-  setSelectedTask: (task?: AdminTask) => void;
+  selectedTask?: TAdminTask;
+  setSelectedTask: (task?: TAdminTask) => void;
   filter: IAdminTasksFilter;
   setFilter: (filter: IAdminTasksFilter) => void;
-  adminTasks?: AdminTask[];
+  adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
 }

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { AdminTask } from "$interfaces/AdminTask";
+import { TAdminTask } from "$interfaces/AdminTask";
 import { ClickableCard } from "$components/ClickableCard";
 import { ApprovableEntity } from "../ApprovableEntity";
 import { List } from "$components/List";
@@ -27,7 +27,7 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
 );
 
 interface IListBodyProps {
-  adminTasks: AdminTask[];
-  onSelectTask: (task: AdminTask) => void;
-  selectedTask?: AdminTask;
+  adminTasks: TAdminTask[];
+  onSelectTask: (task: TAdminTask) => void;
+  selectedTask?: TAdminTask;
 }
