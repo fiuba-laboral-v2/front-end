@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 
-import { IApprovableCompany } from "$interfaces/AdminTask";
+import { ICompanyAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IUser } from "$interfaces/User";
 
@@ -38,7 +38,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 };
 
 interface ICompanyDetailInfoContainerProps {
-  selectedCompany: IApprovableCompany;
+  selectedCompany: ICompanyAdminTask;
   onStatusUpdate: () => void;
   refetchAdminTasks: () => void;
 }
