@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
-import { IApprovableApplicant } from "$interfaces/AdminTask";
+import { IApplicantAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
@@ -33,7 +33,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
 };
 
 interface ICompanyDetailInfoContainerProps {
-  selectedApplicant: IApprovableApplicant;
+  selectedApplicant: IApplicantAdminTask;
   onStatusUpdate: () => void;
   refetchAdminTasks: () => void;
 }

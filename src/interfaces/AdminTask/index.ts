@@ -9,14 +9,14 @@ export interface ICompanyAdminTask {
   companyName: string;
 }
 
-export interface IApprovableApplicant {
+export interface IApplicantAdminTask {
   __typename: APPLICANT_TYPE;
   uuid: string;
   createdAt: string;
   user: IUser;
 }
 
-export type TAdminTask = ICompanyAdminTask | IApprovableApplicant;
+export type TAdminTask = ICompanyAdminTask | IApplicantAdminTask;
 
 export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 
