@@ -40,7 +40,7 @@ export const useUpdateAdminTaskStatus = (
       uuid,
       status,
       onStatusUpdate
-    }: IUpdateApprovable
+    }: IUpdateAdminTask
   ) => {
     const result = await updateAdminTaskStatus({
       variables: {
@@ -61,7 +61,7 @@ interface IUseUpdateAdminTask {
   refetchAdminTasks: () => void;
 }
 
-interface IUpdateApprovable {
+interface IUpdateAdminTask {
   uuid: string;
   status: ApprovalStatus;
   onStatusUpdate: () => void;
