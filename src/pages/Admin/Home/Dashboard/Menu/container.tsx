@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IMenuContainerProps } from "./interfaces";
-import { AdminTaskType } from "$interfaces/AdminTask";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 import { Menu } from "./component";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
@@ -10,7 +10,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
     onSelectFilter
   }
 ) => {
-  const onFilterByType = async (types: AdminTaskType[]) => {
+  const onFilterByType = async (types: TAdminTaskType[]) => {
     const changedFilter = { ...filter, adminTaskTypes: types };
     onSelectFilter({ ...filter, adminTaskTypes: types });
     if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);

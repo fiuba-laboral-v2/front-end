@@ -1,4 +1,4 @@
-import { AdminTaskType } from "$interfaces/AdminTask";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 import { FunctionComponent } from "react";
 
 export interface IApprovableTypeTabContainerProps {
@@ -6,9 +6,9 @@ export interface IApprovableTypeTabContainerProps {
   iconTitle: string;
   color: "red" | "blue";
   Icon: FunctionComponent<IIcon>;
-  types: AdminTaskType[];
-  type: AdminTaskType;
-  onClick: (selected: boolean, adminTaskType: AdminTaskType) => void;
+  types: TAdminTaskType[];
+  type: TAdminTaskType;
+  onClick: (selected: boolean, adminTaskType: TAdminTaskType) => void;
 }
 
 export interface IApprovableTypeTabProps extends

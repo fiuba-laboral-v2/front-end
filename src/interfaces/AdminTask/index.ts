@@ -18,9 +18,9 @@ export interface IApprovableApplicant {
 
 export type TAdminTask = IApprovableCompany | IApprovableApplicant;
 
-export type AdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
+export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 
 export interface IAdminTasksFilter {
-  adminTaskTypes: AdminTaskType[];
+  adminTaskTypes: TAdminTaskType[];
   statuses: ApprovalStatus[];
 }

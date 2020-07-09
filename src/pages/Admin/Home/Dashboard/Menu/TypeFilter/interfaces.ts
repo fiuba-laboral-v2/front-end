@@ -1,4 +1,4 @@
-import { AdminTaskType } from "$interfaces/AdminTask";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 
 export interface ITypeFilterTranslations {
   title: string;
@@ -7,12 +7,12 @@ export interface ITypeFilterTranslations {
 }
 
 export interface ITypeFilterContainerProps {
-  types: AdminTaskType[];
-  onFilterByType: (types: AdminTaskType[]) => void;
+  types: TAdminTaskType[];
+  onFilterByType: (types: TAdminTaskType[]) => void;
 }
 
 export interface ITypeFilterProps {
   translations: ITypeFilterTranslations;
-  types: AdminTaskType[];
-  toggleType: (selected: boolean, adminTaskType: AdminTaskType) => void;
+  types: TAdminTaskType[];
+  toggleType: (selected: boolean, adminTaskType: TAdminTaskType) => void;
 }
