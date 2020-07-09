@@ -26,7 +26,7 @@ export const useUpdateAdminTaskStatus = (
   {
     documentNode,
     refetchAdminTasks
-  }: IUseUpdateApprovable
+  }: IUseUpdateAdminTask
 ) => {
   const translations = useGetTranslations();
   const showError = useShowError();
@@ -56,7 +56,7 @@ export const useUpdateAdminTaskStatus = (
   };
 };
 
-interface IUseUpdateApprovable {
+interface IUseUpdateAdminTask {
   documentNode: DocumentNode;
   refetchAdminTasks: () => void;
 }
