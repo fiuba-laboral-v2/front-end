@@ -1,7 +1,7 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { useShowError } from "$hooks/snackbar/useShowError";
 import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
-import { useUpdateApprovableStatusMutation } from "$hooks/mutations";
+import { useUpdateAdminTaskStatusMutation } from "$hooks/mutations";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { DocumentNode } from "graphql";
 import { useTranslations } from "$hooks/queries";
@@ -31,7 +31,7 @@ export const useUpdateAdminTaskStatus = (
   const translations = useGetTranslations();
   const showError = useShowError();
   const showSuccess = useShowSuccess();
-  const updateAdminTaskStatus = useUpdateApprovableStatusMutation({
+  const updateAdminTaskStatus = useUpdateAdminTaskStatusMutation({
     documentNode,
     refetchAdminTasks
   });
