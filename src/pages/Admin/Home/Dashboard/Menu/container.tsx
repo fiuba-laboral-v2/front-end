@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IMenuContainerProps } from "./interfaces";
-import { ApprovableEntityType } from "$interfaces/AdminTask";
+import { AdminTaskType } from "$interfaces/AdminTask";
 import { Menu } from "./component";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
@@ -10,7 +10,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
     onSelectFilter
   }
 ) => {
-  const onFilterByType = async (types: ApprovableEntityType[]) => {
+  const onFilterByType = async (types: AdminTaskType[]) => {
     const changedFilter = { ...filter, approvableEntityTypes: types };
     onSelectFilter({ ...filter, adminTaskTypes: types });
     if (refetchApprovableEntities) await refetchApprovableEntities(changedFilter);

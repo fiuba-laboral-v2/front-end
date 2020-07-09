@@ -4,7 +4,7 @@ import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TypeFilter } from "./component";
 import { ITypeFilterContainerProps, ITypeFilterTranslations } from "./interfaces";
-import { ApprovableEntityType } from "$interfaces/AdminTask";
+import { AdminTaskType } from "$interfaces/AdminTask";
 
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {
@@ -16,7 +16,7 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const toggleType = (selected: boolean, entityType: ApprovableEntityType) => {
+  const toggleType = (selected: boolean, entityType: AdminTaskType) => {
     let changedTypes;
     if (selected) {
       changedTypes = [...types, entityType];
