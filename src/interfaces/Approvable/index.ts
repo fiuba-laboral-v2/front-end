@@ -1,5 +1,6 @@
 import { APPLICANT_TYPE, COMPANY_TYPE } from "$typenames";
 import { IUser } from "../User";
+import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface IApprovableCompany {
   __typename: COMPANY_TYPE;
@@ -21,4 +22,5 @@ export type ApprovableEntityType = COMPANY_TYPE | APPLICANT_TYPE;
 
 export interface IApprovableFilter {
   approvableEntityTypes: ApprovableEntityType[];
+  statuses: ApprovalStatus[];
 }
