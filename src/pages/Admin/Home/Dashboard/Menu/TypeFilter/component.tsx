@@ -16,7 +16,7 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
   <section className={styles.typeFilterContainer}>
     <p className={styles.title}>{translations.title}</p>
     <AdminTaskTypeTab
-      className={styles.approvableTypeTab}
+      className={styles.adminTaskTypeTab}
       Icon={CompanyIcon}
       color="red"
       iconTitle={translations.companyIconTitle}
@@ -25,7 +25,7 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
       onClick={toggleType}
     />
     <AdminTaskTypeTab
-      className={styles.approvableTypeTab}
+      className={styles.adminTaskTypeTab}
       Icon={ApplicantIcon}
       iconTitle={translations.applicantIconTitle}
       color="blue"
