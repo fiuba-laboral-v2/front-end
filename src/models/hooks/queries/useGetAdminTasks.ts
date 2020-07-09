@@ -4,15 +4,15 @@ import { IApprovable, IApprovableFilter } from "$interfaces/Approvable/";
 import { ApolloQueryResult } from "apollo-client/core/types";
 
 export const useGetAdminTasks = (filter: IApprovableFilter) =>
-  useQuery<IApprovableFilter, IUseGetApprovables>(
+  useQuery<IApprovableFilter, IUseGetAdminTasks>(
     GET_ADMIN_TASKS,
     { variables: filter, fetchPolicy: "no-cache" }
   );
 
 export type TRefetchGetApprovables = (
   filter: IApprovableFilter
-) => Promise<ApolloQueryResult<IUseGetApprovables>>;
+) => Promise<ApolloQueryResult<IUseGetAdminTasks>>;
 
-interface IUseGetApprovables {
+interface IUseGetAdminTasks {
   getAdminTasks: IApprovable[];
 }
