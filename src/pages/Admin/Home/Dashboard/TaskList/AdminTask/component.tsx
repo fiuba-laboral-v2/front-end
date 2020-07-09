@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import { APPLICANT, COMPANY } from "$typenames";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
-export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
+export const AdminTask: FunctionComponent<IAdminTaskProps> = (
   { adminTask }
 ) => {
   let name = "";
@@ -22,7 +22,7 @@ export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
     Icon = ApplicantIcon;
   }
 
-  return <div className={styles.approvableEntity}>
+  return <div className={styles.adminTask}>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
       <TimeHumanizer since={adminTask.createdAt}/>
@@ -31,6 +31,6 @@ export const ApprovableEntity: FunctionComponent<IApprovableEntityProps> = (
   </div>;
 };
 
-interface IApprovableEntityProps {
+interface IAdminTaskProps {
   adminTask: TAdminTask;
 }

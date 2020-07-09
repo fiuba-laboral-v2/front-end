@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { ClickableCard } from "$components/ClickableCard";
-import { ApprovableEntity } from "../ApprovableEntity";
+import { AdminTask } from "../AdminTask";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
 
@@ -20,7 +20,7 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
         onClick={() => onSelectTask(adminTask)}
         selected={adminTask.uuid === selectedTask?.uuid}
       >
-        <ApprovableEntity adminTask={adminTask}/>
+        <AdminTask adminTask={adminTask}/>
       </ClickableCard>
     }
   </List>
