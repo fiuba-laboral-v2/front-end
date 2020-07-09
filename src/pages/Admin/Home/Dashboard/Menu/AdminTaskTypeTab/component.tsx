@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Tab } from "../Tab";
-import { IApprovableTypeTabProps } from "./interfaces";
+import { IAdminTaskTypeTabProps } from "./interfaces";
 
-export const ApprovableTypeTab: FunctionComponent<IApprovableTypeTabProps> = (
+export const AdminTaskTypeTab: FunctionComponent<IAdminTaskTypeTabProps> = (
   {
     className,
     color,
