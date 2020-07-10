@@ -1,18 +1,6 @@
 @import "$styles/_variables";
 
-.statusFilterContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.adminTaskTypeTab,
-.title {
+.tab {
   margin-bottom: $spacing-s;
   margin-right: $spacing-s;
-}
-
-.title {
-  color: $grey;
-  font-size: $fontSize-s;
-  margin-left: 12px;
 }

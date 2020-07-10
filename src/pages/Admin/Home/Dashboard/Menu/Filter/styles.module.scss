@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: $grey;
+  font-size: $fontSize-s;
+  margin-bottom: $spacing-s;
+  margin-left: 12px;
+  margin-right: $spacing-s;
+}

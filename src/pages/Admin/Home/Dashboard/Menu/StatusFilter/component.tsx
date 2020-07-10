@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { Tab } from "../Tab";
+import { Filter } from "../Filter";
 import CheckIcon from "@material-ui/icons/Check";
 import HistoryIcon from "@material-ui/icons/History";
 import NotInterestedIcon from "@material-ui/icons/NotInterested";
@@ -17,9 +18,9 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
     translations
   }
 ) => (
-  <section className={styles.typeFilterContainer}>
-    <p className={styles.title}>{translations.title}</p>
+  <Filter title={translations.title} >
     <Tab
+      className={styles.tab}
       color="grey"
       selected={statuses.includes(ApprovalStatus.approved)}
       iconTitle={translations.approved}
@@ -29,6 +30,7 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
       }
     />
     <Tab
+      className={styles.tab}
       color="grey"
       selected={statuses.includes(ApprovalStatus.rejected)}
       iconTitle={translations.rejected}
@@ -46,5 +48,5 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
         () => toggleStatus(!statuses.includes(ApprovalStatus.pending), ApprovalStatus.pending)
       }
     />
-  </section>
+  </Filter>
 );
