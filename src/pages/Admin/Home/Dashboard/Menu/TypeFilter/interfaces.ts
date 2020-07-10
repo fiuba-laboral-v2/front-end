@@ -7,11 +7,12 @@ export interface ITypeFilterTranslations {
 }
 
 export interface ITypeFilterContainerProps {
+  className?: string;
   types: TAdminTaskType[];
   onFilterByType: (types: TAdminTaskType[]) => void;
 }
 
-export interface ITypeFilterProps {
+export interface ITypeFilterProps extends Omit<ITypeFilterContainerProps, "onFilterByType"> {
   translations: ITypeFilterTranslations;
   types: TAdminTaskType[];
   toggleType: (selected: boolean, adminTaskType: TAdminTaskType) => void;

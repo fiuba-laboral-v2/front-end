@@ -8,6 +8,7 @@ import { TAdminTaskType } from "$interfaces/AdminTask";
 
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {
+    className,
     types,
     onFilterByType
   }
@@ -28,6 +29,7 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
 
   return (
     <TypeFilter
+      className={className}
       translations={transactions.data}
       types={types}
       toggleType={toggleType}

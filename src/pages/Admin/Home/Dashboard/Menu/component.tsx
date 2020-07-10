@@ -13,6 +13,7 @@ export const Menu: FunctionComponent<IMenuProps> = (
 ) => (
   <div className={styles.menuContent}>
     <TypeFilter
+      className={styles.typeFilter}
       types={filter.adminTaskTypes}
       onFilterByType={onFilterByType}
     />
