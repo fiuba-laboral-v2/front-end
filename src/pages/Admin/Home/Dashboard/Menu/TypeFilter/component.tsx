@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import { AdminTaskTypeTab } from "../AdminTaskTypeTab";
+import { Tab } from "../Tab";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import { ITypeFilterProps } from "./interfaces";
@@ -17,23 +18,21 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
 ) => (
   <section className={classNames(styles.typeFilterContainer, className)}>
     <p className={styles.title}>{translations.title}</p>
-    <AdminTaskTypeTab
+    <Tab
       className={styles.adminTaskTypeTab}
-      Icon={CompanyIcon}
       color="red"
+      selected={types.includes(COMPANY)}
       iconTitle={translations.companyIconTitle}
-      types={types}
-      type={COMPANY}
-      onClick={toggleType}
+      Icon={CompanyIcon}
+      onClick={() => toggleType(COMPANY)}
     />
-    <AdminTaskTypeTab
+    <Tab
       className={styles.adminTaskTypeTab}
-      Icon={ApplicantIcon}
-      iconTitle={translations.applicantIconTitle}
       color="blue"
-      types={types}
-      type={APPLICANT}
-      onClick={toggleType}
+      selected={types.includes(APPLICANT)}
+      iconTitle={translations.applicantIconTitle}
+      Icon={ApplicantIcon}
+      onClick={() => toggleType(APPLICANT)}
     />
   </section>
 );

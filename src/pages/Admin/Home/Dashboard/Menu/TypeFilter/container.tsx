@@ -5,6 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TypeFilter } from "./component";
 import { ITypeFilterContainerProps, ITypeFilterTranslations } from "./interfaces";
 import { TAdminTaskType } from "$interfaces/AdminTask";
+import { without } from "lodash";
 
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {
@@ -17,14 +18,9 @@ export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> =
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const toggleType = (selected: boolean, adminTaskType: TAdminTaskType) => {
-    let changedTypes;
-    if (selected) {
-      changedTypes = [...types, adminTaskType];
-    } else {
-      changedTypes = types.filter(type => type !== adminTaskType);
-    }
-    onFilterByType(changedTypes);
+  const toggleType = (adminTaskType: TAdminTaskType) => {
+    if (types.includes(adminTaskType)) return onFilterByType(without(types, adminTaskType));
+    onFilterByType([...types, adminTaskType]);
   };
 
   return (
