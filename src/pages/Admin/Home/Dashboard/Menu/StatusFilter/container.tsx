@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 
 import { useTranslations } from "$hooks/queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { without } from "lodash";
 
 import { StatusFilter } from "./component";
 import { Redirect } from "$components/Redirect";
@@ -20,7 +21,7 @@ export const StatusFilterContainer: FunctionComponent<ITypeFilterContainerProps>
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   const toggleStatus = (status: ApprovalStatus) => {
-    if (statuses.includes(status)) return onFilterByStatus(statuses.filter(s => s !== status));
+    if (statuses.includes(status)) return onFilterByStatus(without(statuses, status));
     onFilterByStatus([...statuses, status]);
   };
 
