@@ -4,13 +4,13 @@ import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { IApprovable, IApprovableFilter } from "$interfaces/Approvable";
-import { TRefetchGetApprovables } from "$hooks/queries";
+import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
-    refetchApprovableEntities,
-    approvableEntities,
+    refetchGetAdminTasks,
+    adminTasks,
     selectedTask,
     setSelectedTask,
     filter,
@@ -20,18 +20,18 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
   <Window width="fullWidth">
     <div className={styles.mainContent}>
       <Menu
-        refetchApprovableEntities={refetchApprovableEntities}
+        refetchGetAdminTasks={refetchGetAdminTasks}
         filter={filter}
         onSelectFilter={setFilter}
       />
       <TaskList
-        approvableEntities={approvableEntities}
+        adminTasks={adminTasks}
         selectedTask={selectedTask}
         onSelectTask={setSelectedTask}
       />
       <TaskDetail
-        refetchApprovableEntities={() =>
-          refetchApprovableEntities && refetchApprovableEntities(filter)
+        refetchAdminTasks={() =>
+          refetchGetAdminTasks && refetchGetAdminTasks(filter)
         }
         selectedTask={selectedTask}
         onStatusUpdate={() => setSelectedTask(undefined)}
@@ -41,10 +41,10 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
 );
 
 interface IDashboardProps {
-  selectedTask?: IApprovable;
-  setSelectedTask: (task?: IApprovable) => void;
-  filter: IApprovableFilter;
-  setFilter: (filter: IApprovableFilter) => void;
-  approvableEntities?: IApprovable[];
-  refetchApprovableEntities?: TRefetchGetApprovables;
+  selectedTask?: TAdminTask;
+  setSelectedTask: (task?: TAdminTask) => void;
+  filter: IAdminTasksFilter;
+  setFilter: (filter: IAdminTasksFilter) => void;
+  adminTasks?: TAdminTask[];
+  refetchGetAdminTasks?: TRefetchGetAdminTasks;
 }

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { ApprovableTypeTab } from "./component";
-import { IApprovableTypeTabContainerProps } from "./interfaces";
+import { AdminTaskTypeTab } from "./component";
+import { IAdminTaskTypeTabContainerProps } from "./interfaces";
 
-export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabContainerProps> = (
+export const AdminTaskTypeTabContainer: FunctionComponent<IAdminTaskTypeTabContainerProps> = (
   {
     color,
     Icon,
@@ -19,7 +19,7 @@ export const ApprovableTypeTabContainer: FunctionComponent<IApprovableTypeTabCon
   };
 
   return (
-    <ApprovableTypeTab
+    <AdminTaskTypeTab
       className={className}
       color={color}
       Icon={Icon}

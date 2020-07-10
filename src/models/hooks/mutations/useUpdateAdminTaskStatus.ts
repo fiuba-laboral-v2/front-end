@@ -1,7 +1,7 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { useShowError } from "$hooks/snackbar/useShowError";
 import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
-import { useUpdateApprovableStatusMutation } from "$hooks/mutations";
+import { useUpdateAdminTaskStatusMutation } from "$hooks/mutations";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { DocumentNode } from "graphql";
 import { useTranslations } from "$hooks/queries";
@@ -22,27 +22,27 @@ const useGetTranslations = () => {
   return translationsResponse.data;
 };
 
-export const useUpdateApprovableStatus = (
+export const useUpdateAdminTaskStatus = (
   {
     documentNode,
-    refetchApprovableEntities
-  }: IUseUpdateApprovable
+    refetchAdminTasks
+  }: IUseUpdateAdminTask
 ) => {
   const translations = useGetTranslations();
   const showError = useShowError();
   const showSuccess = useShowSuccess();
-  const updateApprovableStatus = useUpdateApprovableStatusMutation({
+  const updateAdminTaskStatus = useUpdateAdminTaskStatusMutation({
     documentNode,
-    refetchApprovableEntities
+    refetchAdminTasks
   });
   return async (
     {
       uuid,
       status,
       onStatusUpdate
-    }: IUpdateApprovable
+    }: IUpdateAdminTask
   ) => {
-    const result = await updateApprovableStatus({
+    const result = await updateAdminTaskStatus({
       variables: {
         uuid: uuid,
         approvalStatus: status
@@ -56,12 +56,12 @@ export const useUpdateApprovableStatus = (
   };
 };
 
-interface IUseUpdateApprovable {
+interface IUseUpdateAdminTask {
   documentNode: DocumentNode;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
-interface IUpdateApprovable {
+interface IUpdateAdminTask {
   uuid: string;
   status: ApprovalStatus;
   onStatusUpdate: () => void;

@@ -1,11 +1,11 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { CurrentApprovable } from "./CurrentApprovable";
+import { CurrentAdminTask } from "./CurrentAdminTask";
 
-export const CurrentCompany = CurrentApprovable<ICurrentCompanyAttributes>();
+export const CurrentCompany = CurrentAdminTask<ICurrentCompanyAttributes>();
 
 export type ICurrentCompanyAttributes = {
   uuid: string;
   approvalStatus: ApprovalStatus;
 };
 
-export type ICurrentCompany = CurrentApprovable & ICurrentCompanyAttributes;
+export type ICurrentCompany = CurrentAdminTask & ICurrentCompanyAttributes;

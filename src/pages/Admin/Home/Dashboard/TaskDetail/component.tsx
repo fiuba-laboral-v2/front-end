@@ -4,7 +4,7 @@ import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
-import { IApprovable } from "$interfaces/Approvable";
+import { TAdminTask } from "$interfaces/AdminTask";
 import { APPLICANT, COMPANY } from "$typenames";
 
 import styles from "./styles.module.scss";
@@ -13,7 +13,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
     selectedTask,
     onStatusUpdate,
-    refetchApprovableEntities
+    refetchAdminTasks
   }
 ) => {
   const contentContainer = useRef<HTMLDivElement>(null);
@@ -31,7 +31,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <CompanyDetailInfo
                 selectedCompany={selectedTask}
                 onStatusUpdate={onStatusUpdate}
-                refetchApprovableEntities={refetchApprovableEntities}
+                refetchAdminTasks={refetchAdminTasks}
             />
           }
           {
@@ -39,7 +39,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <ApplicantDetailInfo
                 selectedApplicant={selectedTask}
                 onStatusUpdate={onStatusUpdate}
-                refetchApprovableEntities={refetchApprovableEntities}
+                refetchAdminTasks={refetchAdminTasks}
             />
           }
         </div>
@@ -66,7 +66,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
 };
 
 interface ITaskDetailProps {
-  selectedTask?: IApprovable;
+  selectedTask?: TAdminTask;
   onStatusUpdate: () => void;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }

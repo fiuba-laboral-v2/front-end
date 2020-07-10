@@ -2,25 +2,25 @@ import { APPLICANT_TYPE, COMPANY_TYPE } from "$typenames";
 import { IUser } from "../User";
 import { ApprovalStatus } from "../ApprovalStatus";
 
-export interface IApprovableCompany {
+export interface ICompanyAdminTask {
   __typename: COMPANY_TYPE;
   uuid: string;
   createdAt: string;
   companyName: string;
 }
 
-export interface IApprovableApplicant {
+export interface IApplicantAdminTask {
   __typename: APPLICANT_TYPE;
   uuid: string;
   createdAt: string;
   user: IUser;
 }
 
-export type IApprovable = IApprovableCompany | IApprovableApplicant;
+export type TAdminTask = ICompanyAdminTask | IApplicantAdminTask;
 
-export type ApprovableEntityType = COMPANY_TYPE | APPLICANT_TYPE;
+export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 
-export interface IApprovableFilter {
-  approvableEntityTypes: ApprovableEntityType[];
+export interface IAdminTasksFilter {
+  adminTaskTypes: TAdminTaskType[];
   statuses: ApprovalStatus[];
 }

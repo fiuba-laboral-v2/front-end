@@ -1,8 +1,8 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useUpdateApprovableStatus } from "$hooks";
+import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 
-import { IApprovableCompany } from "$interfaces/Approvable";
+import { ICompanyAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IUser } from "$interfaces/User";
 
@@ -14,18 +14,18 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   {
     selectedCompany,
     onStatusUpdate,
-    refetchApprovableEntities
+    refetchAdminTasks
   }
 ) => {
-  const updateApprovable = useUpdateApprovableStatus({
+  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
-    refetchApprovableEntities
+    refetchAdminTasks
   });
   const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
-    await updateApprovable({
+    await updateAdminTaskStatus({
       uuid: selectedCompany.uuid,
       status: status,
       onStatusUpdate
@@ -38,9 +38,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 };
 
 interface ICompanyDetailInfoContainerProps {
-  selectedCompany: IApprovableCompany;
+  selectedCompany: ICompanyAdminTask;
   onStatusUpdate: () => void;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
 export { CompanyDetailInfoContainer };

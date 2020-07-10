@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ApprovableTypeTab } from "../ApprovableTypeTab";
+import { AdminTaskTypeTab } from "../AdminTaskTypeTab";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import { ITypeFilterProps } from "./interfaces";
@@ -15,8 +15,8 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
 ) => (
   <section className={styles.typeFilterContainer}>
     <p className={styles.title}>{translations.title}</p>
-    <ApprovableTypeTab
-      className={styles.approvableTypeTab}
+    <AdminTaskTypeTab
+      className={styles.adminTaskTypeTab}
       Icon={CompanyIcon}
       color="red"
       iconTitle={translations.companyIconTitle}
@@ -24,8 +24,8 @@ export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
       type={COMPANY}
       onClick={toggleType}
     />
-    <ApprovableTypeTab
-      className={styles.approvableTypeTab}
+    <AdminTaskTypeTab
+      className={styles.adminTaskTypeTab}
       Icon={ApplicantIcon}
       iconTitle={translations.applicantIconTitle}
       color="blue"

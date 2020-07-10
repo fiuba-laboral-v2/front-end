@@ -1,4 +1,4 @@
-import { ApprovableEntityType } from "$interfaces/Approvable";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 
 export interface ITypeFilterTranslations {
   title: string;
@@ -7,12 +7,12 @@ export interface ITypeFilterTranslations {
 }
 
 export interface ITypeFilterContainerProps {
-  types: ApprovableEntityType[];
-  onFilterByType: (types: ApprovableEntityType[]) => void;
+  types: TAdminTaskType[];
+  onFilterByType: (types: TAdminTaskType[]) => void;
 }
 
 export interface ITypeFilterProps {
   translations: ITypeFilterTranslations;
-  types: ApprovableEntityType[];
-  toggleType: (selected: boolean, entityType: ApprovableEntityType) => void;
+  types: TAdminTaskType[];
+  toggleType: (selected: boolean, adminTaskType: TAdminTaskType) => void;
 }

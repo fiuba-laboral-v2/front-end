@@ -7,7 +7,7 @@ import { TaskList } from "./component";
 
 export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   {
-    approvableEntities,
+    adminTasks,
     onSelectTask,
     selectedTask
   }
@@ -17,7 +17,7 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return <TaskList
-    approvableEntities={approvableEntities}
+    adminTasks={adminTasks}
     onSelectTask={onSelectTask}
     selectedTask={selectedTask}
     translations={translations.data}

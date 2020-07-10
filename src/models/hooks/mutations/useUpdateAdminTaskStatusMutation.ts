@@ -2,30 +2,30 @@ import { useMutation } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { DocumentNode } from "graphql";
 
-export const useUpdateApprovableStatusMutation = (
+export const useUpdateAdminTaskStatusMutation = (
   {
     documentNode,
-    refetchApprovableEntities
-  }: IUseUpdateApprovableStatus
+    refetchAdminTasks
+  }: IUseUpdateAdminTaskStatus
 ) => {
-  const mutation = useMutation<IUseUpdateApprovableStatusVariables>(documentNode);
+  const mutation = useMutation<IUseUpdateAdminTaskStatusVariables>(documentNode);
   return async ({ variables }: IMutationVariables) => {
     const mutationFunctionResult = await mutation({ variables });
-    refetchApprovableEntities();
+    refetchAdminTasks();
     return mutationFunctionResult;
   };
 };
 
-interface IUseUpdateApprovableStatus {
+interface IUseUpdateAdminTaskStatus {
   documentNode: DocumentNode;
-  refetchApprovableEntities: () => void;
+  refetchAdminTasks: () => void;
 }
 
 interface IMutationVariables {
-  variables: IUseUpdateApprovableStatusVariables;
+  variables: IUseUpdateAdminTaskStatusVariables;
 }
 
-interface IUseUpdateApprovableStatusVariables {
+interface IUseUpdateAdminTaskStatusVariables {
   uuid: string;
   approvalStatus: ApprovalStatus;
 }
