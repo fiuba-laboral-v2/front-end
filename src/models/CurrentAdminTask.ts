@@ -1,8 +1,8 @@
 import { ApprovalStatus } from "../interfaces/ApprovalStatus";
 
-export const CurrentApprovable = <T extends { approvalStatus: ApprovalStatus }>() =>
-  (attributes: T): T & CurrentApprovable => {
-    const approvable: T & CurrentApprovable = {
+export const CurrentAdminTask = <T extends { approvalStatus: ApprovalStatus }>() =>
+  (attributes: T): T & CurrentAdminTask => {
+    const approvable: T & CurrentAdminTask = {
       ...attributes,
       isPending: () => approvable.approvalStatus === ApprovalStatus.pending,
       isRejected: () => approvable.approvalStatus === ApprovalStatus.rejected,
@@ -11,7 +11,7 @@ export const CurrentApprovable = <T extends { approvalStatus: ApprovalStatus }>(
     return approvable;
   };
 
-export type CurrentApprovable = {
+export type CurrentAdminTask = {
   isPending: () => boolean;
   isRejected: () => boolean;
   isApproved: () => boolean;
