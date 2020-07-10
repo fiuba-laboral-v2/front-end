@@ -40,6 +40,7 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
       }
     />
     <Tab
+      className={styles.tab}
       color="grey"
       selected={statuses.includes(ApprovalStatus.pending)}
       iconTitle={translations.pending}
