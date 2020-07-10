@@ -30,6 +30,10 @@
   &.blue {
     @include containerStyles($applicantColor);
   }
+
+  &.grey {
+    @include containerStyles(#000000);
+  }
 }
 
 .checkboxIcon {
