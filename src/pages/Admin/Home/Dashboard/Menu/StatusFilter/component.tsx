@@ -25,9 +25,7 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
       selected={statuses.includes(ApprovalStatus.approved)}
       iconTitle={translations.approved}
       Icon={CheckIcon}
-      onClick={
-        () => toggleStatus(!statuses.includes(ApprovalStatus.approved), ApprovalStatus.approved)
-      }
+      onClick={() => toggleStatus(ApprovalStatus.approved)}
     />
     <Tab
       className={styles.tab}
@@ -35,9 +33,7 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
       selected={statuses.includes(ApprovalStatus.rejected)}
       iconTitle={translations.rejected}
       Icon={NotInterestedIcon}
-      onClick={
-        () => toggleStatus(!statuses.includes(ApprovalStatus.rejected), ApprovalStatus.rejected)
-      }
+      onClick={() => toggleStatus(ApprovalStatus.rejected)}
     />
     <Tab
       className={styles.tab}
@@ -45,9 +41,7 @@ export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
       selected={statuses.includes(ApprovalStatus.pending)}
       iconTitle={translations.pending}
       Icon={HistoryIcon}
-      onClick={
-        () => toggleStatus(!statuses.includes(ApprovalStatus.pending), ApprovalStatus.pending)
-      }
+      onClick={() => toggleStatus(ApprovalStatus.pending)}
     />
   </Filter>
 );

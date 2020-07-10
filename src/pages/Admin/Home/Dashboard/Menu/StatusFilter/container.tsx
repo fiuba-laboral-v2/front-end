@@ -19,14 +19,9 @@ export const StatusFilterContainer: FunctionComponent<ITypeFilterContainerProps>
   if (transactions.loading) return <Fragment/>;
   if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
-  const toggleStatus = (selected: boolean, status: ApprovalStatus) => {
-    let changedStatuses;
-    if (selected) {
-      changedStatuses = [...statuses, status];
-    } else {
-      changedStatuses = statuses.filter(s => s !== status);
-    }
-    onFilterByStatus(changedStatuses);
+  const toggleStatus = (status: ApprovalStatus) => {
+    if (statuses.includes(status)) return onFilterByStatus(statuses.filter(s => s !== status));
+    onFilterByStatus([...statuses, status]);
   };
 
   return (
