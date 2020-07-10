@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { AdminTaskTypeTab } from "../AdminTaskTypeTab";
 import { Tab } from "../Tab";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
