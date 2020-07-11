@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { IMenuContainerProps } from "./interfaces";
 import { TAdminTaskType } from "$interfaces/AdminTask";
 import { Menu } from "./component";
-import { ApprovalStatus } from "../../../../../interfaces/ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   {
