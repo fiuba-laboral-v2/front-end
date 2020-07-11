@@ -1,6 +1,6 @@
 import { TAdminTaskType, IAdminTasksFilter } from "$interfaces/AdminTask";
 import { TRefetchGetAdminTasks } from "$hooks/queries";
-import { ApprovalStatus } from "../../../../../interfaces/ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface IMenuContainerProps {
   filter: IAdminTasksFilter;
