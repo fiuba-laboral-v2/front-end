@@ -21,7 +21,7 @@ export const Actions: FunctionComponent<IActionsProps> = (
     {
       currentStatus !== ApprovalStatus.pending &&
       <Button
-        className="warning"
+        className="secondary"
         onClick={() => setStatus(ApprovalStatus.pending)}
       >
         <HistoryIcon className={styles.icons} fontSize="small"/>
