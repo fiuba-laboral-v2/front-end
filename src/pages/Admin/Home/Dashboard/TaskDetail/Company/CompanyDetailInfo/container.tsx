@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
+import { COMPANY } from "$typenames";
 
 import { ICompanyAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
@@ -19,7 +20,8 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 ) => {
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
-    refetchAdminTasks
+    refetchAdminTasks,
+    type: COMPANY
   });
   const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   if (response.error || response.loading) return <Fragment />;

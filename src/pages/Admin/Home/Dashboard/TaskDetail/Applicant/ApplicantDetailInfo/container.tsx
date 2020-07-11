@@ -5,6 +5,7 @@ import { IApplicantAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
+import { APPLICANT } from "$typenames";
 
 export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
   {
@@ -16,7 +17,8 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   const response = useApplicantByUuid(selectedApplicant.uuid);
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
-    refetchAdminTasks
+    refetchAdminTasks,
+    type: APPLICANT
   });
 
   if (response.error || response.loading) return <Fragment />;

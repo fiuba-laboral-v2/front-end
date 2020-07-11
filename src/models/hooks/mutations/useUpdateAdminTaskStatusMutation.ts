@@ -1,6 +1,7 @@
 import { useMutation } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { DocumentNode } from "graphql";
+import { MutationUpdaterFn } from "apollo-client";
 
 export const useUpdateAdminTaskStatusMutation = (
   {
@@ -9,8 +10,8 @@ export const useUpdateAdminTaskStatusMutation = (
   }: IUseUpdateAdminTaskStatus
 ) => {
   const mutation = useMutation<IUseUpdateAdminTaskStatusVariables>(documentNode);
-  return async ({ variables }: IMutationVariables) => {
-    const mutationFunctionResult = await mutation({ variables });
+  return async ({ variables, update }: IMutationVariables) => {
+    const mutationFunctionResult = await mutation({ variables, update });
     refetchAdminTasks();
     return mutationFunctionResult;
   };
@@ -23,6 +24,7 @@ interface IUseUpdateAdminTaskStatus {
 
 interface IMutationVariables {
   variables: IUseUpdateAdminTaskStatusVariables;
+  update: MutationUpdaterFn;
 }
 
 interface IUseUpdateAdminTaskStatusVariables {
