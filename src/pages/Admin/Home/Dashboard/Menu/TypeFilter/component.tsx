@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { AdminTaskTypeTab } from "../AdminTaskTypeTab";
+import classNames from "classnames";
+import { Tab } from "../Tab";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import { ITypeFilterProps } from "./interfaces";
@@ -8,30 +9,29 @@ import styles from "./styles.module.scss";
 
 export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
   {
+    className,
     translations,
     types,
     toggleType
   }
 ) => (
-  <section className={styles.typeFilterContainer}>
+  <section className={classNames(styles.typeFilterContainer, className)}>
     <p className={styles.title}>{translations.title}</p>
-    <AdminTaskTypeTab
+    <Tab
       className={styles.adminTaskTypeTab}
-      Icon={CompanyIcon}
       color="red"
+      selected={types.includes(COMPANY)}
       iconTitle={translations.companyIconTitle}
-      types={types}
-      type={COMPANY}
-      onClick={toggleType}
+      Icon={CompanyIcon}
+      onClick={() => toggleType(COMPANY)}
     />
-    <AdminTaskTypeTab
+    <Tab
       className={styles.adminTaskTypeTab}
-      Icon={ApplicantIcon}
-      iconTitle={translations.applicantIconTitle}
       color="blue"
-      types={types}
-      type={APPLICANT}
-      onClick={toggleType}
+      selected={types.includes(APPLICANT)}
+      iconTitle={translations.applicantIconTitle}
+      Icon={ApplicantIcon}
+      onClick={() => toggleType(APPLICANT)}
     />
   </section>
 );

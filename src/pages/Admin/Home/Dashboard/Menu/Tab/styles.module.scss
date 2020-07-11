@@ -1,6 +1,6 @@
 @import "$styles/_variables";
 
-@mixin containerStyles($color) {
+@mixin containerStyles($color, $transparencyFactor) {
   background-color: transparentize($color, 1);
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
@@ -10,30 +10,38 @@
   padding-right: $spacing-m;
 
   &:hover {
-    background-color: transparentize($color, 0.95);
+    background-color: transparentize($color, 1 - 0.05 / $transparencyFactor);
   }
 
   &.selected {
-    background-color: transparentize($color, 0.85);
+    background-color: transparentize($color, 1 - 0.15 / $transparencyFactor);
   }
 
   &:active {
-    background-color: transparentize($color, 0.9);
+    background-color: transparentize($color, 1 - 0.1 / $transparencyFactor);
   }
 }
 
 .container {
   &.red {
-    @include containerStyles($companyColor);
+    @include containerStyles($companyColor, 1);
   }
 
   &.blue {
-    @include containerStyles($applicantColor);
+    @include containerStyles($applicantColor, 1);
+  }
+
+  &.grey {
+    @include containerStyles($black, 1.75);
   }
 }
 
 .checkboxIcon {
   padding: 0;
+
+  &.grey {
+    color: $mainBlueDark;
+  }
 }
 
 .description {
@@ -44,6 +52,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  &.grey {
+    color: transparentize($black, 0.25);
+  }
 }
 
 .description,

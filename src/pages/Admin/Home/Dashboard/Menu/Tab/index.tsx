@@ -41,7 +41,7 @@ export const Tab: FunctionComponent<ITabProps> = (
 
 interface ITabProps {
   className?: string;
-  color: "red" | "blue";
+  color: "red" | "blue" | "grey";
   selected: boolean;
   iconTitle: string;
   Icon: FunctionComponent<IIcon>;
