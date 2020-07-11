@@ -19,6 +19,16 @@ export const Actions: FunctionComponent<IActionsProps> = (
 ) => (
   <div className={styles.actions}>
     {
+      currentStatus !== ApprovalStatus.pending &&
+      <Button
+        className="warning"
+        onClick={() => setStatus(ApprovalStatus.pending)}
+      >
+        <HistoryIcon className={styles.icons} fontSize="small"/>
+        {translations.pending}
+      </Button>
+    }
+    {
       currentStatus !== ApprovalStatus.rejected &&
       <Button
         className="danger"
@@ -36,16 +46,6 @@ export const Actions: FunctionComponent<IActionsProps> = (
       >
         <DoneIcon className={styles.icons} fontSize="small"/>
         {translations.approve}
-      </Button>
-    }
-    {
-      currentStatus !== ApprovalStatus.pending &&
-      <Button
-        className="warning"
-        onClick={() => setStatus(ApprovalStatus.pending)}
-      >
-        <HistoryIcon className={styles.icons} fontSize="small"/>
-        {translations.pending}
       </Button>
     }
   </div>
