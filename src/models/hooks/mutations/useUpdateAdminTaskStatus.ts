@@ -5,7 +5,7 @@ import { useUpdateAdminTaskStatusMutation } from "$hooks/mutations";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { DocumentNode } from "graphql";
 import { useTranslations } from "$hooks/queries";
-import { TAdminTaskType } from "../../../interfaces/AdminTask";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 
 const successMessage = (status: ApprovalStatus, translations: IApprovalActionsTranslations) => {
   if (status === ApprovalStatus.approved) return translations.approved;
