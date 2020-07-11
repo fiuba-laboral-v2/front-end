@@ -4,8 +4,19 @@ import { Actions } from "./component";
 import { useTranslations } from "$hooks/queries";
 import { IActionsContainerProps, IAdminActionsTranslations } from "./interaces";
 
-export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({ setStatus }) => {
+export const ActionsContainer: FunctionComponent<IActionsContainerProps> = (
+  {
+    currentStatus,
+    setStatus
+  }
+) => {
   const translations = useTranslations<IAdminActionsTranslations>("adminActions");
   if (translations.loading || translations.error) return <Fragment /> ;
-  return <Actions setStatus={setStatus} translations={translations.data}/>;
+  return (
+    <Actions
+      currentStatus={currentStatus}
+      setStatus={setStatus}
+      translations={translations.data}
+    />
+  );
 };
