@@ -5,6 +5,7 @@ import { useUpdateAdminTaskStatusMutation } from "$hooks/mutations";
 import { IApprovalActionsTranslations } from "$interfaces/ApprovalActions";
 import { DocumentNode } from "graphql";
 import { useTranslations } from "$hooks/queries";
+import { TAdminTaskType } from "$interfaces/AdminTask";
 
 const successMessage = (status: ApprovalStatus, translations: IApprovalActionsTranslations) => {
   if (status === ApprovalStatus.approved) return translations.approved;
@@ -24,6 +25,7 @@ const useGetTranslations = () => {
 
 export const useUpdateAdminTaskStatus = (
   {
+    type,
     documentNode,
     refetchAdminTasks
   }: IUseUpdateAdminTask
@@ -46,7 +48,8 @@ export const useUpdateAdminTaskStatus = (
       variables: {
         uuid: uuid,
         approvalStatus: status
-      }
+      },
+      update: cache => cache.writeData({ id: `${type}_${uuid}`, data: { approvalStatus: status } })
     });
 
     if (result.error) return showError({ reloadPrompt: true });
@@ -57,6 +60,7 @@ export const useUpdateAdminTaskStatus = (
 };
 
 interface IUseUpdateAdminTask {
+  type: TAdminTaskType;
   documentNode: DocumentNode;
   refetchAdminTasks: () => void;
 }
