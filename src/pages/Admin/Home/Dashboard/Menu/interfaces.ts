@@ -1,6 +1,5 @@
-import { TAdminTaskType, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { IAdminTasksFilter } from "$interfaces/AdminTask";
 import { TRefetchGetAdminTasks } from "$hooks/queries";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface IMenuContainerProps {
   filter: IAdminTasksFilter;
@@ -9,7 +8,6 @@ export interface IMenuContainerProps {
 }
 
 export interface IMenuProps {
-  onFilterByType: (types: TAdminTaskType[]) => void;
-  onFilterByStatus: (statuses: ApprovalStatus[]) => void;
+  onFilter: <T extends unknown>(key: keyof IAdminTasksFilter, items: T[]) => Promise<void>;
   filter: IAdminTasksFilter;
 }

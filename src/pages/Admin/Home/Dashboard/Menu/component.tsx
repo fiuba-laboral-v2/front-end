@@ -7,19 +7,18 @@ import styles from "./styles.module.scss";
 export const Menu: FunctionComponent<IMenuProps> = (
   {
     filter,
-    onFilterByType,
-    onFilterByStatus
+    onFilter
   }
 ) => (
   <div className={styles.menuContent}>
     <TypeFilter
       className={styles.typeFilter}
       types={filter.adminTaskTypes}
-      onFilterByType={onFilterByType}
+      onFilterByType={types => onFilter("adminTaskTypes", types)}
     />
     <StatusFilter
       statuses={filter.statuses}
-      onFilterByStatus={onFilterByStatus}
+      onFilterByStatus={statuses => onFilter("statuses", statuses)}
     />
   </div>
 );

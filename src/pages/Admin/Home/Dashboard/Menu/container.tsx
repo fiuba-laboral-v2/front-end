@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IMenuContainerProps } from "./interfaces";
-import { TAdminTaskType } from "$interfaces/AdminTask";
 import { Menu } from "./component";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { IAdminTasksFilter } from "$interfaces/AdminTask";
 
 export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   {
@@ -11,14 +10,8 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
     onSelectFilter
   }
 ) => {
-  const onFilterByType = async (adminTaskTypes: TAdminTaskType[]) => {
-    const changedFilter = { ...filter, adminTaskTypes };
-    onSelectFilter(changedFilter);
-    if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);
-  };
-
-  const onFilterByStatus = async (statuses: ApprovalStatus[]) => {
-    const changedFilter = { ...filter, statuses };
+  const onFilter = async <T extends unknown>(key: keyof IAdminTasksFilter, items: T[]) => {
+    const changedFilter = { ...filter, [key]: items };
     onSelectFilter(changedFilter);
     if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);
   };
@@ -26,8 +19,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = (
   return (
     <Menu
       filter={filter}
-      onFilterByType={onFilterByType}
-      onFilterByStatus={onFilterByStatus}
+      onFilter={onFilter}
     />
   );
 };
