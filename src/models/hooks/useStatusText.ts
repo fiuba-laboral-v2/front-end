@@ -1,6 +1,6 @@
 import { useTranslations } from "$hooks";
 
-export const useGetStatusText = ({ translationGroup, withText }: IUseGetStatusText) => {
+export const useStatusText = ({ translationGroup, withText }: IUseStatusText) => {
   const translations = useTranslations<IStatusTranslations>(translationGroup);
   if (!withText) return;
   if (translations.loading || translations.error) return "";
@@ -11,7 +11,7 @@ interface IStatusTranslations {
   text: string;
 }
 
-interface IUseGetStatusText {
+interface IUseStatusText {
   translationGroup: string;
   withText: boolean;
 }
