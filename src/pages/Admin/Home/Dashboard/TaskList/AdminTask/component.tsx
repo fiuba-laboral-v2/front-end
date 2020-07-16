@@ -27,7 +27,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => 
       <div className={styles.name}>{name}</div>
       <TimeHumanizer since={adminTask.createdAt}/>
     </div>
-    <StatusLabel className={styles.label} withText={false} status={adminTask.approvalStatus}/>
+    <StatusLabel withText={false} status={adminTask.approvalStatus}/>
   </div>;
 };
 
