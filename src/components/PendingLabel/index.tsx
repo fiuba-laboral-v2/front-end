@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 import HistoryIcon from "@material-ui/icons/History";
 import { useStatusText } from "$models/hooks";
 import { Label } from "$components/Label";
-import { IStatusLabelProps } from "$components/StatusLabel";
+import { ILabelProps } from "$components/StatusLabel";
 
-export const PendingLabel: FunctionComponent<Omit<IStatusLabelProps, "status">> = (
+export const PendingLabel: FunctionComponent<ILabelProps> = (
   {
     className,
     withText = true

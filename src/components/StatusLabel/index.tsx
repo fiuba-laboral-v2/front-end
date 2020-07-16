@@ -27,8 +27,11 @@ export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   </>
 );
 
-export interface IStatusLabelProps {
+export interface ILabelProps {
   className?: string;
   withText?: boolean;
+}
+
+interface IStatusLabelProps extends ILabelProps {
   status: ApprovalStatus;
 }
