@@ -3,12 +3,9 @@ import { TAdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
 import { TimeHumanizer } from "$components/TimeHumanizer";
-import { ApprovedLabel } from "$components/ApprovedLabel";
-import { PendingLabel } from "$components/PendingLabel";
-import { RejectedLabel } from "$components/RejectedLabel";
+import { StatusLabel } from "$components/StatusLabel";
 import styles from "./styles.module.scss";
 import { APPLICANT, COMPANY } from "$typenames";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => {
   let name = "";
@@ -30,18 +27,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => 
       <div className={styles.name}>{name}</div>
       <TimeHumanizer since={adminTask.createdAt}/>
     </div>
-    {
-      adminTask.approvalStatus === ApprovalStatus.approved &&
-      <ApprovedLabel className={styles.label} withText={false}/>
-    }
-    {
-      adminTask.approvalStatus === ApprovalStatus.rejected &&
-      <RejectedLabel className={styles.label} withText={false}/>
-    }
-    {
-      adminTask.approvalStatus === ApprovalStatus.pending &&
-      <PendingLabel className={styles.label} withText={false}/>
-    }
+    <StatusLabel className={styles.label} withText={false} status={adminTask.approvalStatus}/>
   </div>;
 };
 
