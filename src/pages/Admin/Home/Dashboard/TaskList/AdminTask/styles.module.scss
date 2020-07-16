@@ -16,4 +16,11 @@
 
 .icon {
   align-self: center;
+  margin-right: $spacing-m;
+}
+
+.label {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
