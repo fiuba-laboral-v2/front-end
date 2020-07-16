@@ -19,7 +19,7 @@ export const Label: FunctionComponent<ILabelProps> = (
 interface ILabelProps {
   className?: string;
   Icon: FunctionComponent<IIconProps>;
-  color: "red" | "green" | "yellow";
+  color: "red" | "green" | "darkYellow";
   text?: string;
 }
 

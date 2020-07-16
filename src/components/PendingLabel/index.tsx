@@ -11,5 +11,5 @@ export const PendingLabel: FunctionComponent<Omit<IStatusLabelProps, "status">> 
   }
 ) => {
   const text = useGetStatusText({ withText, translationGroup: "pendingLabel" });
-  return <Label className={className} Icon={HistoryIcon} color="yellow" text={text}/>;
+  return <Label className={className} Icon={HistoryIcon} color="darkYellow" text={text}/>;
 };
