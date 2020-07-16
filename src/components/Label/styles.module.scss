@@ -13,14 +13,14 @@
   @include text;
 
   align-self: center;
-  color: $white;
   display: flex;
   font-style: normal;
   font-weight: normal;
   margin-left: 5px;
 }
 
-.icon {
+.icon,
+.text {
   color: $white;
 }
 
