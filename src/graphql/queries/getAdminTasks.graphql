@@ -11,11 +11,13 @@ query GetAdminTasks(
       uuid
       createdAt
       companyName
+      approvalStatus
     }
     ... on Applicant {
       __typename
       uuid
       createdAt
+      approvalStatus
       user {
         uuid
         email

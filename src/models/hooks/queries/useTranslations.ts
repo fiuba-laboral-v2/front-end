@@ -24,7 +24,7 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-const useTranslations = <T, >(translationGroup: string) => {
+export const useTranslations = <T, >(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
   const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
@@ -42,5 +42,3 @@ const useTranslations = <T, >(translationGroup: string) => {
     error
   } as UseQueryResult<string, T>;
 };
-
-export { useTranslations };

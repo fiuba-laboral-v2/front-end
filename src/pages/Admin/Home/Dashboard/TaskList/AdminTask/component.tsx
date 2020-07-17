@@ -2,13 +2,12 @@ import React, { Fragment, FunctionComponent } from "react";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
+import { TimeHumanizer } from "$components/TimeHumanizer";
+import { StatusLabel } from "$components/StatusLabel";
 import styles from "./styles.module.scss";
 import { APPLICANT, COMPANY } from "$typenames";
-import { TimeHumanizer } from "$components/TimeHumanizer";
 
-export const AdminTask: FunctionComponent<IAdminTaskProps> = (
-  { adminTask }
-) => {
+export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => {
   let name = "";
   let Icon: FunctionComponent<{ className?: string }> = Fragment;
 
@@ -23,11 +22,12 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
   }
 
   return <div className={styles.adminTask}>
+    <Icon className={styles.icon}/>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
       <TimeHumanizer since={adminTask.createdAt}/>
     </div>
-    <Icon className={styles.icon}/>
+    <StatusLabel status={adminTask.approvalStatus} useTooltip={false}/>
   </div>;
 };
 

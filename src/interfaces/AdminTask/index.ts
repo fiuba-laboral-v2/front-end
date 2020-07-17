@@ -1,18 +1,20 @@
 import { APPLICANT_TYPE, COMPANY_TYPE } from "$typenames";
 import { IUser } from "../User";
-import { ApprovalStatus } from "../ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface ICompanyAdminTask {
   __typename: COMPANY_TYPE;
   uuid: string;
   createdAt: string;
   companyName: string;
+  approvalStatus: ApprovalStatus;
 }
 
 export interface IApplicantAdminTask {
   __typename: APPLICANT_TYPE;
   uuid: string;
   createdAt: string;
+  approvalStatus: ApprovalStatus;
   user: IUser;
 }
 
