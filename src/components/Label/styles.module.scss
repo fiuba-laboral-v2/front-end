@@ -1,6 +1,10 @@
 @import "$styles/mixins/_text";
 @import "$styles/_variables";
 
+.hideTooltip {
+  display: none;
+}
+
 .tag {
   border-bottom-left-radius: 5px;
   border-top-right-radius: $defaultBorderRadius;
