@@ -29,6 +29,12 @@
   color: $white;
 }
 
+.iconContainer {
+  display: flex;
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+}
+
 .red {
   background: $red;
 }
