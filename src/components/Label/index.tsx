@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
+import Tooltip from "@material-ui/core/Tooltip";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 
 export const Label: FunctionComponent<ILabelProps> = (
@@ -8,15 +9,18 @@ export const Label: FunctionComponent<ILabelProps> = (
     className,
     Icon,
     text,
+    withText,
     color
   }
 ) => (
-  <div className={classNames(styles.tag, styles[color], className)}>
-    <div className={styles.iconContainer}>
-      <Icon className={styles.icon} fontSize="inherit" />
+  <Tooltip classes={{ tooltip: styles.tooltip }} title={text} placement="right">
+    <div className={classNames(styles.tag, styles[color], className)}>
+      <div className={styles.iconContainer}>
+        <Icon className={styles.icon} fontSize="inherit" />
+      </div>
+      {withText && <span className={styles.text}>{text}</span>}
     </div>
-    {text && <span className={styles.text}>{text}</span>}
-  </div>
+  </Tooltip>
 );
 
 interface ILabelProps {
@@ -24,4 +28,5 @@ interface ILabelProps {
   Icon: FunctionComponent<SvgIconProps>;
   color: "red" | "green" | "darkYellow";
   text?: string;
+  withText: boolean;
 }

@@ -7,29 +7,27 @@ import { PendingLabel } from "$components/PendingLabel";
 export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   {
     status,
-    className,
-    withText = true
+    withText
   }
 ) => (
   <>
     {
       status === ApprovalStatus.approved &&
-      <ApprovedLabel className={className} withText={withText}/>
+      <ApprovedLabel withText={withText}/>
     }
     {
       status === ApprovalStatus.rejected &&
-      <RejectedLabel className={className} withText={withText}/>
+      <RejectedLabel withText={withText}/>
     }
     {
       status === ApprovalStatus.pending &&
-      <PendingLabel className={className} withText={withText}/>
+      <PendingLabel withText={withText}/>
     }
   </>
 );
 
 export interface ILabelProps {
-  className?: string;
-  withText?: boolean;
+  withText: boolean;
 }
 
 interface IStatusLabelProps extends ILabelProps {

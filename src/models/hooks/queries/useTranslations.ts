@@ -24,7 +24,7 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-export const useTranslations = <T, >(translationGroup: string, skip?: boolean) => {
+export const useTranslations = <T, >(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
   const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
@@ -32,8 +32,7 @@ export const useTranslations = <T, >(translationGroup: string, skip?: boolean) =
       variables: { translationGroup },
       errorHandlers: {
         MissingTranslationError: () => handleGenericError({ enqueueSnackbar })
-      },
-      skip
+      }
     }
   );
 

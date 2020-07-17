@@ -4,12 +4,7 @@ import { useStatusText } from "$models/hooks";
 import { Label } from "$components/Label";
 import { ILabelProps } from "$components/StatusLabel";
 
-export const RejectedLabel: FunctionComponent<ILabelProps> = (
-  {
-    className,
-    withText = true
-  }
-) => {
-  const text = useStatusText({ withText, translationGroup: "rejectedLabel" });
-  return <Label className={className} Icon={NotInterestedIcon} color="red" text={text}/>;
+export const RejectedLabel: FunctionComponent<ILabelProps> = ({ withText }) => {
+  const text = useStatusText({ translationGroup: "rejectedLabel" });
+  return <Label Icon={NotInterestedIcon} color="red" text={text} withText={withText} />;
 };

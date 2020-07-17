@@ -6,10 +6,9 @@ import { ILabelProps } from "$components/StatusLabel";
 
 export const ApprovedLabel: FunctionComponent<ILabelProps> = (
   {
-    className,
-    withText = true
+    withText
   }
 ) => {
-  const text = useStatusText({ withText, translationGroup: "approvedLabel" });
-  return <Label className={className} Icon={CheckIcon} color="green" text={text}/>;
+  const text = useStatusText({ translationGroup: "approvedLabel" });
+  return <Label Icon={CheckIcon} color="green" text={text} withText={withText}/>;
 };
