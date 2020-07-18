@@ -5,7 +5,8 @@ import { Headline } from "$components/Headline";
 import { Subtitle } from "$components/Subtitle";
 import { Description } from "$components/Description";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
-import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
+import { StatusLabel } from "$components/StatusLabel";
+import { ClickableCard } from "$components/ClickableCard";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ICompany } from "$interfaces/Company";
 
@@ -14,6 +15,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     editButton,
     company: {
       companyName,
+      approvalStatus,
       email = "",
       slogan = "",
       logo = "",
@@ -24,7 +26,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   }
 ) => {
   return (
-    <DetailMainContainer>
+    <ClickableCard className={styles.card}>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"
@@ -37,6 +39,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <DetailContactMe email={email} website={website}/>
         </div>
         <div className={styles.editButton}>{editButton}</div>
+        <StatusLabel status={approvalStatus} useTooltip={false} />
       </div>
       <Description>{description}</Description>
       <section className={styles.photos}>
@@ -45,7 +48,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
             (<img key={index} src={source} alt={`${companyName}`}/>)
           )}
       </section>
-    </DetailMainContainer>
+    </ClickableCard>
   );
 };
 
