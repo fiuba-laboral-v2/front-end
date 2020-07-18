@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
+import { ClickableCard } from "$components/ClickableCard";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
+import { StatusLabel } from "$components/StatusLabel";
 
 import styles from "./styles.module.scss";
 import { Description } from "$components/Description";
@@ -14,14 +16,16 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     applicant,
     translations,
     editButton
-  }) => (
-  <div className={styles.container}>
+  }
+) => (
+  <ClickableCard className={styles.card}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <Headline className={styles.applicantName}>{
           `${applicant.user.name} ${applicant.user.surname}`
         }</Headline>
         {editButton}
+        <StatusLabel useTooltip={false} status={applicant.approvalStatus}/>
       </div>
       <Links links={applicant.links}/>
     </div>
@@ -31,13 +35,13 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         title={translations.capabilities}
         capabilities={applicant.capabilities}
       />
-      <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
+      <CareersDetail className={styles.careers} careers={applicant.careers}/>
     </div>
     <Description>{applicant.description}</Description>
     {
-      applicant.sections?.map(section =>
+      applicant.sections.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
       )
     }
-  </div>
+  </ClickableCard>
 );

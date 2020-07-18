@@ -16,13 +16,13 @@ export const Label: FunctionComponent<ILabelProps> = (
   <Tooltip
     title={text}
     placement="right"
-    classes={{ tooltip: classNames({ [styles.hideTooltip]: useTooltip }) }}
+    classes={{ tooltip: classNames({ [styles.hideTooltip]: !useTooltip }) }}
   >
     <div className={classNames(styles.tag, styles[color], className)}>
       <div className={styles.iconContainer}>
         <Icon className={styles.icon} fontSize="inherit" />
       </div>
-      {useTooltip && <span className={styles.text}>{text}</span>}
+      {!useTooltip && <span className={styles.text}>{text}</span>}
     </div>
   </Tooltip>
 );
