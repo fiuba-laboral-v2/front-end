@@ -7,7 +7,7 @@ export const Card: FunctionComponent<IClickableCardProps> = (
   {
     children,
     className,
-    detail,
+    largePadding,
     selected,
     onClick
   }
@@ -16,7 +16,7 @@ export const Card: FunctionComponent<IClickableCardProps> = (
   return (
     <div
       className={classNames(styles.card, className, {
-        [styles.detail]: detail,
+        [styles.detail]: largePadding,
         [styles.hoverable]: onClick,
         [styles.touched]: touched,
         [styles.selected]: selected
@@ -35,5 +35,5 @@ interface IClickableCardProps {
   className?: string;
   onClick?: () => void;
   selected?: boolean;
-  detail?: boolean;
+  largePadding?: boolean;
 }

@@ -18,7 +18,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     statusLabel
   }
 ) => (
-  <Card detail={true}>
+  <Card largePadding={true}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <Headline className={styles.applicantName}>{
