@@ -25,7 +25,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   }
 ) => {
   return (
-    <ClickableCard className={styles.card}>
+    <ClickableCard detail={true}>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"

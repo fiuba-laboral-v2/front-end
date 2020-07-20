@@ -7,6 +7,11 @@
   padding: 15px;
 }
 
+.detail {
+  padding: $spacing-xxl;
+  position: relative;
+}
+
 .selected {
   background-color: $selectedColor;
 }

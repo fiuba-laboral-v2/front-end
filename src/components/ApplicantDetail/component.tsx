@@ -18,7 +18,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     statusLabel
   }
 ) => (
-  <ClickableCard className={styles.card}>
+  <ClickableCard detail={true}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <Headline className={styles.applicantName}>{
