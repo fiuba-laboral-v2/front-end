@@ -5,7 +5,6 @@ import { ClickableCard } from "$components/ClickableCard";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
-import { StatusLabel } from "$components/StatusLabel";
 
 import styles from "./styles.module.scss";
 import { Description } from "$components/Description";
@@ -15,7 +14,8 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
     translations,
-    editButton
+    editButton,
+    statusLabel
   }
 ) => (
   <ClickableCard className={styles.card}>
@@ -25,7 +25,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
           `${applicant.user.name} ${applicant.user.surname}`
         }</Headline>
         {editButton}
-        <StatusLabel useTooltip={false} status={applicant.approvalStatus}/>
+        {statusLabel}
       </div>
       <Links links={applicant.links}/>
     </div>
