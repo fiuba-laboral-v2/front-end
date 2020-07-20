@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ClickableCard } from "$components/ClickableCard";
+import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
@@ -28,7 +28,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = (
       <ListTitle titleTranslationPath={"companiesList"}/>
       {
         companies.map(company =>
-          <ClickableCard
+          <Card
             key={company.uuid}
             className={styles.row}
             onClick={() => onClickView(company.uuid)}>
@@ -41,7 +41,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = (
               />
               <Subtitle className={styles.name}>{company.companyName}</Subtitle>
             </div>
-          </ClickableCard>
+          </Card>
         )
       }
     </Window>

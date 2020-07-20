@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
 import { NavBar } from "$components/NavBar";
-import { ClickableCard } from "$components/ClickableCard";
+import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
 
 import { IRegisterProps } from "./interface";
@@ -23,14 +23,14 @@ const Register: FunctionComponent<IRegisterProps> = (
         <img className={styles.logo} src={"images/logo.png"} alt="Register logo"/>
       </section>
       <section className={styles.body}>
-        <ClickableCard className={styles.applicantCard} onClick={onClickRegisterApplicant}>
+        <Card className={styles.applicantCard} onClick={onClickRegisterApplicant}>
           <SchoolIcon className={styles.cardLogo} fontSize="large"/>
           <Subtitle className={styles.cardText}>{translations.registerAsApplicant}</Subtitle>
-        </ClickableCard>
-        <ClickableCard className={styles.companyCard} onClick={onClickRegisterCompany}>
+        </Card>
+        <Card className={styles.companyCard} onClick={onClickRegisterCompany}>
           <BusinessIcon className={styles.cardLogo} fontSize="large"/>
           <Subtitle className={styles.cardText}>{translations.registerAsCompany}</Subtitle>
-        </ClickableCard>
+        </Card>
       </section>
     </section>
   </section>

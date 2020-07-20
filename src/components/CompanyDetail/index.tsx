@@ -5,7 +5,7 @@ import { Headline } from "$components/Headline";
 import { Subtitle } from "$components/Subtitle";
 import { Description } from "$components/Description";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
-import { ClickableCard } from "$components/ClickableCard";
+import { Card } from "$components/Card";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ICompany } from "$interfaces/Company";
 
@@ -25,7 +25,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   }
 ) => {
   return (
-    <ClickableCard detail={true}>
+    <Card detail={true}>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"
@@ -47,7 +47,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
             (<img key={index} src={source} alt={`${companyName}`}/>)
           )}
       </section>
-    </ClickableCard>
+    </Card>
   );
 };
 

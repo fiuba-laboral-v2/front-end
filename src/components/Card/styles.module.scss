@@ -1,6 +1,6 @@
 @import "$styles/mixins/_card";
 
-.clickableCard {
+.card {
   @include card;
 
   border: solid 1px transparent;

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
-import { ClickableCard } from "$components/ClickableCard";
+import { Card } from "$components/Card";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
@@ -18,7 +18,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     statusLabel
   }
 ) => (
-  <ClickableCard detail={true}>
+  <Card detail={true}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <Headline className={styles.applicantName}>{
@@ -43,5 +43,5 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
       )
     }
-  </ClickableCard>
+  </Card>
 );

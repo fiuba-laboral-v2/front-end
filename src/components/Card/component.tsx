@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
-export const ClickableCard: FunctionComponent<IClickableCardProps> = (
+export const Card: FunctionComponent<IClickableCardProps> = (
   {
     children,
     className,
@@ -15,7 +15,7 @@ export const ClickableCard: FunctionComponent<IClickableCardProps> = (
   const [touched, setTouched] = useState(false);
   return (
     <div
-      className={classNames(styles.clickableCard, className, {
+      className={classNames(styles.card, className, {
         [styles.detail]: detail,
         [styles.hoverable]: onClick,
         [styles.touched]: touched,
