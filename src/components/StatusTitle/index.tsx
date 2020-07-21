@@ -9,12 +9,12 @@ import styles from "./styles.module.scss";
 export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
   {
     className,
-    title,
+    detailTitle,
     approvalStatus
   }
 ) => (
   <div className={classNames(styles.statusTitle, className)}>
-    <Headline className={styles.title}>{title}</Headline>
+    <Headline className={styles.title}>{detailTitle}</Headline>
     {
       approvalStatus &&
       <StatusLabel
@@ -38,6 +38,6 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
 
 interface IStatusTitleProps {
   className?: string;
-  title: string;
+  detailTitle: string;
   approvalStatus?: ApprovalStatus;
 }
