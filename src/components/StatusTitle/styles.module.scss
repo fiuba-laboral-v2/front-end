@@ -1,0 +1,28 @@
+@import "$styles/_variables";
+
+.statusTitle {
+  align-items: last baseline;
+  display: flex;
+}
+
+.mobileStatus {
+  display: none;
+}
+
+.desktopStatus {
+  display: inline;
+}
+
+.title {
+  margin-right: $spacing-s;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .desktopStatus {
+    display: none;
+  }
+
+  .mobileStatus {
+    display: flex;
+  }
+}

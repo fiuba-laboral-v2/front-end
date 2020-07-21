@@ -4,7 +4,12 @@ import { useStatusText } from "$models/hooks";
 import { Label } from "$components/Label";
 import { ILabelProps } from "$components/StatusLabel";
 
-export const RejectedLabel: FunctionComponent<ILabelProps> = ({ useTooltip }) => {
+export const RejectedLabel: FunctionComponent<ILabelProps> = props => {
   const text = useStatusText({ translationGroup: "rejectedLabel" });
-  return <Label Icon={NotInterestedIcon} color="red" text={text} useTooltip={useTooltip} />;
+  return <Label
+    Icon={NotInterestedIcon}
+    color="red"
+    text={text}
+    {...props}
+  />;
 };
