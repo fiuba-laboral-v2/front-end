@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.mobileStatus {
+  display: none;
+}
+
 .status {
   align-self: center;
   transform: translateY(10%);
@@ -11,4 +15,14 @@
 
 .title {
   margin-right: $spacing-s;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .status {
+    display: none;
+  }
+
+  .mobileStatus {
+    display: flex;
+  }
 }

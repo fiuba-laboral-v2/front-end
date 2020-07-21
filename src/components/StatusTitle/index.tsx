@@ -24,6 +24,15 @@ export const StatusTitle: FunctionComponent<ICompanyDetailProps> = (
         fixedPosition={false}
       />
     }
+    {
+      status &&
+      <StatusLabel
+        className={styles.mobileStatus}
+        status={status}
+        useTooltip={false}
+        fixedPosition={true}
+      />
+    }
   </div>
 );
 
