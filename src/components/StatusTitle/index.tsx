@@ -17,21 +17,20 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
     <Headline className={styles.title}>{detailTitle}</Headline>
     {
       approvalStatus &&
-      <StatusLabel
-        className={styles.desktopStatus}
-        status={approvalStatus}
-        useTooltip={true}
-        fixedPosition={false}
-      />
-    }
-    {
-      approvalStatus &&
-      <StatusLabel
-        className={styles.mobileStatus}
-        status={approvalStatus}
-        useTooltip={false}
-        fixedPosition={true}
-      />
+      <>
+        <StatusLabel
+          className={styles.desktopStatus}
+          status={approvalStatus}
+          useTooltip={true}
+          fixedPosition={false}
+        />
+        <StatusLabel
+          className={styles.mobileStatus}
+          status={approvalStatus}
+          useTooltip={false}
+          fixedPosition={true}
+        />
+      </>
     }
   </div>
 );
