@@ -6,7 +6,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 import styles from "./styles.module.scss";
 
-export const StatusTitle: FunctionComponent<ICompanyDetailProps> = (
+export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
   {
     className,
     title,
@@ -36,7 +36,7 @@ export const StatusTitle: FunctionComponent<ICompanyDetailProps> = (
   </div>
 );
 
-interface ICompanyDetailProps {
+interface IStatusTitleProps {
   className?: string;
   title: string;
   status?: ApprovalStatus;
