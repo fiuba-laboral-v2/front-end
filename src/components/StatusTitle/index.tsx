@@ -10,25 +10,25 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
   {
     className,
     title,
-    status
+    approvalStatus
   }
 ) => (
   <div className={classNames(styles.statusTitle, className)}>
     <Headline className={styles.title}>{title}</Headline>
     {
-      status &&
+      approvalStatus &&
       <StatusLabel
         className={styles.desktopStatus}
-        status={status}
+        status={approvalStatus}
         useTooltip={true}
         fixedPosition={false}
       />
     }
     {
-      status &&
+      approvalStatus &&
       <StatusLabel
         className={styles.mobileStatus}
-        status={status}
+        status={approvalStatus}
         useTooltip={false}
         fixedPosition={true}
       />
@@ -39,5 +39,5 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
 interface IStatusTitleProps {
   className?: string;
   title: string;
-  status?: ApprovalStatus;
+  approvalStatus?: ApprovalStatus;
 }

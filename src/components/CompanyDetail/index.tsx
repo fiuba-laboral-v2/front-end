@@ -33,7 +33,10 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         logo={logo}
       />
       <div className={styles.mainInfo}>
-        <StatusTitle title={companyName} status={withStatusLabel ? approvalStatus : undefined}/>
+        <StatusTitle
+          title={companyName}
+          approvalStatus={withStatusLabel ? approvalStatus : undefined}
+        />
         <Subtitle className={styles.companySlogan}>{slogan}</Subtitle>
         <DetailContactMe email={email} website={website}/>
       </div>
