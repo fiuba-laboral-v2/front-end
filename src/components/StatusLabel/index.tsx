@@ -6,24 +6,22 @@ import { PendingLabel } from "$components/PendingLabel";
 
 export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   {
-    className,
     status,
-    useTooltip,
-    fixedPosition
+    ...props
   }
 ) => (
   <>
     {
       status === ApprovalStatus.approved &&
-      <ApprovedLabel className={className} useTooltip={useTooltip} fixedPosition={fixedPosition} />
+      <ApprovedLabel {...props} />
     }
     {
       status === ApprovalStatus.rejected &&
-      <RejectedLabel className={className} useTooltip={useTooltip} fixedPosition={fixedPosition} />
+      <RejectedLabel {...props} />
     }
     {
       status === ApprovalStatus.pending &&
-      <PendingLabel className={className} useTooltip={useTooltip} fixedPosition={fixedPosition} />
+      <PendingLabel {...props} />
     }
   </>
 );
