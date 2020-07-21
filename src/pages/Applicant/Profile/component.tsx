@@ -3,7 +3,6 @@ import { Title } from "./Title";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 import { Window } from "$components/Window";
 import Button from "$components/Button";
-import { StatusLabel } from "../../../components/StatusLabel";
 import { IProfileParams } from "./interface";
 
 export const Profile: FunctionComponent<IProfileParams> = (
@@ -20,9 +19,7 @@ export const Profile: FunctionComponent<IProfileParams> = (
       editButton={
         <Button className={"primary"} onClick={onClickEdit}>{translations.edit}</Button>
       }
-      statusLabel={
-        <StatusLabel useTooltip={false} status={applicant.approvalStatus}/>
-      }
+      statusLabel={true}
     />
   </Window>
 );

@@ -9,9 +9,7 @@ const Headline: FunctionComponent<IDetailHeadlineProps> = (
     children
   }
 ) => (
-  <h2
-    className={classNames(styles.detailHeadline, className, styles[color])}
-  >
+  <h2 className={classNames(styles.detailHeadline, className, styles[color])}>
     {children}
   </h2>
 );

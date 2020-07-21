@@ -6,16 +6,26 @@
 }
 
 .tag {
-  border-bottom-left-radius: 5px;
-  border-top-right-radius: $defaultBorderRadius;
   display: flex;
+  padding: 4px 10px;
+  width: fit-content;
+}
+
+.relativePosition {
+  border-radius: $smallBorderRadius;
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+  padding: 4px;
+}
+
+.fixedPosition {
+  border-bottom-left-radius: $smallBorderRadius;
+  border-top-right-radius: $defaultBorderRadius;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 4px 10px;
   position: absolute;
   right: 0;
   top: 0;
-  width: fit-content;
 }
 
 .text {

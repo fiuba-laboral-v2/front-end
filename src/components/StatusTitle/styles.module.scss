@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.statusTitle {
+  display: flex;
+}
+
+.status {
+  align-self: center;
+  transform: translateY(10%);
+}
+
+.title {
+  margin-right: $spacing-s;
+}

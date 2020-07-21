@@ -4,7 +4,20 @@ import { useStatusText } from "$models/hooks";
 import { Label } from "$components/Label";
 import { ILabelProps } from "$components/StatusLabel";
 
-export const ApprovedLabel: FunctionComponent<ILabelProps> = ({ useTooltip }) => {
+export const ApprovedLabel: FunctionComponent<ILabelProps> = (
+  {
+    className,
+    useTooltip,
+    fixedPosition
+  }
+) => {
   const text = useStatusText({ translationGroup: "approvedLabel" });
-  return <Label Icon={CheckIcon} color="green" text={text} useTooltip={useTooltip}/>;
+  return <Label
+    className={className}
+    Icon={CheckIcon}
+    color="green"
+    text={text}
+    useTooltip={useTooltip}
+    fixedPosition={fixedPosition}
+  />;
 };
