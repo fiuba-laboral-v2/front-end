@@ -9,7 +9,7 @@ export interface ITranslations {
 export interface IApplicantDetailContainerProps {
   applicant: IApplicant;
   editButton?: ReactElement;
-  statusLabel?: boolean;
+  withStatusLabel?: boolean;
 }
 
 export interface IApplicantDetailProps extends IApplicantDetailContainerProps {

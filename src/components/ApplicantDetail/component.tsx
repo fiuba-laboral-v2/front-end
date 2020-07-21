@@ -26,7 +26,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     },
     translations,
     editButton,
-    statusLabel
+    withStatusLabel
   }
 ) => (
   <Card largePadding={true}>
@@ -35,7 +35,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         <StatusTitle
           className={styles.title}
           title={`${name} ${surname}`}
-          status={statusLabel ? approvalStatus : undefined}
+          status={withStatusLabel ? approvalStatus : undefined}
         />
         {editButton}
       </div>

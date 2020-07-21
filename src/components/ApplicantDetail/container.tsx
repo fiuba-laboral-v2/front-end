@@ -11,7 +11,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   {
     applicant,
     editButton,
-    statusLabel
+    withStatusLabel
   }
 ) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
@@ -26,7 +26,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
       applicant={applicant}
       translations={translations.data}
       editButton={editButton}
-      statusLabel={statusLabel}
+      withStatusLabel={withStatusLabel}
     />
   );
 };
