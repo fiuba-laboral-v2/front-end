@@ -18,7 +18,7 @@ export const StatusTitle: FunctionComponent<ICompanyDetailProps> = (
     {
       status &&
       <StatusLabel
-        className={styles.status}
+        className={styles.desktopStatus}
         status={status}
         useTooltip={true}
         fixedPosition={false}

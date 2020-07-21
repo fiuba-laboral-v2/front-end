@@ -8,7 +8,7 @@
   display: none;
 }
 
-.status {
+.desktopStatus {
   align-self: center;
   transform: translateY(10%);
 }
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .status {
+  .desktopStatus {
     display: none;
   }
 
