@@ -5,13 +5,14 @@ import { Headline } from "$components/Headline";
 import { Subtitle } from "$components/Subtitle";
 import { Description } from "$components/Description";
 import { DetailContactMe } from "$components/Detail/DetailContactMe";
-import { DetailMainContainer } from "$components/Detail/DetailMainContainer";
+import { Card } from "$components/Card";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ICompany } from "$interfaces/Company";
 
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
     editButton,
+    statusLabel,
     company: {
       companyName,
       email = "",
@@ -24,7 +25,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   }
 ) => {
   return (
-    <DetailMainContainer>
+    <Card largePadding={true}>
       <div className={styles.header}>
         <CompanyLogo
           size="extraLarge"
@@ -37,6 +38,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
           <DetailContactMe email={email} website={website}/>
         </div>
         <div className={styles.editButton}>{editButton}</div>
+        {statusLabel}
       </div>
       <Description>{description}</Description>
       <section className={styles.photos}>
@@ -45,12 +47,13 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
             (<img key={index} src={source} alt={`${companyName}`}/>)
           )}
       </section>
-    </DetailMainContainer>
+    </Card>
   );
 };
 
 interface ICompanyDetailProps {
   company: ICompany;
   editButton?: React.ReactElement;
+  statusLabel?: React.ReactElement;
   className?: string;
 }

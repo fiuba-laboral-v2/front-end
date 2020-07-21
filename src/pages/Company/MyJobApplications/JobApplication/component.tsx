@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 import { Link } from "$components/Link";
-import { ClickableCard } from "$components/ClickableCard";
+import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
@@ -21,7 +21,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   }) => {
   const history = useHistory();
   return (
-    <ClickableCard
+    <Card
       className={classNames(styles.card, className)}
       onClick={() => history.push(RoutesBuilder.company.applicantDetail(applicant.uuid))}
     >
@@ -40,7 +40,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         className={styles.createdAt}
         since={createdAt}
       />
-    </ClickableCard>
+    </Card>
   );
 };
 

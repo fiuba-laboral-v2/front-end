@@ -3,10 +3,11 @@ import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
-export const ClickableCard: FunctionComponent<IClickableCardProps> = (
+export const Card: FunctionComponent<IClickableCardProps> = (
   {
     children,
     className,
+    largePadding,
     selected,
     onClick
   }
@@ -14,7 +15,8 @@ export const ClickableCard: FunctionComponent<IClickableCardProps> = (
   const [touched, setTouched] = useState(false);
   return (
     <div
-      className={classNames(styles.clickableCard, className, {
+      className={classNames(styles.card, className, {
+        [styles.largePadding]: largePadding,
         [styles.hoverable]: onClick,
         [styles.touched]: touched,
         [styles.selected]: selected
@@ -33,4 +35,5 @@ interface IClickableCardProps {
   className?: string;
   onClick?: () => void;
   selected?: boolean;
+  largePadding?: boolean;
 }

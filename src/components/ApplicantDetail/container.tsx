@@ -10,7 +10,8 @@ import { IApplicantDetailContainerProps, ITranslations } from "./interface";
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = (
   {
     applicant,
-    editButton
+    editButton,
+    statusLabel
   }
 ) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
@@ -25,6 +26,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
       applicant={applicant}
       translations={translations.data}
       editButton={editButton}
+      statusLabel={statusLabel}
     />
   );
 };

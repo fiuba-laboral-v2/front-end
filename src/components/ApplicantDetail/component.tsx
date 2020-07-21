@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
+import { Card } from "$components/Card";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
@@ -13,15 +14,18 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
     applicant,
     translations,
-    editButton
-  }) => (
-  <div className={styles.container}>
+    editButton,
+    statusLabel
+  }
+) => (
+  <Card largePadding={true}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <Headline className={styles.applicantName}>{
           `${applicant.user.name} ${applicant.user.surname}`
         }</Headline>
         {editButton}
+        {statusLabel}
       </div>
       <Links links={applicant.links}/>
     </div>
@@ -31,13 +35,13 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         title={translations.capabilities}
         capabilities={applicant.capabilities}
       />
-      <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
+      <CareersDetail className={styles.careers} careers={applicant.careers}/>
     </div>
     <Description>{applicant.description}</Description>
     {
-      applicant.sections?.map(section =>
+      applicant.sections.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
       )
     }
-  </div>
+  </Card>
 );

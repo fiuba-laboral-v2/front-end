@@ -1,10 +1,15 @@
 @import "$styles/mixins/_card";
 
-.clickableCard {
+.card {
   @include card;
 
   border: solid 1px transparent;
   padding: 15px;
+}
+
+.largePadding {
+  padding: $spacing-xxl;
+  position: relative;
 }
 
 .selected {
