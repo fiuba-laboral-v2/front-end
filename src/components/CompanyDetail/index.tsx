@@ -12,7 +12,7 @@ import { ICompany } from "$interfaces/Company";
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
     editButton,
-    statusLabel,
+    withStatusLabel,
     company: {
       companyName,
       approvalStatus,
@@ -33,7 +33,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
         logo={logo}
       />
       <div className={styles.mainInfo}>
-        <StatusTitle title={companyName} status={statusLabel ? approvalStatus : undefined}/>
+        <StatusTitle title={companyName} status={withStatusLabel ? approvalStatus : undefined}/>
         <Subtitle className={styles.companySlogan}>{slogan}</Subtitle>
         <DetailContactMe email={email} website={website}/>
       </div>
@@ -52,6 +52,6 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
 interface ICompanyDetailProps {
   company: ICompany;
   editButton?: React.ReactElement;
-  statusLabel?: boolean;
+  withStatusLabel?: boolean;
   className?: string;
 }

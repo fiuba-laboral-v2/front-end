@@ -20,7 +20,7 @@ export const Profile: FunctionComponent<IProfile> = (
       editButton={
         <Button className={"primary"} onClick={onClickEdit}>{translations.edit}</Button>
       }
-      statusLabel={true}
+      withStatusLabel
     />
   </Window>
 );
