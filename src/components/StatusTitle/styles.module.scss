@@ -1,7 +1,6 @@
 @import "$styles/_variables";
 
 .statusTitle {
-  align-items: last baseline;
   display: flex;
 }
 
@@ -10,7 +9,8 @@
 }
 
 .desktopStatus {
-  display: inline;
+  align-self: center;
+  margin-top: 5px;
 }
 
 .title {
