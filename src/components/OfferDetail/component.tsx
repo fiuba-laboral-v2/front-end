@@ -30,7 +30,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
           <Headline className={styles.title}>{offer.title}</Headline>
-          {editButton}
+          <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
