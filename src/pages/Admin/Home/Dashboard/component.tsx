@@ -26,6 +26,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
       />
       <TaskList
         adminTasks={adminTasks}
+        statuses={filter.statuses}
         selectedTask={selectedTask}
         onSelectTask={setSelectedTask}
       />

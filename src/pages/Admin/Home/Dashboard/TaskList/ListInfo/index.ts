@@ -1,1 +1,1 @@
-export { ListInfo } from "./component";
+export { ListInfoContainer as ListInfo } from "./container";
