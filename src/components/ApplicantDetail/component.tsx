@@ -37,7 +37,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
           detailTitle={`${name} ${surname}`}
           approvalStatus={withStatusLabel ? approvalStatus : undefined}
         />
-        {editButton}
+        <div className={styles.editButton}>{editButton}</div>
       </div>
       <Links links={links}/>
     </div>
