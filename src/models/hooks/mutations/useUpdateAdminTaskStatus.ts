@@ -9,12 +9,14 @@ import { TAdminTaskType } from "$interfaces/AdminTask";
 
 const successMessage = (status: ApprovalStatus, translations: IApprovalActionsTranslations) => {
   if (status === ApprovalStatus.approved) return translations.approved;
-  return translations.rejected;
+  if (status === ApprovalStatus.rejected) return translations.rejected;
+  return translations.pending;
 };
 
 const defaultTranslations = (): IApprovalActionsTranslations => ({
   approved: "Aprobado",
-  rejected: "Rechazado"
+  rejected: "Rechazado",
+  pending: "Pendiente"
 });
 
 const useGetTranslations = () => {
