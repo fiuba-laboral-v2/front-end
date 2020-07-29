@@ -11,7 +11,7 @@ export const TimeHumanizerContainer: FunctionComponent<ITimeHumanizerContainerPr
     ...props
   }
 ) => {
-  const translations = useTranslations<ITimeHumanizerTranslations>("TimeHumanizer");
+  const translations = useTranslations<ITimeHumanizerTranslations>("timeHumanizer");
   if (translations.loading) return <Fragment/>;
   if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
