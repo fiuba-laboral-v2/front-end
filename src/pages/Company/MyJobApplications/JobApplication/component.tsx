@@ -39,6 +39,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
       <TimeHumanizer
         className={styles.createdAt}
         since={createdAt}
+        type="create"
       />
     </Card>
   );

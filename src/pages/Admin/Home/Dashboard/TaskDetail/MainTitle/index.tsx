@@ -13,7 +13,7 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = (
       <p className={styles.title}>
         {title}
       </p>
-      <TimeHumanizer since={createdAt}/>
+      <TimeHumanizer since={createdAt} type="create"/>
     </div>
   </div>
 );

@@ -29,7 +29,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
           {title}
         </Subtitle>
         <hr className={styles.separator}/>
-        <TimeHumanizer since={createdAt} className={styles.mobileTime}/>
+        <TimeHumanizer since={createdAt} className={styles.mobileTime} type="create"/>
       </div>
     </div>
     <div className={styles.detailsContainer}>
@@ -37,7 +37,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
         <Subtitle className={styles.companyName}>
           {company.companyName}
         </Subtitle>
-        <TimeHumanizer since={createdAt} className={styles.time}/>
+        <TimeHumanizer since={createdAt} className={styles.time} type="create"/>
       </div>
       <JobSpecs
         salary={{ minimumSalary, maximumSalary }}

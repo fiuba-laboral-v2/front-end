@@ -35,7 +35,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>
-        <TimeHumanizer className={styles.createdAt} since={offer.createdAt}/>
+        <TimeHumanizer className={styles.createdAt} since={offer.createdAt} type="create" />
       </div>
     </div>
     <div className={styles.body}>
