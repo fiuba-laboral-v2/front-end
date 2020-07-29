@@ -6,6 +6,7 @@ export interface ICompanyAdminTask {
   __typename: COMPANY_TYPE;
   uuid: string;
   createdAt: string;
+  updatedAt: string;
   companyName: string;
   approvalStatus: ApprovalStatus;
 }
@@ -14,6 +15,7 @@ export interface IApplicantAdminTask {
   __typename: APPLICANT_TYPE;
   uuid: string;
   createdAt: string;
+  updatedAt: string;
   approvalStatus: ApprovalStatus;
   user: IUser;
 }

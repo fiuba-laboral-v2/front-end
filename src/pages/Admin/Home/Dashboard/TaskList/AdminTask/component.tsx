@@ -25,7 +25,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => 
     <Icon className={styles.icon}/>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
-      <TimeHumanizer since={adminTask.createdAt}/>
+      <TimeHumanizer since={adminTask.updatedAt}/>
     </div>
     <StatusLabel status={adminTask.approvalStatus} useTooltip={true} fixedPosition={true}/>
   </div>;
