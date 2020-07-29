@@ -4,7 +4,7 @@ import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
-import { TimeHumanizer } from "$components/TimeHumanizer";
+import { CreatedSince } from "$components/CreatedSince";
 import { OfferInfo } from "../OfferInfo";
 import styles from "./styles.module.scss";
 import { sortBy } from "lodash";
@@ -35,7 +35,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         <Subtitle className={styles.companyName} >
           <Link to={goToCompany}>{offer.company.companyName}</Link>
         </Subtitle>
-        <TimeHumanizer className={styles.createdAt} since={offer.createdAt} type="create" />
+        <CreatedSince className={styles.createdAt} date={offer.createdAt} />
       </div>
     </div>
     <div className={styles.body}>

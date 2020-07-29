@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
-import { TimeHumanizer } from "$components/TimeHumanizer";
+import { UpdatedSince } from "$components/UpdatedSince";
 import { StatusLabel } from "$components/StatusLabel";
 import styles from "./styles.module.scss";
 import { APPLICANT, COMPANY } from "$typenames";
@@ -25,7 +25,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => 
     <Icon className={styles.icon}/>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
-      <TimeHumanizer since={adminTask.updatedAt} type="update"/>
+      <UpdatedSince date={adminTask.updatedAt} />
     </div>
     <StatusLabel status={adminTask.approvalStatus} useTooltip={true} fixedPosition={true}/>
   </div>;
