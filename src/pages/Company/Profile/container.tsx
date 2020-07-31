@@ -13,15 +13,15 @@ export const ProfileContainer: FunctionComponent = () => {
   const response = useMyCompanyProfile();
   const translations = useTranslations<IProfileTranslations>("editableCompanyProfile");
 
-  if (response.error || translations.error) {
+  if (response.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
-  if (response.loading || translations.loading) return <LoadingSpinner/>;
+  if (response.loading || !translations) return <LoadingSpinner/>;
 
   return (
     <Profile
       onClickEdit={() => history.push(RoutesBuilder.company.editMyProfile())}
-      translations={translations.data}
+      translations={translations}
       company={response.data.getCurrentUser.company}
     />
   );

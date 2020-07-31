@@ -9,7 +9,7 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
   }
 ) => {
   const translations = useTranslations<IUserDetailsTranslations>("adminApplicantDetails");
-  const padron = translations.loading || translations.error ? "" : translations.data.padron;
+  const padron = translations ? translations.padron : "";
 
   return (
     <UserDetails

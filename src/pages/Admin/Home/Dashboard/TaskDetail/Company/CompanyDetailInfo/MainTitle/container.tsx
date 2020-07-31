@@ -10,7 +10,7 @@ export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
   { company }
 ) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
-  const title = translations.loading || translations.error ? "" : translations.data.title;
+  const title = translations ? translations.title : "";
   return <MainTitle title={title} createdAt={company.createdAt}/>;
 };
 

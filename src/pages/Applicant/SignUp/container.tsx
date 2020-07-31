@@ -2,7 +2,6 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { SignUp } from "./component";
-import { Redirect } from "$components/Redirect";
 import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -65,12 +64,11 @@ const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.editMyProfile());
   };
 
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!translations) return <Fragment/>;
 
   return (
     <SignUp
-      translations={translations.data}
+      translations={translations}
       validateForm={validateForm}
       onSubmit={onSubmit}
     />

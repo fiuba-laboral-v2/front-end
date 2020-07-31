@@ -16,13 +16,13 @@ export const NavBarContainer: FunctionComponent = () => {
   const currentUserResponse = useCurrentUser();
   const logout = useLogout();
 
-  if (translations.loading || currentUserResponse.loading) return <Fragment/>;
-  if (translations.error || currentUserResponse.error) {
+  if (!translations || currentUserResponse.loading) return <Fragment/>;
+  if (currentUserResponse.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
   const currentUser = currentUserResponse.data.getCurrentUser;
-  const links = currentUser ? NavBarLinks.create(currentUser, translations.data) : [];
+  const links = currentUser ? NavBarLinks.create(currentUser, translations) : [];
 
   const onLogOut = async () => {
     await client.clearStore();
@@ -35,7 +35,7 @@ export const NavBarContainer: FunctionComponent = () => {
       logOut={onLogOut}
       links={links}
       isLoggedIn={!!currentUser}
-      translations={translations.data}
+      translations={translations}
       username={currentUser?.name}
     />
   );

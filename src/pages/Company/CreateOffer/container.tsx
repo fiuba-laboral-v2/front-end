@@ -3,7 +3,6 @@ import { useCreateOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { Redirect } from "$components/Redirect";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
@@ -14,11 +13,10 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const createOffer = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
-  if (translations.loading) return <LoadingSpinner/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!translations) return <LoadingSpinner/>;
 
   return <EditOffer
-    title={translations.data.create}
+    title={translations.create}
     initialValues={{
       title: "",
       description: "",
@@ -35,6 +33,6 @@ export const CreateOfferContainer: FunctionComponent = () => {
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
     }}
-    translations={translations.data}
+    translations={translations}
   />;
 };

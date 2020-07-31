@@ -1,6 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useCompanyOfferByUuid, useEditOffer, useTranslations } from "$hooks";
-import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer, ICreateOfferValues, IEditOfferTranslations } from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
@@ -15,10 +14,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   const editOffer = useEditOffer();
   const getOffer = useCompanyOfferByUuid(uuid);
 
-  if (translations.loading || getOffer.loading || getOffer.error) return <Fragment/>;
-  if (translations.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  }
+  if (!translations || getOffer.loading || getOffer.error) return <Fragment/>;
 
   const onSubmit = async (values: ICreateOfferValues) => {
     const response = await editOffer({
@@ -30,8 +26,8 @@ export const EditOfferContainer: FunctionComponent = () => {
   };
 
   return <EditOffer
-    title={translations.data.edit}
-    translations={translations.data}
+    title={translations.edit}
+    translations={translations}
     initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
     onSubmit={onSubmit}
   />;
