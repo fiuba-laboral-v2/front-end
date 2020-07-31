@@ -9,14 +9,14 @@ query GetAdminTasks(
     ... on Company {
       __typename
       uuid
-      createdAt
+      updatedAt
       companyName
       approvalStatus
     }
     ... on Applicant {
       __typename
       uuid
-      createdAt
+      updatedAt
       approvalStatus
       user {
         uuid

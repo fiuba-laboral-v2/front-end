@@ -2,8 +2,6 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { OfferCareers } from "./component";
 import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interface";
-import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Redirect } from "$components/Redirect";
 
 const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
   {
@@ -11,14 +9,12 @@ const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = (
     className
   }) => {
   const translations = useTranslations<IOfferCareersComponentProps>("offerCareer");
-
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!translations) return <Fragment/>;
 
   return (
     <OfferCareers
       className={className}
-      careersTitle={translations.data.careersTitle}
+      careersTitle={translations.careersTitle}
       offer={offer}
     />
   );

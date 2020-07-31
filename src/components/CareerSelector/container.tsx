@@ -13,14 +13,12 @@ export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainer
     error: careersError,
     loading: loadingCareers
   } = useQuery(GET_CAREERS);
-
-  if (translations.loading || translations.error) return <Fragment/>;
-  if (careersError || loadingCareers) return <Fragment/>;
+  if (!translations || careersError || loadingCareers) return <Fragment/>;
 
   return (
     <CareerSelector
-      careerLabel={translations.data.career}
-      creditsLabel={translations.data.credits}
+      careerLabel={translations.career}
+      creditsLabel={translations.credits}
       options={getCareers}
       {...props}
     />

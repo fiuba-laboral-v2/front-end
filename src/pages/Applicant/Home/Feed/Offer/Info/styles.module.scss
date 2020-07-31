@@ -56,15 +56,34 @@
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .detailsContainer {
+  .headerContainer {
+    flex-direction: row;
+    margin-bottom: $spacing-m;
+  }
+
+  .subtitleContainer {
+    align-self: center;
+    display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    margin-left: $spacing-m;
+  }
+
+  .detailsContainer {
+    flex-direction: row;
+    flex-grow: unset;
   }
 
   .firstColumn {
     display: flex;
-    flex-direction: column-reverse;
     margin: 0;
-    width: 100%;
+    width: unset;
+  }
+
+  .secondColumn {
+    align-self: center;
+    margin: 0;
+    width: unset;
   }
 
   .companyName {
@@ -89,20 +108,21 @@
     margin: 0;
   }
 
-  .headerContainer {
-    flex-direction: row;
-    margin-bottom: $spacing-m;
-  }
-
-  .subtitleContainer {
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-left: $spacing-m;
-  }
-
   .separator {
     margin: $spacing-s 0;
+  }
+}
+
+@media (max-width: $smallMobileContainerThreshold) {
+  .detailsContainer {
+    flex-direction: column;
+    justify-content: unset;
+  }
+
+  .firstColumn,
+  .secondColumn {
+    align-self: unset;
+    margin: 0;
+    width: unset;
   }
 }
