@@ -5,7 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
-import { CompanyLogo } from "../../../../../../components/CompanyLogo";
+import { CompanyLogo } from "$components/CompanyLogo";
 
 export const Info: FunctionComponent<IOfferProps> = ({
   data: {
