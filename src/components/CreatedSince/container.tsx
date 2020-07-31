@@ -1,8 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$models/hooks";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TimeHumanizer } from "$components/TimeHumanizer";
-import { Redirect } from "$components/Redirect";
 
 export const CreatedSinceContainer: FunctionComponent<ICreatedSinceContainerProps> = (
   {
@@ -11,11 +9,10 @@ export const CreatedSinceContainer: FunctionComponent<ICreatedSinceContainerProp
   }
 ) => {
   const translations = useTranslations<ICreatedSinceContainerTranslations>("createdSince");
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
+  if (!translations) return <Fragment/>;
 
   return (
-    <TimeHumanizer className={className} since={date} labelPrefix={translations.data.create}/>
+    <TimeHumanizer className={className} since={date} labelPrefix={translations.create}/>
   );
 };
 

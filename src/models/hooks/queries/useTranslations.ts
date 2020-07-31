@@ -1,6 +1,5 @@
 import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
-import { UseQueryResult } from "../useQuery";
 import { useSnackbar } from "notistack";
 import { handleGenericError } from "$models/errorHandlers/handleGenericError";
 
@@ -26,19 +25,15 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
 
 export const useTranslations = <T, >(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
-  const { data, error, loading } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
+  const { data } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
     GET_TRANSLATIONS,
     {
       variables: { translationGroup },
       errorHandlers: {
-        MissingTranslationError: () => handleGenericError({ enqueueSnackbar })
+        MissingTranslationError: handleGenericError({ enqueueSnackbar }),
+        defaultHandler: handleGenericError({ enqueueSnackbar })
       }
     }
   );
-
-  return {
-    ...(data && { data: translationMapper<T>(data) }),
-    loading,
-    error
-  } as UseQueryResult<string, T>;
+  return data && translationMapper<T>(data);
 };

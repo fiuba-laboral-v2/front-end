@@ -21,8 +21,8 @@ const defaultTranslations = (): IApprovalActionsTranslations => ({
 
 const useGetTranslations = () => {
   const translationsResponse = useTranslations<IApprovalActionsTranslations>("approvalActions");
-  if (translationsResponse.error || translationsResponse.loading) return defaultTranslations();
-  return translationsResponse.data;
+  if (!translationsResponse) return defaultTranslations();
+  return translationsResponse;
 };
 
 export const useUpdateAdminTaskStatus = (

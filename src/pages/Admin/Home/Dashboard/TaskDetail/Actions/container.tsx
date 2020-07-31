@@ -11,12 +11,12 @@ export const ActionsContainer: FunctionComponent<IActionsContainerProps> = (
   }
 ) => {
   const translations = useTranslations<IAdminActionsTranslations>("adminActions");
-  if (translations.loading || translations.error) return <Fragment /> ;
+  if (!translations) return <Fragment /> ;
   return (
     <Actions
       currentStatus={currentStatus}
       setStatus={setStatus}
-      translations={translations.data}
+      translations={translations}
     />
   );
 };

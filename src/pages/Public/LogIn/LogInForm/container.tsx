@@ -1,7 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikErrors, FormikHelpers } from "formik";
-import { Redirect } from "$components/Redirect";
 import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
@@ -13,11 +12,10 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const { enqueueSnackbar } = useSnackbar();
   const login = useLogin();
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!translations) return <Fragment/>;
 
   const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) =>
-    enqueueSnackbar(translations.data.badCredentialsMessage, { variant: "error" });
+    enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
 
   const onSubmit = async (
     values: ILoginVariables,
@@ -44,7 +42,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
       className={className}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
-      translations={translations.data}
+      translations={translations}
     />
   );
 };

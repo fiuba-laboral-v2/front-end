@@ -9,12 +9,12 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
   }
 ) => {
   const translations = useTranslations<IAdminCompanyDetails>("adminCompanyDetails");
-  if (translations.loading || translations.error) return <Fragment/>;
+  if (!translations) return <Fragment/>;
 
   return (
     <UserDetails
       company={company}
-      translations={translations.data}
+      translations={translations}
     />
   );
 };
