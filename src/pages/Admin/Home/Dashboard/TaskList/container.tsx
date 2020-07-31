@@ -7,7 +7,8 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   {
     adminTasks,
     onSelectTask,
-    selectedTask
+    selectedTask,
+    statuses
   }
 ) => {
   const translations = useTranslations<ITaskListTranslations>("adminTaskList");
@@ -17,6 +18,7 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
     adminTasks={adminTasks}
     onSelectTask={onSelectTask}
     selectedTask={selectedTask}
+    statuses={statuses}
     translations={translations}
   />;
 };
