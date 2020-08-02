@@ -15,11 +15,14 @@ export const List = <T, >(
   <div className={classNames(styles.list, className)}>
     {list.map(children)}
   </div>
-  <div className={styles.fetchMore}>
-    <Button className={"primary"} onClick={fetchMore} disabled={!shouldFetchMore}>
-      {shouldFetchMore ? "Ver más" : "No hay más"}
-    </Button>
-  </div>
+  {
+    fetchMore &&
+    <div className={styles.fetchMore}>
+        <Button className={"primary"} onClick={fetchMore} disabled={!shouldFetchMore}>
+          {shouldFetchMore ? "Ver más" : "No hay más"}
+        </Button>
+    </div>
+  }
 </>;
 
 interface IListProps<T> {
