@@ -1,5 +1,14 @@
+@import "$styles/_variables";
+
 .list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.fetchMore {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: $spacing-m 0 0;
 }
