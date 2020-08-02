@@ -11,6 +11,7 @@ query getMyApplicantProfile {
             }
             uuid
             padron
+            approvalStatus
             description
             capabilities {
                 uuid

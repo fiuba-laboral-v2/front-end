@@ -1,9 +1,8 @@
-import { IUser } from "$interfaces/User";
 import { ApprovalStatus } from "../ApprovalStatus";
+import { IUser } from "../User";
 
-export interface ICompany {
+export interface ICompany<T extends IUser | undefined = undefined> {
   uuid: string;
-  user: IUser;
   cuit: string;
   companyName: string;
   slogan?: string;
@@ -11,7 +10,9 @@ export interface ICompany {
   logo?: string;
   website?: string;
   email?: string;
+  createdAt: string;
   approvalStatus: ApprovalStatus;
   phoneNumbers?: string[];
   photos?: string[];
+  users: T[];
 }

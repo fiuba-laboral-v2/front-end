@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { Headline } from "$components/Headline";
 import { Links } from "$components/Links";
+import { Card } from "$components/Card";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersDetail } from "$components/CareersDetail";
 import { SectionDetail } from "$components/SectionDetail";
+import { StatusTitle } from "$components/StatusTitle";
 
 import styles from "./styles.module.scss";
 import { Description } from "$components/Description";
@@ -11,33 +12,48 @@ import { IApplicantDetailProps } from "./interface";
 
 export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
-    applicant,
+    applicant: {
+      user: {
+        name,
+        surname
+      },
+      description,
+      approvalStatus,
+      careers,
+      links,
+      sections,
+      capabilities
+    },
     translations,
-    editButton
-  }) => (
-  <div className={styles.container}>
+    editButton,
+    withStatusLabel
+  }
+) => (
+  <Card largePadding={true}>
     <div className={styles.headline}>
       <div className={styles.header}>
-        <Headline className={styles.applicantName}>{
-          `${applicant.user.name} ${applicant.user.surname}`
-        }</Headline>
-        {editButton}
+        <StatusTitle
+          className={styles.title}
+          detailTitle={`${name} ${surname}`}
+          approvalStatus={withStatusLabel ? approvalStatus : undefined}
+        />
+        <div>{editButton}</div>
       </div>
-      <Links links={applicant.links}/>
+      <Links links={links}/>
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
       <CapabilitiesDetail
         className={styles.capabilities}
         title={translations.capabilities}
-        capabilities={applicant.capabilities}
+        capabilities={capabilities}
       />
-      <CareersDetail className={styles.careers} careers={applicant.careers || []}/>
+      <CareersDetail className={styles.careers} careers={careers}/>
     </div>
-    <Description>{applicant.description}</Description>
+    <Description>{description}</Description>
     {
-      applicant.sections?.map(section =>
+      sections.map(section =>
         <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
       )
     }
-  </div>
+  </Card>
 );

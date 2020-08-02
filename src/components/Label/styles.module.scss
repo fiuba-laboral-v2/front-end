@@ -1,0 +1,62 @@
+@import "$styles/mixins/_text";
+@import "$styles/_variables";
+
+.hideTooltip {
+  display: none;
+}
+
+.tag {
+  display: flex;
+  padding: 4px 10px;
+  width: fit-content;
+}
+
+.relativePosition {
+  border-radius: $smallBorderRadius;
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+  padding: 4px;
+}
+
+.fixedPosition {
+  border-bottom-left-radius: $smallBorderRadius;
+  border-top-right-radius: $defaultBorderRadius;
+  margin-right: -1px;
+  margin-top: -1px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.text {
+  @include text;
+
+  align-self: center;
+  display: flex;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.icon,
+.text {
+  color: $white;
+}
+
+.iconContainer {
+  display: flex;
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+}
+
+.red {
+  background: $red;
+}
+
+.green {
+  background: $green;
+}
+
+.darkYellow {
+  background: $darkYellow;
+}

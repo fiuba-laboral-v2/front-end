@@ -1,20 +1,23 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { upperFirst } from "lodash";
 import moment from "moment";
 import "moment/locale/es";
-
 import styles from "./styles.module.scss";
 
-const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({ since, className }) => (
+export const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = (
+  {
+    className,
+    since,
+    labelPrefix
+  }
+) => (
   <p className={classNames(styles.time, className)}>
-    {upperFirst(moment(parseInt(since, 10)).fromNow())}
+    {`${labelPrefix} ${moment(since).fromNow()}`}
   </p>
 );
 
 interface ITimeHumanizerProps {
-  since: string;
   className?: string;
+  since: string;
+  labelPrefix: string;
 }
-
-export { TimeHumanizer };

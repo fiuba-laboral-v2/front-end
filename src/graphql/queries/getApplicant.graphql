@@ -2,10 +2,13 @@ query GetApplicant($uuid: ID!) {
     getApplicant(uuid: $uuid) {
         uuid
         user {
+            email
             uuid
             name
             surname
         }
+        approvalStatus
+        createdAt
         padron
         description
         capabilities {

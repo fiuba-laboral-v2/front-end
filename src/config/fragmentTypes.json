@@ -3,7 +3,7 @@
     "types": [
       {
         "kind": "UNION",
-        "name": "Approvable",
+        "name": "AdminTask",
         "possibleTypes": [
           {
             "name": "Company"

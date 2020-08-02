@@ -17,8 +17,8 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const companyProfile = useMyCompanyProfile();
 
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
-  if (translations.loading || companyProfile.loading) return <LoadingSpinner/>;
-  if (translations.error || companyProfile.error) {
+  if (!translations || companyProfile.loading) return <LoadingSpinner/>;
+  if (companyProfile.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
 
@@ -55,7 +55,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
         photos: company.photos,
         _form: ""
       }}
-      translations={translations.data}
+      translations={translations}
       onUpdate={onUpdate}
     />
   );

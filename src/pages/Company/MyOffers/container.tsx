@@ -13,14 +13,14 @@ export const MyOffersContainer: FunctionComponent = () => {
   const response = useQuery<{ uuid?: string }, { getMyOffers: IOffer[] }>(GET_MY_OFFERS);
   const translations = useTranslations<ITranslations>("MyOffers");
 
-  if (response.error || translations.error) {
+  if (response.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
-  if (response.loading || translations.loading) return <LoadingSpinner/>;
+  if (response.loading || !translations) return <LoadingSpinner/>;
 
   return (
     <Feed
-      title={translations.data.title}
+      title={translations.title}
       offers={response.data.getMyOffers}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
     />);

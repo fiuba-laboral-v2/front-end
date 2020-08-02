@@ -1,5 +1,5 @@
-import { IApplicant } from "../../interfaces/Applicant";
-import { ReactElement } from "react";
+import { IApplicant } from "$interfaces/Applicant";
+import { ReactElement, FunctionComponent } from "react";
 
 export interface ITranslations {
   padron: string;
@@ -9,6 +9,7 @@ export interface ITranslations {
 export interface IApplicantDetailContainerProps {
   applicant: IApplicant;
   editButton?: ReactElement;
+  withStatusLabel?: boolean;
 }
 
 export interface IApplicantDetailProps extends IApplicantDetailContainerProps {

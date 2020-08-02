@@ -1,15 +1,16 @@
 query getCompanyByUuid ($uuid: ID!) {
-    getCompanyByUuid(uuid: $uuid) {
-        uuid
-        cuit
-        companyName
-        slogan
-        description
-        logo
-        website
-        email
-        approvalStatus
-        phoneNumbers
-        photos
-    }
+  getCompanyByUuid(uuid: $uuid) {
+    uuid
+    cuit
+    companyName
+    slogan
+    description
+    logo
+    website
+    email
+    approvalStatus
+    phoneNumbers
+    photos
+    createdAt
+  }
 }

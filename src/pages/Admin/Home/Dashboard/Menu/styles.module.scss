@@ -10,6 +10,10 @@
   width: 200px;
 }
 
+.typeFilter {
+  margin-bottom: $spacing-l;
+}
+
 @media (max-width: $hdContainerThreshold) {
   .menuContent {
     width: unset;

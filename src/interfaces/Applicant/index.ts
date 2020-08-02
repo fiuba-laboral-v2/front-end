@@ -1,6 +1,7 @@
 import { IUser } from "../User";
 import { ICapability } from "../Capability";
 import { IOffer } from "../Offer";
+import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface ICareer {
   code: string;
@@ -25,7 +26,9 @@ export interface ILink {
 export interface IApplicant {
   uuid: string;
   user: IUser;
+  createdAt: string;
   padron: number;
+  approvalStatus: ApprovalStatus;
   description?: string;
   links: ILink[];
   sections: ISection[];

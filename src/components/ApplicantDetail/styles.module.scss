@@ -1,56 +1,49 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_card";
 
-.container {
-  @include card;
+.headline,
+.firstContainerInfo {
+  margin-bottom: 25px;
+}
 
-  .headline,
-  .firstContainerInfo {
-    margin-bottom: 25px;
-  }
-
-  .headline {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .capabilitiesAndCareersContainer {
-    display: flex;
-    flex-direction: row;
-
-    .capabilities,
-    .careers {
-      width: 50%;
-    }
-
-    .capabilities {
-      margin-right: $spacing-l;
-    }
-  }
+.headline {
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
 }
 
-.applicantName {
+.title {
   flex-grow: 1;
   margin: 0 $spacing-l 0 0;
 }
 
+.capabilitiesAndCareersContainer {
+  display: flex;
+  flex-direction: row;
+
+  .capabilities,
+  .careers {
+    width: 50%;
+  }
+
+  .capabilities {
+    margin-right: $spacing-l;
+  }
+}
+
 @media (max-width: $mobileContainerThreshold) {
-  .container {
-    .capabilitiesAndCareersContainer {
-      flex-direction: column;
+  .capabilitiesAndCareersContainer {
+    flex-direction: column;
 
-      .capabilities,
-      .careers {
-        width: 100%;
-      }
+    .capabilities,
+    .careers {
+      width: 100%;
+    }
 
-      .capabilities {
-        margin-right: 0;
-      }
+    .capabilities {
+      margin-right: 0;
     }
   }
 }

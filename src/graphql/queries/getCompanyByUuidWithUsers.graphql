@@ -1,0 +1,22 @@
+query getCompanyByUuidWithUsers ($uuid: ID!) {
+  getCompanyByUuid(uuid: $uuid) {
+    uuid
+    cuit
+    companyName
+    slogan
+    description
+    logo
+    website
+    email
+    approvalStatus
+    phoneNumbers
+    photos
+    createdAt
+    users {
+      uuid
+      email
+      name
+      surname
+    }
+  }
+}

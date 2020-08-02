@@ -1,9 +1,11 @@
-import { IApprovable } from "$interfaces/Approvable";
+import { TAdminTask } from "$interfaces/AdminTask";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface ITaskListContainerProps {
-  onSelectTask: (task: IApprovable) => void;
-  selectedTask?: IApprovable;
-  approvableEntities: IApprovable[];
+  onSelectTask: (task: TAdminTask) => void;
+  selectedTask?: TAdminTask;
+  adminTasks?: TAdminTask[];
+  statuses: ApprovalStatus[];
 }
 
 export interface ITaskListProps extends ITaskListContainerProps {
@@ -11,5 +13,8 @@ export interface ITaskListProps extends ITaskListContainerProps {
 }
 
 export interface ITaskListTranslations {
-  pendingTasks: string;
+  tasks: string;
+  pending: string;
+  rejected: string;
+  approved: string;
 }

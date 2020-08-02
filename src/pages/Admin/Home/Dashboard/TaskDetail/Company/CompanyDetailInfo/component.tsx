@@ -2,24 +2,28 @@ import React, { FunctionComponent } from "react";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ICompany } from "$interfaces/Company";
+import { IUser } from "$interfaces/User";
 
 import { UserDetails } from "./UserDetails";
-import { Actions } from "./Actions";
 import { MainTitle } from "./MainTitle";
-
-import styles from "./styles.module.scss";
+import { DetailInfo } from "../../DetailInfo";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
-  { setStatus, company }
-) => <>
-  <MainTitle company={company}/>
-  <div className={styles.details}>
+  {
+    setStatus,
+    company
+  }
+) => (
+  <DetailInfo
+    mainTitle={<MainTitle company={company}/>}
+    setStatus={setStatus}
+    currentStatus={company.approvalStatus}
+  >
     <UserDetails company={company} />
-    <Actions setStatus={setStatus} />
-  </div>
-</>;
+  </DetailInfo>
+);
 
 export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus) => void;
-  company: ICompany;
+  company: ICompany<IUser>;
 }

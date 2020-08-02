@@ -1,0 +1,29 @@
+query GetAdminTasks(
+  $adminTaskTypes: [AdminTaskType]!,
+  $statuses: [ApprovalStatus]!
+) {
+  getAdminTasks(
+    adminTaskTypes: $adminTaskTypes,
+    statuses: $statuses
+  ) {
+    ... on Company {
+      __typename
+      uuid
+      updatedAt
+      companyName
+      approvalStatus
+    }
+    ... on Applicant {
+      __typename
+      uuid
+      updatedAt
+      approvalStatus
+      user {
+        uuid
+        email
+        name
+        surname
+      }
+    }
+  }
+}

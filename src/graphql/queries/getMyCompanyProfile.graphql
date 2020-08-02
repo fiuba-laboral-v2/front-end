@@ -4,6 +4,7 @@ query getMyCompanyProfile {
         company {
             uuid
             cuit
+            approvalStatus
             companyName
             slogan
             description

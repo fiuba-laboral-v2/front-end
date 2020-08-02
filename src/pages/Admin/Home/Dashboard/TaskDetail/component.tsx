@@ -1,19 +1,26 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
+import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
-import { IApprovable } from "$interfaces/Approvable";
-import { COMPANY, APPLICANT } from "$typenames";
+import { TAdminTask } from "$interfaces/AdminTask";
+import { APPLICANT, COMPANY } from "$typenames";
 
 import styles from "./styles.module.scss";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
     selectedTask,
-    onStatusUpdate
+    onStatusUpdate,
+    refetchAdminTasks
   }
 ) => {
+  const contentContainer = useRef<HTMLDivElement>(null);
+  const scrollToTop = () => {
+    contentContainer.current?.scrollTo(0, 0);
+  };
+
   let children = <EmptyDetail/>;
   if (selectedTask) {
     children = (
@@ -21,17 +28,35 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
         <div className={styles.info}>
           {
             selectedTask.__typename === COMPANY &&
-            <CompanyDetailInfo selectedCompany={selectedTask} onStatusUpdate={onStatusUpdate}/>
-          }
-        </div>
-        <div className={styles.content}>
-          {
-            selectedTask.__typename === COMPANY &&
-            <CompanyDetailContent companyUuid={selectedTask.uuid}/>
+            <CompanyDetailInfo
+                selectedCompany={selectedTask}
+                onStatusUpdate={onStatusUpdate}
+                refetchAdminTasks={refetchAdminTasks}
+            />
           }
           {
             selectedTask.__typename === APPLICANT &&
-            <ApplicantDetailContent applicantUuid={selectedTask.uuid}/>
+            <ApplicantDetailInfo
+                selectedApplicant={selectedTask}
+                onStatusUpdate={onStatusUpdate}
+                refetchAdminTasks={refetchAdminTasks}
+            />
+          }
+        </div>
+        <div className={styles.content} ref={contentContainer}>
+          {
+            selectedTask.__typename === COMPANY &&
+            <CompanyDetailContent
+                companyUuid={selectedTask.uuid}
+                scrollToTop={scrollToTop}
+            />
+          }
+          {
+            selectedTask.__typename === APPLICANT &&
+            <ApplicantDetailContent
+                applicantUuid={selectedTask.uuid}
+                scrollToTop={scrollToTop}
+            />
           }
         </div>
       </>
@@ -41,6 +66,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
 };
 
 interface ITaskDetailProps {
-  selectedTask?: IApprovable;
+  selectedTask?: TAdminTask;
   onStatusUpdate: () => void;
+  refetchAdminTasks: () => void;
 }

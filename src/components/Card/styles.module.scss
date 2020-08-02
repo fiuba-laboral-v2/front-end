@@ -1,0 +1,53 @@
+@import "$styles/mixins/_card";
+
+.card {
+  @include card;
+
+  border: solid 1px transparent;
+  padding: 15px;
+}
+
+.largePadding {
+  padding: $spacing-xxl;
+  position: relative;
+}
+
+.selected {
+  background-color: $selectedColor;
+}
+
+.hoverable {
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow ease-out;
+  user-select: none;
+
+  &::after {
+    border-radius: $defaultBorderRadius;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.3s ease-out;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover::after,
+  &.selected::after {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .hoverable {
+    transition: transform 0.3s ease-in-out;
+
+    &.touched {
+      transform: scale(0.95);
+    }
+  }
+}

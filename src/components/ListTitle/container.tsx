@@ -10,8 +10,7 @@ export const ListTitleContainer: FunctionComponent<IListTitleProps> = (
   }
 ) => {
   const translations = useTranslations<IHeaderProps>(titleTranslationPath);
-  if (translations.loading) return <Fragment/>;
-  if (translations.error) return <Fragment/>;
+  if (!translations) return <Fragment/>;
 
-  return <Header title={translations.data.title}/>;
+  return <Header title={translations.title}/>;
 };

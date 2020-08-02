@@ -9,8 +9,8 @@
   ],
   "dependencies": {
     "@apollo/react-hooks": "3.1.3",
-    "@graphql-codegen/cli": "1.15.4",
-    "@graphql-codegen/fragment-matcher": "1.15.4",
+    "@graphql-codegen/cli": "1.17.0",
+    "@graphql-codegen/fragment-matcher": "1.17.0",
     "@material-ui/core": "4.9.0",
     "@material-ui/icons": "4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
@@ -21,7 +21,7 @@
     "@types/classnames": "2.2.10",
     "@types/humanize-duration": "3.18.0",
     "@types/jest": "24.0.0",
-    "@types/lodash": "4.14.149",
+    "@types/lodash": "4.14.157",
     "@types/node": "12.0.0",
     "@types/node-sass": "4.11.0",
     "@types/react": "16.9.34",
@@ -54,7 +54,7 @@
     "shortid": "2.2.15",
     "tslint": "5.20.1",
     "typescript": "~3.7.2",
-    "validations-fiuba-laboral-v2": "1.0.17"
+    "validations-fiuba-laboral-v2": "1.0.18"
   },
   "resolutions": {
     "@types/react": "16.9.34"

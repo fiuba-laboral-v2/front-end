@@ -45,10 +45,10 @@ const EditableDetailContainer: FunctionComponent = () => {
     []
   );
 
-  if (applicantProfile.error || translations.error) {
+  if (applicantProfile.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
-  if (applicantProfile.loading || translations.loading) return <LoadingSpinner/>;
+  if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
 
   const onSubmit = async ({ name, surname, ...values }: IEditableDetailValues) => {
     const result = await updateApplicant({
@@ -76,7 +76,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   return (
     <EditableDetail
       onSubmit={onSubmit}
-      translations={translations.data}
+      translations={translations}
       initialValues={{
         uuid,
         name: user.name,

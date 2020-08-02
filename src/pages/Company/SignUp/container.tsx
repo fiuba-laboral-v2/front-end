@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useCreateCompany, useTranslations } from "$hooks";
 import { useLogin } from "$models/hooks";
-import { Redirect } from "$components/Redirect";
 import { SignUp } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
@@ -18,8 +17,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
-  if (translations.loading) return <LoadingSpinner/>;
-  if (translations.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!translations) return <LoadingSpinner/>;
 
   const onSubmit = async (
     {
@@ -50,7 +48,7 @@ export const SignUpContainer: FunctionComponent = () => {
 
   return (
     <SignUp
-      translations={translations.data}
+      translations={translations}
       onSubmit={onSubmit}
     />
   );

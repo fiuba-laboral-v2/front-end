@@ -6,4 +6,5 @@ export * from "./useLogout";
 export * from "./useSaveApplicant";
 export * from "./useUpdateCurrentApplicant";
 export * from "./useUpdateCurrentCompany";
-export * from "./useUpdateCompanyApprovalStatus";
+export * from "./useUpdateAdminTaskStatusMutation";
+export * from "./useUpdateAdminTaskStatus";

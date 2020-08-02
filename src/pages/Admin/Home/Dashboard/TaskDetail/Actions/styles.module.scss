@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+
+.actions {
+  align-self: flex-end;
+  display: flex;
+  flex-shrink: 0;
+
+  button {
+    height: 15px;
+    margin: 0 0 0 $spacing-m;
+  }
+}
+
+.icons {
+  margin: 0 $spacing-s / 2 0 -1px;
+}
+
+@media (max-width: $hdContainerThreshold) {
+  .icons {
+    max-width: 0;
+  }
+}

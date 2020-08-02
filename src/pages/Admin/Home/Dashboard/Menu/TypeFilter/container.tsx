@@ -1,34 +1,29 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks/queries";
-import { Redirect } from "$components/Redirect";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 import { TypeFilter } from "./component";
 import { ITypeFilterContainerProps, ITypeFilterTranslations } from "./interfaces";
-import { ApprovableEntityType } from "$interfaces/Approvable";
+import { TAdminTaskType } from "$interfaces/AdminTask";
+import { without } from "lodash";
 
 export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
   {
+    className,
     types,
     onFilterByType
   }
 ) => {
   const transactions = useTranslations<ITypeFilterTranslations>("typeFilterMenu");
-  if (transactions.loading) return <Fragment/>;
-  if (transactions.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (!transactions) return <Fragment/>;
 
-  const toggleType = (selected: boolean, entityType: ApprovableEntityType) => {
-    let changedTypes;
-    if (selected) {
-      changedTypes = [...types, entityType];
-    } else {
-      changedTypes = types.filter(type => type !== entityType);
-    }
-    onFilterByType(changedTypes);
+  const toggleType = (adminTaskType: TAdminTaskType) => {
+    if (types.includes(adminTaskType)) return onFilterByType(without(types, adminTaskType));
+    onFilterByType([...types, adminTaskType]);
   };
 
   return (
     <TypeFilter
-      translations={transactions.data}
+      className={className}
+      translations={transactions}
       types={types}
       toggleType={toggleType}
     />

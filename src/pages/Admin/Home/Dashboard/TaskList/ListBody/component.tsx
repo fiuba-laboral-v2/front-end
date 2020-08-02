@@ -1,33 +1,33 @@
 import React, { FunctionComponent } from "react";
-import { IApprovable } from "$interfaces/Approvable";
-import { ClickableCard } from "$components/ClickableCard";
-import { ApprovableEntity } from "../ApprovableEntity";
+import { TAdminTask } from "$interfaces/AdminTask";
+import { Card } from "$components/Card";
+import { AdminTask } from "../AdminTask";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
 
 export const ListBody: FunctionComponent<IListBodyProps> = (
   {
-    approvableEntities,
+    adminTasks,
     onSelectTask,
     selectedTask
   }
 ) => (
-  <List list={approvableEntities}>
-    {entity =>
-      <ClickableCard
-        key={entity.uuid}
+  <List list={adminTasks}>
+    {adminTask =>
+      <Card
+        key={adminTask.uuid}
         className={styles.card}
-        onClick={() => onSelectTask(entity)}
-        selected={entity.uuid === selectedTask?.uuid}
+        onClick={() => onSelectTask(adminTask)}
+        selected={adminTask.uuid === selectedTask?.uuid}
       >
-        <ApprovableEntity approvableEntity={entity}/>
-      </ClickableCard>
+        <AdminTask adminTask={adminTask}/>
+      </Card>
     }
   </List>
 );
 
 interface IListBodyProps {
-  approvableEntities: IApprovable[];
-  onSelectTask: (task: IApprovable) => void;
-  selectedTask?: IApprovable;
+  adminTasks: TAdminTask[];
+  onSelectTask: (task: TAdminTask) => void;
+  selectedTask?: TAdminTask;
 }
