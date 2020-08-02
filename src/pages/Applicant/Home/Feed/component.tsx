@@ -7,11 +7,19 @@ import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
 
-const Feed: FunctionComponent<IFeedProps> = ({ title, offers, onCardClick }) => (
+const Feed: FunctionComponent<IFeedProps> = (
+  {
+    title,
+    offers,
+    onCardClick,
+    fetchMore,
+    shouldFetchMore
+  }
+) => (
   <Window>
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
     <div>
-      <List list={offers}>
+      <List list={offers} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
         {offer => (
           <Card
             key={offer.uuid}
@@ -30,6 +38,8 @@ interface IFeedProps {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
+  fetchMore?: () => void;
+  shouldFetchMore?: boolean;
 }
 
 export { Feed };
