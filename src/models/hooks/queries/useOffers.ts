@@ -12,7 +12,7 @@ export const useOffers = () => {
     if (!offers) return;
     await result.fetchMore({
       query: GET_OFFERS,
-      variables: { createdBeforeThan: offers[offers.length - 1].createdAt },
+      variables: { updatedBeforeThan: offers[offers.length - 1].updatedAt },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         const newOffers = fetchMoreResult?.getOffers || [];
         if (newOffers.length === 0) setShouldFetchMore(false);

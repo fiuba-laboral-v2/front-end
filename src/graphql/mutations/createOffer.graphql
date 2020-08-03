@@ -19,5 +19,6 @@ mutation createOffer (
         minimumSalary
         maximumSalary
         createdAt
+        updatedAt
     }
 }

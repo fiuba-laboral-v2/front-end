@@ -1,11 +1,12 @@
-query ($createdBeforeThan: DateTime) {
-  getOffers(createdBeforeThan: $createdBeforeThan) {
+query ($updatedBeforeThan: DateTime) {
+  getOffers(updatedBeforeThan: $updatedBeforeThan) {
     uuid
     title
     hoursPerDay
     minimumSalary
     maximumSalary
     createdAt
+    updatedAt
     company {
       uuid
       companyName
