@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
-import { CreatedSince } from "$components/CreatedSince";
 import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
 import { CompanyLogo } from "$components/CompanyLogo";
+import { UpdatedSince } from "$components/UpdatedSince";
 
 export const Info: FunctionComponent<IOfferProps> = ({
   data: {
@@ -14,7 +14,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
     minimumSalary,
     maximumSalary,
     hoursPerDay,
-    createdAt
+    updatedAt
 }}) => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
@@ -29,7 +29,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
           {title}
         </Subtitle>
         <hr className={styles.separator}/>
-        <CreatedSince date={createdAt} className={styles.mobileTime} />
+        <UpdatedSince date={updatedAt} className={styles.mobileTime}/>
       </div>
     </div>
     <div className={styles.detailsContainer}>
@@ -37,7 +37,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
         <Subtitle className={styles.companyName}>
           {company.companyName}
         </Subtitle>
-        <CreatedSince date={createdAt} className={styles.time} />
+        <UpdatedSince date={updatedAt} className={styles.time}/>
       </div>
       <JobSpecs
         salary={{ minimumSalary, maximumSalary }}
