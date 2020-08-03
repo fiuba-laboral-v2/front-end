@@ -10,4 +10,10 @@ export interface IListContainerProps<T> {
 }
 
 export interface IListProps<T> extends IListContainerProps<T> {
+  translations?: IListTranslations;
+}
+
+export interface IListTranslations {
+  fetchMore: string;
+  noMoreToFetch: string;
 }
