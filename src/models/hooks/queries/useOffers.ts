@@ -14,11 +14,8 @@ export const useOffers = () => {
       query: GET_OFFERS,
       variables: { createdBeforeThan: offers[offers.length - 1].createdAt },
       updateQuery: (previousResult, { fetchMoreResult }) => {
-        let newOffers = fetchMoreResult?.getOffers || [];
-        if (newOffers.length === 0) {
-          setShouldFetchMore(false);
-          newOffers = [];
-        }
+        const newOffers = fetchMoreResult?.getOffers || [];
+        if (newOffers.length === 0) setShouldFetchMore(false);
         return {
           getOffers: [
             ...previousResult.getOffers,
