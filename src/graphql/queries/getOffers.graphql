@@ -1,5 +1,5 @@
-query {
-  getOffers {
+query ($createdBeforeThan: DateTime) {
+  getOffers(createdBeforeThan: $createdBeforeThan) {
     uuid
     title
     hoursPerDay
