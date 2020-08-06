@@ -15,5 +15,4 @@ export interface IListProps<T> extends IListContainerProps<T> {
 
 export interface IListTranslations {
   fetchMore: string;
-  noMoreToFetch: string;
 }

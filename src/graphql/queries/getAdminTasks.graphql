@@ -1,29 +1,34 @@
 query GetAdminTasks(
   $adminTaskTypes: [AdminTaskType]!,
-  $statuses: [ApprovalStatus]!
+  $statuses: [ApprovalStatus]!,
+  $updatedBeforeThan: DateTime
 ) {
   getAdminTasks(
     adminTaskTypes: $adminTaskTypes,
-    statuses: $statuses
+    statuses: $statuses,
+    updatedBeforeThan: $updatedBeforeThan
   ) {
-    ... on Company {
-      __typename
-      uuid
-      updatedAt
-      companyName
-      approvalStatus
-    }
-    ... on Applicant {
-      __typename
-      uuid
-      updatedAt
-      approvalStatus
-      user {
+    tasks {
+      ... on Company {
+        __typename
         uuid
-        email
-        name
-        surname
+        updatedAt
+        companyName
+        approvalStatus
+      }
+      ... on Applicant {
+        __typename
+        uuid
+        updatedAt
+        approvalStatus
+        user {
+          uuid
+          email
+          name
+          surname
+        }
       }
     }
+    shouldFetchMore
   }
 }

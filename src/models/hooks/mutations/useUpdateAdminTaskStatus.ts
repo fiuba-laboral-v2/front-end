@@ -51,7 +51,14 @@ export const useUpdateAdminTaskStatus = (
         uuid: uuid,
         approvalStatus: status
       },
-      update: cache => cache.writeData({ id: `${type}_${uuid}`, data: { approvalStatus: status } })
+      update: cache => cache.modify({
+        id: `${type}:${uuid}`,
+        fields: {
+          approvalStatus() {
+            return status;
+          }
+        }
+      })
     });
 
     if (result.error) return showError({ reloadPrompt: true });

@@ -18,10 +18,10 @@ export const List = <T, >(
     {list.map(children)}
   </div>
   {
-    fetchMore && translations &&
+    fetchMore && shouldFetchMore && translations &&
     <div className={styles.fetchMore}>
-        <Button className={"primary"} onClick={fetchMore} disabled={!shouldFetchMore}>
-          {shouldFetchMore ? translations.fetchMore : translations.noMoreToFetch}
+        <Button className={"primary"} onClick={fetchMore}>
+          {translations.fetchMore}
         </Button>
     </div>
   }

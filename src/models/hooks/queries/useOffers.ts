@@ -1,30 +1,27 @@
 import { useQuery } from "../useQuery";
 import { GET_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
-import { useState } from "react";
 
 export const useOffers = () => {
-  const result = useQuery<{}, { getOffers: IOffer[] }>(GET_OFFERS);
-  const [shouldFetchMore, setShouldFetchMore] = useState(true);
+  const result = useQuery<{}, IUseOffers>(GET_OFFERS);
 
   const fetchMore = async () => {
-    const offers = result.data?.getOffers;
+    const offers = result.data?.getOffers.offers;
     if (!offers) return;
     await result.fetchMore({
       query: GET_OFFERS,
-      variables: { createdBeforeThan: offers[offers.length - 1].createdAt },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        const newOffers = fetchMoreResult?.getOffers || [];
-        if (newOffers.length === 0) setShouldFetchMore(false);
-        return {
-          getOffers: [
-            ...previousResult.getOffers,
-            ...newOffers
-          ]
-        };
-      }
+      variables: { createdBeforeThan: offers[offers.length - 1].createdAt }
     });
   };
 
-  return { ...result, fetchMore, shouldFetchMore };
+  return { ...result, fetchMore };
 };
+
+export interface IGetOffers {
+  offers: IOffer[];
+  shouldFetchMore: boolean;
+}
+
+interface IUseOffers {
+  getOffers: IGetOffers;
+}

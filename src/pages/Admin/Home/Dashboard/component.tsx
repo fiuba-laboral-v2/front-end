@@ -4,7 +4,7 @@ import { Menu } from "./Menu";
 import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
-import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
+import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
@@ -14,7 +14,9 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
     selectedTask,
     setSelectedTask,
     filter,
-    setFilter
+    setFilter,
+    fetchMore,
+    shouldFetchMore
   }
 ) => (
   <Window width="fullWidth">
@@ -29,6 +31,8 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         statuses={filter.statuses}
         selectedTask={selectedTask}
         onSelectTask={setSelectedTask}
+        fetchMore={fetchMore}
+        shouldFetchMore={shouldFetchMore}
       />
       <TaskDetail
         refetchAdminTasks={() =>
@@ -48,4 +52,6 @@ interface IDashboardProps {
   setFilter: (filter: IAdminTasksFilter) => void;
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
+  fetchMore: () => void;
+  shouldFetchMore: boolean;
 }

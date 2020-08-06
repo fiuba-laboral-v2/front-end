@@ -1,10 +1,13 @@
-import { useMutation as apolloUseMutation } from "@apollo/react-hooks";
+import {
+  ApolloError,
+  MutationFunctionOptions,
+  MutationHookOptions,
+  MutationResult,
+  useMutation as apolloUseMutation
+} from "@apollo/client";
 import { DocumentNode } from "graphql";
-import { MutationHookOptions } from "@apollo/react-hooks/lib/types";
-import { MutationFunctionOptions, MutationResult } from "@apollo/react-common";
 import { ErrorHandlers, handleError } from "$models/handleError";
 import { omitTypename } from "$models/omitTypename";
-import { ApolloError } from "apollo-client";
 
 export const useMutation = <TVariables extends object = {}, TData extends object = {}>(
   mutation: DocumentNode,

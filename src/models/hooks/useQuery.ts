@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { useQuery as apolloUseQuery } from "@apollo/react-hooks";
+import {
+  ApolloError,
+  ApolloQueryResult,
+  QueryHookOptions,
+  QueryResult,
+  useQuery as apolloUseQuery
+} from "@apollo/client";
 import { DocumentNode } from "graphql";
-import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
 import { ErrorHandlers, handleError } from "$models/handleError";
-import { ApolloError } from "apollo-client";
-import { ApolloQueryResult } from "apollo-client/core/types";
-import { QueryResult } from "@apollo/react-common";
 
 export type UseQueryResult<TVariables, TData> =
   QueryResult<TData, TVariables> &

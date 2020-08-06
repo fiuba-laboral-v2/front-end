@@ -15,10 +15,10 @@ const FeedContainer: FunctionComponent = () => {
 
   return (
     <Feed
-      offers={response.data.getOffers}
+      offers={response.data.getOffers.offers}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.applicant.offerDetail(uuid))}
       fetchMore={response.fetchMore}
-      shouldFetchMore={response.shouldFetchMore}
+      shouldFetchMore={response.data.getOffers.shouldFetchMore}
     />
   );
 };

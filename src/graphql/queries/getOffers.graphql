@@ -1,15 +1,18 @@
-query ($createdBeforeThan: DateTime) {
+query GetOffers($createdBeforeThan: DateTime) {
   getOffers(createdBeforeThan: $createdBeforeThan) {
-    uuid
-    title
-    hoursPerDay
-    minimumSalary
-    maximumSalary
-    createdAt
-    company {
+    offers {
       uuid
-      companyName
-      logo
+      title
+      hoursPerDay
+      minimumSalary
+      maximumSalary
+      createdAt
+      company {
+        uuid
+        companyName
+        logo
+      }
     }
+    shouldFetchMore
   }
 }

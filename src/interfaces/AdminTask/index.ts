@@ -25,4 +25,5 @@ export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 export interface IAdminTasksFilter {
   adminTaskTypes: TAdminTaskType[];
   statuses: ApprovalStatus[];
+  updatedBeforeThan?: string;
 }

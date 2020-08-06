@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { ICapabiltiesSelectorContainer } from "./interface";
 import { CapabilitiesSelector } from "./compontent";
 import { ICapability } from "$interfaces/Capability";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_CAPABILITIES } from "$queries";
 
 const CapabilitiesSelectorContainer: FunctionComponent<ICapabiltiesSelectorContainer> = props => {

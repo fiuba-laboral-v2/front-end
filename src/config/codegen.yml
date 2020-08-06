@@ -1,6 +1,0 @@
-schema: http://localhost:5006/graphql
-documents: ./src/graphql/**/*.graphql
-generates:
-  ./src/config/fragmentTypes.json:
-    plugins:
-      - "fragment-matcher"

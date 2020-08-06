@@ -1,6 +1,6 @@
 import { LOGIN } from "$mutations";
 import { IMutationOptions, useMutation, UseMutationResult } from "$hooks";
-import { useApolloClient } from "@apollo/react-hooks";
+import { useApolloClient } from "@apollo/client";
 
 export const useLogin = () => {
   const mutation = useMutation<ILoginVariables, { login: string }>(LOGIN);

@@ -1,12 +1,5 @@
-import { IdGetterObj, InMemoryCache, IntrospectionFragmentMatcher } from "apollo-boost";
-import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
-import introspectionResult from "./config/fragmentTypes.json";
+import { ApolloClient, createHttpLink, IdGetterObj, InMemoryCache } from "@apollo/client";
 import { Configuration } from "$config";
-
-const fragmentMatcher = new IntrospectionFragmentMatcher({
-  introspectionQueryResultData: introspectionResult
-});
 
 const client = new ApolloClient({
   link: createHttpLink({
@@ -14,11 +7,26 @@ const client = new ApolloClient({
     credentials: "include"
   }),
   cache: new InMemoryCache({
-    fragmentMatcher,
+    possibleTypes: {
+      AdminTask: ["Company", "Applicant"]
+    },
+    typePolicies: {
+      Query: {
+        fields: {
+          getOffers: {
+            keyArgs: [],
+            merge: (existing, incoming) => ({
+              ...incoming,
+              offers: [...existing?.offers || [], ...incoming.offers]
+            })
+          }
+        }
+      }
+    },
     dataIdFromObject: ({ uuid, id, __typename }: IObject) => {
       const key = uuid || id;
-      if (!key) return null;
-      return `${__typename}_${uuid || id}`;
+      if (!key) return undefined;
+      return `${__typename}:${uuid || id}`;
     }
   })
 });
