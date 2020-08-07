@@ -17,9 +17,12 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     { variables: { ...defaultFilter, ...filter }, fetchPolicy: "no-cache" }
   );
 
+  const getAllTasks = (newResult: { data: IUseAdminTasks }) =>
+    uniqBy([...previousTasks, ...newResult.data.getAdminTasks.tasks], "uuid");
+
   const fetchMore = async () => {
     if (!result.data) return;
-    setPreviousTasks(uniqBy([...previousTasks, ...result.data.getAdminTasks.tasks], "uuid"));
+    setPreviousTasks(getAllTasks(result));
     const tasks = result.data.getAdminTasks.tasks;
     return await result.refetch({
       ...defaultFilter,
@@ -39,7 +42,7 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     refetch,
     data: (result.data && {
       getAdminTasks: {
-        tasks: uniqBy([...previousTasks, ...result.data.getAdminTasks.tasks], "uuid"),
+        tasks: getAllTasks(result),
         shouldFetchMore: result.data.getAdminTasks.shouldFetchMore
       }
     })
