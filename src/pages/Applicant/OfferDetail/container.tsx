@@ -28,9 +28,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
       update: cache => cache.modify({
         id: `Offer:${offerUuid}`,
         fields: {
-          hasApplied() {
-            return true;
-          }
+          hasApplied: () => true
         }
       })
     });
