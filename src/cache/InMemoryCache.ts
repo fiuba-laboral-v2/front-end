@@ -1,9 +1,8 @@
 import { IdGetterObj, InMemoryCache as ApolloClientInMemoryCache } from "@apollo/client";
+import { PossibleTypes } from "./PossibleTypes";
 
 export const InMemoryCache = new ApolloClientInMemoryCache({
-  possibleTypes: {
-    AdminTask: ["Company", "Applicant"]
-  },
+  possibleTypes: PossibleTypes,
   typePolicies: {
     Query: {
       fields: {
