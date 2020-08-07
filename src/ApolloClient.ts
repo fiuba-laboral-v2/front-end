@@ -1,38 +1,11 @@
-import { ApolloClient, createHttpLink, IdGetterObj, InMemoryCache } from "@apollo/client";
+import { ApolloClient as ApolloClientClass, createHttpLink } from "@apollo/client";
 import { Configuration } from "$config";
+import { InMemoryCache } from "./cache/InMemoryCache";
 
-const client = new ApolloClient({
+export const ApolloClient = new ApolloClientClass({
   link: createHttpLink({
     uri: Configuration.application_base_url,
     credentials: "include"
   }),
-  cache: new InMemoryCache({
-    possibleTypes: {
-      AdminTask: ["Company", "Applicant"]
-    },
-    typePolicies: {
-      Query: {
-        fields: {
-          getOffers: {
-            keyArgs: [],
-            merge: (existing, incoming) => ({
-              ...incoming,
-              offers: [...existing?.offers || [], ...incoming.offers]
-            })
-          }
-        }
-      }
-    },
-    dataIdFromObject: ({ uuid, id, __typename }: IObject) => {
-      const key = uuid || id;
-      if (!key) return undefined;
-      return `${__typename}:${uuid || id}`;
-    }
-  })
+  cache: InMemoryCache
 });
-
-interface IObject extends IdGetterObj {
-  uuid?: string;
-}
-
-export default client;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import ApolloClient from "./ApolloClient";
+import { ApolloClient } from "./ApolloClient";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { SnackbarProvider } from "notistack";
 import Routes from "./routes/routes";
