@@ -54,9 +54,7 @@ export const useUpdateAdminTaskStatus = (
       update: cache => cache.modify({
         id: `${type}:${uuid}`,
         fields: {
-          approvalStatus() {
-            return status;
-          }
+          approvalStatus: () => status
         }
       })
     });
