@@ -1,5 +1,5 @@
 import { PossibleTypesMap } from "@apollo/client";
 
-export const PossibleTypes: PossibleTypesMap = {
+export const possibleTypes: PossibleTypesMap = {
   AdminTask: ["Company", "Applicant"]
 };

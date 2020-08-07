@@ -1,21 +1,10 @@
 import { IdGetterObj, InMemoryCache as ApolloClientInMemoryCache } from "@apollo/client";
-import { PossibleTypes } from "./PossibleTypes";
+import { possibleTypes } from "./possibleTypes";
+import { typePolicies } from "./typePolicies";
 
 export const InMemoryCache = new ApolloClientInMemoryCache({
-  possibleTypes: PossibleTypes,
-  typePolicies: {
-    Query: {
-      fields: {
-        getOffers: {
-          keyArgs: [],
-          merge: (existing, incoming) => ({
-            ...incoming,
-            offers: [...existing?.offers || [], ...incoming.offers]
-          })
-        }
-      }
-    }
-  },
+  possibleTypes,
+  typePolicies,
   dataIdFromObject: ({ uuid, id, __typename }: IObject) => {
     const key = uuid || id;
     if (!key) return undefined;
