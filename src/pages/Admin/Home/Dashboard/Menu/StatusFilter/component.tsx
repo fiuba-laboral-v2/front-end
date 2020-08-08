@@ -6,12 +6,12 @@ import CheckIcon from "@material-ui/icons/Check";
 import HistoryIcon from "@material-ui/icons/History";
 import NotInterestedIcon from "@material-ui/icons/NotInterested";
 
-import { ITypeFilterProps } from "./interfaces";
+import { ITypeFilterComponentProps } from "./interfaces";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 import styles from "./styles.module.scss";
 
-export const StatusFilter: FunctionComponent<ITypeFilterProps> = (
+export const StatusFilter: FunctionComponent<ITypeFilterComponentProps> = (
   {
     statuses,
     toggleStatus,
