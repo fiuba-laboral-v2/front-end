@@ -30,10 +30,7 @@ const SignUpContainer: FunctionComponent = () => {
   const onSubmit = async (
     {
       _form,
-      user: {
-        passwordConfirm,
-        ...userAttributes
-      },
+      user,
       ...applicantValues
     }: ISignUpFormValues,
     {
@@ -43,7 +40,7 @@ const SignUpContainer: FunctionComponent = () => {
   ) => {
     const saveApplicantResult = await saveApplicant(
       {
-        variables: { user: userAttributes, ...applicantValues },
+        variables: { user, ...applicantValues },
         errorHandlers: formErrorHandlers({ enqueueSnackbar })({
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },
@@ -55,7 +52,7 @@ const SignUpContainer: FunctionComponent = () => {
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
-      variables: { email: userAttributes.email, password: userAttributes.password },
+      variables: { email: user.email, password: user.password },
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;

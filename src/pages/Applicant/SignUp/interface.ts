@@ -1,20 +1,16 @@
 import { ISaveApplicant } from "$hooks";
-import { IUserInput } from "$interfaces/User";
-
-export interface IUserFormInput extends IUserInput {
-  passwordConfirm: string;
-}
+import { IFiubaUserInput } from "$interfaces/User";
 
 export interface ISignUpFormValues extends ISaveApplicant {
-  user: IUserFormInput;
+  user: IFiubaUserInput;
   _form: string;
 }
 
 export interface ISignUpTranslations {
   title: string;
   email: string;
+  dni: string;
   password: string;
-  passwordConfirm: string;
   name: string;
   surname: string;
   padron: string;
