@@ -24,7 +24,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   const initialValues: IApplicantSignUpFormValues = {
     user: {
       email: "",
-      dni: 0,
+      dni: NaN,
       password: "",
       name: "",
       surname: ""

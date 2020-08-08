@@ -18,9 +18,7 @@ export const UserInput: FunctionComponent<IUserInputProps> = (
       name={email.name}
       label={email.label}
       type="email"
-      validate={
-        email.validate && FormikValidator({ validator: validateEmail, mandatory: true })
-      }
+      validate={FormikValidator({ validator: validateEmail, mandatory: true })}
     />
     {
       dni &&
@@ -28,9 +26,7 @@ export const UserInput: FunctionComponent<IUserInputProps> = (
         name={dni.name}
         label={dni.label}
         type="number"
-        validate={
-          dni.validate && FormikValidator({ validator: validateDni, mandatory: true })
-        }
+        validate={FormikValidator({ validator: validateDni, mandatory: true })}
       />
     }
     <TextInput
@@ -52,16 +48,12 @@ export const UserInput: FunctionComponent<IUserInputProps> = (
     <TextInput
       name={name.name}
       label={name.label}
-      validate={
-        name.validate && FormikValidator({ validator: validateName, mandatory: true })
-      }
+      validate={FormikValidator({ validator: validateName, mandatory: true })}
     />
     <TextInput
       name={surname.name}
       label={surname.label}
-      validate={
-        surname.validate && FormikValidator({ validator: validateName, mandatory: true })
-      }
+      validate={FormikValidator({ validator: validateName, mandatory: true })}
     />
   </>
 );

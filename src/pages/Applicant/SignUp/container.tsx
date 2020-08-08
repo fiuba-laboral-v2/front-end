@@ -15,9 +15,7 @@ const SignUpContainer: FunctionComponent = () => {
   const saveApplicant = useSaveApplicant();
   const login = useLogin();
   const { enqueueSnackbar } = useSnackbar();
-  const translations = useTranslations<IApplicantSignUpTranslations>(
-    "applicantSignUp"
-  );
+  const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: IApplicantSignUpFormValues) => {
     const selectedCodes = values.careers.map(career => career.code);
