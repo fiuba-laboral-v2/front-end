@@ -20,11 +20,11 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const getAllTasks = (newResult: { data: IUseAdminTasks }) =>
     uniqBy([...previousTasks, ...newResult.data.getAdminTasks.tasks], "uuid");
 
-  const fetchMore = async () => {
+  const fetchMore = () => {
     if (!result.data) return;
     setPreviousTasks(getAllTasks(result));
     const tasks = result.data.getAdminTasks.tasks;
-    return await result.refetch({
+    return result.refetch({
       ...defaultFilter,
       ...filter,
       updatedBeforeThan: tasks[tasks.length - 1].updatedAt
