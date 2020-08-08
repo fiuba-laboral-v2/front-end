@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { ISignUpFormValues, IApplicantSignUpTranslations } from "./interface";
 import { FormFooter } from "$components/FormFooter";
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -95,7 +95,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 };
 
 interface ISignUpProps {
-  translations: ISignUpTranslations;
+  translations: IApplicantSignUpTranslations;
   validateForm: (values: ISignUpFormValues) => string | undefined;
   onSubmit: (values: ISignUpFormValues, formikHelpers: FormikHelpers<ISignUpFormValues>) =>
     void | Promise<any>;

@@ -6,7 +6,7 @@ export interface ISignUpFormValues extends ISaveApplicant {
   _form: string;
 }
 
-export interface ISignUpTranslations {
+export interface IApplicantSignUpTranslations {
   title: string;
   email: string;
   dni: string;
