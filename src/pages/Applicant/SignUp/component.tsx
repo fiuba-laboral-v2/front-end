@@ -4,7 +4,7 @@ import { Form, Formik, FormikErrors } from "formik";
 import { CareerSelector } from "$components/CareerSelector";
 import { FormSet } from "$components/FormSet";
 import { NumberInput } from "$components/NumberInput";
-import { UserInput } from "$components/UserInput";
+import { UserFields, ApplicantCredentialsFields } from "$components/User";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
@@ -53,12 +53,14 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             <div className={styles.body}>
               <Form className={styles.formContainer}>
                 <div className={styles.textInputContainer}>
-                  <UserInput
-                    email={{ name: "user.email", label: translations.email }}
-                    password={{ name: "user.password", label: translations.password }}
-                    dni={{ name: "user.dni", label: translations.dni, validate: false }}
-                    name={{ name: "user.name", label: translations.name }}
-                    surname={{ name: "user.surname", label: translations.surname }}
+                  <UserFields
+                    email={{ label: translations.email }}
+                    name={{ label: translations.email }}
+                    surname={{ label: translations.email }}
+                  />
+                  <ApplicantCredentialsFields
+                    dni={{ label: translations.dni }}
+                    password={{ label: translations.password, validate: false }}
                   />
                   <NumberInput
                     name="padron"
