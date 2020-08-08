@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpFormValues, IApplicantSignUpTranslations } from "./interface";
+import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
 import { FormFooter } from "$components/FormFooter";
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -21,7 +21,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   }
 ) => {
   const careerInitialValue = { code: "", creditsCount: NaN };
-  const initialValues: ISignUpFormValues = {
+  const initialValues: IApplicantSignUpFormValues = {
     user: {
       email: "",
       dni: 0,
@@ -41,7 +41,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
         <Formik
           initialValues={initialValues}
           validate={values => {
-            const errors: FormikErrors<ISignUpFormValues> = {};
+            const errors: FormikErrors<IApplicantSignUpFormValues> = {};
             const formErrorMessage = validateForm(values);
             if (formErrorMessage) errors._form = formErrorMessage;
             return errors;
@@ -96,9 +96,11 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 
 interface ISignUpProps {
   translations: IApplicantSignUpTranslations;
-  validateForm: (values: ISignUpFormValues) => string | undefined;
-  onSubmit: (values: ISignUpFormValues, formikHelpers: FormikHelpers<ISignUpFormValues>) =>
-    void | Promise<any>;
+  validateForm: (values: IApplicantSignUpFormValues) => string | undefined;
+  onSubmit: (
+    values: IApplicantSignUpFormValues,
+    formikHelpers: FormikHelpers<IApplicantSignUpFormValues>
+  ) => void | Promise<any>;
 }
 
 export { SignUp };
