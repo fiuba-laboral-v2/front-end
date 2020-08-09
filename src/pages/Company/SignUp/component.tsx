@@ -6,7 +6,8 @@ import styles from "./styles.module.scss";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { Window } from "$components/Window";
 import { CompanyFields } from "$components/CompanyFields";
-import { UserInput } from "$components/UserInput";
+import { UserFields } from "$components/UserFields";
+import { CompanyCredentialsFields } from "./CompanyCredentialsFields";
 import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "signUpForm";
@@ -48,15 +49,8 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           {({ isSubmitting, errors }) => (
             <>
               <Form id={formName}>
-                <UserInput
-                  email={{ name: "user.email", label: translations.email }}
-                  password={{ name: "user.password", label: translations.password }}
-                  passwordConfirm={
-                    { name: "user.passwordConfirm", label: translations.passwordConfirm }
-                  }
-                  name={{ name: "user.name", label: translations.name }}
-                  surname={{ name: "user.surname", label: translations.surname }}
-                />
+                <UserFields email="user.email" name="user.name" surname="user.surname" />
+                <CompanyCredentialsFields/>
                 <CompanyFields/>
               </Form>
               <SubmitButton

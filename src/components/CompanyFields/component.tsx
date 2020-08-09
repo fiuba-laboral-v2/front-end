@@ -1,15 +1,11 @@
 import React, { FunctionComponent } from "react";
 
 import { TextInput } from "$components/TextInput";
+import { EmailField, NameField } from "$components/Fields";
 import { FormikValidator } from "$models/FormikValidator";
 import { ICompanyFieldsProps } from "./interface";
 
-import {
-  validateCuit,
-  validateEmail,
-  validateName,
-  validateURL
-} from "validations-fiuba-laboral-v2";
+import { validateCuit, validateURL } from "validations-fiuba-laboral-v2";
 
 export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
   {
@@ -25,21 +21,16 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
   }
 ) => (
   <>
-    <TextInput
-      name="companyName"
-      label={companyName}
-      validate={FormikValidator({ validator: validateName, mandatory: true })}
-    />
-    {!edit && <TextInput
+    <NameField name="companyName" label={companyName} />
+    {
+      !edit &&
+      <TextInput
         name="cuit"
         label={cuit}
         validate={FormikValidator({ validator: validateCuit, mandatory: true })}
-    />}
-    <TextInput
-      name="email"
-      label={email}
-      validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-    />
+      />
+    }
+    <EmailField name="email" label={email}/>
     <TextInput
       name="slogan"
       label={slogan}

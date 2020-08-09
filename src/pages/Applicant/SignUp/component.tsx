@@ -4,13 +4,14 @@ import { Form, Formik, FormikErrors } from "formik";
 import { CareerSelector } from "$components/CareerSelector";
 import { FormSet } from "$components/FormSet";
 import { NumberInput } from "$components/NumberInput";
-import { UserInput } from "$components/UserInput";
+import { UserFields } from "$components/UserFields";
+import { ApplicantCredentialsFields } from "./ApplicantCredentialsFields";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { FormikValidator } from "$models/FormikValidator";
-import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
 import { FormFooter } from "$components/FormFooter";
 
 const SignUp: FunctionComponent<ISignUpProps> = (
@@ -21,11 +22,11 @@ const SignUp: FunctionComponent<ISignUpProps> = (
   }
 ) => {
   const careerInitialValue = { code: "", creditsCount: NaN };
-  const initialValues: ISignUpFormValues = {
+  const initialValues: IApplicantSignUpFormValues = {
     user: {
       email: "",
+      dni: NaN,
       password: "",
-      passwordConfirm: "",
       name: "",
       surname: ""
     },
@@ -41,16 +42,9 @@ const SignUp: FunctionComponent<ISignUpProps> = (
         <Formik
           initialValues={initialValues}
           validate={values => {
-            const errors: FormikErrors<ISignUpFormValues> = {};
-
+            const errors: FormikErrors<IApplicantSignUpFormValues> = {};
             const formErrorMessage = validateForm(values);
-            if (formErrorMessage) {
-              errors._form = formErrorMessage;
-            }
-
-            if (values.user.password !== values.user.passwordConfirm) {
-              errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
-            }
+            if (formErrorMessage) errors._form = formErrorMessage;
             return errors;
           }}
           validateOnMount={true}
@@ -60,15 +54,8 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             <div className={styles.body}>
               <Form className={styles.formContainer}>
                 <div className={styles.textInputContainer}>
-                  <UserInput
-                    email={{ name: "user.email", label: translations.email }}
-                    password={{ name: "user.password", label: translations.password }}
-                    passwordConfirm={
-                      { name: "user.passwordConfirm", label: translations.passwordConfirm }
-                    }
-                    name={{ name: "user.name", label: translations.name }}
-                    surname={{ name: "user.surname", label: translations.surname }}
-                  />
+                  <UserFields email="user.email" name="user.name" surname="user.surname" />
+                  <ApplicantCredentialsFields/>
                   <NumberInput
                     name="padron"
                     label={translations.padron}
@@ -104,10 +91,12 @@ const SignUp: FunctionComponent<ISignUpProps> = (
 };
 
 interface ISignUpProps {
-  translations: ISignUpTranslations;
-  validateForm: (values: ISignUpFormValues) => string | undefined;
-  onSubmit: (values: ISignUpFormValues, formikHelpers: FormikHelpers<ISignUpFormValues>) =>
-    void | Promise<any>;
+  translations: IApplicantSignUpTranslations;
+  validateForm: (values: IApplicantSignUpFormValues) => string | undefined;
+  onSubmit: (
+    values: IApplicantSignUpFormValues,
+    formikHelpers: FormikHelpers<IApplicantSignUpFormValues>
+  ) => void | Promise<any>;
 }
 
 export { SignUp };

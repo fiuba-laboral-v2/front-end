@@ -11,10 +11,5 @@ export interface ISignUpFormValues extends ICreateCompany {
 
 export interface ISignUpTranslations {
   title: string;
-  email: string;
-  password: string;
-  passwordConfirm: string;
-  name: string;
-  surname: string;
   submit: string;
 }

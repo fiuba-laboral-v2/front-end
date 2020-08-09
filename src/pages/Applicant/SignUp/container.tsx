@@ -5,7 +5,7 @@ import { SignUp } from "./component";
 import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
 import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
@@ -15,9 +15,9 @@ const SignUpContainer: FunctionComponent = () => {
   const saveApplicant = useSaveApplicant();
   const login = useLogin();
   const { enqueueSnackbar } = useSnackbar();
-  const translations = useTranslations<ISignUpTranslations>("applicantSignUp");
+  const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 
-  const validateForm = (values: ISignUpFormValues) => {
+  const validateForm = (values: IApplicantSignUpFormValues) => {
     const selectedCodes = values.careers.map(career => career.code);
     if (hasUniqueValues(selectedCodes)) {
       return "No se pueden repetir carreras";
@@ -30,20 +30,17 @@ const SignUpContainer: FunctionComponent = () => {
   const onSubmit = async (
     {
       _form,
-      user: {
-        passwordConfirm,
-        ...userAttributes
-      },
+      user,
       ...applicantValues
-    }: ISignUpFormValues,
+    }: IApplicantSignUpFormValues,
     {
       setSubmitting,
       setErrors
-    }: FormikHelpers<ISignUpFormValues>
+    }: FormikHelpers<IApplicantSignUpFormValues>
   ) => {
     const saveApplicantResult = await saveApplicant(
       {
-        variables: { user: userAttributes, ...applicantValues },
+        variables: { user, ...applicantValues },
         errorHandlers: formErrorHandlers({ enqueueSnackbar })({
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },
@@ -55,7 +52,7 @@ const SignUpContainer: FunctionComponent = () => {
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
-      variables: { email: userAttributes.email, password: userAttributes.password },
+      variables: { email: user.email, password: user.password },
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
