@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { Window } from "$components/Window";
 import { CompanyFields } from "$components/CompanyFields";
-import { UserFields } from "$components/Fields";
+import { UserFields } from "$components/UserFields";
 import { CompanyCredentialsFields } from "$components/CompanyCredentialsFields";
 import { SubmitButton } from "$components/SubmitButton";
 
