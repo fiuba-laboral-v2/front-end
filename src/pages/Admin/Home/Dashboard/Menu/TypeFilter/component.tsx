@@ -3,11 +3,11 @@ import classNames from "classnames";
 import { Tab } from "../Tab";
 import { CompanyIcon } from "../../CompanyIcon";
 import { ApplicantIcon } from "../../ApplicantIcon";
-import { ITypeFilterProps } from "./interfaces";
+import { ITypeFilterComponentProps } from "./interfaces";
 import { APPLICANT, COMPANY } from "$typenames";
 import styles from "./styles.module.scss";
 
-export const TypeFilter: FunctionComponent<ITypeFilterProps> = (
+export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
   {
     className,
     translations,

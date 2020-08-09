@@ -7,12 +7,15 @@ export interface IStatusFilterTranslations {
   rejected: string;
 }
 
-export interface ITypeFilterContainerProps {
+interface ITypeFilterProps {
   statuses: ApprovalStatus[];
+}
+
+export interface ITypeFilterContainerProps extends ITypeFilterProps {
   onFilterByStatus: (statuses: ApprovalStatus[]) => void;
 }
 
-export interface ITypeFilterProps extends Omit<ITypeFilterContainerProps, "onFilterByStatus"> {
+export interface ITypeFilterComponentProps extends ITypeFilterProps {
   translations: IStatusFilterTranslations;
   toggleStatus: (status: ApprovalStatus) => void;
 }
