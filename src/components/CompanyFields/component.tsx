@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { TextInput } from "$components/TextInput";
-import { EmailField } from "$components/User/EmailField";
-import { NameField } from "$components/User/NameField";
+import { EmailField, NameField } from "$components/Fields";
 import { FormikValidator } from "$models/FormikValidator";
 import { ICompanyFieldsProps } from "./interface";
 

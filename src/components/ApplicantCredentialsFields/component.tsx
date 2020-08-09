@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { DniField } from "../DniField";
-import { PasswordField, IPasswordFieldProps } from "../PasswordField";
-import { IField } from "../interfaces";
+import { DniField } from "$components/Fields";
+import { PasswordField, IPasswordFieldProps } from "$components/Fields/PasswordField";
+import { IField } from "$components/Fields/interfaces";
 
 export const ApplicantCredentialsFields: FunctionComponent<IApplicantCredentialsFieldsProps> = (
   {
