@@ -53,18 +53,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
                   name={{ name: "user.name", label: translations.name }}
                   surname={{ name: "user.surname", label: translations.surname }}
                 />
-                <CompanyCredentialsFields
-                  password={{
-                    name: "user.password",
-                    label: translations.password,
-                    validate: true
-                  }}
-                  passwordConfirm={{
-                    name: "user.passwordConfirm",
-                    label: translations.passwordConfirm,
-                    validate: false
-                  }}
-                />
+                <CompanyCredentialsFields/>
                 <CompanyFields/>
               </Form>
               <SubmitButton
