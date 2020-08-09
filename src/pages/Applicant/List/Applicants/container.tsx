@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_APPLICANTS } from "$queries";
 import { Applicants } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";

@@ -9,10 +9,12 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
   {
     adminTasks,
     onSelectTask,
-    selectedTask
+    selectedTask,
+    fetchMore,
+    shouldFetchMore
   }
 ) => (
-  <List list={adminTasks}>
+  <List list={adminTasks} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
     {adminTask =>
       <Card
         key={adminTask.uuid}
@@ -30,4 +32,6 @@ interface IListBodyProps {
   adminTasks: TAdminTask[];
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
+  fetchMore: () => void;
+  shouldFetchMore: boolean;
 }

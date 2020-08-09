@@ -15,11 +15,9 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
   if (!translations) return <LoadingSpinner/>;
 
-  applicant.sections = sortBy(applicant.sections, ["displayOrder"]);
-
   return (
     <ApplicantDetail
-      applicant={applicant}
+      applicant={{ ...applicant, sections: sortBy(applicant.sections, ["displayOrder"]) }}
       translations={translations}
       editButton={editButton}
       withStatusLabel={withStatusLabel}

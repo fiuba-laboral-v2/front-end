@@ -7,7 +7,12 @@ import { ListInfo } from "./ListInfo";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const TaskList: FunctionComponent<ITaskListProps> = (
-  { adminTasks, statuses, translations, ...props }
+  {
+    adminTasks,
+    statuses,
+    translations,
+    ...props
+  }
 ) => {
   if (!adminTasks) return <LoadingSpinner/>;
 

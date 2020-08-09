@@ -25,7 +25,12 @@ export const OfferDetailContainer: FunctionComponent = () => {
         JobApplicationAlreadyExistsError: () =>
           showError({ message: translations.alreadyApplied })
       },
-      update: cache => cache.writeData({ id: `Offer_${offerUuid}`, data: { hasApplied: true } })
+      update: cache => cache.modify({
+        id: `Offer:${offerUuid}`,
+        fields: {
+          hasApplied: () => true
+        }
+      })
     });
     if (!error) showSuccess({ message: translations.applySuccess });
   };

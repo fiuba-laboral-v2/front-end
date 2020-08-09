@@ -1,12 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useApolloClient } from "@apollo/react-hooks";
+import { useApolloClient } from "@apollo/client";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useTranslations } from "$hooks";
+import { useCurrentUser, useLogout, useTranslations } from "$hooks";
 import { NavBar } from "./component";
 import { INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
-import { useCurrentUser, useLogout } from "$hooks";
 import { NavBarLinks } from "$models/NavBarLinks";
 
 export const NavBarContainer: FunctionComponent = () => {

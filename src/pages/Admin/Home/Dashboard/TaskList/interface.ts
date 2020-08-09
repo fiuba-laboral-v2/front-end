@@ -6,6 +6,8 @@ export interface ITaskListContainerProps {
   selectedTask?: TAdminTask;
   adminTasks?: TAdminTask[];
   statuses: ApprovalStatus[];
+  fetchMore: () => void;
+  shouldFetchMore: boolean;
 }
 
 export interface ITaskListProps extends ITaskListContainerProps {

@@ -1,7 +1,7 @@
 import { useMutation } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { DocumentNode } from "graphql";
-import { MutationUpdaterFn } from "apollo-client";
+import { MutationUpdaterFn } from "@apollo/client";
 
 export const useUpdateAdminTaskStatusMutation = (
   {

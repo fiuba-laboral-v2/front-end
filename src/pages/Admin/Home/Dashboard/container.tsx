@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { Dashboard } from "./component";
-import { TAdminTask, IAdminTasksFilter } from "$interfaces/AdminTask";
-import { useGetAdminTasks } from "$hooks/queries";
+import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
+import { useAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { APPLICANT, COMPANY } from "$typenames";
@@ -14,9 +14,10 @@ export const DashboardContainer: FunctionComponent = () => {
     adminTaskTypes: [APPLICANT, COMPANY],
     statuses: [ApprovalStatus.pending]
   });
-  const response = useGetAdminTasks(filter);
+  const response = useAdminTasks(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  const adminTasks = response.data?.getAdminTasks;
+  const result = response.data?.getAdminTasks;
+  const adminTasks = result?.tasks;
 
   return (
     <Dashboard
@@ -26,6 +27,8 @@ export const DashboardContainer: FunctionComponent = () => {
       setSelectedTask={setSelectedTask}
       filter={filter}
       setFilter={setFilter}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={result?.shouldFetchMore || false}
     />
   );
 };

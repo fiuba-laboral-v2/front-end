@@ -1,4 +1,4 @@
-import { ApolloError } from "apollo-client";
+import { ApolloError } from "@apollo/client";
 import { GraphQLError } from "graphql";
 import { handleError } from "$models/handleError";
 
