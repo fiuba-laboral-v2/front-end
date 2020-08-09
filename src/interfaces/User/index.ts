@@ -19,5 +19,5 @@ export interface IUserInput {
 }
 
 export interface IFiubaUserInput extends IUserInput {
-  dni: number;
+  dni: string;
 }
