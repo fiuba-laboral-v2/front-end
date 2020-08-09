@@ -17,3 +17,7 @@ export interface IUserInput {
   name: string;
   surname: string;
 }
+
+export interface IFiubaUserInput extends IUserInput {
+  dni: number;
+}
