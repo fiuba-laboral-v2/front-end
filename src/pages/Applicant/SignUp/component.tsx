@@ -58,14 +58,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
                     name={{ name: "user.name", label: translations.name }}
                     surname={{ name: "user.surname", label: translations.surname }}
                   />
-                  <ApplicantCredentialsFields
-                    dni={{ name: "user.dni", label: translations.dni }}
-                    password={{
-                      name: "user.password",
-                      label: translations.password,
-                      validate: false
-                    }}
-                  />
+                  <ApplicantCredentialsFields/>
                   <NumberInput
                     name="padron"
                     label={translations.padron}
