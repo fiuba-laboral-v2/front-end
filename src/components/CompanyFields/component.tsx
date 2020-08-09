@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { TextInput } from "$components/TextInput";
+import { EmailField } from "$components/User/EmailField";
 import { FormikValidator } from "$models/FormikValidator";
 import { ICompanyFieldsProps } from "./interface";
 
@@ -35,11 +36,7 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
         label={cuit}
         validate={FormikValidator({ validator: validateCuit, mandatory: true })}
     />}
-    <TextInput
-      name="email"
-      label={email}
-      validate={FormikValidator({ validator: validateEmail, mandatory: true })}
-    />
+    <EmailField name="email" label={email}/>
     <TextInput
       name="slogan"
       label={slogan}
