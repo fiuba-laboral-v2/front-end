@@ -54,7 +54,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             <div className={styles.body}>
               <Form className={styles.formContainer}>
                 <div className={styles.textInputContainer}>
-                  <UserFields />
+                  <UserFields email="user.email" name="user.name" surname="user.surname" />
                   <ApplicantCredentialsFields/>
                   <NumberInput
                     name="padron"
