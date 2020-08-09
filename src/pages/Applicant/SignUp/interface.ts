@@ -8,11 +8,6 @@ export interface IApplicantSignUpFormValues extends ISaveApplicant {
 
 export interface IApplicantSignUpTranslations {
   title: string;
-  email: string;
-  dni: string;
-  password: string;
-  name: string;
-  surname: string;
   padron: string;
   careersTitle: string;
   submit: string;

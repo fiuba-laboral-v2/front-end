@@ -54,11 +54,7 @@ const SignUp: FunctionComponent<ISignUpProps> = (
             <div className={styles.body}>
               <Form className={styles.formContainer}>
                 <div className={styles.textInputContainer}>
-                  <UserFields
-                    email={{ name: "user.email", label: translations.email }}
-                    name={{ name: "user.name", label: translations.name }}
-                    surname={{ name: "user.surname", label: translations.surname }}
-                  />
+                  <UserFields />
                   <ApplicantCredentialsFields/>
                   <NumberInput
                     name="padron"

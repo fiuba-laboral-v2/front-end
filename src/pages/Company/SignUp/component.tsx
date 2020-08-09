@@ -49,11 +49,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
           {({ isSubmitting, errors }) => (
             <>
               <Form id={formName}>
-                <UserFields
-                  email={{ name: "user.email", label: translations.email }}
-                  name={{ name: "user.name", label: translations.name }}
-                  surname={{ name: "user.surname", label: translations.surname }}
-                />
+                <UserFields/>
                 <CompanyCredentialsFields/>
                 <CompanyFields/>
               </Form>
