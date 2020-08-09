@@ -7,7 +7,7 @@ import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { Window } from "$components/Window";
 import { CompanyFields } from "$components/CompanyFields";
 import { UserFields } from "$components/UserFields";
-import { CompanyCredentialsFields } from "$components/CompanyCredentialsFields";
+import { CompanyCredentialsFields } from "./CompanyCredentialsFields";
 import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "signUpForm";

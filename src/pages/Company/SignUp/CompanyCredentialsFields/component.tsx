@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { PasswordField, IPasswordFieldProps } from "../Fields/PasswordField";
+import { PasswordField, IPasswordFieldProps } from "../../../../components/Fields/PasswordField";
 
 export const CompanyCredentialsFields: FunctionComponent<IApplicantCredentialsFieldsProps> = (
   {
