@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { DniField, IDniFieldProps } from "../DniField";
+import { DniField } from "../DniField";
 import { PasswordField, IPasswordFieldProps } from "../PasswordField";
+import { IField } from "../interfaces";
 
 export const ApplicantCredentialsFields: FunctionComponent<IApplicantCredentialsFieldsProps> = (
   {
@@ -9,12 +10,12 @@ export const ApplicantCredentialsFields: FunctionComponent<IApplicantCredentials
   }
 ) => (
   <>
-    <DniField label={dni.label}/>
-    <PasswordField label={password.label} validate={password.validate}/>
+    <DniField {...dni}/>
+    <PasswordField {...password}/>
   </>
 );
 
 interface IApplicantCredentialsFieldsProps {
-  dni: IDniFieldProps;
+  dni: IField;
   password: IPasswordFieldProps;
 }

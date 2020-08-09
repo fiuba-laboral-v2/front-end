@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { EmailField, IEmailFieldProps } from "../EmailField";
-import { NameField, INameFieldProps } from "../NameField";
-import { SurnameField, ISurnameFieldProps } from "../SurnameField";
+import { EmailField } from "../EmailField";
+import { NameField } from "../NameField";
+import { IField } from "../interfaces";
 
 export const UserFields: FunctionComponent<IApplicantCredentialsFieldsProps> = (
   {
@@ -11,14 +11,14 @@ export const UserFields: FunctionComponent<IApplicantCredentialsFieldsProps> = (
   }
 ) => (
   <>
-    <EmailField label={email.label}/>
-    <NameField label={name.label} />
-    <SurnameField label={surname.label} />
+    <EmailField {...email}/>
+    <NameField {...name} />
+    <NameField {...surname} />
   </>
 );
 
 interface IApplicantCredentialsFieldsProps {
-  email: IEmailFieldProps;
-  name: INameFieldProps;
-  surname: ISurnameFieldProps;
+  email: IField;
+  name: IField;
+  surname: IField;
 }

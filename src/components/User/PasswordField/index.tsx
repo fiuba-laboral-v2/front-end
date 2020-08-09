@@ -1,9 +1,16 @@
 import React, { FunctionComponent } from "react";
 import { TextInput } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
+import { IField } from "../interfaces";
 import { validatePassword } from "validations-fiuba-laboral-v2";
 
-export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({ label, validate }) => {
+export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
+  {
+    name,
+    label,
+    validate
+  }
+) => {
   const validatorOptions = {
     validator: validate ? validatePassword : undefined,
     mandatory: true
@@ -11,7 +18,7 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({ label, v
 
   return (
     <TextInput
-      name="user.password"
+      name={name}
       label={label}
       type="password"
       validate={FormikValidator(validatorOptions)}
@@ -19,7 +26,6 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({ label, v
   );
 };
 
-export interface IPasswordFieldProps {
-  label: string;
+export interface IPasswordFieldProps extends IField {
   validate: boolean;
 }
