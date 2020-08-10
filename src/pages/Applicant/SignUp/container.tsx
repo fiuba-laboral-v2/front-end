@@ -45,6 +45,10 @@ const SignUpContainer: FunctionComponent = () => {
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },
             () => setErrors({ user: { email: `Este email ya existe` } })
+          ),
+          FiubaUsersServiceFetchError: () => enqueueSnackbar(
+            "El servicio de autenticación de fiuba a fallado, espere hasta que sea reestabledido",
+            { variant: "error" }
           )
         })
       }
