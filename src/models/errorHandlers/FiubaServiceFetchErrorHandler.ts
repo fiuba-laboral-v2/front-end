@@ -2,6 +2,6 @@ import { IFormErrorHandlers } from "./formErrorHandlers";
 
 export const FiubaServiceFetchErrorHandler = ({ enqueueSnackbar }: IFormErrorHandlers) =>
   enqueueSnackbar(
-    "El servicio de autenticación de fiuba a fallado, espere hasta que sea restablecido",
+    "Error en el servicio de autenticación de FIUBA",
     { variant: "error" }
   );
