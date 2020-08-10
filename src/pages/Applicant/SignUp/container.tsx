@@ -9,6 +9,7 @@ import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./inte
 import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
+import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -44,12 +45,9 @@ const SignUpContainer: FunctionComponent = () => {
         errorHandlers: formErrorHandlers({ enqueueSnackbar })({
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },
-            () => setErrors({ user: { email: `Este email ya existe` } })
+            () => setErrors({ user: { email: "Este email ya existe" } })
           ),
-          FiubaUsersServiceFetchError: () => enqueueSnackbar(
-            "El servicio de autenticación de fiuba a fallado, espere hasta que sea reestabledido",
-            { variant: "error" }
-          )
+          FiubaUsersServiceFetchError: () => FiubaServiceFetchErrorHandler({ enqueueSnackbar })
         })
       }
     );
