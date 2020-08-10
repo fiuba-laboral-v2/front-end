@@ -12,6 +12,7 @@ type ErrorName =
   "UnauthorizedError" |
   "ValidationError" |
   "JobApplicationAlreadyExistsError" |
+  "FiubaUsersServiceFetchError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";
