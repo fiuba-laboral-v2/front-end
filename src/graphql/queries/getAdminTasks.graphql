@@ -8,7 +8,7 @@ query GetAdminTasks(
     statuses: $statuses,
     updatedBeforeThan: $updatedBeforeThan
   ) {
-    tasks {
+    results {
       ... on Company {
         __typename
         uuid

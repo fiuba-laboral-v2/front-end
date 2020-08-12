@@ -6,7 +6,7 @@ export const useOffers = () => {
   const result = useQuery<{}, IUseOffers>(GET_OFFERS);
 
   const fetchMore = async () => {
-    const offers = result.data?.getOffers.offers;
+    const offers = result.data?.getOffers.results;
     if (!offers) return;
     await result.fetchMore({
       query: GET_OFFERS,
@@ -18,7 +18,7 @@ export const useOffers = () => {
 };
 
 export interface IGetOffers {
-  offers: IOffer[];
+  results: IOffer[];
   shouldFetchMore: boolean;
 }
 

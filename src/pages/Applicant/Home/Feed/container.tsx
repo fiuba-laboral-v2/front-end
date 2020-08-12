@@ -15,7 +15,7 @@ const FeedContainer: FunctionComponent = () => {
 
   return (
     <Feed
-      offers={response.data.getOffers.offers}
+      offers={response.data.getOffers.results}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.applicant.offerDetail(uuid))}
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data.getOffers.shouldFetchMore}
