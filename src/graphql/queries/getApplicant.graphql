@@ -16,7 +16,6 @@ query GetApplicant($uuid: ID!) {
             description
         }
         careers {
-            careerCode
             career {
                 code
                 description

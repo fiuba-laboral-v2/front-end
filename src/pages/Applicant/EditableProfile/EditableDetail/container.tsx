@@ -83,8 +83,8 @@ const EditableDetailContainer: FunctionComponent = () => {
         surname: user.surname,
         description,
         links,
-        careers: careers.map(({ careerCode, creditsCount, isGraduate }) => (
-          { code: careerCode , creditsCount, isGraduate }
+        careers: careers.map(({ career, creditsCount, isGraduate }) => (
+          { code: career.code , creditsCount, isGraduate }
         )),
         capabilities,
         sections,

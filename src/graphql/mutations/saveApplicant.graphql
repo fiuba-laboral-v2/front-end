@@ -24,7 +24,6 @@ mutation SaveApplicant(
       description
     }
     careers {
-      careerCode
       career {
         code
         description
