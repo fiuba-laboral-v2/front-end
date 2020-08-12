@@ -1,8 +1,9 @@
-import { IApplicantCareer, ICareer } from "$interfaces/Applicant";
+import { IApplicantCareerInput } from "$interfaces/Applicant";
+import { ICareer } from "$interfaces/Career";
 
 export interface ICareerSelectorContainerProps {
   index: number;
-  value: IApplicantCareer;
+  value: IApplicantCareerInput;
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {

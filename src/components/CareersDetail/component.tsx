@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { ItemsDetail } from "$components/Detail/ItemsDetail";
 import { ICareersProps } from "./interface";
-import { ICareer } from "$interfaces/Applicant";
+import { IApplicantCareer } from "$interfaces/Applicant";
 
-const CareersDetail: FunctionComponent<ICareersProps> = (
+export const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     className,
     careers,
@@ -12,16 +12,16 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
       creditsProgress
     }
   }) => {
-  const percentage = (career: ICareer) => {
-    return ((career.creditsCount / career.credits) * 100).toFixed(2);
+  const percentage = (applicantCareer: IApplicantCareer) => {
+    return ((applicantCareer.creditsCount / applicantCareer.career.credits) * 100).toFixed(2);
   };
 
   return (
     <div className={className}>
       <ItemsDetail
         items={
-          careers.map(career =>
-            `${career.description}: ${percentage(career)} ${creditsProgress}`
+          careers.map(applicantCareer =>
+            `${applicantCareer.career.description}: ${percentage(applicantCareer)} ${creditsProgress}`
           )
         }
         title={careersTitle}
@@ -29,5 +29,3 @@ const CareersDetail: FunctionComponent<ICareersProps> = (
     </div>
   );
 };
-
-export { CareersDetail };

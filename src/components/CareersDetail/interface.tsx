@@ -1,4 +1,4 @@
-import { ICareer } from "$interfaces/Applicant";
+import { IApplicantCareer } from "$interfaces/Applicant";
 
 export interface ICareerTranslations {
   careersTitle: string;
@@ -6,12 +6,12 @@ export interface ICareerTranslations {
 }
 
 export interface ICareersProps {
-  careers: ICareer[];
+  careers: IApplicantCareer[];
   className?: string;
   translations: ICareerTranslations;
 }
 
 export interface ICareersContainerProps {
-  careers: ICareer[];
+  careers: IApplicantCareer[];
   className?: string;
 }

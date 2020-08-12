@@ -16,9 +16,11 @@ query GetApplicant($uuid: ID!) {
             description
         }
         careers {
-            code
-            description
-            credits
+            career {
+                code
+                description
+                credits
+            }
             creditsCount
             isGraduate
         }

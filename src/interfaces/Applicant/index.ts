@@ -1,12 +1,12 @@
 import { IUser } from "../User";
 import { ICapability } from "../Capability";
+import { ICareer } from "../Career";
 import { IOffer } from "../Offer";
 import { ApprovalStatus } from "../ApprovalStatus";
 
-export interface ICareer {
-  code: string;
-  description: string;
-  credits: number;
+export interface IApplicantCareer {
+  career: ICareer;
+  careerCode: string;
   creditsCount: number;
   isGraduate: boolean;
 }
@@ -34,10 +34,10 @@ export interface IApplicant {
   links: ILink[];
   sections: ISection[];
   capabilities: ICapability[];
-  careers: ICareer[];
+  careers: IApplicantCareer[];
 }
 
-export interface IApplicantCareer {
+export interface IApplicantCareerInput {
   code: string;
   creditsCount: number;
   isGraduate: boolean;

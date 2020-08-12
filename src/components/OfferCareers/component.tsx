@@ -15,7 +15,7 @@ const OfferCareers: FunctionComponent<IOfferCareersComponentProps> = (
   return (
     <OfferInfoItem className={classNames(styles.careers, className)} title={careersTitle}>
       {
-        offer.careers.map(({ code, description }) =>
+        offer.careers.map(({ career: { code, description } }) =>
           <span key={code} className={styles.career}>{description}</span>
         )
       }

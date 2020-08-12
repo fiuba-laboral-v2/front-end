@@ -2,7 +2,7 @@ mutation updateCurrentApplicant(
   $user: UserUpdateInput,
   $padron: Int,
   $description: String,
-  $careers: [CareerCredits],
+  $careers: [ApplicantCareerInput],
   $capabilities: [String],
   $sections: [SectionInput],
   $links: [LinkInput]
@@ -31,9 +31,11 @@ mutation updateCurrentApplicant(
       description
     }
     careers {
-      code
-      description
-      credits
+      career {
+        code
+        description
+        credits
+      }
       creditsCount
       isGraduate
     }
