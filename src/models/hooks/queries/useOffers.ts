@@ -8,9 +8,15 @@ export const useOffers = () => {
   const fetchMore = async () => {
     const offers = result.data?.getOffers.results;
     if (!offers) return;
+    const lastOffer = offers[offers.length - 1];
     await result.fetchMore({
       query: GET_OFFERS,
-      variables: { updatedBeforeThan: offers[offers.length - 1].updatedAt }
+      variables: {
+        updatedBeforeThan: {
+          dateTime: lastOffer.updatedAt,
+          uuid: lastOffer.uuid
+        }
+      }
     });
   };
 
