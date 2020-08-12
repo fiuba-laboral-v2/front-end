@@ -8,6 +8,7 @@ export interface ICareer {
   description: string;
   credits: number;
   creditsCount: number;
+  isGraduate: boolean;
 }
 
 export interface ISection {
@@ -39,6 +40,7 @@ export interface IApplicant {
 export interface IApplicantCareer {
   code: string;
   creditsCount: number;
+  isGraduate: boolean;
 }
 
 export interface IMyOffer extends IOffer {

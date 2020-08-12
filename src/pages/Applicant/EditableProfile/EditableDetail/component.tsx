@@ -95,7 +95,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
                     title={translations.careers}
                     name={"careers"}
                     values={values.careers}
-                    defaultValue={{ code: "", creditsCount: 0 }}
+                    defaultValue={{ code: "", creditsCount: 0, isGraduate: false }}
                     fields={(value, index) => (
                       <CareerSelector key={index} index={index} value={value}/>
                     )}

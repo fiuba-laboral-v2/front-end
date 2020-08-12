@@ -35,6 +35,7 @@ mutation updateCurrentApplicant(
       description
       credits
       creditsCount
+      isGraduate
     }
     sections {
       uuid
