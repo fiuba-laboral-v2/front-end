@@ -2,7 +2,7 @@ mutation updateCurrentApplicant(
   $user: UserUpdateInput,
   $padron: Int,
   $description: String,
-  $careers: [CareerCredits],
+  $careers: [ApplicantCareerInput],
   $capabilities: [String],
   $sections: [SectionInput],
   $links: [LinkInput]

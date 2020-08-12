@@ -1,7 +1,7 @@
 mutation SaveApplicant(
   $padron: Int!,
   $user: UserInput!,
-  $careers: [CareerCredits]!,
+  $careers: [ApplicantCareerInput]!,
   $description: String,
   $capabilities: [String]
   ) {
