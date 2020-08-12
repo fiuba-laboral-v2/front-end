@@ -27,7 +27,10 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     return result.refetch({
       ...defaultFilter,
       ...filter,
-      updatedBeforeThan: tasks[tasks.length - 1].updatedAt
+      updatedBeforeThan: {
+        dateTime: tasks[tasks.length - 1].updatedAt,
+        uuid: tasks[tasks.length - 1].uuid
+      }
     });
   };
 

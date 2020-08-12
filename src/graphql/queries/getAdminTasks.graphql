@@ -1,7 +1,7 @@
 query GetAdminTasks(
   $adminTaskTypes: [AdminTaskType]!,
   $statuses: [ApprovalStatus]!,
-  $updatedBeforeThan: DateTime
+  $updatedBeforeThan: PaginatedInput
 ) {
   getAdminTasks(
     adminTaskTypes: $adminTaskTypes,

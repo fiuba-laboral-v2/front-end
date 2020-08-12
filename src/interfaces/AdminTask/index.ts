@@ -1,6 +1,7 @@
 import { APPLICANT_TYPE, COMPANY_TYPE } from "$typenames";
 import { IUser } from "../User";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { IPaginatedInput } from "../Pagination";
 
 export interface ICompanyAdminTask {
   __typename: COMPANY_TYPE;
@@ -25,5 +26,5 @@ export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE;
 export interface IAdminTasksFilter {
   adminTaskTypes: TAdminTaskType[];
   statuses: ApprovalStatus[];
-  updatedBeforeThan?: string;
+  updatedBeforeThan?: IPaginatedInput;
 }
