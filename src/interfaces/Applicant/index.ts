@@ -6,7 +6,6 @@ import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface IApplicantCareer {
   career: ICareer;
-  careerCode: string;
   creditsCount: number;
   isGraduate: boolean;
 }
@@ -34,7 +33,7 @@ export interface IApplicant {
   links: ILink[];
   sections: ISection[];
   capabilities: ICapability[];
-  careers: Array<Omit<IApplicantCareer, "careerCode">>;
+  careers: IApplicantCareer[];
 }
 
 export interface IApplicantCareerInput {
