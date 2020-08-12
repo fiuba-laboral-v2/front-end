@@ -1,6 +1,6 @@
 query GetOffers($updatedBeforeThan: DateTime) {
   getOffers(updatedBeforeThan: $updatedBeforeThan) {
-    offers {
+    results {
       uuid
       title
       hoursPerDay

@@ -2,10 +2,10 @@ export const getOffers = {
   keyArgs: [],
   merge: (existing: IQueryResult | undefined, incoming: IQueryResult) => ({
     ...incoming,
-    offers: [...existing?.offers || [], ...incoming.offers]
+    results: [...existing?.results || [], ...incoming.results]
   })
 };
 
 interface IQueryResult {
-  offers: object[];
+  results: object[];
 }
