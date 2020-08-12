@@ -1,6 +1,6 @@
 import { SAVE_APPLICANT } from "$mutations";
 import { useMutation } from "$hooks";
-import { IApplicant, IApplicantCareer } from "$interfaces/Applicant";
+import { IApplicant, IApplicantCareerInput } from "$interfaces/Applicant";
 import { IFiubaUserInput } from "$interfaces/User";
 
 export const useSaveApplicant = () =>
@@ -9,5 +9,5 @@ export const useSaveApplicant = () =>
 export interface ISaveApplicant {
   user: IFiubaUserInput;
   padron: number;
-  careers: IApplicantCareer[];
+  careers: IApplicantCareerInput[];
 }

@@ -1,4 +1,4 @@
-import { ICareer } from "$interfaces/Applicant";
+import { IApplicantCareer } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 
 export interface IOfferSection {
@@ -19,5 +19,5 @@ export interface IOffer {
   createdAt: string;
   updatedAt: string;
   sections?: IOfferSection[];
-  careers?: ICareer[];
+  careers?: IApplicantCareer[];
 }

@@ -24,9 +24,12 @@ mutation SaveApplicant(
       description
     }
     careers {
-      code
-      description
-      credits
+      careerCode
+      career {
+        code
+        description
+        credits
+      }
       creditsCount
       isGraduate
     }
