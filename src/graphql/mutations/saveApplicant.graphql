@@ -28,6 +28,7 @@ mutation SaveApplicant(
       description
       credits
       creditsCount
+      isGraduate
     }
   }
 }

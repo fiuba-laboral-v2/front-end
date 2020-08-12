@@ -56,7 +56,7 @@ const EditableDetailContainer: FunctionComponent = () => {
         ...values,
         user: { name, surname },
         capabilities: values.capabilities.map(capability => capability.description),
-        careers: values.careers.map(({ code, creditsCount }) => ({ code, creditsCount }))
+        careers: values.careers
       },
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
@@ -83,8 +83,8 @@ const EditableDetailContainer: FunctionComponent = () => {
         surname: user.surname,
         description,
         links,
-        careers: careers.map(({ code, creditsCount }) => (
-          { code, creditsCount: creditsCount }
+        careers: careers.map(({ code, creditsCount, isGraduate }) => (
+          { code, creditsCount, isGraduate }
         )),
         capabilities,
         sections,
