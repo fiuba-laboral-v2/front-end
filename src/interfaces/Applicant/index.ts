@@ -34,7 +34,7 @@ export interface IApplicant {
   links: ILink[];
   sections: ISection[];
   capabilities: ICapability[];
-  careers: IApplicantCareer[];
+  careers: Array<Omit<IApplicantCareer, "careerCode">>;
 }
 
 export interface IApplicantCareerInput {
