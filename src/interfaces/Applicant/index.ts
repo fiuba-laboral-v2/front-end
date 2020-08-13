@@ -6,7 +6,6 @@ import { ApprovalStatus } from "../ApprovalStatus";
 
 export interface IApplicantCareer {
   career: ICareer;
-  careerCode: string;
   creditsCount: number;
   isGraduate: boolean;
 }
