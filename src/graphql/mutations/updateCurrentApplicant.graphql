@@ -36,7 +36,8 @@ mutation updateCurrentApplicant(
         description
         credits
       }
-      creditsCount
+      approvedSubjectCount
+      approvedYearCount
       isGraduate
     }
     sections {

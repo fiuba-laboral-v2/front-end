@@ -23,7 +23,8 @@ query getMyApplicantProfile {
                     description
                     credits
                 }
-                creditsCount
+                approvedSubjectCount
+                approvedYearCount
                 isGraduate
             }
             sections {

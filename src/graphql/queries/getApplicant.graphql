@@ -21,7 +21,8 @@ query GetApplicant($uuid: ID!) {
                 description
                 credits
             }
-            creditsCount
+            approvedSubjectCount
+            approvedYearCount
             isGraduate
         }
         sections {

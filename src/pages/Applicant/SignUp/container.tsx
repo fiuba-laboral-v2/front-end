@@ -19,7 +19,7 @@ const SignUpContainer: FunctionComponent = () => {
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: IApplicantSignUpFormValues) => {
-    const selectedCodes = values.careers.map(career => career.code);
+    const selectedCodes = values.careers.map(career => career.careerCode);
     if (hasUniqueValues(selectedCodes)) {
       return "No se pueden repetir carreras";
     }
