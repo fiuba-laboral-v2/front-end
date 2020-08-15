@@ -24,10 +24,14 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     if (!result.data) return;
     setPreviousTasks(getAllTasks(result));
     const tasks = result.data.getAdminTasks.results;
+    const lastTask = tasks[tasks.length - 1];
     return result.refetch({
       ...defaultFilter,
       ...filter,
-      updatedBeforeThan: tasks[tasks.length - 1].updatedAt
+      updatedBeforeThan: {
+        dateTime: lastTask.updatedAt,
+        uuid: lastTask.uuid
+      }
     });
   };
 
