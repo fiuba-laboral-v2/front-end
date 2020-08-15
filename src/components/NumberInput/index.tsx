@@ -49,7 +49,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = (
   return fast ? <FastField {...fieldProps}/> : <Field {...fieldProps}/>;
 };
 
-interface INumberInputProps {
+export interface INumberInputProps {
   name: string;
   label: string;
   className?: string;

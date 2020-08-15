@@ -7,17 +7,16 @@ import { GET_CAREERS } from "$queries";
 
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
   const translations = useTranslations<ICareerSelectorTranslations>("careerSelector");
-
   const {
     data: { getCareers } = { getCareers: [] },
-    error: careersError,
-    loading: loadingCareers
+    error,
+    loading
   } = useQuery(GET_CAREERS);
-  if (!translations || careersError || loadingCareers) return <Fragment/>;
+  if (!translations || error || loading) return <Fragment/>;
 
   return (
     <CareerSelector
-      careerLabel={translations.career}
+      translations={translations}
       options={getCareers}
       {...props}
     />
