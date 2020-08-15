@@ -30,7 +30,7 @@ mutation SaveApplicant(
         credits
       }
       approvedSubjectCount
-      approvedYearCount
+      currentCareerYear
       isGraduate
     }
   }

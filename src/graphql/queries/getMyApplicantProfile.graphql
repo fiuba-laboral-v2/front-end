@@ -24,7 +24,7 @@ query getMyApplicantProfile {
                     credits
                 }
                 approvedSubjectCount
-                approvedYearCount
+                currentCareerYear
                 isGraduate
             }
             sections {

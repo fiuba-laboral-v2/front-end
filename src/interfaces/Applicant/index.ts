@@ -7,7 +7,7 @@ import { ApprovalStatus } from "../ApprovalStatus";
 export interface IApplicantCareer {
   career: ICareer;
   approvedSubjectCount?: number;
-  approvedYearCount?: number;
+  currentCareerYear?: number;
   isGraduate: boolean;
 }
 
@@ -40,7 +40,7 @@ export interface IApplicant {
 export interface IApplicantCareerInput {
   careerCode: string;
   approvedSubjectCount?: number;
-  approvedYearCount?: number;
+  currentCareerYear?: number;
   isGraduate: boolean;
 }
 
