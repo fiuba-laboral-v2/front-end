@@ -29,7 +29,8 @@ mutation SaveApplicant(
         description
         credits
       }
-      creditsCount
+      approvedSubjectCount
+      currentCareerYear
       isGraduate
     }
   }

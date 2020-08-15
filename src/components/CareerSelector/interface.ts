@@ -8,7 +8,6 @@ export interface ICareerSelectorContainerProps {
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {
   careerLabel: string;
-  creditsLabel: string;
   options: ICareer[];
 }
 

@@ -20,7 +20,7 @@ const EditableDetailContainer: FunctionComponent = () => {
   const validateForm = useCallback(
     ({ careers: selectedCareers, links: selectedLinks }: IEditableDetailValues) => {
       const formErrors = [];
-      const selectedCodes = selectedCareers.map(career => career.code);
+      const selectedCodes = selectedCareers.map(career => career.careerCode);
       if (hasUniqueValues(selectedCodes)) {
         formErrors.push("No se pueden repetir carreras");
       }
@@ -83,9 +83,12 @@ const EditableDetailContainer: FunctionComponent = () => {
         surname: user.surname,
         description,
         links,
-        careers: careers.map(({ career, creditsCount, isGraduate }) => (
-          { code: career.code , creditsCount, isGraduate }
-        )),
+        careers: careers.map(({ career, approvedSubjectCount, currentCareerYear, isGraduate }) => ({
+          careerCode: career.code,
+          approvedSubjectCount,
+          currentCareerYear,
+          isGraduate
+        })),
         capabilities,
         sections,
         _form: []

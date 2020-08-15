@@ -18,7 +18,6 @@ export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainer
   return (
     <CareerSelector
       careerLabel={translations.career}
-      creditsLabel={translations.credits}
       options={getCareers}
       {...props}
     />
