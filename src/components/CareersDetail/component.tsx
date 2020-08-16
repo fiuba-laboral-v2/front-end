@@ -1,20 +1,38 @@
 import React, { FunctionComponent } from "react";
-import { ItemsDetail } from "$components/Detail/ItemsDetail";
 import { ICareersProps } from "./interface";
+import { GraduateCareerDetail } from "./GraduateCareerDetail";
+import { StudentCareerDetail } from "./StudentCareerDetail";
+import styles from "./styles.module.scss";
+import { Subtitle } from "$components/Subtitle";
 
 export const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     className,
     careers,
-    translations,
-    buildLabel
+    translations
   }) => {
   return (
     <div className={className}>
-      <ItemsDetail
-        items={careers.map(applicantCareer => buildLabel(applicantCareer))}
-        title={translations.careersTitle}
-      />
+      <section className={styles.items}>
+        <Subtitle>{translations.careersTitle}</Subtitle>
+        {
+          careers?.map((applicantCareer, index) =>
+            <div key={index}>
+              {applicantCareer.isGraduate ?
+                <GraduateCareerDetail
+                  applicantCareer={applicantCareer}
+                  translations={translations}
+                />
+                :
+                <StudentCareerDetail
+                  applicantCareer={applicantCareer}
+                  translations={translations}
+                />
+              }
+            </div>
+          )
+        }
+      </section>
     </div>
   );
 };

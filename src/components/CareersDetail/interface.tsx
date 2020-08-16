@@ -9,7 +9,6 @@ export interface ICareerTranslations {
 
 export interface ICareersProps {
   careers: IApplicantCareer[];
-  buildLabel: (applicantCareer: IApplicantCareer) => string;
   className?: string;
   translations: ICareerTranslations;
 }
