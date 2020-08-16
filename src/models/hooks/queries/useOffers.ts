@@ -1,6 +1,7 @@
 import { useQuery } from "../useQuery";
 import { GET_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
+import { ApolloQueryResult } from "@apollo/client";
 
 export const useOffers = () => {
   const result = useQuery<{}, IUseOffers>(GET_OFFERS);
@@ -9,7 +10,7 @@ export const useOffers = () => {
     const offers = result.data?.getOffers.results;
     if (!offers) return;
     const lastOffer = offers[offers.length - 1];
-    await result.fetchMore({
+    return await result.fetchMore({
       query: GET_OFFERS,
       variables: {
         updatedBeforeThan: {
@@ -17,7 +18,7 @@ export const useOffers = () => {
           uuid: lastOffer.uuid
         }
       }
-    });
+    }) as ApolloQueryResult<IUseOffers>;
   };
 
   return { ...result, fetchMore };
@@ -28,6 +29,6 @@ export interface IGetOffers {
   shouldFetchMore: boolean;
 }
 
-interface IUseOffers {
+export interface IUseOffers {
   getOffers: IGetOffers;
 }

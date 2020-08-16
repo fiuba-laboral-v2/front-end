@@ -20,7 +20,7 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const getAllTasks = (newResult: { data: IUseAdminTasks }) =>
     uniqBy([...previousTasks, ...newResult.data.getAdminTasks.results], "uuid");
 
-  const fetchMore = () => {
+  const fetchMore = async () => {
     if (!result.data) return;
     setPreviousTasks(getAllTasks(result));
     const tasks = result.data.getAdminTasks.results;
@@ -55,13 +55,13 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
 
 export type TRefetchGetAdminTasks = (
   filter: IAdminTasksFilter
-) => Promise<ApolloQueryResult<IUseAdminTasks>>;
+) => Promise<ApolloQueryResult<IUseAdminTasks> | undefined>;
 
 export interface IGetAdminTasks {
   results: TAdminTask[];
   shouldFetchMore: boolean;
 }
 
-interface IUseAdminTasks {
+export interface IUseAdminTasks {
   getAdminTasks: IGetAdminTasks;
 }
