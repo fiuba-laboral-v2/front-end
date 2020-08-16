@@ -72,7 +72,6 @@ const EditableDetailContainer: FunctionComponent = () => {
     capabilities,
     sections
   } = applicantProfile.data.getCurrentUser.applicant;
-
   return (
     <EditableDetail
       onSubmit={onSubmit}
@@ -85,8 +84,8 @@ const EditableDetailContainer: FunctionComponent = () => {
         links,
         careers: careers.map(({ career, approvedSubjectCount, currentCareerYear, isGraduate }) => ({
           careerCode: career.code,
-          approvedSubjectCount,
-          currentCareerYear,
+          approvedSubjectCount: approvedSubjectCount || NaN,
+          currentCareerYear: currentCareerYear || NaN,
           isGraduate
         })),
         capabilities,
