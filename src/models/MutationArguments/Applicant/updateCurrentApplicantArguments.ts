@@ -1,10 +1,7 @@
-import {
-  IApplicantEditableValues
-} from "$pages/Applicant/EditableProfile/EditableDetail/interface";
+import { IUpdateCurrentApplicantVariables } from "$hooks";
 import { applicantCareersInputArguments } from "./applicantCareersInputArguments";
 
-export const updateCurrentApplicantArguments = (values: IApplicantEditableValues) => ({
+export const updateCurrentApplicantArguments = (values: IUpdateCurrentApplicantVariables) => ({
   ...values,
-  capabilities: values.capabilities.map(capability => capability.description),
   careers: applicantCareersInputArguments(values.careers)
 });

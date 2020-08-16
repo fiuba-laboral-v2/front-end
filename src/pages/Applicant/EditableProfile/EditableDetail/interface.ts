@@ -1,11 +1,6 @@
-import { ICapability } from "$interfaces/Capability";
 import { IUpdateCurrentApplicantVariables } from "$hooks";
 
-export interface IApplicantEditableValues extends Omit<IUpdateCurrentApplicantVariables, "capabilities"> {
-  capabilities: ICapability[];
-}
-
-export interface IApplicantEditableFormValues extends IApplicantEditableValues {
+export interface IApplicantEditableFormValues extends IUpdateCurrentApplicantVariables {
   _form: string[];
 }
 

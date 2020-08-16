@@ -11,35 +11,15 @@ describe("updateCurrentApplicantArguments", () => {
       description: "description",
       links: [],
       careers: [],
-      capabilities: [],
-      sections: []
-    };
-    const variables = updateCurrentApplicantArguments(inputVariables);
-    expect(variables).toEqual(inputVariables);
-  });
-
-  it("returns the variables with each capability description mapped", async () => {
-    const inputVariables = {
-      user: {
-        name: "name",
-        surname: "surname"
-      },
-      padron: 98534,
-      description: "description",
-      links: [],
-      careers: [],
-      sections: [],
       capabilities: [
         { description: "description1" },
         { description: "description2" },
         { description: "description3" }
-      ]
+      ],
+      sections: []
     };
     const variables = updateCurrentApplicantArguments(inputVariables);
-    expect(variables).toEqual({
-      ...inputVariables,
-      capabilities: inputVariables.capabilities.map(({ description }) => description)
-    });
+    expect(variables).toEqual(inputVariables);
   });
 
   it("sets to undefined approvedSubjectCount and currentCareerYear if isGraduate", async () => {
