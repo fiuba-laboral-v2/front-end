@@ -11,8 +11,6 @@ export interface IApplicantEditableFormValues extends IApplicantEditableValues {
 
 export interface IApplicantDetailEditableTranslations {
   title: string;
-  name: string;
-  surname: string;
   description: string;
   links: string;
   link: string;
