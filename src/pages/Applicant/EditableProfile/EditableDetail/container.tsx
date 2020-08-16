@@ -9,6 +9,7 @@ import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./i
 import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
+import { IApplicantCareerInput } from "$interfaces/Applicant";
 
 const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -50,13 +51,22 @@ const EditableDetailContainer: FunctionComponent = () => {
   }
   if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
 
+  const normalizeCareers = (applicantCareers: IApplicantCareerInput[]) =>
+    applicantCareers.map(applicantCareer => ({
+      ...applicantCareer,
+      ...(applicantCareer.isGraduate && {
+        approvedSubjectCount: undefined,
+        currentCareerYear: undefined
+      })
+    }));
+
   const onSubmit = async ({ name, surname, ...values }: IEditableDetailValues) => {
     const result = await updateApplicant({
       variables: {
         ...values,
         user: { name, surname },
         capabilities: values.capabilities.map(capability => capability.description),
-        careers: values.careers
+        careers: normalizeCareers(values.careers)
       },
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
