@@ -53,9 +53,16 @@ div.currentCareerYear {
     flex-direction: column;
   }
 
-  div.career,
+  div.career {
+    margin-bottom: 0;
+  }
+
   div.currentCareerYear {
     margin-bottom: $spacing-m;
+  }
+
+  div.career,
+  div.currentCareerYear {
     width: 100%;
   }
 }
