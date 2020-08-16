@@ -5,6 +5,7 @@ export interface ICareerTranslations {
   approvedSubjectCount: string;
   currentCareerYear: string;
   isGraduate: string;
+  connector: string;
 }
 
 export interface ICareersProps {

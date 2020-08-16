@@ -9,7 +9,8 @@ export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   }) => (
   <>
     <b>{translations.isGraduate} </b>
-    <b>{applicantCareer.career.description}</b>
+    {translations.connector}
+    <b> {applicantCareer.career.description}</b>
   </>
 );
 
