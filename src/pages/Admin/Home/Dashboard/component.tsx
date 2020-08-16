@@ -6,7 +6,7 @@ import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { IUseAdminTasks, TRefetchGetAdminTasks } from "$hooks/queries";
-import { ApolloQueryResult } from "@apollo/client";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
@@ -53,6 +53,6 @@ interface IDashboardProps {
   setFilter: (filter: IAdminTasksFilter) => void;
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
-  fetchMore: () => Promise<ApolloQueryResult<IUseAdminTasks> | undefined>;
+  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
   shouldFetchMore: boolean;
 }

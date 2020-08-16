@@ -1,6 +1,6 @@
-import { ApolloQueryResult } from "@apollo/client";
 import React, { ReactNode, Ref, useEffect, useRef, useState } from "react";
 import { List } from "./component";
+import { OptionalFetchResult } from "../../interfaces/Pagination";
 
 export const ListContainer = <ListItem, Result>(
   {
@@ -18,7 +18,7 @@ export const ListContainer = <ListItem, Result>(
     const observer = new IntersectionObserver(entries => {
       if (!entries.some(entry => entry.isIntersecting)) return;
       setLoading(true);
-      fetchMore().then(() => setLoading(false));
+      fetchMore()?.then(() => setLoading(false));
       observer.disconnect();
     });
     observer.observe(fetchMoreTrigger.current);
@@ -34,7 +34,7 @@ export const ListContainer = <ListItem, Result>(
 };
 
 interface IListContainerProps<ListItem, Result> {
-  fetchMore?: () => Promise<ApolloQueryResult<Result> | undefined>;
+  fetchMore?: () => OptionalFetchResult<Result>;
   shouldFetchMore?: boolean;
   list: ListItem[];
   className?: string;

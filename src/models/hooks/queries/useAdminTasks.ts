@@ -1,9 +1,9 @@
 import { useQuery } from "$hooks";
 import { GET_ADMIN_TASKS } from "$queries";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { ApolloQueryResult } from "@apollo/client";
 import { useState } from "react";
 import { uniqBy } from "lodash";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const defaultFilter = {
@@ -20,7 +20,7 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const getAllTasks = (newResult: { data: IUseAdminTasks }) =>
     uniqBy([...previousTasks, ...newResult.data.getAdminTasks.results], "uuid");
 
-  const fetchMore = async () => {
+  const fetchMore = () => {
     if (!result.data) return;
     setPreviousTasks(getAllTasks(result));
     const tasks = result.data.getAdminTasks.results;
@@ -55,7 +55,7 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
 
 export type TRefetchGetAdminTasks = (
   filter: IAdminTasksFilter
-) => Promise<ApolloQueryResult<IUseAdminTasks> | undefined>;
+) => OptionalFetchResult<IUseAdminTasks>;
 
 export interface IGetAdminTasks {
   results: TAdminTask[];

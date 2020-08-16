@@ -1,14 +1,14 @@
 import { TAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { ApolloQueryResult } from "@apollo/client";
 import { IUseAdminTasks } from "$hooks/queries";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export interface ITaskListContainerProps {
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
   adminTasks?: TAdminTask[];
   statuses: ApprovalStatus[];
-  fetchMore: () => Promise<ApolloQueryResult<IUseAdminTasks> | undefined>;
+  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
   shouldFetchMore: boolean;
 }
 

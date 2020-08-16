@@ -6,8 +6,8 @@ import { IOffer } from "$interfaces/Offer";
 import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
-import { ApolloQueryResult } from "@apollo/client";
 import { IUseOffers } from "$hooks/queries";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 const Feed: FunctionComponent<IFeedProps> = (
   {
@@ -41,7 +41,7 @@ interface IFeedProps {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
-  fetchMore?: () => Promise<ApolloQueryResult<IUseOffers> | undefined>;
+  fetchMore?: () => OptionalFetchResult<IUseOffers>;
   shouldFetchMore?: boolean;
 }
 

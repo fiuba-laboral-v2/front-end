@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import {
   ApolloError,
-  ApolloQueryResult,
   QueryHookOptions,
   QueryResult,
   useQuery as apolloUseQuery
 } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { ErrorHandlers, handleError } from "$models/handleError";
+import { FetchResult } from "$interfaces/Pagination";
 
 export type UseQueryResult<TVariables, TData> =
   QueryResult<TData, TVariables> &
@@ -29,7 +29,7 @@ type IErroredQuery = {
 
 type ISuccessfulQuery<TVariables, TData> = {
   data: TData;
-  refetch: (variables: TVariables) => Promise<ApolloQueryResult<TData>>;
+  refetch: (variables: TVariables) => FetchResult<TData>;
   error: undefined;
   loading: false;
 };
