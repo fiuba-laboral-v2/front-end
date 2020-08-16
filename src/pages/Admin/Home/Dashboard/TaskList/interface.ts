@@ -17,8 +17,12 @@ export interface ITaskListProps extends ITaskListContainerProps {
 }
 
 export interface ITaskListTranslations {
-  tasks: string;
+  none: string;
+  approved: string;
   pending: string;
   rejected: string;
-  approved: string;
+  pending_or_rejected: string;
+  approved_or_pending: string;
+  approved_or_rejected: string;
+  approved_or_pending_or_rejected: string;
 }
