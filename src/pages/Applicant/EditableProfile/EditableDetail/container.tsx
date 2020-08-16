@@ -59,35 +59,27 @@ export const EditableDetailContainer: FunctionComponent = () => {
     if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
   };
 
-  const {
-    user,
-    padron,
-    description,
-    links,
-    careers,
-    capabilities,
-    sections
-  } = applicantProfile.data.getCurrentUser.applicant;
+  const applicant = applicantProfile.data.getCurrentUser.applicant;
   return (
     <EditableDetail
       onSubmit={onSubmit}
       translations={translations}
       initialValues={{
         user: {
-          name: user.name,
-          surname: user.surname
+          name: applicant.user.name,
+          surname: applicant.user.surname
         },
-        padron,
-        description: description || "",
-        links,
-        careers: careers.map(({ career, approvedSubjectCount, currentCareerYear, isGraduate }) => ({
-          careerCode: career.code,
-          approvedSubjectCount: approvedSubjectCount || NaN,
-          currentCareerYear: currentCareerYear || NaN,
-          isGraduate
+        padron: applicant.padron,
+        description: applicant.description || "",
+        links: applicant.links,
+        careers: applicant.careers.map(applicantCareer => ({
+          careerCode: applicantCareer.career.code,
+          approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
+          currentCareerYear: applicantCareer.currentCareerYear || NaN,
+          isGraduate: applicantCareer.isGraduate
         })),
-        capabilities,
-        sections,
+        capabilities: applicant.capabilities,
+        sections: applicant.sections,
         _form: []
       }}
       validateForm={validateForm}
