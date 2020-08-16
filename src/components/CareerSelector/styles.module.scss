@@ -40,12 +40,18 @@ div.currentCareerYear {
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  div.career {
-    margin-bottom: $spacing-m;
-    width: 100%;
-  }
-
   .fieldsContainer {
     flex-direction: column;
+  }
+
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
+
+  div.career,
+  div.currentCareerYear {
+    margin-bottom: $spacing-m;
+    width: 100%;
   }
 }
