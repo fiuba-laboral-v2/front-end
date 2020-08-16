@@ -6,15 +6,14 @@ export const CareersDetail: FunctionComponent<ICareersProps> = (
   {
     className,
     careers,
-    translations: {
-      careersTitle
-    }
+    translations,
+    buildLabel
   }) => {
   return (
     <div className={className}>
       <ItemsDetail
-        items={careers.map(applicantCareer => applicantCareer.career.description)}
-        title={careersTitle}
+        items={careers.map(applicantCareer => buildLabel(applicantCareer))}
+        title={translations.careersTitle}
       />
     </div>
   );
