@@ -34,7 +34,6 @@ mutation updateCurrentApplicant(
       career {
         code
         description
-        credits
       }
       approvedSubjectCount
       currentCareerYear
