@@ -8,8 +8,9 @@ export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
     translations
   }) => (
   <span>
-    <b>{applicantCareer.currentCareerYear}° {translations.currentCareerYear}</b>
-    <b>{applicantCareer.career.description} </b>
+    <b>{applicantCareer.currentCareerYear}° {translations.currentCareerYear} </b>
+    {translations.connector}
+    <b> {applicantCareer.career.description} </b>
     ({applicantCareer.approvedSubjectCount} {translations.approvedSubjectCount})
   </span>
 );
