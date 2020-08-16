@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { UserFields } from "./component";
+import { IUserFieldsContainerProps, IUserFieldsTranslations } from "./interfaces";
 
 export const UserFieldsContainer: FunctionComponent<IUserFieldsContainerProps> = (
   {
@@ -13,21 +14,10 @@ export const UserFieldsContainer: FunctionComponent<IUserFieldsContainerProps> =
   if (!translations) return <Fragment />;
   return (
     <UserFields
-      email={{ name: email, label: translations.email }}
-      name={{ name: name, label: translations.name }}
-      surname={{ name: surname, label: translations.surname }}
+      email={email}
+      name={name}
+      surname={surname}
+      translations={translations}
     />
   );
 };
-
-interface IUserFieldsTranslations {
-  email: string;
-  name: string;
-  surname: string;
-}
-
-interface IUserFieldsContainerProps {
-  email: string;
-  name: string;
-  surname: string;
-}

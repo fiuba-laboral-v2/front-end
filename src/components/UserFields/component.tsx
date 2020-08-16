@@ -1,24 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { EmailField } from "$components/Fields/EmailField";
 import { NameField } from "$components/Fields/NameField";
-import { IField } from "$components/Fields/interfaces";
+import { IUserFieldsProps } from "./interfaces";
 
 export const UserFields: FunctionComponent<IUserFieldsProps> = (
   {
     email,
     name,
-    surname
+    surname,
+    translations
   }
 ) => (
   <>
-    <EmailField {...email}/>
-    <NameField {...name} />
-    <NameField {...surname} />
+    <EmailField name={email} label={translations.email} />
+    <NameField name={name} label={translations.name} />
+    <NameField name={surname} label={translations.surname} />
   </>
 );
-
-interface IUserFieldsProps {
-  email: IField;
-  name: IField;
-  surname: IField;
-}
