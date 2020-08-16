@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { TextInput } from "$components/TextInput";
-import { IField } from "../interfaces";
+import { FieldAttributes } from "formik/dist/Field";
 
-export const DniField: FunctionComponent<IField> = ({ name, label }) => (
+export const DniField: FunctionComponent<FieldAttributes<any>> = ({ name, label }) => (
   <TextInput
     name={name}
     label={label}
