@@ -8,10 +8,10 @@ import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
 import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { updateCurrentApplicantArguments } from "$models/MutationArguments";
 import { useSnackbar } from "notistack";
-import { IApplicantCareerInput } from "$interfaces/Applicant";
 
-const EditableDetailContainer: FunctionComponent = () => {
+export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const updateApplicant = useUpdateCurrentApplicant();
@@ -51,23 +51,9 @@ const EditableDetailContainer: FunctionComponent = () => {
   }
   if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
 
-  const normalizeCareers = (applicantCareers: IApplicantCareerInput[]) =>
-    applicantCareers.map(applicantCareer => ({
-      ...applicantCareer,
-      ...(applicantCareer.isGraduate && {
-        approvedSubjectCount: undefined,
-        currentCareerYear: undefined
-      })
-    }));
-
-  const onSubmit = async ({ name, surname, ...values }: IEditableDetailValues) => {
+  const onSubmit = async ({ _form, ...variables }: IEditableDetailValues) => {
     const result = await updateApplicant({
-      variables: {
-        ...values,
-        user: { name, surname },
-        capabilities: values.capabilities.map(capability => capability.description),
-        careers: normalizeCareers(values.careers)
-      },
+      variables: updateCurrentApplicantArguments(variables),
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
     if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
@@ -106,5 +92,3 @@ const EditableDetailContainer: FunctionComponent = () => {
     />
   );
 };
-
-export { EditableDetailContainer };
