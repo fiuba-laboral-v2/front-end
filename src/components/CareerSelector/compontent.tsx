@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Selector } from "$components/Selector";
-import { PositiveNumberInput } from "$components/PositiveNumberInput";
+import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { ICareerSelectorProps } from "./interface";
 import { FormikValidator } from "$models/FormikValidator";

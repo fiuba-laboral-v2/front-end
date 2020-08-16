@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { FormikValidator } from "../../models/FormikValidator";
+import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
-import { NumberInput, INumberInputProps } from "../NumberInput";
+import { NumberInput } from "../index";
+import { IBaseProps } from "../interfaces";
 
-export const PositiveNumberInput: FunctionComponent<PositiveNumberInputProps> = props => (
+export const PositiveNumberInput: FunctionComponent<IBaseProps> = props => (
   <NumberInput
     {...props}
     validate={FormikValidator({
@@ -12,5 +13,3 @@ export const PositiveNumberInput: FunctionComponent<PositiveNumberInputProps> = 
     })}
   />
 );
-
-type PositiveNumberInputProps = Omit<INumberInputProps, "validate">;
