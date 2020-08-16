@@ -17,7 +17,7 @@ export const CareersDetail: FunctionComponent<ICareersProps> = (
         <Subtitle>{translations.careersTitle}</Subtitle>
         {
           careers?.map((applicantCareer, index) =>
-            <div key={index}>
+            <div key={index} className={styles.item}>
               {applicantCareer.isGraduate ?
                 <GraduateCareerDetail
                   applicantCareer={applicantCareer}
