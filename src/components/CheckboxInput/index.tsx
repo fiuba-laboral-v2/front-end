@@ -8,6 +8,7 @@ import CheckboxIcon from "@material-ui/icons/CheckBox";
 export const CheckboxInput: FunctionComponent<FieldAttributes<any>> = props => {
   const children = (fieldProps: FieldProps<boolean>) =>
     <Checkbox
+      type="checkbox"
       {...fieldProps}
       size="small"
       color="default"
