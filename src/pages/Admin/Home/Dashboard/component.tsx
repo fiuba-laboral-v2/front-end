@@ -5,7 +5,8 @@ import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { TRefetchGetAdminTasks } from "$hooks/queries";
+import { IUseAdminTasks, TRefetchGetAdminTasks } from "$hooks/queries";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
@@ -52,6 +53,6 @@ interface IDashboardProps {
   setFilter: (filter: IAdminTasksFilter) => void;
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
-  fetchMore: () => void;
+  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
   shouldFetchMore: boolean;
 }

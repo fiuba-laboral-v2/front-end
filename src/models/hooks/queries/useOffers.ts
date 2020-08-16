@@ -1,15 +1,16 @@
 import { useQuery } from "../useQuery";
 import { GET_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
+import { FetchResult } from "$interfaces/Pagination";
 
 export const useOffers = () => {
   const result = useQuery<{}, IUseOffers>(GET_OFFERS);
 
-  const fetchMore = async () => {
+  const fetchMore = () => {
     const offers = result.data?.getOffers.results;
     if (!offers) return;
     const lastOffer = offers[offers.length - 1];
-    await result.fetchMore({
+    return result.fetchMore({
       query: GET_OFFERS,
       variables: {
         updatedBeforeThan: {
@@ -17,7 +18,7 @@ export const useOffers = () => {
           uuid: lastOffer.uuid
         }
       }
-    });
+    }) as FetchResult<IUseOffers>;
   };
 
   return { ...result, fetchMore };
@@ -28,6 +29,6 @@ export interface IGetOffers {
   shouldFetchMore: boolean;
 }
 
-interface IUseOffers {
+export interface IUseOffers {
   getOffers: IGetOffers;
 }

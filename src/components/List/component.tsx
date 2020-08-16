@@ -1,28 +1,30 @@
-import React from "react";
+import React, { ReactNode, Ref } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import Button from "../Button";
-import { IListProps } from "./interface";
+import { LoadingSpinner } from "../LoadingSpinner";
 
-export const List = <T, >(
+export const List = <ListItem, >(
   {
     list,
-    children,
     className,
-    fetchMore,
-    shouldFetchMore,
-    translations
-  }: IListProps<T>
-) => <>
-  <div className={classNames(styles.list, className)}>
-    {list.map(children)}
-  </div>
-  {
-    fetchMore && shouldFetchMore && translations &&
-    <div className={styles.fetchMore}>
-        <Button className={"primary"} onClick={fetchMore}>
-          {translations.fetchMore}
-        </Button>
+    mapListItemToReactNode,
+    fetchMoreTrigger,
+    loading
+  }: IListProps<ListItem>
+) =>
+  <>
+    <div className={classNames(styles.list, className)}>
+      {list.map((item, index) =>
+        mapListItemToReactNode(index === list.length - 1 ? fetchMoreTrigger : undefined, item)
+      )}
     </div>
-  }
-</>;
+    {loading && <LoadingSpinner/>}
+  </>;
+
+interface IListProps<ListItem> {
+  list: ListItem[];
+  className?: string;
+  mapListItemToReactNode: (ref: Ref<HTMLDivElement> | undefined, item: ListItem) => ReactNode;
+  fetchMoreTrigger: Ref<HTMLDivElement>;
+  loading: boolean;
+}

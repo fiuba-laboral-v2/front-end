@@ -6,6 +6,8 @@ import { IOffer } from "$interfaces/Offer";
 import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
+import { IUseOffers } from "$hooks/queries";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 const Feed: FunctionComponent<IFeedProps> = (
   {
@@ -20,8 +22,9 @@ const Feed: FunctionComponent<IFeedProps> = (
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
     <div>
       <List list={offers} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
-        {offer => (
+        {(ref, offer) => (
           <Card
+            _ref={ref}
             key={offer.uuid}
             className={styles.cardContainer}
             onClick={() => onCardClick(offer.uuid)}
@@ -38,7 +41,7 @@ interface IFeedProps {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
-  fetchMore?: () => void;
+  fetchMore?: () => OptionalFetchResult<IUseOffers>;
   shouldFetchMore?: boolean;
 }
 

@@ -4,6 +4,8 @@ import { Card } from "$components/Card";
 import { AdminTask } from "../AdminTask";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
+import { IUseAdminTasks } from "$hooks/queries";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const ListBody: FunctionComponent<IListBodyProps> = (
   {
@@ -15,8 +17,9 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
   }
 ) => (
   <List list={adminTasks} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
-    {adminTask =>
+    {(ref, adminTask) =>
       <Card
+        _ref={ref}
         key={adminTask.uuid}
         className={styles.card}
         onClick={() => onSelectTask(adminTask)}
@@ -32,6 +35,6 @@ interface IListBodyProps {
   adminTasks: TAdminTask[];
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
-  fetchMore: () => void;
+  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
   shouldFetchMore: boolean;
 }

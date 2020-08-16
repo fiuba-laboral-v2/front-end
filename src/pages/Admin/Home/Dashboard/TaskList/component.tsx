@@ -20,7 +20,6 @@ export const TaskList: FunctionComponent<ITaskListProps> = (
     <div className={styles.taskList}>
       <div className={styles.info}>
         <ListInfo
-          adminTasks={adminTasks}
           statuses={statuses}
           translations={translations}
           {...props}
