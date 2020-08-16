@@ -1,8 +1,6 @@
 import { ISaveApplicant } from "$hooks";
-import { IFiubaUserInput } from "$interfaces/User";
 
 export interface IApplicantSignUpFormValues extends ISaveApplicant {
-  user: IFiubaUserInput;
   _form: string;
 }
 
