@@ -5,6 +5,7 @@ import { Checkbox } from "formik-material-ui";
 
 export const CheckboxInput: FunctionComponent<FieldAttributes<any>> = props =>
   <Field
+    type="checkbox"
     size="small"
     component={Checkbox}
     {...props}

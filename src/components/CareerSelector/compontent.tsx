@@ -29,7 +29,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       <div className={styles.isGraduate}>
         <p>{translations.isGraduate}</p>
         <CheckboxInput
-          defaultChecked={value.isGraduate}
+          checked={value.isGraduate}
           name={`careers.${index}.isGraduate`}
         />
       </div>
