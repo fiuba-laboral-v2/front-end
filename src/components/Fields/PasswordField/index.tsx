@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { TextInput } from "$components/TextInput";
+import { TextInput, ITextInputProps } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
-import { IField } from "../interfaces";
 import { validatePassword } from "validations-fiuba-laboral-v2";
 
 export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
@@ -26,6 +25,6 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
   );
 };
 
-export interface IPasswordFieldProps extends IField {
+export interface IPasswordFieldProps extends ITextInputProps {
   validate: boolean;
 }

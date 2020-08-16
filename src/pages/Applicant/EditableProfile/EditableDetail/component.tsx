@@ -4,17 +4,17 @@ import { Form, Formik } from "formik";
 import isArray from "lodash/isArray";
 import { TextInput } from "$components/TextInput";
 import { FormSet } from "$components/FormSet";
-import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
+import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import { CareerSelector } from "$components/CareerSelector";
 import { Subtitle } from "$components/Subtitle";
 import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 import { FormikValidator } from "$models/FormikValidator";
-import { validateName, validateURL } from "validations-fiuba-laboral-v2";
-import classNames from "classnames";
+import { validateURL } from "validations-fiuba-laboral-v2";
 import { FormSection } from "$components/FormSection";
 import { SubmitButton } from "$components/SubmitButton";
+import { UserEditFields } from "$components/UserEditFields";
 
-const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
+export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
   {
     initialValues,
     onSubmit,
@@ -35,22 +35,7 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
           {({ values, isSubmitting, errors }) => (
             <div className={styles.body}>
               <Form className={styles.formContainer} id={formName}>
-                <div className={classNames(styles.fullName, styles.row)}>
-                  <TextInput
-                    withoutMargin
-                    className={styles.name}
-                    name={"name"}
-                    label={translations.name}
-                    validate={FormikValidator({ validator: validateName, mandatory: true })}
-                  />
-                  <TextInput
-                    withoutMargin
-                    className={styles.surname}
-                    name={"surname"}
-                    label={translations.surname}
-                    validate={FormikValidator({ validator: validateName, mandatory: true })}
-                  />
-                </div>
+                <UserEditFields className={styles.row} name="user.name" surname="user.surname"/>
                 <div className={styles.row}>
                   <FormSection>
                     <div className={styles.description}>
@@ -158,10 +143,8 @@ const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
 };
 
 interface IApplicantDetailEditableProps {
-  initialValues: IEditableDetailValues;
-  onSubmit: (applicant: IEditableDetailValues) => void;
+  initialValues: IApplicantEditableFormValues;
+  onSubmit: (applicant: IApplicantEditableFormValues) => void;
   translations: IApplicantDetailEditableTranslations;
-  validateForm: (value: IEditableDetailValues) => object;
+  validateForm: (value: IApplicantEditableFormValues) => object;
 }
-
-export { EditableDetail };

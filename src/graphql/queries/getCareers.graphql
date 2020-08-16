@@ -1,5 +1,5 @@
-query GetCareers{
-  getCareers{
+query GetCareers {
+  getCareers {
     code
     description
     credits

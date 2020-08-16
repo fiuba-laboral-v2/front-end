@@ -21,7 +21,7 @@ export const TextInput: FunctionComponent<ITextInputProps> = (
   return fast ? <FastField {...fieldProps}/> : <Field {...fieldProps}/>;
 };
 
-interface ITextInputProps extends FieldAttributes<any> {
+export interface ITextInputProps extends FieldAttributes<any> {
   fast?: boolean;
   withoutMargin?: boolean;
 }

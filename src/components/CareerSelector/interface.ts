@@ -7,11 +7,13 @@ export interface ICareerSelectorContainerProps {
 }
 
 export interface ICareerSelectorProps extends ICareerSelectorContainerProps {
-  careerLabel: string;
+  translations: ICareerSelectorTranslations;
   options: ICareer[];
 }
 
 export interface ICareerSelectorTranslations {
   career: string;
-  credits: string;
+  isGraduate: string;
+  approvedSubjectCount: string;
+  currentCareerYear: string;
 }
