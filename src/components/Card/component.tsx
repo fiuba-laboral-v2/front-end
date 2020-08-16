@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, Ref, useState } from "react";
 import classNames from "classnames";
 
 import styles from "./styles.module.scss";
@@ -9,12 +9,14 @@ export const Card: FunctionComponent<IClickableCardProps> = (
     className,
     largePadding,
     selected,
-    onClick
+    onClick,
+    _ref
   }
 ) => {
   const [touched, setTouched] = useState(false);
   return (
     <div
+      ref={_ref}
       className={classNames(styles.card, className, {
         [styles.largePadding]: largePadding,
         [styles.hoverable]: onClick,
@@ -36,4 +38,5 @@ interface IClickableCardProps {
   onClick?: () => void;
   selected?: boolean;
   largePadding?: boolean;
+  _ref?: Ref<HTMLDivElement>;
 }

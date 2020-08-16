@@ -1,9 +1,9 @@
 import { useQuery } from "$hooks";
 import { GET_ADMIN_TASKS } from "$queries";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { ApolloQueryResult } from "@apollo/client";
 import { useState } from "react";
 import { uniqBy } from "lodash";
+import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const defaultFilter = {
@@ -55,13 +55,13 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
 
 export type TRefetchGetAdminTasks = (
   filter: IAdminTasksFilter
-) => Promise<ApolloQueryResult<IUseAdminTasks>>;
+) => OptionalFetchResult<IUseAdminTasks>;
 
 export interface IGetAdminTasks {
   results: TAdminTask[];
   shouldFetchMore: boolean;
 }
 
-interface IUseAdminTasks {
+export interface IUseAdminTasks {
   getAdminTasks: IGetAdminTasks;
 }

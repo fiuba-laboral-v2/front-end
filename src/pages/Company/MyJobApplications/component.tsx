@@ -12,7 +12,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
 ) => (
   <Window>
     <List list={jobApplications}>
-      {jobApplication =>
+      {(ref, jobApplication) =>
         <JobApplication
           className={styles.card}
           key={`${jobApplication.offer.uuid} ${jobApplication.applicant.uuid}`}
