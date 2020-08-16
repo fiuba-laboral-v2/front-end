@@ -1,6 +1,6 @@
 query getMyLatestJobApplications {
     getMyLatestJobApplications {
-        createdAt
+        updatedAt
         offer {
             uuid
             title

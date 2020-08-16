@@ -4,18 +4,18 @@ import { useHistory } from "react-router-dom";
 import { Link } from "$components/Link";
 import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
-import { CreatedSince } from "$components/CreatedSince";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
+import { TimeHumanizer } from "$components/TimeHumanizer";
 
 export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
     className,
     _ref,
     jobApplication: {
-      createdAt,
+      updatedAt,
       offer,
       applicant
     }
@@ -38,9 +38,9 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
           </Link>
         </Subtitle>
       </div>
-      <CreatedSince
-        className={styles.createdAt}
-        date={createdAt}
+      <TimeHumanizer
+        className={styles.updatedAt}
+        since={updatedAt}
       />
     </Card>
   );
