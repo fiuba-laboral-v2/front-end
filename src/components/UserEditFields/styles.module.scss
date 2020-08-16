@@ -1,0 +1,21 @@
+@import "$styles/_variables";
+
+.fullName {
+  display: flex;
+  width: 70%;
+
+  .name {
+    margin-right: $spacing-l;
+  }
+
+  .name,
+  .surname {
+    width: 50%;
+  }
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .fullName {
+    width: 100%;
+  }
+}

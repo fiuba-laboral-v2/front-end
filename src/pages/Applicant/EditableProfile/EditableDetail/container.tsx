@@ -5,7 +5,7 @@ import { EditableDetail } from "./component";
 import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
-import { IApplicantDetailEditableTranslations, IEditableDetailValues } from "./interface";
+import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
@@ -19,7 +19,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
 
   const validateForm = useCallback(
-    ({ careers: selectedCareers, links: selectedLinks }: IEditableDetailValues) => {
+    ({ careers: selectedCareers, links: selectedLinks }: IApplicantEditableFormValues) => {
       const formErrors = [];
       const selectedCodes = selectedCareers.map(career => career.careerCode);
       if (hasUniqueValues(selectedCodes)) {
@@ -51,7 +51,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
   }
   if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
 
-  const onSubmit = async ({ _form, ...variables }: IEditableDetailValues) => {
+  const onSubmit = async ({ _form, ...variables }: IApplicantEditableFormValues) => {
     const result = await updateApplicant({
       variables: updateCurrentApplicantArguments(variables),
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
@@ -60,8 +60,8 @@ export const EditableDetailContainer: FunctionComponent = () => {
   };
 
   const {
-    uuid,
     user,
+    padron,
     description = "",
     links,
     careers,
@@ -73,9 +73,11 @@ export const EditableDetailContainer: FunctionComponent = () => {
       onSubmit={onSubmit}
       translations={translations}
       initialValues={{
-        uuid,
-        name: user.name,
-        surname: user.surname,
+        user: {
+          name: user.name,
+          surname: user.surname
+        },
+        padron,
         description,
         links,
         careers: careers.map(({ career, approvedSubjectCount, currentCareerYear, isGraduate }) => ({

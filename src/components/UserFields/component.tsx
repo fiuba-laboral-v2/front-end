@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { EmailField } from "../Fields/EmailField";
-import { NameField } from "../Fields/NameField";
-import { IField } from "../Fields/interfaces";
+import { EmailField } from "$components/Fields/EmailField";
+import { NameField } from "$components/Fields/NameField";
+import { IField } from "$components/Fields/interfaces";
 
 export const UserFields: FunctionComponent<IUserFieldsProps> = (
   {

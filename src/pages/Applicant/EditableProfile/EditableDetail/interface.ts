@@ -1,15 +1,11 @@
-import { IApplicantCareerInput, ILink, ISection } from "$interfaces/Applicant";
 import { ICapability } from "$interfaces/Capability";
+import { IUpdateCurrentApplicantVariables } from "$hooks";
 
-export interface IEditableDetailValues {
-  uuid: string;
-  name: string;
-  surname: string;
-  description: string;
-  links: ILink[];
-  careers: IApplicantCareerInput[];
+export interface IApplicantEditableValues extends Omit<IUpdateCurrentApplicantVariables, "capabilities"> {
   capabilities: ICapability[];
-  sections: ISection[];
+}
+
+export interface IApplicantEditableFormValues extends IApplicantEditableValues {
   _form: string[];
 }
 

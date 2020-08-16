@@ -7,8 +7,9 @@ export const useUpdateCurrentApplicant = () =>
   useMutation<IUpdateCurrentApplicantVariables>(UPDATE_CURRENT_APPLICANT);
 
 export interface IUpdateCurrentApplicantVariables {
-  uuid: string;
   user: IEditableUser;
+  description: string;
+  padron: number;
   links: ILink[];
   capabilities: string[];
   careers: IApplicantCareerInput[];
