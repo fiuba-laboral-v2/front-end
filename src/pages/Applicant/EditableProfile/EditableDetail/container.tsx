@@ -62,7 +62,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
   const {
     user,
     padron,
-    description = "",
+    description,
     links,
     careers,
     capabilities,
@@ -78,7 +78,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
           surname: user.surname
         },
         padron,
-        description,
+        description: description || "",
         links,
         careers: careers.map(({ career, approvedSubjectCount, currentCareerYear, isGraduate }) => ({
           careerCode: career.code,
