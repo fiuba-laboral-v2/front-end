@@ -17,7 +17,6 @@ query getMyOffers{
     careers {
         code
         description
-        credits
     }
     company {
         uuid

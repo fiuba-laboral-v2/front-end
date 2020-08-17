@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { ApplicantCredentialsFields } from "./component";
+import { IApplicantCredentialsFieldsTranslations } from "./interfaces";
 
 export const ApplicantCredentialsFieldsContainer: FunctionComponent = () => {
   const translations = useTranslations<IApplicantCredentialsFieldsTranslations>("applicantCredentialsFields");
@@ -8,20 +9,7 @@ export const ApplicantCredentialsFieldsContainer: FunctionComponent = () => {
 
   return (
     <ApplicantCredentialsFields
-      dni={{
-        name: "user.dni",
-        label: translations.dni
-      }}
-      password={{
-        name: "user.password",
-        label: translations.password,
-        validate: false
-      }}
+      translations={translations}
     />
   );
 };
-
-interface IApplicantCredentialsFieldsTranslations {
-  dni: string;
-  password: string;
-}

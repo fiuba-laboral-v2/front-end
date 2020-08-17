@@ -18,7 +18,6 @@ query ($uuid: ID!) {
         careers {
             code
             description
-            credits
         }
         company {
             uuid

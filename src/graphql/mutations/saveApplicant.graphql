@@ -27,7 +27,6 @@ mutation SaveApplicant(
       career {
         code
         description
-        credits
       }
       approvedSubjectCount
       currentCareerYear

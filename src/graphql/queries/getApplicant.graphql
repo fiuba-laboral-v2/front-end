@@ -19,7 +19,6 @@ query GetApplicant($uuid: ID!) {
             career {
                 code
                 description
-                credits
             }
             approvedSubjectCount
             currentCareerYear

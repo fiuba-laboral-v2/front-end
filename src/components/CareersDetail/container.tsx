@@ -3,7 +3,7 @@ import { ICareersContainerProps, ICareerTranslations } from "./interface";
 import { CareersDetail } from "./component";
 import { useTranslations } from "$hooks";
 
-const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
+export const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
   {
     careers,
     className
@@ -19,5 +19,3 @@ const CareersDetailContainer: FunctionComponent<ICareersContainerProps> = (
     />
   );
 };
-
-export { CareersDetailContainer };

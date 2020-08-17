@@ -10,6 +10,7 @@ import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
+import { saveApplicantArguments } from "$models/MutationArguments";
 
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -41,7 +42,7 @@ const SignUpContainer: FunctionComponent = () => {
   ) => {
     const saveApplicantResult = await saveApplicant(
       {
-        variables: { user, ...applicantValues },
+        variables: saveApplicantArguments({ user, ...applicantValues }),
         errorHandlers: formErrorHandlers({ enqueueSnackbar })({
           UserEmailAlreadyExistsError: handleValidationError(
             { enqueueSnackbar },

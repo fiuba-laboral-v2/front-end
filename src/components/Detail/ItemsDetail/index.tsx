@@ -1,1 +1,0 @@
-export { ItemsDetail } from "./component";

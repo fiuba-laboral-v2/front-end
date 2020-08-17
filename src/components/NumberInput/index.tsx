@@ -3,9 +3,9 @@ import { FastField, Field, FieldProps } from "formik";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { TextField } from "@material-ui/core";
-import { FieldValidator } from "formik/dist/types";
+import { IBaseProps, IValidatorProps } from "./interfaces";
 
-export const NumberInput: FunctionComponent<INumberInputProps> = (
+export const NumberInput: FunctionComponent<NumberInputProps> = (
   {
     name,
     label,
@@ -49,11 +49,4 @@ export const NumberInput: FunctionComponent<INumberInputProps> = (
   return fast ? <FastField {...fieldProps}/> : <Field {...fieldProps}/>;
 };
 
-interface INumberInputProps {
-  name: string;
-  label: string;
-  className?: string;
-  validate: FieldValidator;
-  fast?: boolean;
-  withoutMargin?: boolean;
-}
+export type NumberInputProps = IBaseProps & IValidatorProps;

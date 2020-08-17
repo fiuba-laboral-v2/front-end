@@ -35,25 +35,8 @@
   flex-direction: column;
 }
 
-.fullName {
-  display: flex;
-
-  .name {
-    margin-right: $spacing-l;
-  }
-
-  .name,
-  .surname {
-    width: 50%;
-  }
-}
-
 .capabilities {
   margin-bottom: $spacing-l;
-}
-
-.fullName,
-.capabilities {
   width: 70%;
 }
 
@@ -75,7 +58,6 @@
 @media (max-width: $mobileContainerThreshold) {
   .capabilities,
   .description,
-  .fullName,
   .link,
   .section {
     width: 100%;
