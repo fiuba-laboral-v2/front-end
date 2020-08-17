@@ -1,5 +1,6 @@
-import { getOffers } from "./getOffers";
+import { paginatedQuery } from "./paginatedQuery";
 
 export const queries = {
-  getOffers
+  getMyLatestJobApplications: paginatedQuery,
+  getOffers: paginatedQuery
 };

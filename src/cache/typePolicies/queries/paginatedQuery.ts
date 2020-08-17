@@ -1,4 +1,4 @@
-export const getOffers = {
+export const paginatedQuery = {
   keyArgs: [],
   merge: (existing: IQueryResult | undefined, incoming: IQueryResult) => ({
     ...incoming,

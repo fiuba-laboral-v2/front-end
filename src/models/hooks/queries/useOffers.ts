@@ -2,6 +2,7 @@ import { useQuery } from "../useQuery";
 import { GET_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { FetchResult } from "$interfaces/Pagination";
+import { IPaginatedResult } from "./interface";
 
 export const useOffers = () => {
   const result = useQuery<{}, IUseOffers>(GET_OFFERS);
@@ -24,11 +25,6 @@ export const useOffers = () => {
   return { ...result, fetchMore };
 };
 
-export interface IGetOffers {
-  results: IOffer[];
-  shouldFetchMore: boolean;
-}
-
 export interface IUseOffers {
-  getOffers: IGetOffers;
+  getOffers: IPaginatedResult<IOffer>;
 }
