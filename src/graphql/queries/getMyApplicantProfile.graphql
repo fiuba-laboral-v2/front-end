@@ -21,7 +21,6 @@ query getMyApplicantProfile {
                 career {
                     code
                     description
-                    credits
                 }
                 approvedSubjectCount
                 currentCareerYear
