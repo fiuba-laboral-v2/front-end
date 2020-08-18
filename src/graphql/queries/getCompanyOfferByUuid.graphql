@@ -3,6 +3,7 @@ query getCompanyOfferByUuid ($uuid: ID!) {
         uuid
         title
         description
+        targetApplicantType
         hoursPerDay
         minimumSalary
         maximumSalary

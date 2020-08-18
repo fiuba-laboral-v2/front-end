@@ -1,6 +1,12 @@
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 
+export enum TargetApplicantType {
+  graduate = "graduate",
+  student = "student",
+  both = "both"
+}
+
 export interface IOfferSection {
   uuid?: string;
   title: string;
@@ -13,6 +19,7 @@ export interface IOffer {
   company: ICompany;
   title: string;
   description: string;
+  targetApplicantType: TargetApplicantType;
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
