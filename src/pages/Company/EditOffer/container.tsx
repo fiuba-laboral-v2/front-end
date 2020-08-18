@@ -16,9 +16,9 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   if (!translations || getOffer.loading || getOffer.error) return <Fragment/>;
 
-  const onSubmit = async (values: ICreateOfferValues) => {
+  const onSubmit = async (variables: ICreateOfferValues) => {
     const response = await editOffer({
-      variables: values,
+      variables,
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
     if (response.error) return;

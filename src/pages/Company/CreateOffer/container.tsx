@@ -27,9 +27,9 @@ export const CreateOfferContainer: FunctionComponent = () => {
       maximumSalary: NaN,
       _form: ""
     }}
-    onSubmit={async values => {
+    onSubmit={async variables => {
       const response = await createOffer({
-        variables: values,
+        variables,
         errorHandlers: formErrorHandlers({ enqueueSnackbar })()
       });
       if (response.error) return;
