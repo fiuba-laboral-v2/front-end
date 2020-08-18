@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import { TextInput } from "$components/TextInput";
-import { FormikValidator } from "$models/FormikValidator";
-import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { Window } from "$components/Window";
 import { NumberInput } from "$components/NumberInput";
-import styles from "./styles.module.scss";
 import { FormFooter } from "$components/FormFooter";
+import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSelector";
+import { ICreateOffer } from "$hooks";
+import { FormikValidator } from "$models/FormikValidator";
+import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
+import styles from "./styles.module.scss";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   {
@@ -33,7 +35,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
             }
           }}
         >
-          {({ errors, isSubmitting }) =>
+          {({ values, errors, isSubmitting }) =>
             <>
               <Form className={styles.formContainer}>
                 <TextInput
@@ -41,6 +43,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                   label={translations.offerTitle}
                   validate={FormikValidator({ mandatory: true })}
                 />
+                <TargetApplicantTypeSelector initialValue={values.targetApplicantType}/>
                 <TextInput
                   name="description"
                   label={translations.description}
@@ -91,12 +94,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   );
 };
 
-export interface ICreateOfferValues {
-  title: string;
-  description: string;
-  hoursPerDay: number;
-  minimumSalary: number;
-  maximumSalary: number;
+export interface ICreateOfferValues extends ICreateOffer {
   _form: string;
 }
 

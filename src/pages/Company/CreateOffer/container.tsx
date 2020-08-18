@@ -6,6 +6,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
+import { TargetApplicantType } from "$interfaces/Offer";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -20,14 +21,15 @@ export const CreateOfferContainer: FunctionComponent = () => {
     initialValues={{
       title: "",
       description: "",
+      targetApplicantType: TargetApplicantType.both,
       hoursPerDay: NaN,
       minimumSalary: NaN,
       maximumSalary: NaN,
       _form: ""
     }}
-    onSubmit={async values => {
+    onSubmit={async variables => {
       const response = await createOffer({
-        variables: values,
+        variables,
         errorHandlers: formErrorHandlers({ enqueueSnackbar })()
       });
       if (response.error) return;

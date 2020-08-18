@@ -3,6 +3,7 @@ query getMyOffers{
     uuid
     title
     description
+    targetApplicantType
     hoursPerDay
     minimumSalary
     maximumSalary

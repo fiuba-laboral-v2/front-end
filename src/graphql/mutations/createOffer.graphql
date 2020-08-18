@@ -1,6 +1,7 @@
 mutation createOffer (
     $title: String!,
     $description: String!,
+    $targetApplicantType: TargetApplicantType!
     $hoursPerDay: Int!,
     $minimumSalary: Int!,
     $maximumSalary: Int!
@@ -8,6 +9,7 @@ mutation createOffer (
     createOffer(
         title: $title,
         description: $description,
+        targetApplicantType: $targetApplicantType,
         hoursPerDay: $hoursPerDay,
         minimumSalary: $minimumSalary,
         maximumSalary: $maximumSalary
