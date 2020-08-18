@@ -35,7 +35,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
             }
           }}
         >
-          {({ errors, isSubmitting }) =>
+          {({ values, errors, isSubmitting }) =>
             <>
               <Form className={styles.formContainer}>
                 <TextInput
@@ -43,7 +43,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                   label={translations.offerTitle}
                   validate={FormikValidator({ mandatory: true })}
                 />
-                <TargetApplicantTypeSelector/>
+                <TargetApplicantTypeSelector initialValue={values.targetApplicantType}/>
                 <TextInput
                   name="description"
                   label={translations.description}
