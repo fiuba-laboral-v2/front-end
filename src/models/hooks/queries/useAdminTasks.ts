@@ -4,6 +4,7 @@ import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { useState } from "react";
 import { uniqBy } from "lodash";
 import { OptionalFetchResult } from "$interfaces/Pagination";
+import { IPaginatedResult } from "./interface";
 
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const defaultFilter = {
@@ -57,11 +58,6 @@ export type TRefetchGetAdminTasks = (
   filter: IAdminTasksFilter
 ) => OptionalFetchResult<IUseAdminTasks>;
 
-export interface IGetAdminTasks {
-  results: TAdminTask[];
-  shouldFetchMore: boolean;
-}
-
 export interface IUseAdminTasks {
-  getAdminTasks: IGetAdminTasks;
+  getAdminTasks: IPaginatedResult<TAdminTask>;
 }
