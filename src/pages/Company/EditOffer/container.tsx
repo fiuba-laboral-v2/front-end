@@ -19,7 +19,13 @@ export const EditOfferContainer: FunctionComponent = () => {
   const onSubmit = async (variables: ICreateOfferValues) => {
     const response = await editOffer({
       variables,
-      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+      errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
+      update: cache => cache.modify({
+        id: `Offer:${getOffer.data.getOfferByUuid.uuid}`,
+        fields: {
+          targetApplicantType: () => variables.targetApplicantType
+        }
+      })
     });
     if (response.error) return;
     history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
