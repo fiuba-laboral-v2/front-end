@@ -1,21 +1,21 @@
 import React, { FunctionComponent } from "react";
-import { TargetApplicantType } from "$interfaces/Offer";
+import { TargetApplicantType, targetApplicantTypeEnumValues } from "$interfaces/Offer";
 import { FormikValidator } from "$models/FormikValidator";
 import { Selector } from "$components/Selector/Selector";
 import { IComponentProps } from "./interfaces";
 
 export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
   {
-    label,
+    translations,
     initialValue
   }
 ) => (
-  <Selector
+  <Selector<TargetApplicantType, string>
     name="targetApplicantType"
-    options={Object.keys(TargetApplicantType)}
-    label={label}
+    options={targetApplicantTypeEnumValues}
+    label={translations.title}
     validate={FormikValidator({ mandatory: true })}
-    getOptionLabel={option => option}
+    getOptionLabel={option => translations[option]}
     getOptionValue={option => option}
     initialValue={initialValue}
   />

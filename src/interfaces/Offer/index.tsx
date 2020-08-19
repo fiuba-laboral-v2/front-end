@@ -7,6 +7,12 @@ export enum TargetApplicantType {
   both = "both"
 }
 
+export const targetApplicantTypeEnumValues = [
+  TargetApplicantType.graduate,
+  TargetApplicantType.student,
+  TargetApplicantType.both
+];
+
 export interface IOfferSection {
   uuid?: string;
   title: string;
