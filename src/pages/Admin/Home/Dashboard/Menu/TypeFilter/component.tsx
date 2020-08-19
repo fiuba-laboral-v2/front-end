@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import { Tab } from "../Tab";
-import { CompanyIcon } from "../../CompanyIcon";
-import { ApplicantIcon } from "../../ApplicantIcon";
+import { CompanyIcon } from "../../Icons/CompanyIcon";
+import { ApplicantIcon } from "../../Icons/ApplicantIcon";
+import { OfferIcon } from "../../Icons/OfferIcon";
 import { ITypeFilterComponentProps } from "./interfaces";
-import { APPLICANT, COMPANY } from "$typenames";
+import { APPLICANT, COMPANY, OFFER } from "$typenames";
 import styles from "./styles.module.scss";
 
 export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
@@ -32,6 +33,14 @@ export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
       iconTitle={translations.applicantIconTitle}
       Icon={ApplicantIcon}
       onClick={() => toggleType(APPLICANT)}
+    />
+    <Tab
+      className={styles.adminTaskTypeTab}
+      color="yellow"
+      selected={types.includes(OFFER)}
+      iconTitle={translations.offerIconTitle}
+      Icon={OfferIcon}
+      onClick={() => toggleType(OFFER)}
     />
   </section>
 );

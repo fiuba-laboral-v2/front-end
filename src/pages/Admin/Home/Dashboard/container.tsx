@@ -4,14 +4,14 @@ import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { useAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { APPLICANT, COMPANY } from "$typenames";
+import { APPLICANT, COMPANY, OFFER } from "$typenames";
 import { find } from "lodash";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const DashboardContainer: FunctionComponent = () => {
   const [selectedTask, setSelectedTask] = useState<TAdminTask>();
   const [filter, setFilter] = useState<IAdminTasksFilter>({
-    adminTaskTypes: [APPLICANT, COMPANY],
+    adminTaskTypes: [APPLICANT, COMPANY, OFFER],
     statuses: [ApprovalStatus.pending]
   });
   const response = useAdminTasks(filter);

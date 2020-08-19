@@ -28,6 +28,14 @@ query GetAdminTasks(
           surname
         }
       }
+      ... on Offer {
+        __typename
+        uuid
+        updatedAt
+        extensionApprovalStatus
+        graduadosApprovalStatus
+        title
+      }
     }
     shouldFetchMore
   }

@@ -1,1 +1,1 @@
-export * from "./component";
+export { AdminTaskContainer as AdminTask } from "./container";
