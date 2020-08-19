@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { OfferInfoItem } from "../OfferInfoItem";
+import { OfferInfoItem } from "$components/OfferInfoItem";
 
 import { IOfferWorkloadComponentProps } from "./interface";
 
