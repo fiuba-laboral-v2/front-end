@@ -3,7 +3,7 @@ import { OfferDetail } from "$components/OfferDetail";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { useCompanyOfferByUuid } from "$hooks/queries";
 
-const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
+export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
   {
     offerUuid,
     scrollToTop
@@ -19,5 +19,3 @@ interface IOfferDetailContentProps {
   offerUuid: string;
   scrollToTop: () => void;
 }
-
-export { OfferDetailContent };

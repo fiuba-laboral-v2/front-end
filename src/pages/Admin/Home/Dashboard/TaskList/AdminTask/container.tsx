@@ -30,6 +30,7 @@ export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = (
     adminTask?.approvalStatus
     || adminTask?.extensionApprovalStatus
     || adminTask?.graduadosApprovalStatus;
+
   return (
     <AdminTask
       name={name}
