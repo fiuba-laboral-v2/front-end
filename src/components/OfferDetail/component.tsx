@@ -33,7 +33,8 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName} >
-          <Link to={goToCompany}>{offer.company.companyName}</Link>
+          {goToCompany && <Link to={goToCompany}>{offer.company.companyName}</Link>}
+          {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
         <CreatedSince className={styles.createdAt} date={offer.createdAt} />
       </div>
@@ -59,5 +60,5 @@ interface IOfferDetailProps {
   applyButton?: ReactElement;
   editButton?: ReactElement;
   offer: IMyOffer | IOffer;
-  goToCompany: string;
+  goToCompany?: string;
 }

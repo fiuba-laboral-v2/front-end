@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { DocumentNode } from "graphql";
 import { IMyOffer } from "$interfaces/Applicant";
 
-const useOfferByUuid = <Data>(query: DocumentNode, uuid?: string) => {
+const useOfferByUuidQuery = <Data>(query: DocumentNode, uuid?: string) => {
   const history = useHistory();
   return useQuery<{ uuid?: string }, { getOfferByUuid: Data }>(
     query,
@@ -21,7 +21,7 @@ const useOfferByUuid = <Data>(query: DocumentNode, uuid?: string) => {
 };
 
 export const useCompanyOfferByUuid = (uuid?: string) =>
-  useOfferByUuid<IOffer>(GET_COMPANY_OFFER_BY_UUID, uuid);
+  useOfferByUuidQuery<IOffer>(GET_COMPANY_OFFER_BY_UUID, uuid);
 
 export const useApplicantOfferByUuid = (uuid?: string) =>
-  useOfferByUuid<IMyOffer>(GET_OFFER_BY_UUID, uuid);
+  useOfferByUuidQuery<IMyOffer>(GET_OFFER_BY_UUID, uuid);

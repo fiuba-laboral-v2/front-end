@@ -1,13 +1,14 @@
-import React, { FunctionComponent, useRef } from "react";
+import React, { FunctionComponent, useRef, Fragment } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";
-import { APPLICANT, COMPANY } from "$typenames";
+import { APPLICANT, COMPANY, OFFER } from "$typenames";
 
 import styles from "./styles.module.scss";
+import { OfferDetailContent } from "./Offer/OfferDetailContent";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
@@ -42,6 +43,10 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
                 refetchAdminTasks={refetchAdminTasks}
             />
           }
+          {
+            selectedTask.__typename === OFFER &&
+            <Fragment />
+          }
         </div>
         <div className={styles.content} ref={contentContainer}>
           {
@@ -56,6 +61,13 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <ApplicantDetailContent
                 applicantUuid={selectedTask.uuid}
                 scrollToTop={scrollToTop}
+            />
+          }
+          {
+            selectedTask.__typename === OFFER &&
+            <OfferDetailContent
+              offerUuid={selectedTask.uuid}
+              scrollToTop={scrollToTop}
             />
           }
         </div>

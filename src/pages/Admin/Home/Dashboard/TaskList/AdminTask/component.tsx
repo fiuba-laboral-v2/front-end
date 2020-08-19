@@ -1,36 +1,27 @@
-import React, { Fragment, FunctionComponent } from "react";
-import { TAdminTask } from "$interfaces/AdminTask";
-import { CompanyIcon } from "../../CompanyIcon";
-import { ApplicantIcon } from "../../ApplicantIcon";
+import React, { FunctionComponent } from "react";
 import { UpdatedSince } from "$components/UpdatedSince";
 import { StatusLabel } from "$components/StatusLabel";
 import styles from "./styles.module.scss";
-import { APPLICANT, COMPANY } from "$typenames";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export const AdminTask: FunctionComponent<IAdminTaskProps> = ({ adminTask }) => {
-  let name = "";
-  let Icon: FunctionComponent<{ className?: string }> = Fragment;
-
-  if (adminTask.__typename === COMPANY) {
-    name = adminTask.companyName;
-    Icon = CompanyIcon;
-  }
-
-  if (adminTask.__typename === APPLICANT) {
-    name = `${adminTask.user.name} ${adminTask.user.surname}`;
-    Icon = ApplicantIcon;
-  }
-
-  return <div className={styles.adminTask}>
+export const AdminTask: FunctionComponent<IAdminTaskProps> = (
+  { name, updatedAt, approvalStatus, Icon }
+) => (
+  <div className={styles.adminTask}>
     <Icon className={styles.icon}/>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
-      <UpdatedSince date={adminTask.updatedAt} />
+      <UpdatedSince date={updatedAt} />
     </div>
-    <StatusLabel status={adminTask.approvalStatus} useTooltip={true} fixedPosition={true}/>
-  </div>;
-};
+    <StatusLabel status={approvalStatus} useTooltip={true} fixedPosition={true}/>
+  </div>
+);
 
 interface IAdminTaskProps {
-  adminTask: TAdminTask;
+  name: string;
+  updatedAt: string;
+  approvalStatus: ApprovalStatus;
+  Icon: FunctionComponent<{
+    className?: string | undefined;
+  }>;
 }
