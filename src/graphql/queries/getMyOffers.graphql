@@ -1,28 +1,31 @@
-query getMyOffers{
-  getMyOffers {
-    uuid
-    title
-    description
-    targetApplicantType
-    hoursPerDay
-    minimumSalary
-    maximumSalary
-    createdAt
-    updatedAt
-    sections {
-        uuid
-        title
-        text
-        displayOrder
-    }
-    careers {
-        code
-        description
-    }
-    company {
-        uuid
-        companyName
-        logo
+query getMyOffers($updatedBeforeThan: PaginatedInput) {
+  getMyOffers(updatedBeforeThan: $updatedBeforeThan) {
+    shouldFetchMore
+    results {
+      uuid
+      title
+      description
+      targetApplicantType
+      hoursPerDay
+      minimumSalary
+      maximumSalary
+      createdAt
+      updatedAt
+      sections {
+          uuid
+          title
+          text
+          displayOrder
+      }
+      careers {
+          code
+          description
+      }
+      company {
+          uuid
+          companyName
+          logo
+      }
     }
   }
 }

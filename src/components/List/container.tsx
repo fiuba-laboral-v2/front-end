@@ -18,7 +18,9 @@ export const ListContainer = <ListItem, Result>(
     const observer = new IntersectionObserver(entries => {
       if (!entries.some(entry => entry.isIntersecting)) return;
       setLoading(true);
-      fetchMore()?.then(() => setLoading(false));
+      fetchMore()?.then(() => {
+        setLoading(false);
+      });
       observer.disconnect();
     });
     observer.observe(fetchMoreTrigger.current);

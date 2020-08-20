@@ -1,16 +1,15 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useQuery, useTranslations } from "$hooks";
+import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { GET_MY_OFFERS } from "$queries";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
-import { IOffer } from "$interfaces/Offer";
 import { Feed } from "../../Applicant/Home/Feed/component";
+import { useMyOffers } from "$hooks/queries/useMyOffers";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
-  const response = useQuery<{ uuid?: string }, { getMyOffers: IOffer[] }>(GET_MY_OFFERS);
+  const response = useMyOffers();
   const translations = useTranslations<ITranslations>("MyOffers");
 
   if (response.error) {
@@ -21,8 +20,10 @@ export const MyOffersContainer: FunctionComponent = () => {
   return (
     <Feed
       title={translations.title}
-      offers={response.data.getMyOffers}
+      offers={response.data.getMyOffers.results}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={response.data.getMyOffers.shouldFetchMore}
     />);
 };
 
