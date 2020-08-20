@@ -4,8 +4,11 @@ export interface IContainerProps {
 
 export interface ITranslations {
   title: string;
+  graduate: string;
+  student: string;
+  both: string;
 }
 
 export interface IComponentProps extends IContainerProps {
-  label: string;
+  translations: ITranslations;
 }
