@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
@@ -6,17 +6,16 @@ import { IOffer } from "$interfaces/Offer";
 import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
-import { IUseOffers } from "$hooks/queries";
 import { OptionalFetchResult } from "$interfaces/Pagination";
 
-const Feed: FunctionComponent<IFeedProps> = (
+const Feed = <QueryResult, >(
   {
     title,
     offers,
     onCardClick,
     fetchMore,
     shouldFetchMore
-  }
+  }: IFeedProps<QueryResult>
 ) => (
   <Window>
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
@@ -37,11 +36,11 @@ const Feed: FunctionComponent<IFeedProps> = (
   </Window>
 );
 
-interface IFeedProps {
+interface IFeedProps<QueryResult> {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
-  fetchMore?: () => OptionalFetchResult<IUseOffers>;
+  fetchMore?: () => OptionalFetchResult<QueryResult>;
   shouldFetchMore?: boolean;
 }
 
