@@ -20,7 +20,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
         <JobApplication
           _ref={ref}
           className={styles.card}
-          key={`${jobApplication.offer.uuid} ${jobApplication.applicant.uuid}`}
+          key={jobApplication.uuid}
           jobApplication={jobApplication}
         />
       }
