@@ -2,6 +2,7 @@ query getMyLatestJobApplications($updatedBeforeThan: PaginatedJobApplicationsInp
   getMyLatestJobApplications(updatedBeforeThan: $updatedBeforeThan) {
     results {
       updatedAt
+      uuid
       offer {
         uuid
         title
