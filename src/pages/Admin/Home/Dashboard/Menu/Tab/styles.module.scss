@@ -35,6 +35,10 @@
     @include containerStyles($offerColor, 1);
   }
 
+  &.lightBlue {
+    @include containerStyles($jobApplicationColor, 1);
+  }
+
   &.grey {
     @include containerStyles($black, 1.75);
   }
@@ -74,6 +78,10 @@
 
   &.yellow {
     color: $offerColor;
+  }
+
+  &.lightBlue {
+    color: $jobApplicationColor;
   }
 }
 

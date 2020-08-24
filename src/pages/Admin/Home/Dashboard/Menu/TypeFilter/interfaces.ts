@@ -5,6 +5,7 @@ export interface ITypeFilterTranslations {
   companyIconTitle: string;
   applicantIconTitle: string;
   offerIconTitle: string;
+  jobApplicationIconTitle: string;
 }
 
 interface ITypeFilterProps {
