@@ -4,8 +4,9 @@ import { Tab } from "../Tab";
 import { CompanyIcon } from "../../Icons/CompanyIcon";
 import { ApplicantIcon } from "../../Icons/ApplicantIcon";
 import { OfferIcon } from "../../Icons/OfferIcon";
+import { JobApplicationIcon } from "../../Icons/JobApplicationIcon";
 import { ITypeFilterComponentProps } from "./interfaces";
-import { APPLICANT, COMPANY, OFFER } from "$typenames";
+import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import styles from "./styles.module.scss";
 
 export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
@@ -41,6 +42,14 @@ export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
       iconTitle={translations.offerIconTitle}
       Icon={OfferIcon}
       onClick={() => toggleType(OFFER)}
+    />
+    <Tab
+      className={styles.adminTaskTypeTab}
+      color="lightBlue"
+      selected={types.includes(JOB_APPLICATION)}
+      iconTitle={translations.jobApplicationIconTitle}
+      Icon={JobApplicationIcon}
+      onClick={() => toggleType(JOB_APPLICATION)}
     />
   </section>
 );

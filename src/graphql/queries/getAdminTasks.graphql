@@ -36,6 +36,23 @@ query GetAdminTasks(
         graduadosApprovalStatus
         title
       }
+      ... on JobApplication {
+        __typename
+        uuid
+        updatedAt
+        extensionApprovalStatus
+        graduadosApprovalStatus
+        applicant {
+          __typename
+          user {
+            name
+            surname
+          }
+        }
+        offer {
+          title
+        }
+      }
     }
     shouldFetchMore
   }
