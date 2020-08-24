@@ -9,7 +9,12 @@ export const ApplicantCredentialsFields: FunctionComponent<IApplicantCredentials
   }
 ) => (
   <>
-    <DniField name="user.dni" label={translations.dni}/>
-    <PasswordField name="user.password" label={translations.password} validate={false}/>
+    <DniField name="user.dni" label={translations.dni} />
+    <PasswordField
+      name="user.password"
+      label={translations.password}
+      autoComplete="new-password"
+      validate={false}
+    />
   </>
 );

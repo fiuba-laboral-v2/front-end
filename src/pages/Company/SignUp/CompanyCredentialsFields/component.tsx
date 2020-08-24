@@ -8,8 +8,8 @@ export const CompanyCredentialsFields: FunctionComponent<IApplicantCredentialsFi
   }
 ) => (
   <>
-    <PasswordField {...password} />
-    <PasswordField {...passwordConfirm} />
+    <PasswordField {...password} autoComplete="new-password" />
+    <PasswordField {...passwordConfirm} autoComplete="new-password" />
   </>
 );
 

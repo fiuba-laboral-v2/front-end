@@ -44,7 +44,8 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
                 className={styles.textInput}
                 label={translations.password}
                 name="password"
-                validate autoComplete="current-password"
+                validate
+                autoComplete="current-password"
               />
             </Form>
             <div className={styles.footer}>

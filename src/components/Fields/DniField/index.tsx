@@ -5,5 +5,6 @@ export const DniField: FunctionComponent<ITextInputProps> = ({ name, label }) =>
   <TextInput
     name={name}
     label={label}
+    autoComplete="username"
   />
 );
