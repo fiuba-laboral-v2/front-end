@@ -2,10 +2,11 @@ import React, { Fragment, FunctionComponent } from "react";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../Icons/CompanyIcon";
 import { ApplicantIcon } from "../../Icons/ApplicantIcon";
-
-import { APPLICANT, COMPANY, OFFER } from "$typenames";
-import { AdminTask } from "./component";
 import { OfferIcon } from "../../Icons/OfferIcon";
+import { JobApplicationIcon } from "../../Icons/JobApplicationIcon";
+import { AdminTask } from "./component";
+
+import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 
 export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = ({ adminTask }) => {
   let name = "";
@@ -24,6 +25,12 @@ export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = (
   if (adminTask.__typename === OFFER) {
     name = `${adminTask.title}`;
     Icon = OfferIcon;
+  }
+
+  if (adminTask.__typename === JOB_APPLICATION) {
+    const applicantName = `${adminTask.applicant.user.name} ${adminTask.applicant.user.surname}`;
+    name = `${applicantName} - ${adminTask.offer.title}`;
+    Icon = JobApplicationIcon;
   }
 
   const approvalStatus =

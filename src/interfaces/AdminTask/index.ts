@@ -1,4 +1,4 @@
-import { APPLICANT_TYPE, COMPANY_TYPE, OFFER_TYPE } from "$typenames";
+import { APPLICANT_TYPE, COMPANY_TYPE, OFFER_TYPE, JOB_APPLICATION_TYPE } from "$typenames";
 import { IUser } from "../User";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IPaginatedInput } from "../Pagination";
@@ -29,9 +29,24 @@ export interface IOfferAdminTask {
   title: string;
 }
 
-export type TAdminTask = ICompanyAdminTask | IApplicantAdminTask | IOfferAdminTask;
+export interface IJobApplicationAdminTask {
+  __typename: JOB_APPLICATION_TYPE;
+  uuid: string;
+  updatedAt: string;
+  extensionApprovalStatus: ApprovalStatus;
+  graduadosApprovalStatus: ApprovalStatus;
+  approvalStatus: undefined;
+  offer: IOfferAdminTask;
+  applicant: IApplicantAdminTask;
+}
 
-export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE | OFFER_TYPE;
+export type TAdminTask =
+  ICompanyAdminTask
+  | IApplicantAdminTask
+  | IOfferAdminTask
+  | IJobApplicationAdminTask;
+
+export type TAdminTaskType = COMPANY_TYPE | APPLICANT_TYPE | OFFER_TYPE | JOB_APPLICATION_TYPE;
 
 export interface IAdminTasksFilter {
   adminTaskTypes: TAdminTaskType[];
