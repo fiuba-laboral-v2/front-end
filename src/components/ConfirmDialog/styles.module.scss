@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
+
+.title {
+  @include title;
+
+  font-size: $fontSize-xl;
+}

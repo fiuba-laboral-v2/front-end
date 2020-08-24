@@ -9,6 +9,7 @@ import { ICreateOffer } from "$hooks";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import styles from "./styles.module.scss";
+import { ConfirmDialog } from "../ConfirmDialog";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   {
@@ -18,6 +19,8 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
     initialValues
   }
 ) => {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <Window>
       <div className={styles.mainContainer}>
@@ -84,6 +87,11 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                   isSubmitting={isSubmitting}
                   submitButtonText={translations.submit}
                   errors={errors}
+                  onSubmit={() => setOpen(true)}
+                />
+                <ConfirmDialog
+                  open={open}
+                  onClose={() => setOpen(false)}
                 />
               </Form>
             </>
