@@ -17,10 +17,10 @@ export const FormFooter = <Values extends { _form?: string }>(
     <span className={styles.formError}>{errors._form}</span>
     <SubmitButton
       className="primary"
-      type={onSubmit ? undefined : "submit"}
       disabled={isSubmitting}
       errors={errors}
       onClick={onSubmit}
+      {...(!onSubmit && { type: "submit" })}
     >
       {submitButtonText}
     </SubmitButton>
