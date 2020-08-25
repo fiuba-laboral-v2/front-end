@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { ICareerSelectorContainerProps, ICareerSelectorTranslations } from "./interface";
-import { CareerSelector } from "./compontent";
+import { CareerSelector } from "./component";
 import { useTranslations, useCareers } from "$hooks";
 
 export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
