@@ -7,18 +7,18 @@ export const MaterialUITheme = createMuiTheme({
     }
   },
   typography: {
-    fontSize: 22,
+    fontSize: 20,
     fontFamily: "inherit"
   },
   overrides: {
     MuiButton: {
       textSizeSmall: {
-        fontSize: 15
+        fontSize: 14
       }
     },
     MuiSnackbarContent: {
       message: {
-        fontSize: 15
+        fontSize: 14
       }
     },
     MuiInput: {
