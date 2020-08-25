@@ -5,11 +5,8 @@ import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Link } from "$components/Link";
-import { TextInput } from "$components/TextInput";
 import { Headline } from "$components/Headline";
-
-import { FormikValidator } from "$models/FormikValidator";
-import { validateEmail } from "validations-fiuba-laboral-v2";
+import { PasswordField, EmailField } from "$components/Fields";
 
 import styles from "./styles.module.scss";
 import { ILogInFormTranslationsProps } from "./interface";
@@ -37,19 +34,18 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
         {({ isSubmitting, errors }) => (
           <div className={styles.body}>
             <Form className={styles.formContainer} id={formName}>
-              <TextInput
+              <EmailField
+                className={styles.textInput}
                 name="email"
                 label={translations.email}
-                type="email"
-                className={styles.textInput}
-                validate={FormikValidator({ validator: validateEmail, mandatory: true })}
+                autoComplete="email"
               />
-              <TextInput
-                name="password"
-                label={translations.password}
-                type="password"
+              <PasswordField
                 className={styles.textInput}
-                validate={FormikValidator({ mandatory: true })}
+                label={translations.password}
+                name="password"
+                validate
+                autoComplete="current-password"
               />
             </Form>
             <div className={styles.footer}>

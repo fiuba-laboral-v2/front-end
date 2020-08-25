@@ -7,7 +7,8 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
   {
     name,
     label,
-    validate
+    validate,
+    autoComplete
   }
 ) => {
   const validatorOptions = {
@@ -20,6 +21,7 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
       name={name}
       label={label}
       type="password"
+      autoComplete={autoComplete}
       validate={FormikValidator(validatorOptions)}
     />
   );

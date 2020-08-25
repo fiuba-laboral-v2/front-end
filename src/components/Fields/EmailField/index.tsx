@@ -8,6 +8,7 @@ export const EmailField: FunctionComponent<ITextInputProps> = ({ name, label }) 
     name={name}
     label={label}
     type="email"
+    autoComplete="email"
     validate={FormikValidator({ validator: validateEmail, mandatory: true })}
   />
 );
