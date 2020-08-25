@@ -47,6 +47,17 @@ export const MaterialUITheme = createMuiTheme({
       shrink: {
         maxWidth: "130%"
       }
+    },
+    MuiPaper: {
+      rounded: {
+        borderRadius: 15,
+        padding: 7
+      }
+    },
+    MuiDialogTitle: {
+      root: {
+        paddingBottom: 7
+      }
     }
   }
 });
