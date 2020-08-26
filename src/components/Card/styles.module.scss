@@ -1,4 +1,6 @@
+@import "$styles/_variables";
 @import "$styles/mixins/_card";
+@import "$styles/mixins/_customMedia";
 
 .card {
   @include card;
@@ -42,7 +44,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@include customMedia {
   .hoverable {
     transition: transform 0.3s ease-in-out;
 

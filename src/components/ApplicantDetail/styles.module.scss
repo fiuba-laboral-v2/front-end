@@ -1,4 +1,6 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_customMedia";
+@import "$styles/mixins/_customSmallMedia";
 
 .headline,
 .firstContainerInfo {
@@ -33,7 +35,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@include customMedia {
   .capabilitiesAndCareersContainer {
     flex-direction: column;
 
@@ -48,7 +50,7 @@
   }
 }
 
-@media (max-width: $smallMobileContainerThreshold) {
+@include customSmallMedia {
   .header {
     flex-direction: column;
   }

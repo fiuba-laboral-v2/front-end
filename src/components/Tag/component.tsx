@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import styles from "./styles.module.scss";
 import classNames from "classnames";
-import { RemoveButton } from "../RemoveButton";
+import { RemoveButton } from "$components/RemoveButton";
+import styles from "./styles.module.scss";
 
 const Tag: FunctionComponent<ITagProps> = ({ name, className, onRemove }) => (
   <div className={classNames(styles.tag, className)}>
