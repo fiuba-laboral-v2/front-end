@@ -3,7 +3,7 @@ export enum Secretary {
   graduados = "graduados"
 }
 
-export enum SeparateApprovalStatusColumns {
+export enum SeparateApprovalStatusAttributes {
   extension = "extensionApprovalStatus",
   graduados = "graduadosApprovalStatus"
 }
