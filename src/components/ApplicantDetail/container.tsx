@@ -7,6 +7,7 @@ import { IApplicantDetailContainerProps, ITranslations } from "./interface";
 
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = (
   {
+    className,
     applicant,
     editButton,
     withStatusLabel
@@ -17,6 +18,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
 
   return (
     <ApplicantDetail
+      className={className}
       applicant={{ ...applicant, sections: sortBy(applicant.sections, ["displayOrder"]) }}
       translations={translations}
       editButton={editButton}

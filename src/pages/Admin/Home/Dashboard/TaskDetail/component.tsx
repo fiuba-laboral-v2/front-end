@@ -1,14 +1,15 @@
 import React, { FunctionComponent, useRef, Fragment } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
+import { OfferDetailContent } from "./Offer/OfferDetailContent";
+import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";
-import { APPLICANT, COMPANY, OFFER } from "$typenames";
+import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 
 import styles from "./styles.module.scss";
-import { OfferDetailContent } from "./Offer/OfferDetailContent";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
   {
@@ -47,6 +48,10 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             selectedTask.__typename === OFFER &&
             <Fragment />
           }
+          {
+            selectedTask.__typename === JOB_APPLICATION &&
+            <Fragment />
+          }
         </div>
         <div className={styles.content} ref={contentContainer}>
           {
@@ -67,6 +72,14 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             selectedTask.__typename === OFFER &&
             <OfferDetailContent
               offerUuid={selectedTask.uuid}
+              scrollToTop={scrollToTop}
+            />
+          }
+          {
+            selectedTask.__typename === JOB_APPLICATION &&
+            <JobApplicationDetailContent
+              applicantUuid={selectedTask.applicant.uuid}
+              offerUuid={selectedTask.offer.uuid}
               scrollToTop={scrollToTop}
             />
           }

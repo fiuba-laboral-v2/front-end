@@ -44,12 +44,16 @@ query GetAdminTasks(
         graduadosApprovalStatus
         applicant {
           __typename
+          uuid
           user {
+            uuid
             name
             surname
           }
         }
         offer {
+          __typename
+          uuid
           title
         }
       }

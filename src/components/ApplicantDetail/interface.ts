@@ -7,6 +7,7 @@ export interface ITranslations {
 }
 
 export interface IApplicantDetailContainerProps {
+  className?: string;
   applicant: IApplicant;
   editButton?: ReactElement;
   withStatusLabel?: boolean;

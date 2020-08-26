@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from "react";
+import classNames from "classnames";
 import { Link } from "$components/Link";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
@@ -13,13 +14,14 @@ import { IMyOffer } from "$interfaces/Applicant";
 
 export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
+    className,
     applyButton,
     editButton,
     offer,
     goToCompany
   }
 ) => (
-  <div className={styles.mainContainer}>
+  <div className={classNames(styles.mainContainer, className)}>
     <div className={styles.header}>
       <CompanyLogo
         className={styles.companyLogo}
@@ -57,6 +59,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
 );
 
 interface IOfferDetailProps {
+  className?: string;
   applyButton?: ReactElement;
   editButton?: ReactElement;
   offer: IMyOffer | IOffer;

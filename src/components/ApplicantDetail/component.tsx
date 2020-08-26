@@ -12,6 +12,7 @@ import { IApplicantDetailProps } from "./interface";
 
 export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
   {
+    className,
     applicant: {
       user: {
         name,
@@ -29,7 +30,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     withStatusLabel
   }
 ) => (
-  <Card largePadding={true}>
+  <Card largePadding={true} className={className}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <StatusTitle

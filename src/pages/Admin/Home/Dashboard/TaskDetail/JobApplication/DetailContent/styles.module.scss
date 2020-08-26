@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.detailContent {
+  display: flex;
+}
+
+.applicantDetail {
+  margin-right: $spacing-s;
+}
+
+.applicantDetail,
+.offerDetail {
+  width: 50%;
+}
