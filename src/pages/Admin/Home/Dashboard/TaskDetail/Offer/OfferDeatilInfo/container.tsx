@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useCompanyOfferByUuid, useCurrentUser, useCurrentAdmin } from "$hooks/queries";
+import { useCompanyOfferByUuid, useAdminApprovalStatusAttribute } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { IOfferAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
@@ -20,10 +20,10 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
     refetchAdminTasks,
     type: OFFER
   });
-  const currentAdminResponse = useCurrentAdmin();
+  const { error, loading, data: { approvalStatusAttribute } } = useAdminApprovalStatusAttribute();
 
   if (response.error || response.loading ||
-    currentAdminResponse.error || currentAdminResponse.loading) return <Fragment />;
+    error || loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -34,7 +34,6 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   };
 
   const offer = response.data.getOfferByUuid;
-  const approvalStatusAttribute = currentAdminResponse.data.currentAdmin?.approvalStatusAttribute();
 
   return (
     <OfferDetailInfo

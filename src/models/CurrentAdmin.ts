@@ -1,4 +1,4 @@
-import { Secretary, SeparateApprovalStatusAttributes } from "../interfaces/Secretary";
+import { Secretary } from "../interfaces/Secretary";
 
 export type TCurrentAdminAttributes = {
   userUuid: string;
@@ -13,11 +13,12 @@ export const CurrentAdmin = (
   return {
     ...attributes,
     secretary,
-    approvalStatusAttribute: () => secretary === Secretary.graduados ?
-      SeparateApprovalStatusAttributes.graduados : SeparateApprovalStatusAttributes.extension
+    isGraduados: () => secretary === Secretary.graduados,
+    isExtension: () => secretary === Secretary.extension
   } as TCurrentAdmin;
 };
 
 export type TCurrentAdmin = TCurrentAdminAttributes & {
-  approvalStatusAttribute: () => SeparateApprovalStatusAttributes;
+  isGraduados: () => boolean;
+  isExtension: () => boolean;
 };

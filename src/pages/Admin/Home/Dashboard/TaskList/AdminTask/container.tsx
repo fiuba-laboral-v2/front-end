@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useCurrentAdmin } from "$hooks/queries";
+import { useAdminApprovalStatusAttribute } from "$hooks/queries";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { CompanyIcon } from "../../Icons/CompanyIcon";
 import { ApplicantIcon } from "../../Icons/ApplicantIcon";
@@ -10,8 +10,8 @@ import { AdminTask } from "./component";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 
 export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = ({ adminTask }) => {
-  const currentAdmin = useCurrentAdmin();
-  if (currentAdmin.error || currentAdmin.loading) return <Fragment />;
+  const { error, loading, data: { approvalStatusAttribute } } = useAdminApprovalStatusAttribute();
+  if (error || loading) return <Fragment />;
   let name = "";
   let Icon: FunctionComponent<{ className?: string }> = Fragment;
 
@@ -35,9 +35,8 @@ export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = (
     name = `${applicantName} - ${adminTask.offer.title}`;
     Icon = JobApplicationIcon;
   }
-  const approvalStatusAttribute = currentAdmin.data.currentAdmin.approvalStatusAttribute();
-  const approvalStatus =
-    adminTask?.approvalStatus || adminTask[approvalStatusAttribute];
+
+  const approvalStatus = adminTask?.approvalStatus || adminTask[approvalStatusAttribute];
 
   return (
     <AdminTask
