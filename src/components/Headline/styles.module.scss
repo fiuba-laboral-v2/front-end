@@ -1,5 +1,6 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_title";
+@import "$styles/mixins/_customMedia";
 
 .detailHeadline {
   @include title;
@@ -13,7 +14,7 @@
   color: $mainBlue;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@include customMedia {
   .detailHeadline {
     word-break: break-word;
   }

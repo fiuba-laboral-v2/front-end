@@ -1,22 +1,24 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_card";
 @import "$styles/mixins/_text";
+@import "$styles/mixins/_customMedia";
+@import "$styles/mixins/_customSmallMedia";
 
 .mainContainer {
   @include card;
+}
 
-  .header {
-    display: flex;
-    margin-bottom: $spacing-l;
+.header {
+  display: flex;
+  margin-bottom: $spacing-l;
 
-    .companyLogo {
-      margin-right: $spacing-l;
-    }
+  .companyLogo {
+    margin-right: $spacing-l;
   }
+}
 
-  .body {
-    display: flex;
-  }
+.body {
+  display: flex;
 }
 
 .leftBodyContainer {
@@ -55,43 +57,39 @@
   white-space: pre-wrap;
 }
 
-@media (max-width: $mobileContainerThreshold) {
-  .mainContainer {
-    @include card;
+@include customMedia {
+  .header {
+    flex-direction: column;
 
-    .header {
-      flex-direction: column;
-
-      .companyLogo {
-        margin: 0 0 $spacing-l;
-      }
-
-      .rightHeader {
-        flex-direction: column;
-      }
+    .companyLogo {
+      margin: 0 0 $spacing-l;
     }
 
-    .body {
+    .rightHeader {
       flex-direction: column;
+    }
+  }
 
-      .leftBodyContainer,
-      .rightBodyContainer {
-        width: auto;
-      }
+  .body {
+    flex-direction: column;
 
-      .rightBodyContainer {
-        margin-bottom: $spacing-l;
-        order: 1;
-      }
+    .leftBodyContainer,
+    .rightBodyContainer {
+      width: auto;
+    }
 
-      .leftBodyContainer {
-        order: 2;
-      }
+    .rightBodyContainer {
+      margin-bottom: $spacing-l;
+      order: 1;
+    }
+
+    .leftBodyContainer {
+      order: 2;
     }
   }
 }
 
-@media (max-width: $smallMobileContainerThreshold) {
+@include customSmallMedia {
   .titleContainer {
     flex-direction: column;
   }

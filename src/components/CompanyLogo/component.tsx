@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { ICompanyLogoProps } from "./interface";
 
-const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
+export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
   {
+    mobileLayout,
     companyName,
     logo,
     size,
@@ -13,7 +13,12 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
     children
   }
 ) => (
-  <div className={classNames(styles.logoContainer, className, styles[size])} onClick={onClick}>
+  <div
+    className={classNames(styles.logoContainer, className, styles[size], {
+      [styles.mobile]: mobileLayout
+    })}
+    onClick={onClick}
+  >
     <img
       className={styles.logo}
       src={logo}
@@ -23,4 +28,11 @@ const CompanyLogo: FunctionComponent<ICompanyLogoProps> = (
   </div>
 );
 
-export { CompanyLogo };
+interface ICompanyLogoProps {
+  mobileLayout?: boolean;
+  companyName?: string;
+  logo?: string;
+  size: "small" | "medium" | "large" | "extraLarge";
+  className?: string;
+  onClick?: () => void;
+}
