@@ -4,7 +4,7 @@ import { Subtitle } from "$components/Subtitle";
 import { TagSet } from "$components/TagSet";
 import { TextFormatter } from "$models/TextFormatter";
 
-const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
+export const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
   {
     capabilities,
     title,
@@ -21,5 +21,3 @@ const CapabilitiesDetail: FunctionComponent<ICapabilitiesProps> = (
     </div>
   );
 };
-
-export { CapabilitiesDetail };

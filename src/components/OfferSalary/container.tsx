@@ -3,7 +3,7 @@ import { useTranslations } from "$hooks";
 import { OfferSalary } from "./component";
 import { IOfferSalaryContainerProps, IOfferSalaryTranslations } from "./interface";
 
-const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
+export const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
   {
     offer,
     className
@@ -20,5 +20,3 @@ const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
     />
   );
 };
-
-export { OfferSalaryContainer };

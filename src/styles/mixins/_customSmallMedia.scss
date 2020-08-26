@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+@mixin customSmallMedia {
+  .mobile {
+    @content;
+  }
+
+  @media (max-width: $smallMobileContainerThreshold) {
+    @content;
+  }
+}

@@ -1,4 +1,5 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_customMedia";
 
 @mixin size($width, $height) {
   border-radius: 0.11 * $height;
@@ -36,12 +37,12 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
-  .logoContainer {
+@include customMedia {
+  &.logoContainer {
     align-self: center;
+  }
 
-    .extraLarge {
-      margin-bottom: $spacing-l;
-    }
+  .extraLarge {
+    margin-bottom: $spacing-l;
   }
 }

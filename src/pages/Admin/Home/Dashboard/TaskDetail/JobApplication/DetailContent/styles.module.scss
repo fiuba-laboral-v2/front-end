@@ -1,0 +1,18 @@
+@import "$styles/_variables";
+
+.detailContent {
+  display: flex;
+  position: fixed;
+}
+
+.applicantDetail {
+  margin-right: $spacing-m;
+}
+
+.applicantDetail,
+.offerDetail {
+  height: 100%;
+  max-height: 83vh;
+  overflow-y: auto;
+  width: 50%;
+}

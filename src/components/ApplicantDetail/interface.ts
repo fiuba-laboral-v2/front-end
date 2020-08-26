@@ -1,5 +1,5 @@
 import { IApplicant } from "$interfaces/Applicant";
-import { ReactElement, FunctionComponent } from "react";
+import { ReactElement } from "react";
 
 export interface ITranslations {
   padron: string;
@@ -7,6 +7,8 @@ export interface ITranslations {
 }
 
 export interface IApplicantDetailContainerProps {
+  mobileLayout?: boolean;
+  className?: string;
   applicant: IApplicant;
   editButton?: ReactElement;
   withStatusLabel?: boolean;

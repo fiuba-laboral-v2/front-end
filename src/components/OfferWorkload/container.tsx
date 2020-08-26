@@ -3,7 +3,7 @@ import { useTranslations } from "$hooks";
 import { OfferWorkload } from "./component";
 import { IOfferWorkloadContainerProps, IOfferWorkloadTranslations } from "./interface";
 
-const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = (
+export const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = (
   {
     offer,
     className
@@ -19,5 +19,3 @@ const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = 
     />
   );
 };
-
-export { OfferWorkloadContainer };

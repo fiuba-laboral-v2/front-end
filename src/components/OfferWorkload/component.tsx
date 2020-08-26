@@ -5,7 +5,7 @@ import { OfferInfoItem } from "$components/OfferInfoItem";
 
 import { IOfferWorkloadComponentProps } from "./interface";
 
-const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = (
+export const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = (
   {
     offer,
     translations,
@@ -18,5 +18,3 @@ const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = (
     </div>
   </OfferInfoItem>
 );
-
-export { OfferWorkload };
