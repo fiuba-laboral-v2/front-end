@@ -1,11 +1,10 @@
-import React, { FunctionComponent, useRef } from "react";
+import React, { Fragment, FunctionComponent, useRef } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { OfferDetailContent } from "./Offer/OfferDetailContent";
 import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
-import { OfferDetailContent } from "./Offer/OfferDetailContent";
 import { OfferDetailInfo } from "./Offer/OfferDeatilInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";
