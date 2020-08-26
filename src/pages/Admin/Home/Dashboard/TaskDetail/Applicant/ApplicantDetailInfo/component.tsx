@@ -5,7 +5,7 @@ import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 
-export const ApplicantDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
+export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = (
   {
     applicant,
     setStatus
@@ -20,7 +20,7 @@ export const ApplicantDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   </DetailInfo>
 );
 
-export interface ICompanyDetailInfoProps {
+export interface IApplicantDetailInfoProps {
   setStatus: (status: ApprovalStatus) => void;
   applicant: IApplicant;
 }

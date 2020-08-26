@@ -7,6 +7,8 @@ query getCompanyOfferByUuid ($uuid: ID!) {
         hoursPerDay
         minimumSalary
         maximumSalary
+        extensionApprovalStatus
+        graduadosApprovalStatus
         createdAt
         updatedAt
         sections {

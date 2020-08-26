@@ -1,0 +1,14 @@
+mutation($uuid: ID!, $approvalStatus: ApprovalStatus!) {
+  updateOfferApprovalStatus(uuid: $uuid, approvalStatus: $approvalStatus) {
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    createdAt
+    updatedAt
+    extensionApprovalStatus
+    graduadosApprovalStatus
+  }
+}

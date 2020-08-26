@@ -13,12 +13,12 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = (
       <p className={styles.title}>
         {title}
       </p>
-      <CreatedSince date={createdAt} />
+      {createdAt && <CreatedSince date={createdAt} />}
     </div>
   </div>
 );
 
 interface IMainTitleProps {
   title: string;
-  createdAt: string;
+  createdAt?: string;
 }

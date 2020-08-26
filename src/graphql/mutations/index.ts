@@ -11,6 +11,7 @@ const LOGIN = loader("./login.graphql");
 const LOGOUT = loader("./logout.graphql");
 const UPDATE_COMPANY_APPROVAL_STATUS = loader("./updateCompanyApprovalStatus.graphql");
 const UPDATE_APPLICANT_APPROVAL_STATUS = loader("./updateApplicantApprovalStatus.graphql");
+const UPDATE_OFFER_APPROVAL_STATUS = loader("./updateOfferApprovalStatus.graphql");
 
 export {
   LOGIN,
@@ -23,5 +24,6 @@ export {
   EDIT_OFFER,
   UPDATE_CURRENT_COMPANY,
   UPDATE_COMPANY_APPROVAL_STATUS,
-  UPDATE_APPLICANT_APPROVAL_STATUS
+  UPDATE_APPLICANT_APPROVAL_STATUS,
+  UPDATE_OFFER_APPROVAL_STATUS
 };

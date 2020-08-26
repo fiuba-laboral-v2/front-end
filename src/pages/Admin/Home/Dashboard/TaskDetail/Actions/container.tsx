@@ -12,6 +12,7 @@ export const ActionsContainer: FunctionComponent<IActionsContainerProps> = (
 ) => {
   const translations = useTranslations<IAdminActionsTranslations>("adminActions");
   if (!translations) return <Fragment /> ;
+
   return (
     <Actions
       currentStatus={currentStatus}

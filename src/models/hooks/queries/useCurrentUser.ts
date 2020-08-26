@@ -3,6 +3,7 @@ import { GET_CURRENT_USER } from "$queries";
 import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
 import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
 import { TCurrentApplicantAttributes } from "$models/CurrentApplicant";
+import { TCurrentAdminAttributes } from "$models/CurrentAdmin";
 
 export const useCurrentUser = () => {
   const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER);
@@ -20,7 +21,7 @@ export interface IUseCurrentUser {
 }
 
 export type TCurrentUserAttributes = TGenericCurrentUser<
-  { userUuid: string; },
+  TCurrentAdminAttributes,
   TCurrentApplicantAttributes,
   ICurrentCompanyAttributes
 >;

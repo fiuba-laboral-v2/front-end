@@ -1,5 +1,6 @@
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
+import { ApprovalStatus } from "../ApprovalStatus";
 
 export enum TargetApplicantType {
   graduate = "graduate",
@@ -29,6 +30,8 @@ export interface IOffer {
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
+  graduadosApprovalStatus: ApprovalStatus;
+  extensionApprovalStatus: ApprovalStatus;
   createdAt: string;
   updatedAt: string;
   sections?: IOfferSection[];
