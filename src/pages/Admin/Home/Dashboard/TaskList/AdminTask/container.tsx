@@ -37,8 +37,7 @@ export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = (
   }
 
   const approvalStatus =
-    adminTask?.approvalStatus
-    || adminTask[currentSecretary.data.approvalStatusColumn];
+    adminTask?.approvalStatus || adminTask[currentSecretary.data.approvalStatusColumn];
 
   return (
     <AdminTask
