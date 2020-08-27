@@ -17,7 +17,7 @@ export const DashboardContainer: FunctionComponent = () => {
   const response = useAdminTasks(filter);
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   const result = response.data?.getAdminTasks;
-  const adminTasks = result?.tasks;
+  const adminTasks = result?.results;
 
   return (
     <Dashboard
