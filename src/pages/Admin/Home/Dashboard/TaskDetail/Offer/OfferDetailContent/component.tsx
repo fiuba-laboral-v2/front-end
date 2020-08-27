@@ -6,16 +6,18 @@ import { useCompanyOfferByUuid } from "$hooks/queries";
 export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
   {
     offerUuid,
-    scrollToTop
+    scrollToTop,
+    className
   }
 ) => {
   const response = useCompanyOfferByUuid(offerUuid);
   if (response.error || response.loading) return <LoadingSpinner/>;
   scrollToTop();
-  return <OfferDetail offer={response.data.getOfferByUuid}/>;
+  return <OfferDetail offer={response.data.getOfferByUuid} className={className}/>;
 };
 
 interface IOfferDetailContentProps {
   offerUuid: string;
   scrollToTop: () => void;
+  className?: string;
 }

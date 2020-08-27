@@ -1,19 +1,26 @@
 @import "$styles/_variables";
 
 .info,
-.content {
+.contentContainer {
   background-color: $dashboardBackgroundWhite;
 }
 
-.content {
+.contentContainer {
   display: flex;
+  flex-shrink: 1;
   height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  margin: $spacing-s $spacing-l $spacing-l;
+}
+
+.fullWidthContent {
+  border: 0;
   overflow-y: auto;
   overflow-y: overlay;
-
-  > * {
-    margin: $spacing-s $spacing-l $spacing-l;
-  }
+  width: 100%;
 }
 
 .taskDetail {
