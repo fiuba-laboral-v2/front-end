@@ -15,12 +15,14 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
   }
 ) => {
   const jobApplicationResponse = useJobApplicationByUuid(selectedJobApplication.uuid);
+  const statusAttributeResponse = useAdminApprovalStatusAttribute();
+  const approvalStatusAttribute = statusAttributeResponse.data.approvalStatusAttribute;
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,
-    type: JOB_APPLICATION
+    type: JOB_APPLICATION,
+    approvalStatusAttribute
   });
-  const statusAttributeResponse = useAdminApprovalStatusAttribute();
 
   if (jobApplicationResponse.error || jobApplicationResponse.loading) return <Fragment />;
   if (statusAttributeResponse.error || statusAttributeResponse.loading) return <Fragment />;
@@ -36,7 +38,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
 
   return <JobApplicationDetailInfo
     setStatus={setStatus}
-    currentStatus={jobApplication[statusAttributeResponse.data.approvalStatusAttribute]}
+    currentStatus={jobApplication[approvalStatusAttribute]}
     jobApplication={jobApplication}
   />;
 };

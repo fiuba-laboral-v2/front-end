@@ -29,7 +29,8 @@ export const useUpdateAdminTaskStatus = (
   {
     type,
     documentNode,
-    refetchAdminTasks
+    refetchAdminTasks,
+    approvalStatusAttribute
   }: IUseUpdateAdminTask
 ) => {
   const translations = useGetTranslations();
@@ -54,7 +55,7 @@ export const useUpdateAdminTaskStatus = (
       update: cache => cache.modify({
         id: `${type}:${uuid}`,
         fields: {
-          approvalStatus: () => status
+          [approvalStatusAttribute]: () => status
         }
       })
     });
@@ -69,6 +70,7 @@ export const useUpdateAdminTaskStatus = (
 interface IUseUpdateAdminTask {
   type: TAdminTaskType;
   documentNode: DocumentNode;
+  approvalStatusAttribute: "graduadosApprovalStatus" | "extensionApprovalStatus" | "approvalStatus";
   refetchAdminTasks: () => void;
 }
 

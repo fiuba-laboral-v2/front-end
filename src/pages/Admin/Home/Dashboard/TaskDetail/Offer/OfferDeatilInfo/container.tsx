@@ -15,12 +15,13 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   }
 ) => {
   const response = useCompanyOfferByUuid(selectedOffer.uuid);
+  const { error, loading, data: { approvalStatusAttribute } } = useAdminApprovalStatusAttribute();
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_OFFER_APPROVAL_STATUS,
     refetchAdminTasks,
-    type: OFFER
+    type: OFFER,
+    approvalStatusAttribute
   });
-  const { error, loading, data: { approvalStatusAttribute } } = useAdminApprovalStatusAttribute();
 
   if (response.error || response.loading ||
     error || loading) return <Fragment />;
