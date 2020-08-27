@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useRef } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
 import { OfferDetailContent } from "./Offer/OfferDetailContent";
@@ -6,6 +6,7 @@ import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { OfferDetailInfo } from "./Offer/OfferDeatilInfo";
+import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
@@ -55,7 +56,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
           }
           {
             selectedTask.__typename === JOB_APPLICATION &&
-            <Fragment />
+            <JobApplicationDetailInfo
+              selectedJobApplication={selectedTask}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
+            />
           }
         </div>
         <div className={styles.content} ref={contentContainer}>
