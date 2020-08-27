@@ -10,7 +10,7 @@ import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
-
+import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
@@ -63,12 +63,13 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             />
           }
         </div>
-        <div className={styles.content} ref={contentContainer}>
+        <div className={styles.contentContainer} ref={contentContainer}>
           {
             selectedTask.__typename === COMPANY &&
             <CompanyDetailContent
                 companyUuid={selectedTask.uuid}
                 scrollToTop={scrollToTop}
+                className={classNames(styles.content, styles.fullWidthContent)}
             />
           }
           {
@@ -76,6 +77,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <ApplicantDetailContent
                 applicantUuid={selectedTask.uuid}
                 scrollToTop={scrollToTop}
+                className={classNames(styles.content, styles.fullWidthContent)}
             />
           }
           {
@@ -83,6 +85,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
             <OfferDetailContent
               offerUuid={selectedTask.uuid}
               scrollToTop={scrollToTop}
+              className={classNames(styles.content, styles.fullWidthContent)}
             />
           }
           {
@@ -91,6 +94,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
               applicantUuid={selectedTask.applicant.uuid}
               offerUuid={selectedTask.offer.uuid}
               scrollToTop={scrollToTop}
+              className={styles.content}
             />
           }
         </div>

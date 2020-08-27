@@ -8,7 +8,8 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   {
     applicantUuid,
     offerUuid,
-    scrollToTop
+    scrollToTop,
+    className
   }
 ) => {
   const applicantResponse = useApplicantByUuid(applicantUuid);
@@ -19,5 +20,6 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   return <JobApplicationDetailContent
     applicant={applicantResponse.data.getApplicant}
     offer={offerResponse.data.getOfferByUuid}
+    className={className}
   />;
 };

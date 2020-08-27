@@ -11,6 +11,7 @@ import { ICompany } from "$interfaces/Company";
 
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
   {
+    className,
     editButton,
     withStatusLabel,
     company: {
@@ -25,7 +26,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = (
     }
   }
 ) => (
-  <Card largePadding={true}>
+  <Card largePadding={true} className={className}>
     <div className={styles.header}>
       <CompanyLogo
         size="extraLarge"
