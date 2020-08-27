@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+.icon {
+  margin: 0 $spacing-s / 2 0 -1px;
+}
+
+@media (max-width: $hdContainerThreshold) {
+  .icon {
+    max-width: 0;
+  }
+}

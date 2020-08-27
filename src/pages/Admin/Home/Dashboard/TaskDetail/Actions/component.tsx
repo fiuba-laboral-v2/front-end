@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from "react";
 
 import Button from "$components/Button";
+import { RejectButton } from "./RejectButton";
+import HistoryIcon from "@material-ui/icons/History";
+import DoneIcon from "@material-ui/icons/Done";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IActionsProps } from "./interaces";
-
 import styles from "./styles.module.scss";
-import HistoryIcon from "@material-ui/icons/History";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import DoneIcon from "@material-ui/icons/Done";
 
 export const Actions: FunctionComponent<IActionsProps> = (
   {
@@ -30,13 +29,7 @@ export const Actions: FunctionComponent<IActionsProps> = (
     }
     {
       currentStatus !== ApprovalStatus.rejected &&
-      <Button
-        className="danger"
-        onClick={() => setStatus(ApprovalStatus.rejected)}
-      >
-        <HighlightOffIcon className={styles.icons} fontSize="small"/>
-        {translations.reject}
-      </Button>
+      <RejectButton setStatus={setStatus} className={styles.icons}/>
     }
     {
       currentStatus !== ApprovalStatus.approved &&
