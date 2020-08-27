@@ -13,6 +13,7 @@ type ErrorName =
   "ValidationError" |
   "JobApplicationAlreadyExistsError" |
   "FiubaUsersServiceFetchError" |
+  "JobApplicationNotFoundError" |
   "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";

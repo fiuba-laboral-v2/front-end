@@ -15,7 +15,8 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = (
     <div className={styles.firstRow}>
       <TaskHeaderInfo
         value={`${applicant.user.name} ${applicant.user.surname}`}
-        Icon={PersonOutlinedIcon}/>
+        Icon={PersonOutlinedIcon}
+      />
       <TaskHeaderInfo title={translations.padron} value={applicant.padron.toString()}/>
     </div>
     <TaskHeaderInfo value={applicant.user.email} Icon={EmailOutlinedIcon}/>

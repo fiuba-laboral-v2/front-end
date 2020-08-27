@@ -21,7 +21,8 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchAdminTasks,
-    type: COMPANY
+    type: COMPANY,
+    approvalStatusAttribute: "approvalStatus"
   });
   const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
   if (response.error || response.loading) return <Fragment />;

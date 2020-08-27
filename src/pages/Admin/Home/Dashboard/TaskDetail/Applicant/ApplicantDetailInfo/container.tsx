@@ -18,7 +18,8 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   const updateAdminTaskStatus = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
-    type: APPLICANT
+    type: APPLICANT,
+    approvalStatusAttribute: "approvalStatus"
   });
 
   if (response.error || response.loading) return <Fragment />;

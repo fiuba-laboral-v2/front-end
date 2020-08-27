@@ -1,0 +1,8 @@
+mutation updateJobApplicationApprovalStatus($uuid: ID!, $approvalStatus: ApprovalStatus!) {
+    updateJobApplicationApprovalStatus(uuid: $uuid, approvalStatus: $approvalStatus) {
+        offerUuid
+        applicantUuid
+        extensionApprovalStatus
+        graduadosApprovalStatus
+    }
+}
