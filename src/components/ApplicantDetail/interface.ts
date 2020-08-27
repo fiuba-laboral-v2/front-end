@@ -11,6 +11,7 @@ export interface IApplicantDetailContainerProps {
   className?: string;
   applicant: IApplicant;
   editButton?: ReactElement;
+  rejectButton?: ReactElement;
   withStatusLabel?: boolean;
 }
 

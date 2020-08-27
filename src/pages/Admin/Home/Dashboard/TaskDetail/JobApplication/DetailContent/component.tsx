@@ -19,7 +19,7 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
       className={styles.applicantDetail}
       mobileLayout
       applicant={applicant}
-      editButton={<RejectButton setStatus={setStatus}/>}
+      rejectButton={<RejectButton setStatus={setStatus}/>}
     />
     <OfferDetail
       className={styles.offerDetail}
