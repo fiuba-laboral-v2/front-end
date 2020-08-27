@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from "react";
 
-import { StatusButton } from "./StatusButton";
 import { PendingButton } from "./PendingButton";
 import { ApproveButton } from "./ApproveButton";
 import { RejectButton } from "./RejectButton";
-import HistoryIcon from "@material-ui/icons/History";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import styles from "./styles.module.scss";
