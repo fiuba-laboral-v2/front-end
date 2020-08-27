@@ -1,6 +1,5 @@
 import React from "react";
-import { Button } from "$components/Button";
-import { IButtonProps } from "../Button/interface";
+import { Button, IButtonProps } from "$components/Button";
 import { FormikErrors } from "formik";
 import { useSnackbar } from "notistack";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";

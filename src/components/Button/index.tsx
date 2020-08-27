@@ -1,7 +1,5 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, HTMLProps } from "react";
 import classNames from "classnames";
-
-import { IButtonProps } from "./interface";
 import styles from "./styles.module.scss";
 
 export const Button: FunctionComponent<IButtonProps> = (
@@ -18,3 +16,14 @@ export const Button: FunctionComponent<IButtonProps> = (
       {children}
     </button>
   );
+
+export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
+  className: "primary" | "secondary" | "warning" | "danger";
+  width?: "expand" | "fitContent";
+  onClick?: (state: object) => void;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
+  negative?: boolean;
+  secondary?: boolean;
+}
