@@ -2,7 +2,7 @@ import { NavBarLinks } from "$models/NavBarLinks";
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Secretary } from "../../../interfaces/Secretary";
+import { Secretary } from "$interfaces/Secretary";
 
 describe("NavBarLinks", () => {
   const translations = {

@@ -1,6 +1,6 @@
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { Secretary } from "../../interfaces/Secretary";
+import { Secretary } from "$interfaces/Secretary";
 
 describe("CurrentUser", () => {
   it("returns a valid current applicant user", () => {

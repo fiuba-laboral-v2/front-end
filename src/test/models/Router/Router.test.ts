@@ -2,7 +2,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Secretary } from "../../../interfaces/Secretary";
+import { Secretary } from "$interfaces/Secretary";
 
 describe("Router", () => {
   const userAttributes = {
