@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
 
 import { StatusButton } from "./StatusButton";
+import { ApproveButton } from "./ApproveButton";
 import { RejectButton } from "./RejectButton";
 import HistoryIcon from "@material-ui/icons/History";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import DoneIcon from "@material-ui/icons/Done";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import styles from "./styles.module.scss";
@@ -31,12 +30,7 @@ export const Actions: FunctionComponent<IActionsProps> = (
     }
     {
       currentStatus !== ApprovalStatus.approved &&
-      <StatusButton
-        setStatus={setStatus}
-        className="primary"
-        status={ApprovalStatus.approved}
-        Icon={DoneIcon}
-      />
+      <ApproveButton setStatus={setStatus}/>
     }
   </div>
 );
