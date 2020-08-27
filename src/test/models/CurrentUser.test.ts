@@ -1,5 +1,6 @@
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { Secretary } from "$interfaces/Secretary";
 
 describe("CurrentUser", () => {
   it("returns a valid current applicant user", () => {
@@ -39,7 +40,8 @@ describe("CurrentUser", () => {
       name: "eric",
       surname: "Clapton",
       admin: {
-        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        secretary: Secretary.extension
       }
     });
     expect(currentUser?.admin).not.toBeUndefined();

@@ -2,6 +2,7 @@ import { NavBarLinks } from "$models/NavBarLinks";
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Secretary } from "$interfaces/Secretary";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -178,7 +179,10 @@ describe("NavBarLinks", () => {
   describe("Admin", () => {
     const createCurrentAdmin = () => CurrentUser({
       ...userAttributes,
-      admin: { userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
+      admin: {
+        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        secretary: Secretary.graduados
+      }
     });
 
     it("returns an empty list of admin links in the navBar", () => {
