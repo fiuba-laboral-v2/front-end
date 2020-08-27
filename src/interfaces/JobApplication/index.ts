@@ -5,6 +5,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 export interface IJobApplication {
   uuid: string;
   updatedAt: string;
+  createdAt: string;
   graduadosApprovalStatus: ApprovalStatus;
   extensionApprovalStatus: ApprovalStatus;
   applicant: IApplicant;
