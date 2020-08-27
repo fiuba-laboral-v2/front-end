@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { DetailInfo } from "../../DetailInfo";
+import { UserDetails } from "../../Applicant/ApplicantDetailInfo/UserDetails";
 import { MainTitle } from "./MainTitle";
 
 export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = (
@@ -16,7 +17,7 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = (
     currentStatus={currentStatus}
     setStatus={setStatus}
   >
-    algo
+    <UserDetails applicant={jobApplication.applicant}/>
   </DetailInfo>
 );
 
