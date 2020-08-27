@@ -1,0 +1,19 @@
+query getJobApplicationByUuid($uuid: ID!) {
+    getJobApplicationByUuid(uuid: $uuid) {
+        uuid
+        updatedAt
+        extensionApprovalStatus
+        graduadosApprovalStatus
+        offer {
+            uuid
+            title
+        }
+        applicant {
+            uuid
+            user {
+                name
+                surname
+            }
+        }
+    }
+}
