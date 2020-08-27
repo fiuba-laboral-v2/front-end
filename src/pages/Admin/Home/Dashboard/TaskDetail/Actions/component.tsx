@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import { RejectButton } from "./RejectButton";
 import HistoryIcon from "@material-ui/icons/History";
 import DoneIcon from "@material-ui/icons/Done";

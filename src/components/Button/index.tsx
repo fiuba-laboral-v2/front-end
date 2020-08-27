@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 
 import { IButtonProps } from "./interface";
 import styles from "./styles.module.scss";
 
-const Button: FunctionComponent<IButtonProps> = (
+export const Button: FunctionComponent<IButtonProps> = (
   {
     className,
     width = "fitContent",
@@ -12,11 +12,9 @@ const Button: FunctionComponent<IButtonProps> = (
     ...props
   }) => (
     <button
-      className={classnames(styles.main, styles[className], styles[width])}
+      className={classNames(styles.main, styles[className], styles[width])}
       {...props}
     >
       {children}
     </button>
   );
-
-export default Button;

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Title } from "./Title";
 import { CompanyDetail } from "$components/CompanyDetail";
 import { Window } from "$components/Window";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import { ICompany } from "$interfaces/Company";
 import { IProfileTranslations } from "./interface";
 

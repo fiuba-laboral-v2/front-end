@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IComponent } from "./interfaces";

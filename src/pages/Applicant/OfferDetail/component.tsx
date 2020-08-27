@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { OfferDetail as Detail } from "$components/OfferDetail";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import { Window } from "$components/Window";
 import { IOfferDetailTranslations } from "./interfaces";
 import { IMyOffer } from "$interfaces/Applicant";

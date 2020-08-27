@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import { Button } from "$components/Button";
 import { IButtonProps } from "../Button/interface";
 import { FormikErrors } from "formik";
 import { useSnackbar } from "notistack";

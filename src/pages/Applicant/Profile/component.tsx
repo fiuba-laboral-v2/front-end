@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Title } from "./Title";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 import { Window } from "$components/Window";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import { IProfileParams } from "./interface";
 
 export const Profile: FunctionComponent<IProfileParams> = (

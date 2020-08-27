@@ -6,7 +6,7 @@ import {
   DialogContentText,
   DialogTitle
 } from "@material-ui/core";
-import Button from "../Button";
+import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = (

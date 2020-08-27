@@ -1,6 +1,6 @@
 import React from "react";
 import { useSnackbar } from "notistack";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 import { Window } from "$models/Window";
 
 const reloadAction = <Button className="danger" onClick={Window.reload}>Recargar</Button>;
