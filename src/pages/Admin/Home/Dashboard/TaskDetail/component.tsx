@@ -95,6 +95,8 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = (
               offerUuid={selectedTask.offer.uuid}
               scrollToTop={scrollToTop}
               className={styles.content}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
             />
           }
         </div>
