@@ -2,6 +2,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Secretary } from "../../../interfaces/Secretary";
 
 describe("Router", () => {
   const userAttributes = {
@@ -63,7 +64,10 @@ describe("Router", () => {
   describe("Admin", () => {
     const createCurrentAdmin = () => CurrentUser({
       ...userAttributes,
-      admin: { userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" }
+      admin: {
+        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        secretary: Secretary.graduados
+      }
     });
 
     it("returns home route", () => {
