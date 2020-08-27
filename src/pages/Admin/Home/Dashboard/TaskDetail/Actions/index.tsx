@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { StatusButton } from "./StatusButton";
+import { PendingButton } from "./PendingButton";
 import { ApproveButton } from "./ApproveButton";
 import { RejectButton } from "./RejectButton";
 import HistoryIcon from "@material-ui/icons/History";
@@ -17,12 +18,7 @@ export const Actions: FunctionComponent<IActionsProps> = (
   <div className={styles.actions}>
     {
       currentStatus !== ApprovalStatus.pending &&
-      <StatusButton
-        setStatus={setStatus}
-        className="secondary"
-        status={ApprovalStatus.pending}
-        Icon={HistoryIcon}
-      />
+      <PendingButton setStatus={setStatus}/>
     }
     {
       currentStatus !== ApprovalStatus.rejected &&
