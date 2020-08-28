@@ -1,7 +1,7 @@
 import { useQuery } from "$hooks";
 import { GET_ADMIN_TASKS } from "$queries";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { OptionalFetchResult } from "$interfaces/Pagination";
+import { FetchResult, OptionalFetchResult } from "$interfaces/Pagination";
 import { IPaginatedResult } from "./interface";
 
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
@@ -31,7 +31,7 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
           uuid: lastTask.uuid
         }
       }
-    });
+    }) as FetchResult<IUseAdminTasks>;
   };
 
   return {

@@ -16,7 +16,6 @@ export const ListContainer = <ListItem, Result>(
   useEffect(() => {
     if (!fetchMore || !shouldFetchMore || !fetchMoreTrigger.current || loading) return;
     const observer = new IntersectionObserver(entries => {
-      debugger;
       if (!entries.some(entry => entry.isIntersecting)) return;
       setLoading(true);
       fetchMore()?.then(() => setLoading(false));
