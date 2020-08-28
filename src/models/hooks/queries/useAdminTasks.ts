@@ -21,7 +21,6 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
   const fetchMore = () => {
     const tasks = result.data?.getAdminTasks.results;
     if (!tasks) return;
-    debugger;
     const lastTask = tasks[tasks.length - 1];
     return result.fetchMore({
       query: GET_ADMIN_TASKS,
