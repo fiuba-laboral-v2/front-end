@@ -29,23 +29,18 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     },
     translations,
     editButton,
-    rejectButton,
     withStatusLabel
   }
 ) => (
-  <Card largePadding={true}
-        className={classNames(className, { [styles.mobile]: mobileLayout })}>
+  <Card largePadding={true} className={classNames(className, { [styles.mobile]: mobileLayout })}>
     <div className={styles.headline}>
-      <div className={styles.titleRow} >
-        <div className={styles.header}>
-          <StatusTitle
-            className={styles.title}
-            detailTitle={`${name} ${surname}`}
-            approvalStatus={withStatusLabel ? approvalStatus : undefined}
-          />
-          <div>{editButton}</div>
-        </div>
-        <div>{rejectButton}</div>
+      <div className={styles.header}>
+        <StatusTitle
+          className={styles.title}
+          detailTitle={`${name} ${surname}`}
+          approvalStatus={withStatusLabel ? approvalStatus : undefined}
+        />
+        <div>{editButton}</div>
       </div>
       <Links links={links}/>
     </div>

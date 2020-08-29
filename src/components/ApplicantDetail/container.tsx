@@ -11,7 +11,6 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
     className,
     applicant,
     editButton,
-    rejectButton,
     withStatusLabel
   }
 ) => {
@@ -25,7 +24,6 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
       applicant={{ ...applicant, sections: sortBy(applicant.sections, ["displayOrder"]) }}
       translations={translations}
       editButton={editButton}
-      rejectButton={rejectButton}
       withStatusLabel={withStatusLabel}
     />
   );

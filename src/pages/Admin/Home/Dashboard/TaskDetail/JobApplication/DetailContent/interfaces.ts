@@ -7,12 +7,9 @@ export interface IContainerProps {
   offerUuid: string;
   scrollToTop: () => void;
   className?: string;
-  onStatusUpdate: () => void;
-  refetchAdminTasks: () => void;
 }
 
 export interface IComponentProps {
-  setStatus: (status: ApprovalStatus) => void;
   applicant: IApplicant;
   offer: IOffer;
   className?: string;
