@@ -55,7 +55,11 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     <Description>{description}</Description>
     {
       sections.map(section =>
-        <SectionDetail key={section.displayOrder} title={section.title} text={section.text}/>
+        <SectionDetail
+          key={section.displayOrder}
+          title={section.title}
+          text={section.text}
+        />
       )
     }
   </Card>

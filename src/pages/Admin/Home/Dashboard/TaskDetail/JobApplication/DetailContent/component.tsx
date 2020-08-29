@@ -13,7 +13,15 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <div className={classNames(styles.detailContent, className)}>
-    <ApplicantDetail applicant={applicant} className={styles.applicantDetail} mobileLayout />
-    <OfferDetail offer={offer} className={styles.offerDetail} mobileLayout />
+    <ApplicantDetail
+      className={styles.applicantDetail}
+      mobileLayout
+      applicant={applicant}
+    />
+    <OfferDetail
+      className={styles.offerDetail}
+      mobileLayout
+      offer={offer}
+    />
   </div>
 );
