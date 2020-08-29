@@ -1,8 +1,10 @@
+import unionBy from "lodash/unionBy";
+
 export const paginatedQuery = {
   keyArgs: [],
   merge: (existing: IQueryResult | undefined, incoming: IQueryResult) => ({
     ...incoming,
-    results: [...existing?.results || [], ...incoming.results]
+    results: unionBy(existing?.results || [], incoming.results, "__ref")
   })
 };
 

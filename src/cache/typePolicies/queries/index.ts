@@ -1,7 +1,10 @@
 import { paginatedQuery } from "./paginatedQuery";
 
 export const queries = {
-  getAdminTasks: paginatedQuery,
+  getAdminTasks: {
+    ...paginatedQuery,
+    keyArgs: ["adminTaskTypes", "statuses"]
+  },
   getMyLatestJobApplications: paginatedQuery,
   getOffers: paginatedQuery,
   getMyOffers: paginatedQuery
