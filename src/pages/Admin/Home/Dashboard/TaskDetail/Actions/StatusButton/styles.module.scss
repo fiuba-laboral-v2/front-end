@@ -1,7 +1,16 @@
 @import "$styles/_variables";
 
+.container {
+  align-items: center;
+  display: flex;
+}
+
 .icon {
-  margin: 0 $spacing-s / 2 0 -1px;
+  margin: 0 $spacing-s / 2 0  0;
+}
+
+.label {
+  margin-left: 1px;
 }
 
 @media (max-width: $hdContainerThreshold) {
