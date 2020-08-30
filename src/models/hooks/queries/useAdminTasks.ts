@@ -4,16 +4,26 @@ import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { OptionalFetchResult } from "$interfaces/Pagination";
 import { IPaginatedResult } from "./interface";
 
+const defaultFilter = {
+  adminTaskTypes: [],
+  statuses: [],
+  updatedBeforeThan: undefined
+};
+
+const normalizeFilter = (filter: IAdminTasksFilter): IAdminTasksFilter => ({
+  ...defaultFilter,
+  ...filter,
+  adminTaskTypes: filter.adminTaskTypes.sort(),
+  statuses: filter.statuses.sort()
+});
+
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
-  const defaultFilter = {
-    adminTaskTypes: [],
-    statuses: [],
-    updatedBeforeThan: undefined
-  };
   const result = useQuery<IAdminTasksFilter, IUseAdminTasks>(
     GET_ADMIN_TASKS,
     {
-      variables: { ...defaultFilter, ...filter }
+      variables: normalizeFilter(filter),
+      fetchPolicy: "network-only",
+      notifyOnNetworkStatusChange: true
     }
   );
 
@@ -21,21 +31,20 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     const tasks = result.data?.getAdminTasks.results;
     if (!tasks) return;
     const lastTask = tasks[tasks.length - 1];
-
     return result.fetchMore({
       query: GET_ADMIN_TASKS,
-      variables: {
+      variables: normalizeFilter({
         ...filter,
         updatedBeforeThan: {
           dateTime: lastTask.updatedAt,
           uuid: lastTask.uuid
         }
-      }
+      })
     });
   };
 
   const refetch = async (newFilter: IAdminTasksFilter) =>
-    result.refetch({ ...defaultFilter, ...newFilter });
+    result.refetch(normalizeFilter(newFilter));
 
   return {
     ...result,

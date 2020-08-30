@@ -5,7 +5,10 @@ import { FetchResult } from "$interfaces/Pagination";
 import { IPaginatedResult } from "./interface";
 
 export const useOffers = () => {
-  const result = useQuery<{}, IUseOffers>(GET_OFFERS);
+  const result = useQuery<{}, IUseOffers>(
+    GET_OFFERS,
+    { notifyOnNetworkStatusChange: true }
+  );
 
   const fetchMore = () => {
     const offers = result.data?.getOffers.results;

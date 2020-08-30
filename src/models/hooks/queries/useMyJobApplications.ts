@@ -13,7 +13,8 @@ export const useMyJobApplications = () => {
     {
       errorHandlers: {
         UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
-      }
+      },
+      notifyOnNetworkStatusChange: true
     }
   );
   const fetchMore = () => {
