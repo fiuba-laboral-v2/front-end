@@ -32,7 +32,7 @@ export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = (
 
   if (adminTask.__typename === JOB_APPLICATION) {
     const applicantName = `${adminTask.applicant.user.name} ${adminTask.applicant.user.surname}`;
-    name = `${applicantName} - ${adminTask.offer.title}`;
+    name = `${applicantName},\n${adminTask.offer.title}`;
     Icon = JobApplicationIcon;
   }
 

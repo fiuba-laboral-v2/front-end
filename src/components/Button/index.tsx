@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from "react";
-import classnames from "classnames";
-
-import { IButtonProps } from "./interface";
+import React, { FunctionComponent, HTMLProps } from "react";
+import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-const Button: FunctionComponent<IButtonProps> = (
+export const Button: FunctionComponent<IButtonProps> = (
   {
     className,
     width = "fitContent",
@@ -12,11 +10,20 @@ const Button: FunctionComponent<IButtonProps> = (
     ...props
   }) => (
     <button
-      className={classnames(styles.main, styles[className], styles[width])}
+      className={classNames(styles.main, styles[className], styles[width])}
       {...props}
     >
       {children}
     </button>
   );
 
-export default Button;
+export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
+  className: "primary" | "secondary" | "warning" | "danger";
+  width?: "expand" | "fitContent";
+  onClick?: (state: object) => void;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
+  negative?: boolean;
+  secondary?: boolean;
+}

@@ -14,9 +14,11 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
 ) => {
   const applicantResponse = useApplicantByUuid(applicantUuid);
   const offerResponse = useCompanyOfferByUuid(offerUuid);
+
   if (applicantResponse.error || applicantResponse.loading) return <LoadingSpinner/>;
   if (offerResponse.error || offerResponse.loading) return <LoadingSpinner/>;
   scrollToTop();
+
   return <JobApplicationDetailContent
     applicant={applicantResponse.data.getApplicant}
     offer={offerResponse.data.getOfferByUuid}

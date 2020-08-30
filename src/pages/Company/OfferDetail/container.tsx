@@ -5,7 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { OfferDetail } from "$components/OfferDetail";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Window } from "$components/Window";
-import Button from "$components/Button";
+import { Button } from "$components/Button";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const history = useHistory();
