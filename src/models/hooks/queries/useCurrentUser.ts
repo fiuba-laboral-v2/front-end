@@ -4,7 +4,7 @@ import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
 import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
 import { TCurrentApplicantAttributes } from "$models/CurrentApplicant";
 import { TCurrentAdminAttributes } from "$models/CurrentAdmin";
-import { RoutesBuilder } from "../../RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
 export const useCurrentUser = () => {
