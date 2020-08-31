@@ -14,12 +14,10 @@ export const useCurrentUser = () => {
       UserNotFoundError: () => history.push(RoutesBuilder.public.login())
     }
   });
-
+  const currentUser = response.data?.getCurrentUser;
   return {
     ...response,
-    data: {
-      getCurrentUser: response.data?.getCurrentUser && CurrentUser(response.data?.getCurrentUser)
-    }
+    data: { getCurrentUser: currentUser && CurrentUser(currentUser) }
   };
 };
 
