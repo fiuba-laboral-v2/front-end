@@ -17,14 +17,10 @@ const normalizeFilter = (filter: IAdminTasksFilter): IAdminTasksFilter => ({
 });
 
 export const useAdminTasks = (filter: IAdminTasksFilter) => {
-  const result = useQuery<IAdminTasksFilter, IUseAdminTasks>(
-    GET_ADMIN_TASKS,
-    {
-      variables: normalizeFilter(filter),
-      fetchPolicy: "network-only",
-      notifyOnNetworkStatusChange: true
-    }
-  );
+  const result = useQuery<IAdminTasksFilter, IUseAdminTasks>(GET_ADMIN_TASKS, {
+    variables: normalizeFilter(filter),
+    fetchPolicy: "network-only"
+  });
 
   const fetchMore = () => {
     const tasks = result.data?.getAdminTasks.results;

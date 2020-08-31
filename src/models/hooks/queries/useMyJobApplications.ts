@@ -7,15 +7,11 @@ import { IPaginatedResult } from "./interface";
 
 export const useMyJobApplications = () => {
   const history = useHistory();
-  const result = useQuery<{}, IUseMyJobApplications>(
-    GET_MY_JOB_APPLICATIONS,
-    {
-      errorHandlers: {
-        UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
-      },
-      notifyOnNetworkStatusChange: true
+  const result = useQuery<{}, IUseMyJobApplications>(GET_MY_JOB_APPLICATIONS, {
+    errorHandlers: {
+      UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
     }
-  );
+  });
   const fetchMore = () => {
     const applications = result.data?.getMyLatestJobApplications.results;
     if (!applications) return;

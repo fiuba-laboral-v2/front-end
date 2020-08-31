@@ -33,6 +33,10 @@ type ISuccessfulQuery<TVariables, TData> = {
   loading: false;
 };
 
+const defaultApolloOptions = {
+  notifyOnNetworkStatusChange: true
+};
+
 export const useQuery = <TVariables = {}, TData = {}>(
   node: DocumentNode,
   options?: IQueryOptions<TData, TVariables>
@@ -40,7 +44,7 @@ export const useQuery = <TVariables = {}, TData = {}>(
   const { errorHandlers, ...apolloOptions } = options || { errorHandlers: {} };
   const {
     data, error, loading, refetch, fetchMore
-  } = apolloUseQuery<TData, TVariables>(node, apolloOptions);
+  } = apolloUseQuery<TData, TVariables>(node, { ...defaultApolloOptions, ...apolloOptions });
   useEffect(
     () => {
       if (error) handleError(error, errorHandlers);

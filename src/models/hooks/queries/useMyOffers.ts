@@ -4,10 +4,7 @@ import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interface";
 
 export const useMyOffers = () => {
-  const result = useQuery<{}, IUseMyOffers>(
-    GET_MY_OFFERS,
-    { notifyOnNetworkStatusChange: true }
-  );
+  const result = useQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
 
   const fetchMore = () => {
     const offers = result.data?.getMyOffers.results;
