@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Ref } from "react";
+import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 import { Link } from "$components/Link";
@@ -13,7 +13,6 @@ import { TimeHumanizer } from "$components/TimeHumanizer";
 export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   {
     className,
-    _ref,
     jobApplication: {
       updatedAt,
       offer,
@@ -23,7 +22,6 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
   const history = useHistory();
   return (
     <Card
-      _ref={_ref}
       className={classNames(styles.card, className)}
       onClick={() => history.push(RoutesBuilder.company.applicantDetail(applicant.uuid))}
     >
@@ -49,5 +47,4 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
 interface IJobApplicationProps {
   className: string;
   jobApplication: IJobApplication;
-  _ref?: Ref<HTMLDivElement>;
 }

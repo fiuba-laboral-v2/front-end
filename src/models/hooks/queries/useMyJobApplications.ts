@@ -4,7 +4,6 @@ import { RoutesBuilder } from "../../RoutesBuilder";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { useHistory } from "react-router-dom";
 import { IPaginatedResult } from "./interface";
-import { FetchResult } from "$interfaces/Pagination";
 
 export const useMyJobApplications = () => {
   const history = useHistory();
@@ -22,7 +21,6 @@ export const useMyJobApplications = () => {
     if (!applications) return;
     const lastApplication = applications[applications.length - 1];
     return result.fetchMore({
-      query: GET_MY_JOB_APPLICATIONS,
       variables: {
         updatedBeforeThan: {
           dateTime: lastApplication.updatedAt,
@@ -30,7 +28,7 @@ export const useMyJobApplications = () => {
           applicantUuid: lastApplication.applicant.uuid
         }
       }
-    }) as FetchResult<IUseMyJobApplications>;
+    });
   };
   return { ...result, fetchMore };
 };

@@ -26,7 +26,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = (
     <DialogActions>
       <Button
         onClick={onClose}
-        className="secondary"
+        kind="secondary"
       >
         {translations.confirmDialogCancel}
       </Button>
@@ -35,7 +35,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = (
           onConfirm();
           onClose();
         }}
-        className="primary"
+        kind="primary"
       >
         {translations.confirmDialogConfirm}
       </Button>

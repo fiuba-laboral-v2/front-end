@@ -19,6 +19,7 @@ export const MyOffersContainer: FunctionComponent = () => {
 
   return (
     <Feed
+      loading={response.loading}
       title={translations.title}
       offers={response.data.getMyOffers.results}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}

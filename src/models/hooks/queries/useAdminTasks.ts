@@ -1,7 +1,6 @@
 import { useQuery } from "$hooks";
 import { GET_ADMIN_TASKS } from "$queries";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { OptionalFetchResult } from "$interfaces/Pagination";
 import { IPaginatedResult } from "./interface";
 
 const defaultFilter = {
@@ -32,7 +31,6 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
     if (!tasks) return;
     const lastTask = tasks[tasks.length - 1];
     return result.fetchMore({
-      query: GET_ADMIN_TASKS,
       variables: normalizeFilter({
         ...filter,
         updatedBeforeThan: {
@@ -48,15 +46,13 @@ export const useAdminTasks = (filter: IAdminTasksFilter) => {
 
   return {
     ...result,
-    fetchMore,
-    refetch
+    fetchMore: result.loading ? undefined : fetchMore,
+    refetch: result.loading ? undefined : refetch
   };
 };
 
-export type TRefetchGetAdminTasks = (
-  filter: IAdminTasksFilter
-) => OptionalFetchResult<IUseAdminTasks>;
+export type TRefetchGetAdminTasks = (filter: IAdminTasksFilter) => void;
 
-export interface IUseAdminTasks {
+interface IUseAdminTasks {
   getAdminTasks: IPaginatedResult<TAdminTask>;
 }

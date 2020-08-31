@@ -17,7 +17,7 @@ export const Profile: FunctionComponent<IProfileParams> = (
     <ApplicantDetail
       applicant={applicant}
       editButton={
-        <Button className={"primary"} onClick={onClickEdit}>{translations.edit}</Button>
+        <Button kind="primary" onClick={onClickEdit}>{translations.edit}</Button>
       }
       withStatusLabel
     />

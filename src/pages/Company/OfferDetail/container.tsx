@@ -22,7 +22,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
       <OfferDetail
         editButton={
           <Button
-            className={"primary"}
+            kind={"primary"}
             onClick={() => history.push(
               RoutesBuilder.company.editOffer(offer.uuid)
             )}>

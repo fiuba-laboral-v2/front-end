@@ -4,7 +4,7 @@ import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { useAdminTasks } from "$hooks/queries";
 import { Redirect } from "$components/Redirect";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
+import { APPLICANT, COMPANY, JOB_APPLICATION, OFFER } from "$typenames";
 import { find } from "lodash";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
@@ -21,12 +21,13 @@ export const DashboardContainer: FunctionComponent = () => {
 
   return (
     <Dashboard
+      loading={response.loading}
       refetchGetAdminTasks={response.refetch}
       adminTasks={adminTasks}
       selectedTask={find(adminTasks, ["uuid", selectedTask?.uuid])}
       setSelectedTask={setSelectedTask}
       filter={filter}
-      setFilter={setFilter}
+      setFilter={response.loading ? undefined : setFilter}
       fetchMore={response.fetchMore}
       shouldFetchMore={result?.shouldFetchMore || false}
     />

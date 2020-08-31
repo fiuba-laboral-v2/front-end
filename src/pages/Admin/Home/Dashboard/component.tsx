@@ -5,11 +5,11 @@ import { TaskDetail } from "./TaskDetail";
 import { TaskList } from "./TaskList";
 import styles from "./styles.module.scss";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
-import { IUseAdminTasks, TRefetchGetAdminTasks } from "$hooks/queries";
-import { OptionalFetchResult } from "$interfaces/Pagination";
+import { TRefetchGetAdminTasks } from "$hooks/queries";
 
 export const Dashboard: FunctionComponent<IDashboardProps> = (
   {
+    loading,
     refetchGetAdminTasks,
     adminTasks,
     selectedTask,
@@ -28,6 +28,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         onSelectFilter={setFilter}
       />
       <TaskList
+        loading={loading}
         adminTasks={adminTasks}
         statuses={filter.statuses}
         selectedTask={selectedTask}
@@ -47,12 +48,13 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
 );
 
 interface IDashboardProps {
+  loading: boolean;
   selectedTask?: TAdminTask;
   setSelectedTask: (task?: TAdminTask) => void;
   filter: IAdminTasksFilter;
-  setFilter: (filter: IAdminTasksFilter) => void;
+  setFilter?: (filter: IAdminTasksFilter) => void;
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
-  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
+  fetchMore?: () => void;
   shouldFetchMore: boolean;
 }

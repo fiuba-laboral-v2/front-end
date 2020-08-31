@@ -1,14 +1,13 @@
 import { TAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { IUseAdminTasks } from "$hooks/queries";
-import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export interface ITaskListContainerProps {
+  loading: boolean;
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
   adminTasks?: TAdminTask[];
   statuses: ApprovalStatus[];
-  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
+  fetchMore?: () => void;
   shouldFetchMore: boolean;
 }
 

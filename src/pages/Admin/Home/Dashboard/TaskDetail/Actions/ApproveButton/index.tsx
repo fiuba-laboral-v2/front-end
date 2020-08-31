@@ -6,7 +6,7 @@ import DoneIcon from "@material-ui/icons/Done";
 export const ApproveButton: FunctionComponent<IComponent> = ({ setStatus }) => (
   <StatusButton
     setStatus={setStatus}
-    className="primary"
+    kind="primary"
     status={ApprovalStatus.approved}
     Icon={DoneIcon}
   />
