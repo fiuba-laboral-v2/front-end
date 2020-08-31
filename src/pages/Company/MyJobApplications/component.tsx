@@ -14,10 +14,13 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
   }
 ) => (
   <Window>
-    <List list={jobApplications}
-          fetchMore={fetchMore}
-          shouldFetchMore={shouldFetchMore}
-          loading={loading}>
+    <List
+      list={jobApplications}
+      fetchMoreClassName={styles.fetchMore}
+      fetchMore={fetchMore}
+      shouldFetchMore={shouldFetchMore}
+      loading={loading}
+    >
       {jobApplication =>
         <JobApplication
           className={styles.card}

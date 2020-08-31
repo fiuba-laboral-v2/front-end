@@ -15,7 +15,13 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
     shouldFetchMore
   }
 ) => (
-  <List list={adminTasks} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore} loading={loading}>
+  <List
+    list={adminTasks}
+    fetchMoreClassName={styles.fetchMore}
+    fetchMore={fetchMore}
+    shouldFetchMore={shouldFetchMore}
+    loading={loading}
+  >
     {adminTask =>
       <Card
         key={adminTask.uuid}

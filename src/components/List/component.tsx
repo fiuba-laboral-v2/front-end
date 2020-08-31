@@ -12,6 +12,7 @@ export const List = <ListItem, Result>(
     children,
     shouldFetchMore,
     fetchMore,
+    fetchMoreClassName,
     translations,
     loading
   }: IListProps<ListItem, Result>
@@ -26,7 +27,11 @@ export const List = <ListItem, Result>(
     }
     {
       shouldFetchMore && fetchMore && !loading &&
-      <Button kind="primary" onClick={fetchMore} className={styles.fetchMoreButton}>
+      <Button
+        kind="primary"
+        onClick={fetchMore}
+        className={classNames(styles.fetchMoreButton, fetchMoreClassName)}
+      >
         {translations.fetchMore}
       </Button>
     }

@@ -7,6 +7,7 @@ export interface IListTranslations {
 export interface IListContainerProps<ListItem, Result> {
   list: ListItem[];
   className?: string;
+  fetchMoreClassName?: string;
   children: (item: ListItem) => ReactNode;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;

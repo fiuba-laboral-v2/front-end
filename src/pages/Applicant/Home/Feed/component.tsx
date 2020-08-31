@@ -20,7 +20,13 @@ const Feed = <QueryResult, >(
   <Window>
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
     <div>
-      <List list={offers} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore} loading={loading}>
+      <List
+        list={offers}
+        fetchMore={fetchMore}
+        fetchMoreClassName={styles.fetchMore}
+        shouldFetchMore={shouldFetchMore}
+        loading={loading}
+      >
         {offer => (
           <Card
             key={offer.uuid}
