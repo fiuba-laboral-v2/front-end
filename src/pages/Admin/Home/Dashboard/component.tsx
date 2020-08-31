@@ -56,5 +56,5 @@ interface IDashboardProps {
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
   fetchMore?: () => void;
-  shouldFetchMore: boolean;
+  shouldFetchMore?: boolean;
 }

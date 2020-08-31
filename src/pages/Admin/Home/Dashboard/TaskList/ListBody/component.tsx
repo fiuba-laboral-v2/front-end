@@ -35,5 +35,5 @@ interface IListBodyProps {
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
   fetchMore?: () => void;
-  shouldFetchMore: boolean;
+  shouldFetchMore?: boolean;
 }

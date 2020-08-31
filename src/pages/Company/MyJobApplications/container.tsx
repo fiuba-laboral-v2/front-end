@@ -12,7 +12,7 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
     <MyJobApplications
       jobApplications={response.data?.getMyLatestJobApplications.results || []}
       fetchMore={response.fetchMore}
-      shouldFetchMore={response.data?.getMyLatestJobApplications.shouldFetchMore || false}
+      shouldFetchMore={response.data?.getMyLatestJobApplications.shouldFetchMore}
       loading={response.loading}
     />
   );

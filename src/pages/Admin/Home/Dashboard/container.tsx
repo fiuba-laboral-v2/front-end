@@ -29,7 +29,7 @@ export const DashboardContainer: FunctionComponent = () => {
       filter={filter}
       setFilter={response.loading ? undefined : setFilter}
       fetchMore={response.fetchMore}
-      shouldFetchMore={result?.shouldFetchMore || false}
+      shouldFetchMore={result?.shouldFetchMore}
     />
   );
 };
