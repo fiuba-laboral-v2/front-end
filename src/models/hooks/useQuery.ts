@@ -49,8 +49,8 @@ export const useQuery = <TVariables = {}, TData = {}>(
     () => {
       if (error) {
         handleError(error, {
-          ...errorHandlers,
-          AdminNotFoundError: () => history.push(RoutesBuilder.public.login())
+          UserNotFoundError: () => history.push(RoutesBuilder.public.login()),
+          ...errorHandlers
         });
       }
     },
