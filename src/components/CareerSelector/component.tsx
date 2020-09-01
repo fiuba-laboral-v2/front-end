@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Selector } from "$components/Selector";
+import { SearchSelector } from "$components/SearchSelector";
 import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { ICareerSelectorProps } from "./interface";
@@ -16,7 +16,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
 ) => (
   <div className={styles.fieldsContainer}>
     <div className={styles.firstRow}>
-      <Selector
+      <SearchSelector
         name={`careers.${index}.careerCode`}
         options={options}
         label={translations.career}

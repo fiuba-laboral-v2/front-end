@@ -13,5 +13,5 @@ export interface ICreateOffer {
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
-  targetApplicantType: TargetApplicantType;
+  targetApplicantType: TargetApplicantType | "";
 }
