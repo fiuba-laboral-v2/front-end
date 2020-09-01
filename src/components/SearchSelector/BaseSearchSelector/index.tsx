@@ -4,7 +4,7 @@ import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const BaseSelector = <Option, Value>(
+export const BaseSearchSelector = <Option, Value>(
   {
     label,
     className,

@@ -6,7 +6,6 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
-import { TargetApplicantType } from "$interfaces/Offer";
 import { FormFooter } from "$components/FormFooter";
 
 export const CreateOfferContainer: FunctionComponent = () => {
@@ -22,7 +21,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
     initialValues={{
       title: "",
       description: "",
-      targetApplicantType: TargetApplicantType.both,
+      targetApplicantType: "",
       hoursPerDay: NaN,
       minimumSalary: NaN,
       maximumSalary: NaN,

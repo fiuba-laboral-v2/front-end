@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { MultipleSelector } from "../Selector/MultipleSelector";
+import { MultipleSearchSelector } from "../SearchSelector/MultipleSearchSelector";
 import { ICapability } from "$interfaces/Capability";
 import { identity } from "lodash";
 import { ICapabiltiesSelector } from "./interface";
@@ -11,7 +11,7 @@ export const CapabilitiesSelector: FunctionComponent<ICapabiltiesSelector> = (
     label
   }
 ) => (
-  <MultipleSelector<ICapability, ICapability>
+  <MultipleSearchSelector<ICapability, ICapability>
     name={"capabilities"}
     getOptionValue={identity}
     getOptionLabel={({ description }) => description}

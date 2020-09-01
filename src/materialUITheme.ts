@@ -48,8 +48,8 @@ export const MaterialUITheme = createMuiTheme({
         maxWidth: "130%"
       }
     },
-    MuiPaper: {
-      rounded: {
+    MuiDialog: {
+      paper: {
         borderRadius: 15,
         padding: 7
       }

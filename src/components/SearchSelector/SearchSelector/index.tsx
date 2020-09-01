@@ -1,8 +1,8 @@
 import { FastField, FieldProps } from "formik";
 import React from "react";
-import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
+import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
 
-export const Selector = <Option, Value>(
+export const SearchSelector = <Option, Value>(
   {
     name,
     validate,
@@ -12,7 +12,7 @@ export const Selector = <Option, Value>(
 ) => (
   <FastField name={name} validate={validate}>
     {({ meta, form }: FieldProps<Value>) => (
-      <BaseSelector
+      <BaseSearchSelector
         {...props}
         disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
