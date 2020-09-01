@@ -42,7 +42,10 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
                 label={translations.offerTitle}
                 validate={FormikValidator({ mandatory: true })}
               />
-              <TargetApplicantTypeSelector initialValue={values.targetApplicantType}/>
+              <TargetApplicantTypeSelector
+                value={values.targetApplicantType}
+                error={errors.targetApplicantType}
+              />
               <TextInput
                 name="description"
                 label={translations.description}

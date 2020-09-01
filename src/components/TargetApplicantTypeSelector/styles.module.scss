@@ -1,0 +1,12 @@
+@import "$styles/mixins/_textInput";
+@import "$styles/_variables";
+
+div.container {
+  @include textInput;
+
+  margin-bottom: $spacing-m;
+}
+
+.select {
+  width: 100%;
+}

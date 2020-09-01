@@ -1,5 +1,8 @@
+import { TargetApplicantType } from "../../interfaces/Offer";
+
 export interface IContainerProps {
-  initialValue: string;
+  value: TargetApplicantType | "";
+  error?: string;
 }
 
 export interface ITranslations {
