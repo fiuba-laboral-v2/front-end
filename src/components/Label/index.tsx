@@ -32,11 +32,14 @@ export const Label: FunctionComponent<ILabelProps> = (
   </Tooltip>
 );
 
-interface ILabelProps {
+export interface ILabelLayoutProps {
   className?: string;
+  useTooltip: boolean;
+  fixedPosition: boolean;
+}
+
+interface ILabelProps extends ILabelLayoutProps {
   Icon: FunctionComponent<SvgIconProps>;
   color: "red" | "green" | "darkYellow";
   text: string;
-  useTooltip: boolean;
-  fixedPosition: boolean;
 }

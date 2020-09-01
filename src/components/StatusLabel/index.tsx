@@ -3,6 +3,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApprovedLabel } from "$components/ApprovedLabel";
 import { RejectedLabel } from "$components/RejectedLabel";
 import { PendingLabel } from "$components/PendingLabel";
+import { ILabelLayoutProps } from "$components/Label";
 
 export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   {
@@ -26,12 +27,6 @@ export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   </>
 );
 
-export interface ILabelProps {
-  className?: string;
-  useTooltip: boolean;
-  fixedPosition: boolean;
-}
-
-export interface IStatusLabelProps extends ILabelProps {
+export interface IStatusLabelProps extends ILabelLayoutProps {
   status: ApprovalStatus;
 }
