@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { targetApplicantTypeEnumValues } from "$interfaces/Offer";
 import { FormikValidator } from "$models/FormikValidator";
-import { IComponentProps, ITranslations } from "./interfaces";
+import { IComponentProps } from "./interfaces";
 import { Select } from "formik-material-ui";
 import { Field } from "formik";
 import { FormControl, FormHelperText, InputLabel } from "@material-ui/core";
