@@ -6,7 +6,7 @@ import { StatusButton } from "../StatusButton";
 export const RejectButton: FunctionComponent<IComponent> = ({ setStatus }) => (
   <StatusButton
     setStatus={setStatus}
-    className="danger"
+    kind="danger"
     status={ApprovalStatus.rejected}
     Icon={HighlightOffIcon}
   />

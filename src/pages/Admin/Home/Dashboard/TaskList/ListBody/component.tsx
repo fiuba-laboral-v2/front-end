@@ -4,11 +4,10 @@ import { Card } from "$components/Card";
 import { AdminTask } from "../AdminTask";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
-import { IUseAdminTasks } from "$hooks/queries";
-import { OptionalFetchResult } from "$interfaces/Pagination";
 
 export const ListBody: FunctionComponent<IListBodyProps> = (
   {
+    loading,
     adminTasks,
     onSelectTask,
     selectedTask,
@@ -16,10 +15,15 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
     shouldFetchMore
   }
 ) => (
-  <List list={adminTasks} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
-    {(ref, adminTask) =>
+  <List
+    list={adminTasks}
+    fetchMoreClassName={styles.fetchMore}
+    fetchMore={fetchMore}
+    shouldFetchMore={shouldFetchMore}
+    loading={loading}
+  >
+    {adminTask =>
       <Card
-        _ref={ref}
         key={adminTask.uuid}
         className={styles.card}
         onClick={() => onSelectTask(adminTask)}
@@ -32,9 +36,10 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
 );
 
 interface IListBodyProps {
+  loading: boolean;
   adminTasks: TAdminTask[];
   onSelectTask: (task: TAdminTask) => void;
   selectedTask?: TAdminTask;
-  fetchMore: () => OptionalFetchResult<IUseAdminTasks>;
-  shouldFetchMore: boolean;
+  fetchMore?: () => void;
+  shouldFetchMore?: boolean;
 }

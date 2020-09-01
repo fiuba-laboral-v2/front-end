@@ -4,21 +4,25 @@ import { JobApplication } from "./JobApplication";
 import { Window } from "$components/Window";
 import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
-import { OptionalFetchResult } from "$interfaces/Pagination";
-import { IUseMyJobApplications } from "$hooks/queries/useMyJobApplications";
 
 export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
   {
     jobApplications,
     fetchMore,
-    shouldFetchMore
+    shouldFetchMore,
+    loading
   }
 ) => (
   <Window>
-    <List list={jobApplications} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
-      {(ref, jobApplication) =>
+    <List
+      list={jobApplications}
+      fetchMoreClassName={styles.fetchMore}
+      fetchMore={fetchMore}
+      shouldFetchMore={shouldFetchMore}
+      loading={loading}
+    >
+      {jobApplication =>
         <JobApplication
-          _ref={ref}
           className={styles.card}
           key={jobApplication.uuid}
           jobApplication={jobApplication}
@@ -30,6 +34,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
 
 interface IMyJobApplications {
   jobApplications: IJobApplication[];
-  fetchMore: () => OptionalFetchResult<IUseMyJobApplications>;
-  shouldFetchMore: boolean;
+  fetchMore: () => void;
+  shouldFetchMore?: boolean;
+  loading: boolean;
 }

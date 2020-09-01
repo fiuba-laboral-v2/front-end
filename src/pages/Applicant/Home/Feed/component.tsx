@@ -6,7 +6,6 @@ import { IOffer } from "$interfaces/Offer";
 import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
-import { OptionalFetchResult } from "$interfaces/Pagination";
 
 const Feed = <QueryResult, >(
   {
@@ -14,16 +13,22 @@ const Feed = <QueryResult, >(
     offers,
     onCardClick,
     fetchMore,
-    shouldFetchMore
+    shouldFetchMore,
+    loading
   }: IFeedProps<QueryResult>
 ) => (
   <Window>
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
     <div>
-      <List list={offers} fetchMore={fetchMore} shouldFetchMore={shouldFetchMore}>
-        {(ref, offer) => (
+      <List
+        list={offers}
+        fetchMore={fetchMore}
+        fetchMoreClassName={styles.fetchMore}
+        shouldFetchMore={shouldFetchMore}
+        loading={loading}
+      >
+        {offer => (
           <Card
-            _ref={ref}
             key={offer.uuid}
             className={styles.cardContainer}
             onClick={() => onCardClick(offer.uuid)}
@@ -40,8 +45,9 @@ interface IFeedProps<QueryResult> {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
-  fetchMore?: () => OptionalFetchResult<QueryResult>;
+  fetchMore?: () => void;
   shouldFetchMore?: boolean;
+  loading: boolean;
 }
 
 export { Feed };

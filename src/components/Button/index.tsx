@@ -5,12 +5,13 @@ import styles from "./styles.module.scss";
 export const Button: FunctionComponent<IButtonProps> = (
   {
     className,
+    kind,
     width = "fitContent",
     children,
     ...props
   }) => (
     <button
-      className={classNames(styles.main, styles[className], styles[width])}
+      className={classNames(styles.main, styles[kind], styles[width], className)}
       {...props}
     >
       {children}
@@ -18,7 +19,8 @@ export const Button: FunctionComponent<IButtonProps> = (
   );
 
 export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
-  className: "primary" | "secondary" | "warning" | "danger";
+  className?: string;
+  kind: "primary" | "secondary" | "warning" | "danger";
   width?: "expand" | "fitContent";
   onClick?: (state: object) => void;
   disabled?: boolean;

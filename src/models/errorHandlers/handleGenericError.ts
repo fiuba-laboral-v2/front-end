@@ -5,6 +5,6 @@ export const handleGenericError = (
   callback?: () => void
 ) =>
   () => {
-    enqueueSnackbar("Un error inesperado ha ocurrido", { variant: "error" });
+    enqueueSnackbar("Hubo un error desconocido", { variant: "error" });
     if (callback) callback();
   };

@@ -5,6 +5,7 @@ import { TaskList } from "./component";
 
 export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   {
+    loading,
     adminTasks,
     onSelectTask,
     selectedTask,
@@ -17,6 +18,7 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = (
   if (!translations) return <Fragment/>;
 
   return <TaskList
+    loading={loading}
     adminTasks={adminTasks}
     onSelectTask={onSelectTask}
     selectedTask={selectedTask}

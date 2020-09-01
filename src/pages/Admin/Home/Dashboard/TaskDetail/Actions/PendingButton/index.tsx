@@ -6,7 +6,7 @@ import HistoryIcon from "@material-ui/icons/History";
 export const PendingButton: FunctionComponent<IComponent> = ({ setStatus }) => (
   <StatusButton
     setStatus={setStatus}
-    className="secondary"
+    kind="secondary"
     status={ApprovalStatus.pending}
     Icon={HistoryIcon}
   />

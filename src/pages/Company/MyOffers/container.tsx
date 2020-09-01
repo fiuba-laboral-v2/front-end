@@ -15,15 +15,16 @@ export const MyOffersContainer: FunctionComponent = () => {
   if (response.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
   }
-  if (response.loading || !translations) return <LoadingSpinner/>;
+  if (!translations) return <LoadingSpinner/>;
 
   return (
     <Feed
+      loading={response.loading}
       title={translations.title}
-      offers={response.data.getMyOffers.results}
+      offers={response.data?.getMyOffers.results || []}
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
       fetchMore={response.fetchMore}
-      shouldFetchMore={response.data.getMyOffers.shouldFetchMore}
+      shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
     />);
 };
 
