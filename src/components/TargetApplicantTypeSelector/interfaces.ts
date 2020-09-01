@@ -1,4 +1,4 @@
-import { TargetApplicantType } from "../../interfaces/Offer";
+import { TargetApplicantType } from "$interfaces/Offer";
 
 export interface IContainerProps {
   value: TargetApplicantType | "";
