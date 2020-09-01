@@ -1,12 +1,12 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
-import { BaseSelector, IBaseSelectorProps } from "../BaseSelector";
+import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
 import { differenceBy, unionBy } from "lodash";
 import { TagSet } from "../../TagSet";
 import styles from "./styles.module.scss";
 import { TextFormatter } from "$models/TextFormatter";
 
-export const MultipleSelector = <Option, Value>(
+export const MultipleSearchSelector = <Option, Value>(
   {
     name,
     validate,
@@ -26,7 +26,7 @@ export const MultipleSelector = <Option, Value>(
     <Field name={name} validate={validate}>
       {({ meta, form }: FieldProps<Value[]>) => (
         <>
-          <BaseSelector
+          <BaseSearchSelector
             {...props}
             freeSolo
             disableClearable
