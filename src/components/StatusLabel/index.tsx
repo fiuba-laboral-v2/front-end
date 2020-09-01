@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ApprovalStatus } from "../../interfaces/ApprovalStatus";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApprovedLabel } from "$components/ApprovedLabel";
 import { RejectedLabel } from "$components/RejectedLabel";
 import { PendingLabel } from "$components/PendingLabel";
