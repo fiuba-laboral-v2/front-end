@@ -10,6 +10,7 @@ export const PendingLabel: FunctionComponent<ILabelLayoutProps> = props => {
     Icon={HistoryIcon}
     color="darkYellow"
     text={text}
+    tooltipText={text}
     {...props}
   />;
 };

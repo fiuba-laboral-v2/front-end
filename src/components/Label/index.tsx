@@ -10,13 +10,14 @@ export const Label: FunctionComponent<ILabelProps> = (
     className,
     Icon,
     text,
+    tooltipText,
     useTooltip,
     fixedPosition,
     color
   }
 ) => (
   <Tooltip
-    title={text}
+    title={tooltipText}
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !useTooltip }) }}
   >
@@ -42,4 +43,5 @@ interface ILabelProps extends ILabelLayoutProps {
   Icon: FunctionComponent<SvgIconProps>;
   color: "red" | "green" | "darkYellow";
   text: string;
+  tooltipText: string;
 }

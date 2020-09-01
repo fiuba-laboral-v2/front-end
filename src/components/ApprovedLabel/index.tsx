@@ -10,6 +10,7 @@ export const ApprovedLabel: FunctionComponent<ILabelLayoutProps> = props => {
     Icon={CheckIcon}
     color="green"
     text={text}
+    tooltipText={text}
     {...props}
   />;
 };

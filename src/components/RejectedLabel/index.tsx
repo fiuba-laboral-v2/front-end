@@ -10,6 +10,7 @@ export const RejectedLabel: FunctionComponent<ILabelLayoutProps> = props => {
     Icon={NotInterestedIcon}
     color="red"
     text={text}
+    tooltipText={text}
     {...props}
   />;
 };
