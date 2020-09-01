@@ -1,42 +1,9 @@
-import React, { ReactNode, Ref, useEffect, useRef, useState } from "react";
+import React from "react";
 import { List } from "./component";
-import { OptionalFetchResult } from "../../interfaces/Pagination";
+import { IListContainerProps, IListTranslations } from "./interface";
+import { useTranslations } from "../../models/hooks/queries";
 
-export const ListContainer = <ListItem, Result>(
-  {
-    list,
-    children,
-    className,
-    fetchMore,
-    shouldFetchMore
-  }: IListContainerProps<ListItem, Result>
-) => {
-  const fetchMoreTrigger = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    if (!fetchMore || !shouldFetchMore || !fetchMoreTrigger.current || loading) return;
-    const observer = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting)) return;
-      setLoading(true);
-      fetchMore()?.then(() => setLoading(false));
-      observer.disconnect();
-    });
-    observer.observe(fetchMoreTrigger.current);
-  });
-
-  return <List
-    list={list}
-    className={className}
-    mapListItemToReactNode={children}
-    fetchMoreTrigger={fetchMoreTrigger}
-    loading={loading}
-  />;
+export const ListContainer = <ListItem, Result>(props: IListContainerProps<ListItem, Result>) => {
+  const translations = useTranslations<IListTranslations>("list");
+  return <List {...props} translations={translations || { fetchMore: "" }}/>;
 };
-
-interface IListContainerProps<ListItem, Result> {
-  fetchMore?: () => OptionalFetchResult<Result>;
-  shouldFetchMore?: boolean;
-  list: ListItem[];
-  className?: string;
-  children: (ref: Ref<HTMLDivElement> | undefined, item: ListItem) => ReactNode;
-}

@@ -16,7 +16,7 @@ export const FormFooter = <Values extends { _form?: string }>(
   <div className={classNames(styles.footer, className)}>
     <span className={styles.formError}>{errors._form}</span>
     <SubmitButton
-      className="primary"
+      kind="primary"
       disabled={isSubmitting}
       errors={errors}
       onClick={onSubmit}

@@ -23,7 +23,7 @@ export const OfferDetail: FunctionComponent<IOfferDetail> = (
           <div className={styles.applyButton}>
             <Button
               onClick={() => apply(offer.uuid)}
-              className="primary"
+              kind="primary"
               width="expand"
               type="submit"
               disabled={offer.hasApplied}

@@ -12,7 +12,7 @@ export const useUpdateAdminTaskStatusMutation = (
   const mutation = useMutation<IUseUpdateAdminTaskStatusVariables>(documentNode);
   return async ({ variables, update }: IMutationVariables) => {
     const mutationFunctionResult = await mutation({ variables, update });
-    refetchAdminTasks();
+    await refetchAdminTasks();
     return mutationFunctionResult;
   };
 };

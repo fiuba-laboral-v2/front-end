@@ -51,7 +51,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
             <div className={styles.footer}>
               <SubmitButton
                 form={formName}
-                className="primary"
+                kind="primary"
                 width="expand"
                 type="submit"
                 disabled={isSubmitting}

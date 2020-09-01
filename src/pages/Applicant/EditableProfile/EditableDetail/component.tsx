@@ -125,7 +125,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
                 <div className={styles.submit}>
                   <SubmitButton
                     form={formName}
-                    className="primary"
+                    kind="primary"
                     type="submit"
                     disabled={isSubmitting}
                     errors={errors}

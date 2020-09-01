@@ -55,7 +55,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
               </Form>
               <SubmitButton
                 form={formName}
-                className="primary"
+                kind="primary"
                 type="submit"
                 disabled={isSubmitting}
                 errors={errors}
