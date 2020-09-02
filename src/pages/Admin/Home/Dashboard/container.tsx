@@ -27,7 +27,7 @@ export const DashboardContainer: FunctionComponent = () => {
       selectedTask={find(adminTasks, ["uuid", selectedTask?.uuid])}
       setSelectedTask={setSelectedTask}
       filter={filter}
-      {...(response.loading && { setFilter })}
+      setFilter={response.loading ? undefined : setFilter}
       fetchMore={response.fetchMore}
       shouldFetchMore={result?.shouldFetchMore}
     />
