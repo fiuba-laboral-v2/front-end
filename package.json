@@ -47,7 +47,7 @@
     "react-scripts": "3.4.1",
     "shortid": "2.2.15",
     "tslint": "5.20.1",
-    "typescript": "~3.7.2",
+    "typescript": "3.7.5",
     "validations-fiuba-laboral-v2": "1.0.21"
   },
   "resolutions": {
@@ -56,9 +56,10 @@
   "scripts": {
     "start": "NODE_ENV=development yarn run postinstall && react-scripts start",
     "build": "react-scripts build",
+    "build:lint": "tsc --noEmit -p .",
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "yarn lint:src:ts && yarn lint:src:tsx && yarn lint:test:ts && yarn lint:test:tsx && yarn lint:scss",
+    "lint": "yarn lint:src:ts && yarn lint:src:tsx && yarn lint:test:ts && yarn lint:test:tsx && yarn lint:scss & yarn build:lint",
     "lint:scss": "yarn stylelint '**/*.scss'",
     "lint:src:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:src:tsx": "tslint -c tslint.json 'src/**/*.tsx'",
