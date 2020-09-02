@@ -13,7 +13,12 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
       <div className={styles.name}>{name}</div>
       <UpdatedSince date={updatedAt} />
     </div>
-    <StatusLabel status={approvalStatus} useTooltip={true} fixedPosition={true}/>
+    <StatusLabel
+      status={approvalStatus}
+      useTooltip={true}
+      fixedPosition={true}
+      expand={false}
+    />
   </div>
 );
 

@@ -23,12 +23,14 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
           status={approvalStatus}
           useTooltip={true}
           fixedPosition={false}
+          expand={false}
         />
         <StatusLabel
           className={styles.mobileStatus}
           status={approvalStatus}
           useTooltip={false}
           fixedPosition={true}
+          expand={true}
         />
       </>
     }
