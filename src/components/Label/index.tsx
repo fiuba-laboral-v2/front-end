@@ -13,6 +13,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     tooltipText,
     useTooltip,
     fixedPosition,
+    allCornersRound,
     expand,
     color
   }
@@ -25,12 +26,13 @@ export const Label: FunctionComponent<ILabelProps> = (
     <div className={classNames(styles.tag, styles[color], className, {
       [styles.fixedPosition]: fixedPosition,
       [styles.relativePosition]: !fixedPosition && !expand,
-      [styles.expand]: expand
+      [styles.allCornersRound]: allCornersRound,
+      [styles.oppositeCornersRound]: !allCornersRound
     })}>
       <div className={styles.iconContainer}>
         <Icon className={styles.icon} fontSize="inherit" />
       </div>
-      {(expand || fixedPosition) && <span className={styles.text}>{text}</span>}
+      {expand && <span className={styles.text}>{text}</span>}
     </div>
   </Tooltip>
 );
@@ -40,6 +42,7 @@ export interface ILabelLayoutProps {
   useTooltip: boolean;
   fixedPosition: boolean;
   expand?: boolean;
+  allCornersRound: boolean;
 }
 
 export interface ILabelTextProps {

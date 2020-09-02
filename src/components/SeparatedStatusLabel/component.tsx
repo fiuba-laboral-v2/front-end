@@ -23,6 +23,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       useTooltip={true}
       fixedPosition={false}
       expand={true}
+      allCornersRound
     />
     <StatusLabel
       tooltipText={graduadosTooltipText}
@@ -32,6 +33,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       useTooltip={true}
       fixedPosition={false}
       expand={true}
+      allCornersRound
     />
   </div>
 );

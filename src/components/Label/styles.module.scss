@@ -6,21 +6,19 @@
 }
 
 .tag {
+  align-items: center;
   display: flex;
   padding: 4px 10px;
   width: fit-content;
 }
 
 .relativePosition {
-  border-radius: $smallBorderRadius;
   max-height: $spacing-m;
   max-width: $spacing-m;
   padding: 4px;
 }
 
 .fixedPosition {
-  border-bottom-left-radius: $smallBorderRadius;
-  border-top-right-radius: $defaultBorderRadius;
   margin-right: -1px;
   margin-top: -1px;
   position: absolute;
@@ -28,8 +26,13 @@
   top: 0;
 }
 
-.expand {
+.allCornersRound {
   border-radius: $smallBorderRadius;
+}
+
+.oppositeCornersRound {
+  border-bottom-left-radius: $smallBorderRadius;
+  border-top-right-radius: $defaultBorderRadius;
 }
 
 .text {

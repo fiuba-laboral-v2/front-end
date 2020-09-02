@@ -15,8 +15,9 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
     </div>
     <SharedStatusLabel
       status={approvalStatus}
-      useTooltip={true}
-      fixedPosition={true}
+      useTooltip
+      fixedPosition
+      allCornersRound={false}
       expand={false}
     />
   </div>
