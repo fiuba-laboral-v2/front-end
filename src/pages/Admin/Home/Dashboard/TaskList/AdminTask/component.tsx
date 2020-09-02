@@ -14,6 +14,8 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
       <UpdatedSince date={updatedAt} />
     </div>
     <StatusLabel
+      text={"FALTA TEXTO"}
+      tooltipText={"FALTA TEXTO"}
       status={approvalStatus}
       useTooltip={true}
       fixedPosition={true}
