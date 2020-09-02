@@ -1,10 +1,8 @@
+import { ILabelLayoutProps } from "$components/Label";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export interface IContainerProps {
-  className?: string;
-  detailTitle: string;
-  approvalStatus?: ApprovalStatus;
-  mobileLayout?: boolean;
+export interface IContainerProps extends ILabelLayoutProps {
+  status: ApprovalStatus;
 }
 
 export interface ITranslations {

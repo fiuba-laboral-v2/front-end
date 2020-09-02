@@ -5,7 +5,7 @@ import { PendingLabel } from "$components/PendingLabel";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
-export const StatusLabel: FunctionComponent<IComponentProps> = (
+export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   {
     status,
     ...props
@@ -27,6 +27,6 @@ export const StatusLabel: FunctionComponent<IComponentProps> = (
   </>
 );
 
-interface IComponentProps extends ILabelLayoutProps, ILabelTextProps {
+export interface IStatusLabelProps extends ILabelLayoutProps, ILabelTextProps {
   status: ApprovalStatus;
 }
