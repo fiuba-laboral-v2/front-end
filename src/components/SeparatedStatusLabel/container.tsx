@@ -16,9 +16,12 @@ export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> =
   if (!translations) return <Fragment />;
 
   const buildTooltipLabel = (status: ApprovalStatus, secretary: Secretary) => {
-    if (status === ApprovalStatus.approved) return `${translations.approved} ${secretary}`;
-    if (status === ApprovalStatus.rejected) return `${translations.rejected} ${secretary}`;
-    return `${translations.pending} ${secretary}`;
+    let suffix = "";
+    if (secretary === Secretary.graduados) suffix = translations.graduate;
+    if (secretary === Secretary.extension) suffix = translations.student;
+    if (status === ApprovalStatus.approved) return `${translations.approved} ${suffix}`;
+    if (status === ApprovalStatus.rejected) return `${translations.rejected} ${suffix}`;
+    return `${translations.pending} ${suffix}`;
   };
 
   return <SeparatedStatusLabel
