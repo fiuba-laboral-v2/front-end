@@ -42,9 +42,12 @@ export interface ILabelLayoutProps {
   expand: boolean;
 }
 
-interface ILabelProps extends ILabelLayoutProps {
-  Icon: FunctionComponent<SvgIconProps>;
-  color: "red" | "green" | "darkYellow";
+export interface ILabelTextProps {
   text: string;
   tooltipText: string;
+}
+
+interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {
+  Icon: FunctionComponent<SvgIconProps>;
+  color: "red" | "green" | "darkYellow";
 }

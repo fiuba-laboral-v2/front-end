@@ -14,6 +14,8 @@ export const SeparatedStatusLabel: FunctionComponent<ISeparatedStatusLabelProps>
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
     <StatusLabel
+      tooltipText={""}
+      text={""}
       className={styles.extensionApprovalStatus}
       status={extensionApprovalStatus}
       useTooltip={false}
@@ -21,6 +23,8 @@ export const SeparatedStatusLabel: FunctionComponent<ISeparatedStatusLabelProps>
       expand={true}
     />
     <StatusLabel
+      tooltipText={""}
+      text={""}
       className={styles.graduadosApprovalStatus}
       status={graduadosApprovalStatus}
       useTooltip={false}
