@@ -30,7 +30,7 @@ export const Label: FunctionComponent<ILabelProps> = (
       <div className={styles.iconContainer}>
         <Icon className={styles.icon} fontSize="inherit" />
       </div>
-      {expand && <span className={styles.text}>{text}</span>}
+      {(expand || fixedPosition) && <span className={styles.text}>{text}</span>}
     </div>
   </Tooltip>
 );
@@ -39,7 +39,7 @@ export interface ILabelLayoutProps {
   className?: string;
   useTooltip: boolean;
   fixedPosition: boolean;
-  expand: boolean;
+  expand?: boolean;
 }
 
 export interface ILabelTextProps {
