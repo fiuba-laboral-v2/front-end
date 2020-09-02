@@ -28,6 +28,10 @@
   top: 0;
 }
 
+.expand {
+  border-radius: $smallBorderRadius;
+}
+
 .text {
   @include text;
 

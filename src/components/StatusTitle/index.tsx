@@ -10,11 +10,12 @@ export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
   {
     className,
     detailTitle,
-    approvalStatus
+    approvalStatus,
+    mobileLayout
   }
 ) => (
   <div className={classNames(styles.statusTitle, className)}>
-    <Headline className={styles.title}>{detailTitle}</Headline>
+    <Headline className={styles.title} mobileLayout={mobileLayout}>{detailTitle}</Headline>
     {
       approvalStatus &&
       <>
@@ -41,4 +42,5 @@ interface IStatusTitleProps {
   className?: string;
   detailTitle: string;
   approvalStatus?: ApprovalStatus;
+  mobileLayout?: boolean;
 }

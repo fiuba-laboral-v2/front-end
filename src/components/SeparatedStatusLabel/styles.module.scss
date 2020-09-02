@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+
+.separatedStatusLabel {
+  display: flex;
+}
+
+.extensionApprovalStatus {
+  margin-right: $spacing-m;
+}

@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Link } from "$components/Link";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
+import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { CreatedSince } from "$components/CreatedSince";
@@ -19,7 +20,8 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
     applyButton,
     editButton,
     offer,
-    goToCompany
+    goToCompany,
+    withStatusLabel
   }
 ) => (
   <div className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}>
@@ -41,6 +43,13 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
         <CreatedSince className={styles.createdAt} date={offer.createdAt} />
+        {
+          withStatusLabel &&
+          <SeparatedStatusLabel
+            graduadosApprovalStatus={offer.graduadosApprovalStatus}
+            extensionApprovalStatus={offer.extensionApprovalStatus}
+          />
+        }
       </div>
     </div>
     <div className={styles.body}>
@@ -67,4 +76,5 @@ interface IOfferDetailProps {
   editButton?: ReactElement;
   offer: IMyOffer | IOffer;
   goToCompany?: string;
+  withStatusLabel?: boolean;
 }

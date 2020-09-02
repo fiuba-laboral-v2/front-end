@@ -31,6 +31,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
         }
         goToCompany={RoutesBuilder.company.myProfile()}
         offer={offer}
+        withStatusLabel
       />
     </Window>
   );

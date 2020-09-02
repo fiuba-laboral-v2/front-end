@@ -50,6 +50,8 @@
 
   .createdAt {
     @include text;
+
+    margin-bottom: $spacing-m;
   }
 }
 

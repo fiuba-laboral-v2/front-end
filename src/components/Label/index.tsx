@@ -24,7 +24,8 @@ export const Label: FunctionComponent<ILabelProps> = (
   >
     <div className={classNames(styles.tag, styles[color], className, {
       [styles.fixedPosition]: fixedPosition,
-      [styles.relativePosition]: !fixedPosition
+      [styles.relativePosition]: !fixedPosition && !expand,
+      [styles.expand]: expand
     })}>
       <div className={styles.iconContainer}>
         <Icon className={styles.icon} fontSize="inherit" />
