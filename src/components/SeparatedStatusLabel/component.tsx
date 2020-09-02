@@ -20,20 +20,22 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       text={translations.student}
       className={styles.extensionApprovalStatus}
       status={extensionApprovalStatus}
-      useTooltip={true}
+      useTooltip
       fixedPosition={false}
-      expand={true}
+      expand
       allCornersRound
+      invertColor
     />
     <StatusLabel
       tooltipText={graduadosTooltipText}
       text={translations.graduate}
       className={styles.graduadosApprovalStatus}
       status={graduadosApprovalStatus}
-      useTooltip={true}
+      useTooltip
       fixedPosition={false}
-      expand={true}
+      expand
       allCornersRound
+      invertColor
     />
   </div>
 );

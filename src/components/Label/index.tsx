@@ -14,6 +14,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     useTooltip,
     fixedPosition,
     allCornersRound,
+    invertColor,
     expand,
     color
   }
@@ -23,16 +24,28 @@ export const Label: FunctionComponent<ILabelProps> = (
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !useTooltip }) }}
   >
-    <div className={classNames(styles.tag, styles[color], className, {
+    <div className={classNames(styles.tag, className, {
       [styles.fixedPosition]: fixedPosition,
       [styles.relativePosition]: !fixedPosition && !expand,
       [styles.allCornersRound]: allCornersRound,
-      [styles.oppositeCornersRound]: !allCornersRound
+      [styles.oppositeCornersRound]: !allCornersRound,
+      [styles[`background${color}`]]: !invertColor,
+      [styles[`border${color}`]]: invertColor
     })}>
       <div className={styles.iconContainer}>
-        <Icon className={styles.icon} fontSize="inherit" />
+        <Icon
+          className={classNames(styles.icon, { [styles[`color${color}`]]: invertColor })}
+          fontSize="inherit"
+        />
       </div>
-      {expand && <span className={styles.text}>{text}</span>}
+      {
+        expand &&
+        <span
+          className={classNames(styles.text, { [styles[`color${color}`]]: invertColor })}
+        >
+          {text}
+        </span>
+      }
     </div>
   </Tooltip>
 );
@@ -43,6 +56,7 @@ export interface ILabelLayoutProps {
   fixedPosition: boolean;
   expand?: boolean;
   allCornersRound: boolean;
+  invertColor?: boolean;
 }
 
 export interface ILabelTextProps {
@@ -52,5 +66,5 @@ export interface ILabelTextProps {
 
 interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {
   Icon: FunctionComponent<SvgIconProps>;
-  color: "red" | "green" | "darkYellow";
+  color: "Red" | "Green" | "DarkYellow";
 }

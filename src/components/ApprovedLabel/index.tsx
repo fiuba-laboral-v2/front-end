@@ -6,7 +6,7 @@ import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 export const ApprovedLabel: FunctionComponent<ILabelLayoutProps & ILabelTextProps> = props => (
   <Label
     Icon={CheckIcon}
-    color="green"
+    color="Green"
     {...props}
   />
 );

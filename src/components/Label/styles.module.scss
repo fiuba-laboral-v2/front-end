@@ -56,14 +56,38 @@
   max-width: $spacing-m;
 }
 
-.red {
+.backgroundRed {
   background: $red;
 }
 
-.green {
+.backgroundGreen {
   background: $green;
 }
 
-.darkYellow {
+.backgroundDarkYellow {
   background: $darkYellow;
+}
+
+.colorRed {
+  color: $red;
+}
+
+.colorGreen {
+  color: $green;
+}
+
+.colorDarkYellow {
+  color: $darkYellow;
+}
+
+.borderRed {
+  border: 1px solid $red;
+}
+
+.borderGreen {
+  border: 1px solid $green;
+}
+
+.borderDarkYellow {
+  border: 1px solid $darkYellow;
 }

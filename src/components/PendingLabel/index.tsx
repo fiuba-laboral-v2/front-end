@@ -6,7 +6,7 @@ import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 export const PendingLabel: FunctionComponent<ILabelLayoutProps & ILabelTextProps> = props => (
   <Label
     Icon={HistoryIcon}
-    color="darkYellow"
+    color="DarkYellow"
     {...props}
   />
 );
