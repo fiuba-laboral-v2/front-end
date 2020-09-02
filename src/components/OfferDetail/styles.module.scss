@@ -94,6 +94,7 @@
 @include customSmallMedia {
   .titleContainer {
     flex-direction: column;
+    margin-bottom: $spacing-m;
   }
 
   .title {
