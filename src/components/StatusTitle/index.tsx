@@ -29,9 +29,9 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
           className={styles.mobileStatus}
           status={approvalStatus}
           useTooltip={false}
-          fixedPosition={true}
           allCornersRound={false}
-          expand
+          fixedPosition
+          horizontalLayout
         />
       </>
     }

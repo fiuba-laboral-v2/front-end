@@ -22,7 +22,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       status={extensionApprovalStatus}
       useTooltip
       fixedPosition={false}
-      expand
+      horizontalLayout
       allCornersRound
       transparentBackground
     />
@@ -33,7 +33,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       status={graduadosApprovalStatus}
       useTooltip
       fixedPosition={false}
-      expand
+      horizontalLayout
       allCornersRound
       transparentBackground
     />

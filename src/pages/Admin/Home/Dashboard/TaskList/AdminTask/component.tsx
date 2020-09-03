@@ -18,7 +18,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
       useTooltip
       fixedPosition
       allCornersRound={false}
-      expand={false}
+      horizontalLayout={false}
     />
   </div>
 );
