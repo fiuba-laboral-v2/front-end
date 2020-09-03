@@ -21,7 +21,7 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
         <SharedStatusLabel
           className={styles.desktopStatus}
           status={approvalStatus}
-          useTooltip={true}
+          useTooltip
           fixedPosition={false}
           allCornersRound
         />

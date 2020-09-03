@@ -28,7 +28,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
         <h1 className={styles.title}>{translations.title}</h1>
         <Formik
           initialValues={initialValues}
-          validateOnMount={true}
+          validateOnMount
           onSubmit={onSubmit}
           validate={validateForm}
         >

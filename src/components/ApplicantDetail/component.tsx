@@ -32,7 +32,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     withStatusLabel
   }
 ) => (
-  <Card largePadding={true} className={classNames(className, { [styles.mobile]: mobileLayout })}>
+  <Card largePadding className={classNames(className, { [styles.mobile]: mobileLayout })}>
     <div className={styles.headline}>
       <div className={styles.header}>
         <StatusTitle
