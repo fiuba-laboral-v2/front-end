@@ -7,8 +7,8 @@ import styles from "./styles.module.scss";
 export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
   {
     translations,
-    extensionTooltipText,
-    graduadosTooltipText,
+    extensionText,
+    graduadosText,
     className,
     extensionApprovalStatus,
     graduadosApprovalStatus
@@ -16,8 +16,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
     <StatusLabel
-      tooltipText={extensionTooltipText}
-      text={translations.student}
+      tooltipText={translations.extensionTooltip}
+      text={extensionText}
       className={styles.extensionApprovalStatus}
       status={extensionApprovalStatus}
       useTooltip
@@ -28,8 +28,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       expandHorizontally
     />
     <StatusLabel
-      tooltipText={graduadosTooltipText}
-      text={translations.graduate}
+      tooltipText={translations.graduadosTooltip}
+      text={graduadosText}
       className={styles.graduadosApprovalStatus}
       status={graduadosApprovalStatus}
       useTooltip

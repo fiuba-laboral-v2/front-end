@@ -7,6 +7,8 @@ export interface IContainerProps {
 }
 
 export interface ITranslations {
+  extensionTooltip: string;
+  graduadosTooltip: string;
   graduate: string;
   student: string;
   pending: string;
@@ -16,6 +18,6 @@ export interface ITranslations {
 
 export interface IComponentProps extends IContainerProps {
   translations: ITranslations;
-  extensionTooltipText: string;
-  graduadosTooltipText: string;
+  extensionText: string;
+  graduadosText: string;
 }

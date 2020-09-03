@@ -4,6 +4,7 @@ import { SeparatedStatusLabel } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
+import { capitalize } from "lodash";
 
 export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> = (
   {
@@ -15,19 +16,19 @@ export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> =
   const translations = useTranslations<ITranslations>("separatedStatusLabel");
   if (!translations) return <Fragment />;
 
-  const buildTooltipLabel = (status: ApprovalStatus, secretary: Secretary) => {
-    let suffix = "";
-    if (secretary === Secretary.graduados) suffix = translations.graduate;
-    if (secretary === Secretary.extension) suffix = translations.student;
-    if (status === ApprovalStatus.approved) return `${translations.approved} ${suffix}`;
-    if (status === ApprovalStatus.rejected) return `${translations.rejected} ${suffix}`;
-    return `${translations.pending} ${suffix}`;
+  const buildLabel = (status: ApprovalStatus, secretary: Secretary) => {
+    let applicantType = "";
+    if (secretary === Secretary.graduados) applicantType = translations.graduate;
+    if (secretary === Secretary.extension) applicantType = translations.student;
+    if (status === ApprovalStatus.approved) return `${translations.approved} ${applicantType}`;
+    if (status === ApprovalStatus.rejected) return `${translations.rejected} ${applicantType}`;
+    return `${capitalize(applicantType)}: ${translations.pending}`;
   };
 
   return <SeparatedStatusLabel
     {...props}
-    extensionTooltipText={buildTooltipLabel(extensionApprovalStatus, Secretary.extension)}
-    graduadosTooltipText={buildTooltipLabel(graduadosApprovalStatus, Secretary.graduados)}
+    extensionText={buildLabel(extensionApprovalStatus, Secretary.extension)}
+    graduadosText={buildLabel(graduadosApprovalStatus, Secretary.graduados)}
     extensionApprovalStatus={extensionApprovalStatus}
     graduadosApprovalStatus={graduadosApprovalStatus}
     translations={translations}
