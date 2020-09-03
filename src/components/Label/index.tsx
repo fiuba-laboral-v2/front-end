@@ -34,12 +34,6 @@ export const Label: FunctionComponent<ILabelProps> = (
       [styles[`background${color}`]]: !transparentBackground,
       [styles[`transparentBackground${color}`]]: transparentBackground
     })}>
-      <div className={styles.iconContainer}>
-        <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: transparentBackground })}
-          fontSize="inherit"
-        />
-      </div>
       {
         horizontalLayout &&
         <span
@@ -48,6 +42,12 @@ export const Label: FunctionComponent<ILabelProps> = (
           {text}
         </span>
       }
+      <div className={styles.iconContainer}>
+        <Icon
+          className={classNames(styles.icon, { [styles[`color${color}`]]: transparentBackground })}
+          fontSize="inherit"
+        />
+      </div>
     </div>
   </Tooltip>
 );
