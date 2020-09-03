@@ -14,7 +14,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     useTooltip,
     fixedPosition,
     allCornersRound,
-    invertColor,
+    transparentBackground,
     expand,
     color
   }
@@ -29,19 +29,19 @@ export const Label: FunctionComponent<ILabelProps> = (
       [styles.relativePosition]: !fixedPosition && !expand,
       [styles.allCornersRound]: allCornersRound,
       [styles.oppositeCornersRound]: !allCornersRound,
-      [styles[`background${color}`]]: !invertColor,
-      [styles[`border${color}`]]: invertColor
+      [styles[`background${color}`]]: !transparentBackground,
+      [styles[`transparentBackground${color}`]]: transparentBackground
     })}>
       <div className={styles.iconContainer}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: invertColor })}
+          className={classNames(styles.icon, { [styles[`color${color}`]]: transparentBackground })}
           fontSize="inherit"
         />
       </div>
       {
         expand &&
         <span
-          className={classNames(styles.text, { [styles[`color${color}`]]: invertColor })}
+          className={classNames(styles.text, { [styles[`color${color}`]]: transparentBackground })}
         >
           {text}
         </span>
@@ -56,7 +56,7 @@ export interface ILabelLayoutProps {
   fixedPosition: boolean;
   expand?: boolean;
   allCornersRound: boolean;
-  invertColor?: boolean;
+  transparentBackground?: boolean;
 }
 
 export interface ILabelTextProps {
