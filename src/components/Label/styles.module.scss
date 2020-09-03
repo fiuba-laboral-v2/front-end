@@ -73,15 +73,15 @@
 }
 
 .transparentBackgroundRed {
-  background: transparentize($red, 0.8);
+  background: lighten($red, 35%);
 }
 
 .transparentBackgroundGreen {
-  background: transparentize($green, 0.8);
+  background: lighten($green, 45%);
 }
 
 .transparentBackgroundDarkYellow {
-  background: transparentize($darkYellow, 0.8);
+  background: lighten($darkYellow, 40%);
 }
 
 .colorRed {
