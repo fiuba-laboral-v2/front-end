@@ -2,8 +2,9 @@
 
 .separatedStatusLabel {
   display: flex;
+  flex-direction: column;
 }
 
 .extensionApprovalStatus {
-  margin-right: $spacing-m;
+  margin-bottom: $spacing-s;
 }
