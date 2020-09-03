@@ -15,6 +15,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     fixedPosition,
     allCornersRound,
     transparentBackground,
+    expandHorizontally,
     horizontalLayout,
     color
   }
@@ -27,6 +28,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     <div className={classNames(styles.tag, className, {
       [styles.fixedPosition]: fixedPosition,
       [styles.relativePosition]: !fixedPosition && !horizontalLayout,
+      [styles.expandHorizontally]: expandHorizontally && !fixedPosition,
       [styles.allCornersRound]: allCornersRound,
       [styles.oppositeCornersRound]: !allCornersRound,
       [styles[`background${color}`]]: !transparentBackground,
@@ -55,6 +57,7 @@ export interface ILabelLayoutProps {
   useTooltip: boolean;
   fixedPosition: boolean;
   horizontalLayout?: boolean;
+  expandHorizontally?: boolean;
   allCornersRound: boolean;
   transparentBackground?: boolean;
 }

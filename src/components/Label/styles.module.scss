@@ -26,6 +26,10 @@
   top: 0;
 }
 
+.expandHorizontally {
+  width: unset;
+}
+
 .allCornersRound {
   border-radius: $smallBorderRadius;
 }
