@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { ApprovalStatus } from "../../interfaces/ApprovalStatus";
 import { ApprovedLabel } from "$components/ApprovedLabel";
 import { RejectedLabel } from "$components/RejectedLabel";
 import { PendingLabel } from "$components/PendingLabel";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
 export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   {
@@ -26,12 +27,6 @@ export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
   </>
 );
 
-export interface ILabelProps {
-  className?: string;
-  useTooltip: boolean;
-  fixedPosition: boolean;
-}
-
-export interface IStatusLabelProps extends ILabelProps {
+export interface IStatusLabelProps extends ILabelLayoutProps, ILabelTextProps {
   status: ApprovalStatus;
 }

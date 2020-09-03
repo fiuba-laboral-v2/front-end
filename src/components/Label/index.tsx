@@ -10,33 +10,64 @@ export const Label: FunctionComponent<ILabelProps> = (
     className,
     Icon,
     text,
+    tooltipText,
     useTooltip,
     fixedPosition,
+    allCornersRound,
+    transparentBackground,
+    expandHorizontally,
+    horizontalLayout,
     color
   }
 ) => (
   <Tooltip
-    title={text}
+    title={tooltipText}
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !useTooltip }) }}
   >
-    <div className={classNames(styles.tag, styles[color], className, {
+    <div className={classNames(styles.tag, className, {
       [styles.fixedPosition]: fixedPosition,
-      [styles.relativePosition]: !fixedPosition
+      [styles.relativePosition]: !fixedPosition && !horizontalLayout,
+      [styles.expandHorizontally]: expandHorizontally && !fixedPosition,
+      [styles.allCornersRound]: allCornersRound,
+      [styles.oppositeCornersRound]: !allCornersRound,
+      [styles[`background${color}`]]: !transparentBackground,
+      [styles[`transparentBackground${color}`]]: transparentBackground
     })}>
+      {
+        horizontalLayout &&
+        <span
+          className={classNames(styles.text, { [styles[`color${color}`]]: transparentBackground })}
+        >
+          {text}
+        </span>
+      }
       <div className={styles.iconContainer}>
-        <Icon className={styles.icon} fontSize="inherit" />
+        <Icon
+          className={classNames(styles.icon, { [styles[`color${color}`]]: transparentBackground })}
+          fontSize="inherit"
+        />
       </div>
-      {!useTooltip && <span className={styles.text}>{text}</span>}
     </div>
   </Tooltip>
 );
 
-interface ILabelProps {
+export interface ILabelLayoutProps {
   className?: string;
-  Icon: FunctionComponent<SvgIconProps>;
-  color: "red" | "green" | "darkYellow";
-  text: string;
   useTooltip: boolean;
   fixedPosition: boolean;
+  horizontalLayout?: boolean;
+  expandHorizontally?: boolean;
+  allCornersRound: boolean;
+  transparentBackground?: boolean;
+}
+
+export interface ILabelTextProps {
+  text: string;
+  tooltipText: string;
+}
+
+interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {
+  Icon: FunctionComponent<SvgIconProps>;
+  color: "Red" | "Green" | "DarkYellow";
 }

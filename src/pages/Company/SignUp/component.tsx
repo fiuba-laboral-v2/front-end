@@ -43,7 +43,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
             }
             return errors;
           }}
-          validateOnMount={true}
+          validateOnMount
           onSubmit={onSubmit}
         >
           {({ isSubmitting, errors }) => (

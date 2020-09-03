@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from "react";
 import CheckIcon from "@material-ui/icons/Check";
-import { useStatusText } from "$models/hooks";
 import { Label } from "$components/Label";
-import { ILabelProps } from "$components/StatusLabel";
+import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
-export const ApprovedLabel: FunctionComponent<ILabelProps> = props => {
-  const text = useStatusText({ translationGroup: "approvedLabel" });
-  return <Label
+export const ApprovedLabel: FunctionComponent<ILabelLayoutProps & ILabelTextProps> = props => (
+  <Label
     Icon={CheckIcon}
-    color="green"
-    text={text}
+    color="Green"
     {...props}
-  />;
-};
+  />
+);

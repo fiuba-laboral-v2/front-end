@@ -21,7 +21,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
       <h1 className={styles.title}>{translations.title}</h1>
       <Formik
         initialValues={initialValues}
-        validateOnMount={true}
+        validateOnMount
         onSubmit={onUpdate}
       >
         {({ values, setFieldValue, isSubmitting, errors }) => (

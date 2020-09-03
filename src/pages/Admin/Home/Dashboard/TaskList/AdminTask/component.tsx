@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { UpdatedSince } from "$components/UpdatedSince";
-import { StatusLabel } from "$components/StatusLabel";
+import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
@@ -13,7 +13,13 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
       <div className={styles.name}>{name}</div>
       <UpdatedSince date={updatedAt} />
     </div>
-    <StatusLabel status={approvalStatus} useTooltip={true} fixedPosition={true}/>
+    <SharedStatusLabel
+      status={approvalStatus}
+      useTooltip
+      fixedPosition
+      allCornersRound={false}
+      horizontalLayout={false}
+    />
   </div>
 );
 

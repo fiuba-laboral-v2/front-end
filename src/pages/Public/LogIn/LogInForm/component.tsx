@@ -28,7 +28,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
       <Headline className={styles.title}>{translations.title}</Headline>
       <Formik
         initialValues={initialValues}
-        validateOnMount={true}
+        validateOnMount
         onSubmit={onSubmit}
       >
         {({ isSubmitting, errors }) => (

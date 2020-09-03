@@ -3,10 +3,12 @@ import classNames from "classnames";
 import { Link } from "$components/Link";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
+import { Card } from "$components/Card";
+import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { CreatedSince } from "$components/CreatedSince";
-import { OfferInfo } from "../OfferInfo";
+import { OfferInfo } from "$components/OfferInfo";
 import { sortBy } from "lodash";
 import { IOffer } from "$interfaces/Offer";
 import { IMyOffer } from "$interfaces/Applicant";
@@ -19,10 +21,11 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
     applyButton,
     editButton,
     offer,
-    goToCompany
+    goToCompany,
+    withStatusLabel
   }
 ) => (
-  <div className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}>
+  <Card className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}>
     <div className={styles.header}>
       <CompanyLogo
         mobileLayout={mobileLayout}
@@ -53,11 +56,19 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         }
       </div>
       <div className={styles.rightBodyContainer}>
-        <OfferInfo className={styles.offerInfo} offer={offer}/>
+        {
+          withStatusLabel &&
+          <SeparatedStatusLabel
+            className={styles.approvalStatuses}
+            graduadosApprovalStatus={offer.graduadosApprovalStatus}
+            extensionApprovalStatus={offer.extensionApprovalStatus}
+          />
+        }
+        <OfferInfo offer={offer}/>
         {applyButton}
       </div>
     </div>
-  </div>
+  </Card>
 );
 
 interface IOfferDetailProps {
@@ -67,4 +78,5 @@ interface IOfferDetailProps {
   editButton?: ReactElement;
   offer: IMyOffer | IOffer;
   goToCompany?: string;
+  withStatusLabel?: boolean;
 }

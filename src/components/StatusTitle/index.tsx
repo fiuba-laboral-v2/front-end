@@ -1,42 +1,46 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { StatusLabel } from "$components/StatusLabel";
+import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import { Headline } from "$components/Headline";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-
 import styles from "./styles.module.scss";
 
-export const StatusTitle: FunctionComponent<IStatusTitleProps> = (
+export const StatusTitle: FunctionComponent<IComponentProps> = (
   {
     className,
     detailTitle,
-    approvalStatus
+    approvalStatus,
+    mobileLayout
   }
 ) => (
   <div className={classNames(styles.statusTitle, className)}>
-    <Headline className={styles.title}>{detailTitle}</Headline>
+    <Headline className={styles.title} mobileLayout={mobileLayout}>{detailTitle}</Headline>
     {
       approvalStatus &&
       <>
-        <StatusLabel
+        <SharedStatusLabel
           className={styles.desktopStatus}
           status={approvalStatus}
-          useTooltip={true}
+          useTooltip
           fixedPosition={false}
+          allCornersRound
         />
-        <StatusLabel
+        <SharedStatusLabel
           className={styles.mobileStatus}
           status={approvalStatus}
           useTooltip={false}
-          fixedPosition={true}
+          allCornersRound={false}
+          fixedPosition
+          horizontalLayout
         />
       </>
     }
   </div>
 );
 
-interface IStatusTitleProps {
+interface IComponentProps {
   className?: string;
   detailTitle: string;
   approvalStatus?: ApprovalStatus;
+  mobileLayout?: boolean;
 }
