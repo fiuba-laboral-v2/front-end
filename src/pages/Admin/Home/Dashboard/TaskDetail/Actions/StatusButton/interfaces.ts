@@ -12,7 +12,6 @@ export interface IContainer extends IButtonProps {
 export interface ITranslations {
   approve: string;
   reject: string;
-  pending: string;
 }
 
 export interface IComponent extends IContainer {

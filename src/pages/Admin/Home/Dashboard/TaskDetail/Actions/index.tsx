@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 
-import { PendingButton } from "./PendingButton";
 import { ApproveButton } from "./ApproveButton";
 import { RejectButton } from "./RejectButton";
 
@@ -14,10 +13,6 @@ export const Actions: FunctionComponent<IActionsProps> = (
   }
 ) => (
   <div className={styles.actions}>
-    {
-      currentStatus !== ApprovalStatus.pending &&
-      <PendingButton setStatus={setStatus}/>
-    }
     {
       currentStatus !== ApprovalStatus.rejected &&
       <RejectButton setStatus={setStatus} />
