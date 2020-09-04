@@ -5,7 +5,7 @@ import { LoadingSpinner } from "../LoadingSpinner";
 import { Button } from "../Button";
 import { IListProps } from "./interface";
 
-export const List = <ListItem, Result>(
+export const List = <ListItem, >(
   {
     list,
     className,
@@ -15,7 +15,7 @@ export const List = <ListItem, Result>(
     fetchMoreClassName,
     translations,
     loading
-  }: IListProps<ListItem, Result>
+  }: IListProps<ListItem>
 ) => (
   <>
     <div className={classNames(styles.list, className)}>

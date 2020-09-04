@@ -16,7 +16,7 @@ export const SearchSelector = <Option, Value>(
         {...props}
         disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
-        onChange={(event, option) =>
+        onChange={(_, option) =>
           form.setFieldValue(name, option ? getOptionValue(option) : undefined)
         }
         getOptionValue={getOptionValue}
