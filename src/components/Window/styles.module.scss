@@ -1,0 +1,7 @@
+@import "$styles/_variables";
+
+@media (max-width: $mobileContainerThreshold) {
+  .desktopOnly {
+    display: none;
+  }
+}

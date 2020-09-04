@@ -103,7 +103,7 @@
   margin: $spacing-s 0;
 }
 
-@media (max-width: $hdContainerThreshold) {
+@media (max-width: $largeContainerThreshold) {
   .description {
     display: none;
   }

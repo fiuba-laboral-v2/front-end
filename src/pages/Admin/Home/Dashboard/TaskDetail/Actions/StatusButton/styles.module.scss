@@ -13,8 +13,8 @@
   margin-left: 1px;
 }
 
-@media (max-width: $hdContainerThreshold) {
-  .icon {
-    max-width: 0;
+@media (max-width: $largeContainerThreshold) {
+  svg.icon {
+    display: none;
   }
 }
