@@ -11,7 +11,6 @@ export const Label: FunctionComponent<ILabelProps> = (
     Icon,
     text,
     tooltipText,
-    withTooltip,
     fixedToTopRight,
     width,
     background,
@@ -21,7 +20,7 @@ export const Label: FunctionComponent<ILabelProps> = (
   <Tooltip
     title={tooltipText}
     placement="right"
-    classes={{ tooltip: classNames({ [styles.hideTooltip]: !withTooltip }) }}
+    classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
     <div className={classNames(styles.tag, className, {
       [styles.fixedToTopRight]: fixedToTopRight,
@@ -55,12 +54,11 @@ export interface ILabelLayoutProps {
   background: "dark" | "light";
   width: "fit-content" | "unset" | "square";
   fixedToTopRight?: boolean;
-  withTooltip?: boolean;
 }
 
 export interface ILabelTextProps {
   text: string;
-  tooltipText: string;
+  tooltipText?: string;
 }
 
 interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {

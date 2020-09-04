@@ -3,6 +3,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface IContainerProps extends ILabelLayoutProps {
   status: ApprovalStatus;
+  withTooltip?: boolean;
 }
 
 export interface ITranslations {

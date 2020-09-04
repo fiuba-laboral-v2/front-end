@@ -6,12 +6,13 @@ export const SharedStatusLabel: FunctionComponent<IComponentProps> = (
   {
     translations,
     status,
+    withTooltip,
     ...props
   }
 ) => (
   <StatusLabel
     text={translations[status]}
-    tooltipText={translations[status]}
+    {...(withTooltip && { tooltipText: translations[status] })}
     status={status}
     {...props}
   />

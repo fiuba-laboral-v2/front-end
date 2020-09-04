@@ -26,7 +26,6 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         status={extensionApprovalStatus}
         width="unset"
         background="light"
-        withTooltip
       />
     }
     {
@@ -35,7 +34,6 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         tooltipText={translations.graduadosTooltip}
         text={graduadosText}
         status={graduadosApprovalStatus}
-        withTooltip
         width="unset"
         background="light"
       />
