@@ -33,7 +33,7 @@ export const MultipleSearchSelector = <Option, Value>(
             disabled={form.isSubmitting}
             className={styles.selector}
             initialValue={initialValue}
-            onInputChange={(event, value) => setInputValue(value)}
+            onInputChange={(_, value) => setInputValue(value)}
             inputValue={valueToString(stringToValue(inputValue))}
             errorMessage={meta.touched ? meta.error : undefined}
             options={options}

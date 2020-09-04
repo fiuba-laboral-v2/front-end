@@ -57,7 +57,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
                     name={"links"}
                     values={values.links}
                     defaultValue={{ url: "", name: "" }}
-                    fields={(value, index) => (
+                    fields={(_, index) => (
                       <div className={styles.link}>
                         <TextInput
                           name={`links.${index}.name`}
@@ -98,7 +98,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
                         ...values.sections.map(({ displayOrder }) => displayOrder)
                       ) + 1
                     }}
-                    fields={(value, index) => (
+                    fields={(_, index) => (
                       <div className={styles.section}>
                         <TextInput
                           name={`sections.${index}.title`}
