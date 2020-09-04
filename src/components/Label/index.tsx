@@ -29,19 +29,24 @@ export const Label: FunctionComponent<ILabelProps> = (
       [styles.allCornersRound]: !fixedToTopRight,
       [styles.oppositeCornersRound]: fixedToTopRight,
       [styles[`background${color}`]]: background === "dark",
-      [styles[`transparentBackground${color}`]]: background === "light"
+      [styles[`transparentBackground${color}`]]: background === "light",
+      [styles[`withoutBackground${color}`]]: background === "none"
     })}>
       {
         width !== "square" &&
         <span
-          className={classNames(styles.text, { [styles[`color${color}`]]: background === "light" })}
+          className={classNames(styles.text, {
+            [styles[`color${color}`]]: background === "light" || background === "none"
+          })}
         >
           {text}
         </span>
       }
       <div className={styles.iconContainer}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: background === "light" })}
+          className={classNames(styles.icon, {
+            [styles[`color${color}`]]: background === "light" || background === "none"
+          })}
           fontSize="inherit"
         />
       </div>
@@ -51,7 +56,7 @@ export const Label: FunctionComponent<ILabelProps> = (
 
 export interface ILabelLayoutProps {
   className?: string;
-  background: "dark" | "light";
+  background: "dark" | "light" | "none";
   width: "fit-content" | "unset" | "square";
   fixedToTopRight?: boolean;
 }

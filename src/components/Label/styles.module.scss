@@ -84,6 +84,18 @@
   background: lighten($darkYellow, 40%);
 }
 
+.withoutBackgroundRed {
+  background: lighten($red, 100%);
+}
+
+.withoutBackgroundGreen {
+  background: lighten($green, 100%);
+}
+
+.withoutBackgroundDarkYellow {
+  background: lighten($darkYellow, 100%);
+}
+
 .colorRed {
   color: $red;
 }
