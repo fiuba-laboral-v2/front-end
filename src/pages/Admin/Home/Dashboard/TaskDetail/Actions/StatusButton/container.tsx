@@ -15,8 +15,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = (
 
   const getLabel = () => {
     if (status === ApprovalStatus.rejected) return translations.reject;
-    if (status === ApprovalStatus.approved) return translations.approve;
-    return translations.pending;
+    return translations.approve;
   };
 
   return <StatusButton
