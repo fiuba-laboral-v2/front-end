@@ -1,9 +1,14 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { TargetApplicantType } from "$interfaces/Offer";
 
-export interface IContainerProps {
+interface ICommonProps {
   className?: string;
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
+}
+
+export interface IContainerProps extends ICommonProps {
+  targetApplicantType: TargetApplicantType;
 }
 
 export interface ITranslations {
@@ -16,7 +21,7 @@ export interface ITranslations {
   rejected: string;
 }
 
-export interface IComponentProps extends IContainerProps {
+export interface IComponentProps extends Partial<ICommonProps> {
   translations: ITranslations;
   extensionText: string;
   graduadosText: string;
