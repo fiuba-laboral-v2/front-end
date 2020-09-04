@@ -42,10 +42,11 @@ $applicantColor: #605dca;
 $offerColor: #f2b528;
 $jobApplicationColor: #36bcb3;
 $dashboardBackgroundWhite: #f6f5f5;
+$bodyBackgroundColor: #ededed;
 
 $detailContainerWidth: 900px;
 $detailContainerHorizontalPadding: 20px;
-$hdContainerThreshold: 1280px;
+$largeContainerThreshold: 1440px;
 $mobileContainerThreshold: $detailContainerWidth + 2 * $detailContainerHorizontalPadding;
 $smallMobileContainerThreshold: 320px;
 $headerContainerPadding: 10px;

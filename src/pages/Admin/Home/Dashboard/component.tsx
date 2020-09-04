@@ -20,7 +20,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
     shouldFetchMore
   }
 ) => (
-  <Window width="fullWidth">
+  <Window width="fullWidth" desktopOnly>
     <div className={styles.mainContent}>
       <Menu
         refetchGetAdminTasks={refetchGetAdminTasks}

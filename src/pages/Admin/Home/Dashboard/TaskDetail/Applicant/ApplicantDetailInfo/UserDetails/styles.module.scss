@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-@media (max-width: $hdContainerThreshold) {
+@media (max-width: $largeContainerThreshold) {
   .firstRow {
     flex-direction: column;
   }

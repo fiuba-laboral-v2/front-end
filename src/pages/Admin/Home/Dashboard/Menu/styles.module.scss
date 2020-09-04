@@ -14,7 +14,7 @@
   margin-bottom: $spacing-l;
 }
 
-@media (max-width: $hdContainerThreshold) {
+@media (max-width: $largeContainerThreshold) {
   .menuContent {
     width: unset;
   }
