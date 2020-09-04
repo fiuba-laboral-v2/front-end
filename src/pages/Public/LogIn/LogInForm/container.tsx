@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { FormikErrors, FormikHelpers } from "formik";
+import { FormikHelpers } from "formik";
 import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
@@ -14,19 +14,19 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (!translations) return <Fragment/>;
 
-  const setBadCredentialsError = (setErrors: (callback: FormikErrors<ILoginVariables>) => void) =>
+  const setBadCredentialsError = () =>
     enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
 
   const onSubmit = async (
     values: ILoginVariables,
-    { setSubmitting, setErrors }: FormikHelpers<ILoginVariables>
+    { setSubmitting }: FormikHelpers<ILoginVariables>
   ) => {
     const loginResult = await login(
       {
         variables: values,
         errorHandlers: {
-          BadCredentialsError: () => setBadCredentialsError(setErrors),
-          UserNotFoundError: () => setBadCredentialsError(setErrors),
+          BadCredentialsError: () => setBadCredentialsError(),
+          UserNotFoundError: () => setBadCredentialsError(),
           defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
         }
       }

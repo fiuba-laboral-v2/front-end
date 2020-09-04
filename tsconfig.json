@@ -19,7 +19,8 @@
     "jsx": "react",
     "strictNullChecks": true,
     "isolatedModules": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": [
     "src",

@@ -7,7 +7,7 @@ import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
 
-const Feed = <QueryResult, >(
+const Feed = (
   {
     title,
     offers,
@@ -15,7 +15,7 @@ const Feed = <QueryResult, >(
     fetchMore,
     shouldFetchMore,
     loading
-  }: IFeedProps<QueryResult>
+  }: IFeedProps
 ) => (
   <Window>
     {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
@@ -41,7 +41,7 @@ const Feed = <QueryResult, >(
   </Window>
 );
 
-interface IFeedProps<QueryResult> {
+interface IFeedProps {
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
