@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
@@ -7,7 +7,7 @@ import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
 
-const Feed = (
+export const Feed: FunctionComponent<IFeedProps> = (
   {
     title,
     offers,
@@ -15,10 +15,10 @@ const Feed = (
     fetchMore,
     shouldFetchMore,
     loading
-  }: IFeedProps
+  }
 ) => (
   <Window>
-    {title && <Headline color={"dark"} className={styles.title}>{title}</Headline>}
+    {title && <Headline color="dark" className={styles.title}>{title}</Headline>}
     <div>
       <List
         list={offers}
@@ -49,5 +49,3 @@ interface IFeedProps {
   shouldFetchMore?: boolean;
   loading: boolean;
 }
-
-export { Feed };
