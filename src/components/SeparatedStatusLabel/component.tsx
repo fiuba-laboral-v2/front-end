@@ -15,29 +15,37 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
-    <StatusLabel
-      tooltipText={translations.extensionTooltip}
-      text={extensionText}
-      className={styles.extensionApprovalStatus}
-      status={extensionApprovalStatus}
-      useTooltip
-      fixedPosition={false}
-      horizontalLayout
-      allCornersRound
-      transparentBackground
-      expandHorizontally
-    />
-    <StatusLabel
-      tooltipText={translations.graduadosTooltip}
-      text={graduadosText}
-      className={styles.graduadosApprovalStatus}
-      status={graduadosApprovalStatus}
-      useTooltip
-      fixedPosition={false}
-      horizontalLayout
-      allCornersRound
-      transparentBackground
-      expandHorizontally
-    />
+    {
+      extensionApprovalStatus &&
+      <StatusLabel
+        className={classNames({
+          [styles.extensionApprovalStatus]: graduadosApprovalStatus
+        })}
+        tooltipText={translations.extensionTooltip}
+        text={extensionText}
+        status={extensionApprovalStatus}
+        useTooltip
+        fixedPosition={false}
+        horizontalLayout
+        allCornersRound
+        transparentBackground
+        expandHorizontally
+      />
+    }
+    {
+      graduadosApprovalStatus &&
+      <StatusLabel
+        tooltipText={translations.graduadosTooltip}
+        text={graduadosText}
+        className={styles.graduadosApprovalStatus}
+        status={graduadosApprovalStatus}
+        useTooltip
+        fixedPosition={false}
+        horizontalLayout
+        allCornersRound
+        transparentBackground
+        expandHorizontally
+      />
+    }
   </div>
 );

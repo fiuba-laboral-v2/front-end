@@ -3,6 +3,7 @@ import { useTranslations } from "$hooks";
 import { SeparatedStatusLabel } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { TargetApplicantType } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import { capitalize } from "lodash";
 
@@ -10,6 +11,7 @@ export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> =
   {
     extensionApprovalStatus,
     graduadosApprovalStatus,
+    targetApplicantType,
     ...props
   }
 ) => {
@@ -25,12 +27,22 @@ export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> =
     return `${capitalize(applicantType)}: ${translations.pending}`;
   };
 
+  const getExtensionApprovalStatus = () => {
+    if (targetApplicantType === TargetApplicantType.both) return extensionApprovalStatus;
+    if (targetApplicantType === TargetApplicantType.student) return extensionApprovalStatus;
+  };
+
+  const getGraduadosApprovalStatus = () => {
+    if (targetApplicantType === TargetApplicantType.both) return graduadosApprovalStatus;
+    if (targetApplicantType === TargetApplicantType.graduate) return graduadosApprovalStatus;
+  };
+
   return <SeparatedStatusLabel
     {...props}
     extensionText={buildLabel(extensionApprovalStatus, Secretary.extension)}
     graduadosText={buildLabel(graduadosApprovalStatus, Secretary.graduados)}
-    extensionApprovalStatus={extensionApprovalStatus}
-    graduadosApprovalStatus={graduadosApprovalStatus}
+    extensionApprovalStatus={getExtensionApprovalStatus()}
+    graduadosApprovalStatus={getGraduadosApprovalStatus()}
     translations={translations}
   />;
 };

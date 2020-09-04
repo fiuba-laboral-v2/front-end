@@ -60,6 +60,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           withStatusLabel &&
           <SeparatedStatusLabel
             className={styles.approvalStatuses}
+            targetApplicantType={offer.targetApplicantType}
             graduadosApprovalStatus={offer.graduadosApprovalStatus}
             extensionApprovalStatus={offer.extensionApprovalStatus}
           />
