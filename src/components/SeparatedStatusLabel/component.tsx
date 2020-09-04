@@ -24,12 +24,9 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         tooltipText={translations.extensionTooltip}
         text={extensionText}
         status={extensionApprovalStatus}
-        useTooltip
-        fixedPosition={false}
-        horizontalLayout
-        allCornersRound
-        transparentBackground
-        expandHorizontally
+        width="unset"
+        background="light"
+        withTooltip
       />
     }
     {
@@ -37,14 +34,10 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       <StatusLabel
         tooltipText={translations.graduadosTooltip}
         text={graduadosText}
-        className={styles.graduadosApprovalStatus}
         status={graduadosApprovalStatus}
-        useTooltip
-        fixedPosition={false}
-        horizontalLayout
-        allCornersRound
-        transparentBackground
-        expandHorizontally
+        withTooltip
+        width="unset"
+        background="light"
       />
     }
   </div>

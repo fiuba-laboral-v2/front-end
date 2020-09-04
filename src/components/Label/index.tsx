@@ -11,40 +11,38 @@ export const Label: FunctionComponent<ILabelProps> = (
     Icon,
     text,
     tooltipText,
-    useTooltip,
-    fixedPosition,
-    allCornersRound,
-    transparentBackground,
-    expandHorizontally,
-    horizontalLayout,
+    withTooltip,
+    fixedToTopRight,
+    width,
+    background,
     color
   }
 ) => (
   <Tooltip
     title={tooltipText}
     placement="right"
-    classes={{ tooltip: classNames({ [styles.hideTooltip]: !useTooltip }) }}
+    classes={{ tooltip: classNames({ [styles.hideTooltip]: !withTooltip }) }}
   >
     <div className={classNames(styles.tag, className, {
-      [styles.fixedPosition]: fixedPosition,
-      [styles.relativePosition]: !fixedPosition && !horizontalLayout,
-      [styles.expandHorizontally]: expandHorizontally && !fixedPosition,
-      [styles.allCornersRound]: allCornersRound,
-      [styles.oppositeCornersRound]: !allCornersRound,
-      [styles[`background${color}`]]: !transparentBackground,
-      [styles[`transparentBackground${color}`]]: transparentBackground
+      [styles.fixedToTopRight]: fixedToTopRight,
+      [styles.relativePosition]: !fixedToTopRight && width !== "unset",
+      [styles.expandHorizontally]: width === "unset" && !fixedToTopRight,
+      [styles.allCornersRound]: !fixedToTopRight,
+      [styles.oppositeCornersRound]: fixedToTopRight,
+      [styles[`background${color}`]]: background === "dark",
+      [styles[`transparentBackground${color}`]]: background === "light"
     })}>
       {
-        horizontalLayout &&
+        width !== "square" &&
         <span
-          className={classNames(styles.text, { [styles[`color${color}`]]: transparentBackground })}
+          className={classNames(styles.text, { [styles[`color${color}`]]: background === "light" })}
         >
           {text}
         </span>
       }
       <div className={styles.iconContainer}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: transparentBackground })}
+          className={classNames(styles.icon, { [styles[`color${color}`]]: background === "light" })}
           fontSize="inherit"
         />
       </div>
@@ -54,12 +52,10 @@ export const Label: FunctionComponent<ILabelProps> = (
 
 export interface ILabelLayoutProps {
   className?: string;
-  useTooltip: boolean;
-  fixedPosition: boolean;
-  horizontalLayout?: boolean;
-  expandHorizontally?: boolean;
-  allCornersRound: boolean;
-  transparentBackground?: boolean;
+  background: "dark" | "light";
+  width: "fit-content" | "unset" | "square";
+  fixedToTopRight?: boolean;
+  withTooltip?: boolean;
 }
 
 export interface ILabelTextProps {

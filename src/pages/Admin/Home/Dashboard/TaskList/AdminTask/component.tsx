@@ -15,10 +15,10 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
     </div>
     <SharedStatusLabel
       status={approvalStatus}
-      useTooltip
-      fixedPosition
-      allCornersRound={false}
-      horizontalLayout={false}
+      withTooltip
+      fixedToTopRight
+      background="dark"
+      width="square"
     />
   </div>
 );
