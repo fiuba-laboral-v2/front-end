@@ -5,7 +5,6 @@ import { IContainerProps, ITranslations } from "./interfaces";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { TargetApplicantType } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
-import { capitalize } from "lodash";
 
 export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> = (
   {
@@ -22,9 +21,9 @@ export const SeparatedStatusLabelContainer: FunctionComponent<IContainerProps> =
     let applicantType = "";
     if (secretary === Secretary.graduados) applicantType = translations.graduate;
     if (secretary === Secretary.extension) applicantType = translations.student;
-    if (status === ApprovalStatus.approved) return `${translations.approved} ${applicantType}`;
-    if (status === ApprovalStatus.rejected) return `${translations.rejected} ${applicantType}`;
-    return `${capitalize(applicantType)}: ${translations.pending}`;
+    if (status === ApprovalStatus.approved) return `${applicantType}: ${translations.approved}`;
+    if (status === ApprovalStatus.rejected) return `${applicantType}: ${translations.rejected}`;
+    return `${applicantType}: ${translations.pending}`;
   };
 
   const targetsBoth = targetApplicantType === TargetApplicantType.both;
