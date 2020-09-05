@@ -12,14 +12,15 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
     className,
     extensionApprovalStatus,
     graduadosApprovalStatus,
-    withoutBackground
+    withoutBackground,
+    statusClassName
   }
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
     {
       extensionApprovalStatus &&
       <StatusLabel
-        className={classNames({
+        className={classNames(statusClassName, {
           [styles.extensionApprovalStatus]: graduadosApprovalStatus
         })}
         tooltipText={translations.extensionTooltip}
@@ -32,6 +33,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
     {
       graduadosApprovalStatus &&
       <StatusLabel
+        className={statusClassName}
         tooltipText={translations.graduadosTooltip}
         text={graduadosText}
         status={graduadosApprovalStatus}

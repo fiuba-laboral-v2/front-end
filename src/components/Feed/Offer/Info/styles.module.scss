@@ -42,6 +42,20 @@
   text-align: center;
 }
 
+.timeLeftAligned {
+  margin-top: $spacing-m;
+  text-align: start;
+}
+
+.separatedStatusLabel {
+  margin-top: $spacing-m;
+}
+
+.statusLabel {
+  align-self: start;
+  padding: 0;
+}
+
 .mobileTime {
   display: none;
 }
@@ -95,6 +109,10 @@
     display: none;
   }
 
+  .timeLeftAligned {
+    display: none;
+  }
+
   .mobileTime {
     display: flex;
   }
@@ -124,5 +142,10 @@
     align-self: unset;
     margin: 0;
     width: unset;
+  }
+
+  .separatedStatusLabel {
+    align-self: unset;
+    margin-bottom: $spacing-l;
   }
 }

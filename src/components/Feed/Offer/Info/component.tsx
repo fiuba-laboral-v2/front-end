@@ -1,21 +1,30 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { Subtitle } from "$components/Subtitle";
 import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
-
-import styles from "./styles.module.scss";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { UpdatedSince } from "$components/UpdatedSince";
+import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 
-export const Info: FunctionComponent<IOfferProps> = ({
-  data: {
-    company,
-    title,
-    minimumSalary,
-    maximumSalary,
-    hoursPerDay,
-    updatedAt
-}}) => (
+import styles from "./styles.module.scss";
+
+export const Info: FunctionComponent<IOfferProps> = (
+  {
+    data: {
+      company,
+      title,
+      minimumSalary,
+      maximumSalary,
+      hoursPerDay,
+      updatedAt,
+      extensionApprovalStatus,
+      graduadosApprovalStatus,
+      targetApplicantType
+    },
+    hideCompanyName
+  }
+) => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
       <CompanyLogo
@@ -33,11 +42,29 @@ export const Info: FunctionComponent<IOfferProps> = ({
       </div>
     </div>
     <div className={styles.detailsContainer}>
-      <div className={styles.firstColumn}>
-        <Subtitle className={styles.companyName}>
-          {company.companyName}
-        </Subtitle>
-        <UpdatedSince date={updatedAt} className={styles.time}/>
+      <div className={classNames({ [styles.firstColumn]: !hideCompanyName })}>
+        {
+          !hideCompanyName &&
+          <Subtitle className={styles.companyName}>{company.companyName}</Subtitle>
+        }
+        {
+          hideCompanyName &&
+          <SeparatedStatusLabel
+            className={styles.separatedStatusLabel}
+            statusClassName={styles.statusLabel}
+            withoutBackground
+            extensionApprovalStatus={extensionApprovalStatus}
+            graduadosApprovalStatus={graduadosApprovalStatus}
+            targetApplicantType={targetApplicantType}
+          />
+        }
+        <UpdatedSince
+          className={classNames({
+            [styles.time]: !hideCompanyName,
+            [styles.timeLeftAligned]: hideCompanyName
+          })}
+          date={updatedAt}
+        />
       </div>
       <JobSpecs
         salary={{ minimumSalary, maximumSalary }}
@@ -50,4 +77,5 @@ export const Info: FunctionComponent<IOfferProps> = ({
 
 interface IOfferProps {
   data: IOffer;
+  hideCompanyName?: boolean;
 }
