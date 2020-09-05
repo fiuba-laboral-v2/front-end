@@ -8,7 +8,7 @@ const timeDescription = "horas por día";
 const setSalary = ({ minimumSalary, maximumSalary }: ISalary) =>
   maximumSalary ? `${minimumSalary} - ${maximumSalary}` : `${minimumSalary}`;
 
-const JobSpecs: FunctionComponent<IJobSpecsProps> = (
+export const JobSpecs: FunctionComponent<IJobSpecsProps> = (
   {
     salary,
     workload,
@@ -34,5 +34,3 @@ interface IJobSpecsProps {
   workload: number;
   className?: string;
 }
-
-export { JobSpecs };
