@@ -12,7 +12,7 @@ import { sortBy } from "lodash";
 import { IOffer } from "$interfaces/Offer";
 import { IMyOffer } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
-import { UpdatedSince } from "../UpdatedSince";
+import { PublishedSince } from "../PublishedSince";
 
 export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
@@ -43,7 +43,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           {goToCompany && <Link to={goToCompany}>{offer.company.companyName}</Link>}
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
-        <UpdatedSince className={styles.updatedAt} date={offer.updatedAt} />
+        <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
       </div>
     </div>
     <div className={styles.body}>

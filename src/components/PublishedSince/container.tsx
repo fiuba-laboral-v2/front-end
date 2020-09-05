@@ -2,22 +2,22 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$models/hooks";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
-export const UpdatedSinceContainer: FunctionComponent<IUpdatedSinceContainerProps> = (
+export const PublishedSinceContainer: FunctionComponent<IPublishedSinceContainerProps> = (
   {
     className,
     date
   }
 ) => {
-  const translations = useTranslations<IUpdatedSinceContainerTranslations>("updatedSince");
+  const translations = useTranslations<IPublishedSinceContainerTranslations>("publishedSince");
   if (!translations) return <Fragment/>;
   return <TimeHumanizer className={className} since={date} labelPrefix={translations.update}/>;
 };
 
-interface IUpdatedSinceContainerTranslations {
+interface IPublishedSinceContainerTranslations {
   update: string;
 }
 
-interface IUpdatedSinceContainerProps {
+interface IPublishedSinceContainerProps {
   className?: string;
   date: string;
 }

@@ -5,7 +5,7 @@ import { JobSpecs } from "./JobSpecs";
 
 import styles from "./styles.module.scss";
 import { CompanyLogo } from "$components/CompanyLogo";
-import { UpdatedSince } from "$components/UpdatedSince";
+import { PublishedSince } from "$components/PublishedSince";
 
 export const Info: FunctionComponent<IOfferProps> = ({
   data: {
@@ -29,7 +29,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
           {title}
         </Subtitle>
         <hr className={styles.separator}/>
-        <UpdatedSince date={updatedAt} className={styles.mobileTime}/>
+        <PublishedSince date={updatedAt} className={styles.mobileTime}/>
       </div>
     </div>
     <div className={styles.detailsContainer}>
@@ -37,7 +37,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
         <Subtitle className={styles.companyName}>
           {company.companyName}
         </Subtitle>
-        <UpdatedSince date={updatedAt} className={styles.time}/>
+        <PublishedSince date={updatedAt} className={styles.time}/>
       </div>
       <JobSpecs
         salary={{ minimumSalary, maximumSalary }}
