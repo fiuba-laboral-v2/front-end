@@ -1,10 +1,11 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
+import { TimeHumanizer } from "$components/TimeHumanizer";
 
 export const MainTitle: FunctionComponent<IMainTitleProps> = (
   {
     title,
-    humanizedTime
+    updatedAt
   }
 ) => (
   <div className={styles.header}>
@@ -12,12 +13,12 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = (
       <p className={styles.title}>
         {title}
       </p>
-      {humanizedTime}
+      <TimeHumanizer since={updatedAt}/>
     </div>
   </div>
 );
 
 interface IMainTitleProps {
   title: string;
-  humanizedTime?: ReactNode;
+  updatedAt: string;
 }

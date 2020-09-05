@@ -5,14 +5,13 @@ import { IUser } from "$interfaces/User";
 
 import { MainTitle } from "../../../MainTitle";
 import { useTranslations } from "$hooks/queries";
-import { UpdatedSince } from "$components/UpdatedSince";
 
 export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
   { company }
 ) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
   const title = translations ? translations.title : "";
-  return <MainTitle title={title} humanizedTime={<UpdatedSince date={company.updatedAt}/>}/>;
+  return <MainTitle title={title} updatedAt={company.updatedAt}/>;
 };
 
 export interface IMainTitleContainerProps {
