@@ -16,4 +16,5 @@ export interface ICareerSelectorTranslations {
   isGraduate: string;
   approvedSubjectCount: string;
   currentCareerYear: string;
+  withoutCBC: string;
 }
