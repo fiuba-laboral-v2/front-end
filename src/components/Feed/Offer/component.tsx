@@ -5,7 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-const Offer: FunctionComponent<IOfferProps> = ({ data: { company, ...props } }) => (
+export const Offer: FunctionComponent<IOfferProps> = ({ data: { company, ...props } }) => (
   <div className={styles.container}>
     <CompanyLogo
       className={styles.desktopLogo}
@@ -20,5 +20,3 @@ const Offer: FunctionComponent<IOfferProps> = ({ data: { company, ...props } }) 
 interface IOfferProps {
   data: IOffer;
 }
-
-export { Offer };
