@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { CreatedSince } from "$components/CreatedSince";
 import styles from "./styles.module.scss";
+import { UpdatedSince } from "$components/UpdatedSince";
 
 export const MainTitle: FunctionComponent<IMainTitleProps> = (
   {
     title,
-    createdAt
+    updatedAt
   }
 ) => (
   <div className={styles.header}>
@@ -13,12 +13,12 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = (
       <p className={styles.title}>
         {title}
       </p>
-      {createdAt && <CreatedSince date={createdAt} />}
+      {updatedAt && <UpdatedSince date={updatedAt} />}
     </div>
   </div>
 );
 
 interface IMainTitleProps {
   title: string;
-  createdAt?: string;
+  updatedAt?: string;
 }

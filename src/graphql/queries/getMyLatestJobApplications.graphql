@@ -7,6 +7,7 @@ query getMyLatestJobApplications($updatedBeforeThan: PaginatedJobApplicationsInp
         uuid
         title
         createdAt
+        updatedAt
       }
       applicant {
         uuid

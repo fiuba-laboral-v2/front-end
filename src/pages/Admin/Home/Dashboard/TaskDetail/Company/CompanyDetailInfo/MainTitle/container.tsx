@@ -11,7 +11,7 @@ export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
 ) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
   const title = translations ? translations.title : "";
-  return <MainTitle title={title} createdAt={company.createdAt}/>;
+  return <MainTitle title={title} updatedAt={company.updatedAt}/>;
 };
 
 export interface IMainTitleContainerProps {
