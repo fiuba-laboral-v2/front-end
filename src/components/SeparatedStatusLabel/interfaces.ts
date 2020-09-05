@@ -5,6 +5,7 @@ interface ICommonProps {
   className?: string;
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
+  withoutBackground?: boolean;
 }
 
 export interface IContainerProps extends ICommonProps {

@@ -11,7 +11,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
     graduadosText,
     className,
     extensionApprovalStatus,
-    graduadosApprovalStatus
+    graduadosApprovalStatus,
+    withoutBackground
   }
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
@@ -25,7 +26,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         text={extensionText}
         status={extensionApprovalStatus}
         width="unset"
-        background="light"
+        background={withoutBackground ? "none" : "light"}
       />
     }
     {
@@ -35,7 +36,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         text={graduadosText}
         status={graduadosApprovalStatus}
         width="unset"
-        background="light"
+        background={withoutBackground ? "none" : "light"}
       />
     }
   </div>
