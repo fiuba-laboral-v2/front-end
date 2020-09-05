@@ -12,6 +12,7 @@ query getCompanyByUuidWithUsers ($uuid: ID!) {
     phoneNumbers
     photos
     createdAt
+    updatedAt
     users {
       uuid
       email
