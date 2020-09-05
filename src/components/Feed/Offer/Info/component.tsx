@@ -41,7 +41,9 @@ export const Info: FunctionComponent<IOfferProps> = (
         <UpdatedSince date={updatedAt} className={styles.mobileTime}/>
       </div>
     </div>
-    <div className={styles.detailsContainer}>
+    <div className={classNames(styles.detailsContainer, {
+      [styles.reverseDetailsContainer]: hideCompanyName
+    })}>
       <div className={classNames({ [styles.firstColumn]: !hideCompanyName })}>
         {
           !hideCompanyName &&

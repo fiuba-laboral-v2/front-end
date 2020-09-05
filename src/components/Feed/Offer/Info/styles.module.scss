@@ -137,6 +137,10 @@
     justify-content: unset;
   }
 
+  .reverseDetailsContainer {
+    flex-direction: column-reverse;
+  }
+
   .firstColumn,
   .secondColumn {
     align-self: unset;
@@ -146,6 +150,6 @@
 
   .separatedStatusLabel {
     align-self: unset;
-    margin-bottom: $spacing-l;
+    margin-top: $spacing-l;
   }
 }
