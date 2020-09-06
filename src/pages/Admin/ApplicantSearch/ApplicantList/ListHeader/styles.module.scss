@@ -1,16 +1,14 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_lists";
+
 .headerContainer {
+  @include applicantListRows;
   // display: flex;
   // justify-content: space-between;
   // display:grid;
-
-  @include applicantListRows;
 }
 
 .item {
-
-
   font-size: $fontSize-l;
   font-weight: 500;
   // align-self: center;
