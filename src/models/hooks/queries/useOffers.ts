@@ -1,28 +1,4 @@
-import { useQuery } from "../useQuery";
 import { GET_OFFERS } from "$queries";
-import { IOffer } from "$interfaces/Offer";
-import { IPaginatedResult } from "./interface";
+import { usePaginatedOffers } from "$hooks";
 
-export const useOffers = () => {
-  const result = useQuery<{}, IUseOffers>(GET_OFFERS);
-
-  const fetchMore = () => {
-    const offers = result.data?.getOffers.results;
-    if (!offers) return;
-    const lastOffer = offers[offers.length - 1];
-    return result.fetchMore({
-      variables: {
-        updatedBeforeThan: {
-          dateTime: lastOffer.updatedAt,
-          uuid: lastOffer.uuid
-        }
-      }
-    });
-  };
-
-  return { ...result, fetchMore };
-};
-
-interface IUseOffers {
-  getOffers: IPaginatedResult<IOffer>;
-}
+export const useOffers = () => usePaginatedOffers(GET_OFFERS, "getOffers");
