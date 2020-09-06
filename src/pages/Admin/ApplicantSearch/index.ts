@@ -1,0 +1,1 @@
+export { ApplicantSearch } from "./component";

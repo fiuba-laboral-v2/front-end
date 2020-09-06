@@ -1,0 +1,10 @@
+@import "$styles/_variables";
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - #{$navBarHeight} - #{$spacing-xxl * 2});
+  margin: 0 ($spacing-xxl * 4);
+  padding: $spacing-xxl 0;
+  overflow: hidden;
+}

@@ -1,0 +1,38 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_lists";
+.headerContainer {
+  // display: flex;
+  // justify-content: space-between;
+  // display:grid;
+
+  @include applicantListRows;
+}
+
+.item {
+
+
+  font-size: $fontSize-l;
+  font-weight: 500;
+  // align-self: center;
+  justify-self: center;
+
+  &.padron {
+    grid-area: padron;
+  }
+
+  &.names {
+    grid-area: names;
+  }
+
+  &.dni {
+    grid-area: dni;
+  }
+
+  &.studies {
+    grid-area: padron;
+  }
+
+  &.state {
+    grid-area: padron;
+  }
+}
