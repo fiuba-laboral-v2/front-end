@@ -3,8 +3,8 @@ import { useQuery } from "../useQuery";
 import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interface";
 
-export const usePaginatedOffers = (documentNode: DocumentNode, queryName: string) => {
-  const result = useQuery<{}, IUseOffers>(documentNode);
+export const usePaginatedOffers = ({ documentNode, queryName }: IUsePaginatedOffers) => {
+  const result = useQuery<{}, IUsePaginatedOffersResponse>(documentNode);
 
   const fetchMore = () => {
     const offers = result.data && result.data[queryName].results;
@@ -23,6 +23,11 @@ export const usePaginatedOffers = (documentNode: DocumentNode, queryName: string
   return { ...result, fetchMore };
 };
 
-interface IUseOffers {
+interface IUsePaginatedOffersResponse {
   [queryName: string]: IPaginatedResult<IOffer>;
+}
+
+interface IUsePaginatedOffers {
+  documentNode: DocumentNode;
+  queryName: string;
 }
