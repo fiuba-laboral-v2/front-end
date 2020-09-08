@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { ApprovedLabel } from "$components/ApprovedLabel";
-import { RejectedLabel } from "$components/RejectedLabel";
-import { PendingLabel } from "$components/PendingLabel";
+import { ApprovedLabel } from "./ApprovedLabel";
+import { RejectedLabel } from "./RejectedLabel";
+import { PendingLabel } from "./PendingLabel";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
