@@ -15,7 +15,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
     fetchMore,
     shouldFetchMore,
     loading,
-    hideCompanyName
+    showStatusLabels
   }
 ) => (
   <Window>
@@ -34,7 +34,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
             className={styles.cardContainer}
             onClick={() => onCardClick(offer.uuid)}
           >
-            <Offer data={offer} hideCompanyName={hideCompanyName}/>
+            <Offer data={offer} showStatusLabels={showStatusLabels}/>
           </Card>
         )}
       </List>
@@ -43,7 +43,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
 );
 
 interface IFeedProps {
-  hideCompanyName?: boolean;
+  showStatusLabels?: boolean;
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;

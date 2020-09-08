@@ -11,7 +11,7 @@ export const Offer: FunctionComponent<IOfferProps> = (
       company,
       ...props
     },
-    hideCompanyName
+    showStatusLabels
   }
 ) => (
   <div className={styles.container}>
@@ -21,11 +21,11 @@ export const Offer: FunctionComponent<IOfferProps> = (
       logo={company.logo}
       size="extraLarge"
     />
-    <Info data={{ company, ...props }} hideCompanyName={hideCompanyName} />
+    <Info data={{ company, ...props }} showStatusLabels={showStatusLabels} />
   </div>
 );
 
 interface IOfferProps {
   data: IOffer;
-  hideCompanyName?: boolean;
+  showStatusLabels?: boolean;
 }
