@@ -4,7 +4,7 @@ import { Link } from "$components/Link";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Card } from "$components/Card";
-import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
+import { StatusLabels } from "./StatusLabels";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { OfferInfo } from "$components/OfferInfo";
@@ -46,8 +46,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
         {
           withStatusLabel &&
-          <SeparatedStatusLabel
-            className={styles.approvalStatuses}
+          <StatusLabels
             targetApplicantType={offer.targetApplicantType}
             graduadosApprovalStatus={offer.graduadosApprovalStatus}
             extensionApprovalStatus={offer.extensionApprovalStatus}

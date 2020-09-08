@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_customMedia";
+
+.separatedStatusLabel {
+  display: flex;
+  flex-direction: row;
+}
+
+.extensionApprovalStatus {
+  margin-right: $spacing-s;
+}
+
+@include customMedia {
+  .separatedStatusLabel {
+    flex-direction: column;
+  }
+
+  .extensionApprovalStatus {
+    margin-bottom: $spacing-s;
+    margin-right: 0;
+  }
+}

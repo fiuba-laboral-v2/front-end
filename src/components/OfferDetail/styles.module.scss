@@ -53,10 +53,6 @@
 
     margin-bottom: $spacing-m;
   }
-
-  .approvalStatuses {
-    flex-direction: row;
-  }
 }
 
 .description {
@@ -73,10 +69,6 @@
 
     .rightHeader {
       flex-direction: column;
-
-      .approvalStatuses {
-        flex-direction: column;
-      }
     }
   }
 
