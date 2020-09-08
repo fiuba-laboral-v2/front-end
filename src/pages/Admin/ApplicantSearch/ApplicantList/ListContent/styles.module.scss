@@ -1,0 +1,42 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_lists";
+
+.row {
+  @include applicantListRows;
+
+  padding: $spacing-s;
+
+  &.grey {
+    background-color: $lighterGrey;
+  }
+}
+
+@mixin rowItem {
+  font-size: $fontSize-l;
+  font-weight: 400;
+  justify-self: center;
+}
+
+.text {
+  @include rowItem;
+
+  &.names {
+    font-weight: 600;
+  }
+}
+
+.careersContainer {
+  @include rowItem;
+
+  div b {
+    font-weight: 400;
+  }
+
+  div span b {
+    font-weight: 400;
+  }
+}
+
+.statusContainer {
+  justify-self: center;
+}

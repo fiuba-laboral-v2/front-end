@@ -18,7 +18,7 @@ interface IItem {
 }
 
 export const Item: FunctionComponent<IItem> = ({ key, text }) => (
-  <p className={classNames(styles.item, styles[`${key}`])}>
+  <p key={key} className={classNames(styles.item, styles[`${key}`])}>
     {text}
   </p>
-  );
+);

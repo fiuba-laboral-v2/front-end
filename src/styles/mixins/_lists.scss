@@ -1,6 +1,6 @@
 @mixin applicantListRows {
   display: grid;
   grid-template-areas: "names padron dni studies state";
-  grid-template-columns: 2fr 2fr 1fr 5fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr 5fr 1fr;
   grid-template-rows: auto;
 }

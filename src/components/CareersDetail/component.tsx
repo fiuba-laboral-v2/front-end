@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { ICareersProps } from "./interface";
-import { GraduateCareerDetail } from "./GraduateCareerDetail";
-import { StudentCareerDetail } from "./StudentCareerDetail";
 import styles from "./styles.module.scss";
 import { Subtitle } from "$components/Subtitle";
+import { CareersData } from "./CareersData";
 
 export const CareersDetail: FunctionComponent<ICareersProps> = (
   {
@@ -15,23 +14,7 @@ export const CareersDetail: FunctionComponent<ICareersProps> = (
     <div className={className}>
       <section className={styles.items}>
         <Subtitle>{translations.careersTitle}</Subtitle>
-        {
-          careers?.map((applicantCareer, index) =>
-            <div key={index} className={styles.item}>
-              {applicantCareer.isGraduate ?
-                <GraduateCareerDetail
-                  applicantCareer={applicantCareer}
-                  translations={translations}
-                />
-                :
-                <StudentCareerDetail
-                  applicantCareer={applicantCareer}
-                  translations={translations}
-                />
-              }
-            </div>
-          )
-        }
+        <CareersData careers={careers} className={styles.item}/>
       </section>
     </div>
   );

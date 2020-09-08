@@ -1,21 +1,28 @@
 import React, { FunctionComponent } from "react";
-import { ICareerTranslations } from "../interface";
 import { IApplicantCareer } from "$interfaces/Applicant";
 
 export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   {
     applicantCareer,
-    translations
+    translations,
+    withSubjects
   }) => (
   <span>
     <b>{applicantCareer.currentCareerYear}° {translations.currentCareerYear} </b>
     {translations.connector}
     <b> {applicantCareer.career.description} </b>
-    ({applicantCareer.approvedSubjectCount} {translations.approvedSubjectCount})
+    {withSubjects &&
+      `${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`
+    }
   </span>
 );
 
 interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
-  translations: ICareerTranslations;
+  translations: {
+    currentCareerYear: string;
+    connector: string;
+    approvedSubjectCount: string;
+  };
+  withSubjects: boolean;
 }

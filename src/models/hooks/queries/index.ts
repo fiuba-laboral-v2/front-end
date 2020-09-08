@@ -1,4 +1,5 @@
 export * from "./useApplicantByUuid";
+export * from "./useGetApplicants";
 export * from "./useCompanyByUuid";
 export * from "./useOfferByUuid";
 export * from "./useOffers";

@@ -7,7 +7,7 @@ interface IListContainer {
 }
 
 export const ListContainer: FunctionComponent<IListContainer> = ({ children }) => (
-  <Card largePadding className={styles.cardContainer}>
+  <Card className={styles.cardContainer}>
     {children}
   </Card>
 );

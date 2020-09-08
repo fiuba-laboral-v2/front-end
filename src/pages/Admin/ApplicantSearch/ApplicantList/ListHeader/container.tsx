@@ -1,15 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { useGetTranslations } from "$hooks";
-import { HeaderContainer, Item } from "./styles";
+import React, { FunctionComponent, Fragment } from "react";
+import { useTranslations } from "$hooks";
+import { ListHeader } from "./component";
 
 export const ListHeaderContainer: FunctionComponent = () => {
-  const translations = useGetTranslations("adminApplicantListHeader");
+  const translations = useTranslations<ITranslations>("adminApplicantListHeader");
   return (
-    <HeaderContainer>
-      {
-        translations &&
-        translations.map(({ key, value }) => (<Item key={key} text={value} />))
-      }
-    </HeaderContainer>
+    <Fragment>
+      {translations && <ListHeader translations={translations} />}
+    </Fragment>
   );
 };
+
+export interface ITranslations {
+  [names: string]: string;
+  padron: string;
+  dni: string;
+  studies: string;
+  state: string;
+}

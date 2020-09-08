@@ -1,9 +1,10 @@
 @import "$styles/_variables";
 
 .cardContainer {
+  border: none;
   height: 100%;
   margin: 0 auto;
   overflow: scroll;
-  padding: $spacing-l;
+  padding: 0;
   width: 90%;
 }
