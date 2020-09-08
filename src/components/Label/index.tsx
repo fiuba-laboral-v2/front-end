@@ -11,9 +11,8 @@ export const Label: FunctionComponent<ILabelProps> = (
     Icon,
     text,
     tooltipText,
-    fixedToTopRight,
-    width,
-    background,
+    shape,
+    withoutBackground,
     color
   }
 ) => (
@@ -22,31 +21,21 @@ export const Label: FunctionComponent<ILabelProps> = (
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
-    <div className={classNames(styles.tag, className, {
-      [styles.fixedToTopRight]: fixedToTopRight,
-      [styles.relativePosition]: !fixedToTopRight && width !== "unset",
-      [styles.expandHorizontally]: width === "unset" && !fixedToTopRight,
-      [styles.allCornersRound]: !fixedToTopRight,
-      [styles.oppositeCornersRound]: fixedToTopRight,
-      [styles[`background${color}`]]: background === "dark",
-      [styles[`transparentBackground${color}`]]: background === "light",
-      [styles[`withoutBackground${color}`]]: background === "none"
+    <div className={classNames(styles.tag, className, styles[shape], {
+      [styles[`transparentBackground${color}`]]: withoutBackground,
+      [styles[`background${color}`]]: !withoutBackground
     })}>
       {
-        width !== "square" &&
+        shape === "rectangular" &&
         <span
-          className={classNames(styles.text, {
-            [styles[`color${color}`]]: background === "light" || background === "none"
-          })}
+          className={classNames(styles.text, { [styles[`color${color}`]]: withoutBackground })}
         >
           {text}
         </span>
       }
       <div className={styles.iconContainer}>
         <Icon
-          className={classNames(styles.icon, {
-            [styles[`color${color}`]]: background === "light" || background === "none"
-          })}
+          className={classNames(styles.icon, { [styles[`color${color}`]]: withoutBackground })}
           fontSize="inherit"
         />
       </div>
@@ -56,9 +45,8 @@ export const Label: FunctionComponent<ILabelProps> = (
 
 export interface ILabelLayoutProps {
   className?: string;
-  background: "dark" | "light" | "none";
-  width: "fit-content" | "unset" | "square";
-  fixedToTopRight?: boolean;
+  shape: "circular" | "rectangular";
+  withoutBackground?: boolean;
 }
 
 export interface ILabelTextProps {

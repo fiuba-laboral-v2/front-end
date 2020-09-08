@@ -26,8 +26,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         tooltipText={translations.extensionTooltip}
         text={extensionText}
         status={extensionApprovalStatus}
-        width="unset"
-        background={withoutBackground ? "none" : "light"}
+        shape="rectangular"
+        withoutBackground={withoutBackground}
       />
     }
     {
@@ -37,8 +37,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
         tooltipText={translations.graduadosTooltip}
         text={graduadosText}
         status={graduadosApprovalStatus}
-        width="unset"
-        background={withoutBackground ? "none" : "light"}
+        shape="rectangular"
+        withoutBackground={withoutBackground}
       />
     }
   </div>

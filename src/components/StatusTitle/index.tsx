@@ -21,16 +21,13 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
         <SharedStatusLabel
           className={styles.desktopStatus}
           status={approvalStatus}
-          background="dark"
           withTooltip
-          width="square"
+          shape="circular"
         />
         <SharedStatusLabel
           className={styles.mobileStatus}
           status={approvalStatus}
-          fixedToTopRight
-          background="dark"
-          width="fit-content"
+          shape="rectangular"
         />
       </>
     }

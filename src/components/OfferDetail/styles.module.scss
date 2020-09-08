@@ -30,10 +30,6 @@
   width: 33%;
 }
 
-.approvalStatuses {
-  margin-bottom: $spacing-m;
-}
-
 .rightHeader {
   display: flex;
   flex-direction: column;
@@ -54,6 +50,12 @@
 
   .createdAt {
     @include text;
+
+    margin-bottom: $spacing-m;
+  }
+
+  .approvalStatuses {
+    flex-direction: row;
   }
 }
 
@@ -71,6 +73,10 @@
 
     .rightHeader {
       flex-direction: column;
+
+      .approvalStatuses {
+        flex-direction: column;
+      }
     }
   }
 

@@ -44,6 +44,15 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
         <CreatedSince className={styles.createdAt} date={offer.createdAt} />
+        {
+          withStatusLabel &&
+          <SeparatedStatusLabel
+            className={styles.approvalStatuses}
+            targetApplicantType={offer.targetApplicantType}
+            graduadosApprovalStatus={offer.graduadosApprovalStatus}
+            extensionApprovalStatus={offer.extensionApprovalStatus}
+          />
+        }
       </div>
     </div>
     <div className={styles.body}>
@@ -56,15 +65,6 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         }
       </div>
       <div className={styles.rightBodyContainer}>
-        {
-          withStatusLabel &&
-          <SeparatedStatusLabel
-            className={styles.approvalStatuses}
-            targetApplicantType={offer.targetApplicantType}
-            graduadosApprovalStatus={offer.graduadosApprovalStatus}
-            extensionApprovalStatus={offer.extensionApprovalStatus}
-          />
-        }
         <OfferInfo offer={offer}/>
         {applyButton}
       </div>
