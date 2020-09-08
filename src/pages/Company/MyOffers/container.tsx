@@ -6,6 +6,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
+import { Window } from "$components/Window";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -17,7 +18,7 @@ export const MyOffersContainer: FunctionComponent = () => {
   }
   if (!translations) return <LoadingSpinner/>;
 
-  return (
+  return <Window>
     <Feed
       loading={response.loading}
       title={translations.title}
@@ -25,7 +26,8 @@ export const MyOffersContainer: FunctionComponent = () => {
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
-    />);
+    />
+  </Window>;
 };
 
 interface ITranslations {

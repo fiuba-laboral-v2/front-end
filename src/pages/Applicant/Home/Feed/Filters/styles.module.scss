@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+.filtersContainer {
+  flex-basis: 36%;
+  flex-shrink: 0;
+  max-width: 470px;
+}
+
+.filters {
+  margin: $spacing-xxl 5%;
+}

@@ -1,0 +1,10 @@
+@import "$styles/_variables";
+
+.container {
+  flex-direction: row;
+}
+
+.offers {
+  flex-grow: 1;
+  margin: $spacing-xxl 0;
+}
