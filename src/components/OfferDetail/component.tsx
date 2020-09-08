@@ -7,12 +7,12 @@ import { Card } from "$components/Card";
 import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
-import { CreatedSince } from "$components/CreatedSince";
 import { OfferInfo } from "$components/OfferInfo";
 import { sortBy } from "lodash";
 import { IOffer } from "$interfaces/Offer";
 import { IMyOffer } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
+import { PublishedSince } from "../PublishedSince";
 
 export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
   {
@@ -39,11 +39,11 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           <Headline className={styles.title} mobileLayout={mobileLayout}>{offer.title}</Headline>
           <div>{editButton}</div>
         </div>
-        <Subtitle className={styles.companyName} >
+        <Subtitle className={styles.companyName}>
           {goToCompany && <Link to={goToCompany}>{offer.company.companyName}</Link>}
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
-        <CreatedSince className={styles.createdAt} date={offer.createdAt} />
+        <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
         {
           withStatusLabel &&
           <SeparatedStatusLabel

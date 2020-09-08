@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { UpdatedSince } from "$components/UpdatedSince";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { TimeHumanizer } from "$components/TimeHumanizer";
 
 export const AdminTask: FunctionComponent<IAdminTaskProps> = (
   { name, updatedAt, approvalStatus, Icon }
@@ -11,7 +11,7 @@ export const AdminTask: FunctionComponent<IAdminTaskProps> = (
     <Icon className={styles.icon}/>
     <div className={styles.info}>
       <div className={styles.name}>{name}</div>
-      <UpdatedSince date={updatedAt} />
+      <TimeHumanizer since={updatedAt}/>
     </div>
     <SharedStatusLabel
       status={approvalStatus}

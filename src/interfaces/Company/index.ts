@@ -11,6 +11,7 @@ export interface ICompany<T extends IUser | undefined = undefined> {
   website?: string;
   email?: string;
   createdAt: string;
+  updatedAt: string;
   approvalStatus: ApprovalStatus;
   phoneNumbers?: string[];
   photos?: string[];

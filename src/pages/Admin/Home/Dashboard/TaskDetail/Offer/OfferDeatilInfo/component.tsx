@@ -13,7 +13,7 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = (
   }
 ) => (
   <DetailInfo
-    mainTitle={<MainTitle />}
+    mainTitle={<MainTitle offer={offer}/>}
     currentStatus={currentStatus}
     setStatus={setStatus}
   >

@@ -4,7 +4,7 @@ import { Subtitle } from "$components/Subtitle";
 import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 import { CompanyLogo } from "$components/CompanyLogo";
-import { UpdatedSince } from "$components/UpdatedSince";
+import { PublishedSince } from "$components/PublishedSince";
 import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 
 import styles from "./styles.module.scss";
@@ -38,7 +38,7 @@ export const Info: FunctionComponent<IOfferProps> = (
           {title}
         </Subtitle>
         <hr className={styles.separator}/>
-        <UpdatedSince date={updatedAt} className={styles.mobileTime}/>
+        <PublishedSince date={updatedAt} className={styles.mobileTime}/>
       </div>
     </div>
     <div className={classNames(styles.detailsContainer, {
@@ -60,7 +60,7 @@ export const Info: FunctionComponent<IOfferProps> = (
             targetApplicantType={targetApplicantType}
           />
         }
-        <UpdatedSince
+        <PublishedSince
           className={classNames({
             [styles.time]: !hideCompanyName,
             [styles.timeLeftAligned]: hideCompanyName
