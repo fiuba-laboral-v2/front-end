@@ -28,6 +28,7 @@ export interface IApplicant {
   uuid: string;
   user: IUser;
   createdAt: string;
+  updatedAt: string;
   padron: number;
   approvalStatus: ApprovalStatus;
   description?: string;
