@@ -6,37 +6,34 @@ import styles from "./styles.module.scss";
 
 export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
   {
-    translations,
-    extensionText,
-    graduadosText,
+    extension,
+    graduados,
     className,
-    extensionApprovalStatus,
-    graduadosApprovalStatus,
     withoutBackground,
     statusClassName
   }
 ) => (
   <div className={classNames(styles.separatedStatusLabel, className)}>
     {
-      extensionApprovalStatus &&
+        extension &&
       <StatusLabel
         className={classNames(statusClassName, {
-          [styles.extensionApprovalStatus]: graduadosApprovalStatus
+          [styles.extensionApprovalStatus]: extension
         })}
-        tooltipText={translations.extensionTooltip}
-        text={extensionText}
-        status={extensionApprovalStatus}
+        tooltipText={extension.tooltipText}
+        text={extension.text}
+        status={extension.status}
         shape="rectangular"
         withoutBackground={withoutBackground}
       />
     }
     {
-      graduadosApprovalStatus &&
+      graduados &&
       <StatusLabel
         className={statusClassName}
-        tooltipText={translations.graduadosTooltip}
-        text={graduadosText}
-        status={graduadosApprovalStatus}
+        tooltipText={graduados.tooltipText}
+        text={graduados.text}
+        status={graduados.status}
         shape="rectangular"
         withoutBackground={withoutBackground}
       />
