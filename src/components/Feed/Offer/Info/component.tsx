@@ -76,5 +76,5 @@ export const Info: FunctionComponent<IOfferProps> = (
 
 interface IOfferProps {
   data: IOffer;
-  showStatusLabels?: boolean;
+  showStatusLabels: boolean;
 }

@@ -43,7 +43,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
 );
 
 interface IFeedProps {
-  showStatusLabels?: boolean;
+  showStatusLabels: boolean;
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;

@@ -27,5 +27,5 @@ export const Offer: FunctionComponent<IOfferProps> = (
 
 interface IOfferProps {
   data: IOffer;
-  showStatusLabels?: boolean;
+  showStatusLabels: boolean;
 }
