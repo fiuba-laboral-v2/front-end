@@ -47,15 +47,6 @@
   text-align: start;
 }
 
-.separatedStatusLabel {
-  margin-top: $spacing-m;
-}
-
-.statusLabel {
-  align-self: start;
-  padding: 0;
-}
-
 .mobileTime {
   display: none;
 }
@@ -141,15 +132,17 @@
     flex-direction: column-reverse;
   }
 
+  .firstColumn {
+    margin-top: $spacing-m;
+  }
+
+  .secondColumn {
+    margin: 0;
+  }
+
   .firstColumn,
   .secondColumn {
     align-self: unset;
-    margin: 0;
     width: unset;
-  }
-
-  .separatedStatusLabel {
-    align-self: unset;
-    margin-top: $spacing-l;
   }
 }

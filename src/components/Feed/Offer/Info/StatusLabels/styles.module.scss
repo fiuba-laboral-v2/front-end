@@ -1,0 +1,14 @@
+@import "$styles/_variables";
+
+.separatedStatusLabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.extensionApprovalStatus {
+  margin-bottom: $spacing-s;
+}
+
+.statusLabel {
+  padding: 0;
+}

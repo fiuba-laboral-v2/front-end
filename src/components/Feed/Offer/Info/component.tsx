@@ -5,7 +5,7 @@ import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { PublishedSince } from "$components/PublishedSince";
-import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
+import { StatusLabels } from "./StatusLabels";
 
 import styles from "./styles.module.scss";
 
@@ -44,17 +44,14 @@ export const Info: FunctionComponent<IOfferProps> = (
     <div className={classNames(styles.detailsContainer, {
       [styles.reverseDetailsContainer]: hideCompanyName
     })}>
-      <div className={classNames({ [styles.firstColumn]: !hideCompanyName })}>
+      <div className={styles.firstColumn}>
         {
           !hideCompanyName &&
           <Subtitle className={styles.companyName}>{company.companyName}</Subtitle>
         }
         {
           hideCompanyName &&
-          <SeparatedStatusLabel
-            className={styles.separatedStatusLabel}
-            statusClassName={styles.statusLabel}
-            withoutBackground
+          <StatusLabels
             extensionApprovalStatus={extensionApprovalStatus}
             graduadosApprovalStatus={graduadosApprovalStatus}
             targetApplicantType={targetApplicantType}
