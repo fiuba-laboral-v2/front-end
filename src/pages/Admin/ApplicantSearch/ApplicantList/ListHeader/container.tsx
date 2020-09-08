@@ -12,7 +12,7 @@ export const ListHeaderContainer: FunctionComponent = () => {
 };
 
 export interface ITranslations {
-  [names: string]: string;
+  names: string;
   padron: string;
   dni: string;
   studies: string;

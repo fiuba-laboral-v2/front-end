@@ -2,7 +2,7 @@ import React, { FunctionComponent, Fragment } from "react";
 import { GraduateCareerDetail } from "../GraduateCareerDetail";
 import { StudentCareerDetail } from "../StudentCareerDetail";
 import { IApplicantCareer } from "$interfaces/Applicant";
-import { ITranslations } from "./container";
+import { ITranslations } from "./interfaces";
 
 export const CareersData: FunctionComponent<ICareersData> = (
   {

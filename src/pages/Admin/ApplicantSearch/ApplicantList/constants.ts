@@ -1,10 +1,10 @@
-export const APPLICANT_LIST_COLUMNS_VALUES = {
-  NAMES: "names",
-  PADRON: "padron",
-  DNI: "dni",
-  STUDIES: "studies",
-  STATE: "state"
-};
+export enum APPLICANT_LIST_COLUMNS_VALUES {
+  NAMES = "names",
+  PADRON = "padron",
+  DNI = "dni",
+  STUDIES = "studies",
+  STATE = "state"
+}
 
 export const APPLICANT_LIST_COLUMNS = [
   APPLICANT_LIST_COLUMNS_VALUES.NAMES,

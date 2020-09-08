@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantCareer } from "$interfaces/Applicant";
+import { IGraduateTranslations } from "../CareersData/interfaces";
 
 export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   {
@@ -15,8 +16,5 @@ export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
 
 interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
-  translations: {
-    isGraduate: string;
-    connector: string;
-  };
+  translations: IGraduateTranslations;
 }

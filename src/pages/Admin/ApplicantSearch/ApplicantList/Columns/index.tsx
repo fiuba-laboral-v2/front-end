@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode, Fragment } from "react";
-import { APPLICANT_LIST_COLUMNS } from "../constants";
+import { APPLICANT_LIST_COLUMNS, APPLICANT_LIST_COLUMNS_VALUES } from "../constants";
 
 export const Columns: FunctionComponent<IColumn> = ({ children }) => (
   <Fragment>
@@ -10,5 +10,5 @@ export const Columns: FunctionComponent<IColumn> = ({ children }) => (
 );
 
 interface IColumn {
-  children: (column: string) => ReactNode;
+  children: (column: APPLICANT_LIST_COLUMNS_VALUES) => ReactNode;
 }

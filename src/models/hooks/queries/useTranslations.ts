@@ -1,4 +1,3 @@
-
 import { useHistory } from "react-router-dom";
 import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";

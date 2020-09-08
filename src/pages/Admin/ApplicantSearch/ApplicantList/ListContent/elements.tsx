@@ -32,13 +32,13 @@ interface IText {
 }
 
 const Text: FunctionComponent<IText> = ({ text, className }) => (
-  <p className={classNames(styles.text, className && styles[className])}>
+  <p className={classNames(styles.text, className)}>
     {text}
   </p>
 );
 
 interface IItem {
-  column: string;
+  column: "names" | "padron" | "dni" | "studies" | "state";
   applicant: IApplicant;
 }
 
@@ -58,7 +58,7 @@ export const Item: FunctionComponent<IItem> = ({
   <Fragment>
     {column === APPLICANT_LIST_COLUMNS_VALUES.NAMES && (
       <Text
-        className={"names"}
+        className={styles.names}
         text={`${name} ${surname}`}
       />
     )}

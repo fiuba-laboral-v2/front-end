@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { CareersData } from "./component";
 import { useTranslations } from "$hooks";
 import { IApplicantCareer } from "$interfaces/Applicant";
+import { ITranslations } from "./interfaces";
 
 export const CareersDataContainer: FunctionComponent<ICareersDataContainer> = (
   {
@@ -26,11 +27,4 @@ interface ICareersDataContainer {
   careers: IApplicantCareer[];
   className?: string;
   withSubjects?: boolean;
-}
-
-export interface ITranslations {
-  approvedSubjectCount: string;
-  currentCareerYear: string;
-  isGraduate: string;
-  connector: string;
 }

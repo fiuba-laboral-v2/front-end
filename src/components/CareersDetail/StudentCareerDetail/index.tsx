@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantCareer } from "$interfaces/Applicant";
+import { IStudentTranslations } from "../CareersData/interfaces";
 
 export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   {
@@ -19,10 +20,6 @@ export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
 
 interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
-  translations: {
-    currentCareerYear: string;
-    connector: string;
-    approvedSubjectCount: string;
-  };
+  translations: IStudentTranslations;
   withSubjects: boolean;
 }

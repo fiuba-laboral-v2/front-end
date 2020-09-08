@@ -3,7 +3,6 @@ export interface IUser {
   email: string;
   name: string;
   surname: string;
-  dni?: string;
 }
 
 export interface IEditableUser {
@@ -20,5 +19,9 @@ export interface IUserInput {
 }
 
 export interface IFiubaUserInput extends IUserInput {
+  dni: string;
+}
+
+export interface IFiubaUser extends IUser {
   dni: string;
 }

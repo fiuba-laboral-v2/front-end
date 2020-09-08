@@ -1,1 +1,1 @@
-export { ApplicantListContainer as ApplicantList } from "./container";
+export { ApplicantList } from "./component";
