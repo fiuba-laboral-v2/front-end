@@ -10,11 +10,11 @@ export const PublishedSinceContainer: FunctionComponent<IPublishedSinceContainer
 ) => {
   const translations = useTranslations<IPublishedSinceContainerTranslations>("publishedSince");
   if (!translations) return <Fragment/>;
-  return <TimeHumanizer className={className} since={date} labelPrefix={translations.update}/>;
+  return <TimeHumanizer className={className} since={date} labelPrefix={translations.prefix}/>;
 };
 
 interface IPublishedSinceContainerTranslations {
-  update: string;
+  prefix: string;
 }
 
 interface IPublishedSinceContainerProps {

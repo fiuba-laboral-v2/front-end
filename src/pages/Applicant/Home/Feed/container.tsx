@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Feed } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "$components/Redirect";
+import { Feed } from "$components/Feed";
 import { useOffers } from "$hooks/queries";
 
-const FeedContainer: FunctionComponent = () => {
+export const FeedContainer: FunctionComponent = () => {
   const history = useHistory();
   const response = useOffers();
 
@@ -21,5 +21,3 @@ const FeedContainer: FunctionComponent = () => {
     />
   );
 };
-
-export { FeedContainer };

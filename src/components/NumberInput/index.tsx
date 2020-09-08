@@ -9,6 +9,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = (
   {
     name,
     label,
+    helperText,
     className,
     validate,
     fast = true,
@@ -41,7 +42,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = (
           onChange={event => setFormValue(event.target.value)}
           disabled={form.isSubmitting}
           error={meta.touched && !!meta.error}
-          helperText={meta.touched ? meta.error : undefined}
+          helperText={meta.touched ? meta.error : helperText}
         />
       );
     }
