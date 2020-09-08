@@ -74,7 +74,7 @@ export const Item: FunctionComponent<IItem> = ({
     )}
     {column === APPLICANT_LIST_COLUMNS_VALUES.STUDIES && (
       <div className={styles.careersContainer}>
-        <CareersData careers={careers} withSubjects={false} />
+        <CareersData className={styles.careers} careers={careers} withSubjects={false} />
       </div>
     )}
     {column === APPLICANT_LIST_COLUMNS_VALUES.STATE && (

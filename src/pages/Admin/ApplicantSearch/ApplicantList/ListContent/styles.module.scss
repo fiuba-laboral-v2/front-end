@@ -27,12 +27,14 @@
 
 .careersContainer {
   @include rowItem;
+}
 
-  div b {
+.careers {
+  b {
     font-weight: 400;
   }
 
-  div span b {
+  span b {
     font-weight: 400;
   }
 }

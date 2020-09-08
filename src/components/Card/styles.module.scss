@@ -5,8 +5,11 @@
 .card {
   @include card;
 
-  border: solid 1px transparent;
   padding: 15px;
+}
+
+.withBorder {
+  border: solid 1px transparent;
 }
 
 .largePadding {

@@ -9,6 +9,7 @@ export const Card: FunctionComponent<IClickableCardProps> = (
     className,
     largePadding,
     selected,
+    withOutBorder = false,
     onClick
   }
 ) => {
@@ -19,7 +20,8 @@ export const Card: FunctionComponent<IClickableCardProps> = (
         [styles.largePadding]: largePadding,
         [styles.hoverable]: onClick,
         [styles.touched]: touched,
-        [styles.selected]: selected
+        [styles.selected]: selected,
+        [styles.withBorder]: !withOutBorder
       })}
       onClick={onClick}
       onTouchStart={() => setTouched(true)}
@@ -36,4 +38,5 @@ interface IClickableCardProps {
   onClick?: () => void;
   selected?: boolean;
   largePadding?: boolean;
+  withOutBorder?: boolean;
 }

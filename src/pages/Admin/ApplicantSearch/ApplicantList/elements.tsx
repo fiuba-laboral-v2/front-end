@@ -7,7 +7,7 @@ interface IListContainer {
 }
 
 export const ListContainer: FunctionComponent<IListContainer> = ({ children }) => (
-  <Card className={styles.cardContainer}>
+  <Card className={styles.cardContainer} withOutBorder >
     {children}
   </Card>
 );
