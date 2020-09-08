@@ -6,7 +6,7 @@ import { Columns } from "../Columns";
 export const ListHeader: FunctionComponent<IListHeader> = ({ translations }) => (
   <HeaderContainer>
     <Columns>
-      { column => <Item key={column} text={translations[column]} /> }
+      { column => <Item key={column} column={column} text={translations[column]} /> }
     </Columns>
   </HeaderContainer>
 );

@@ -1,24 +1,20 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-interface IHeaderContainer {
-  children: ReactNode;
-}
-
-export const HeaderContainer: FunctionComponent<IHeaderContainer> = ({ children }) => (
+export const HeaderContainer: FunctionComponent = ({ children }) => (
 <div className={styles.headerContainer}>
   {children}
 </div>
 );
 
 interface IItem {
-  key: string;
+  column: string;
   text: string;
 }
 
-export const Item: FunctionComponent<IItem> = ({ key, text }) => (
-  <p key={key} className={classNames(styles.item, styles[`${key}`])}>
+export const Item: FunctionComponent<IItem> = ({ column, text }) => (
+  <p className={classNames(styles.item, styles[`${column}`])}>
     {text}
   </p>
 );

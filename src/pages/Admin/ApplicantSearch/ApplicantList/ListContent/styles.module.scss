@@ -9,13 +9,16 @@
   &.grey {
     background-color: $lighterGrey;
   }
+  &:hover {
+    background-color: $selectedColor;
+  }
 }
 
 @mixin rowItem {
+  align-self: center;
   font-size: $fontSize-l;
   font-weight: 400;
   justify-self: center;
-  align-self: center;
 }
 
 .text {
@@ -41,6 +44,6 @@
 }
 
 .statusContainer {
-  justify-self: center;
   align-self: center;
+  justify-self: center;
 }

@@ -7,8 +7,15 @@ export const ListContent: FunctionComponent<IListContent> = ({ applicants }) => 
   <Row applicants={applicants}>
     {
       applicant => (
-        <Columns>
-          {column => <Item column={column} applicant={applicant} />}
+        <Columns key={applicant.uuid}>
+          {
+            column =>
+              <Item
+                key={`${applicant.uuid}-${column}`}
+                column={column}
+                applicant={applicant}
+              />
+          }
         </Columns>
       )
     }
