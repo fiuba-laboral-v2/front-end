@@ -10,9 +10,11 @@ const getApplicantType = (translations: ITranslations) => ({
 
 const buildLabel = ({ secretary, status, translations }: IBuildLabel) => {
   const applicantType = getApplicantType(translations)[secretary];
-  if (status === ApprovalStatus.approved) return `${applicantType}: ${translations.approved}`;
-  if (status === ApprovalStatus.rejected) return `${applicantType}: ${translations.rejected}`;
-  return `${applicantType}: ${translations.pending}`;
+  return {
+    [ApprovalStatus.approved]: `${applicantType}: ${translations.approved}`,
+    [ApprovalStatus.rejected]: `${applicantType}: ${translations.rejected}`,
+    [ApprovalStatus.pending]: `${applicantType}: ${translations.pending}`
+  }[status];
 };
 
 const getTooltipLabel = (secretary: Secretary, translations: ITranslations) => {
