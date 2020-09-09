@@ -13,7 +13,9 @@ export const StatusIcon: FunctionComponent<IAdminTaskProps> = (
   }
 ) => (
   <div className={classNames(styles.statusIcon, className)}>
-    <div className={styles.iconContainer}><Icon className={styles.icon}/></div>
+    <div className={styles.iconContainer}>
+      <Icon className={styles.icon}/>
+    </div>
     <SharedStatusLabel
       className={styles.statusLabel}
       status={approvalStatus}
