@@ -30,8 +30,7 @@ export const StatusLabels: FunctionComponent<IComponentProps> = (
           tooltipText={extension.tooltipText}
           text={extension.text}
           status={extension.status}
-          shape="rectangular"
-          withoutBackground
+          type="no-background"
         />
       }
       {
@@ -43,8 +42,7 @@ export const StatusLabels: FunctionComponent<IComponentProps> = (
           tooltipText={graduados.tooltipText}
           text={graduados.text}
           status={graduados.status}
-          shape="rectangular"
-          withoutBackground
+          type="no-background"
         />
       }
     </div>

@@ -11,10 +11,8 @@ export const Label: FunctionComponent<ILabelProps> = (
     Icon,
     text,
     tooltipText,
-    shape,
-    withoutBackground,
     color,
-    circularSize
+    type
   }
 ) => (
   <Tooltip
@@ -22,23 +20,27 @@ export const Label: FunctionComponent<ILabelProps> = (
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
-    <div className={classNames(styles.tag, className, styles[shape], {
-      [styles.transparent]: withoutBackground,
-      [styles[`background${color}`]]: !withoutBackground,
-      [styles[`${circularSize}`]]: circularSize && shape === "circular",
-      [styles[`paddingCircular${circularSize}`]]: circularSize && shape === "circular"
+    <div className={classNames(styles.tag, className, {
+      [styles.transparent]: type === "no-background",
+      [styles[`background${color}`]]: type !== "no-background",
+      [styles.paddingCircularSmall]: type === "small",
+      [styles.paddingCircularMedium]: type === "large",
+      [styles.circular]: type === "small",
+      [styles.rectangular]: type === "large" || type === "no-background"
     })}>
       {
-        shape === "rectangular" &&
-        <span
-          className={classNames(styles.text, { [styles[`color${color}`]]: withoutBackground })}
-        >
+        (type === "large" || type === "no-background") &&
+        <span className={classNames(styles.text, {
+          [styles[`color${color}`]]: type === "no-background"
+        })}>
           {text}
         </span>
       }
       <div className={classNames(styles.iconContainer)}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: withoutBackground })}
+          className={classNames(styles.icon, {
+            [styles[`color${color}`]]: type === "no-background"
+          })}
           fontSize="inherit"
         />
       </div>
@@ -48,9 +50,7 @@ export const Label: FunctionComponent<ILabelProps> = (
 
 export interface ILabelLayoutProps {
   className?: string;
-  shape: "circular" | "rectangular";
-  circularSize?: "Medium" | "Small";
-  withoutBackground?: boolean;
+  type: "small" | "large" | "no-background";
 }
 
 export interface ILabelTextProps {

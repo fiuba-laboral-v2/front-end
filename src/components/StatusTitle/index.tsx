@@ -22,14 +22,12 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
           className={styles.desktopStatus}
           status={approvalStatus}
           withTooltip
-          shape="circular"
-          circularSize="Medium"
+          type="small"
         />
         <SharedStatusLabel
           className={styles.mobileStatus}
           status={approvalStatus}
-          shape="rectangular"
-          circularSize="Medium"
+          type="large"
         />
       </>
     }
