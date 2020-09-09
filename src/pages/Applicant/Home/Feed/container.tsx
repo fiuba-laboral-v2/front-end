@@ -18,7 +18,7 @@ export const FeedContainer: FunctionComponent = () => {
       onCardClick={(uuid: string) => history.push(RoutesBuilder.applicant.offerDetail(uuid))}
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data?.getOffers.shouldFetchMore}
-      showStatusLabels={false}
+      withStatusLabels={false}
     />
   );
 };

@@ -22,7 +22,7 @@ export const Info: FunctionComponent<IOfferProps> = (
       graduadosApprovalStatus,
       targetApplicantType
     },
-    showStatusLabels
+    withStatusLabels
   }
 ) => (
   <div className={styles.container}>
@@ -42,15 +42,15 @@ export const Info: FunctionComponent<IOfferProps> = (
       </div>
     </div>
     <div className={classNames(styles.detailsContainer, {
-      [styles.reverseDetailsContainer]: showStatusLabels
+      [styles.reverseDetailsContainer]: withStatusLabels
     })}>
       <div className={styles.firstColumn}>
         {
-          !showStatusLabels &&
+          !withStatusLabels &&
           <Subtitle className={styles.companyName}>{company.companyName}</Subtitle>
         }
         {
-          showStatusLabels &&
+          withStatusLabels &&
           <StatusLabels
             extensionApprovalStatus={extensionApprovalStatus}
             graduadosApprovalStatus={graduadosApprovalStatus}
@@ -59,8 +59,8 @@ export const Info: FunctionComponent<IOfferProps> = (
         }
         <PublishedSince
           className={classNames({
-            [styles.time]: !showStatusLabels,
-            [styles.timeLeftAligned]: showStatusLabels
+            [styles.time]: !withStatusLabels,
+            [styles.timeLeftAligned]: withStatusLabels
           })}
           date={updatedAt}
         />
@@ -76,5 +76,5 @@ export const Info: FunctionComponent<IOfferProps> = (
 
 interface IOfferProps {
   data: IOffer;
-  showStatusLabels: boolean;
+  withStatusLabels: boolean;
 }
