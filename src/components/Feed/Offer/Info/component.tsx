@@ -60,7 +60,7 @@ export const Info: FunctionComponent<IOfferProps> = (
         <PublishedSince
           className={classNames({
             [styles.time]: !withStatusLabels,
-            [styles.timeLeftAligned]: withStatusLabels
+            [styles.alignLeft]: withStatusLabels
           })}
           date={updatedAt}
         />
