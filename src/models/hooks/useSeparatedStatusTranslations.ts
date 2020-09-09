@@ -3,10 +3,13 @@ import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
 import { TargetApplicantType } from "../../interfaces/Offer";
 
+const getApplicantType = (translations: ITranslations) => ({
+  [Secretary.graduados]: translations.graduate,
+  [Secretary.extension]: translations.student
+});
+
 const buildLabel = ({ secretary, status, translations }: IBuildLabel) => {
-  let applicantType = "";
-  if (secretary === Secretary.graduados) applicantType = translations.graduate;
-  if (secretary === Secretary.extension) applicantType = translations.student;
+  const applicantType = getApplicantType(translations)[secretary];
   if (status === ApprovalStatus.approved) return `${applicantType}: ${translations.approved}`;
   if (status === ApprovalStatus.rejected) return `${applicantType}: ${translations.rejected}`;
   return `${applicantType}: ${translations.pending}`;
