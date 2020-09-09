@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.statusIcon {
+  margin-right: $spacing-m;
+}
+
 .info {
   flex-grow: 1;
 }
@@ -13,9 +17,4 @@
   font-weight: bold;
   margin-bottom: $spacing-s / 2;
   white-space: pre-wrap;
-}
-
-.icon {
-  align-self: center;
-  margin-right: $spacing-m;
 }

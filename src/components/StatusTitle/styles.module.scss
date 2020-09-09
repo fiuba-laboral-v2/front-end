@@ -22,6 +22,15 @@
     display: none;
   }
 
+  .statusTitle {
+    flex-direction: column;
+  }
+
+  .title {
+    margin-bottom: $spacing-s;
+    margin-right: 0;
+  }
+
   .mobileStatus {
     display: flex;
   }
