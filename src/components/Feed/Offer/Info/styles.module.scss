@@ -38,8 +38,10 @@
 }
 
 .time {
-  margin-top: $spacing-s;
-  text-align: center;
+  :not(.alignLeft) {
+    margin-top: $spacing-s;
+    text-align: center;
+  }
 }
 
 .alignLeft {
@@ -97,7 +99,9 @@
   }
 
   .time {
-    display: none;
+    :not(.alignLeft) {
+      display: none;
+    }
   }
 
   .alignLeft {
