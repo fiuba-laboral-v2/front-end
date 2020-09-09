@@ -48,9 +48,11 @@ export const Label: FunctionComponent<ILabelProps> = (
   </Tooltip>
 );
 
+export type LabelType = "small" | "large" | "no-background";
+
 export interface ILabelLayoutProps {
   className?: string;
-  type: "small" | "large" | "no-background";
+  type: LabelType;
 }
 
 export interface ILabelTextProps {
