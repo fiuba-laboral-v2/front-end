@@ -18,10 +18,30 @@
 
 .circular {
   border-radius: $defaultBorderRadius;
-  max-height: $spacing-m;
-  max-width: $spacing-m;
   padding: 4px;
   width: fit-content;
+}
+
+.paddingCircularMedium {
+  padding: 4px;
+}
+
+.paddingCircularSmall {
+  padding: 2px;
+}
+
+.medium {
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+}
+
+.small {
+  max-height: $spacing-m;
+  max-width: $spacing-m;
+}
+
+.icon {
+  align-self: center;
 }
 
 .text {
@@ -34,15 +54,13 @@
   margin-right: 5px;
 }
 
+.iconContainer {
+  display: flex;
+}
+
 .icon,
 .text {
   color: $white;
-}
-
-.iconContainer {
-  display: flex;
-  max-height: $spacing-m;
-  max-width: $spacing-m;
 }
 
 .backgroundRed {

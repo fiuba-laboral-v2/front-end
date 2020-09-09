@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+
+.statusIcon {
+  display: flex;
+  position: relative;
+}
+
+.iconContainer {
+  align-self: center;
+  max-height: 35px;
+  max-width: 35px;
+}
+
+.icon {
+  width: unset;
+}
+
+.statusLabel {
+  position: absolute;
+  right: -10%;
+  top: 50%;
+}

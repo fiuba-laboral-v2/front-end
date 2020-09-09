@@ -13,7 +13,8 @@ export const Label: FunctionComponent<ILabelProps> = (
     tooltipText,
     shape,
     withoutBackground,
-    color
+    color,
+    circularSize
   }
 ) => (
   <Tooltip
@@ -23,7 +24,9 @@ export const Label: FunctionComponent<ILabelProps> = (
   >
     <div className={classNames(styles.tag, className, styles[shape], {
       [styles[`transparentBackground${color}`]]: withoutBackground,
-      [styles[`background${color}`]]: !withoutBackground
+      [styles[`background${color}`]]: !withoutBackground,
+      [styles[`${circularSize}`]]: circularSize && shape === "circular",
+      [styles[`paddingCircular${circularSize}`]]: circularSize && shape === "circular"
     })}>
       {
         shape === "rectangular" &&
@@ -33,9 +36,12 @@ export const Label: FunctionComponent<ILabelProps> = (
           {text}
         </span>
       }
-      <div className={styles.iconContainer}>
+      <div className={classNames(styles.iconContainer)}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: withoutBackground })}
+          className={classNames(styles.icon, {
+            [styles[`color${color}`]]: withoutBackground,
+            [styles[`${circularSize}`]]: circularSize && shape === "circular"
+          })}
           fontSize="inherit"
         />
       </div>
@@ -46,6 +52,7 @@ export const Label: FunctionComponent<ILabelProps> = (
 export interface ILabelLayoutProps {
   className?: string;
   shape: "circular" | "rectangular";
+  circularSize?: "Medium" | "Small";
   withoutBackground?: boolean;
 }
 
