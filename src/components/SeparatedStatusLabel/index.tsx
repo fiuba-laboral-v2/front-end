@@ -26,7 +26,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
       {
         extension &&
         <StatusLabel
-          className={classNames(styles.extensionApprovalStatus, {
+          className={classNames(styles.statusMargin, {
             [styles.statusLabel]: extension
           })}
           tooltipText={extension.tooltipText}

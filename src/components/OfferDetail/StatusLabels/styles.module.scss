@@ -6,7 +6,7 @@
   flex-direction: row;
 }
 
-.extensionApprovalStatus {
+.statusMargin {
   margin-right: $spacing-s;
 }
 
@@ -15,7 +15,7 @@
     flex-direction: column;
   }
 
-  .extensionApprovalStatus {
+  .statusMargin {
     margin-bottom: $spacing-s;
     margin-right: 0;
   }
