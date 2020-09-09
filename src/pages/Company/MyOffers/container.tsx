@@ -25,6 +25,7 @@ export const MyOffersContainer: FunctionComponent = () => {
       onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
+      withStatusLabels
     />);
 };
 
