@@ -24,7 +24,6 @@ export const Label: FunctionComponent<ILabelProps> = (
       [styles.transparent]: type === "no-background",
       [styles[`background${color}`]]: type !== "no-background",
       [styles.paddingCircularSmall]: type === "small",
-      [styles.paddingCircularMedium]: type === "large",
       [styles.circular]: type === "small",
       [styles.rectangular]: type === "large" || type === "no-background"
     })}>
