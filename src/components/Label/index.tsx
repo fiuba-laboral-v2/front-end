@@ -38,10 +38,7 @@ export const Label: FunctionComponent<ILabelProps> = (
       }
       <div className={classNames(styles.iconContainer)}>
         <Icon
-          className={classNames(styles.icon, {
-            [styles[`color${color}`]]: withoutBackground,
-            [styles[`${circularSize}`]]: circularSize && shape === "circular"
-          })}
+          className={classNames(styles.icon, { [styles[`color${color}`]]: withoutBackground })}
           fontSize="inherit"
         />
       </div>
