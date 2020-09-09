@@ -23,7 +23,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
     <div className={classNames(styles.tag, className, styles[shape], {
-      [styles[`transparentBackground${color}`]]: withoutBackground,
+      [styles.transparent]: withoutBackground,
       [styles[`background${color}`]]: !withoutBackground,
       [styles[`${circularSize}`]]: circularSize && shape === "circular",
       [styles[`paddingCircular${circularSize}`]]: circularSize && shape === "circular"
