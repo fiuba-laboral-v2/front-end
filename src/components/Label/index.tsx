@@ -36,7 +36,7 @@ export const Label: FunctionComponent<ILabelProps> = (
           {text}
         </span>
       }
-      <div className={classNames(styles.iconContainer)}>
+      <div className={styles.iconContainer}>
         <Icon
           className={classNames(styles.icon, {
             [styles[`color${color}`]]: type === "no-background"
