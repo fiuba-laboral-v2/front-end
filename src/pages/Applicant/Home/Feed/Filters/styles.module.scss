@@ -1,6 +1,11 @@
 @import "$styles/_variables";
 
+.title {
+  margin-bottom: $spacing-l;
+}
+
 .filtersContainer {
+  border-right: solid 1px $lightGrey;
   flex-basis: 36%;
   flex-shrink: 0;
   max-width: 470px;
@@ -8,4 +13,9 @@
 
 .filters {
   margin: $spacing-xxl 5%;
+}
+
+.appliedFilters {
+  margin-bottom: $spacing-xxl;
+  width: calc(100% + #{$spacing-m});
 }

@@ -1,0 +1,28 @@
+@import "$styles/_variables";
+
+.container {
+  align-items: center;
+  background: $mainBlue;
+  border-radius: 16px;
+  color: $white;
+  display: inline-flex;
+  font-size: $fontSize-l;
+  padding: 4px 2px;
+}
+
+.label {
+  padding: 0 0 0 8px;
+}
+
+svg.icon {
+  cursor: pointer;
+  height: 19px;
+
+  &:hover {
+    color: $lighterGrey;
+  }
+
+  &:active {
+    color: $lightGrey;
+  }
+}

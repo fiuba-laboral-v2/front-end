@@ -15,7 +15,7 @@ export const FeedContainer: FunctionComponent = () => {
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return <Window width="fullWidth" className={styles.container}>
-    <Filters/>
+    <Filters className={styles.filters}/>
     <Feed
       className={styles.offers}
       loading={response.loading}

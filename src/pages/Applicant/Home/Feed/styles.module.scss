@@ -2,9 +2,15 @@
 
 .container {
   flex-direction: row;
+  height: calc(100vh - #{$navBarHeight});
 }
 
 .offers {
   flex-grow: 1;
-  margin: $spacing-xxl 0;
+  padding: $spacing-xxl 0;
+}
+
+.filters,
+.offers {
+  overflow-y: auto;
 }
