@@ -24,8 +24,7 @@ export const StatusLabels: FunctionComponent<IComponentProps> = (
       {
         extension &&
         <StatusLabel
-          className={classNames({
-            [styles.extensionApprovalStatus]: graduados,
+          className={classNames(styles.extensionApprovalStatus, {
             [styles.statusLabel]: extension
           })}
           tooltipText={extension.tooltipText}
