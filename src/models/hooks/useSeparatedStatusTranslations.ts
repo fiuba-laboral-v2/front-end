@@ -64,8 +64,7 @@ export const useSeparatedStatusTranslations = (
       extension: {
         text: buildLabel({
           status: extensionApprovalStatus,
-          secretary:
-          Secretary.extension,
+          secretary: Secretary.extension,
           translations
         }),
         tooltipText: getTooltipLabel(Secretary.extension, translations),
