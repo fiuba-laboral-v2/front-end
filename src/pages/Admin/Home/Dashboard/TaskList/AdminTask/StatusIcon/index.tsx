@@ -20,7 +20,7 @@ export const StatusIcon: FunctionComponent<IAdminTaskProps> = (
       className={styles.statusLabel}
       status={approvalStatus}
       withTooltip
-      type="small"
+      type="small-padding"
     />
   </div>
 );
