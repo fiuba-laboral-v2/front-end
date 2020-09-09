@@ -23,8 +23,7 @@ export const Label: FunctionComponent<ILabelProps> = (
     <div className={classNames(styles.tag, className, {
       [styles.transparent]: type === "no-background",
       [styles[`background${color}`]]: type !== "no-background",
-      [styles.paddingCircularSmall]: type === "small-padding",
-      [styles.circular]: type === "small" || type === "small-padding",
+      [styles.circular]: type === "small",
       [styles.rectangular]: type === "large" || type === "no-background"
     })}>
       {
@@ -47,7 +46,7 @@ export const Label: FunctionComponent<ILabelProps> = (
   </Tooltip>
 );
 
-export type LabelType = "small" | "large" | "no-background" | "small-padding";
+export type LabelType = "small" | "large" | "no-background";
 
 export interface ILabelLayoutProps {
   className?: string;
