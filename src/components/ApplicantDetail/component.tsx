@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Links } from "$components/Links";
 import { Card } from "$components/Card";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
-import { CareersDetail } from "$components/CareersDetail";
+import { CareersSection } from "$components/CareersSection";
 import { SectionDetail } from "$components/SectionDetail";
 import { StatusTitle } from "$components/StatusTitle";
 import { Description } from "$components/Description";
@@ -50,7 +50,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         title={translations.capabilities}
         capabilities={capabilities}
       />
-      <CareersDetail className={styles.careers} careers={careers}/>
+      <CareersSection className={styles.careers} careers={careers}/>
     </div>
     <Description>{description}</Description>
     {

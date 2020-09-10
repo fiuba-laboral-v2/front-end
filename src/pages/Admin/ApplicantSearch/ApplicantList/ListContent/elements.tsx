@@ -1,7 +1,7 @@
 import React, { FunctionComponent, Fragment, ReactNode } from "react";
 import classNames from "classnames";
 import { IApplicant } from "$interfaces/Applicant";
-import { CareersData } from "$components/CareersDetail/CareersData";
+import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import { APPLICANT_LIST_COLUMNS_VALUES } from "../constants";
 import styles from "./styles.module.scss";
@@ -74,7 +74,7 @@ export const Item: FunctionComponent<IItem> = ({
     )}
     {column === APPLICANT_LIST_COLUMNS_VALUES.STUDIES && (
       <div className={styles.careersContainer}>
-        <CareersData className={styles.careers} careers={careers} withSubjects={false} />
+        <CareersDetail className={styles.careers} careers={careers} withSubjects={false} />
       </div>
     )}
     {column === APPLICANT_LIST_COLUMNS_VALUES.STATE && (

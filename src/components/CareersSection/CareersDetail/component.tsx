@@ -1,20 +1,21 @@
-import React, { FunctionComponent, Fragment } from "react";
+import React, { FunctionComponent } from "react";
 import { GraduateCareerDetail } from "../GraduateCareerDetail";
 import { StudentCareerDetail } from "../StudentCareerDetail";
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { ITranslations } from "./interfaces";
 
-export const CareersData: FunctionComponent<ICareersData> = (
+export const CareersDetail: FunctionComponent<ICareersDetail> = (
   {
     careers,
     translations,
     className,
     withSubjects
-  }) => (
-  <Fragment>
+  }
+) => (
+  <>
     {
-      careers?.map((applicantCareer, index) =>
-        <div key={index} className={className}>
+      careers?.map(applicantCareer =>
+        <div key={applicantCareer.career.code} className={className}>
           {applicantCareer.isGraduate ?
             <GraduateCareerDetail
               applicantCareer={applicantCareer}
@@ -30,10 +31,10 @@ export const CareersData: FunctionComponent<ICareersData> = (
         </div>
       )
     }
-  </Fragment>
+  </>
 );
 
-interface ICareersData {
+interface ICareersDetail {
   careers: IApplicantCareer[];
   translations: ITranslations;
   className?: string;

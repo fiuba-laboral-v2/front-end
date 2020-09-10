@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { IApplicantCareer } from "$interfaces/Applicant";
-import { IStudentTranslations } from "../CareersData/interfaces";
+import { IStudentTranslations } from "../CareersDetail/interfaces";
 
 export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   {
     applicantCareer,
     translations,
     withSubjects
-  }) => (
+  }
+) => (
   <span>
     <b>{applicantCareer.currentCareerYear}° {translations.currentCareerYear} </b>
     {translations.connector}
