@@ -5,21 +5,20 @@
 }
 
 .filtersContainer {
-  border-right: solid 1px $lightGrey;
-  flex-basis: 36%;
+  flex-basis: 30%;
   flex-shrink: 0;
-  max-width: 470px;
+  max-width: 650px;
 }
 
 .filters {
-  margin: $spacing-xxl 5%;
+  margin: $spacing-xxl 4%;
 }
 
 .appliedFilters {
-  margin-bottom: $spacing-xxl;
+  margin-bottom: $spacing-l;
 }
 
 .applyFilters {
   border-top: solid 1px $lightGrey;
-  padding-top: $spacing-xxl + $spacing-m;
+  padding-top: $spacing-xl;
 }
