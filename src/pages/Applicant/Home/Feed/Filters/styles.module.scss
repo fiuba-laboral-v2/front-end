@@ -19,3 +19,8 @@
   margin-bottom: $spacing-xxl;
   width: calc(100% + #{$spacing-m});
 }
+
+.applyFilters {
+  border-top: solid 1px $lightGrey;
+  padding-top: $spacing-xxl + $spacing-m;
+}

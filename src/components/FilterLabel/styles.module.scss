@@ -2,9 +2,10 @@
 
 .container {
   align-items: center;
-  background: $mainBlue;
+  background: $white;
+  border: solid 1px $mainBlue;
   border-radius: 16px;
-  color: $white;
+  color: $mainBlue;
   display: inline-flex;
   font-size: $fontSize-l;
   padding: 4px 2px;
@@ -19,10 +20,25 @@ svg.icon {
   height: 19px;
 
   &:hover {
-    color: $lighterGrey;
+    color: lighten($mainBlue, 3%);
   }
 
   &:active {
-    color: $lightGrey;
+    color: darken($mainBlue, 3%);
+  }
+}
+
+.applied {
+  background: $mainBlue;
+  color: $white;
+
+  svg.icon {
+    &:hover {
+      color: $lighterGrey;
+    }
+
+    &:active {
+      color: $lightGrey;
+    }
   }
 }
