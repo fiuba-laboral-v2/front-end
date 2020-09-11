@@ -1,1 +1,0 @@
-export { AppliedFilters } from "./component";

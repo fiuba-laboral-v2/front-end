@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
+.container {
+  width: calc(100% + #{$spacing-m});
+}
+
 .filter {
   margin: 0 $spacing-m $spacing-m 0;
 }

@@ -1,1 +1,1 @@
-export { Filters } from "./component";
+export { FiltersContainer as Filters } from "./container";

@@ -1,0 +1,7 @@
+@import "$styles/_variables";
+
+.title {
+  font-size: $fontSize-l;
+  font-weight: normal;
+  margin: $spacing-xxl 0 $spacing-l 0;
+}
