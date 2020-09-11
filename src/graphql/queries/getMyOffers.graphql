@@ -6,25 +6,27 @@ query getMyOffers($updatedBeforeThan: PaginatedInput) {
       title
       description
       targetApplicantType
+      extensionApprovalStatus
+      graduadosApprovalStatus
       hoursPerDay
       minimumSalary
       maximumSalary
       createdAt
       updatedAt
       sections {
-          uuid
-          title
-          text
-          displayOrder
+        uuid
+        title
+        text
+        displayOrder
       }
       careers {
-          code
-          description
+        code
+        description
       }
       company {
-          uuid
-          companyName
-          logo
+        uuid
+        companyName
+        logo
       }
     }
   }

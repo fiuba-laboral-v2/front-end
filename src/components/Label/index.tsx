@@ -11,10 +11,8 @@ export const Label: FunctionComponent<ILabelProps> = (
     Icon,
     text,
     tooltipText,
-    fixedToTopRight,
-    width,
-    background,
-    color
+    color,
+    type
   }
 ) => (
   <Tooltip
@@ -23,25 +21,24 @@ export const Label: FunctionComponent<ILabelProps> = (
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
     <div className={classNames(styles.tag, className, {
-      [styles.fixedToTopRight]: fixedToTopRight,
-      [styles.relativePosition]: !fixedToTopRight && width !== "unset",
-      [styles.expandHorizontally]: width === "unset" && !fixedToTopRight,
-      [styles.allCornersRound]: !fixedToTopRight,
-      [styles.oppositeCornersRound]: fixedToTopRight,
-      [styles[`background${color}`]]: background === "dark",
-      [styles[`transparentBackground${color}`]]: background === "light"
+      [styles.transparent]: type === "no-background",
+      [styles[`background${color}`]]: type !== "no-background",
+      [styles.circular]: type === "small",
+      [styles.rectangular]: type === "large" || type === "no-background"
     })}>
       {
-        width !== "square" &&
-        <span
-          className={classNames(styles.text, { [styles[`color${color}`]]: background === "light" })}
-        >
+        (type === "large" || type === "no-background") &&
+        <span className={classNames(styles.text, {
+          [styles[`color${color}`]]: type === "no-background"
+        })}>
           {text}
         </span>
       }
       <div className={styles.iconContainer}>
         <Icon
-          className={classNames(styles.icon, { [styles[`color${color}`]]: background === "light" })}
+          className={classNames(styles.icon, {
+            [styles[`color${color}`]]: type === "no-background"
+          })}
           fontSize="inherit"
         />
       </div>
@@ -49,11 +46,11 @@ export const Label: FunctionComponent<ILabelProps> = (
   </Tooltip>
 );
 
+export type LabelType = "small" | "large" | "no-background";
+
 export interface ILabelLayoutProps {
   className?: string;
-  background: "dark" | "light";
-  width: "fit-content" | "unset" | "square";
-  fixedToTopRight?: boolean;
+  type: LabelType;
 }
 
 export interface ILabelTextProps {

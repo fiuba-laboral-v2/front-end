@@ -55,6 +55,10 @@
     flex-direction: column;
   }
 
+  .title {
+    margin-bottom: $spacing-m;
+  }
+
   .applicantName {
     margin: $spacing-l 0 0 0;
   }

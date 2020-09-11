@@ -30,10 +30,6 @@
   width: 33%;
 }
 
-.approvalStatuses {
-  margin-bottom: $spacing-m;
-}
-
 .rightHeader {
   display: flex;
   flex-direction: column;
@@ -54,6 +50,8 @@
 
   .updatedAt {
     @include text;
+
+    margin-bottom: $spacing-m;
   }
 }
 

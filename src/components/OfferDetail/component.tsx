@@ -4,7 +4,7 @@ import { Link } from "$components/Link";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Card } from "$components/Card";
-import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
+import { StatusLabels } from "./StatusLabels";
 import { Headline } from "$components/Headline";
 import { SectionDetail } from "$components/SectionDetail";
 import { OfferInfo } from "$components/OfferInfo";
@@ -44,6 +44,14 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
         <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
+        {
+          withStatusLabel &&
+          <StatusLabels
+            targetApplicantType={offer.targetApplicantType}
+            graduadosApprovalStatus={offer.graduadosApprovalStatus}
+            extensionApprovalStatus={offer.extensionApprovalStatus}
+          />
+        }
       </div>
     </div>
     <div className={styles.body}>
@@ -56,15 +64,6 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
         }
       </div>
       <div className={styles.rightBodyContainer}>
-        {
-          withStatusLabel &&
-          <SeparatedStatusLabel
-            className={styles.approvalStatuses}
-            targetApplicantType={offer.targetApplicantType}
-            graduadosApprovalStatus={offer.graduadosApprovalStatus}
-            extensionApprovalStatus={offer.extensionApprovalStatus}
-          />
-        }
         <OfferInfo offer={offer}/>
         {applyButton}
       </div>

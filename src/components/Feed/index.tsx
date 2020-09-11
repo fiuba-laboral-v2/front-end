@@ -14,7 +14,8 @@ export const Feed: FunctionComponent<IFeedProps> = (
     fetchMore,
     shouldFetchMore,
     loading,
-    className
+    className,
+    withStatusLabels
   }
 ) => (
   <div className={className}>
@@ -33,7 +34,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
             className={styles.cardContainer}
             onClick={() => onCardClick(offer.uuid)}
           >
-            <Offer data={offer}/>
+            <Offer data={offer} withStatusLabels={withStatusLabels}/>
           </Card>
         )}
       </List>
@@ -42,6 +43,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
 );
 
 interface IFeedProps {
+  withStatusLabels: boolean;
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
