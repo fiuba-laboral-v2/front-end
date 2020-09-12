@@ -5,8 +5,8 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
-import { useMyOffers } from "$hooks/queries/useMyOffers";
 import { Window } from "$components/Window";
+import { useMyOffers } from "$hooks/queries/useMyOffers";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
