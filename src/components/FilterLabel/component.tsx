@@ -8,16 +8,21 @@ export const FilterLabel: FunctionComponent<IFilterLabelProps> = (
   {
     children,
     className,
-    applied
+    applied,
+    onClick
   }
 ) => (
   <div className={classNames(styles.container, className, { [styles.applied]: applied })}>
     <span className={styles.label}>{children}</span>
-    {applied ? <CancelIcon className={styles.icon}/> : <AddCircleIcon className={styles.icon}/>}
+    {applied ?
+      <CancelIcon className={styles.icon} onClick={onClick}/> :
+      <AddCircleIcon className={styles.icon} onClick={onClick}/>
+    }
   </div>
 );
 
 interface IFilterLabelProps {
   className?: string;
   applied: boolean;
+  onClick: () => void;
 }

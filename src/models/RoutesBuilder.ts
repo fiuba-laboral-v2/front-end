@@ -38,8 +38,8 @@ export const RoutesBuilder = {
     editMyProfile: () =>
       applicantRoute(PROFILE, EDIT),
 
-    offerList: () =>
-      applicantRoute(OFFERS),
+    offerList: ({ searchParams }: { searchParams?: string } = {}) =>
+      `${applicantRoute(OFFERS)}${searchParams ? `?${searchParams}` : ""}`,
 
     offerDetail: (uuid: string) =>
       applicantRoute(OFFERS, uuid),
