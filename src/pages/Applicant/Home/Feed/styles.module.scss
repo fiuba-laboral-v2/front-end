@@ -1,0 +1,16 @@
+@import "$styles/_variables";
+
+.container {
+  flex-direction: row;
+  height: calc(100vh - #{$navBarHeight});
+}
+
+.offers {
+  flex-grow: 1;
+  padding: $spacing-xxl 0;
+}
+
+.filters,
+.offers {
+  overflow-y: auto;
+}

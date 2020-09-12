@@ -1,0 +1,1 @@
+export { FilterLabels } from "./component";

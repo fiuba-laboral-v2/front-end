@@ -3,7 +3,6 @@ import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
-import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
 
@@ -15,10 +14,11 @@ export const Feed: FunctionComponent<IFeedProps> = (
     fetchMore,
     shouldFetchMore,
     loading,
+    className,
     withStatusLabels
   }
 ) => (
-  <Window>
+  <div className={className}>
     {title && <Headline color="dark" className={styles.title}>{title}</Headline>}
     <div>
       <List
@@ -39,7 +39,7 @@ export const Feed: FunctionComponent<IFeedProps> = (
         )}
       </List>
     </div>
-  </Window>
+  </div>
 );
 
 interface IFeedProps {
@@ -50,4 +50,5 @@ interface IFeedProps {
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  className?: string;
 }

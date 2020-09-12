@@ -1,6 +1,7 @@
-import { IApplicantCareer, ApplicantType } from "$interfaces/Applicant";
+import { ApplicantType } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
+import { ICareer } from "../Career";
 
 export interface IOfferSection {
   uuid?: string;
@@ -23,5 +24,5 @@ export interface IOffer {
   createdAt: string;
   updatedAt: string;
   sections?: IOfferSection[];
-  careers?: IApplicantCareer[];
+  careers?: ICareer[];
 }
