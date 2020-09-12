@@ -1,18 +1,6 @@
-import { IApplicantCareer } from "$interfaces/Applicant";
+import { IApplicantCareer, ApplicantType } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
-
-export enum ApplicantType {
-  graduate = "graduate",
-  student = "student",
-  both = "both"
-}
-
-export const targetApplicantTypeEnumValues = [
-  ApplicantType.graduate,
-  ApplicantType.student,
-  ApplicantType.both
-];
 
 export interface IOfferSection {
   uuid?: string;

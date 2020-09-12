@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useSeparatedStatusTranslations } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { ApplicantType } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 import { StatusLabel } from "$components/StatusLabel";
 import { LabelType } from "$components/Label";
 import classNames from "classnames";

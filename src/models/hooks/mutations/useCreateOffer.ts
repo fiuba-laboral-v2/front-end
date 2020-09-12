@@ -1,6 +1,7 @@
 import { CREATE_OFFER } from "$mutations";
 import { useMutation } from "$hooks";
-import { IOffer, ApplicantType } from "$interfaces/Offer";
+import { IOffer } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 export const useCreateOffer = () =>
   useMutation<ICreateOffer, { createOffer: IOffer & { company: never } }>(

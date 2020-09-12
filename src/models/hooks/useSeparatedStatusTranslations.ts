@@ -1,7 +1,7 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
-import { ApplicantType } from "../../interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,

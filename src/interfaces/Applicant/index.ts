@@ -4,6 +4,18 @@ import { ICareer } from "../Career";
 import { IOffer } from "../Offer";
 import { ApprovalStatus } from "../ApprovalStatus";
 
+export enum ApplicantType {
+  graduate = "graduate",
+  student = "student",
+  both = "both"
+}
+
+export const targetApplicantTypeEnumValues = [
+  ApplicantType.graduate,
+  ApplicantType.student,
+  ApplicantType.both
+];
+
 export interface IApplicantCareer {
   career: ICareer;
   approvedSubjectCount?: number;

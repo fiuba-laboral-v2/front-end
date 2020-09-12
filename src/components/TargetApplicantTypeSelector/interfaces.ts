@@ -1,4 +1,4 @@
-import { ApplicantType } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 export interface IContainerProps {
   value: ApplicantType | "";
