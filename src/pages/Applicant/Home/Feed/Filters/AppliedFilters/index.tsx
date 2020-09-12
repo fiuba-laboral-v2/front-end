@@ -8,11 +8,13 @@ export const AppliedFilters: FunctionComponent<IAppliedFiltersProps> = (
 ) => {
   const appliedCareerCodes = filter.careerCodes();
   const appliedCareers = careers.filter(career => appliedCareerCodes.includes(career.code));
-  return <FilterLabels applied
-                       className={className}
-                       items={appliedCareers}
-                       getKey={career => career.code}
-                       getLabel={career => career.description}/>;
+  return <FilterLabels
+    applied
+    className={className}
+    items={appliedCareers}
+    getKey={career => career.code}
+    getLabel={career => career.description}
+  />;
 };
 
 interface IAppliedFiltersProps {
