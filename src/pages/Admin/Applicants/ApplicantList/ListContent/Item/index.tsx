@@ -43,8 +43,7 @@ export const Item: FunctionComponent<IItem> = ({
       <SharedStatusLabel
         status={approvalStatus}
         withTooltip
-        background="dark"
-        width="square"
+        type="small"
       />
     </div>
   </>
