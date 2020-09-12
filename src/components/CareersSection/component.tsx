@@ -10,13 +10,11 @@ export const CareersSection: FunctionComponent<ICareersProps> = (
     careers,
     translations
   }
-) => {
-  return (
-    <div className={className}>
-      <section className={styles.items}>
-        <Subtitle>{translations.careersTitle}</Subtitle>
-        <CareersDetail careers={careers} className={styles.item}/>
-      </section>
-    </div>
-  );
-};
+) => (
+  <div className={className}>
+    <section className={styles.items}>
+      <Subtitle>{translations.careersTitle}</Subtitle>
+      <CareersDetail careers={careers} className={styles.item}/>
+    </section>
+  </div>
+);

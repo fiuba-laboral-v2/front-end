@@ -1,19 +1,4 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_lists";
-
-.row {
-  @include applicantListRows;
-
-  padding: $spacing-s;
-
-  &.grey {
-    background-color: $lighterGrey;
-  }
-
-  &:hover {
-    background-color: $selectedColor;
-  }
-}
 
 @mixin rowItem {
   align-self: center;
@@ -27,6 +12,7 @@
 
   &.names {
     font-weight: 600;
+    text-align: center;
   }
 }
 
@@ -35,6 +21,8 @@
 }
 
 .careers {
+  text-align: center;
+
   b {
     font-weight: 400;
   }
