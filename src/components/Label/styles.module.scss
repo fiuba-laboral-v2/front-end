@@ -8,35 +8,22 @@
 .tag {
   align-items: center;
   display: flex;
+}
+
+.rectangular {
+  border-radius: $defaultBorderRadius;
   padding: 4px 10px;
   width: fit-content;
 }
 
-.relativePosition {
-  max-height: $spacing-m;
-  max-width: $spacing-m;
+.circular {
+  border-radius: $defaultBorderRadius;
   padding: 4px;
+  width: fit-content;
 }
 
-.fixedToTopRight {
-  margin-right: -1px;
-  margin-top: -1px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.expandHorizontally {
-  width: unset;
-}
-
-.allCornersRound {
-  border-radius: $smallBorderRadius;
-}
-
-.oppositeCornersRound {
-  border-bottom-left-radius: $smallBorderRadius;
-  border-top-right-radius: $defaultBorderRadius;
+.icon {
+  align-self: center;
 }
 
 .text {
@@ -49,15 +36,13 @@
   margin-right: 5px;
 }
 
+.iconContainer {
+  display: flex;
+}
+
 .icon,
 .text {
   color: $white;
-}
-
-.iconContainer {
-  display: flex;
-  max-height: $spacing-m;
-  max-width: $spacing-m;
 }
 
 .backgroundRed {
@@ -72,16 +57,8 @@
   background: $darkYellow;
 }
 
-.transparentBackgroundRed {
-  background: lighten($red, 35%);
-}
-
-.transparentBackgroundGreen {
-  background: lighten($green, 45%);
-}
-
-.transparentBackgroundDarkYellow {
-  background: lighten($darkYellow, 40%);
+.transparent {
+  background: transparent;
 }
 
 .colorRed {

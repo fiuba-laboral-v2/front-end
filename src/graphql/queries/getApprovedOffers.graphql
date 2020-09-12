@@ -1,0 +1,18 @@
+query($updatedBeforeThan: PaginatedInput) {
+  getApprovedOffers(updatedBeforeThan: $updatedBeforeThan) {
+    results {
+      uuid
+      title
+      hoursPerDay
+      minimumSalary
+      maximumSalary
+      updatedAt
+      company {
+        uuid
+        companyName
+        logo
+      }
+    }
+    shouldFetchMore
+  }
+}

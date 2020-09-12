@@ -1,21 +1,30 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { Subtitle } from "$components/Subtitle";
 import { IOffer } from "$interfaces/Offer";
 import { JobSpecs } from "./JobSpecs";
-
-import styles from "./styles.module.scss";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { PublishedSince } from "$components/PublishedSince";
+import { StatusLabels } from "./StatusLabels";
 
-export const Info: FunctionComponent<IOfferProps> = ({
-  data: {
-    company,
-    title,
-    minimumSalary,
-    maximumSalary,
-    hoursPerDay,
-    updatedAt
-}}) => (
+import styles from "./styles.module.scss";
+
+export const Info: FunctionComponent<IOfferProps> = (
+  {
+    data: {
+      company,
+      title,
+      minimumSalary,
+      maximumSalary,
+      hoursPerDay,
+      updatedAt,
+      extensionApprovalStatus,
+      graduadosApprovalStatus,
+      targetApplicantType
+    },
+    withStatusLabels
+  }
+) => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
       <CompanyLogo
@@ -32,12 +41,26 @@ export const Info: FunctionComponent<IOfferProps> = ({
         <PublishedSince date={updatedAt} className={styles.mobileTime}/>
       </div>
     </div>
-    <div className={styles.detailsContainer}>
+    <div className={classNames(styles.detailsContainer, {
+      [styles.reverseDetailsContainer]: withStatusLabels
+    })}>
       <div className={styles.firstColumn}>
-        <Subtitle className={styles.companyName}>
-          {company.companyName}
-        </Subtitle>
-        <PublishedSince date={updatedAt} className={styles.time}/>
+        {
+          !withStatusLabels &&
+          <Subtitle className={styles.companyName}>{company.companyName}</Subtitle>
+        }
+        {
+          withStatusLabels &&
+          <StatusLabels
+            extensionApprovalStatus={extensionApprovalStatus}
+            graduadosApprovalStatus={graduadosApprovalStatus}
+            targetApplicantType={targetApplicantType}
+          />
+        }
+        <PublishedSince
+          className={classNames(styles.time, { [styles.alignLeft]: withStatusLabels })}
+          date={updatedAt}
+        />
       </div>
       <JobSpecs
         salary={{ minimumSalary, maximumSalary }}
@@ -50,4 +73,5 @@ export const Info: FunctionComponent<IOfferProps> = ({
 
 interface IOfferProps {
   data: IOffer;
+  withStatusLabels: boolean;
 }

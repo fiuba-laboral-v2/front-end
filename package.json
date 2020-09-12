@@ -59,7 +59,7 @@
     "build:lint": "tsc --noEmit -p .",
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "yarn lint:src:ts && yarn lint:src:tsx && yarn lint:test:ts && yarn lint:test:tsx && yarn lint:scss & yarn build:lint",
+    "lint": "yarn lint:src:ts && yarn lint:src:tsx && yarn lint:test:ts && yarn lint:test:tsx && yarn lint:scss && yarn build:lint",
     "lint:scss": "yarn stylelint '**/*.scss'",
     "lint:src:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:src:tsx": "tslint -c tslint.json 'src/**/*.tsx'",

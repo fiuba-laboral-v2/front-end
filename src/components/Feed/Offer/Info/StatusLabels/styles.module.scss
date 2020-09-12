@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
-.extensionApprovalStatus {
+.statusMargin {
   margin-bottom: $spacing-s;
+}
+
+.statusLabel {
+  padding: 0;
 }

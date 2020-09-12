@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { targetApplicantTypeEnumValues } from "$interfaces/Offer";
+import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { FormikValidator } from "$models/FormikValidator";
 import { IComponentProps } from "./interfaces";
 import { Select } from "formik-material-ui";

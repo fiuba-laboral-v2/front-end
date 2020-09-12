@@ -3,7 +3,6 @@ import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
-import { Window } from "$components/Window";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
 
@@ -14,10 +13,12 @@ export const Feed: FunctionComponent<IFeedProps> = (
     onCardClick,
     fetchMore,
     shouldFetchMore,
-    loading
+    loading,
+    className,
+    withStatusLabels
   }
 ) => (
-  <Window>
+  <div className={className}>
     {title && <Headline color="dark" className={styles.title}>{title}</Headline>}
     <div>
       <List
@@ -33,19 +34,21 @@ export const Feed: FunctionComponent<IFeedProps> = (
             className={styles.cardContainer}
             onClick={() => onCardClick(offer.uuid)}
           >
-            <Offer data={offer}/>
+            <Offer data={offer} withStatusLabels={withStatusLabels}/>
           </Card>
         )}
       </List>
     </div>
-  </Window>
+  </div>
 );
 
 interface IFeedProps {
+  withStatusLabels: boolean;
   title?: string;
   offers: IOffer[];
   onCardClick: (uuid: string) => void;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  className?: string;
 }

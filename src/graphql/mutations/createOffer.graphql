@@ -1,7 +1,7 @@
 mutation createOffer (
     $title: String!,
     $description: String!,
-    $targetApplicantType: TargetApplicantType!
+    $targetApplicantType: ApplicantType!
     $hoursPerDay: Int!,
     $minimumSalary: Int!,
     $maximumSalary: Int!

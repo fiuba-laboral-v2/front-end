@@ -38,8 +38,19 @@
 }
 
 .time {
+  :not(.alignLeft) {
+    margin-top: $spacing-s;
+    text-align: center;
+  }
+}
+
+.alignLeft {
   margin-top: $spacing-s;
-  text-align: center;
+  text-align: start;
+}
+
+.companyName {
+  margin-bottom: $spacing-s;
 }
 
 .mobileTime {
@@ -92,6 +103,12 @@
   }
 
   .time {
+    :not(.alignLeft) {
+      display: none;
+    }
+  }
+
+  .alignLeft {
     display: none;
   }
 
@@ -119,10 +136,21 @@
     justify-content: unset;
   }
 
+  .reverseDetailsContainer {
+    flex-direction: column-reverse;
+  }
+
+  .firstColumn {
+    margin-top: $spacing-m;
+  }
+
+  .secondColumn {
+    margin: 0;
+  }
+
   .firstColumn,
   .secondColumn {
     align-self: unset;
-    margin: 0;
     width: unset;
   }
 }
