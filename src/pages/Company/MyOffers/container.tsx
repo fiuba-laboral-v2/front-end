@@ -5,6 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
+import { Window } from "$components/Window";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
 
 export const MyOffersContainer: FunctionComponent = () => {
@@ -17,7 +18,7 @@ export const MyOffersContainer: FunctionComponent = () => {
   }
   if (!translations) return <LoadingSpinner/>;
 
-  return (
+  return <Window>
     <Feed
       loading={response.loading}
       title={translations.title}
@@ -26,7 +27,8 @@ export const MyOffersContainer: FunctionComponent = () => {
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
       withStatusLabels
-    />);
+    />
+  </Window>;
 };
 
 interface ITranslations {

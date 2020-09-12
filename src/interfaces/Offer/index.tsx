@@ -1,6 +1,6 @@
-import { IApplicantCareer } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
+import { ICareer } from "../Career";
 
 export enum TargetApplicantType {
   graduate = "graduate",
@@ -35,5 +35,5 @@ export interface IOffer {
   createdAt: string;
   updatedAt: string;
   sections?: IOfferSection[];
-  careers?: IApplicantCareer[];
+  careers?: ICareer[];
 }
