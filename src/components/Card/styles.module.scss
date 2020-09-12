@@ -5,8 +5,8 @@
 .card {
   @include card;
 
-  padding: 15px;
   box-sizing: border-box;
+  padding: 15px;
 }
 
 .largePadding {
