@@ -13,7 +13,7 @@ export const Row: FunctionComponent<IRows> = ({ applicants, children }) => (
     {
       applicants.map((applicant, index) => (
         <div key={applicant.uuid} className={classNames(styles.row, {
-          [styles.grey]: index % 2 === 0 || index === 0
+          [styles.grey]: index % 2 === 0
         })}>
           {children(applicant)}
         </div>

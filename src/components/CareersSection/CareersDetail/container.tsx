@@ -8,6 +8,7 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
   {
     careers,
     className,
+    regular = false,
     withSubjects = true
   }
 ) => {
@@ -20,6 +21,7 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
         <CareersDetail
           careers={careers}
           className={className}
+          regular={regular}
           translations={translations}
           withSubjects={withSubjects}
         />
@@ -31,5 +33,8 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
 interface ICareersDetailContainer {
   careers: IApplicantCareer[];
   className?: string;
+  studentClassName?: string;
+  graduateClassName?: string;
   withSubjects?: boolean;
+  regular?: boolean;
 }

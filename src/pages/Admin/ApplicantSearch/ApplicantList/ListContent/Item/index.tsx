@@ -32,7 +32,12 @@ export const Item: FunctionComponent<IItem> = ({
       {dni}
     </p>
     <div className={styles.careersContainer}>
-      <CareersDetail className={styles.careers} careers={careers} withSubjects={false} />
+      <CareersDetail
+        className={styles.careers}
+        regular
+        careers={careers}
+        withSubjects={false}
+      />
     </div>
     <div className={styles.statusContainer}>
       <SharedStatusLabel

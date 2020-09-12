@@ -7,7 +7,8 @@ export const MainTitleContainer: FunctionComponent = () => {
 
   return (
     <Fragment>
-      { translations &&
+      {
+        translations &&
         <Header
             title={translations.title}
             subtitle={translations.subtitle}
