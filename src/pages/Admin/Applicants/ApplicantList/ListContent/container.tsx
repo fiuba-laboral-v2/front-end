@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { useGetApplicants } from "$hooks";
+import { useApplicants } from "$hooks";
 import { ListContent } from "./component";
 
 export const ListContentContainer: FunctionComponent = () => {
-  const result = useGetApplicants();
+  const result = useApplicants();
   const applicants = result?.data?.getApplicants;
   return (
     <>

@@ -1,13 +1,13 @@
 import { Home } from "./Home";
-import { ApplicantSearch } from "./ApplicantSearch";
+import { Applicants } from "./Applicants";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
   home,
-  applicantSearch
+  applicants
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
   { path: home(), component: Home },
-  { path: applicantSearch(), component: ApplicantSearch }
+  { path: applicants(), component: Applicants }
 ];

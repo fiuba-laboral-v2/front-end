@@ -4,7 +4,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { IApplicant } from "$interfaces/Applicant";
 
-export const useGetApplicants = () => {
+export const useApplicants = () => {
   const history = useHistory();
   return useQuery<{}, { getApplicants: IApplicant[] }>(
     GET_APPLICANTS,

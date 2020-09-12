@@ -24,7 +24,7 @@ export const RoutesBuilder = {
     home: () =>
       adminRoute(""),
 
-    applicantSearch: () =>
+    applicants: () =>
       adminRoute(APPLICANTS)
   },
 

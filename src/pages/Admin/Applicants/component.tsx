@@ -4,7 +4,7 @@ import { MainTitle } from "./MainTitle";
 import { MainContainer } from "./MainContainer";
 import { ApplicantList } from "./ApplicantList";
 
-export const ApplicantSearch: FunctionComponent<IApplicantSearch> = () => (
+export const Applicants: FunctionComponent<IApplicants> = () => (
   <Window width="fullWidth" desktopOnly>
     <MainContainer>
       <MainTitle />
@@ -13,7 +13,7 @@ export const ApplicantSearch: FunctionComponent<IApplicantSearch> = () => (
   </Window>
 );
 
-interface IApplicantSearch {
+interface IApplicants {
   translations: {
     title: string;
     subtitle: string;
