@@ -14,3 +14,7 @@
     background-color: $selectedColor;
   }
 }
+
+.rowsContainer {
+  overflow-y: scroll;
+}

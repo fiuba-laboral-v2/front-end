@@ -6,10 +6,7 @@
   @include card;
 
   padding: 15px;
-}
-
-.withBorder {
-  border: solid 1px transparent;
+  box-sizing: border-box;
 }
 
 .largePadding {
