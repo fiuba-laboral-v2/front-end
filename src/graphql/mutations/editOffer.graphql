@@ -2,7 +2,7 @@ mutation editOffer (
     $uuid: ID!
     $title: String!,
     $description: String!,
-    $targetApplicantType: TargetApplicantType!
+    $targetApplicantType: ApplicantType!
     $hoursPerDay: Int!,
     $minimumSalary: Int!,
     $maximumSalary: Int!
