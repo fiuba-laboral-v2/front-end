@@ -5,7 +5,13 @@ import classNames from "classnames";
 import { sortBy } from "lodash";
 
 export const FilterLabels = <ListItem, >(
-  { items, getKey, getLabel, applied, className }: IFilterLabelsProps<ListItem>
+  {
+    items,
+    getKey,
+    getLabel,
+    applied,
+    className
+  }: IFilterLabelsProps<ListItem>
 ) => (
   <div className={classNames(styles.container, className)}>
     {sortBy(items, getLabel).map(item =>
