@@ -1,7 +1,7 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
-import { TargetApplicantType } from "../../interfaces/Offer";
+import { ApplicantType } from "../../interfaces/Offer";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,
@@ -33,9 +33,9 @@ export const useSeparatedStatusTranslations = (
     targetApplicantType
   }: IUseSeparatedStatus
 ): IUseSeparatedStatusResponse => {
-  const targetsBoth = targetApplicantType === TargetApplicantType.both;
-  const targetsStudents = targetsBoth || targetApplicantType === TargetApplicantType.student;
-  const targetsGraduates = targetsBoth || targetApplicantType === TargetApplicantType.graduate;
+  const targetsBoth = targetApplicantType === ApplicantType.both;
+  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
+  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
 
   const translations = useTranslations<ITranslations>("separatedStatusLabel");
 
@@ -74,7 +74,7 @@ interface IBuildLabel {
 interface IUseSeparatedStatus {
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
-  targetApplicantType: TargetApplicantType;
+  targetApplicantType: ApplicantType;
 }
 
 interface IResponse {

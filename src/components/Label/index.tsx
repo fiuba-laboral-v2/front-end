@@ -16,7 +16,7 @@ export const Label: FunctionComponent<ILabelProps> = (
   }
 ) => (
   <Tooltip
-    title={tooltipText}
+    title={tooltipText || ""}
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >

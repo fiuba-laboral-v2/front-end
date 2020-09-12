@@ -1,7 +1,7 @@
-import { TargetApplicantType } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Offer";
 
 export interface IContainerProps {
-  value: TargetApplicantType | "";
+  value: ApplicantType | "";
   error?: string;
 }
 

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useSeparatedStatusTranslations } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { TargetApplicantType } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Offer";
 import { StatusLabel } from "$components/StatusLabel";
 import { LabelType } from "$components/Label";
 import classNames from "classnames";
@@ -54,7 +54,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
 export interface ISeparatedStatusLabelProps {
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
-  targetApplicantType: TargetApplicantType;
+  targetApplicantType: ApplicantType;
 }
 
 interface IComponentProps extends ISeparatedStatusLabelProps {

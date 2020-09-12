@@ -2,16 +2,16 @@ import { IApplicantCareer } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
 
-export enum TargetApplicantType {
+export enum ApplicantType {
   graduate = "graduate",
   student = "student",
   both = "both"
 }
 
 export const targetApplicantTypeEnumValues = [
-  TargetApplicantType.graduate,
-  TargetApplicantType.student,
-  TargetApplicantType.both
+  ApplicantType.graduate,
+  ApplicantType.student,
+  ApplicantType.both
 ];
 
 export interface IOfferSection {
@@ -26,7 +26,7 @@ export interface IOffer {
   company: ICompany;
   title: string;
   description: string;
-  targetApplicantType: TargetApplicantType;
+  targetApplicantType: ApplicantType;
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
