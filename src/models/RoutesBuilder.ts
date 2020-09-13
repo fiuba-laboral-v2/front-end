@@ -22,7 +22,10 @@ const publicRoute = routeBuilder("");
 export const RoutesBuilder = {
   admin: {
     home: () =>
-      adminRoute("")
+      adminRoute(""),
+
+    applicants: () =>
+      adminRoute(APPLICANTS)
   },
 
   applicant: {
@@ -38,8 +41,8 @@ export const RoutesBuilder = {
     editMyProfile: () =>
       applicantRoute(PROFILE, EDIT),
 
-    offerList: () =>
-      applicantRoute(OFFERS),
+    offerList: ({ searchParams }: { searchParams?: string } = {}) =>
+      `${applicantRoute(OFFERS)}${searchParams ? `?${searchParams}` : ""}`,
 
     offerDetail: (uuid: string) =>
       applicantRoute(OFFERS, uuid),

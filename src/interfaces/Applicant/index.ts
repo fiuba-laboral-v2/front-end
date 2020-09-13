@@ -1,4 +1,4 @@
-import { IUser } from "../User";
+import { IFiubaUser } from "../User";
 import { ICapability } from "../Capability";
 import { ICareer } from "../Career";
 import { IOffer } from "../Offer";
@@ -38,7 +38,7 @@ export interface ILink {
 
 export interface IApplicant {
   uuid: string;
-  user: IUser;
+  user: IFiubaUser;
   createdAt: string;
   updatedAt: string;
   padron: number;

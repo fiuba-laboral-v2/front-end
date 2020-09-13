@@ -5,7 +5,7 @@
 .card {
   @include card;
 
-  border: solid 1px transparent;
+  box-sizing: border-box;
   padding: 15px;
 }
 

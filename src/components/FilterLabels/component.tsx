@@ -10,12 +10,18 @@ export const FilterLabels = <ListItem, >(
     getKey,
     getLabel,
     applied,
-    className
+    className,
+    onClick
   }: IFilterLabelsProps<ListItem>
 ) => (
   <div className={classNames(styles.container, className)}>
     {sortBy(items, getLabel).map(item =>
-      <FilterLabel applied={applied} className={styles.filter} key={getKey(item)}>
+      <FilterLabel
+        applied={applied}
+        className={styles.filter}
+        key={getKey(item)}
+        onClick={() => onClick(item)}
+      >
         {getLabel(item)}
       </FilterLabel>
     )}
@@ -28,4 +34,5 @@ interface IFilterLabelsProps<ListItem> {
   getLabel: (item: ListItem) => string;
   applied: boolean;
   className?: string;
+  onClick: (item: ListItem) => void;
 }

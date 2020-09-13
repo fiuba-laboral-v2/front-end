@@ -21,3 +21,7 @@ export interface IUserInput {
 export interface IFiubaUserInput extends IUserInput {
   dni: string;
 }
+
+export interface IFiubaUser extends IUser {
+  dni: string;
+}

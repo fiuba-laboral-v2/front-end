@@ -2,10 +2,6 @@ import { IApplicantCareer } from "$interfaces/Applicant";
 
 export interface ICareerTranslations {
   careersTitle: string;
-  approvedSubjectCount: string;
-  currentCareerYear: string;
-  isGraduate: string;
-  connector: string;
 }
 
 export interface ICareersProps {

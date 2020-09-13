@@ -1,0 +1,20 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_lists";
+
+.row {
+  @include applicantListRows;
+
+  padding: $spacing-s;
+
+  &:nth-child(odd) {
+    background-color: $lighterGrey;
+  }
+
+  &:hover {
+    background-color: $selectedColor;
+  }
+}
+
+.rowsContainer {
+  overflow-y: scroll;
+}

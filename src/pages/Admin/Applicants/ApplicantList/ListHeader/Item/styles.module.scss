@@ -1,0 +1,27 @@
+@import "$styles/_variables";
+
+.item {
+  font-size: $fontSize-l;
+  font-weight: 600;
+  justify-self: center;
+
+  &.padron {
+    grid-area: padron;
+  }
+
+  &.names {
+    grid-area: names;
+  }
+
+  &.dni {
+    grid-area: dni;
+  }
+
+  &.studies {
+    grid-area: studies;
+  }
+
+  &.state {
+    grid-area: state;
+  }
+}

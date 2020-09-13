@@ -1,0 +1,10 @@
+@import "$styles/_variables";
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
