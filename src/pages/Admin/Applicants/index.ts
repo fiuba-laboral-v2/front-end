@@ -1,0 +1,1 @@
+export { Applicants } from "./component";

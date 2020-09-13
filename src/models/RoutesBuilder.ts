@@ -22,7 +22,10 @@ const publicRoute = routeBuilder("");
 export const RoutesBuilder = {
   admin: {
     home: () =>
-      adminRoute("")
+      adminRoute(""),
+
+    applicants: () =>
+      adminRoute(APPLICANTS)
   },
 
   applicant: {

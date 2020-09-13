@@ -4,7 +4,7 @@
 .title {
   @include title;
 
-  color: #1a6288;
+  color: $mainBlue;
   margin-bottom: $spacing-s;
 }
 
