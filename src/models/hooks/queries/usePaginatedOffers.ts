@@ -3,8 +3,14 @@ import { useQuery } from "../useQuery";
 import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interface";
 
-export const usePaginatedOffers = ({ documentNode, queryName }: IUsePaginatedOffers) => {
-  const result = useQuery<{}, IUsePaginatedOffersResponse>(documentNode);
+export const usePaginatedOffers = (
+  {
+    documentNode,
+    queryName,
+    variables
+  }: IUsePaginatedOffers
+) => {
+  const result = useQuery<{}, IUsePaginatedOffersResponse>(documentNode, { variables });
 
   const fetchMore = () => {
     const offers = result.data && result.data[queryName].results;
@@ -12,6 +18,7 @@ export const usePaginatedOffers = ({ documentNode, queryName }: IUsePaginatedOff
     const lastOffer = offers[offers.length - 1];
     return result.fetchMore({
       variables: {
+        ...variables,
         updatedBeforeThan: {
           dateTime: lastOffer.updatedAt,
           uuid: lastOffer.uuid
@@ -30,4 +37,5 @@ interface IUsePaginatedOffersResponse {
 interface IUsePaginatedOffers {
   documentNode: DocumentNode;
   queryName: string;
+  variables?: any;
 }

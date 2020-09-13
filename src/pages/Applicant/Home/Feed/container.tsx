@@ -3,16 +3,17 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
-import { useApprovedOffers } from "$hooks/queries";
-import { useTranslations } from "$hooks/queries";
+import { useApprovedOffers, useTranslations } from "$hooks/queries";
 import { Window } from "$components/Window";
 import { Filters } from "./Filters";
 import styles from "./styles.module.scss";
 import { IOfferListTranslations } from "./interface";
+import { OfferFilter } from "$models/OfferFilter";
 
-export const FeedContainer: FunctionComponent = () => {
+export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQuery }) => {
   const history = useHistory();
-  const response = useApprovedOffers();
+  const filter = new OfferFilter(searchQuery);
+  const response = useApprovedOffers({ filter });
   const translations = useTranslations<IOfferListTranslations>("applicantOfferList");
 
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
@@ -21,6 +22,7 @@ export const FeedContainer: FunctionComponent = () => {
     <Filters
       className={styles.filters}
       translations={translations}
+      filter={filter}
     />
     <Feed
       className={styles.offers}
@@ -33,3 +35,7 @@ export const FeedContainer: FunctionComponent = () => {
     />
   </Window>;
 };
+
+interface IFeedContainerProps {
+  searchQuery: string;
+}

@@ -7,6 +7,7 @@ import { OfferDetail } from "./OfferDetail";
 import { CompanyProfile } from "./Company";
 import { Companies } from "./Companies";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import React from "react";
 
 const {
   offerList,
@@ -20,7 +21,11 @@ const {
 } = RoutesBuilder.applicant;
 
 export const ApplicantRoutes = [
-  { path: offerList(), component: Home },
+  {
+    path: offerList(),
+    component: (props: { location: Location }) =>
+      <Home searchQuery={props.location.search}/>
+  },
   { path: list(), component: List },
   { path: signUp(), component: SignUp, public: true },
   { path: myProfile(), component: Profile },

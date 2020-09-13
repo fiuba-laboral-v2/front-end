@@ -5,6 +5,10 @@ export const queries = {
     ...paginatedQuery,
     keyArgs: ["adminTaskTypes", "statuses"]
   },
+  getApprovedOffers: {
+    ...paginatedQuery,
+    keyArgs: ["careerCodes"]
+  },
   getMyLatestJobApplications: paginatedQuery,
   getOffers: paginatedQuery,
   getMyOffers: paginatedQuery
