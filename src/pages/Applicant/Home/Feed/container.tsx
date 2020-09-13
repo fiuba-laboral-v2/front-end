@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { useApprovedOffers, useTranslations } from "$hooks/queries";
@@ -10,10 +10,9 @@ import styles from "./styles.module.scss";
 import { IOfferListTranslations } from "./interface";
 import { OfferFilter } from "$models/OfferFilter";
 
-export const FeedContainer: FunctionComponent = () => {
-  const location = useLocation();
+export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQuery }) => {
   const history = useHistory();
-  const filter = new OfferFilter(location.search);
+  const filter = new OfferFilter(searchQuery);
   const response = useApprovedOffers({ filter });
   const translations = useTranslations<IOfferListTranslations>("applicantOfferList");
 
@@ -36,3 +35,7 @@ export const FeedContainer: FunctionComponent = () => {
     />
   </Window>;
 };
+
+interface IFeedContainerProps {
+  searchQuery: string;
+}
