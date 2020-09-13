@@ -12,6 +12,7 @@ describe("NavBarLinks", () => {
     jobApplications: "jobApplications",
     createOffer: "createOffer",
     signUp: "signUp",
+    tasks: "tasks",
     logIn: "logIn",
     logOut: "logOut",
     myProfile: "myProfile",
@@ -185,9 +186,18 @@ describe("NavBarLinks", () => {
       }
     });
 
-    it("returns an empty list of admin links in the navBar", () => {
+    it("returns a list of admin links in the navBar", () => {
       const currentAdmin = createCurrentAdmin();
-      expect(NavBarLinks.create(currentAdmin, translations)).toEqual([]);
+      expect(NavBarLinks.create(currentAdmin, translations)).toEqual([
+        {
+          path: RoutesBuilder.admin.home(),
+          title: translations.tasks
+        },
+        {
+          path: RoutesBuilder.admin.applicants(),
+          title: translations.applicants
+        }
+      ]);
     });
   });
 });
