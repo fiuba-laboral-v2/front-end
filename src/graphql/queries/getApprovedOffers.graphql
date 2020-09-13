@@ -1,5 +1,5 @@
-query($updatedBeforeThan: PaginatedInput) {
-  getApprovedOffers(updatedBeforeThan: $updatedBeforeThan) {
+query($updatedBeforeThan: PaginatedInput, $careerCodes: [ID!]) {
+  getApprovedOffers(updatedBeforeThan: $updatedBeforeThan, careerCodes: $careerCodes) {
     results {
       uuid
       title

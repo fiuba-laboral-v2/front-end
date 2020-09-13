@@ -5,6 +5,7 @@ import { IOfferListTranslations } from "../interface";
 export interface IFiltersContainerProps {
   className?: string;
   translations?: IOfferListTranslations;
+  filter: OfferFilter;
 }
 
 export interface IFiltersProps extends IFiltersContainerProps {
