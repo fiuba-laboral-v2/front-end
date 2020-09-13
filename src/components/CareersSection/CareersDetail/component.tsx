@@ -9,7 +9,7 @@ export const CareersDetail: FunctionComponent<ICareersDetail> = (
     careers,
     translations,
     className,
-    regular,
+    regularFontWeight,
     withSubjects
   }
 ) => (
@@ -20,13 +20,13 @@ export const CareersDetail: FunctionComponent<ICareersDetail> = (
           {applicantCareer.isGraduate ?
             <GraduateCareerDetail
               applicantCareer={applicantCareer}
-              regular={regular}
+              regularFontWeight={regularFontWeight}
               translations={translations}
             />
             :
             <StudentCareerDetail
               applicantCareer={applicantCareer}
-              regular={regular}
+              regularFontWeight={regularFontWeight}
               translations={translations}
               withSubjects={withSubjects}
             />
@@ -41,6 +41,6 @@ interface ICareersDetail {
   careers: IApplicantCareer[];
   translations: ITranslations;
   className?: string;
-  regular?: boolean;
+  regularFontWeight?: boolean;
   withSubjects: boolean;
 }

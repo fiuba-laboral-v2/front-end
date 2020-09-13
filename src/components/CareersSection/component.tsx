@@ -14,7 +14,12 @@ export const CareersSection: FunctionComponent<ICareersProps> = (
   <div className={className}>
     <section className={styles.items}>
       <Subtitle>{translations.careersTitle}</Subtitle>
-      <CareersDetail careers={careers} className={styles.item}/>
+      <CareersDetail
+        careers={careers}
+        className={styles.item}
+        regularFontWeight={false}
+        withSubjects
+      />
     </section>
   </div>
 );

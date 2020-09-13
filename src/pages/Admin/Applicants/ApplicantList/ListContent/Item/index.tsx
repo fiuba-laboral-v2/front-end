@@ -34,7 +34,7 @@ export const Item: FunctionComponent<IItem> = ({
     <div className={styles.careersContainer}>
       <CareersDetail
         className={styles.careers}
-        regular
+        regularFontWeight
         careers={careers}
         withSubjects={false}
       />

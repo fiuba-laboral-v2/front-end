@@ -3,7 +3,7 @@
 @mixin rowItem {
   align-self: center;
   font-size: $fontSize-l;
-  font-weight: 400;
+  font-weight: $fontWeight-r;
   justify-self: center;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .careerText {
-  font-weight: 400;
+  font-weight: $fontWeight-r;
 }
 
 .statusContainer {

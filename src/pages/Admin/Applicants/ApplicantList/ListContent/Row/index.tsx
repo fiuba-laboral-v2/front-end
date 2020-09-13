@@ -11,10 +11,8 @@ interface IRows {
 export const Row: FunctionComponent<IRows> = ({ applicants, children }) => (
   <div className={styles.rowsContainer}>
     {
-      applicants.map((applicant, index) => (
-        <div key={applicant.uuid} className={classNames(styles.row, {
-          [styles.grey]: index % 2 === 0
-        })}>
+      applicants.map(applicant => (
+        <div key={applicant.uuid} className={classNames(styles.row)}>
           {children(applicant)}
         </div>
       ))

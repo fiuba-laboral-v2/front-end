@@ -8,15 +8,15 @@ export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
   {
     applicantCareer,
     translations,
-    regular
+    regularFontWeight
   }
 ) => (
   <>
-    <b className={classNames({ [styles.regular]: regular })}>
+    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {translations.isGraduate}
     </b>
     {` ${translations.connector} `}
-    <b className={classNames({ [styles.regular]: regular })}>
+    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {applicantCareer.career.description}
     </b>
   </>
@@ -26,5 +26,5 @@ interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
   translations: IGraduateTranslations;
   className?: string;
-  regular?: boolean;
+  regularFontWeight?: boolean;
 }

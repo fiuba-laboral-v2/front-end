@@ -8,8 +8,8 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
   {
     careers,
     className,
-    regular = false,
-    withSubjects = true
+    regularFontWeight,
+    withSubjects
   }
 ) => {
   const translations = useTranslations<ITranslations>("careersDetail");
@@ -21,7 +21,7 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
         <CareersDetail
           careers={careers}
           className={className}
-          regular={regular}
+          regularFontWeight={regularFontWeight}
           translations={translations}
           withSubjects={withSubjects}
         />
@@ -35,6 +35,6 @@ interface ICareersDetailContainer {
   className?: string;
   studentClassName?: string;
   graduateClassName?: string;
-  withSubjects?: boolean;
-  regular?: boolean;
+  withSubjects: boolean;
+  regularFontWeight: boolean;
 }

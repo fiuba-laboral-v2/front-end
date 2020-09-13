@@ -1,3 +1,5 @@
+@import "$styles/_variables";
+
 .regular {
-  font-weight: 400;
+  font-weight: $fontWeight-r;
 }
