@@ -6,8 +6,7 @@ export interface IJobApplication {
   uuid: string;
   updatedAt: string;
   createdAt: string;
-  graduadosApprovalStatus: ApprovalStatus;
-  extensionApprovalStatus: ApprovalStatus;
+  approvalStatus: ApprovalStatus;
   applicant: IApplicant;
   offer: IOffer;
 }

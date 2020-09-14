@@ -40,8 +40,7 @@ query GetAdminTasks(
         __typename
         uuid
         updatedAt
-        extensionApprovalStatus
-        graduadosApprovalStatus
+        approvalStatus
         applicant {
           __typename
           uuid

@@ -4,8 +4,7 @@ query getJobApplicationByUuid($uuid: ID!) {
         updatedAt
         createdAt
         updatedAt
-        extensionApprovalStatus
-        graduadosApprovalStatus
+        approvalStatus
         offer {
             uuid
             title
