@@ -5,7 +5,7 @@ import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const usePaginatedQuery = <entityType extends IResult>(
+export const usePaginatedQuery = <Result extends IResult>(
   {
     documentNode,
     queryName,
@@ -16,7 +16,7 @@ export const usePaginatedQuery = <entityType extends IResult>(
 ) => {
   const history = useHistory();
 
-  const result = useQuery<{}, IUsePaginatedOffersResponse<entityType>>(documentNode, {
+  const result = useQuery<{}, IUsePaginatedOffersResponse<Result>>(documentNode, {
     variables: normalizeVariables(variables),
     fetchPolicy,
     errorHandlers: {
@@ -43,14 +43,14 @@ export const usePaginatedQuery = <entityType extends IResult>(
 
   return {
     ...result,
-    data: result.data as IUsePaginatedOffersResponse<entityType>,
+    data: result.data as IUsePaginatedOffersResponse<Result>,
     fetchMore: result.loading ? undefined : fetchMore,
     refetch: result.loading ? undefined : refetch
   };
 };
 
-interface IUsePaginatedOffersResponse<entityType> {
-  [queryName: string]: IPaginatedResult<entityType>;
+interface IUsePaginatedOffersResponse<Result> {
+  [queryName: string]: IPaginatedResult<Result>;
 }
 
 interface IUsePaginatedOffers {
