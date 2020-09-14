@@ -6,11 +6,13 @@ export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = (
   {
     extensionApprovalStatus,
     graduadosApprovalStatus,
-    targetApplicantType
+    targetApplicantType,
+    className
   }
 ) => {
   return (
     <SeparatedStatusLabel
+      className={className}
       styles={styles}
       type="no-background"
       targetApplicantType={targetApplicantType}

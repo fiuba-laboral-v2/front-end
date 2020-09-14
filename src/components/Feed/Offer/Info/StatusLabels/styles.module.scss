@@ -5,7 +5,7 @@
   flex-direction: column;
 }
 
-.statusMargin {
+.statusMargin:not(:last-child) {
   margin-bottom: $spacing-s;
 }
 
