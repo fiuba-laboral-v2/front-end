@@ -1,17 +1,16 @@
 import { GET_APPROVED_OFFERS } from "$queries";
-import { usePaginatedQuery, IVariables } from "$hooks";
+import { IVariables, usePaginatedQuery } from "$hooks";
 import { OfferFilter } from "$models/OfferFilter";
 import { IOffer } from "$interfaces/Offer";
 
-export const useApprovedOffers = ({ filter }: IUseApprovedOffers) =>
-  usePaginatedQuery<IUseApprovedOffersVariables, IOffer>({
+export const useApprovedOffers = ({ filter }: IUseApprovedOffers) => {
+  const careerCodes = filter.careerCodes();
+  return usePaginatedQuery<IUseApprovedOffersVariables, IOffer>({
     documentNode: GET_APPROVED_OFFERS,
     queryName: "getApprovedOffers",
-    variables: {
-      careerCodes: filter.careerCodes()
-    }
+    ...(careerCodes.length && { variables: { careerCodes } })
   });
-
+};
 interface IUseApprovedOffersVariables extends IVariables {
   careerCodes: string[];
 }
