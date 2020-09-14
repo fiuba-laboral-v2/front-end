@@ -1,6 +1,11 @@
 @import "$styles/_variables";
 
 .title {
+  flex-grow: 1;
+}
+
+.titleContainer {
+  display: flex;
   margin-bottom: $spacing-l;
 }
 
@@ -18,7 +23,46 @@
   margin-bottom: $spacing-l;
 }
 
-.applyFilters {
+.desktopApplyFilters {
   border-top: solid 1px $lightGrey;
   padding-top: $spacing-xl;
+}
+
+.openMobileApplyFilters {
+  display: none;
+  margin-left: $spacing-s;
+}
+
+.mobileApplyFiltersHeader,
+.mobileApplyFilters {
+  padding: 0 $spacing-m;
+}
+
+.mobileApplyFilters {
+  background: $dashboardBackgroundWhite;
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: $spacing-m;
+}
+
+.mobileApplyFiltersHeader {
+  align-items: center;
+  background: $bodyBackgroundColor;
+  display: flex;
+  min-height: $navBarHeight;
+  padding-right: $spacing-s;
+}
+
+.dialog {
+  background: $dashboardBackgroundWhite;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .desktopApplyFilters {
+    display: none;
+  }
+
+  .openMobileApplyFilters {
+    display: initial;
+  }
 }

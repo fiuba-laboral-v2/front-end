@@ -52,6 +52,9 @@ export const MaterialUITheme = createMuiTheme({
       paper: {
         borderRadius: 15,
         padding: 7
+      },
+      paperFullScreen: {
+        padding: 0
       }
     },
     MuiDialogTitle: {
