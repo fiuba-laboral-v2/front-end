@@ -38,7 +38,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
 
   return <JobApplicationDetailInfo
     setStatus={setStatus}
-    currentStatus={jobApplication[approvalStatusAttribute]}
+    currentStatus={jobApplication.approvalStatus}
     jobApplication={jobApplication}
   />;
 };
