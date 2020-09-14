@@ -12,7 +12,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
     type,
     extensionApprovalStatus,
     graduadosApprovalStatus,
-    targetApplicantType
+    targetApplicantType,
+    className
   }
 ) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
@@ -22,7 +23,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
   });
 
   return (
-    <div className={styles.separatedStatusLabel}>
+    <div className={classNames(styles.separatedStatusLabel, className)}>
       {
         extension &&
         <StatusLabel
@@ -55,9 +56,11 @@ export interface ISeparatedStatusLabelProps {
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
   targetApplicantType: ApplicantType;
+  className?: string;
 }
 
 interface IComponentProps extends ISeparatedStatusLabelProps {
   type: LabelType;
   styles: { readonly [key: string]: string };
+  className?: string;
 }

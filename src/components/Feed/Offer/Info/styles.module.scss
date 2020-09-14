@@ -98,16 +98,11 @@
   }
 
   .companyName {
-    margin-bottom: $spacing-m;
+    margin-bottom: 0;
     text-align: left;
   }
 
-  .time {
-    :not(.alignLeft) {
-      display: none;
-    }
-  }
-
+  .time,
   .alignLeft {
     display: none;
   }
@@ -140,12 +135,16 @@
     flex-direction: column-reverse;
   }
 
-  .firstColumn {
-    margin-top: $spacing-m;
+  .companyName {
+    margin-bottom: $spacing-m;
   }
 
   .secondColumn {
     margin: 0;
+  }
+
+  .statusLabels {
+    margin-top: $spacing-m;
   }
 
   .firstColumn,

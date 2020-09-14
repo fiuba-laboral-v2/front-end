@@ -52,6 +52,7 @@ export const Info: FunctionComponent<IOfferProps> = (
         {
           withStatusLabels &&
           <StatusLabels
+            className={styles.statusLabels}
             extensionApprovalStatus={extensionApprovalStatus}
             graduadosApprovalStatus={graduadosApprovalStatus}
             targetApplicantType={targetApplicantType}
