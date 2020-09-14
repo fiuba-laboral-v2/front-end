@@ -1,4 +1,4 @@
-query getMyLatestJobApplications($updatedBeforeThan: PaginatedJobApplicationsInput) {
+query getMyLatestJobApplications($updatedBeforeThan: PaginatedInput) {
   getMyLatestJobApplications(updatedBeforeThan: $updatedBeforeThan) {
     results {
       updatedAt

@@ -34,7 +34,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
 
 interface IMyJobApplications {
   jobApplications: IJobApplication[];
-  fetchMore: () => void;
+  fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
 }

@@ -2,6 +2,8 @@ import { DocumentNode } from "graphql";
 import { useQuery } from "../useQuery";
 import { IPaginatedResult } from "./interface";
 import { WatchQueryFetchPolicy } from "@apollo/client/core";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+import { useHistory } from "react-router-dom";
 
 export const usePaginatedQuery = <entityType extends IResult>(
   {
@@ -12,9 +14,14 @@ export const usePaginatedQuery = <entityType extends IResult>(
     normalizeVariables = (v: any) => v
   }: IUsePaginatedOffers
 ) => {
+  const history = useHistory();
+
   const result = useQuery<{}, IUsePaginatedOffersResponse<entityType>>(documentNode, {
     variables: normalizeVariables(variables),
-    fetchPolicy
+    fetchPolicy,
+    errorHandlers: {
+      UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
+    }
   });
 
   const fetchMore = () => {
