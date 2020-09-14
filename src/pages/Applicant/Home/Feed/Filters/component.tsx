@@ -35,7 +35,7 @@ export const Filters: FunctionComponent<IFiltersProps> = (
               kind="primary"
               onClick={() => setFiltersAreOpen(true)}
             >
-              {translations?.openFilters}
+              {translations?.filter}
             </Button>
           </div>
         </div>
