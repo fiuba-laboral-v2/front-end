@@ -1,6 +1,7 @@
 @import "$styles/_variables";
 
 .title {
+  flex-grow: 1;
   font-size: $fontSize-xl;
   font-weight: normal;
   margin: 0;
