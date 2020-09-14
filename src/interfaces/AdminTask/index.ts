@@ -33,9 +33,7 @@ export interface IJobApplicationAdminTask {
   __typename: JOB_APPLICATION_TYPE;
   uuid: string;
   updatedAt: string;
-  extensionApprovalStatus: ApprovalStatus;
-  graduadosApprovalStatus: ApprovalStatus;
-  approvalStatus: undefined;
+  approvalStatus: ApprovalStatus;
   offer: IOfferAdminTask;
   applicant: IApplicantAdminTask;
 }
