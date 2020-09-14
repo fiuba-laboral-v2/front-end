@@ -3,7 +3,7 @@ import { useQuery } from "../useQuery";
 import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interface";
 
-export const usePaginatedOffers = (
+export const usePaginatedQuery = (
   {
     documentNode,
     queryName,

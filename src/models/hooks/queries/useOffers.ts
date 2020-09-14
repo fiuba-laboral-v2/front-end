@@ -1,7 +1,7 @@
 import { GET_OFFERS } from "$queries";
-import { usePaginatedOffers } from "$hooks";
+import { usePaginatedQuery } from "$hooks";
 
-export const useOffers = () => usePaginatedOffers({
+export const useOffers = () => usePaginatedQuery({
   documentNode: GET_OFFERS,
   queryName: "getOffers"
 });

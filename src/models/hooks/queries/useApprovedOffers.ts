@@ -1,8 +1,8 @@
 import { GET_APPROVED_OFFERS } from "$queries";
-import { usePaginatedOffers } from "$hooks";
-import { OfferFilter } from "../../OfferFilter";
+import { usePaginatedQuery } from "$hooks";
+import { OfferFilter } from "$models/OfferFilter";
 
-export const useApprovedOffers = ({ filter }: IUseApprovedOffers) => usePaginatedOffers({
+export const useApprovedOffers = ({ filter }: IUseApprovedOffers) => usePaginatedQuery({
   documentNode: GET_APPROVED_OFFERS,
   queryName: "getApprovedOffers",
   variables: {
