@@ -14,3 +14,17 @@
 .offers {
   overflow-y: auto;
 }
+
+@media (max-width: $mobileContainerThreshold) {
+  .container {
+    display: block;
+  }
+
+  .filters {
+    max-width: unset;
+  }
+
+  .offers {
+    padding: $spacing-s 4% $spacing-xxl 4%;
+  }
+}
