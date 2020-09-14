@@ -5,19 +5,19 @@ import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const usePaginatedQuery = <Result extends IResult>(
+export const usePaginatedQuery = <TVariables extends IVariables, Result extends IResult>(
   {
     documentNode,
     queryName,
     variables,
     fetchPolicy,
-    normalizeVariables = (v: any) => v
-  }: IUsePaginatedOffers
+    normalizeVariables = (v: TVariables) => v
+  }: IUsePaginatedOffers<TVariables>
 ) => {
   const history = useHistory();
 
-  const result = useQuery<{}, IUsePaginatedOffersResponse<Result>>(documentNode, {
-    variables: normalizeVariables(variables),
+  const result = useQuery<TVariables, IUsePaginatedOffersResponse<Result>>(documentNode, {
+    variables: variables && normalizeVariables(variables),
     fetchPolicy,
     errorHandlers: {
       UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
@@ -29,7 +29,7 @@ export const usePaginatedQuery = <Result extends IResult>(
     if (!results) return;
     const lastResult = results[results.length - 1];
     return result.fetchMore({
-      variables: normalizeVariables({
+      variables: variables && normalizeVariables({
         ...variables,
         updatedBeforeThan: {
           dateTime: lastResult.updatedAt,
@@ -53,12 +53,19 @@ interface IUsePaginatedOffersResponse<Result> {
   [queryName: string]: IPaginatedResult<Result>;
 }
 
-interface IUsePaginatedOffers {
+interface IUsePaginatedOffers<TVariables> {
   documentNode: DocumentNode;
   queryName: string;
-  variables?: any;
+  variables?: TVariables;
   fetchPolicy?: WatchQueryFetchPolicy;
-  normalizeVariables?: (variables: any) => any;
+  normalizeVariables?: (variables: TVariables) => TVariables;
+}
+
+export interface IVariables {
+  updatedBeforeThan?: {
+    uuid: string;
+    dateTime: string;
+  };
 }
 
 interface IResult {

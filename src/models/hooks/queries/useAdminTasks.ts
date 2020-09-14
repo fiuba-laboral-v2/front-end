@@ -17,7 +17,7 @@ const normalizeFilter = (filter: IAdminTasksFilter): IAdminTasksFilter => ({
 });
 
 export const useAdminTasks = (filter: IAdminTasksFilter) =>
-  usePaginatedQuery<TAdminTask>({
+  usePaginatedQuery<IAdminTasksFilter, TAdminTask>({
     documentNode: GET_ADMIN_TASKS,
     queryName: "getAdminTasks",
     variables: filter,
