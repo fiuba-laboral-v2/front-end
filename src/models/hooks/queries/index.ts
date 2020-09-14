@@ -12,4 +12,4 @@ export * from "./useCareers";
 export * from "./useAdminApprovalStatusAttribute";
 export * from "./useJobApplicationByUuid";
 export * from "./useApprovedOffers";
-export * from "./usePaginatedOffers";
+export * from "./usePaginatedQuery";
