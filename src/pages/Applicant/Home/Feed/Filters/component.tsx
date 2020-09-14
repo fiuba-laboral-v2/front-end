@@ -29,13 +29,15 @@ export const Filters: FunctionComponent<IFiltersProps> = (
       <div className={styles.filters}>
         <div className={styles.titleContainer}>
           <Headline className={styles.title}>{translations?.title}</Headline>
-          <Button
-            className={styles.openMobileApplyFilters}
-            kind="primary"
-            onClick={() => setFiltersAreOpen(true)}
-          >
-            Filtrar
-          </Button>
+          <div>
+            <Button
+              className={styles.openMobileApplyFilters}
+              kind="primary"
+              onClick={() => setFiltersAreOpen(true)}
+            >
+              Filtrar
+            </Button>
+          </div>
         </div>
         <AppliedFilters
           className={styles.appliedFilters}

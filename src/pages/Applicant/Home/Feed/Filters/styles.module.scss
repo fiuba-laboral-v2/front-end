@@ -28,19 +28,21 @@
   padding-top: $spacing-xl;
 }
 
-.mobileApplyFilters {
-  background: $dashboardBackgroundWhite;
-  height: 100%;
-  overflow-y: scroll;
-}
-
 .openMobileApplyFilters {
   display: none;
+  margin-left: $spacing-s;
 }
 
 .mobileApplyFiltersHeader,
 .mobileApplyFilters {
   padding: 0 $spacing-m;
+}
+
+.mobileApplyFilters {
+  background: $dashboardBackgroundWhite;
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: $spacing-m;
 }
 
 .mobileApplyFiltersHeader {
