@@ -1,41 +1,60 @@
 import { DocumentNode } from "graphql";
 import { useQuery } from "../useQuery";
-import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interface";
+import { WatchQueryFetchPolicy } from "@apollo/client/core";
 
-export const usePaginatedQuery = (
+export const usePaginatedQuery = <entityType extends IResult>(
   {
     documentNode,
     queryName,
-    variables
+    variables,
+    fetchPolicy,
+    normalizeVariables = (v: any) => v
   }: IUsePaginatedOffers
 ) => {
-  const result = useQuery<{}, IUsePaginatedOffersResponse>(documentNode, { variables });
+  const result = useQuery<{}, IUsePaginatedOffersResponse<entityType>>(documentNode, {
+    variables: normalizeVariables(variables),
+    fetchPolicy
+  });
 
   const fetchMore = () => {
-    const offers = result.data && result.data[queryName].results;
-    if (!offers) return;
-    const lastOffer = offers[offers.length - 1];
+    const results = result.data && result.data[queryName].results;
+    if (!results) return;
+    const lastResult = results[results.length - 1];
     return result.fetchMore({
-      variables: {
+      variables: normalizeVariables({
         ...variables,
         updatedBeforeThan: {
-          dateTime: lastOffer.updatedAt,
-          uuid: lastOffer.uuid
+          dateTime: lastResult.updatedAt,
+          uuid: lastResult.uuid
         }
-      }
+      })
     });
   };
 
-  return { ...result, fetchMore };
+  const refetch = (newVariables: any) => result.refetch(normalizeVariables(newVariables));
+
+  return {
+    ...result,
+    data: result.data as IUsePaginatedOffersResponse<entityType>,
+    fetchMore: result.loading ? undefined : fetchMore,
+    refetch: result.loading ? undefined : refetch
+  };
 };
 
-interface IUsePaginatedOffersResponse {
-  [queryName: string]: IPaginatedResult<IOffer>;
+interface IUsePaginatedOffersResponse<entityType> {
+  [queryName: string]: IPaginatedResult<entityType>;
 }
 
 interface IUsePaginatedOffers {
   documentNode: DocumentNode;
   queryName: string;
   variables?: any;
+  fetchPolicy?: WatchQueryFetchPolicy;
+  normalizeVariables?: (variables: any) => any;
+}
+
+interface IResult {
+  uuid: string;
+  updatedAt: string;
 }
