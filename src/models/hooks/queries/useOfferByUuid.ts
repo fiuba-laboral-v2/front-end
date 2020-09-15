@@ -13,7 +13,7 @@ const useOfferByUuidQuery = <Data>(query: DocumentNode, uuid?: string) => {
     {
       variables: { uuid },
       errorHandlers: {
-        OfferNotFound: () => history.push(RoutesBuilder.public.notFound()),
+        OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
         defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
       }
     }

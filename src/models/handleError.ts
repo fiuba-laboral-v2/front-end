@@ -5,7 +5,7 @@ type ErrorName =
   "CompanyCuitAlreadyExistsError" |
   "BadCredentialsError" |
   "UserNotFoundError" |
-  "OfferNotFound" |
+  "OfferNotFoundError" |
   "ApplicantNotFound" |
   "CompanyNotFoundError" |
   "AuthenticationError" |
