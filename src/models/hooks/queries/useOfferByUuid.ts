@@ -1,5 +1,5 @@
 import { useQuery } from "$hooks";
-import { GET_COMPANY_OFFER_BY_UUID, GET_APPLICANT_OFFER_BY_UUID } from "$queries";
+import { GET_COMPANY_OFFER_BY_UUID, GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
@@ -27,9 +27,9 @@ export const useCompanyOfferByUuid = (uuid?: string) =>
     uuid
   });
 
-export const useApplicantOfferByUuid = (uuid?: string) =>
-  useOfferByUuidQuery<IGetApplicantOfferByUuid>({
-    documentNode: GET_APPLICANT_OFFER_BY_UUID,
+export const useOfferVisibleByApplicant = (uuid?: string) =>
+  useOfferByUuidQuery<IGetOfferVisibleByApplicant>({
+    documentNode: GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT,
     uuid
   });
 
@@ -37,8 +37,8 @@ interface IGetOfferByUuid {
   getOfferByUuid: IOffer;
 }
 
-interface IGetApplicantOfferByUuid {
-  getApplicantOfferByUuid: IMyOffer;
+interface IGetOfferVisibleByApplicant {
+  getOfferVisibleByCurrentApplicant: IMyOffer;
 }
 
 interface IUseOfferByUuidQuery {
