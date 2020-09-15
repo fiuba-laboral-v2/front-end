@@ -1,10 +1,11 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_scrollOverlay";
 
 .cardContainer {
+  @include scrollOverlay;
+
   display: flex;
   flex-direction: column;
-  height: 100%;
-  overflow: hidden;
   padding: 0;
   width: 100%;
 }
