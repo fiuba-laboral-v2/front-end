@@ -2,8 +2,12 @@ import React, { FunctionComponent } from "react";
 import { Header } from "$components/Header";
 import { useTranslations } from "$hooks";
 
-export const MainTitleContainer: FunctionComponent = () => {
-  const translations = useTranslations<IApplicantListMainTitle>("adminApplicantListMainTitle");
+export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
+  {
+    translationPath
+  }
+) => {
+  const translations = useTranslations<IApplicantListMainTitle>(translationPath);
 
   return (
     <>
@@ -17,6 +21,10 @@ export const MainTitleContainer: FunctionComponent = () => {
     </>
   );
 };
+
+interface IMainTitleContainerProps {
+  translationPath: string;
+}
 
 interface IApplicantListMainTitle {
   title: string;

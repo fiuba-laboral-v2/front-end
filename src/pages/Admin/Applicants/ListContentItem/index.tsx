@@ -5,11 +5,11 @@ import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
 
-interface IItem {
+interface IListContentItem {
   applicant: IApplicant;
 }
 
-export const Item: FunctionComponent<IItem> = ({
+export const ListContentItem: FunctionComponent<IListContentItem> = ({
   applicant: {
     user: {
       name,
