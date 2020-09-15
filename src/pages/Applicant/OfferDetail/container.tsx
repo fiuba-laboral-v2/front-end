@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
-import { useApplicantOfferByUuid, useMutation, useTranslations } from "$hooks";
+import { useOfferVisibleByApplicant, useMutation, useTranslations } from "$hooks";
 import { SAVE_JOB_APPLICATION } from "$mutations";
 import { OfferDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
@@ -14,7 +14,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const showSuccess = useShowSuccess();
   const saveJobApplication = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
-  const response = useApplicantOfferByUuid(uuid);
+  const response = useOfferVisibleByApplicant(uuid);
 
   if (response.error || response.loading || !translations) return <LoadingSpinner/>;
 
@@ -37,7 +37,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
 
   return (
     <OfferDetail
-      offer={response.data.getOfferByUuid}
+      offer={response.data.getOfferVisibleByCurrentApplicant}
       apply={apply}
       translations={translations}
     />

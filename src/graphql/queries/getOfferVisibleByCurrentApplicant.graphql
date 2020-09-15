@@ -1,5 +1,5 @@
 query ($uuid: ID!) {
-    getOfferByUuid(uuid: $uuid) {
+    getOfferVisibleByCurrentApplicant(uuid: $uuid) {
         uuid
         title
         description
