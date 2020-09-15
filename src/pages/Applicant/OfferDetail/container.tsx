@@ -37,7 +37,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
 
   return (
     <OfferDetail
-      offer={response.data.getOfferByUuid}
+      offer={response.data.getApplicantOfferByUuid}
       apply={apply}
       translations={translations}
     />
