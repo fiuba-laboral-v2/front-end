@@ -1,10 +1,7 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_lists";
 @import "$styles/mixins/_scrollOverlay";
 
 .row {
-  @include applicantListRows;
-
   min-height: $spacing-xxl;
   padding: $spacing-s;
 

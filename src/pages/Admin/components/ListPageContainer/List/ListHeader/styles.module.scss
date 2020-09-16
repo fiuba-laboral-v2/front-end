@@ -1,9 +1,6 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_lists";
 
 .headerContainer {
-  @include applicantListRows;
-
   background-color: $white;
   box-shadow: 0 0 $spacing-s rgba(0, 0, 0, 0.15);
   padding: $spacing-s;

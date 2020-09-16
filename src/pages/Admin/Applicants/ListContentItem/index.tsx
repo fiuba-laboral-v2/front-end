@@ -5,11 +5,7 @@ import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
 
-interface IItem {
-  applicant: IApplicant;
-}
-
-export const Item: FunctionComponent<IItem> = ({
+export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   applicant: {
     user: {
       name,
@@ -48,3 +44,7 @@ export const Item: FunctionComponent<IItem> = ({
     </div>
   </>
 );
+
+interface IListContentItemProps {
+  applicant: IApplicant;
+}
