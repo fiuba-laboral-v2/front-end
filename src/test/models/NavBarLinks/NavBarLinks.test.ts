@@ -196,6 +196,10 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.admin.applicants(),
           title: translations.applicants
+        },
+        {
+          path: RoutesBuilder.admin.companies(),
+          title: translations.companies
         }
       ]);
     });
