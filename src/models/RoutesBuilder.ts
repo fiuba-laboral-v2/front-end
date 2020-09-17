@@ -25,7 +25,10 @@ export const RoutesBuilder = {
       adminRoute(""),
 
     applicants: () =>
-      adminRoute(APPLICANTS)
+      adminRoute(APPLICANTS),
+
+    companies: () =>
+      adminRoute(COMPANIES)
   },
 
   applicant: {
