@@ -22,5 +22,5 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
 export interface ICompanyDetailInfoProps {
   currentStatus: ApprovalStatus;
   mainTitle: React.ReactElement;
-  setStatus: (status: ApprovalStatus) => void;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
 }

@@ -21,6 +21,6 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
 );
 
 export interface IApplicantDetailInfoProps {
-  setStatus: (status: ApprovalStatus) => void;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
   applicant: IApplicant;
 }
