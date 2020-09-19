@@ -1,6 +1,7 @@
 export interface ICompanyFieldsTranslations {
   cuit: string;
   companyName: string;
+  businessName: string;
   email: string;
   slogan: string;
   description: string;
