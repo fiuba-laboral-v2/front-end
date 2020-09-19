@@ -22,7 +22,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = (
 
   const onSetStatus = (approvalStatus: ApprovalStatus) => {
     setDisabled(true);
-    return setStatus(approvalStatus).then(_ => setDisabled(false));
+    return setStatus(approvalStatus).then(() => setDisabled(false));
   };
 
   return <StatusButton
