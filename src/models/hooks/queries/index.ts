@@ -1,6 +1,7 @@
 export * from "./useApplicantByUuid";
 export * from "./useApplicants";
 export * from "./useCompanyByUuid";
+export * from "./useCompanies";
 export * from "./useOfferByUuid";
 export * from "./useOffers";
 export * from "./useAdminTasks";

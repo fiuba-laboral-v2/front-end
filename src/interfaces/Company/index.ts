@@ -5,6 +5,7 @@ export interface ICompany<T extends IUser | undefined = undefined> {
   uuid: string;
   cuit: string;
   companyName: string;
+  businessName: string;
   slogan?: string;
   description?: string;
   logo?: string;
