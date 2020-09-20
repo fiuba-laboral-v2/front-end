@@ -24,6 +24,6 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
 );
 
 export interface ICompanyDetailInfoProps {
-  setStatus: (status: ApprovalStatus) => void;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
   company: ICompany<IUser>;
 }

@@ -22,7 +22,7 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = (
 );
 
 export interface IComponentProps {
-  setStatus: (status: ApprovalStatus) => void;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
   jobApplication: IJobApplication;
   currentStatus: ApprovalStatus;
 }

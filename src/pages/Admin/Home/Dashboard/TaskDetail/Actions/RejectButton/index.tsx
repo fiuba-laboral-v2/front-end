@@ -13,5 +13,5 @@ export const RejectButton: FunctionComponent<IComponent> = ({ setStatus }) => (
 );
 
 interface IComponent {
-  setStatus: (status: ApprovalStatus) => void;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
 }

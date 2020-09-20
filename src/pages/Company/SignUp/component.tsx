@@ -22,6 +22,7 @@ const SignUp: FunctionComponent<ISignUpProps> = ({ onSubmit, translations }) => 
       surname: ""
     },
     companyName: "",
+    businessName: "",
     cuit: "",
     email: "",
     slogan: "",
