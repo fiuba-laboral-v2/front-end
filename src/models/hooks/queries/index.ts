@@ -7,6 +7,7 @@ export * from "./useAdminTasks";
 export * from "./useCurrentUser";
 export * from "./useTranslations";
 export * from "./useMyApplicantProfile";
+export * from "./useMyCareers";
 export * from "./useMyCompanyProfile";
 export * from "./useCareers";
 export * from "./useAdminApprovalStatusAttribute";

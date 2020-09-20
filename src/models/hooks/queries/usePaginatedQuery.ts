@@ -11,6 +11,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
     queryName,
     variables,
     fetchPolicy,
+    skip,
     normalizeVariables = (v: TVariables) => v
   }: IUsePaginatedOffers<TVariables>
 ) => {
@@ -21,7 +22,8 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
     fetchPolicy,
     errorHandlers: {
       UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
-    }
+    },
+    skip
   });
 
   const fetchMore = () => {
@@ -59,6 +61,7 @@ interface IUsePaginatedOffers<TVariables> {
   variables?: TVariables;
   fetchPolicy?: WatchQueryFetchPolicy;
   normalizeVariables?: (variables: TVariables) => TVariables;
+  skip?: boolean;
 }
 
 export interface IVariables {

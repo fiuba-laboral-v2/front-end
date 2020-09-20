@@ -12,6 +12,11 @@ describe("OfferFilter", () => {
       expect(offerFilter.careerCodes()).toEqual([]);
     });
 
+    it("gives an empty array when all careers are set", () => {
+      const offerFilter = new OfferFilter("carreras=todas&asd=qwe");
+      expect(offerFilter.careerCodes()).toEqual([]);
+    });
+
     it("gives an empty array when careers are not in search params", () => {
       const offerFilter = new OfferFilter("asd=qwe");
       expect(offerFilter.careerCodes()).toEqual([]);
@@ -65,20 +70,20 @@ describe("OfferFilter", () => {
     it("does nothing when removing from empty search params", () => {
       const offerFilter = new OfferFilter();
       offerFilter.removeCareer("1");
-      expect(offerFilter.toString()).toEqual("");
+      expect(offerFilter.toString()).toEqual("carreras=todas");
     });
 
     it("does nothing when removing careers when there are none", () => {
       const offerFilter = new OfferFilter("asd=qwe");
       offerFilter.removeCareer("4");
-      expect(offerFilter.toString()).toEqual("asd=qwe");
+      expect(offerFilter.toString()).toEqual("asd=qwe&carreras=todas");
     });
 
     it("removes all careers", () => {
       const offerFilter = new OfferFilter("carreras=6-9");
       offerFilter.removeCareer("9");
       offerFilter.removeCareer("6");
-      expect(offerFilter.toString()).toEqual("");
+      expect(offerFilter.toString()).toEqual("carreras=todas");
     });
   });
 });
