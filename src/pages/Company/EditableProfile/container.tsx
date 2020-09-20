@@ -46,7 +46,6 @@ export const EditableProfileContainer: FunctionComponent = () => {
       initialValues={{
         uuid: company.uuid,
         companyName: company.companyName,
-        businessName: company.companyName,
         slogan: company.slogan,
         description: company.description,
         logo: company.logo,
