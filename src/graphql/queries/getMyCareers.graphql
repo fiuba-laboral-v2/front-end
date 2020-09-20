@@ -1,0 +1,17 @@
+query GetMyCareers {
+    getCurrentUser {
+        uuid
+        applicant {
+            uuid
+            careers {
+                career {
+                    code
+                    description
+                }
+                approvedSubjectCount
+                currentCareerYear
+                isGraduate
+            }
+        }
+    }
+}
