@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from "react";
+import moment from "moment";
 import { ICompany } from "$interfaces/Company";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
-import { TimeHumanizer } from "$components/TimeHumanizer";
+
+const DATE_FORMAT = "YYYY-MM-DD HH:mm:ss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   company: {
@@ -24,7 +26,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       {cuit}
     </p>
     <div className={styles.text}>
-      <TimeHumanizer since={updatedAt}/>
+      {moment(updatedAt).format(DATE_FORMAT)}
     </div>
     <div className={styles.statusContainer}>
       <SharedStatusLabel
