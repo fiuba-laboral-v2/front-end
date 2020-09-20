@@ -1,0 +1,27 @@
+@import "$styles/_variables";
+
+.item {
+  font-size: $fontSize-l;
+  font-weight: 600;
+  justify-self: center;
+
+  &.companyName {
+    grid-area: companyName;
+  }
+
+  &.businessName {
+    grid-area: businessName;
+  }
+
+  &.cuit {
+    grid-area: cuit;
+  }
+
+  &.updatedAt {
+    grid-area: updatedAt;
+  }
+
+  &.state {
+    grid-area: state;
+  }
+}

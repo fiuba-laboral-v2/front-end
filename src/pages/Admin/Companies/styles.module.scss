@@ -1,0 +1,6 @@
+.tableDisplay {
+  display: grid;
+  grid-template-areas: "companyName businessName cuit updatedAt state";
+  grid-template-columns: 3fr 3fr 2fr 2fr 1fr;
+  grid-template-rows: auto;
+}
