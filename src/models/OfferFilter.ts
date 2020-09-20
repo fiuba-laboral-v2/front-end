@@ -1,9 +1,12 @@
+import { difference } from "lodash";
+
 const SEPARATOR = "-";
 const CAREERS = "carreras";
+const ALL = "todas";
 
 export class OfferFilter extends URLSearchParams {
   public careerCodes() {
-    return (this.get(CAREERS)?.split(SEPARATOR) || []).filter(careerCode => careerCode !== "");
+    return difference(this.get(CAREERS)?.split(SEPARATOR), ["", ALL]);
   }
 
   public addCareer(code: string) {
@@ -12,10 +15,6 @@ export class OfferFilter extends URLSearchParams {
 
   public removeCareer(code: string) {
     const careers = this.careerCodes().filter(careerCode => careerCode !== code).join(SEPARATOR);
-    if (careers) {
-      this.set(CAREERS, careers);
-    } else {
-      this.delete(CAREERS);
-    }
+    this.set(CAREERS, careers || ALL);
   }
 }
