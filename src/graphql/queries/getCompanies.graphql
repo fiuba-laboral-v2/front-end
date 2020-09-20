@@ -1,7 +1,11 @@
 query getCompanies {
     getCompanies {
         uuid
+        cuit
         companyName
+        businessName
         logo
+        approvalStatus
+        updatedAt
     }
 }
