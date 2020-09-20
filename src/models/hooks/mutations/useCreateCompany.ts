@@ -13,6 +13,7 @@ export interface ICreateCompany {
   user: IUserInput;
   cuit: string;
   companyName: string;
+  businessName: string;
   slogan?: string;
   description?: string;
   logo?: string;
