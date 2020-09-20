@@ -7,6 +7,7 @@ export const useUpdateCurrentCompany = () =>
 export interface IUpdateCurrentCompanyVariables {
   uuid: string;
   companyName?: string;
+  businessName?: string;
   slogan?: string;
   description?: string;
   logo?: string;

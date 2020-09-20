@@ -6,6 +6,7 @@ query getMyCompanyProfile {
             cuit
             approvalStatus
             companyName
+            businessName
             slogan
             description
             logo
