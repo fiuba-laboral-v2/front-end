@@ -1,16 +1,17 @@
-query getCompanyOfferByUuid ($uuid: ID!) {
+query getOfferForApplicant($uuid: ID!) {
     getOfferByUuid(uuid: $uuid) {
         uuid
         title
         description
-        targetApplicantType
         hoursPerDay
         minimumSalary
         maximumSalary
+        targetApplicantType
         extensionApprovalStatus
         graduadosApprovalStatus
         createdAt
         updatedAt
+        hasApplied
         sections {
             uuid
             title
