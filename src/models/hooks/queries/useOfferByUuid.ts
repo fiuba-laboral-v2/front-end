@@ -1,14 +1,14 @@
 import { useQuery } from "$hooks";
-import { GET_COMPANY_OFFER_BY_UUID, GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT } from "$queries";
+import { GET_COMPANY_OFFER_BY_UUID, GET_OFFER_WITH_HAS_APPLIED } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { DocumentNode } from "graphql";
 import { IMyOffer } from "$interfaces/Applicant";
 
-const useOfferByUuidQuery = <TData>({ documentNode, uuid }: IUseOfferByUuidQuery) => {
+const useOfferByUuidQuery = <T>({ documentNode, uuid }: IUseOfferByUuidQuery) => {
   const history = useHistory();
-  return useQuery<{ uuid?: string }, TData>(
+  return useQuery<{ uuid?: string }, IGetOfferByUuid<T>>(
     documentNode,
     {
       variables: { uuid },
@@ -22,23 +22,25 @@ const useOfferByUuidQuery = <TData>({ documentNode, uuid }: IUseOfferByUuidQuery
 };
 
 export const useCompanyOfferByUuid = (uuid?: string) =>
-  useOfferByUuidQuery<IGetOfferByUuid>({
+  useOfferByUuidQuery<IOffer>({
     documentNode: GET_COMPANY_OFFER_BY_UUID,
     uuid
   });
 
-export const useOfferVisibleByApplicant = (uuid?: string) =>
-  useOfferByUuidQuery<IGetOfferVisibleByApplicant>({
-    documentNode: GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT,
+export const useOfferByUuid = (uuid?: string) =>
+  useOfferByUuidQuery<IOffer>({
+    documentNode: GET_COMPANY_OFFER_BY_UUID,
     uuid
   });
 
-interface IGetOfferByUuid {
-  getOfferByUuid: IOffer;
-}
+export const useOfferWithHasApplied = (uuid?: string) =>
+  useOfferByUuidQuery<IMyOffer>({
+    documentNode: GET_OFFER_WITH_HAS_APPLIED,
+    uuid
+  });
 
-interface IGetOfferVisibleByApplicant {
-  getOfferVisibleByCurrentApplicant: IMyOffer;
+interface IGetOfferByUuid<T> {
+  getOfferByUuid: T;
 }
 
 interface IUseOfferByUuidQuery {

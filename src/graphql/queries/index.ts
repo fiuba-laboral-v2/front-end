@@ -19,9 +19,7 @@ const GET_MY_CAREERS = loader("./getMyCareers.graphql");
 const GET_MY_COMPANY_PROFILE = loader("./getMyCompanyProfile.graphql");
 const GET_ADMIN_TASKS = loader("./getAdminTasks.graphql");
 const GET_JOB_APPLICATION_BY_UUID = loader("./getJobApplicationByUuid.graphql");
-const GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT = loader(
-  "./getOfferVisibleByCurrentApplicant.graphql"
-);
+const GET_OFFER_WITH_HAS_APPLIED = loader("./getOfferWithHasApplied.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -32,7 +30,7 @@ export {
   GET_APPLICANT,
   GET_APPLICANTS,
   GET_COMPANIES,
-  GET_OFFER_VISIBLE_BY_CURRENT_APPLICANT,
+  GET_OFFER_WITH_HAS_APPLIED,
   GET_MY_OFFERS,
   GET_COMPANY_OFFER_BY_UUID,
   GET_CAPABILITIES,
