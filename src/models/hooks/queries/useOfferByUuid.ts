@@ -1,5 +1,5 @@
 import { useQuery } from "$hooks";
-import { GET_OFFER_BY_UUID, GET_OFFER_WITH_HAS_APPLIED } from "$queries";
+import { GET_OFFER_BY_UUID, GET_OFFER_FOR_APPLICANT } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
@@ -33,9 +33,9 @@ export const useOfferByUuid = (uuid?: string) =>
     uuid
   });
 
-export const useOfferWithHasApplied = (uuid?: string) =>
+export const useOfferForApplicant = (uuid?: string) =>
   useOfferByUuidQuery<IMyOffer>({
-    documentNode: GET_OFFER_WITH_HAS_APPLIED,
+    documentNode: GET_OFFER_FOR_APPLICANT,
     uuid
   });
 
