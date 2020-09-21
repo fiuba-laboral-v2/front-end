@@ -1,4 +1,4 @@
-query getCompanyOfferByUuid ($uuid: ID!) {
+query getOfferByUuid ($uuid: ID!) {
     getOfferByUuid(uuid: $uuid) {
         uuid
         title
