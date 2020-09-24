@@ -1,12 +1,7 @@
 @import "$styles/_variables";
 
 .fetchMore {
-  align-items: center;
+  align-self: center;
   display: flex;
-  flex-direction: column;
-  margin: $spacing-m 0 0;
-}
-
-.fetchMoreButton {
-  margin: 0 auto;
+  margin: $spacing-m 0;
 }
