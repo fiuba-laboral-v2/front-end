@@ -22,6 +22,8 @@ export const Companies: FunctionComponent = () => {
         listHeaderClassName={styles.tableDisplay}
         rowClassName={styles.tableDisplay}
         items={companies}
+        fetchMore={response.fetchMore}
+        shouldFetchMore={response?.data.getApplicants.shouldFetchMore}
         loading={response.loading}
       />
     }
