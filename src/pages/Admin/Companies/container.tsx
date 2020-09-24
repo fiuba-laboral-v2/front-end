@@ -22,6 +22,7 @@ export const Companies: FunctionComponent = () => {
         listHeaderClassName={styles.tableDisplay}
         rowClassName={styles.tableDisplay}
         items={companies}
+        loading={result.loading}
       />
     }
   </>

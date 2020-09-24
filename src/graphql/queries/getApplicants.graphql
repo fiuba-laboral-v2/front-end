@@ -1,22 +1,26 @@
-query getApplicants {
-  getApplicants {
-    uuid
-    user {
+query getApplicants($updatedBeforeThan: PaginatedInput) {
+  getApplicants(updatedBeforeThan: $updatedBeforeThan) {
+    shouldFetchMore
+    results {
       uuid
-      name
-      surname
-      dni
-    }
-    approvalStatus
-    padron
-    careers {
-      career {
-        code
-        description
+      user {
+        uuid
+        name
+        surname
+        dni
       }
-      approvedSubjectCount
-      currentCareerYear
-      isGraduate
+      approvalStatus
+      padron
+      updatedAt
+      careers {
+        career {
+          code
+          description
+        }
+        approvedSubjectCount
+        currentCareerYear
+        isGraduate
+      }
     }
   }
 }

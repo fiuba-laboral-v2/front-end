@@ -7,8 +7,8 @@ import { useApplicants } from "$hooks";
 import styles from "./styles.module.scss";
 
 export const Applicants: FunctionComponent = () => {
-  const result = useApplicants();
-  const applicants = result?.data?.getApplicants;
+  const response = useApplicants();
+  const applicants = response?.data?.getApplicants.results;
 
   return (
     <>
@@ -21,6 +21,9 @@ export const Applicants: FunctionComponent = () => {
         listHeaderClassName={styles.tableDisplay}
         rowClassName={styles.tableDisplay}
         items={applicants}
+        fetchMore={response.fetchMore}
+        shouldFetchMore={response?.data.getApplicants.shouldFetchMore}
+        loading={response.loading}
       />
     }
   </>
