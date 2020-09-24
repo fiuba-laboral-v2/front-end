@@ -12,7 +12,10 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = (
     listContentItem,
     items,
     listHeaderClassName,
-    rowClassName
+    rowClassName,
+    fetchMore,
+    shouldFetchMore,
+    loading
   }
 ) => (
   <Window width="fullWidth" desktopOnly>
@@ -24,6 +27,9 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = (
         listHeader={listHeader}
         listContentItem={listContentItem}
         items={items}
+        fetchMore={fetchMore}
+        shouldFetchMore={shouldFetchMore}
+        loading={loading}
       />
     </MainContainer>
   </Window>
@@ -36,4 +42,7 @@ interface IListPageContainer {
   items: Listable[];
   listHeaderClassName: string;
   rowClassName: string;
+  fetchMore?: () => void;
+  shouldFetchMore?: boolean;
+  loading: boolean;
 }

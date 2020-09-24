@@ -4,5 +4,6 @@ import { IOffer } from "$interfaces/Offer";
 
 export const useOffers = () => usePaginatedQuery<{}, IOffer>({
   documentNode: GET_OFFERS,
-  queryName: "getOffers"
+  queryName: "getOffers",
+  variables: {}
 });

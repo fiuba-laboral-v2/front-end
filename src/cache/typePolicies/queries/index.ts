@@ -11,5 +11,6 @@ export const queries = {
   },
   getMyLatestJobApplications: paginatedQuery,
   getOffers: paginatedQuery,
-  getMyOffers: paginatedQuery
+  getMyOffers: paginatedQuery,
+  getApplicants: paginatedQuery
 };

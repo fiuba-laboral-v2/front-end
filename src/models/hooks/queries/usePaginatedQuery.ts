@@ -58,7 +58,7 @@ interface IUsePaginatedOffersResponse<Result> {
 interface IUsePaginatedOffers<TVariables> {
   documentNode: DocumentNode;
   queryName: string;
-  variables?: TVariables;
+  variables: TVariables;
   fetchPolicy?: WatchQueryFetchPolicy;
   normalizeVariables?: (variables: TVariables) => TVariables;
   skip?: boolean;

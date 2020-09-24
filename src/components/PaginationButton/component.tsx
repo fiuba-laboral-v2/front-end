@@ -1,26 +1,21 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./styles.module.scss";
 import { LoadingSpinner } from "../LoadingSpinner";
 import { Button } from "../Button";
-import { IListProps } from "./interface";
+import { IPaginationButtonProps } from "./interface";
 
-export const List = <ListItem, >(
+import styles from "./styles.module.scss";
+
+export const PaginationButton = (
   {
-    list,
     className,
-    children,
     shouldFetchMore,
     fetchMore,
-    fetchMoreClassName,
     translations,
     loading
-  }: IListProps<ListItem>
+  }: IPaginationButtonProps
 ) => (
   <>
-    <div className={classNames(styles.list, className)}>
-      {list.map(item => children(item))}
-    </div>
     {
       loading &&
       <LoadingSpinner/>
@@ -30,7 +25,7 @@ export const List = <ListItem, >(
       <Button
         kind="primary"
         onClick={fetchMore}
-        className={classNames(styles.fetchMoreButton, fetchMoreClassName)}
+        className={classNames(styles.fetchMoreButton, className)}
       >
         {translations.fetchMore}
       </Button>

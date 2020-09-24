@@ -5,13 +5,28 @@ import { ListContent } from "./ListContent";
 import { ListableReactNodes, Listable } from "../interfaces";
 
 export const List: FunctionComponent<IListProps> = (
-  { headerClassName, listHeader, listContentItem, items, rowClassName }
+  {
+    headerClassName,
+    listHeader,
+    listContentItem,
+    items,
+    rowClassName,
+    fetchMore,
+    shouldFetchMore,
+    loading
+  }
 ) => (
   <ListContainer>
     <ListHeader className={headerClassName}>
       { listHeader }
     </ListHeader>
-    <ListContent items={items} rowClassName={rowClassName}>
+    <ListContent
+      items={items}
+      rowClassName={rowClassName}
+      fetchMore={fetchMore}
+      shouldFetchMore={shouldFetchMore}
+      loading={loading}
+      >
       { listContentItem }
     </ListContent>
   </ListContainer>
@@ -23,4 +38,7 @@ interface IListProps {
   items: Listable[];
   headerClassName: string;
   rowClassName: string;
+  fetchMore?: () => void;
+  shouldFetchMore?: boolean;
+  loading: boolean;
 }
