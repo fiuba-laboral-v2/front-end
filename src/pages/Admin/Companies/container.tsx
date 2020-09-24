@@ -23,7 +23,7 @@ export const Companies: FunctionComponent = () => {
         rowClassName={styles.tableDisplay}
         items={companies}
         fetchMore={response.fetchMore}
-        shouldFetchMore={response?.data.getApplicants.shouldFetchMore}
+        shouldFetchMore={response?.data.getCompanies.shouldFetchMore}
         loading={response.loading}
       />
     }
