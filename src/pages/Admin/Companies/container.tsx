@@ -8,8 +8,8 @@ import { useCompanies } from "$hooks/queries";
 import styles from "./styles.module.scss";
 
 export const Companies: FunctionComponent = () => {
-  const result = useCompanies();
-  const companies = result?.data?.getCompanies;
+  const response = useCompanies();
+  const companies = response?.data?.getCompanies.results;
 
   return (
     <>
@@ -22,7 +22,7 @@ export const Companies: FunctionComponent = () => {
         listHeaderClassName={styles.tableDisplay}
         rowClassName={styles.tableDisplay}
         items={companies}
-        loading={result.loading}
+        loading={response.loading}
       />
     }
   </>
