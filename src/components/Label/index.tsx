@@ -20,14 +20,15 @@ export const Label: FunctionComponent<ILabelProps> = (
     placement="right"
     classes={{ tooltip: classNames({ [styles.hideTooltip]: !tooltipText }) }}
   >
-    <div className={classNames(styles.tag, className, {
+    <div className={classNames(className, {
       [styles.transparent]: type === "no-background",
       [styles[`background${color}`]]: type !== "no-background",
-      [styles.circular]: type === "small",
-      [styles.rectangular]: type === "large" || type === "no-background"
+      [styles.small]: type === "small",
+      [styles.large]: type === "large" || type === "no-background",
+      [styles.withText]: !!text
     })}>
       {
-        (type === "large" || type === "no-background") &&
+        text &&
         <span className={classNames(styles.text, {
           [styles[`color${color}`]]: type === "no-background"
         })}>
@@ -54,7 +55,7 @@ export interface ILabelLayoutProps {
 }
 
 export interface ILabelTextProps {
-  text: string;
+  text?: string;
   tooltipText?: string;
 }
 

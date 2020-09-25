@@ -22,7 +22,7 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
           className={styles.desktopStatus}
           status={approvalStatus}
           withTooltip
-          type="small"
+          type="large"
         />
         <SharedStatusLabel
           className={styles.mobileStatus}
