@@ -32,7 +32,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       <SharedStatusLabel
         status={approvalStatus}
         withTooltip
-        type="small"
+        type="large"
       />
     </div>
   </>

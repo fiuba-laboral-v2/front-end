@@ -1,29 +1,43 @@
 @import "$styles/mixins/_text";
 @import "$styles/_variables";
 
+@mixin tag($multiplier) {
+  $iconFontSize: floor($multiplier * 12px);
+
+  align-items: center;
+  border-radius: $defaultBorderRadius;
+  display: flex;
+  padding: floor($multiplier * 2px);
+  width: fit-content;
+
+  &.withText:not(.transparent) {
+    padding-left: floor($multiplier * 4px);
+    padding-right: floor($multiplier * 4px);
+  }
+
+  svg.icon {
+    font-size: $iconFontSize;
+  }
+
+  .text {
+    line-height: $iconFontSize;
+  }
+}
+
 .hideTooltip {
   display: none;
 }
 
-.tag {
-  align-items: center;
-  display: flex;
-}
-
-.rectangular {
-  border-radius: $defaultBorderRadius;
-  padding: 4px 10px;
-  width: fit-content;
-}
-
-.circular {
-  border-radius: $defaultBorderRadius;
-  padding: 4px;
-  width: fit-content;
-}
-
 .icon {
   align-self: center;
+}
+
+.large {
+  @include tag(1.4);
+}
+
+.small {
+  @include tag(1);
 }
 
 .text {
