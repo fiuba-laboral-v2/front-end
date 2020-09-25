@@ -181,7 +181,9 @@ describe("NavBarLinks", () => {
     const createCurrentAdmin = () => CurrentUser({
       ...userAttributes,
       admin: {
-        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        user: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+        },
         secretary: Secretary.graduados
       }
     });
