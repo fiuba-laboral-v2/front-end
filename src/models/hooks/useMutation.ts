@@ -13,7 +13,7 @@ export const useMutation = <TVariables extends object = {}, TData extends object
   documentNode: DocumentNode,
   mutationHookOptions?: MutationHookOptions<TData, TVariables>
 ): IHookResponse<TData, TVariables> => {
-  const [mutationFunction, { loading }] = apolloUseMutation(
+  const [mutationFunction, result] = apolloUseMutation(
     documentNode,
     mutationHookOptions
   ) as MutationTuple<TData, TVariables>;
@@ -30,7 +30,7 @@ export const useMutation = <TVariables extends object = {}, TData extends object
     }
   };
 
-  return { mutation, loading };
+  return { mutation, ...result };
 };
 
 export type UseMutationResult<T> = IErroredMutation | ISuccessfulMutation<T>;

@@ -13,7 +13,7 @@ import { useSnackbar } from "notistack";
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const createCompany = useCreateCompany();
+  const { createCompany } = useCreateCompany();
   const login = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");

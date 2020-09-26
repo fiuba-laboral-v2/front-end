@@ -4,11 +4,11 @@ import { ICompany } from "$interfaces/Company";
 import { IUserInput } from "$interfaces/User";
 
 export const useCreateCompany = () => {
-  const { mutation } = useMutation<ICreateCompany, { createCompany: ICompany }>(
+  const { mutation, ...result } = useMutation<ICreateCompany, { createCompany: ICompany }>(
     CREATE_COMPANY,
     { fetchPolicy: "no-cache" }
   );
-  return mutation;
+  return { createCompany: mutation, ...result };
 };
 
 export interface ICreateCompany {
