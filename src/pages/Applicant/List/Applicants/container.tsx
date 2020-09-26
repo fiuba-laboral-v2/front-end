@@ -7,7 +7,7 @@ import { Redirect } from "$components/Redirect";
 
 const ApplicantsContainer: FunctionComponent = () => {
   const {
-    data: { getApplicants } = { getApplicants: [] },
+    data: { getApplicants } = { getApplicants: { results: [] } },
     error,
     loading
   } = useQuery(GET_APPLICANTS);
@@ -17,7 +17,7 @@ const ApplicantsContainer: FunctionComponent = () => {
   return (
     <Applicants
       loading={loading}
-      applicants={getApplicants}
+      applicants={getApplicants.results}
     />
   );
 };

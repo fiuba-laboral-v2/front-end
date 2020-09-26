@@ -6,17 +6,18 @@ import { GET_COMPANIES } from "$queries";
 import { Companies } from "./component";
 import { Redirect } from "$components/Redirect";
 import { ICompany } from "$interfaces/Company";
+import { IPaginatedResult } from "$hooks/queries/interface";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();
-  const response = useQuery<{}, { getCompanies: ICompany[] }>(GET_COMPANIES);
+  const response = useQuery<{}, { getCompanies: IPaginatedResult<ICompany> }>(GET_COMPANIES);
 
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
 
   return (
     <Companies
       loading={response.loading}
-      companies={response.data?.getCompanies || []}
+      companies={response.data?.getCompanies.results || []}
       onClickView={uuid => history.push(RoutesBuilder.applicant.companyProfile(uuid))}
     />
   );

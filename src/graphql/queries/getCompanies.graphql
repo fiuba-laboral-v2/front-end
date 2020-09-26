@@ -1,11 +1,14 @@
-query getCompanies {
-    getCompanies {
-        uuid
-        cuit
-        companyName
-        businessName
-        logo
-        approvalStatus
-        updatedAt
+query getCompanies($updatedBeforeThan: PaginatedInput) {
+  getCompanies(updatedBeforeThan: $updatedBeforeThan) {
+    shouldFetchMore
+      results {
+      uuid
+      cuit
+      companyName
+      businessName
+      logo
+      approvalStatus
+      updatedAt
     }
+  }
 }
