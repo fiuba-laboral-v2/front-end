@@ -14,7 +14,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { createCompany } = useCreateCompany();
-  const login = useLogin();
+  const { login } = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
   if (!translations) return <LoadingSpinner/>;

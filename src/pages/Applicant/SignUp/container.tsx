@@ -15,7 +15,7 @@ import { saveApplicantArguments } from "$models/MutationArguments";
 const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { saveApplicant } = useSaveApplicant();
-  const login = useLogin();
+  const { login } = useLogin();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 

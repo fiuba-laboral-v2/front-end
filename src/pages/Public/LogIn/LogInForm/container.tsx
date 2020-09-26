@@ -10,7 +10,7 @@ import { useSnackbar } from "notistack";
 const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const login = useLogin();
+  const { login } = useLogin();
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
   if (!translations) return <Fragment/>;
 
