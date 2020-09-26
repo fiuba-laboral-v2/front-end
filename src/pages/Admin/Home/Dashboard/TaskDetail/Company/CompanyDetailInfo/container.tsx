@@ -18,7 +18,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     refetchAdminTasks
   }
 ) => {
-  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
+  const { updateAdminTaskStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchAdminTasks,
     type: COMPANY,

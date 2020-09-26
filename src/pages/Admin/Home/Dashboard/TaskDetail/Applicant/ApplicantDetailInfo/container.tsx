@@ -15,7 +15,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   }
 ) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
-  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
+  const { updateAdminTaskStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
     type: APPLICANT,
