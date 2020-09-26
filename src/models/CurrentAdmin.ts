@@ -2,7 +2,7 @@ import { IUser } from "$interfaces/User";
 import { Secretary } from "../interfaces/Secretary";
 
 export type TCurrentAdminAttributes = {
-  user: Partial<IUser>;
+  user: Pick<IUser, "uuid">;
   secretary: Secretary;
 };
 
