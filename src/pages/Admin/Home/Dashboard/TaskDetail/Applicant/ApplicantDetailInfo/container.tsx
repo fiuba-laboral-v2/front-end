@@ -15,7 +15,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   }
 ) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
-  const { updateAdminTaskStatus } = useUpdateAdminTaskStatus({
+  const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
     type: APPLICANT,
@@ -32,7 +32,13 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
     });
   };
 
-  return <ApplicantDetailInfo setStatus={setStatus} applicant={response.data.getApplicant}/>;
+  return (
+    <ApplicantDetailInfo
+      loading={loading}
+      setStatus={setStatus}
+      applicant={response.data.getApplicant}
+    />
+  );
 };
 
 interface ICompanyDetailInfoContainerProps {

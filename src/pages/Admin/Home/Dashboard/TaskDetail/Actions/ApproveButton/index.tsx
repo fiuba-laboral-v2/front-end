@@ -3,8 +3,9 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { StatusButton } from "../StatusButton";
 import DoneIcon from "@material-ui/icons/Done";
 
-export const ApproveButton: FunctionComponent<IComponent> = ({ setStatus }) => (
+export const ApproveButton: FunctionComponent<IComponent> = ({ setStatus, loading }) => (
   <StatusButton
+    loading={loading}
     setStatus={setStatus}
     kind="primary"
     status={ApprovalStatus.approved}
@@ -14,4 +15,5 @@ export const ApproveButton: FunctionComponent<IComponent> = ({ setStatus }) => (
 
 interface IComponent {
   setStatus: (status: ApprovalStatus) => Promise<void>;
+  loading: boolean;
 }

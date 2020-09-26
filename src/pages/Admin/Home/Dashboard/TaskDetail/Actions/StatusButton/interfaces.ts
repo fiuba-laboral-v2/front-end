@@ -6,6 +6,7 @@ import { SvgIconProps } from "@material-ui/core/SvgIcon";
 export interface IContainer extends IButtonProps {
   Icon: FunctionComponent<SvgIconProps>;
   setStatus: (status: ApprovalStatus) => Promise<void>;
+  loading: boolean;
   status: ApprovalStatus;
 }
 

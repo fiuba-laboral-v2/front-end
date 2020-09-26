@@ -9,10 +9,12 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = (
   {
     offer,
     currentStatus,
-    setStatus
+    setStatus,
+    loading
   }
 ) => (
   <DetailInfo
+    loading={loading}
     mainTitle={<MainTitle offer={offer}/>}
     currentStatus={currentStatus}
     setStatus={setStatus}
@@ -25,4 +27,5 @@ export interface IOfferDetailInfoProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
   offer: IOffer;
   currentStatus: ApprovalStatus;
+  loading: boolean;
 }

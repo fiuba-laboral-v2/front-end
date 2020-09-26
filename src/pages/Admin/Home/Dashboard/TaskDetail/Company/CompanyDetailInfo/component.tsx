@@ -11,10 +11,12 @@ import { DetailInfo } from "../../DetailInfo";
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   {
     setStatus,
-    company
+    company,
+    loading
   }
 ) => (
   <DetailInfo
+    loading={loading}
     mainTitle={<MainTitle company={company}/>}
     setStatus={setStatus}
     currentStatus={company.approvalStatus}
@@ -26,4 +28,5 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
 export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
   company: ICompany<IUser>;
+  loading: boolean;
 }
