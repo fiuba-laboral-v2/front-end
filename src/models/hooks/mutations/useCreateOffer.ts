@@ -4,8 +4,8 @@ import { IOffer } from "$interfaces/Offer";
 import { ApplicantType } from "$interfaces/Applicant";
 
 export const useCreateOffer = () => {
-  const { mutation } = useMutation<ICreateOffer, ICreateOfferResponse>(CREATE_OFFER);
-  return mutation;
+  const { mutation, ...result } = useMutation<ICreateOffer, ICreateOfferResponse>(CREATE_OFFER);
+  return { createOffer: mutation, ...result };
 };
 
 interface ICreateOfferResponse {
