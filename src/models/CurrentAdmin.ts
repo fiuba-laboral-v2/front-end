@@ -1,7 +1,8 @@
+import { IUser } from "$interfaces/User";
 import { Secretary } from "../interfaces/Secretary";
 
 export type TCurrentAdminAttributes = {
-  userUuid: string;
+  user: Pick<IUser, "uuid">;
   secretary: Secretary;
 };
 

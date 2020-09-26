@@ -36,11 +36,13 @@ describe("CurrentUser", () => {
 
   it("returns a valid current admin user", () => {
     const currentUser = CurrentUser({
-      email: "companyUser@company.com",
+      email: "admin@admin.com",
       name: "eric",
       surname: "Clapton",
       admin: {
-        userUuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+        user: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+        },
         secretary: Secretary.extension
       }
     });
