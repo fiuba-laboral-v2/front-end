@@ -14,7 +14,7 @@ import { useSnackbar } from "notistack";
 export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const updateApplicant = useUpdateCurrentApplicant();
+  const { updateCurrentApplicant } = useUpdateCurrentApplicant();
   const applicantProfile = useMyApplicantProfile();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
 
@@ -52,7 +52,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
   if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
 
   const onSubmit = async ({ _form, ...variables }: IApplicantEditableFormValues) => {
-    const result = await updateApplicant({
+    const result = await updateCurrentApplicant({
       variables: updateCurrentApplicantArguments(variables),
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
