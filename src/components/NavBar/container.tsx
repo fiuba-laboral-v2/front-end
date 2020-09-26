@@ -13,7 +13,7 @@ export const NavBarContainer: FunctionComponent = () => {
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
   const currentUserResponse = useCurrentUser();
-  const logout = useLogout();
+  const { logout } = useLogout();
 
   if (!translations || currentUserResponse.loading) return <Fragment/>;
   if (currentUserResponse.error) {
