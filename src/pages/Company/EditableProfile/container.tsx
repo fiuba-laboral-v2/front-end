@@ -13,7 +13,7 @@ import { useSnackbar } from "notistack";
 export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const updateCurrentCompany = useUpdateCurrentCompany();
+  const { updateCurrentCompany } = useUpdateCurrentCompany();
   const companyProfile = useMyCompanyProfile();
 
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
