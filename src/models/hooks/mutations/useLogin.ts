@@ -3,7 +3,7 @@ import { IMutationOptions, useMutation, UseMutationResult } from "$hooks";
 import { useApolloClient } from "@apollo/client";
 
 export const useLogin = () => {
-  const mutation = useMutation<ILoginVariables, { login: string }>(LOGIN);
+  const { mutation } = useMutation<ILoginVariables, { login: string }>(LOGIN);
   const client = useApolloClient();
 
   return async (

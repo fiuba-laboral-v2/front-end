@@ -5,7 +5,7 @@ import { IApplicantCareerInput, ILink, ISection } from "$interfaces/Applicant";
 import { ICapability } from "$interfaces/Capability";
 
 export const useUpdateCurrentApplicant = () => {
-  const mutation = useMutation<IMutationVariables>(UPDATE_CURRENT_APPLICANT);
+  const { mutation } = useMutation<IMutationVariables>(UPDATE_CURRENT_APPLICANT);
   return ({ variables, ...options }: IUseUpdateCurrentApplicantOptions) => {
     return mutation({
       variables: {

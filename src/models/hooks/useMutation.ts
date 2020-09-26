@@ -10,15 +10,15 @@ import { ErrorHandlers, handleError } from "$models/handleError";
 import { omitTypename } from "$models/omitTypename";
 
 export const useMutation = <TVariables extends object = {}, TData extends object = {}>(
-  mutation: DocumentNode,
+  documentNode: DocumentNode,
   mutationHookOptions?: MutationHookOptions<TData, TVariables>
-): MutationFunctionResult<TData, TVariables> => {
-  const [mutationFunction] = apolloUseMutation(
-    mutation,
+): IHookResponse<TData, TVariables> => {
+  const [mutationFunction, { loading }] = apolloUseMutation(
+    documentNode,
     mutationHookOptions
   ) as MutationTuple<TData, TVariables>;
 
-  return async (
+  const mutation = async (
     options?: IMutationOptions<TData, TVariables>
   ): Promise<UseMutationResult<TData>> => {
     try {
@@ -29,6 +29,8 @@ export const useMutation = <TVariables extends object = {}, TData extends object
       return { error, data: undefined };
     }
   };
+
+  return { mutation, loading };
 };
 
 export type UseMutationResult<T> = IErroredMutation | ISuccessfulMutation<T>;
@@ -59,3 +61,8 @@ type MutationTuple<TData, TVariables> = [
   MutationFunction<TData, TVariables>,
   MutationResult<TData>
 ];
+
+interface IHookResponse<TData, TVariables> {
+  mutation: MutationFunctionResult<TData, TVariables>;
+  loading: boolean;
+}

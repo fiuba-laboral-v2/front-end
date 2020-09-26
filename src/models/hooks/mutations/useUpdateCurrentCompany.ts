@@ -1,8 +1,10 @@
 import { UPDATE_CURRENT_COMPANY } from "$mutations";
 import { useMutation } from "$hooks";
 
-export const useUpdateCurrentCompany = () =>
-  useMutation<IUpdateCurrentCompanyVariables>(UPDATE_CURRENT_COMPANY);
+export const useUpdateCurrentCompany = () => {
+  const { mutation } = useMutation<IUpdateCurrentCompanyVariables>(UPDATE_CURRENT_COMPANY);
+  return mutation;
+};
 
 export interface IUpdateCurrentCompanyVariables {
   uuid: string;
