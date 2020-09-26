@@ -3,8 +3,8 @@ import { useMutation, ICreateOffer } from "$hooks";
 import { IOffer } from "$interfaces/Offer";
 
 export const useEditOffer = () => {
-  const { mutation } = useMutation<ICreateOffer, IEditOfferResponse>(EDIT_OFFER);
-  return mutation;
+  const { mutation, ...result } = useMutation<ICreateOffer, IEditOfferResponse>(EDIT_OFFER);
+  return { editOffer: mutation, ...result };
 };
 
 interface IEditOfferResponse {
