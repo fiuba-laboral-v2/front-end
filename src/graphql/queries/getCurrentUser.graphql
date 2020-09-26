@@ -1,20 +1,22 @@
 query getCurrentUser {
-    getCurrentUser {
+  getCurrentUser {
+    uuid
+    email
+    name
+    surname
+    admin {
+      user {
         uuid
-        email
-        name
-        surname
-        admin {
-            userUuid
-            secretary
-        }
-        applicant {
-            uuid
-            approvalStatus
-        }
-        company {
-            uuid
-            approvalStatus
-        }
+      }
+      secretary
     }
+    applicant {
+      uuid
+      approvalStatus
+    }
+    company {
+      uuid
+      approvalStatus
+    }
+  }
 }

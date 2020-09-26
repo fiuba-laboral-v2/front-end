@@ -9,21 +9,17 @@ export type TCurrentAdminAttributes = {
 export const CurrentAdmin = (
   {
     secretary,
-    user: { uuid },
     ...attributes
   }: TCurrentAdminAttributes): TCurrentAdmin => {
   return {
     ...attributes,
-    userUuid: uuid,
     secretary,
     isGraduados: () => secretary === Secretary.graduados,
     isExtension: () => secretary === Secretary.extension
   } as TCurrentAdmin;
 };
 
-export type TCurrentAdmin = {
-  secretary: Secretary;
-  userUuid: Secretary;
+export type TCurrentAdmin = TCurrentAdminAttributes & {
   isGraduados: () => boolean;
   isExtension: () => boolean;
 };
