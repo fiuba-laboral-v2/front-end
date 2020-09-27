@@ -1,28 +1,28 @@
 mutation editOffer (
-    $uuid: ID!
-    $title: String!,
-    $description: String!,
-    $targetApplicantType: ApplicantType!
-    $hoursPerDay: Int!,
-    $minimumSalary: Int!,
-    $maximumSalary: Int!
+  $uuid: ID!
+  $title: String!,
+  $description: String!,
+  $targetApplicantType: ApplicantType!
+  $hoursPerDay: Int!,
+  $minimumSalary: Int!,
+  $maximumSalary: Int!
 ) {
-    editOffer(
-        uuid: $uuid,
-        title: $title,
-        description: $description,
-        targetApplicantType: $targetApplicantType,
-        hoursPerDay: $hoursPerDay,
-        minimumSalary: $minimumSalary,
-        maximumSalary: $maximumSalary
-    ) {
-        uuid
-        title
-        description
-        hoursPerDay
-        minimumSalary
-        maximumSalary
-        createdAt
-        updatedAt
-    }
+  editOffer(
+    uuid: $uuid,
+    title: $title,
+    description: $description,
+    targetApplicantType: $targetApplicantType,
+    hoursPerDay: $hoursPerDay,
+    minimumSalary: $minimumSalary,
+    maximumSalary: $maximumSalary
+  ) {
+      uuid
+      title
+      description
+      hoursPerDay
+      minimumSalary
+      maximumSalary
+      createdAt
+      updatedAt
+  }
 }

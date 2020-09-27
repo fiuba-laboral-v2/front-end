@@ -1,26 +1,26 @@
 mutation createOffer (
-    $title: String!,
-    $description: String!,
-    $targetApplicantType: ApplicantType!
-    $hoursPerDay: Int!,
-    $minimumSalary: Int!,
-    $maximumSalary: Int!
+  $title: String!,
+  $description: String!,
+  $targetApplicantType: ApplicantType!
+  $hoursPerDay: Int!,
+  $minimumSalary: Int!,
+  $maximumSalary: Int!
 ) {
-    createOffer(
-        title: $title,
-        description: $description,
-        targetApplicantType: $targetApplicantType,
-        hoursPerDay: $hoursPerDay,
-        minimumSalary: $minimumSalary,
-        maximumSalary: $maximumSalary
-    ) {
-        uuid
-        title
-        description
-        hoursPerDay
-        minimumSalary
-        maximumSalary
-        createdAt
-        updatedAt
-    }
+  createOffer(
+    title: $title,
+    description: $description,
+    targetApplicantType: $targetApplicantType,
+    hoursPerDay: $hoursPerDay,
+    minimumSalary: $minimumSalary,
+    maximumSalary: $maximumSalary
+  ) {
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    createdAt
+    updatedAt
+  }
 }
