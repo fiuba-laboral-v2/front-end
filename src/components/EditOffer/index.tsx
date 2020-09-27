@@ -4,9 +4,9 @@ import { TextInput } from "$components/TextInput";
 import { Window } from "$components/Window";
 import { NumberInput } from "$components/NumberInput";
 import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSelector";
-import { ICreateOffer } from "$hooks";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
+import { ICreateOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = (
@@ -115,7 +115,7 @@ interface IFormFooterParams {
 interface ICreateOfferProps {
   title: string;
   initialValues: ICreateOfferValues;
-  onSubmit: (values: ICreateOfferValues) => void;
+  onSubmit: (values: ICreateOffer) => void;
   translations: IEditOfferTranslations;
   formFooter: (params: IFormFooterParams) => ReactNode;
 }

@@ -1,12 +1,13 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
 import { useCompanyOfferByUuid, useEditOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { EditOffer, ICreateOfferValues, IEditOfferTranslations } from "$components/EditOffer";
+import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog, IConfirmDialogTranslations } from "$components/FormConfirmDialog";
+import { ICreateOffer } from "$interfaces/Offer";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -19,9 +20,12 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   if (!translations || getOffer.loading || getOffer.error) return <Fragment/>;
 
-  const onSubmit = async (variables: ICreateOfferValues) => {
+  const onSubmit = async (variables: ICreateOffer) => {
     const response = await editOffer({
-      variables,
+      variables: {
+        uuid: getOffer.data.getOfferByUuid.uuid,
+        ...variables
+      },
       errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
       update: cache => cache.modify({
         id: `Offer:${getOffer.data.getOfferByUuid.uuid}`,
