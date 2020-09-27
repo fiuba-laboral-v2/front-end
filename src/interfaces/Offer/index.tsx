@@ -23,7 +23,7 @@ export interface IUpdateOffer extends ICreateOffer {
   uuid: string;
 }
 
-export interface IOffer extends IUpdateOffer {
+export interface IOffer extends ICreateOffer {
   uuid: string;
   company: ICompany;
   targetApplicantType: ApplicantType;
