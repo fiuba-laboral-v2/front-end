@@ -36,7 +36,7 @@ export const useUpdateAdminTaskStatus = (
   const translations = useGetTranslations();
   const showError = useShowError();
   const showSuccess = useShowSuccess();
-  const { updateAdminTaskStatus: mutation, loading } = useUpdateAdminTaskStatusMutation({
+  const { updateAdminTaskStatus: mutation, ...result } = useUpdateAdminTaskStatusMutation({
     documentNode,
     refetchAdminTasks
   });
@@ -47,7 +47,7 @@ export const useUpdateAdminTaskStatus = (
       onStatusUpdate
     }: IUpdateAdminTask
   ) => {
-    const result = await mutation({
+    const response = await mutation({
       variables: {
         uuid: uuid,
         approvalStatus: status
@@ -60,13 +60,13 @@ export const useUpdateAdminTaskStatus = (
       })
     });
 
-    if (result.error) return showError({ reloadPrompt: true });
+    if (response.error) return showError({ reloadPrompt: true });
 
     showSuccess({ message: successMessage(status, translations) });
     onStatusUpdate();
   };
 
-  return { updateAdminTaskStatus, loading };
+  return { updateAdminTaskStatus, ...result };
 };
 
 interface IUseUpdateAdminTask {
