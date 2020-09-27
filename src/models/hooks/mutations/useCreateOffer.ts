@@ -1,6 +1,5 @@
 import { CREATE_OFFER } from "$mutations";
 import { useMutation } from "$hooks";
-import { IOffer } from "$interfaces/Offer";
 import { ApplicantType } from "$interfaces/Applicant";
 
 export const useCreateOffer = () => {
@@ -9,7 +8,7 @@ export const useCreateOffer = () => {
 };
 
 interface ICreateOfferResponse {
-  createOffer: IOffer<never>;
+  createOffer: { uuid: string };
 }
 
 export interface ICreateOffer {

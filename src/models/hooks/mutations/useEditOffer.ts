@@ -1,6 +1,5 @@
 import { EDIT_OFFER } from "$mutations";
 import { useMutation, ICreateOffer } from "$hooks";
-import { IOffer } from "$interfaces/Offer";
 
 export const useEditOffer = () => {
   const { mutation, ...result } = useMutation<ICreateOffer, IEditOfferResponse>(EDIT_OFFER);
@@ -8,5 +7,5 @@ export const useEditOffer = () => {
 };
 
 interface IEditOfferResponse {
-  editOffer: IOffer<never>;
+  editOffer: { uuid: string };
 }
