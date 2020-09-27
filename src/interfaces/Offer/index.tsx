@@ -10,15 +10,19 @@ export interface IOfferSection {
   displayOrder: number;
 }
 
-export interface IOffer {
-  uuid: string;
-  company: ICompany;
+export interface ICreateOrUpdateOffer {
   title: string;
   description: string;
-  targetApplicantType: ApplicantType;
   hoursPerDay: number;
   minimumSalary: number;
   maximumSalary: number;
+  targetApplicantType: ApplicantType | "";
+}
+
+export interface IOffer extends ICreateOrUpdateOffer {
+  uuid: string;
+  company: ICompany;
+  targetApplicantType: ApplicantType;
   graduadosApprovalStatus: ApprovalStatus;
   extensionApprovalStatus: ApprovalStatus;
   createdAt: string;

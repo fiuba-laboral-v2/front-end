@@ -4,7 +4,7 @@ import { TextInput } from "$components/TextInput";
 import { Window } from "$components/Window";
 import { NumberInput } from "$components/NumberInput";
 import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSelector";
-import { ICreateOffer } from "$hooks";
+import { ICreateOrUpdateOffer } from "$interfaces/Offer";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-laboral-v2";
 import styles from "./styles.module.scss";
@@ -91,7 +91,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
   </Window>
 );
 
-export interface ICreateOfferValues extends ICreateOffer {
+export interface ICreateOfferValues extends ICreateOrUpdateOffer {
   _form: string;
 }
 
