@@ -8,5 +8,5 @@ export const useEditOffer = () => {
 };
 
 interface IEditOfferResponse {
-  editOffer: IOffer & { company: never };
+  editOffer: IOffer<never>;
 }

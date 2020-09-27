@@ -10,9 +10,9 @@ export interface IOfferSection {
   displayOrder: number;
 }
 
-export interface IOffer {
+export interface IOffer<Company = ICompany> {
   uuid: string;
-  company: ICompany;
+  company: Company;
   title: string;
   description: string;
   targetApplicantType: ApplicantType;

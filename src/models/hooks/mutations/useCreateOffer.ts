@@ -9,7 +9,7 @@ export const useCreateOffer = () => {
 };
 
 interface ICreateOfferResponse {
-  createOffer: IOffer & { company: never };
+  createOffer: IOffer<never>;
 }
 
 export interface ICreateOffer {
