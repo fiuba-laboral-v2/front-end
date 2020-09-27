@@ -1,9 +1,9 @@
 import { EDIT_OFFER } from "$mutations";
 import { useMutation } from "$hooks";
-import { ICreateOrUpdateOffer } from "$interfaces/Offer";
+import { IUpdateOffer } from "$interfaces/Offer";
 
 export const useEditOffer = () => {
-  const { mutation, ...result } = useMutation<ICreateOrUpdateOffer, IEditOfferResponse>(EDIT_OFFER);
+  const { mutation, ...result } = useMutation<IUpdateOffer, IEditOfferResponse>(EDIT_OFFER);
   return { editOffer: mutation, ...result };
 };
 

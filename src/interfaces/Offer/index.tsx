@@ -10,7 +10,7 @@ export interface IOfferSection {
   displayOrder: number;
 }
 
-export interface ICreateOrUpdateOffer {
+export interface ICreateOffer {
   title: string;
   description: string;
   hoursPerDay: number;
@@ -19,7 +19,11 @@ export interface ICreateOrUpdateOffer {
   targetApplicantType: ApplicantType | "";
 }
 
-export interface IOffer extends ICreateOrUpdateOffer {
+export interface IUpdateOffer extends ICreateOffer {
+  uuid: string;
+}
+
+export interface IOffer extends IUpdateOffer {
   uuid: string;
   company: ICompany;
   targetApplicantType: ApplicantType;
