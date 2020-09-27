@@ -3,11 +3,14 @@ import { IButtonProps } from "$components/Button";
 import { FunctionComponent } from "react";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-export interface IContainer extends IButtonProps {
+interface ICommonProps extends IButtonProps {
   Icon: FunctionComponent<SvgIconProps>;
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  loading: boolean;
   status: ApprovalStatus;
+}
+
+export interface IContainer extends ICommonProps {
+  loading: boolean;
 }
 
 export interface ITranslations {
@@ -15,6 +18,6 @@ export interface ITranslations {
   reject: string;
 }
 
-export interface IComponent extends IContainer {
+export interface IComponent extends ICommonProps {
   label: string;
 }

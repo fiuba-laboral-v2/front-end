@@ -22,7 +22,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = (
 
   return <StatusButton
     {...props}
-    loading={loading}
+    disabled={loading}
     setStatus={setStatus}
     label={getLabel()}
     status={status}
