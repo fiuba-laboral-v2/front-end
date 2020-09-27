@@ -9,17 +9,18 @@ import styles from "./styles.module.scss";
 export const Actions: FunctionComponent<IActionsProps> = (
   {
     currentStatus,
-    setStatus
+    setStatus,
+    loading
   }
 ) => (
   <div className={styles.actions}>
     {
       currentStatus !== ApprovalStatus.rejected &&
-      <RejectButton setStatus={setStatus} />
+      <RejectButton loading={loading} setStatus={setStatus} />
     }
     {
       currentStatus !== ApprovalStatus.approved &&
-      <ApproveButton setStatus={setStatus}/>
+      <ApproveButton loading={loading} setStatus={setStatus}/>
     }
   </div>
 );
@@ -27,4 +28,5 @@ export const Actions: FunctionComponent<IActionsProps> = (
 export interface IActionsProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
   currentStatus: ApprovalStatus;
+  loading: boolean;
 }

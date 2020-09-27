@@ -3,8 +3,9 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { StatusButton } from "../StatusButton";
 
-export const RejectButton: FunctionComponent<IComponent> = ({ setStatus }) => (
+export const RejectButton: FunctionComponent<IComponent> = ({ setStatus, loading }) => (
   <StatusButton
+    loading={loading}
     setStatus={setStatus}
     kind="danger"
     status={ApprovalStatus.rejected}
@@ -14,4 +15,5 @@ export const RejectButton: FunctionComponent<IComponent> = ({ setStatus }) => (
 
 interface IComponent {
   setStatus: (status: ApprovalStatus) => Promise<void>;
+  loading: boolean;
 }

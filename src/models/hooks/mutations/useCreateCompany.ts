@@ -3,11 +3,13 @@ import { useMutation } from "$hooks";
 import { ICompany } from "$interfaces/Company";
 import { IUserInput } from "$interfaces/User";
 
-export const useCreateCompany = () =>
-  useMutation<ICreateCompany, { createCompany: ICompany }>(
+export const useCreateCompany = () => {
+  const { mutation, ...result } = useMutation<ICreateCompany, { createCompany: ICompany }>(
     CREATE_COMPANY,
     { fetchPolicy: "no-cache" }
   );
+  return { createCompany: mutation, ...result };
+};
 
 export interface ICreateCompany {
   user: IUserInput;

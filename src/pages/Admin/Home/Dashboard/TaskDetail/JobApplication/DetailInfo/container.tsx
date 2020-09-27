@@ -15,7 +15,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
   }
 ) => {
   const jobApplicationResponse = useJobApplicationByUuid(selectedJobApplication.uuid);
-  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
+  const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,
     type: JOB_APPLICATION,
@@ -34,6 +34,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
   const jobApplication = jobApplicationResponse.data.getJobApplicationByUuid;
 
   return <JobApplicationDetailInfo
+    loading={loading}
     setStatus={setStatus}
     currentStatus={jobApplication.approvalStatus}
     jobApplication={jobApplication}

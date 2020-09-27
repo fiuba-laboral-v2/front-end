@@ -18,7 +18,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     refetchAdminTasks
   }
 ) => {
-  const updateAdminTaskStatus = useUpdateAdminTaskStatus({
+  const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchAdminTasks,
     type: COMPANY,
@@ -37,7 +37,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   const company = response.data.getCompanyByUuid;
 
-  return <CompanyDetailInfo setStatus={setStatus} company={company}/>;
+  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company}/>;
 };
 
 interface ICompanyDetailInfoContainerProps {

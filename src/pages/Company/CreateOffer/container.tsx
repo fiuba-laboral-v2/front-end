@@ -11,7 +11,7 @@ import { FormFooter } from "$components/FormFooter";
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const createOffer = useCreateOffer();
+  const { createOffer } = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
   if (!translations) return <LoadingSpinner/>;

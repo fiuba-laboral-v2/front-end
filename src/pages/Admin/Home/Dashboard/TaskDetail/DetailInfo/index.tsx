@@ -8,6 +8,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   {
     mainTitle,
     setStatus,
+    loading,
     currentStatus,
     children
   }
@@ -15,7 +16,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
   {mainTitle}
   <div className={styles.details}>
     {children}
-    <Actions setStatus={setStatus} currentStatus={currentStatus}/>
+    <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus}/>
   </div>
 </>;
 
@@ -23,4 +24,5 @@ export interface ICompanyDetailInfoProps {
   currentStatus: ApprovalStatus;
   mainTitle: React.ReactElement;
   setStatus: (status: ApprovalStatus) => Promise<void>;
+  loading: boolean;
 }

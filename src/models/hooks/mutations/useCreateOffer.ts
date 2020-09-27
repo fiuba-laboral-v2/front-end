@@ -1,12 +1,15 @@
 import { CREATE_OFFER } from "$mutations";
 import { useMutation } from "$hooks";
-import { IOffer } from "$interfaces/Offer";
 import { ApplicantType } from "$interfaces/Applicant";
 
-export const useCreateOffer = () =>
-  useMutation<ICreateOffer, { createOffer: IOffer & { company: never } }>(
-    CREATE_OFFER
-  );
+export const useCreateOffer = () => {
+  const { mutation, ...result } = useMutation<ICreateOffer, ICreateOfferResponse>(CREATE_OFFER);
+  return { createOffer: mutation, ...result };
+};
+
+interface ICreateOfferResponse {
+  createOffer: { uuid: string };
+}
 
 export interface ICreateOffer {
   title: string;

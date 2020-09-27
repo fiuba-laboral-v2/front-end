@@ -7,10 +7,10 @@ export const StatusButton: FunctionComponent<IComponent> = (
   {
     kind,
     setStatus,
+    disabled,
     Icon,
     status,
-    label,
-    disabled
+    label
   }
 ) => (
   <Button kind={kind} onClick={() => setStatus(status)} disabled={disabled}>

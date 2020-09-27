@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { StatusButton } from "./component";
 import { IContainer, ITranslations } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
@@ -8,10 +8,10 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = (
   {
     status,
     setStatus,
+    loading,
     ...props
   }
 ) => {
-  const [disabled, setDisabled] = useState(false);
   const translations = useTranslations<ITranslations>("adminActions");
   if (!translations) return <Fragment /> ;
 
@@ -20,16 +20,11 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = (
     return translations.approve;
   };
 
-  const onSetStatus = (approvalStatus: ApprovalStatus) => {
-    setDisabled(true);
-    return setStatus(approvalStatus).then(() => setDisabled(false));
-  };
-
   return <StatusButton
     {...props}
-    setStatus={onSetStatus}
+    disabled={loading}
+    setStatus={setStatus}
     label={getLabel()}
     status={status}
-    disabled={disabled}
   />;
 };

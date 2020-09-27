@@ -14,7 +14,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IEditOfferTranslations & IConfirmDialogTranslations>("editOffer");
   const { uuid } = useParams();
-  const editOffer = useEditOffer();
+  const { editOffer } = useEditOffer();
   const getOffer = useCompanyOfferByUuid(uuid);
 
   if (!translations || getOffer.loading || getOffer.error) return <Fragment/>;
