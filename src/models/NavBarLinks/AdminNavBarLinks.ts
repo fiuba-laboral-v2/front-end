@@ -2,7 +2,7 @@ import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
 
-const { home, applicants, companies } = RoutesBuilder.admin;
+const { home, applicants, companies, admins } = RoutesBuilder.admin;
 
 export const AdminNavBarLinks = {
   create: (translations: INavBarTranslations): INavBarLink[] =>
@@ -18,6 +18,10 @@ export const AdminNavBarLinks = {
       {
         path: companies(),
         title: translations.companies
+      },
+      {
+        path: admins(),
+        title: translations.admins
       }
     ]
 };

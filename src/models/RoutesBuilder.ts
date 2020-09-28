@@ -1,5 +1,6 @@
 const APPLICANTS = "postulantes";
 const COMPANIES = "empresas";
+const ADMINS = "administradores";
 const APPLICATIONS = "postulaciones";
 const OFFERS = "ofertas";
 const PROFILE = "perfil";
@@ -28,7 +29,10 @@ export const RoutesBuilder = {
       adminRoute(APPLICANTS),
 
     companies: () =>
-      adminRoute(COMPANIES)
+      adminRoute(COMPANIES),
+
+    admins: () =>
+      adminRoute(ADMINS)
   },
 
   applicant: {
