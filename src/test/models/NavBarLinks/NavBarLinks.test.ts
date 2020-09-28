@@ -8,6 +8,7 @@ describe("NavBarLinks", () => {
   const translations = {
     companies: "companies",
     applicants: "applicants",
+    admins: "admins",
     jobOffers: "jobOffers",
     jobApplications: "jobApplications",
     createOffer: "createOffer",
@@ -202,6 +203,10 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.admin.companies(),
           title: translations.companies
+        },
+        {
+          path: RoutesBuilder.admin.admins(),
+          title: translations.admins
         }
       ]);
     });
