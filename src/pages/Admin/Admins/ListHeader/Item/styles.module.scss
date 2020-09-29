@@ -1,0 +1,27 @@
+@import "$styles/_variables";
+
+.item {
+  font-size: $fontSize-l;
+  font-weight: 600;
+  justify-self: center;
+
+  &.name {
+    grid-area: name;
+  }
+
+  &.surname {
+    grid-area: surname;
+  }
+
+  &.email {
+    grid-area: email;
+  }
+
+  &.secretary {
+    grid-area: secretary;
+  }
+
+  &.createdAt {
+    grid-area: createdAt;
+  }
+}
