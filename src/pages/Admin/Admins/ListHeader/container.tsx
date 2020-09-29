@@ -16,5 +16,5 @@ export interface ITranslations {
   surname: string;
   email: string;
   secretary: string;
-  updatedAt: string;
+  createdAt: string;
 }

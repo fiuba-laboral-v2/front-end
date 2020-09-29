@@ -4,6 +4,7 @@ query getAdmins($updatedBeforeThan: PaginatedInput) {
     results {
       uuid
       updatedAt
+      createdAt
       secretary
       user {
         uuid

@@ -6,4 +6,5 @@ export interface IAdmin {
   user: IUser;
   secretary: Secretary;
   updatedAt: string;
+  createdAt: string;
 }
