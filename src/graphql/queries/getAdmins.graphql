@@ -1,0 +1,16 @@
+query getAdmins($updatedBeforeThan: PaginatedInput) {
+  getAdmins(updatedBeforeThan: $updatedBeforeThan) {
+    shouldFetchMore
+    results {
+      uuid
+      updatedAt
+      secretary
+      user {
+        uuid
+        email
+        name
+        surname
+      }
+    }
+  }
+}

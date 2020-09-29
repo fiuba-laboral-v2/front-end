@@ -5,6 +5,7 @@ const GET_COMPANY_BY_UUID = loader("./getCompanyByUuid.graphql");
 const GET_COMPANY_BY_UUID_WITH_USERS = loader("./getCompanyByUuidWithUsers.graphql");
 const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
+const GET_ADMINS = loader("./getAdmins.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
 const GET_CAREERS = loader("./getCareers.graphql");
 const GET_COMPANIES = loader("./getCompanies.graphql");
@@ -41,5 +42,6 @@ export {
   GET_MY_CAREERS,
   GET_MY_COMPANY_PROFILE,
   GET_ADMIN_TASKS,
-  GET_JOB_APPLICATION_BY_UUID
+  GET_JOB_APPLICATION_BY_UUID,
+  GET_ADMINS
 };

@@ -1,0 +1,6 @@
+.tableDisplay {
+  display: grid;
+  grid-template-areas: "name surname email secretary updatedAt";
+  grid-template-columns: 2fr 2fr 2fr 1fr 2fr;
+  grid-template-rows: auto;
+}
