@@ -207,6 +207,10 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.admin.admins(),
           title: translations.admins
+        },
+        {
+          path: RoutesBuilder.admin.offers(),
+          title: translations.jobOffers
         }
       ]);
     });
