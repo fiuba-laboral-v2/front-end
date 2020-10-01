@@ -2,6 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import { OfferInfoItem } from "../OfferInfoItem";
+import { CareerList } from "../CareerList";
 
 import { IOfferCareersComponentProps } from "./interface";
 
@@ -14,11 +15,7 @@ const OfferCareers: FunctionComponent<IOfferCareersComponentProps> = (
   if (offer.careers === undefined || offer.careers.length === 0) return <Fragment/>;
   return (
     <OfferInfoItem className={classNames(styles.careers, className)} title={careersTitle}>
-      {
-        offer.careers.map(({ code, description }) =>
-          <span key={code} className={styles.career}>{description}</span>
-        )
-      }
+      <CareerList careers={offer.careers} className={styles.career} />
     </OfferInfoItem>
   );
 };

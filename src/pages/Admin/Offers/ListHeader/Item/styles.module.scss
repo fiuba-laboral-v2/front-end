@@ -1,0 +1,44 @@
+@import "$styles/_variables";
+
+.item {
+  align-self: center;
+  font-size: $fontSize-l;
+  font-weight: 600;
+  justify-self: center;
+
+  &.companyName {
+    grid-area: companyName;
+  }
+
+  &.title {
+    grid-area: title;
+  }
+
+  &.targetApplicantType {
+    grid-area: targetApplicantType;
+  }
+
+  &.hoursPerDay {
+    grid-area: hoursPerDay;
+  }
+
+  &.salary {
+    grid-area: salary;
+  }
+
+  &.careers {
+    grid-area: careers;
+  }
+
+  &.graduadosApprovalStatus {
+    grid-area: graduadosApprovalStatus;
+  }
+
+  &.extensionApprovalStatus {
+    grid-area: extensionApprovalStatus;
+  }
+
+  &.updatedAt {
+    grid-area: updatedAt;
+  }
+}

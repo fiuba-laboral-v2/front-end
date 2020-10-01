@@ -1,0 +1,6 @@
+.tableDisplay {
+  display: grid;
+  grid-template-areas: "companyName title targetApplicantType hoursPerDay salary careers graduadosApprovalStatus extensionApprovalStatus updatedAt";
+  grid-template-columns: 2fr 3fr 1fr 1fr 2fr 3fr 1fr 1fr 2fr;
+  grid-template-rows: auto;
+}
