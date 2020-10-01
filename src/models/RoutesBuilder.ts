@@ -32,7 +32,10 @@ export const RoutesBuilder = {
       adminRoute(COMPANIES),
 
     admins: () =>
-      adminRoute(ADMINS)
+      adminRoute(ADMINS),
+
+    offers: () =>
+      adminRoute(OFFERS)
   },
 
   applicant: {
