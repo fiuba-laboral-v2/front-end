@@ -1,0 +1,30 @@
+@import "$styles/_variables";
+
+@mixin rowItem {
+  align-self: center;
+  font-size: $fontSize-l;
+  font-weight: $fontWeight-r;
+  justify-self: center;
+}
+
+.text {
+  @include rowItem;
+}
+
+.careersContainer {
+  @include rowItem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.careers {
+  @include rowItem;
+
+  text-align: center;
+}
+
+.statusContainer {
+  align-self: center;
+  justify-self: center;
+}
