@@ -1,0 +1,32 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.card {
+  padding: $spacing-xxl $spacing-xxl $spacing-s;
+}
+
+.title {
+  @include subtitle;
+
+  color: $darkerGrey;
+  margin-bottom: $spacing-xl;
+}
+
+.firstRow,
+.secondRow {
+  display: flex;
+}
+
+.name,
+.email {
+  margin: 0 $spacing-m 0 0 !important;
+}
+
+.surname,
+.padron {
+  margin: 0 !important;
+}
+
+.firstRow {
+  margin-bottom: $spacing-m;
+}
