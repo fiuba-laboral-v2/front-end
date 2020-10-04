@@ -7,8 +7,8 @@ import styles from "./styles.module.scss";
 export const FiubaCredentialsForm: FunctionComponent<IComponentProps> = ({ translations }) => (
   <Card>
     <div className={styles.header}>
-      <span className={styles.title}>translations.title</span>
-      <span className={styles.subtitle}>translations.subtitle</span>
+      <span className={styles.title}>{translations.title}</span>
+      <span className={styles.subtitle}>{translations.subtitle}</span>
     </div>
     <div className={styles.fields}>
       <div className={styles.dniField} >
