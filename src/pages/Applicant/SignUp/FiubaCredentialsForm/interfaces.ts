@@ -5,6 +5,10 @@ export interface ITranslations {
   subtitle: string;
 }
 
-export interface IComponentProps {
+export interface IContainer {
+  className?: string;
+}
+
+export interface IComponentProps extends IContainer {
   translations: ITranslations;
 }

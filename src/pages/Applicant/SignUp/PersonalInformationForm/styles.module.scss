@@ -18,15 +18,29 @@
 }
 
 .name,
+.surname,
+.email,
+.padron {
+  width: 100%;
+}
+
+.name,
 .email {
-  margin: 0 $spacing-m 0 0 !important;
+  margin: 0 $spacing-m 0 0;
 }
 
 .surname,
 .padron {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .firstRow {
   margin-bottom: $spacing-m;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
 }

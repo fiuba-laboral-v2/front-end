@@ -22,6 +22,17 @@
   display: flex;
 }
 
+.dniField,
+.passwordField {
+  width: 100%;
+}
+
 .dniField {
   margin-right: $spacing-xxl;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .fields {
+    flex-direction: column;
+  }
 }

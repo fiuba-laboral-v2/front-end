@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
+
 import { EmailField, NameField } from "$components/Fields";
 import { NumberInput } from "$components/NumberInput";
 import { Card } from "$components/Card";
@@ -9,8 +11,13 @@ import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationForm: FunctionComponent<IComponent> = ({ translations }) => (
-  <Card className={styles.card}>
+export const PersonalInformationForm: FunctionComponent<IComponent> = (
+  {
+    className,
+    translations
+  }
+) => (
+  <Card className={classNames(styles.card, className)}>
     <div className={styles.title}>{translations.title}</div>
     <div className={styles.firstRow}>
       <div className={styles.name}>

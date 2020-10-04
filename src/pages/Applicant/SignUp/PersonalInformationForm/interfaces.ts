@@ -6,6 +6,10 @@ export interface ITranslations {
   padron: string;
 }
 
-export interface IComponent {
+export interface IContainer {
+  className?: string;
+}
+
+export interface IComponent extends IContainer {
   translations: ITranslations;
 }
