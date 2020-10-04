@@ -1,0 +1,47 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.card {
+  padding: $spacing-xxl $spacing-xxl $spacing-s;
+}
+
+.title {
+  @include subtitle;
+
+  color: $darkerGrey;
+  font-weight: unset;
+  margin-bottom: $spacing-xl;
+}
+
+.firstRow,
+.secondRow {
+  display: flex;
+}
+
+.name,
+.surname,
+.email,
+.padron {
+  width: 100%;
+}
+
+.name,
+.email {
+  margin: 0 $spacing-xxl 0 0;
+}
+
+.surname,
+.padron {
+  margin: 0;
+}
+
+.firstRow {
+  margin-bottom: $spacing-m;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,43 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.card {
+  padding: $spacing-xxl $spacing-xxl $spacing-s;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-xl;
+}
+
+.title {
+  @include subtitle;
+
+  color: $darkerGrey;
+  font-weight: unset;
+  margin-bottom: $spacing-s;
+}
+
+.subtitle {
+  color: $grey;
+}
+
+.fields {
+  display: flex;
+}
+
+.dniField,
+.passwordField {
+  width: 100%;
+}
+
+.dniField {
+  margin-right: $spacing-xxl;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .fields {
+    flex-direction: column;
+  }
+}

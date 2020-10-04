@@ -2,57 +2,26 @@
 @import "$styles/mixins/_title";
 @import "$styles/_variables";
 
-.mainContainer {
-  @include card;
+.title {
+  @include title;
 
-  .title {
-    @include title;
-
-    margin-bottom: $spacing-m;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-
-    .formContainer {
-      align-content: space-between;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      margin: 0;
-    }
-  }
+  margin-bottom: $spacing-xl;
+  margin-top: $spacing-xxl;
 }
 
-.careersTitleContainer {
+.formContainer {
+  align-content: space-between;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0;
 }
 
-.careersTitle {
-  align-self: flex-end;
-}
-
-.textInputContainer {
-  width: 70%;
-}
-
-div.textInput {
-  margin-bottom: $spacing-m;
+.fiubaCredentials,
+.personalInformation {
+  margin: 0 0 $spacing-xl;
 }
 
 .footer {
   margin-top: $spacing-l;
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .mainContainer .body {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .textInputContainer {
-    width: 100%;
-  }
 }
