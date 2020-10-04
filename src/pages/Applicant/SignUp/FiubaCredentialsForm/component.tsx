@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
+
 import { Card } from "$components/Card";
 import { DniField, PasswordField } from "$components/Fields";
 import { IComponentProps } from "./interfaces";
@@ -10,7 +12,7 @@ export const FiubaCredentialsForm: FunctionComponent<IComponentProps> = (
     translations
   }
 ) => (
-  <Card className={className}>
+  <Card className={classNames(styles.card, className)}>
     <div className={styles.header}>
       <span className={styles.title}>{translations.title}</span>
       <span className={styles.subtitle}>{translations.subtitle}</span>

@@ -1,6 +1,10 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_subtitle";
 
+.card {
+  padding: $spacing-xxl $spacing-xxl $spacing-s;
+}
+
 .header {
   display: flex;
   flex-direction: column;
