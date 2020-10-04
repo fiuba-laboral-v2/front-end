@@ -1,0 +1,27 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-xl;
+}
+
+.title {
+  @include subtitle;
+
+  color: $darkerGrey;
+  margin-bottom: $spacing-s;
+}
+
+.subtitle {
+  color: $grey;
+}
+
+.fields {
+  display: flex;
+}
+
+.dniField {
+  margin-right: $spacing-xxl;
+}
