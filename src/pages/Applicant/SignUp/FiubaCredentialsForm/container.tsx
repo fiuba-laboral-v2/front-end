@@ -4,7 +4,7 @@ import { useTranslations } from "$hooks";
 import { ITranslations } from "./interfaces";
 
 export const FiubaCredentialsFormContainer: FunctionComponent = () => {
-  const translations = useTranslations<ITranslations>("applicantCredentialsFields");
+  const translations = useTranslations<ITranslations>("fiubaCredentialsForm");
   if (!translations) return <Fragment/>;
   return <FiubaCredentialsForm translations={translations}/>;
 };
