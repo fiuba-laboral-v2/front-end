@@ -1,7 +1,5 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_card";
 @import "$styles/mixins/_title";
-@import "$styles/mixins/_formSetMainColumn";
 
 .title {
   @include title;
