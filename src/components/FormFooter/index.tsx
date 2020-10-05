@@ -1,5 +1,5 @@
 import React from "react";
-import { isArray } from "lodash";
+import { flatten } from "lodash";
 import classNames from "classnames";
 import { FormikErrors } from "formik";
 
@@ -14,27 +14,27 @@ export const FormFooter = <Values extends { _form?: string | string[] }>(
     className,
     errors
   }: IFormFooterProps<Values>
-) => (
-  <div className={classNames(styles.footer, className)}>
-    {
-      isArray(errors?._form) ?
-        errors?._form?.map((error: string) =>
+) => {
+  const formErrors = errors?._form as (string | string[]) || [];
+  return (
+    <div className={classNames(styles.footer, className)}>
+      {
+        flatten(formErrors).map((error: string) =>
           <span key={error} className={styles.formError}>{error}</span>
         )
-        :
-      <span className={styles.formError}>{errors._form}</span>
-    }
-    <SubmitButton
-      kind="primary"
-      disabled={isSubmitting}
-      errors={errors}
-      onClick={onSubmit}
-      {...(!onSubmit && { type: "submit" })}
-    >
-      {submitButtonText}
-    </SubmitButton>
-  </div>
-);
+      }
+      <SubmitButton
+        kind="primary"
+        disabled={isSubmitting}
+        errors={errors}
+        onClick={onSubmit}
+        {...(!onSubmit && { type: "submit" })}
+      >
+        {submitButtonText}
+      </SubmitButton>
+    </div>
+  );
+};
 
 interface IFormFooterProps<Values> {
   onSubmit?: () => void;
