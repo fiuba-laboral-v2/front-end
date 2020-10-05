@@ -50,11 +50,11 @@ export interface ITranslations {
   sectionContent: string;
 }
 
-interface IComponentProps extends ISectionsForm {
+interface IComponentProps extends ISectionsFormSection {
   translations: ITranslations;
 }
 
-export interface ISectionsForm {
+export interface ISectionsFormSection {
   className?: string;
   sections: ISection[];
 }
