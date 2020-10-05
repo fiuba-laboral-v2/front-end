@@ -4,6 +4,8 @@
   display: flex;
 }
 
-.title {
-  margin-bottom: $spacing-xl;
+.header:not(:only-child) {
+  .title {
+    margin-bottom: $spacing-xl;
+  }
 }
