@@ -7,8 +7,13 @@ import { CapabilitiesSelector } from "$components/CapabilitiesSelector";
 import { IComponent } from "./interfaces";
 import styles from "../EditableDetail/styles.module.scss";
 
-export const SkillsAndLanguagesForm: FunctionComponent<IComponent> = ({ translations }) => (
-  <Card largePadding>
+export const SkillsAndLanguagesForm: FunctionComponent<IComponent> = (
+  {
+    translations,
+    className
+  }
+) => (
+  <Card largePadding className={className}>
     <div className={styles.capabilities}>
       <Subtitle>{translations.capabilities}</Subtitle>
       <CapabilitiesSelector label={translations.capability}/>

@@ -3,20 +3,19 @@
 @import "$styles/mixins/_title";
 @import "$styles/mixins/_formSetMainColumn";
 
-.mainContainer {
-  @include card;
+.title {
+  @include title;
 
+  margin-bottom: $spacing-xl;
+}
+
+.body {
   display: flex;
   flex-direction: column;
+}
 
-  .title {
-    @include title;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-  }
+.card {
+  margin-bottom: $spacing-xl;
 }
 
 .footer {
@@ -35,33 +34,7 @@
   flex-direction: column;
 }
 
-.row {
-  margin-top: $spacing-m;
-}
-
-.description,
-.section,
-.link {
-  @include formSetMainColumn;
-}
-
 .submit {
   align-items: center;
   display: flex;
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .description,
-  .link,
-  .section {
-    width: 100%;
-  }
-
-  .mainContainer {
-    .body {
-      .linkTitle {
-        margin: 0;
-      }
-    }
-  }
 }

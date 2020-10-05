@@ -10,11 +10,12 @@ import styles from "./styles.module.scss";
 
 export const SectionsForm: FunctionComponent<IComponentProps> = (
   {
+    className,
     translations,
     sections
   }
 ) => (
-  <Card largePadding>
+  <Card largePadding className={className}>
     <FormSet
       title={translations.title}
       name="sections"
@@ -54,5 +55,6 @@ interface IComponentProps extends ISectionsForm {
 }
 
 export interface ISectionsForm {
+  className?: string;
   sections: ISection[];
 }

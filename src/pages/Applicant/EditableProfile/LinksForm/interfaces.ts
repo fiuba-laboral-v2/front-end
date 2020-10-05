@@ -7,6 +7,7 @@ export interface ITranslations {
 }
 
 export interface IContainer {
+  className?: string;
   links: ILink[];
 }
 

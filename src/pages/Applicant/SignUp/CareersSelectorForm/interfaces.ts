@@ -5,6 +5,7 @@ export interface ITranslations {
 }
 
 export interface IContainer {
+  className?: string;
   defaultValue: IApplicantCareerInput;
   careers: IApplicantCareerInput[];
 }

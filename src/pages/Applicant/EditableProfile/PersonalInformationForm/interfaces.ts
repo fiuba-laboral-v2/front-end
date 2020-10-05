@@ -5,6 +5,10 @@ export interface ITranslations {
   email: string;
 }
 
-export interface IComponent {
+export interface IContainer {
+  className?: string;
+}
+
+export interface IComponent extends IContainer {
   translations: ITranslations;
 }

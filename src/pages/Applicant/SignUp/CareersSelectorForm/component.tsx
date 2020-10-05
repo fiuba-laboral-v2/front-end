@@ -6,12 +6,13 @@ import { IComponent } from "./interfaces";
 
 export const CareersSelectorForm: FunctionComponent<IComponent> = (
   {
+    className,
     translations,
     careers,
     defaultValue
   }
 ) => (
-  <Card largePadding>
+  <Card largePadding className={className}>
     <FormSet
       title={translations.title}
       name={"careers"}

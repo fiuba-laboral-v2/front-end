@@ -66,6 +66,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
       translations={translations}
       initialValues={{
         user: {
+          email: applicant.user.email,
           name: applicant.user.name,
           surname: applicant.user.surname
         },

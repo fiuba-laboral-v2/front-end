@@ -6,8 +6,13 @@ import { TextInput } from "$components/TextInput";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationForm: FunctionComponent<IComponent> = ({ translations }) => (
-  <Card largePadding>
+export const PersonalInformationForm: FunctionComponent<IComponent> = (
+  {
+    translations,
+    className
+  }
+) => (
+  <Card largePadding className={className}>
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}

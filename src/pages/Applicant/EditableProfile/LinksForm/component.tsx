@@ -12,11 +12,12 @@ import styles from "./styles.module.scss";
 
 export const LinksForm: FunctionComponent<IComponent> = (
   {
+    className,
     translations,
     links
   }
 ) => (
-  <Card largePadding>
+  <Card largePadding className={className}>
     <FormSet
       title={translations.links}
       name="links"
