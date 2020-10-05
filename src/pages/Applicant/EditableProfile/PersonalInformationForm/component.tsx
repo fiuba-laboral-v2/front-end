@@ -7,7 +7,7 @@ import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const PersonalInformationForm: FunctionComponent<IComponent> = ({ translations }) => (
-  <Card className={styles.card}>
+  <Card largePadding>
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}

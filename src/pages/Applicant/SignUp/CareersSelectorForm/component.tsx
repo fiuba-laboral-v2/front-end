@@ -3,7 +3,6 @@ import { Card } from "$components/Card";
 import { FormSet } from "$components/FormSet";
 import { CareerSelector } from "$components/CareerSelector";
 import { IComponent } from "./interfaces";
-import styles from "./styles.module.scss";
 
 export const CareersSelectorForm: FunctionComponent<IComponent> = (
   {
@@ -12,7 +11,7 @@ export const CareersSelectorForm: FunctionComponent<IComponent> = (
     defaultValue
   }
 ) => (
-  <Card className={styles.card}>
+  <Card largePadding>
     <FormSet
       title={translations.title}
       name={"careers"}

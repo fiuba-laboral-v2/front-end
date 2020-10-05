@@ -4,12 +4,7 @@
   background: #f1f1f1;
   border-radius: $defaultBorderRadius;
   display: flex;
-  margin-top: $spacing-m;
   padding: $spacing-m $spacing-l;
-
-  &:last-child {
-    margin-bottom: $spacing-l;
-  }
 }
 
 @media (max-width: $mobileContainerThreshold) {
