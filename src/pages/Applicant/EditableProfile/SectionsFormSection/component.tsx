@@ -8,7 +8,7 @@ import { FormikValidator } from "$models/FormikValidator";
 import { ISection } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 
-export const SectionsForm: FunctionComponent<IComponentProps> = (
+export const SectionsFormSection: FunctionComponent<IComponentProps> = (
   {
     className,
     translations,
