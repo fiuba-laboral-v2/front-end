@@ -1,1 +1,1 @@
-export { SectionsFormContainer as SectionsForm } from "./container";
+export * from "./component";

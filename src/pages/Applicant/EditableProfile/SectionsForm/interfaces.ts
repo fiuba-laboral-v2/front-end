@@ -1,7 +1,7 @@
 import { ISection } from "$interfaces/Applicant";
 
 export interface ITranslations {
-  sections: string;
+  title: string;
   sectionTitle: string;
   sectionContent: string;
 }

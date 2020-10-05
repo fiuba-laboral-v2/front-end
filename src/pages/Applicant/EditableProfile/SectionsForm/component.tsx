@@ -5,11 +5,10 @@ import { FormSet } from "$components/FormSet";
 import { TextInput } from "$components/TextInput";
 
 import { FormikValidator } from "$models/FormikValidator";
-
-import { IComponent } from "./interfaces";
+import { ISection } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 
-export const SectionsForm: FunctionComponent<IComponent> = (
+export const SectionsForm: FunctionComponent<IComponentProps> = (
   {
     translations,
     sections
@@ -17,7 +16,7 @@ export const SectionsForm: FunctionComponent<IComponent> = (
 ) => (
   <Card largePadding>
     <FormSet
-      title={translations.sections}
+      title={translations.title}
       name="sections"
       values={sections}
       defaultValue={{
@@ -43,3 +42,17 @@ export const SectionsForm: FunctionComponent<IComponent> = (
     />
   </Card>
 );
+
+export interface ITranslations {
+  title: string;
+  sectionTitle: string;
+  sectionContent: string;
+}
+
+interface IComponentProps extends ISectionsForm {
+  translations: ITranslations;
+}
+
+export interface ISectionsForm {
+  sections: ISection[];
+}
