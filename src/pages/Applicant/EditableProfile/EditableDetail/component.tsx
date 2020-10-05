@@ -5,7 +5,7 @@ import { PersonalInformationFormSection } from "../PersonalInformationFormSectio
 import { SkillsAndLanguagesFormSection } from "../SkillsAndLanguagesFormSection";
 import { LinksFormSection } from "../LinksFormSection";
 import { CareersSelectorForm } from "../../SignUp/CareersSelectorForm";
-import { WorkExperienceForm } from "../WorkExperienceForm";
+import { WorkExperienceFormSection } from "../WorkExperienceFormSection";
 import { FormFooter } from "$components/FormFooter";
 
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
@@ -38,7 +38,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
               defaultValue={{ careerCode: "", isGraduate: true }}
               careers={values.careers}
             />
-            <WorkExperienceForm sections={values.sections} className={styles.card}/>
+            <WorkExperienceFormSection sections={values.sections} className={styles.card}/>
             <FormFooter
               className={styles.footer}
               isSubmitting={isSubmitting}
