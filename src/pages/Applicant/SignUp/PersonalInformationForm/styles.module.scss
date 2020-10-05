@@ -18,20 +18,20 @@
   display: flex;
 }
 
-.name,
-.surname,
-.email,
-.padron {
+div.name,
+div.surname,
+div.email,
+div.padron {
   width: 100%;
 }
 
-.name,
-.email {
+div.name,
+div.email {
   margin: 0 $spacing-xxl 0 0;
 }
 
-.surname,
-.padron {
+div.surname,
+div.padron {
   margin: 0;
 }
 

@@ -20,27 +20,36 @@ export const PersonalInformationForm: FunctionComponent<IComponent> = (
   <Card className={classNames(styles.card, className)}>
     <div className={styles.title}>{translations.title}</div>
     <div className={styles.firstRow}>
-      <div className={styles.name}>
-        <NameField name="user.name" label={translations.name} />
-      </div>
-      <div className={styles.surname}>
-        <NameField name="user.surname" label={translations.surname} />
-      </div>
+      <NameField
+        className={styles.name}
+        name="user.name"
+        label={translations.name}
+        withoutMargin
+      />
+      <NameField
+        className={styles.surname}
+        name="user.surname"
+        label={translations.surname}
+        withoutMargin
+      />
     </div>
     <div className={styles.secondRow}>
-      <div className={styles.email}>
-        <EmailField name="user.email" label={translations.email} />
-      </div>
-      <div className={styles.padron}>
-        <NumberInput
-          name="padron"
-          label={translations.padron}
-          validate={FormikValidator({
-            validator: validateIntegerInRange({ min: { value: 0, include: false } }),
-            mandatory: true
-          })}
-        />
-      </div>
+      <EmailField
+        className={styles.email}
+        name="user.email"
+        label={translations.email}
+        withoutMargin
+      />
+      <NumberInput
+        className={styles.padron}
+        name="padron"
+        label={translations.padron}
+        withoutMargin
+        validate={FormikValidator({
+          validator: validateIntegerInRange({ min: { value: 0, include: false } }),
+          mandatory: true
+        })}
+      />
     </div>
   </Card>
 );
