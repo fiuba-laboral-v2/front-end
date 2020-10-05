@@ -18,17 +18,20 @@ export const FiubaCredentialsForm: FunctionComponent<IComponentProps> = (
       <span className={styles.subtitle}>{translations.subtitle}</span>
     </div>
     <div className={styles.fields}>
-      <div className={styles.dniField} >
-        <DniField name="user.dni" label={translations.dni} />
-      </div>
-      <div className={styles.passwordField}>
-        <PasswordField
-          name="user.password"
-          label={translations.password}
-          autoComplete="new-password"
-          validate={false}
-        />
-      </div>
+      <DniField
+        className={styles.dniField}
+        name="user.dni"
+        label={translations.dni}
+        withoutMargin
+      />
+      <PasswordField
+        className={styles.passwordField}
+        name="user.password"
+        label={translations.password}
+        autoComplete="new-password"
+        validate={false}
+        withoutMargin
+      />
     </div>
   </Card>
 );
