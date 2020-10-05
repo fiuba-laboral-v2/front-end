@@ -6,7 +6,7 @@ import { TextInput } from "$components/TextInput";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationForm: FunctionComponent<IComponent> = (
+export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
   {
     translations,
     className

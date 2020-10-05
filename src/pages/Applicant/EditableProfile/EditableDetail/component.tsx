@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 
-import { PersonalInformationForm } from "../PersonalInformationForm";
+import { PersonalInformationFormSection } from "../PersonalInformationFormSection";
 import { SkillsAndLanguagesForm } from "../SkillsAndLanguagesForm";
 import { LinksFormSection } from "../LinksFormSection";
 import { CareersSelectorForm } from "../../SignUp/CareersSelectorForm";
@@ -30,7 +30,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
       >
         {({ values, isSubmitting, errors }) => (
           <Form id={formName}>
-            <PersonalInformationForm className={styles.card} />
+            <PersonalInformationFormSection className={styles.card} />
             <SkillsAndLanguagesForm className={styles.card}/>
             <LinksFormSection links={values.links} className={styles.card}/>
             <CareersSelectorForm
