@@ -1,0 +1,6 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_formSetMainColumn";
+
+.section {
+  @include formSetMainColumn;
+}
