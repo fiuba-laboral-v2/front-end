@@ -9,32 +9,6 @@
   margin-bottom: $spacing-xl;
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-}
-
 .card {
   margin-bottom: $spacing-xl;
-}
-
-.footer {
-  align-self: flex-end;
-  display: flex;
-  min-height: 51px;
-}
-
-.formError {
-  color: $red;
-  margin: auto $spacing-m auto auto;
-}
-
-.formErrorsContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.submit {
-  align-items: center;
-  display: flex;
 }

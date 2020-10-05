@@ -1,7 +1,7 @@
 import { IUpdateCurrentApplicantVariables } from "$hooks";
 
 export interface IApplicantEditableFormValues extends IUpdateCurrentApplicantVariables {
-  _form: string[];
+  _form: string;
 }
 
 export interface IApplicantDetailEditableTranslations {
