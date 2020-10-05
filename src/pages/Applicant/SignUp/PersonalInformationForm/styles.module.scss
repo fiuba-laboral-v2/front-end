@@ -1,6 +1,10 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_subtitle";
 
+.card {
+  padding-bottom: $spacing-m;
+}
+
 .title {
   @include subtitle;
 

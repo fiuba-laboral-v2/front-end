@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
+.card {
+  padding-bottom: $spacing-m;
+}
+
 .firstRow {
   display: flex;
   margin-bottom: $spacing-m;

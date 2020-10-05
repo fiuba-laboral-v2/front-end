@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
+
 import { Card } from "$components/Card";
 import { EmailField, NameField } from "$components/Fields";
 import { TextInput } from "$components/TextInput";
@@ -12,7 +14,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
     className
   }
 ) => (
-  <Card largePadding className={className}>
+  <Card largePadding className={classNames(styles.card, className)}>
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}
