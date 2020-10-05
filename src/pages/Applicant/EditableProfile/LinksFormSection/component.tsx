@@ -29,13 +29,14 @@ export const LinksFormSection: FunctionComponent<IComponent> = (
             name={`links.${index}.name`}
             label={translations.linkTitle}
             validate={FormikValidator({ mandatory: true })}
+            withoutMargin
           />
           <TextInput
-            withoutMargin
             name={`links.${index}.url`}
             label={translations.link}
             type="url"
             validate={FormikValidator({ validator: validateURL, mandatory: true })}
+            withoutMargin
           />
         </div>
       )}
