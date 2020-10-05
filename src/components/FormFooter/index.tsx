@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import { isArray } from "lodash";
 import classNames from "classnames";
 import { FormikErrors } from "formik";
-import { SubmitButton } from "../SubmitButton";
 
-export const FormFooter = <Values extends { _form?: string }>(
+import { SubmitButton } from "$components/SubmitButton";
+import styles from "./styles.module.scss";
+
+export const FormFooter = <Values extends { _form?: string | string[] }>(
   {
     onSubmit,
     isSubmitting,
@@ -14,7 +16,14 @@ export const FormFooter = <Values extends { _form?: string }>(
   }: IFormFooterProps<Values>
 ) => (
   <div className={classNames(styles.footer, className)}>
-    <span className={styles.formError}>{errors._form}</span>
+    {
+      isArray(errors?._form) ?
+        errors?._form?.map((error: string) =>
+          <span key={error} className={styles.formError}>{error}</span>
+        )
+        :
+      <span className={styles.formError}>{errors._form}</span>
+    }
     <SubmitButton
       kind="primary"
       disabled={isSubmitting}

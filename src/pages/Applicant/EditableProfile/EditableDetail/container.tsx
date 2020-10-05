@@ -81,7 +81,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
         })),
         capabilities: applicant.capabilities,
         sections: applicant.sections,
-        _form: ""
+        _form: []
       }}
       validateForm={validateForm}
     />
