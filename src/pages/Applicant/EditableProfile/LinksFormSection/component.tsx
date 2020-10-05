@@ -10,7 +10,7 @@ import { validateURL } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const LinksForm: FunctionComponent<IComponent> = (
+export const LinksFormSection: FunctionComponent<IComponent> = (
   {
     className,
     translations,
