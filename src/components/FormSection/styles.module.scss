@@ -5,6 +5,10 @@
   border-radius: $defaultBorderRadius;
   display: flex;
   padding: $spacing-m $spacing-l;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-l;
+  }
 }
 
 @media (max-width: $mobileContainerThreshold) {
