@@ -2,9 +2,8 @@ import React, { FunctionComponent } from "react";
 import moment from "moment";
 import { ICompany } from "$interfaces/Company";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
+import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
 import styles from "./styles.module.scss";
-
-const DATE_FORMAT = "YYYY-MM-DD HH:mm:ss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   company: {

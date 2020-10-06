@@ -5,8 +5,7 @@ import styles from "./styles.module.scss";
 import { CareerList } from "$components/CareerList";
 import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { TargetApplicantType } from "$components/TargetApplicantType";
-
-const DATE_FORMAT = "YYYY-MM-DD HH:mm";
+import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   offer: {

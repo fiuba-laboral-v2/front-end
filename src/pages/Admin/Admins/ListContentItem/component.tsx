@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from "react";
 import moment from "moment";
 
-import { IListContentItem } from "./interface";
-
-import styles from "./styles.module.scss";
 import { Secretary } from "$interfaces/Secretary";
+import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
 
-const DATE_FORMAT = "YYYY-MM-DD HH:mm";
+import { IListContentItem } from "./interface";
+import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItem> = ({
   admin: {
