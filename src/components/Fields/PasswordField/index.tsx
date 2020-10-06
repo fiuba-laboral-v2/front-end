@@ -8,7 +8,8 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
     name,
     label,
     validate,
-    autoComplete
+    autoComplete,
+    ...props
   }
 ) => {
   const validatorOptions = {
@@ -18,6 +19,7 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
 
   return (
     <TextInput
+      {...props}
       name={name}
       label={label}
       type="password"

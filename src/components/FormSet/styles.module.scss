@@ -1,3 +1,11 @@
+@import "$styles/_variables";
+
 .header {
   display: flex;
+}
+
+.header:not(:only-child) {
+  .title {
+    margin-bottom: $spacing-xl;
+  }
 }

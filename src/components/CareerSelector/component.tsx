@@ -43,6 +43,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
           label={translations.currentCareerYear}
           helperText={translations.withoutCBC}
           mandatory
+          withoutMargin
         />
         <PositiveNumberInput
           className={styles.approvedSubjectCount}
@@ -50,6 +51,7 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
           label={translations.approvedSubjectCount}
           helperText={translations.withoutCBC}
           mandatory
+          withoutMargin
         />
       </div>
     }

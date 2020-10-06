@@ -1,73 +1,12 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_card";
 @import "$styles/mixins/_title";
-@import "$styles/mixins/_formSetMainColumn";
 
-.mainContainer {
-  @include card;
+.title {
+  @include title;
 
-  display: flex;
-  flex-direction: column;
-
-  .title {
-    @include title;
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-  }
+  margin-bottom: $spacing-xl;
 }
 
-.footer {
-  align-self: flex-end;
-  display: flex;
-  min-height: 51px;
-}
-
-.formError {
-  color: $red;
-  margin: auto $spacing-m auto auto;
-}
-
-.formErrorsContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.capabilities {
-  margin-bottom: $spacing-l;
-  width: 70%;
-}
-
-.row {
-  margin-top: $spacing-m;
-}
-
-.description,
-.section,
-.link {
-  @include formSetMainColumn;
-}
-
-.submit {
-  align-items: center;
-  display: flex;
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .capabilities,
-  .description,
-  .link,
-  .section {
-    width: 100%;
-  }
-
-  .mainContainer {
-    .body {
-      .linkTitle {
-        margin: 0;
-      }
-    }
-  }
+.card {
+  margin-bottom: $spacing-xl;
 }

@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import { flatten } from "lodash";
 import classNames from "classnames";
 import { FormikErrors } from "formik";
-import { SubmitButton } from "../SubmitButton";
 
-export const FormFooter = <Values extends { _form?: string }>(
+import { SubmitButton } from "$components/SubmitButton";
+import styles from "./styles.module.scss";
+
+export const FormFooter = <Values extends { _form?: string | string[] }>(
   {
     onSubmit,
     isSubmitting,
@@ -12,20 +14,27 @@ export const FormFooter = <Values extends { _form?: string }>(
     className,
     errors
   }: IFormFooterProps<Values>
-) => (
-  <div className={classNames(styles.footer, className)}>
-    <span className={styles.formError}>{errors._form}</span>
-    <SubmitButton
-      kind="primary"
-      disabled={isSubmitting}
-      errors={errors}
-      onClick={onSubmit}
-      {...(!onSubmit && { type: "submit" })}
-    >
-      {submitButtonText}
-    </SubmitButton>
-  </div>
-);
+) => {
+  const formErrors = errors?._form as (string | string[]) || [];
+  return (
+    <div className={classNames(styles.footer, className)}>
+      {
+        flatten(formErrors).map((error: string) =>
+          <span key={error} className={styles.formError}>{error}</span>
+        )
+      }
+      <SubmitButton
+        kind="primary"
+        disabled={isSubmitting}
+        errors={errors}
+        onClick={onSubmit}
+        {...(!onSubmit && { type: "submit" })}
+      >
+        {submitButtonText}
+      </SubmitButton>
+    </div>
+  );
+};
 
 interface IFormFooterProps<Values> {
   onSubmit?: () => void;

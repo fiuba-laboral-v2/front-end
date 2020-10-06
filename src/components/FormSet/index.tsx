@@ -19,7 +19,7 @@ export const FormSet = <Value, >(
     render={arrayHelpers => (
       <>
         <div className={styles.header}>
-          <Subtitle>{title}</Subtitle>
+          <Subtitle className={styles.title}>{title}</Subtitle>
           <AddButton onClick={() => arrayHelpers.insert(values.length + 1, defaultValue)}/>
         </div>
         {values.map((value, index) => (

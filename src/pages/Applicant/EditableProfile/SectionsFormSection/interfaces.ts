@@ -1,13 +1,13 @@
-import { IApplicantCareerInput } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Applicant";
 
 export interface ITranslations {
   title: string;
+  sectionTitle: string;
+  sectionContent: string;
 }
 
 export interface IContainer {
-  className?: string;
-  defaultValue: IApplicantCareerInput;
-  careers: IApplicantCareerInput[];
+  sections: ISection[];
 }
 
 export interface IComponent extends IContainer {

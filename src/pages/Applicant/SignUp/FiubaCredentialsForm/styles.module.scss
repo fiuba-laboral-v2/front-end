@@ -2,7 +2,7 @@
 @import "$styles/mixins/_subtitle";
 
 .card {
-  padding: $spacing-xxl $spacing-xxl $spacing-s;
+  padding-bottom: $spacing-m;
 }
 
 .header {
@@ -27,12 +27,7 @@
   display: flex;
 }
 
-.dniField,
-.passwordField {
-  width: 100%;
-}
-
-.dniField {
+div.dniField {
   margin-right: $spacing-xxl;
 }
 
