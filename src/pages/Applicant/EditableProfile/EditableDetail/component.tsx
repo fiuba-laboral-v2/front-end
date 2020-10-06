@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import { PersonalInformationFormSection } from "../PersonalInformationFormSection";
 import { SkillsAndLanguagesFormSection } from "../SkillsAndLanguagesFormSection";
 import { LinksFormSection } from "../LinksFormSection";
-import { CareersSelectorForm } from "../../SignUp/CareersSelectorForm";
+import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
 import { WorkExperienceFormSection } from "../WorkExperienceFormSection";
 import { FormFooter } from "$components/FormFooter";
 
@@ -33,7 +33,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
             <PersonalInformationFormSection className={styles.card} />
             <SkillsAndLanguagesFormSection className={styles.card}/>
             <LinksFormSection links={values.links} className={styles.card}/>
-            <CareersSelectorForm
+            <CareersSelectorFormSection
               className={styles.card}
               defaultValue={{ careerCode: "", isGraduate: true }}
               careers={values.careers}
