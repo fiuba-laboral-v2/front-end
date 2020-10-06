@@ -8,14 +8,14 @@ const getApplicantType = (translations: ITranslations) => ({
   [Secretary.extension]: translations.student
 });
 
-const buildLabel = ({ secretary, status, translations }: IBuildLabel) => {
+const buildLabel = ({ secretary, status, translations, withStatusText }: IBuildLabel) => {
   if (!translations) return "";
 
   const applicantType = getApplicantType(translations)[secretary];
   return {
-    [ApprovalStatus.approved]: `${applicantType}: ${translations.approved}`,
-    [ApprovalStatus.rejected]: `${applicantType}: ${translations.rejected}`,
-    [ApprovalStatus.pending]: `${applicantType}: ${translations.pending}`
+    [ApprovalStatus.approved]: withStatusText ? `${applicantType}: ${translations.approved}` : `${applicantType}:`,
+    [ApprovalStatus.rejected]:  withStatusText ? `${applicantType}: ${translations.rejected}` : `${applicantType}:`,
+    [ApprovalStatus.pending]: withStatusText ? `${applicantType}: ${translations.pending}` : `${applicantType}:`
   }[status];
 };
 
@@ -30,7 +30,8 @@ export const useSeparatedStatusTranslations = (
   {
     extensionApprovalStatus,
     graduadosApprovalStatus,
-    targetApplicantType
+    targetApplicantType,
+    withStatusText
   }: IUseSeparatedStatus
 ): IUseSeparatedStatusResponse => {
   const targetsBoth = targetApplicantType === ApplicantType.both;
@@ -45,7 +46,8 @@ export const useSeparatedStatusTranslations = (
         text: buildLabel({
           status: graduadosApprovalStatus,
           secretary: Secretary.graduados,
-          translations
+          translations,
+          withStatusText
         }),
         tooltipText: getTooltipLabel(Secretary.graduados, translations),
         status: graduadosApprovalStatus
@@ -56,7 +58,8 @@ export const useSeparatedStatusTranslations = (
         text: buildLabel({
           status: extensionApprovalStatus,
           secretary: Secretary.extension,
-          translations
+          translations,
+          withStatusText
         }),
         tooltipText: getTooltipLabel(Secretary.extension, translations),
         status: extensionApprovalStatus
@@ -69,12 +72,14 @@ interface IBuildLabel {
   translations?: ITranslations;
   secretary: Secretary;
   status: ApprovalStatus;
+  withStatusText: boolean;
 }
 
 interface IUseSeparatedStatus {
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
   targetApplicantType: ApplicantType;
+  withStatusText: boolean;
 }
 
 interface IResponse {

@@ -18,7 +18,6 @@ export interface ITranslations {
   hoursPerDay: string;
   salary: string;
   careers: string;
-  graduadosApprovalStatus: string;
-  extensionApprovalStatus: string;
+  approvalStatus: string;
   updatedAt: string;
 }

@@ -28,5 +28,5 @@ export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
 );
 
 export interface IStatusLabelProps extends ILabelLayoutProps, ILabelTextProps {
-  status: ApprovalStatus;
+  status?: ApprovalStatus;
 }
