@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Form, Formik, FormikErrors } from "formik";
 
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
-import { FiubaCredentialsForm } from "./FiubaCredentialsForm";
+import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
 import { PersonalInformationForm } from "./PersonalInformationForm";
 
 import styles from "./styles.module.scss";
@@ -47,7 +47,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = (
       >
         {({ values, isSubmitting, errors }) => (
           <Form className={styles.formContainer}>
-            <FiubaCredentialsForm className={styles.fiubaCredentials}/>
+            <FiubaCredentialsFormSection className={styles.fiubaCredentials}/>
             <PersonalInformationForm className={styles.personalInformation}/>
             <CareersSelectorFormSection
               defaultValue={careerInitialValue}
