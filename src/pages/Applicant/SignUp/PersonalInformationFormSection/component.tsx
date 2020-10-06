@@ -11,7 +11,7 @@ import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationForm: FunctionComponent<IComponent> = (
+export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
   {
     className,
     translations
