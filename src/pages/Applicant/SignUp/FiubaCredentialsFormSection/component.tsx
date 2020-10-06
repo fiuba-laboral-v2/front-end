@@ -6,7 +6,7 @@ import { DniField, PasswordField } from "$components/Fields";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const FiubaCredentialsForm: FunctionComponent<IComponentProps> = (
+export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
   {
     className,
     translations

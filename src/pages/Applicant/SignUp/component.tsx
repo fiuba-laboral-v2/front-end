@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik, FormikErrors } from "formik";
 
-import { CareersSelectorForm } from "./CareersSelectorForm";
-import { FiubaCredentialsForm } from "./FiubaCredentialsForm";
-import { PersonalInformationForm } from "./PersonalInformationForm";
+import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
+import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
+import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
@@ -47,9 +47,12 @@ export const SignUp: FunctionComponent<ISignUpProps> = (
       >
         {({ values, isSubmitting, errors }) => (
           <Form className={styles.formContainer}>
-            <FiubaCredentialsForm className={styles.fiubaCredentials}/>
-            <PersonalInformationForm className={styles.personalInformation}/>
-            <CareersSelectorForm defaultValue={careerInitialValue} careers={values.careers} />
+            <FiubaCredentialsFormSection className={styles.fiubaCredentials}/>
+            <PersonalInformationFormSection className={styles.personalInformation}/>
+            <CareersSelectorFormSection
+              defaultValue={careerInitialValue}
+              careers={values.careers}
+            />
             <FormFooter
               className={styles.footer}
               isSubmitting={isSubmitting}
