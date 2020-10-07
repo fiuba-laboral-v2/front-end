@@ -13,13 +13,15 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
     extensionApprovalStatus,
     graduadosApprovalStatus,
     targetApplicantType,
+    withStatusText = true,
     className
   }
 ) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
     targetApplicantType,
     graduadosApprovalStatus,
-    extensionApprovalStatus
+    extensionApprovalStatus,
+    withStatusText
   });
 
   return (
@@ -63,4 +65,5 @@ interface IComponentProps extends ISeparatedStatusLabelProps {
   type: LabelType;
   styles: { readonly [key: string]: string };
   className?: string;
+  withStatusText?: boolean;
 }

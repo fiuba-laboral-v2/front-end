@@ -5,6 +5,7 @@
   font-size: $fontSize-l;
   font-weight: 600;
   justify-self: center;
+  text-align: center;
 
   &.companyName {
     grid-area: companyName;
@@ -30,12 +31,8 @@
     grid-area: careers;
   }
 
-  &.graduadosApprovalStatus {
-    grid-area: graduadosApprovalStatus;
-  }
-
-  &.extensionApprovalStatus {
-    grid-area: extensionApprovalStatus;
+  &.approvalStatus {
+    grid-area: approvalStatus;
   }
 
   &.updatedAt {

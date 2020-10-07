@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from "react";
-import moment from "moment";
+
+import { Secretary } from "$interfaces/Secretary";
+import { TimeFormatter } from "$models/TimeFormatter";
 
 import { IListContentItem } from "./interface";
-
 import styles from "./styles.module.scss";
-import { Secretary } from "$interfaces/Secretary";
-
-const DATE_FORMAT = "YYYY-MM-DD HH:mm";
 
 export const ListContentItem: FunctionComponent<IListContentItem> = ({
   admin: {
@@ -34,7 +32,7 @@ export const ListContentItem: FunctionComponent<IListContentItem> = ({
       {secretary === Secretary.graduados ? translations.graduados : translations.extension }
     </p>
     <div className={styles.text}>
-      {moment(createdAt).format(DATE_FORMAT)}
+      {TimeFormatter.dateTime(createdAt)}
     </div>
   </>
 );

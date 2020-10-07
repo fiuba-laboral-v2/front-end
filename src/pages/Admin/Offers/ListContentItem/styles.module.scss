@@ -2,9 +2,10 @@
 
 @mixin rowItem {
   align-self: center;
-  font-size: $fontSize-l;
+  font-size: $fontSize-m;
   font-weight: $fontWeight-r;
   justify-self: center;
+  text-align: center;
 }
 
 .text {
@@ -24,7 +25,32 @@
   text-align: center;
 }
 
-.statusContainer {
+.container {
   align-self: center;
-  justify-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.salary {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.separatedStatusLabel {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusLabel {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+
+  span {
+    font-size: $fontSize-m;
+    font-weight: $fontWeight-r;
+  }
 }
