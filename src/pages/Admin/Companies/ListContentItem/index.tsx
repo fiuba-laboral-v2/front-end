@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
-import moment from "moment";
 import { ICompany } from "$interfaces/Company";
+import { TimeFormatter } from "$models/TimeFormatter";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
-import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
 import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
@@ -25,7 +24,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       {cuit}
     </p>
     <div className={styles.text}>
-      {moment(updatedAt).format(DATE_FORMAT)}
+      {TimeFormatter.dateTime(updatedAt)}
     </div>
     <div className={styles.statusContainer}>
       <SharedStatusLabel

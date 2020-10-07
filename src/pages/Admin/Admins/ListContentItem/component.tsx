@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
-import moment from "moment";
 
 import { Secretary } from "$interfaces/Secretary";
-import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
+import { TimeFormatter } from "$models/TimeFormatter";
 
 import { IListContentItem } from "./interface";
 import styles from "./styles.module.scss";
@@ -33,7 +32,7 @@ export const ListContentItem: FunctionComponent<IListContentItem> = ({
       {secretary === Secretary.graduados ? translations.graduados : translations.extension }
     </p>
     <div className={styles.text}>
-      {moment(createdAt).format(DATE_FORMAT)}
+      {TimeFormatter.dateTime(createdAt)}
     </div>
   </>
 );

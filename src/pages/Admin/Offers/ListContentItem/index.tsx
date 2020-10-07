@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from "react";
-import moment from "moment";
 import { IOffer } from "$interfaces/Offer";
-import styles from "./styles.module.scss";
 import { CareerList } from "$components/CareerList";
 import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { TargetApplicantType } from "$components/TargetApplicantType";
-import { DATE_FORMAT } from "../../components/ListPageContainer/constants";
+import { TimeFormatter } from "$models/TimeFormatter";
+import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   offer: {
@@ -64,7 +63,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       />
     </div>
     <div className={styles.text}>
-      {moment(updatedAt).format(DATE_FORMAT)}
+      {TimeFormatter.dateTime(updatedAt)}
     </div>
   </>
 );
