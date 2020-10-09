@@ -21,7 +21,11 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
     <ApplicantDetail
       mobileLayout={mobileLayout}
       className={className}
-      applicant={{ ...applicant, sections: sortBy(applicant.sections, ["displayOrder"]) }}
+      applicant={{
+        ...applicant,
+        knowledgeSections: sortBy(applicant.knowledgeSections, ["displayOrder"]),
+        experienceSections: sortBy(applicant.experienceSections, ["displayOrder"])
+      }}
       translations={translations}
       editButton={editButton}
       withStatusLabel={withStatusLabel}

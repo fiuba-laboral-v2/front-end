@@ -4,9 +4,9 @@ mutation updateCurrentApplicant(
   $description: String,
   $careers: [ApplicantCareerInput],
   $capabilities: [String],
-  $sections: [SectionInput],
+  $knowledgeSections: [ApplicantKnowledgeSectionInput],
   $links: [LinkInput]
-) 
+)
 {
   updateCurrentApplicant(
     padron: $padron,
@@ -14,9 +14,9 @@ mutation updateCurrentApplicant(
     description: $description,
     careers: $careers,
     capabilities: $capabilities,
-    sections: $sections,
+    knowledgeSections: $knowledgeSections,
     links: $links
-  ) 
+  )
   {
     uuid
     padron
@@ -39,7 +39,13 @@ mutation updateCurrentApplicant(
       currentCareerYear
       isGraduate
     }
-    sections {
+    knowledgeSections {
+      uuid
+      title
+      text
+      displayOrder
+    }
+    experienceSections {
       uuid
       title
       text

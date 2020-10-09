@@ -31,7 +31,8 @@ interface IUpdateCurrentApplicantBaseVariables {
   padron: number;
   links: ILink[];
   careers: IApplicantCareerInput[];
-  sections: ISection[];
+  knowledgeSections: ISection[];
+  experienceSections: ISection[];
 }
 
 export interface IMutationVariables extends IUpdateCurrentApplicantBaseVariables {

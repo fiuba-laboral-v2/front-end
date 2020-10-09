@@ -1,39 +1,45 @@
 query GetApplicant($uuid: ID!) {
-    getApplicant(uuid: $uuid) {
-        user {
-            email
-            uuid
-            name
-            surname
-        }
-        uuid
-        approvalStatus
-        createdAt
-        updatedAt
-        padron
-        description
-        capabilities {
-            uuid
-            description
-        }
-        careers {
-            career {
-                code
-                description
-            }
-            approvedSubjectCount
-            currentCareerYear
-            isGraduate
-        }
-        sections {
-            uuid
-            title
-            text
-            displayOrder
-        }
-        links {
-            name
-            url
-        }
+  getApplicant(uuid: $uuid) {
+    user {
+      email
+      uuid
+      name
+      surname
     }
+    uuid
+    approvalStatus
+    createdAt
+    updatedAt
+    padron
+    description
+    capabilities {
+      uuid
+      description
+    }
+    careers {
+      career {
+        code
+        description
+      }
+      approvedSubjectCount
+      currentCareerYear
+      isGraduate
+    }
+    knowledgeSections {
+      uuid
+      title
+      text
+      displayOrder
+    }
+    experienceSections {
+      uuid
+      title
+      text
+      displayOrder
+    }
+    links {
+      name
+      url
+    }
+  }
 }

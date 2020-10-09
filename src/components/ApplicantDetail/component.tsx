@@ -24,7 +24,8 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
       approvalStatus,
       careers,
       links,
-      sections,
+      knowledgeSections,
+      experienceSections,
       capabilities
     },
     translations,
@@ -54,7 +55,16 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
     </div>
     <Description>{description}</Description>
     {
-      sections.map(section =>
+      knowledgeSections.map(section =>
+        <SectionDetail
+          key={section.displayOrder}
+          title={section.title}
+          text={section.text}
+        />
+      )
+    }
+    {
+      experienceSections.map(section =>
         <SectionDetail
           key={section.displayOrder}
           title={section.title}

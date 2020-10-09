@@ -80,7 +80,8 @@ export const EditableDetailContainer: FunctionComponent = () => {
           isGraduate: applicantCareer.isGraduate
         })),
         capabilities: applicant.capabilities,
-        sections: applicant.sections,
+        knowledgeSections: applicant.knowledgeSections,
+        experienceSections: applicant.experienceSections,
         _form: []
       }}
       validateForm={validateForm}

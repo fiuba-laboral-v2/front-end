@@ -12,13 +12,14 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = (
   {
     className,
     translations,
-    sections
+    sections,
+    name
   }
 ) => (
   <Card largePadding className={className}>
     <FormSet
       title={translations.title}
-      name="sections"
+      name={name}
       values={sections}
       defaultValue={{
         title: "",
@@ -28,12 +29,12 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = (
       fields={(_, index) => (
         <div className={styles.section}>
           <TextInput
-            name={`sections.${index}.title`}
+            name={`${name}.${index}.title`}
             label={translations.sectionTitle}
             validate={FormikValidator({ mandatory: true })}
           />
           <TextInput
-            name={`sections.${index}.text`}
+            name={`${name}.${index}.text`}
             label={translations.sectionContent}
             validate={FormikValidator({ mandatory: true })}
             multiline
@@ -57,4 +58,5 @@ interface IComponentProps extends ISectionsFormSection {
 export interface ISectionsFormSection {
   className?: string;
   sections: ISection[];
+  name: string;
 }
