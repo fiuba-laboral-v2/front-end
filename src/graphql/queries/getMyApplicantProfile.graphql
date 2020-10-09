@@ -1,41 +1,47 @@
 query getMyApplicantProfile {
-    getCurrentUser {
+  getCurrentUser {
+    uuid
+    applicant {
+      uuid
+      user {
         uuid
-        applicant {
-            uuid
-            user {
-                uuid
-                email
-                name
-                surname
-            }
-            uuid
-            padron
-            approvalStatus
-            description
-            capabilities {
-                uuid
-                description
-            }
-            careers {
-                career {
-                    code
-                    description
-                }
-                approvedSubjectCount
-                currentCareerYear
-                isGraduate
-            }
-            sections {
-                uuid
-                title
-                text
-                displayOrder
-            }
-            links {
-                name
-                url
-            }
+        email
+        name
+        surname
+      }
+      uuid
+      padron
+      approvalStatus
+      description
+      capabilities {
+        uuid
+        description
+      }
+      careers {
+        career {
+          code
+          description
         }
+        approvedSubjectCount
+        currentCareerYear
+        isGraduate
+      }
+      knowledgeSections {
+        uuid
+        title
+        text
+        displayOrder
+      }
+      experienceSections {
+        uuid
+        title
+        text
+        displayOrder
+      }
+      links {
+        name
+        url
+      }
     }
+  }
 }

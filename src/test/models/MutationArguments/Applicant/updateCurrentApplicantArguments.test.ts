@@ -16,7 +16,8 @@ describe("updateCurrentApplicantArguments", () => {
         { description: "description2" },
         { description: "description3" }
       ],
-      sections: []
+      knowledgeSections: [],
+      experienceSections: []
     };
     const variables = updateCurrentApplicantArguments(inputVariables);
     expect(variables).toEqual(inputVariables);
@@ -32,7 +33,8 @@ describe("updateCurrentApplicantArguments", () => {
       description: "description",
       links: [],
       capabilities: [],
-      sections: [],
+      knowledgeSections: [],
+      experienceSections: [],
       careers: [{
         isGraduate: true,
         careerCode: "10",

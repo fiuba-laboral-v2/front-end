@@ -8,7 +8,10 @@ export const typePolicies = {
   },
   Applicant: {
     fields: {
-      sections: {
+      knowledgeSections: {
+        merge: (_: object[] | undefined, incoming: object[]) => incoming
+      },
+      experienceSections: {
         merge: (_: object[] | undefined, incoming: object[]) => incoming
       }
     }

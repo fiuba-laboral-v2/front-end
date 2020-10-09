@@ -45,7 +45,8 @@ export interface IApplicant {
   approvalStatus: ApprovalStatus;
   description?: string;
   links: ILink[];
-  sections: ISection[];
+  knowledgeSections: ISection[];
+  experienceSections: ISection[];
   capabilities: ICapability[];
   careers: IApplicantCareer[];
 }
