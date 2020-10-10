@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+
+@mixin rowItem {
+  align-self: center;
+  font-size: $fontSize-l;
+  font-weight: $fontWeight-r;
+  justify-self: center;
+  text-align: center;
+}
+
+.text {
+  @include rowItem;
+}
+
+.careerText {
+  font-weight: $fontWeight-r;
+}
+
+.statusContainer {
+  align-self: center;
+  justify-self: center;
+}
