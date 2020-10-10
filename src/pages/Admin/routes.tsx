@@ -3,6 +3,7 @@ import { Applicants } from "./Applicants";
 import { Companies } from "./Companies";
 import { Admins } from "./Admins";
 import { Offers } from "./Offers";
+import { JobApplications } from "./JobApplications";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -10,7 +11,8 @@ const {
   applicants,
   companies,
   home,
-  offers
+  offers,
+  jobApplications
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -18,5 +20,6 @@ export const AdminRoutes = [
   { path: applicants(), component: Applicants },
   { path: companies(), component: Companies },
   { path: home(), component: Home },
-  { path: offers(), component: Offers }
+  { path: offers(), component: Offers },
+  { path: jobApplications(), component: JobApplications }
 ];
