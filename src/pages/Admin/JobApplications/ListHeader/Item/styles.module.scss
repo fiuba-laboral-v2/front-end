@@ -1,0 +1,31 @@
+@import "$styles/_variables";
+
+.item {
+  font-size: $fontSize-l;
+  font-weight: 600;
+  justify-self: center;
+
+  &.companyName {
+    grid-area: companyName;
+  }
+
+  &.cuit {
+    grid-area: cuit;
+  }
+
+  &.applicantName {
+    grid-area: applicantName;
+  }
+
+  &.padron {
+    grid-area: padron;
+  }
+
+  &.approvalStatus {
+    grid-area: approvalStatus;
+  }
+
+  &.updatedAt {
+    grid-area: updatedAt;
+  }
+}
