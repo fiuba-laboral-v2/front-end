@@ -6,7 +6,7 @@ import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
 import { UserDataFormSection } from "./UserDataFormSection";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
-import { ContactFormSection } from "./ContactFormSection";
+import { ContactInformationFormSection } from "./ContactInformationFormSection";
 
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import styles from "./styles.module.scss";
@@ -39,7 +39,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = (
           <Form id={formName}>
             <UserDataFormSection className={styles.formSection} />
             <CompanyDataFormSection className={styles.formSection} />
-            <ContactFormSection className={styles.formSection} />
+            <ContactInformationFormSection className={styles.formSection} />
             <FormFooter
               isSubmitting={isSubmitting}
               submitButtonText={translations.submit}

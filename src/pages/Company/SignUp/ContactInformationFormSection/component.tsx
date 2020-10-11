@@ -6,7 +6,7 @@ import { EmailField, UrlField } from "$components/Fields";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const ContactFormSection: FunctionComponent<IComponentProps> = (
+export const ContactInformationFormSection: FunctionComponent<IComponentProps> = (
   {
     className,
     translations
