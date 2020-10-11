@@ -1,15 +1,13 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_subtitle";
+@import "$styles/mixins/_formSectionTitle";
 
 .card {
   padding-bottom: $spacing-m;
 }
 
 .title {
-  @include subtitle;
+  @include formSectionTitle;
 
-  color: $darkerGrey;
-  font-weight: unset;
   margin-bottom: $spacing-xl;
 }
 
