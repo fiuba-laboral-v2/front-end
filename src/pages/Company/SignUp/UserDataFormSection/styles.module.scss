@@ -1,0 +1,35 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.card {
+  padding-bottom: $spacing-m;
+}
+
+.title {
+  @include subtitle;
+
+  color: $darkerGrey;
+  font-weight: unset;
+  margin-bottom: $spacing-xl;
+}
+
+.firstRow,
+.secondRow {
+  display: flex;
+}
+
+div.name,
+div.password {
+  margin: 0 $spacing-xxl 0 0;
+}
+
+.firstRow {
+  margin-bottom: $spacing-m;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .firstRow,
+  .secondRow {
+    flex-direction: column;
+  }
+}
