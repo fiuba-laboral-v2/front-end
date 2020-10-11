@@ -50,6 +50,23 @@ export const SignUpContainer: FunctionComponent = () => {
     <SignUp
       translations={translations}
       onSubmit={onSubmit}
+      initialValues={{
+        user: {
+          email: "",
+          password: "",
+          passwordConfirm: "",
+          name: "",
+          surname: ""
+        },
+        companyName: "",
+        businessName: "",
+        cuit: "",
+        email: "",
+        slogan: "",
+        description: "",
+        website: "",
+        _form: ""
+      }}
     />
   );
 };
