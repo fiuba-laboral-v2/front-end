@@ -4,11 +4,11 @@ import { Form, Formik, FormikErrors } from "formik";
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
 import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
+import { FormFooter } from "$components/FormFooter";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
-import { FormFooter } from "$components/FormFooter";
 
 export const SignUp: FunctionComponent<ISignUpProps> = (
   {

@@ -1,36 +1,38 @@
 mutation createCompany (
-    $user: UserInput!,
-    $cuit: String!,
-    $companyName: String!,
-    $slogan: String,
-    $description: String,
-    $logo: String,
-    $website: String,
-    $email: String,
-    $phoneNumbers: [String],
-    $photos: [String]
+  $user: UserInput!
+  $cuit: String!
+  $companyName: String!
+  $businessName: String!
+  $slogan: String
+  $description: String
+  $logo: String
+  $website: String
+  $email: String
+  $phoneNumbers: [String]
+  $photos: [String]
 ) {
-    createCompany(
-        user: $user,
-        cuit: $cuit,
-        companyName: $companyName,
-        slogan: $slogan,
-        description: $description,
-        logo: $logo,
-        website: $website,
-        email: $email,
-        phoneNumbers: $phoneNumbers,
-        photos: $photos
-    ) {
-        uuid
-        cuit
-        companyName
-        slogan
-        description
-        logo
-        website
-        email
-        phoneNumbers
-        photos
-    }
+  createCompany(
+    user: $user
+    cuit: $cuit
+    companyName: $companyName
+    businessName: $businessName
+    slogan: $slogan
+    description: $description
+    logo: $logo
+    website: $website
+    email: $email
+    phoneNumbers: $phoneNumbers
+    photos: $photos
+  ) {
+    uuid
+    cuit
+    companyName
+    slogan
+    description
+    logo
+    website
+    email
+    phoneNumbers
+    photos
+  }
 }

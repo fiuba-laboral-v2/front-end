@@ -1,12 +1,12 @@
 @import "$styles/mixins/_card";
 @import "$styles/mixins/_title";
 
-.mainContainer {
-  @include card;
-}
-
 .title {
   @include title;
 
-  margin-bottom: $spacing-m;
+  margin-bottom: $spacing-xl;
+}
+
+.formSection {
+  margin-bottom: $spacing-xl;
 }
