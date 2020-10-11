@@ -13,7 +13,10 @@ export const ContactFormSection: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <Card largePadding className={classNames(styles.card, className)}>
-    <div className={styles.title}>{translations.title}</div>
+    <div className={styles.header}>
+      <span className={styles.title}>{translations.title}</span>
+      <span className={styles.subtitle}>{translations.subtitle}</span>
+    </div>
     <EmailField name="email" label={translations.email} withoutMargin />
     <UrlField name="website" label={translations.website} withoutMargin />
   </Card>

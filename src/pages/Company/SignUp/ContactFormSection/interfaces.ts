@@ -1,5 +1,6 @@
 export interface ITranslations {
   title: string;
+  subtitle: string;
   email: string;
   website: string;
 }

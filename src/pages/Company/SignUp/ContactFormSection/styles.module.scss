@@ -5,8 +5,18 @@
   padding-bottom: $spacing-m;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-xl;
+}
+
 .title {
   @include formSectionTitle;
 
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-s;
+}
+
+.subtitle {
+  color: $grey;
 }
