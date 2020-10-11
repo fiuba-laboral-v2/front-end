@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { TextInput } from "$components/TextInput";
+import { TextInput, ITextInputProps } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 
 export const Field: FunctionComponent<IFieldProps> = ({ mandatory, ...props }) => (
@@ -9,6 +9,6 @@ export const Field: FunctionComponent<IFieldProps> = ({ mandatory, ...props }) =
   />
 );
 
-interface IFieldProps {
+interface IFieldProps extends ITextInputProps {
   mandatory?: boolean;
 }

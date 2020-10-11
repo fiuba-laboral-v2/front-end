@@ -1,0 +1,26 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_formSectionTitle";
+
+.card {
+  padding-bottom: $spacing-m;
+}
+
+.title {
+  @include formSectionTitle;
+
+  margin-bottom: $spacing-xl;
+}
+
+div.businessName {
+  margin: 0 $spacing-xxl 0 0;
+}
+
+.lastRow {
+  display: flex;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .lastRow {
+    flex-direction: column;
+  }
+}
