@@ -34,7 +34,8 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = (
         name="user.password"
         label={translations.password}
         validate
-        autoComplete="new-password" />
+        autoComplete="new-password"
+      />
       <PasswordField
         className={styles.passwordConfirm}
         name="user.passwordConfirm"
