@@ -5,6 +5,7 @@ mutation updateCurrentApplicant(
   $careers: [ApplicantCareerInput],
   $capabilities: [String],
   $knowledgeSections: [ApplicantKnowledgeSectionInput],
+  $experienceSections: [ApplicantExperienceSectionInput],
   $links: [LinkInput]
 )
 {
@@ -15,6 +16,7 @@ mutation updateCurrentApplicant(
     careers: $careers,
     capabilities: $capabilities,
     knowledgeSections: $knowledgeSections,
+    experienceSections: $experienceSections,
     links: $links
   )
   {

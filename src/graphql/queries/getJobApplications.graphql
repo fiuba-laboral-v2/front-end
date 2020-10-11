@@ -1,0 +1,27 @@
+query getJobApplications($updatedBeforeThan: PaginatedInput) {
+  getJobApplications(updatedBeforeThan: $updatedBeforeThan) {
+    shouldFetchMore
+    results {
+      uuid
+      updatedAt
+      createdAt
+      approvalStatus
+      offer {
+        uuid
+        title
+        company {
+          companyName
+          cuit
+        }
+      }
+      applicant {
+        uuid
+        padron
+        user {
+          name
+          surname
+        }
+      }
+    }
+  }
+}
