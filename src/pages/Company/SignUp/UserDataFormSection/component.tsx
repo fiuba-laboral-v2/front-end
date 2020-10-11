@@ -48,6 +48,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = (
       className={styles.email}
       name="user.email"
       label={translations.email}
+      helperText={translations.emailClarification}
       withoutMargin
     />
   </Card>
