@@ -1,5 +1,5 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_formSectionTitle";
+@import "$styles/mixins/_subtitle";
 
 .largePaddingBottom {
   padding-bottom: $spacing-l;
@@ -19,7 +19,10 @@
 }
 
 .title {
-  @include formSectionTitle;
+  @include subtitle;
+
+  color: $darkerGrey;
+  font-weight: unset;
 }
 
 .titleWithMarginBottom {
