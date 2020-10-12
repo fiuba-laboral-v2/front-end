@@ -12,6 +12,7 @@ export const SkillsAndLanguagesFormSection: FunctionComponent<IComponent> = (
   }
 ) => (
   <FormSection
+    mediumPaddingBottom
     className={className}
     title={translations.capabilities}
   >

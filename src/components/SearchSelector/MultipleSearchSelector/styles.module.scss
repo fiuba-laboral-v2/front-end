@@ -1,3 +1,9 @@
+@import "$styles/_variables";
+
 div.selector {
   min-height: unset;
+}
+
+.container {
+  min-height: 90px;
 }
