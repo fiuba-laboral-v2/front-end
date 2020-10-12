@@ -13,6 +13,7 @@ export const SkillsAndLanguagesFormSection: FunctionComponent<IComponent> = (
 ) => (
   <FormSection
     className={className}
+    headerWithoutMarginBottom
     title={translations.capabilities}
   >
     <CapabilitiesSelector label={translations.capability}/>

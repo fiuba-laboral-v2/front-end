@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
-import { Card } from "$components/Card";
 import { EmailField, NameField } from "$components/Fields";
 import { TextInput } from "$components/TextInput";
+import { FormSection } from "$components/FormSection";
 
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -14,7 +13,11 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
     className
   }
 ) => (
-  <Card largePadding className={classNames(styles.card, className)}>
+  <FormSection
+    mediumPaddingBottom
+    headerWithoutMarginBottom
+    className={className}
+  >
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}
@@ -31,5 +34,5 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
     </div>
     <EmailField name="user.email" label={translations.email} />
     <TextInput name="description" label={translations.description} multiline />
-  </Card>
+  </FormSection>
 );

@@ -12,6 +12,9 @@
 .header {
   display: flex;
   flex-direction: column;
+}
+
+.headerWithMarginBottom {
   margin-bottom: $spacing-xl;
 }
 
@@ -19,7 +22,7 @@
   @include formSectionTitle;
 }
 
-.withMarginBottom {
+.titleWithMarginBottom {
   margin-bottom: $spacing-s;
 }
 
