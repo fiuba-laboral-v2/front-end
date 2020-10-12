@@ -9,17 +9,12 @@ export const FormSection: FunctionComponent<IFormSectionProps> = (
     className,
     title,
     subtitle,
-    largePaddingBottom,
-    mediumPaddingBottom,
     children
   }
 ) => (
   <Card
     largePadding
-    className={classNames(className, {
-      [styles.largePaddingBottom]: largePaddingBottom,
-      [styles.mediumPaddingBottom]: mediumPaddingBottom
-    })}
+    className={classNames(styles.card, className)}
   >
     <div className={classNames(styles.header, {
       [styles.headerWithMarginBottom]: title
@@ -38,8 +33,6 @@ export const FormSection: FunctionComponent<IFormSectionProps> = (
 );
 
 interface IFormSectionProps {
-  largePaddingBottom?: boolean;
-  mediumPaddingBottom?: boolean;
   className?: string;
   title?: string;
   subtitle?: string;

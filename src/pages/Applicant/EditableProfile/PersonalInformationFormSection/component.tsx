@@ -14,7 +14,6 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
   }
 ) => (
   <FormSection
-    mediumPaddingBottom
     className={className}
   >
     <div className={styles.firstRow}>

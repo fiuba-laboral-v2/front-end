@@ -13,7 +13,6 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <FormSection
-    largePaddingBottom
     className={className}
     title={translations.title}
   >

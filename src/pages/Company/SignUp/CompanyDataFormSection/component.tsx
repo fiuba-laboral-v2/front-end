@@ -13,7 +13,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <FormSection
-    mediumPaddingBottom
     className={className}
     title={translations.title}
   >

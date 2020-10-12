@@ -12,7 +12,6 @@ export const ContactInformationFormSection: FunctionComponent<IComponentProps> =
   }
 ) => (
   <FormSection
-    mediumPaddingBottom
     className={className}
     title={translations.title}
     subtitle={translations.subtitle}

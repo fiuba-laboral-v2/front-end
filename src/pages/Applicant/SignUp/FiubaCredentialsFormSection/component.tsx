@@ -14,7 +14,6 @@ export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
 ) => (
   <FormSection
     className={className}
-    mediumPaddingBottom
     title={translations.title}
     subtitle={translations.subtitle}
   >
