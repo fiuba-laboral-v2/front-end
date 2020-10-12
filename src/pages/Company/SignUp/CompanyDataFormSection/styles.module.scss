@@ -11,35 +11,16 @@
   margin-bottom: $spacing-xl;
 }
 
-.firstRow,
-.secondRow {
-  display: flex;
-}
-
-div.name,
-div.surname,
-div.email,
-div.padron {
-  width: 100%;
-}
-
-div.name,
-div.email {
+div.businessName {
   margin: 0 $spacing-xxl 0 0;
 }
 
-div.surname,
-div.padron {
-  margin: 0;
-}
-
-.firstRow {
-  margin-bottom: $spacing-m;
+.lastRow {
+  display: flex;
 }
 
 @media (max-width: $mobileContainerThreshold) {
-  .firstRow,
-  .secondRow {
+  .lastRow {
     flex-direction: column;
   }
 }

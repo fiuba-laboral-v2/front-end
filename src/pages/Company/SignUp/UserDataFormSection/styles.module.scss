@@ -2,7 +2,7 @@
 @import "$styles/mixins/_formSectionTitle";
 
 .card {
-  padding-bottom: $spacing-m;
+  padding-bottom: $spacing-l;
 }
 
 .title {
@@ -17,20 +17,8 @@
 }
 
 div.name,
-div.surname,
-div.email,
-div.padron {
-  width: 100%;
-}
-
-div.name,
-div.email {
+div.password {
   margin: 0 $spacing-xxl 0 0;
-}
-
-div.surname,
-div.padron {
-  margin: 0;
 }
 
 .firstRow {

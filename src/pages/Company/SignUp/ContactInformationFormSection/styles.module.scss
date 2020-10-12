@@ -20,17 +20,3 @@
 .subtitle {
   color: $grey;
 }
-
-.fields {
-  display: flex;
-}
-
-div.dniField {
-  margin-right: $spacing-xxl;
-}
-
-@media (max-width: $mobileContainerThreshold) {
-  .fields {
-    flex-direction: column;
-  }
-}
