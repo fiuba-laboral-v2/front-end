@@ -11,7 +11,6 @@ export const FormSection: FunctionComponent<IFormSectionProps> = (
     subtitle,
     largePaddingBottom,
     mediumPaddingBottom,
-    headerWithoutMarginBottom,
     children
   }
 ) => (
@@ -23,7 +22,7 @@ export const FormSection: FunctionComponent<IFormSectionProps> = (
     })}
   >
     <div className={classNames(styles.header, {
-      [styles.headerWithMarginBottom]: !headerWithoutMarginBottom
+      [styles.headerWithMarginBottom]: title
     })}>
       <span
         className={classNames(styles.title, {
@@ -39,7 +38,6 @@ export const FormSection: FunctionComponent<IFormSectionProps> = (
 );
 
 interface IFormSectionProps {
-  headerWithoutMarginBottom?: boolean;
   largePaddingBottom?: boolean;
   mediumPaddingBottom?: boolean;
   className?: string;
