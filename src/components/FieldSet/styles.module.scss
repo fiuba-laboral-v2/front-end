@@ -6,6 +6,17 @@
   flex-grow: 1;
 }
 
+.fieldSetContainer {
+  background: #f1f1f1;
+  border-radius: $defaultBorderRadius;
+  display: flex;
+  padding: $spacing-m $spacing-l;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-l;
+  }
+}
+
 .remove {
   color: $darkGrey;
   font-size: 20px;
@@ -24,5 +35,12 @@
 @media (max-width: $mobileContainerThreshold) {
   .childrenContainer {
     flex-direction: column;
+  }
+
+  .fieldSetContainer {
+    $formSectionPadding: 20px;
+
+    padding-left: $formSectionPadding;
+    padding-right: $formSectionPadding;
   }
 }

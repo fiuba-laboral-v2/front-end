@@ -19,7 +19,7 @@ export const FormFooter = <Values extends { _form?: string | string[] }>(
   return (
     <div className={classNames(styles.footer, className)}>
       {
-        flatten(formErrors).map((error: string) =>
+        flatten([formErrors]).map((error: string) =>
           <span key={error} className={styles.formError}>{error}</span>
         )
       }
