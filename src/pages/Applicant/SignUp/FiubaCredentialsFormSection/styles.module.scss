@@ -1,26 +1,6 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_formSectionTitle";
 
-.card {
-  padding-bottom: $spacing-m;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: $spacing-xl;
-}
-
-.title {
-  @include formSectionTitle;
-
-  margin-bottom: $spacing-s;
-}
-
-.subtitle {
-  color: $grey;
-}
-
 .fields {
   display: flex;
 }

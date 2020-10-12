@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
-import { Card } from "$components/Card";
 import { DniField, PasswordField } from "$components/Fields";
+import { FormSection } from "$components/FormSection";
+
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
@@ -12,11 +12,12 @@ export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
     translations
   }
 ) => (
-  <Card largePadding className={classNames(styles.card, className)}>
-    <div className={styles.header}>
-      <span className={styles.title}>{translations.title}</span>
-      <span className={styles.subtitle}>{translations.subtitle}</span>
-    </div>
+  <FormSection
+    className={className}
+    mediumPaddingBottom
+    title={translations.title}
+    subtitle={translations.subtitle}
+  >
     <div className={styles.fields}>
       <DniField
         className={styles.dniField}
@@ -33,5 +34,5 @@ export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
         withoutMargin
       />
     </div>
-  </Card>
+  </FormSection>
 );

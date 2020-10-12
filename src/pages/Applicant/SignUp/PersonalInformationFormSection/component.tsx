@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
 import { EmailField, NameField } from "$components/Fields";
 import { NumberInput } from "$components/NumberInput";
-import { Card } from "$components/Card";
+import { FormSection } from "$components/FormSection";
 
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
@@ -17,8 +16,11 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
     translations
   }
 ) => (
-  <Card largePadding className={classNames(styles.card, className)}>
-    <div className={styles.title}>{translations.title}</div>
+  <FormSection
+    className={className}
+    mediumPaddingBottom
+    title={translations.title}
+  >
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}
@@ -51,5 +53,5 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
         })}
       />
     </div>
-  </Card>
+  </FormSection>
 );
