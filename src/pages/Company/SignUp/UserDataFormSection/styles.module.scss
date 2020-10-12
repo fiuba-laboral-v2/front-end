@@ -1,16 +1,6 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_formSectionTitle";
 
-.card {
-  padding-bottom: $spacing-l;
-}
-
-.title {
-  @include formSectionTitle;
-
-  margin-bottom: $spacing-xl;
-}
-
 .firstRow,
 .secondRow {
   display: flex;
