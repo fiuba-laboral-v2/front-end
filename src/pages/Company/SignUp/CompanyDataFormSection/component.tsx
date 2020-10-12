@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
-import { Card } from "$components/Card";
 import { NameField, Field, CuitField } from "$components/Fields";
+import { FormSection } from "$components/FormSection";
 
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -13,8 +12,11 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = (
     translations
   }
 ) => (
-  <Card largePadding className={classNames(styles.card, className)}>
-    <div className={styles.title}>{translations.title}</div>
+  <FormSection
+    mediumPaddingBottom
+    className={className}
+    title={translations.title}
+  >
     <NameField
       className={styles.companyName}
       name="companyName"
@@ -48,5 +50,5 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = (
         withoutMargin
       />
     </div>
-  </Card>
+  </FormSection>
 );
