@@ -31,21 +31,21 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
       >
         {({ values, isSubmitting, errors }) => (
           <Form id={formName}>
-            <PersonalInformationFormSection className={styles.card} />
-            <SkillsAndLanguagesFormSection className={styles.card}/>
-            <LinksFormSection links={values.links} className={styles.card}/>
+            <PersonalInformationFormSection className={styles.formSection} />
+            <SkillsAndLanguagesFormSection className={styles.formSection}/>
+            <LinksFormSection links={values.links} className={styles.formSection}/>
             <CareersSelectorFormSection
-              className={styles.card}
+              className={styles.formSection}
               defaultValue={{ careerCode: "", isGraduate: true }}
               careers={values.careers}
             />
             <WorkExperienceFormSection
-              className={styles.card}
+              className={styles.formSection}
               name="experienceSections"
               sections={values.experienceSections}
             />
             <AdditionalKnowledgeFormSection
-              className={styles.card}
+              className={styles.formSection}
               name="knowledgeSections"
               sections={values.knowledgeSections}
             />
