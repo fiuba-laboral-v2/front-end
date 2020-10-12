@@ -1,10 +1,13 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
+
 import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
+import { TagSet } from "$components/TagSet";
+
 import { differenceBy, unionBy } from "lodash";
-import { TagSet } from "../../TagSet";
-import styles from "./styles.module.scss";
 import { TextFormatter } from "$models/TextFormatter";
+
+import styles from "./styles.module.scss";
 
 export const MultipleSearchSelector = <Option, Value>(
   {
@@ -25,7 +28,7 @@ export const MultipleSearchSelector = <Option, Value>(
   return (
     <Field name={name} validate={validate}>
       {({ meta, form }: FieldProps<Value[]>) => (
-        <>
+        <div className={styles.container}>
           <BaseSearchSelector
             {...props}
             freeSolo
@@ -70,7 +73,7 @@ export const MultipleSearchSelector = <Option, Value>(
               )
             }
           />
-        </>
+        </div>
       )}
     </Field>
   );

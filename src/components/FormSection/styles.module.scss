@@ -1,5 +1,5 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_formSectionTitle";
+@import "$styles/mixins/_subtitle";
 
 .card {
   padding-bottom: $spacing-m;
@@ -8,12 +8,20 @@
 .header {
   display: flex;
   flex-direction: column;
+}
+
+.headerWithMarginBottom {
   margin-bottom: $spacing-xl;
 }
 
 .title {
-  @include formSectionTitle;
+  @include subtitle;
 
+  color: $darkerGrey;
+  font-weight: unset;
+}
+
+.titleWithMarginBottom {
   margin-bottom: $spacing-s;
 }
 

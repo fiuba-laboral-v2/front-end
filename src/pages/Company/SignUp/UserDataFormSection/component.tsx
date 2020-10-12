@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { IComponentProps } from "./interfaces";
-import classNames from "classnames";
-import { NameField, PasswordField, EmailField } from "$components/Fields";
-import { Card } from "$components/Card";
 
+import { NameField, PasswordField, EmailField } from "$components/Fields";
+import { FormSection } from "$components/FormSection";
+
+import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const UserDataFormSection: FunctionComponent<IComponentProps> = (
@@ -12,8 +12,10 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = (
     translations
   }
 ) => (
-  <Card largePadding className={classNames(styles.card, className)}>
-    <div className={styles.title}>{translations.title}</div>
+  <FormSection
+    className={className}
+    title={translations.title}
+  >
     <div className={styles.firstRow}>
       <NameField
         className={styles.name}
@@ -52,5 +54,5 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = (
       helperText={translations.emailClarification}
       withoutMargin
     />
-  </Card>
+  </FormSection>
 );

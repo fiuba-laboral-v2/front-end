@@ -1,11 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ICapabiltiesSelectorContainer } from "./interface";
+import { ICapabilitiesSelectorContainer } from "./interface";
 import { CapabilitiesSelector } from "./compontent";
 import { ICapability } from "$interfaces/Capability";
 import { useQuery } from "@apollo/client";
 import { GET_CAPABILITIES } from "$queries";
 
-const CapabilitiesSelectorContainer: FunctionComponent<ICapabiltiesSelectorContainer> = props => {
+const CapabilitiesSelectorContainer: FunctionComponent<ICapabilitiesSelectorContainer> = props => {
   const {
     data: { getCapabilities: capabilities } = { getCapabilities: [] as ICapability[] },
     error: capabilitiesError,

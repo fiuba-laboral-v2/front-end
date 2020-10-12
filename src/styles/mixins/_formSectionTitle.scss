@@ -1,9 +1,0 @@
-@import "$styles/_variables";
-@import "$styles/mixins/_subtitle";
-
-@mixin formSectionTitle {
-  @include subtitle;
-
-  color: $darkerGrey;
-  font-weight: unset;
-}

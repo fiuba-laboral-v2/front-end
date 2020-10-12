@@ -2,10 +2,10 @@ import React, { FunctionComponent } from "react";
 import { MultipleSearchSelector } from "../SearchSelector/MultipleSearchSelector";
 import { ICapability } from "$interfaces/Capability";
 import { identity } from "lodash";
-import { ICapabiltiesSelector } from "./interface";
+import { ICapabilitiesSelector } from "./interface";
 import { TextFormatter } from "$models/TextFormatter";
 
-export const CapabilitiesSelector: FunctionComponent<ICapabiltiesSelector> = (
+export const CapabilitiesSelector: FunctionComponent<ICapabilitiesSelector> = (
   {
     options,
     label

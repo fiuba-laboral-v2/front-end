@@ -1,9 +1,9 @@
 import { ICapability } from "../../interfaces/Capability";
 
-export interface ICapabiltiesSelectorContainer {
+export interface ICapabilitiesSelectorContainer {
   label: string;
 }
 
-export interface ICapabiltiesSelector extends ICapabiltiesSelectorContainer {
+export interface ICapabilitiesSelector extends ICapabilitiesSelectorContainer {
   options: ICapability[];
 }
