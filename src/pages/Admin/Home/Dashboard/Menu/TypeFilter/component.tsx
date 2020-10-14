@@ -9,14 +9,12 @@ import { ITypeFilterComponentProps } from "./interfaces";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import styles from "./styles.module.scss";
 
-export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = (
-  {
-    className,
-    translations,
-    types,
-    toggleType
-  }
-) => (
+export const TypeFilter: FunctionComponent<ITypeFilterComponentProps> = ({
+  className,
+  translations,
+  types,
+  toggleType
+}) => (
   <section className={classNames(styles.typeFilterContainer, className)}>
     <p className={styles.title}>{translations.title}</p>
     <Tab

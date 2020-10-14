@@ -5,20 +5,18 @@ import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 
-export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = (
-  {
-    applicant,
-    setStatus,
-    loading
-  }
-) => (
+export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = ({
+  applicant,
+  setStatus,
+  loading
+}) => (
   <DetailInfo
     loading={loading}
-    mainTitle={<MainTitle applicant={applicant}/>}
+    mainTitle={<MainTitle applicant={applicant} />}
     currentStatus={applicant.approvalStatus}
     setStatus={setStatus}
   >
-    <UserDetails applicant={applicant}/>
+    <UserDetails applicant={applicant} />
   </DetailInfo>
 );
 

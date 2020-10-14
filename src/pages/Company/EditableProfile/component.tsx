@@ -9,21 +9,15 @@ import styles from "./styles.module.scss";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import { FormFooter } from "$components/FormFooter";
 
-export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
-  {
-    initialValues,
-    onUpdate,
-    translations
-  }
-) => (
+export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
+  initialValues,
+  onUpdate,
+  translations
+}) => (
   <Window>
     <div className={styles.mainContainer}>
       <h1 className={styles.title}>{translations.title}</h1>
-      <Formik
-        initialValues={initialValues}
-        validateOnMount
-        onSubmit={onUpdate}
-      >
+      <Formik initialValues={initialValues} validateOnMount onSubmit={onUpdate}>
         {({ values, setFieldValue, isSubmitting, errors }) => (
           <>
             <Form>
@@ -32,7 +26,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = (
                 initialValue={values.logo}
                 setLogo={(logo: string) => setFieldValue("logo", logo)}
               />
-              <CompanyFields edit/>
+              <CompanyFields edit />
               <FormFooter
                 isSubmitting={isSubmitting}
                 submitButtonText={translations.submit}

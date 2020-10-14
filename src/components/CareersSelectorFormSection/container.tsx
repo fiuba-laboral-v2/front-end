@@ -7,5 +7,5 @@ export const CareersSelectorFormSectionContainer: FunctionComponent<IContainer> 
   const translations = useTranslations<ITranslations>("careersSelectorFormSection");
   if (!translations) return <Fragment />;
 
-  return <CareersSelectorFormSection {...props} translations={translations}/>;
+  return <CareersSelectorFormSection {...props} translations={translations} />;
 };

@@ -13,12 +13,14 @@ export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const translations = useTranslations<IEditOfferTranslations & IConfirmDialogTranslations>("editOffer");
+  const translations = useTranslations<IEditOfferTranslations & IConfirmDialogTranslations>(
+    "editOffer"
+  );
   const { uuid } = useParams();
   const { editOffer } = useEditOffer();
   const getOffer = useCompanyOfferByUuid(uuid);
 
-  if (!translations || getOffer.loading || getOffer.error) return <Fragment/>;
+  if (!translations || getOffer.loading || getOffer.error) return <Fragment />;
 
   const onSubmit = async (variables: ICreateOffer) => {
     const response = await editOffer({
@@ -27,37 +29,40 @@ export const EditOfferContainer: FunctionComponent = () => {
         ...variables
       },
       errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
-      update: cache => cache.modify({
-        id: `Offer:${getOffer.data.getOfferByUuid.uuid}`,
-        fields: {
-          targetApplicantType: () => variables.targetApplicantType
-        }
-      })
+      update: cache =>
+        cache.modify({
+          id: `Offer:${getOffer.data.getOfferByUuid.uuid}`,
+          fields: {
+            targetApplicantType: () => variables.targetApplicantType
+          }
+        })
     });
     if (response.error) return;
     history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
   };
 
-  return <EditOffer
-    title={translations.edit}
-    translations={translations}
-    initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
-    onSubmit={onSubmit}
-    formFooter={({ isSubmitting, submitForm, errors }) =>
-      <>
-        <FormFooter
-          isSubmitting={isSubmitting}
-          submitButtonText={translations.submit}
-          errors={errors}
-          onSubmit={() => setConfirmDialogIsOpen(true)}
-        />
-        <FormConfirmDialog
-          isOpen={confirmDialogIsOpen}
-          onConfirm={submitForm}
-          onClose={() => setConfirmDialogIsOpen(false)}
-          translations={translations}
-        />
-      </>
-    }
-  />;
+  return (
+    <EditOffer
+      title={translations.edit}
+      translations={translations}
+      initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
+      onSubmit={onSubmit}
+      formFooter={({ isSubmitting, submitForm, errors }) => (
+        <>
+          <FormFooter
+            isSubmitting={isSubmitting}
+            submitButtonText={translations.submit}
+            errors={errors}
+            onSubmit={() => setConfirmDialogIsOpen(true)}
+          />
+          <FormConfirmDialog
+            isOpen={confirmDialogIsOpen}
+            onConfirm={submitForm}
+            onClose={() => setConfirmDialogIsOpen(false)}
+            translations={translations}
+          />
+        </>
+      )}
+    />
+  );
 };

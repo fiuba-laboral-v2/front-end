@@ -47,9 +47,9 @@ export const EditableDetailContainer: FunctionComponent = () => {
   );
 
   if (applicantProfile.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
-  if (applicantProfile.loading || !translations) return <LoadingSpinner/>;
+  if (applicantProfile.loading || !translations) return <LoadingSpinner />;
 
   const onSubmit = async ({ _form, ...variables }: IApplicantEditableFormValues) => {
     const result = await updateCurrentApplicant({

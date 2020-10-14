@@ -1,3 +1,1 @@
-export {
-  ContactInformationFormSectionContainer as ContactInformationFormSection
-} from "./container";
+export { ContactInformationFormSectionContainer as ContactInformationFormSection } from "./container";

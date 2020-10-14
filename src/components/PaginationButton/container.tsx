@@ -5,5 +5,5 @@ import { useTranslations } from "../../models/hooks/queries";
 
 export const PaginationButtonContainer = (props: IPaginationButtonContainerProps) => {
   const translations = useTranslations<IListTranslations>("list");
-  return <PaginationButton {...props} translations={translations || { fetchMore: "" }}/>;
+  return <PaginationButton {...props} translations={translations || { fetchMore: "" }} />;
 };

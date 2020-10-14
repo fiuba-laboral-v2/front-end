@@ -5,17 +5,15 @@ import { OfferDetails } from "./OfferDetails";
 import { MainTitle } from "./MainTitle";
 import { IOffer } from "$interfaces/Offer";
 
-export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = (
-  {
-    offer,
-    currentStatus,
-    setStatus,
-    loading
-  }
-) => (
+export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
+  offer,
+  currentStatus,
+  setStatus,
+  loading
+}) => (
   <DetailInfo
     loading={loading}
-    mainTitle={<MainTitle offer={offer}/>}
+    mainTitle={<MainTitle offer={offer} />}
     currentStatus={currentStatus}
     setStatus={setStatus}
   >

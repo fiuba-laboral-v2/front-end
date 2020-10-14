@@ -8,43 +8,24 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   jobApplication: {
     applicant: {
       padron,
-      user: {
-        name
-      }
+      user: { name }
     },
     offer: {
-      company: {
-        companyName,
-        cuit
-      }
+      company: { companyName, cuit }
     },
     updatedAt,
     approvalStatus
   }
 }) => (
   <>
-    <p className={styles.text}>
-      {companyName}
-    </p>
-    <p className={styles.text}>
-      {cuit}
-    </p>
-    <p className={styles.text}>
-      {name}
-    </p>
-    <p className={styles.text}>
-      {padron}
-    </p>
+    <p className={styles.text}>{companyName}</p>
+    <p className={styles.text}>{cuit}</p>
+    <p className={styles.text}>{name}</p>
+    <p className={styles.text}>{padron}</p>
     <div className={styles.statusContainer}>
-      <SharedStatusLabel
-        status={approvalStatus}
-        withTooltip
-        type="large"
-      />
+      <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
-    <div className={styles.text}>
-      {TimeFormatter.dateTime(updatedAt)}
-    </div>
+    <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
   </>
 );
 

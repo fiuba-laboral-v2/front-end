@@ -10,14 +10,12 @@ import { Dialog, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import { ApplyFiltersTitle } from "./ApplyFiltersTitle";
 
-export const Filters: FunctionComponent<IFiltersProps> = (
-  {
-    className,
-    filter,
-    careers,
-    translations
-  }
-) => {
+export const Filters: FunctionComponent<IFiltersProps> = ({
+  className,
+  filter,
+  careers,
+  translations
+}) => {
   const [filtersAreOpen, setFiltersAreOpen] = useState(false);
   const applyFiltersProps = {
     filter: filter,
@@ -39,24 +37,13 @@ export const Filters: FunctionComponent<IFiltersProps> = (
             </Button>
           </div>
         </div>
-        <AppliedFilters
-          className={styles.appliedFilters}
-          filter={filter}
-          careers={careers}
-        />
-        <ApplyFilters
-          withTitle
-          className={styles.desktopApplyFilters}
-          {...applyFiltersProps}
-        />
+        <AppliedFilters className={styles.appliedFilters} filter={filter} careers={careers} />
+        <ApplyFilters withTitle className={styles.desktopApplyFilters} {...applyFiltersProps} />
         <Dialog fullScreen open={filtersAreOpen}>
           <header className={styles.mobileApplyFiltersHeader}>
             <ApplyFiltersTitle>{translations?.addFilters}</ApplyFiltersTitle>
-            <IconButton
-              disableRipple
-              color="primary"
-              onClick={() => setFiltersAreOpen(false)}>
-              <CloseIcon/>
+            <IconButton disableRipple color="primary" onClick={() => setFiltersAreOpen(false)}>
+              <CloseIcon />
             </IconButton>
           </header>
           <ApplyFilters

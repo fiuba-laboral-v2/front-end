@@ -4,9 +4,5 @@ import { Label } from "$components/Label";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
 export const RejectedLabel: FunctionComponent<ILabelLayoutProps & ILabelTextProps> = props => (
-  <Label
-    Icon={NotInterestedIcon}
-    color="Red"
-    {...props}
-  />
+  <Label Icon={NotInterestedIcon} color="Red" {...props} />
 );

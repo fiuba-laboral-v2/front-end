@@ -12,13 +12,12 @@ import { FormFooter } from "$components/FormFooter";
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import styles from "./styles.module.scss";
 
-export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = (
-  {
-    initialValues,
-    onSubmit,
-    translations,
-    validateForm
-  }) => {
+export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = ({
+  initialValues,
+  onSubmit,
+  translations,
+  validateForm
+}) => {
   const formName = "editApplicantDetailForm";
   return (
     <>
@@ -32,8 +31,8 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
         {({ values, isSubmitting, errors }) => (
           <Form id={formName}>
             <PersonalInformationFormSection className={styles.formSection} />
-            <SkillsAndLanguagesFormSection className={styles.formSection}/>
-            <LinksFormSection links={values.links} className={styles.formSection}/>
+            <SkillsAndLanguagesFormSection className={styles.formSection} />
+            <LinksFormSection links={values.links} className={styles.formSection} />
             <CareersSelectorFormSection
               className={styles.formSection}
               defaultValue={{ careerCode: "", isGraduate: true }}

@@ -13,13 +13,11 @@ import styles from "./styles.module.scss";
 
 const formName = "signUpForm";
 
-export const SignUp: FunctionComponent<ISignUpProps> = (
-  {
-    initialValues,
-    onSubmit,
-    translations
-  }
-) => (
+export const SignUp: FunctionComponent<ISignUpProps> = ({
+  initialValues,
+  onSubmit,
+  translations
+}) => (
   <Window>
     <h1 className={styles.title}>{translations.title}</h1>
     <Formik

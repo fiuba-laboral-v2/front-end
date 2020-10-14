@@ -5,16 +5,14 @@ import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const usePaginatedQuery = <TVariables extends IVariables, Result extends IResult>(
-  {
-    documentNode,
-    queryName,
-    variables,
-    fetchPolicy,
-    skip,
-    normalizeVariables = (v: TVariables) => v
-  }: IUsePaginatedOffers<TVariables>
-) => {
+export const usePaginatedQuery = <TVariables extends IVariables, Result extends IResult>({
+  documentNode,
+  queryName,
+  variables,
+  fetchPolicy,
+  skip,
+  normalizeVariables = (v: TVariables) => v
+}: IUsePaginatedOffers<TVariables>) => {
   const history = useHistory();
 
   const result = useQuery<TVariables, IUsePaginatedOffersResponse<Result>>(documentNode, {
@@ -31,13 +29,15 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
     if (!results) return;
     const lastResult = results[results.length - 1];
     return result.fetchMore({
-      variables: variables && normalizeVariables({
-        ...variables,
-        updatedBeforeThan: {
-          dateTime: lastResult.updatedAt,
-          uuid: lastResult.uuid
-        }
-      })
+      variables:
+        variables &&
+        normalizeVariables({
+          ...variables,
+          updatedBeforeThan: {
+            dateTime: lastResult.updatedAt,
+            uuid: lastResult.uuid
+          }
+        })
     });
   };
 

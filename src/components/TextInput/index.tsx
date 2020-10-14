@@ -5,20 +5,18 @@ import { TextField } from "formik-material-ui";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const TextInput: FunctionComponent<ITextInputProps> = (
-  {
-    className,
-    fast = true,
-    withoutMargin = false,
-    ...props
-  }
-) => {
+export const TextInput: FunctionComponent<ITextInputProps> = ({
+  className,
+  fast = true,
+  withoutMargin = false,
+  ...props
+}) => {
   const fieldProps = {
     ...props,
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
     component: TextField
   };
-  return fast ? <FastField {...fieldProps}/> : <Field {...fieldProps}/>;
+  return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
 export interface ITextInputProps extends FieldAttributes<any> {

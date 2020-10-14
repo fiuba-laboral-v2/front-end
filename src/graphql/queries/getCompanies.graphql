@@ -1,7 +1,7 @@
 query getCompanies($updatedBeforeThan: PaginatedInput) {
   getCompanies(updatedBeforeThan: $updatedBeforeThan) {
     shouldFetchMore
-      results {
+    results {
       uuid
       cuit
       companyName

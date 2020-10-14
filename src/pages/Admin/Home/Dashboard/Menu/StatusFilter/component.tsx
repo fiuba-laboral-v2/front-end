@@ -11,14 +11,12 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 import styles from "./styles.module.scss";
 
-export const StatusFilter: FunctionComponent<ITypeFilterComponentProps> = (
-  {
-    statuses,
-    toggleStatus,
-    translations
-  }
-) => (
-  <Filter title={translations.title} >
+export const StatusFilter: FunctionComponent<ITypeFilterComponentProps> = ({
+  statuses,
+  toggleStatus,
+  translations
+}) => (
+  <Filter title={translations.title}>
     <Tab
       className={styles.tab}
       color="grey"

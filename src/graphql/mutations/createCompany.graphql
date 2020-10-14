@@ -1,4 +1,4 @@
-mutation createCompany (
+mutation createCompany(
   $user: UserInput!
   $cuit: String!
   $companyName: String!

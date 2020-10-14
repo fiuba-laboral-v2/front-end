@@ -14,17 +14,15 @@ import { IMyOffer } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 import { PublishedSince } from "../PublishedSince";
 
-export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
-  {
-    mobileLayout,
-    className,
-    applyButton,
-    editButton,
-    offer,
-    goToCompany,
-    withStatusLabel
-  }
-) => (
+export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
+  mobileLayout,
+  className,
+  applyButton,
+  editButton,
+  offer,
+  goToCompany,
+  withStatusLabel
+}) => (
   <Card className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}>
     <div className={styles.header}>
       <CompanyLogo
@@ -36,7 +34,9 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
       />
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
-          <Headline className={styles.title} mobileLayout={mobileLayout}>{offer.title}</Headline>
+          <Headline className={styles.title} mobileLayout={mobileLayout}>
+            {offer.title}
+          </Headline>
           <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName}>
@@ -44,27 +44,24 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = (
           {!goToCompany && <p>{offer.company.companyName}</p>}
         </Subtitle>
         <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
-        {
-          withStatusLabel &&
+        {withStatusLabel && (
           <StatusLabels
             targetApplicantType={offer.targetApplicantType}
             graduadosApprovalStatus={offer.graduadosApprovalStatus}
             extensionApprovalStatus={offer.extensionApprovalStatus}
           />
-        }
+        )}
       </div>
     </div>
     <div className={styles.body}>
       <div className={styles.leftBodyContainer}>
         <p className={styles.description}>{offer.description}</p>
-        {
-          sortBy(offer.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) =>
-            <SectionDetail key={displayOrder} title={title} text={text}/>
-          )
-        }
+        {sortBy(offer.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) => (
+          <SectionDetail key={displayOrder} title={title} text={text} />
+        ))}
       </div>
       <div className={styles.rightBodyContainer}>
-        <OfferInfo offer={offer}/>
+        <OfferInfo offer={offer} />
         {applyButton}
       </div>
     </div>

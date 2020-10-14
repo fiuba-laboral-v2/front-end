@@ -5,22 +5,20 @@ import { AddButton } from "$components/AddButton";
 import { FieldArray } from "formik";
 import { FieldSet } from "../FieldSet";
 
-export const FormSet = <Value, >(
-  {
-    title,
-    name,
-    values,
-    defaultValue,
-    fields
-  }: IFormSetProps<Value>
-) => (
+export const FormSet = <Value,>({
+  title,
+  name,
+  values,
+  defaultValue,
+  fields
+}: IFormSetProps<Value>) => (
   <FieldArray
     name={name}
     render={arrayHelpers => (
       <>
         <div className={styles.header}>
           <Subtitle className={styles.title}>{title}</Subtitle>
-          <AddButton onClick={() => arrayHelpers.insert(values.length + 1, defaultValue)}/>
+          <AddButton onClick={() => arrayHelpers.insert(values.length + 1, defaultValue)} />
         </div>
         {values.map((value, index) => (
           <FieldSet key={index} onRemove={() => arrayHelpers.remove(index)}>

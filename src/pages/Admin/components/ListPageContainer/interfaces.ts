@@ -7,8 +7,8 @@ import { ReactNode } from "react";
 
 export type Listable = IApplicant | ICompany | IAdmin | IOffer | IJobApplication;
 export type ListableReactNodes =
-  ((applicant: IApplicant) => ReactNode) |
-  ((company: ICompany) => ReactNode) |
-  ((admin: IAdmin) => ReactNode) |
-  ((offer: IOffer) => ReactNode) |
-  ((jobApplication: IJobApplication) => ReactNode);
+  | ((applicant: IApplicant) => ReactNode)
+  | ((company: ICompany) => ReactNode)
+  | ((admin: IAdmin) => ReactNode)
+  | ((offer: IOffer) => ReactNode)
+  | ((jobApplication: IJobApplication) => ReactNode);

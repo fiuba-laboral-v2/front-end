@@ -6,11 +6,7 @@ import { ListTitle } from "$components/ListTitle";
 import { Subtitle } from "$components/Subtitle";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
-const Applicants: FunctionComponent<IApplicantsProps> = (
-  {
-    applicants,
-    loading
-  }) => {
+const Applicants: FunctionComponent<IApplicantsProps> = ({ applicants, loading }) => {
   if (loading) {
     return (
       <>
@@ -23,19 +19,17 @@ const Applicants: FunctionComponent<IApplicantsProps> = (
   return (
     <>
       <ListTitle titleTranslationPath={"applicantList"} />
-      {
-        applicants.map(applicant =>
-          <div className={styles.row} key={applicant.uuid}>
-            <Card>
-              <div className={styles.childrenContainer}>
-                <Subtitle className={styles.name}>
-                  {`${applicant.user.name} ${applicant.user.surname}`}
-                </Subtitle>
-              </div>
-            </Card>
-          </div>
-        )
-      }
+      {applicants.map(applicant => (
+        <div className={styles.row} key={applicant.uuid}>
+          <Card>
+            <div className={styles.childrenContainer}>
+              <Subtitle className={styles.name}>
+                {`${applicant.user.name} ${applicant.user.surname}`}
+              </Subtitle>
+            </div>
+          </Card>
+        </div>
+      ))}
     </>
   );
 };

@@ -1,22 +1,22 @@
 query getJobApplicationByUuid($uuid: ID!) {
-    getJobApplicationByUuid(uuid: $uuid) {
-        uuid
-        updatedAt
-        createdAt
-        updatedAt
-        approvalStatus
-        offer {
-            uuid
-            title
-        }
-        applicant {
-            uuid
-            padron
-            user {
-                email
-                name
-                surname
-            }
-        }
+  getJobApplicationByUuid(uuid: $uuid) {
+    uuid
+    updatedAt
+    createdAt
+    updatedAt
+    approvalStatus
+    offer {
+      uuid
+      title
     }
+    applicant {
+      uuid
+      padron
+      user {
+        email
+        name
+        surname
+      }
+    }
+  }
 }

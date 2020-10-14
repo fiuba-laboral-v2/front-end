@@ -10,13 +10,11 @@ import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
 
-export const SignUp: FunctionComponent<ISignUpProps> = (
-  {
-    translations,
-    onSubmit,
-    validateForm
-  }
-) => {
+export const SignUp: FunctionComponent<ISignUpProps> = ({
+  translations,
+  onSubmit,
+  validateForm
+}) => {
   const careerInitialValue = { careerCode: "", isGraduate: true };
   const initialValues: IApplicantSignUpFormValues = {
     user: {
@@ -47,8 +45,8 @@ export const SignUp: FunctionComponent<ISignUpProps> = (
       >
         {({ values, isSubmitting, errors }) => (
           <Form className={styles.formContainer}>
-            <FiubaCredentialsFormSection className={styles.fiubaCredentials}/>
-            <PersonalInformationFormSection className={styles.personalInformation}/>
+            <FiubaCredentialsFormSection className={styles.fiubaCredentials} />
+            <PersonalInformationFormSection className={styles.personalInformation} />
             <CareersSelectorFormSection
               defaultValue={careerInitialValue}
               careers={values.careers}

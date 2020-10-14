@@ -1,17 +1,17 @@
-mutation createOffer (
-  $title: String!,
-  $description: String!,
+mutation createOffer(
+  $title: String!
+  $description: String!
   $targetApplicantType: ApplicantType!
-  $hoursPerDay: Int!,
-  $minimumSalary: Int!,
+  $hoursPerDay: Int!
+  $minimumSalary: Int!
   $maximumSalary: Int!
 ) {
   createOffer(
-    title: $title,
-    description: $description,
-    targetApplicantType: $targetApplicantType,
-    hoursPerDay: $hoursPerDay,
-    minimumSalary: $minimumSalary,
+    title: $title
+    description: $description
+    targetApplicantType: $targetApplicantType
+    hoursPerDay: $hoursPerDay
+    minimumSalary: $minimumSalary
     maximumSalary: $maximumSalary
   ) {
     uuid

@@ -8,7 +8,5 @@ interface IItem {
 }
 
 export const Item: FunctionComponent<IItem> = ({ column, text }) => (
-  <p className={classNames(styles.item, styles[`${column}`])}>
-    {text}
-  </p>
+  <p className={classNames(styles.item, styles[`${column}`])}>{text}</p>
 );

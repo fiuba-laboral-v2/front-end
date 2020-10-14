@@ -7,24 +7,13 @@ import { ICompanyFieldsProps } from "./interface";
 
 import { validateCuit, validateURL } from "validations-fiuba-laboral-v2";
 
-export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
-  {
-    translations: {
-      companyName,
-      businessName,
-      cuit,
-      email,
-      slogan,
-      description,
-      website
-    },
-    edit
-  }
-) => (
+export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = ({
+  translations: { companyName, businessName, cuit, email, slogan, description, website },
+  edit
+}) => (
   <>
     <NameField name="companyName" label={companyName} />
-    {
-      !edit &&
+    {!edit && (
       <>
         <TextInput
           name="businessName"
@@ -37,17 +26,10 @@ export const CompanyFields: FunctionComponent<ICompanyFieldsProps> = (
           validate={FormikValidator({ validator: validateCuit, mandatory: true })}
         />
       </>
-    }
-    <EmailField name="email" label={email}/>
-    <TextInput
-      name="slogan"
-      label={slogan}
-    />
-    <TextInput
-      name="description"
-      label={description}
-      multiline
-    />
+    )}
+    <EmailField name="email" label={email} />
+    <TextInput name="slogan" label={slogan} />
+    <TextInput name="description" label={description} multiline />
     <TextInput
       name="website"
       label={website}

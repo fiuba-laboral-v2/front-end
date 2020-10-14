@@ -11,28 +11,23 @@ import { Description } from "$components/Description";
 import styles from "./styles.module.scss";
 import { IApplicantDetailProps } from "./interface";
 
-export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
-  {
-    mobileLayout,
-    className,
-    applicant: {
-      user: {
-        name,
-        surname
-      },
-      description,
-      approvalStatus,
-      careers,
-      links,
-      knowledgeSections,
-      experienceSections,
-      capabilities
-    },
-    translations,
-    editButton,
-    withStatusLabel
-  }
-) => (
+export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
+  mobileLayout,
+  className,
+  applicant: {
+    user: { name, surname },
+    description,
+    approvalStatus,
+    careers,
+    links,
+    knowledgeSections,
+    experienceSections,
+    capabilities
+  },
+  translations,
+  editButton,
+  withStatusLabel
+}) => (
   <Card largePadding className={classNames(className, { [styles.mobile]: mobileLayout })}>
     <div className={styles.headline}>
       <div className={styles.header}>
@@ -43,7 +38,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         />
         <div>{editButton}</div>
       </div>
-      <Links links={links}/>
+      <Links links={links} />
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
       <CapabilitiesDetail
@@ -51,26 +46,14 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = (
         title={translations.capabilities}
         capabilities={capabilities}
       />
-      <CareersSection className={styles.careers} careers={careers}/>
+      <CareersSection className={styles.careers} careers={careers} />
     </div>
     <Description>{description}</Description>
-    {
-      knowledgeSections.map(section =>
-        <SectionDetail
-          key={section.displayOrder}
-          title={section.title}
-          text={section.text}
-        />
-      )
-    }
-    {
-      experienceSections.map(section =>
-        <SectionDetail
-          key={section.displayOrder}
-          title={section.title}
-          text={section.text}
-        />
-      )
-    }
+    {knowledgeSections.map(section => (
+      <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
+    ))}
+    {experienceSections.map(section => (
+      <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
+    ))}
   </Card>
 );

@@ -14,7 +14,9 @@ export class OfferFilter extends URLSearchParams {
   }
 
   public removeCareer(code: string) {
-    const careers = this.careerCodes().filter(careerCode => careerCode !== code).join(SEPARATOR);
+    const careers = this.careerCodes()
+      .filter(careerCode => careerCode !== code)
+      .join(SEPARATOR);
     this.set(CAREERS, careers || ALL);
   }
 }

@@ -5,18 +5,16 @@ import { OfferFilter } from "$models/OfferFilter";
 import { IOfferListTranslations } from "../../interface";
 import { ApplyFiltersTitle } from "../ApplyFiltersTitle";
 
-export const ApplyFilters: FunctionComponent<IApplyFiltersProps> = (
-  {
-    className,
-    filter,
-    careers,
-    translations,
-    withTitle
-  }
-) => (
+export const ApplyFilters: FunctionComponent<IApplyFiltersProps> = ({
+  className,
+  filter,
+  careers,
+  translations,
+  withTitle
+}) => (
   <div className={className}>
     {withTitle && <ApplyFiltersTitle>{translations?.addFilters}</ApplyFiltersTitle>}
-    <ApplyCareerFilters filter={filter} careers={careers} translations={translations}/>
+    <ApplyCareerFilters filter={filter} careers={careers} translations={translations} />
   </div>
 );
 

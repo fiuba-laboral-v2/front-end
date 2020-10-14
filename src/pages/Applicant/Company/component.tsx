@@ -5,7 +5,7 @@ import { ICompany } from "$interfaces/Company";
 
 export const CompanyProfile: FunctionComponent<ICompanyProfile> = ({ company }) => (
   <Window>
-    <CompanyDetail company={company}/>
+    <CompanyDetail company={company} />
   </Window>
 );
 

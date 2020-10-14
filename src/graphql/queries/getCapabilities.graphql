@@ -1,6 +1,6 @@
 query GetCapabilities {
-    getCapabilities {
-        uuid
-        description
-    }
+  getCapabilities {
+    uuid
+    description
+  }
 }

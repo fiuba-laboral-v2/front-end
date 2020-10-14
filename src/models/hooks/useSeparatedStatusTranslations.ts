@@ -13,9 +13,15 @@ const buildLabel = ({ secretary, status, translations, withStatusText }: IBuildL
 
   const applicantType = getApplicantType(translations)[secretary];
   return {
-    [ApprovalStatus.approved]: withStatusText ? `${applicantType}: ${translations.approved}` : `${applicantType}:`,
-    [ApprovalStatus.rejected]:  withStatusText ? `${applicantType}: ${translations.rejected}` : `${applicantType}:`,
-    [ApprovalStatus.pending]: withStatusText ? `${applicantType}: ${translations.pending}` : `${applicantType}:`
+    [ApprovalStatus.approved]: withStatusText
+      ? `${applicantType}: ${translations.approved}`
+      : `${applicantType}:`,
+    [ApprovalStatus.rejected]: withStatusText
+      ? `${applicantType}: ${translations.rejected}`
+      : `${applicantType}:`,
+    [ApprovalStatus.pending]: withStatusText
+      ? `${applicantType}: ${translations.pending}`
+      : `${applicantType}:`
   }[status];
 };
 
@@ -26,14 +32,12 @@ const getTooltipLabel = (secretary: Secretary, translations?: ITranslations) => 
   return translations.graduadosTooltip;
 };
 
-export const useSeparatedStatusTranslations = (
-  {
-    extensionApprovalStatus,
-    graduadosApprovalStatus,
-    targetApplicantType,
-    withStatusText
-  }: IUseSeparatedStatus
-): IUseSeparatedStatusResponse => {
+export const useSeparatedStatusTranslations = ({
+  extensionApprovalStatus,
+  graduadosApprovalStatus,
+  targetApplicantType,
+  withStatusText
+}: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
   const targetsBoth = targetApplicantType === ApplicantType.both;
   const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
   const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;

@@ -35,22 +35,26 @@ describe("updateCurrentApplicantArguments", () => {
       capabilities: [],
       knowledgeSections: [],
       experienceSections: [],
-      careers: [{
-        isGraduate: true,
-        careerCode: "10",
-        approvedSubjectCount: 35,
-        currentCareerYear: 5
-      }]
+      careers: [
+        {
+          isGraduate: true,
+          careerCode: "10",
+          approvedSubjectCount: 35,
+          currentCareerYear: 5
+        }
+      ]
     };
     const variables = updateCurrentApplicantArguments(inputVariables);
     expect(variables).toEqual({
       ...inputVariables,
-      careers: [{
-        isGraduate: true,
-        careerCode: "10",
-        approvedSubjectCount: undefined,
-        currentCareerYear: undefined
-      }]
+      careers: [
+        {
+          isGraduate: true,
+          careerCode: "10",
+          approvedSubjectCount: undefined,
+          currentCareerYear: undefined
+        }
+      ]
     });
   });
 });

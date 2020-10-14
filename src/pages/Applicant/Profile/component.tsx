@@ -5,19 +5,19 @@ import { Window } from "$components/Window";
 import { Button } from "$components/Button";
 import { IProfileParams } from "./interface";
 
-export const Profile: FunctionComponent<IProfileParams> = (
-  {
-    applicant,
-    translations,
-    onClickEdit
-  }
-) => (
+export const Profile: FunctionComponent<IProfileParams> = ({
+  applicant,
+  translations,
+  onClickEdit
+}) => (
   <Window>
-    <Title/>
+    <Title />
     <ApplicantDetail
       applicant={applicant}
       editButton={
-        <Button kind="primary" onClick={onClickEdit}>{translations.edit}</Button>
+        <Button kind="primary" onClick={onClickEdit}>
+          {translations.edit}
+        </Button>
       }
       withStatusLabel
     />

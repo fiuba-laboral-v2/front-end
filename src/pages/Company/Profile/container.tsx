@@ -14,9 +14,9 @@ export const ProfileContainer: FunctionComponent = () => {
   const translations = useTranslations<IProfileTranslations>("editableCompanyProfile");
 
   if (response.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
-  if (response.loading || !translations) return <LoadingSpinner/>;
+  if (response.loading || !translations) return <LoadingSpinner />;
 
   return (
     <Profile

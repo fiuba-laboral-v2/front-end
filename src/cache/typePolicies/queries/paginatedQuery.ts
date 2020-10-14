@@ -6,10 +6,10 @@ export const paginatedQuery = {
     { args }: { args: Record<string, any> | null }
   ) => {
     if (!args?.updatedBeforeThan) existing = undefined;
-    return ({
+    return {
       ...incoming,
-      results: [...existing?.results || [], ...incoming.results]
-    });
+      results: [...(existing?.results || []), ...incoming.results]
+    };
   }
 };
 

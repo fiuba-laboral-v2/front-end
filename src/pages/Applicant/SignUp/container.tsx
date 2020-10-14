@@ -30,28 +30,18 @@ const SignUpContainer: FunctionComponent = () => {
   };
 
   const onSubmit = async (
-    {
-      _form,
-      user,
-      ...applicantValues
-    }: IApplicantSignUpFormValues,
-    {
-      setSubmitting,
-      setErrors
-    }: FormikHelpers<IApplicantSignUpFormValues>
+    { _form, user, ...applicantValues }: IApplicantSignUpFormValues,
+    { setSubmitting, setErrors }: FormikHelpers<IApplicantSignUpFormValues>
   ) => {
-    const saveApplicantResult = await saveApplicant(
-      {
-        variables: saveApplicantArguments({ user, ...applicantValues }),
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })({
-          UserEmailAlreadyExistsError: handleValidationError(
-            { enqueueSnackbar },
-            () => setErrors({ user: { email: "Este email ya existe" } })
-          ),
-          FiubaUsersServiceFetchError: () => FiubaServiceFetchErrorHandler({ enqueueSnackbar })
-        })
-      }
-    );
+    const saveApplicantResult = await saveApplicant({
+      variables: saveApplicantArguments({ user, ...applicantValues }),
+      errorHandlers: formErrorHandlers({ enqueueSnackbar })({
+        UserEmailAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+          setErrors({ user: { email: "Este email ya existe" } })
+        ),
+        FiubaUsersServiceFetchError: () => FiubaServiceFetchErrorHandler({ enqueueSnackbar })
+      })
+    });
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
@@ -64,15 +54,9 @@ const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.editMyProfile());
   };
 
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return (
-    <SignUp
-      translations={translations}
-      validateForm={validateForm}
-      onSubmit={onSubmit}
-    />
-  );
+  return <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />;
 };
 
 export { SignUpContainer };

@@ -8,16 +8,14 @@ import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 import { DetailInfo } from "../../DetailInfo";
 
-export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = (
-  {
-    setStatus,
-    company,
-    loading
-  }
-) => (
+export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
+  setStatus,
+  company,
+  loading
+}) => (
   <DetailInfo
     loading={loading}
-    mainTitle={<MainTitle company={company}/>}
+    mainTitle={<MainTitle company={company} />}
     setStatus={setStatus}
     currentStatus={company.approvalStatus}
   >

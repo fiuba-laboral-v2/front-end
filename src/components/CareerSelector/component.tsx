@@ -6,14 +6,12 @@ import { ICareerSelectorProps } from "./interface";
 import { FormikValidator } from "$models/FormikValidator";
 import styles from "./styles.module.scss";
 
-export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
-  {
-    index,
-    options,
-    translations,
-    value
-  }
-) => (
+export const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
+  index,
+  options,
+  translations,
+  value
+}) => (
   <div className={styles.fieldsContainer}>
     <div className={styles.firstRow}>
       <SearchSelector
@@ -28,14 +26,10 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
       />
       <div className={styles.isGraduate}>
         <p className={styles.isGraduateLabel}>{translations.isGraduate}</p>
-        <CheckboxInput
-          checked={value.isGraduate}
-          name={`careers.${index}.isGraduate`}
-        />
+        <CheckboxInput checked={value.isGraduate} name={`careers.${index}.isGraduate`} />
       </div>
     </div>
-    {
-      !value.isGraduate &&
+    {!value.isGraduate && (
       <div className={styles.secondRow}>
         <PositiveNumberInput
           className={styles.currentCareerYear}
@@ -54,6 +48,6 @@ export const CareerSelector: FunctionComponent<ICareerSelectorProps> = (
           withoutMargin
         />
       </div>
-    }
+    )}
   </div>
 );

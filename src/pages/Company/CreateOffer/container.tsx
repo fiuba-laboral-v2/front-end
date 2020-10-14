@@ -14,35 +14,37 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const { createOffer } = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
-  if (!translations) return <LoadingSpinner/>;
+  if (!translations) return <LoadingSpinner />;
 
-  return <EditOffer
-    title={translations.create}
-    initialValues={{
-      title: "",
-      description: "",
-      targetApplicantType: "",
-      hoursPerDay: NaN,
-      minimumSalary: NaN,
-      maximumSalary: NaN,
-      _form: ""
-    }}
-    onSubmit={async variables => {
-      const response = await createOffer({
-        variables,
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
-      });
-      if (response.error) return;
-      history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
-    }}
-    translations={translations}
-    formFooter={({ isSubmitting, submitForm, errors }) =>
-      <FormFooter
-        isSubmitting={isSubmitting}
-        submitButtonText={translations.submit}
-        errors={errors}
-        onSubmit={submitForm}
-      />
-    }
-  />;
+  return (
+    <EditOffer
+      title={translations.create}
+      initialValues={{
+        title: "",
+        description: "",
+        targetApplicantType: "",
+        hoursPerDay: NaN,
+        minimumSalary: NaN,
+        maximumSalary: NaN,
+        _form: ""
+      }}
+      onSubmit={async variables => {
+        const response = await createOffer({
+          variables,
+          errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+        });
+        if (response.error) return;
+        history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
+      }}
+      translations={translations}
+      formFooter={({ isSubmitting, submitForm, errors }) => (
+        <FormFooter
+          isSubmitting={isSubmitting}
+          submitButtonText={translations.submit}
+          errors={errors}
+          onSubmit={submitForm}
+        />
+      )}
+    />
+  );
 };

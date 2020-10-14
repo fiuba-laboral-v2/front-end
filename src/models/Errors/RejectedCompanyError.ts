@@ -1,2 +1,1 @@
-export class RejectedCompanyError extends Error {
-}
+export class RejectedCompanyError extends Error {}

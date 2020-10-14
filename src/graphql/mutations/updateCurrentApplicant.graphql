@@ -1,25 +1,23 @@
 mutation updateCurrentApplicant(
-  $user: UserUpdateInput,
-  $padron: Int,
-  $description: String,
-  $careers: [ApplicantCareerInput],
-  $capabilities: [String],
-  $knowledgeSections: [ApplicantKnowledgeSectionInput],
-  $experienceSections: [ApplicantExperienceSectionInput],
+  $user: UserUpdateInput
+  $padron: Int
+  $description: String
+  $careers: [ApplicantCareerInput]
+  $capabilities: [String]
+  $knowledgeSections: [ApplicantKnowledgeSectionInput]
+  $experienceSections: [ApplicantExperienceSectionInput]
   $links: [LinkInput]
-)
-{
+) {
   updateCurrentApplicant(
-    padron: $padron,
-    user: $user,
-    description: $description,
-    careers: $careers,
-    capabilities: $capabilities,
-    knowledgeSections: $knowledgeSections,
-    experienceSections: $experienceSections,
+    padron: $padron
+    user: $user
+    description: $description
+    careers: $careers
+    capabilities: $capabilities
+    knowledgeSections: $knowledgeSections
+    experienceSections: $experienceSections
     links: $links
-  )
-  {
+  ) {
     uuid
     padron
     user {

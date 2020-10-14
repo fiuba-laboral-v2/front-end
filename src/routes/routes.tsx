@@ -16,11 +16,19 @@ const { notFound } = RoutesBuilder.public;
 const Routes: FunctionComponent = () => (
   <HashRouter basename={Configuration.sub_domain}>
     <Switch>
-      {AdminRoutes.map(props => <AdminRoute exact key={props.path} {...props}/>)}
-      {ApplicantRoutes.map(props => <ApplicantRoute exact key={props.path} {...props}/>)}
-      {CompanyRoutes.map(props => <CompanyRoute exact key={props.path} {...props}/>)}
-      {PublicRoutes.map(props => <Route exact key={props.path} {...props}/>)}
-      <Redirect to={notFound()}/>
+      {AdminRoutes.map(props => (
+        <AdminRoute exact key={props.path} {...props} />
+      ))}
+      {ApplicantRoutes.map(props => (
+        <ApplicantRoute exact key={props.path} {...props} />
+      ))}
+      {CompanyRoutes.map(props => (
+        <CompanyRoute exact key={props.path} {...props} />
+      ))}
+      {PublicRoutes.map(props => (
+        <Route exact key={props.path} {...props} />
+      ))}
+      <Redirect to={notFound()} />
     </Switch>
   </HashRouter>
 );

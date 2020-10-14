@@ -11,8 +11,7 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
   applicant: attributes.applicant && CurrentApplicant(attributes.applicant)
 });
 
-export type TCurrentUser =
-  TGenericCurrentUser<TCurrentAdmin, TCurrentApplicant, ICurrentCompany>;
+export type TCurrentUser = TGenericCurrentUser<TCurrentAdmin, TCurrentApplicant, ICurrentCompany>;
 
 export type TGenericCurrentUser<TAdmin, TApplicant, TCompany> = IUser & {
   admin?: TAdmin;

@@ -15,7 +15,7 @@ export const DashboardContainer: FunctionComponent = () => {
     statuses: [ApprovalStatus.pending]
   });
   const response = useAdminTasks(filter);
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   const result = response.data?.getAdminTasks;
   const adminTasks = result?.results;
 

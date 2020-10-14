@@ -5,18 +5,17 @@ import { Headline } from "$components/Headline";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import styles from "./styles.module.scss";
 
-export const StatusTitle: FunctionComponent<IComponentProps> = (
-  {
-    className,
-    detailTitle,
-    approvalStatus,
-    mobileLayout
-  }
-) => (
+export const StatusTitle: FunctionComponent<IComponentProps> = ({
+  className,
+  detailTitle,
+  approvalStatus,
+  mobileLayout
+}) => (
   <div className={classNames(styles.statusTitle, className)}>
-    <Headline className={styles.title} mobileLayout={mobileLayout}>{detailTitle}</Headline>
-    {
-      approvalStatus &&
+    <Headline className={styles.title} mobileLayout={mobileLayout}>
+      {detailTitle}
+    </Headline>
+    {approvalStatus && (
       <>
         <SharedStatusLabel
           className={styles.desktopStatus}
@@ -24,13 +23,9 @@ export const StatusTitle: FunctionComponent<IComponentProps> = (
           withTooltip
           type="large"
         />
-        <SharedStatusLabel
-          className={styles.mobileStatus}
-          status={approvalStatus}
-          type="large"
-        />
+        <SharedStatusLabel className={styles.mobileStatus} status={approvalStatus} type="large" />
       </>
-    }
+    )}
   </div>
 );
 

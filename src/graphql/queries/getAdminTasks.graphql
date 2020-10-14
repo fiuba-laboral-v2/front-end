@@ -1,11 +1,11 @@
 query GetAdminTasks(
-  $adminTaskTypes: [AdminTaskType]!,
-  $statuses: [ApprovalStatus]!,
+  $adminTaskTypes: [AdminTaskType]!
+  $statuses: [ApprovalStatus]!
   $updatedBeforeThan: PaginatedInput
 ) {
   getAdminTasks(
-    adminTaskTypes: $adminTaskTypes,
-    statuses: $statuses,
+    adminTaskTypes: $adminTaskTypes
+    statuses: $statuses
     updatedBeforeThan: $updatedBeforeThan
   ) {
     results {

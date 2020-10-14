@@ -6,19 +6,15 @@ import { Button } from "$components/Button";
 import { ICompany } from "$interfaces/Company";
 import { IProfileTranslations } from "./interface";
 
-export const Profile: FunctionComponent<IProfile> = (
-  {
-    company,
-    onClickEdit,
-    translations
-  }
-) => (
+export const Profile: FunctionComponent<IProfile> = ({ company, onClickEdit, translations }) => (
   <Window>
-    <Title/>
+    <Title />
     <CompanyDetail
       company={company}
       editButton={
-        <Button kind="primary" onClick={onClickEdit}>{translations.edit}</Button>
+        <Button kind="primary" onClick={onClickEdit}>
+          {translations.edit}
+        </Button>
       }
       withStatusLabel
     />

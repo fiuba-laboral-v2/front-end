@@ -8,7 +8,7 @@ export const ApplicantContainer: FunctionComponent = () => {
   const { uuid } = useParams();
   const response = useApplicantByUuid(uuid);
 
-  if (response.error || response.loading) return <LoadingSpinner/>;
+  if (response.error || response.loading) return <LoadingSpinner />;
 
-  return <Applicant applicant={response.data.getApplicant}/>;
+  return <Applicant applicant={response.data.getApplicant} />;
 };

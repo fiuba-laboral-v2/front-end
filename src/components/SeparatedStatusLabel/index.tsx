@@ -6,17 +6,15 @@ import { StatusLabel } from "$components/StatusLabel";
 import { LabelType } from "$components/Label";
 import classNames from "classnames";
 
-export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
-  {
-    styles,
-    type,
-    extensionApprovalStatus,
-    graduadosApprovalStatus,
-    targetApplicantType,
-    withStatusText = true,
-    className
-  }
-) => {
+export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
+  styles,
+  type,
+  extensionApprovalStatus,
+  graduadosApprovalStatus,
+  targetApplicantType,
+  withStatusText = true,
+  className
+}) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
     targetApplicantType,
     graduadosApprovalStatus,
@@ -26,8 +24,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
 
   return (
     <div className={classNames(styles.separatedStatusLabel, className)}>
-      {
-        extension &&
+      {extension && (
         <StatusLabel
           className={classNames(styles.statusMargin, {
             [styles.statusLabel]: extension
@@ -37,9 +34,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
           status={extension.status}
           type={type}
         />
-      }
-      {
-        graduados &&
+      )}
+      {graduados && (
         <StatusLabel
           className={classNames({
             [styles.statusLabel]: graduados
@@ -49,7 +45,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = (
           status={graduados.status}
           type={type}
         />
-      }
+      )}
     </div>
   );
 };

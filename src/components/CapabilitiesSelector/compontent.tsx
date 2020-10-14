@@ -5,12 +5,10 @@ import { identity } from "lodash";
 import { ICapabilitiesSelector } from "./interface";
 import { TextFormatter } from "$models/TextFormatter";
 
-export const CapabilitiesSelector: FunctionComponent<ICapabilitiesSelector> = (
-  {
-    options,
-    label
-  }
-) => (
+export const CapabilitiesSelector: FunctionComponent<ICapabilitiesSelector> = ({
+  options,
+  label
+}) => (
   <MultipleSearchSelector<ICapability, ICapability>
     name={"capabilities"}
     getOptionValue={identity}
@@ -18,9 +16,10 @@ export const CapabilitiesSelector: FunctionComponent<ICapabilitiesSelector> = (
     compareValuesBy={({ description }) => description.toLowerCase()}
     valueToString={({ description }) => TextFormatter.capitalize(description)}
     stringToValue={stringValue => ({ description: stringValue })}
-    options={options.map(({ uuid, description }) => (
-      { uuid, description: TextFormatter.capitalize(description) }
-    ))}
+    options={options.map(({ uuid, description }) => ({
+      uuid,
+      description: TextFormatter.capitalize(description)
+    }))}
     label={label}
   />
 );

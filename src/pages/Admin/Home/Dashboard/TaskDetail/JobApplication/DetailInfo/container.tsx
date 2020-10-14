@@ -7,13 +7,11 @@ import { JobApplicationDetailInfo } from "./component";
 import { UPDATE_JOB_APPLICATION_APPROVAL_STATUS } from "$mutations";
 import { JOB_APPLICATION } from "$typenames";
 
-export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProps> = (
-  {
-    refetchAdminTasks,
-    selectedJobApplication,
-    onStatusUpdate
-  }
-) => {
+export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProps> = ({
+  refetchAdminTasks,
+  selectedJobApplication,
+  onStatusUpdate
+}) => {
   const jobApplicationResponse = useJobApplicationByUuid(selectedJobApplication.uuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
@@ -33,12 +31,14 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
   };
   const jobApplication = jobApplicationResponse.data.getJobApplicationByUuid;
 
-  return <JobApplicationDetailInfo
-    loading={loading}
-    setStatus={setStatus}
-    currentStatus={jobApplication.approvalStatus}
-    jobApplication={jobApplication}
-  />;
+  return (
+    <JobApplicationDetailInfo
+      loading={loading}
+      setStatus={setStatus}
+      currentStatus={jobApplication.approvalStatus}
+      jobApplication={jobApplication}
+    />
+  );
 };
 
 interface IContainerProps {

@@ -3,7 +3,9 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 
 export const RemoveButton: FunctionComponent<IRemoveButtonProps> = ({ onClick, className }) => (
-  <span className={classNames(styles.remove, className)} onClick={onClick}>✕</span>
+  <span className={classNames(styles.remove, className)} onClick={onClick}>
+    ✕
+  </span>
 );
 
 interface IRemoveButtonProps {

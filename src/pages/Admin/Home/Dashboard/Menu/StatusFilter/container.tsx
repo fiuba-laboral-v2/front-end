@@ -8,14 +8,12 @@ import { StatusFilter } from "./component";
 import { ITypeFilterContainerProps, IStatusFilterTranslations } from "./interfaces";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export const StatusFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
-  {
-    statuses,
-    onFilterByStatus
-  }
-) => {
+export const StatusFilterContainer: FunctionComponent<ITypeFilterContainerProps> = ({
+  statuses,
+  onFilterByStatus
+}) => {
   const transactions = useTranslations<IStatusFilterTranslations>("statusFilterMenu");
-  if (!transactions) return <Fragment/>;
+  if (!transactions) return <Fragment />;
 
   const toggleStatus = (status: ApprovalStatus) => {
     if (statuses.includes(status)) return onFilterByStatus(without(statuses, status));
@@ -23,10 +21,6 @@ export const StatusFilterContainer: FunctionComponent<ITypeFilterContainerProps>
   };
 
   return (
-    <StatusFilter
-      translations={transactions}
-      statuses={statuses}
-      toggleStatus={toggleStatus}
-    />
+    <StatusFilter translations={transactions} statuses={statuses} toggleStatus={toggleStatus} />
   );
 };

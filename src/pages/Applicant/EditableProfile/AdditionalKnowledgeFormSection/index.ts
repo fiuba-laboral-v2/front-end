@@ -1,3 +1,1 @@
-export {
-  AdditionalKnowledgeFormSectionContainer as AdditionalKnowledgeFormSection
-} from "./container";
+export { AdditionalKnowledgeFormSectionContainer as AdditionalKnowledgeFormSection } from "./container";

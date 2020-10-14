@@ -6,14 +6,11 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export const useApplicantByUuid = (uuid?: string) => {
   const history = useHistory();
-  return useQuery<{}, { getApplicant: IApplicant }>(
-    GET_APPLICANT,
-    {
-      variables: { uuid },
-      errorHandlers: {
-        ApplicantNotFound: () => history.push(RoutesBuilder.public.notFound()),
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-      }
+  return useQuery<{}, { getApplicant: IApplicant }>(GET_APPLICANT, {
+    variables: { uuid },
+    errorHandlers: {
+      ApplicantNotFound: () => history.push(RoutesBuilder.public.notFound()),
+      defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  );
+  });
 };

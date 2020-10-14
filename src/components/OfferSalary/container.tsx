@@ -3,20 +3,12 @@ import { useTranslations } from "$hooks";
 import { OfferSalary } from "./component";
 import { IOfferSalaryContainerProps, IOfferSalaryTranslations } from "./interface";
 
-export const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = (
-  {
-    offer,
-    className
-  }
-) => {
+export const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps> = ({
+  offer,
+  className
+}) => {
   const translations = useTranslations<IOfferSalaryTranslations>("offerSalary");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return (
-    <OfferSalary
-      className={className}
-      translations={translations}
-      offer={offer}
-    />
-  );
+  return <OfferSalary className={className} translations={translations} offer={offer} />;
 };

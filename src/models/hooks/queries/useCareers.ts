@@ -6,12 +6,9 @@ import { ICareer } from "$interfaces/Career";
 
 export const useCareers = () => {
   const history = useHistory();
-  return useQuery<{}, { getCareers: ICareer[] }>(
-    GET_CAREERS,
-    {
-      errorHandlers: {
-        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-      }
+  return useQuery<{}, { getCareers: ICareer[] }>(GET_CAREERS, {
+    errorHandlers: {
+      defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  );
+  });
 };

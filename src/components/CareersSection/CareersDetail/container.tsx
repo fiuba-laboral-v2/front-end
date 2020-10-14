@@ -4,20 +4,17 @@ import { useTranslations } from "$hooks";
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { ITranslations } from "./interfaces";
 
-export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> = (
-  {
-    careers,
-    className,
-    regularFontWeight,
-    withSubjects
-  }
-) => {
+export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> = ({
+  careers,
+  className,
+  regularFontWeight,
+  withSubjects
+}) => {
   const translations = useTranslations<ITranslations>("careersDetail");
 
   return (
     <>
-      {
-        translations &&
+      {translations && (
         <CareersDetail
           careers={careers}
           className={className}
@@ -25,7 +22,7 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
           translations={translations}
           withSubjects={withSubjects}
         />
-      }
+      )}
     </>
   );
 };

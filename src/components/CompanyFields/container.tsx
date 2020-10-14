@@ -9,7 +9,5 @@ export const CompanyFieldsContainer: FunctionComponent<ICompanyFieldsContainerPr
   const translations = useTranslations<ICompanyFieldsTranslations>("companyFields");
   if (!translations) return <LoadingSpinner />;
 
-  return (
-    <CompanyFields translations={translations} {...props}/>
-  );
+  return <CompanyFields translations={translations} {...props} />;
 };

@@ -16,40 +16,26 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     updatedAt,
     graduadosApprovalStatus,
     extensionApprovalStatus,
-    company: {
-      companyName
-    },
+    company: { companyName },
     careers
   }
 }) => (
   <>
-    <p className={styles.text}>
-      {companyName}
-    </p>
+    <p className={styles.text}>{companyName}</p>
     <div className={styles.container}>
-      <p className={styles.text}>
-        {title}
-      </p>
+      <p className={styles.text}>{title}</p>
     </div>
-    <p className={styles.text}>
-      {hoursPerDay}
-    </p>
+    <p className={styles.text}>{hoursPerDay}</p>
     <div className={styles.salary}>
-      <p className={styles.text}>
-        {`Max: ${maximumSalary}`}
-      </p>
-      <p className={styles.text}>
-        {`Min: ${minimumSalary}`}
-      </p>
+      <p className={styles.text}>{`Max: ${maximumSalary}`}</p>
+      <p className={styles.text}>{`Min: ${minimumSalary}`}</p>
     </div>
     <div className={styles.careersContainer}>
-    { careers ?
-      <CareerList
-        className={styles.careers}
-        careers={careers}
-        shorten={true}
-      /> : <p></p>
-    }
+      {careers ? (
+        <CareerList className={styles.careers} careers={careers} shorten={true} />
+      ) : (
+        <p></p>
+      )}
     </div>
     <TargetApplicantType targetApplicantType={targetApplicantType} className={styles.text} />
     <div className={styles.container}>
@@ -62,9 +48,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
         extensionApprovalStatus={extensionApprovalStatus}
       />
     </div>
-    <div className={styles.text}>
-      {TimeFormatter.dateTime(updatedAt)}
-    </div>
+    <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
   </>
 );
 

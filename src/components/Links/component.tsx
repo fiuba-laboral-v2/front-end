@@ -6,20 +6,20 @@ import classNames from "classnames";
 import shortid from "shortid";
 
 const Links: FunctionComponent<ILinksProps> = ({ links, className }) => {
-  if (links.length === 0) return <Fragment/>;
+  if (links.length === 0) return <Fragment />;
 
   return (
     <div className={classNames(styles.links, className)}>
-      {
-        links.map(({ uuid = shortid.generate(), url, name }) =>
-          <div key={uuid} className={styles.link}>
-            <Subtitle>
-              <a target="_blank" rel="noopener noreferrer" href={url}>{name}</a>
-            </Subtitle>
-            <span className={styles.divider}> — </span>
-          </div>
-        )
-      }
+      {links.map(({ uuid = shortid.generate(), url, name }) => (
+        <div key={uuid} className={styles.link}>
+          <Subtitle>
+            <a target="_blank" rel="noopener noreferrer" href={url}>
+              {name}
+            </a>
+          </Subtitle>
+          <span className={styles.divider}> — </span>
+        </div>
+      ))}
     </div>
   );
 };

@@ -11,13 +11,11 @@ import { UPDATE_COMPANY_APPROVAL_STATUS } from "$mutations";
 
 import { CompanyDetailInfo } from "./component";
 
-const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  {
-    selectedCompany,
-    onStatusUpdate,
-    refetchAdminTasks
-  }
-) => {
+const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
+  selectedCompany,
+  onStatusUpdate,
+  refetchAdminTasks
+}) => {
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -37,7 +35,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   const company = response.data.getCompanyByUuid;
 
-  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company}/>;
+  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company} />;
 };
 
 interface ICompanyDetailInfoContainerProps {

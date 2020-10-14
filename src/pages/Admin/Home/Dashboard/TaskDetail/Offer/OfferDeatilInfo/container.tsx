@@ -7,15 +7,17 @@ import { OfferDetailInfo } from "./component";
 import { UPDATE_OFFER_APPROVAL_STATUS } from "$mutations";
 import { OFFER } from "$typenames";
 
-export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContainerProps> = (
-  {
-    refetchAdminTasks,
-    selectedOffer,
-    onStatusUpdate
-  }
-) => {
+export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContainerProps> = ({
+  refetchAdminTasks,
+  selectedOffer,
+  onStatusUpdate
+}) => {
   const response = useCompanyOfferByUuid(selectedOffer.uuid);
-  const { error, loading, data: { approvalStatusAttribute } } = useAdminApprovalStatusAttribute();
+  const {
+    error,
+    loading,
+    data: { approvalStatusAttribute }
+  } = useAdminApprovalStatusAttribute();
   const { updateAdminTaskStatus, loading: loadingUpdateStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_OFFER_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -23,8 +25,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
     approvalStatusAttribute
   });
 
-  if (response.error || response.loading ||
-    error || loading) return <Fragment />;
+  if (response.error || response.loading || error || loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -42,7 +43,8 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
       setStatus={setStatus}
       offer={offer}
       currentStatus={offer[approvalStatusAttribute]}
-    />);
+    />
+  );
 };
 
 interface IOfferDetailInfoContainerProps {

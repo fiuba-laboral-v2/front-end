@@ -1,31 +1,31 @@
 query getOfferForApplicant($uuid: ID!) {
-    getOfferByUuid(uuid: $uuid) {
-        uuid
-        title
-        description
-        hoursPerDay
-        minimumSalary
-        maximumSalary
-        targetApplicantType
-        extensionApprovalStatus
-        graduadosApprovalStatus
-        createdAt
-        updatedAt
-        hasApplied
-        sections {
-            uuid
-            title
-            text
-            displayOrder
-        }
-        careers {
-            code
-            description
-        }
-        company {
-            uuid
-            companyName
-            logo
-        }
+  getOfferByUuid(uuid: $uuid) {
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    targetApplicantType
+    extensionApprovalStatus
+    graduadosApprovalStatus
+    createdAt
+    updatedAt
+    hasApplied
+    sections {
+      uuid
+      title
+      text
+      displayOrder
     }
+    careers {
+      code
+      description
+    }
+    company {
+      uuid
+      companyName
+      logo
+    }
+  }
 }

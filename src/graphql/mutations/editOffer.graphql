@@ -1,28 +1,28 @@
-mutation editOffer (
+mutation editOffer(
   $uuid: ID!
-  $title: String!,
-  $description: String!,
+  $title: String!
+  $description: String!
   $targetApplicantType: ApplicantType!
-  $hoursPerDay: Int!,
-  $minimumSalary: Int!,
+  $hoursPerDay: Int!
+  $minimumSalary: Int!
   $maximumSalary: Int!
 ) {
   editOffer(
-    uuid: $uuid,
-    title: $title,
-    description: $description,
-    targetApplicantType: $targetApplicantType,
-    hoursPerDay: $hoursPerDay,
-    minimumSalary: $minimumSalary,
+    uuid: $uuid
+    title: $title
+    description: $description
+    targetApplicantType: $targetApplicantType
+    hoursPerDay: $hoursPerDay
+    minimumSalary: $minimumSalary
     maximumSalary: $maximumSalary
   ) {
-      uuid
-      title
-      description
-      hoursPerDay
-      minimumSalary
-      maximumSalary
-      createdAt
-      updatedAt
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    createdAt
+    updatedAt
   }
 }

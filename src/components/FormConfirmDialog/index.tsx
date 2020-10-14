@@ -9,25 +9,21 @@ import {
 import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 
-export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = (
-  { isOpen, onClose, onConfirm, translations }
-) => (
+export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  translations
+}) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
-      <span className={styles.title}>
-        {translations.confirmDialogTitle}
-      </span>
+      <span className={styles.title}>{translations.confirmDialogTitle}</span>
     </DialogTitle>
     <DialogContent>
-      <DialogContentText>
-        {translations.confirmDialogDescription}
-      </DialogContentText>
+      <DialogContentText>{translations.confirmDialogDescription}</DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button
-        onClick={onClose}
-        kind="secondary"
-      >
+      <Button onClick={onClose} kind="secondary">
         {translations.confirmDialogCancel}
       </Button>
       <Button

@@ -13,15 +13,12 @@ export interface ISaveCompanyErrorHandlers<T> {
   enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
 }
 
-export const saveCompanyErrorHandlers = (
-  {
-    setErrors,
-    enqueueSnackbar
-  }: ISaveCompanyErrorHandlers<ISaveCompanyErrorHandlersErrors>
-) =>
+export const saveCompanyErrorHandlers = ({
+  setErrors,
+  enqueueSnackbar
+}: ISaveCompanyErrorHandlers<ISaveCompanyErrorHandlersErrors>) =>
   formErrorHandlers({ enqueueSnackbar })({
-    CompanyCuitAlreadyExistsError: handleValidationError(
-      { enqueueSnackbar },
-      () => setErrors({ cuit: "Este cuit ya existe" })
+    CompanyCuitAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+      setErrors({ cuit: "Este cuit ya existe" })
     )
   });

@@ -6,19 +6,17 @@ import { PaginationButton } from "$components/PaginationButton";
 
 import styles from "./styles.module.scss";
 
-export const ListContent: FunctionComponent<IListContentProps> = (
-  {
-    items,
-    rowClassName,
-    loading,
-    shouldFetchMore,
-    fetchMore,
-    children
-  }
-) => (
+export const ListContent: FunctionComponent<IListContentProps> = ({
+  items,
+  rowClassName,
+  loading,
+  shouldFetchMore,
+  fetchMore,
+  children
+}) => (
   <>
     <Row items={items} className={rowClassName}>
-      { children as (item: Listable) => ReactNode }
+      {children as (item: Listable) => ReactNode}
     </Row>
     <PaginationButton
       shouldFetchMore={shouldFetchMore}

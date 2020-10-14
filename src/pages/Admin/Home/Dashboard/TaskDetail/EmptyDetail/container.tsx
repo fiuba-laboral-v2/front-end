@@ -6,7 +6,7 @@ import { IEmptyDetailTranslations } from "./interfaces";
 
 export const EmptyDetailContainer: FunctionComponent = () => {
   const translations = useTranslations<IEmptyDetailTranslations>("adminEmptyDetail");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
   return <EmptyDetail translations={translations} />;
 };

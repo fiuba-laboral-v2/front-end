@@ -4,36 +4,32 @@ import { StudentCareerDetail } from "../StudentCareerDetail";
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { ITranslations } from "./interfaces";
 
-export const CareersDetail: FunctionComponent<ICareersDetail> = (
-  {
-    careers,
-    translations,
-    className,
-    regularFontWeight,
-    withSubjects
-  }
-) => (
+export const CareersDetail: FunctionComponent<ICareersDetail> = ({
+  careers,
+  translations,
+  className,
+  regularFontWeight,
+  withSubjects
+}) => (
   <>
-    {
-      careers?.map(applicantCareer =>
-        <div key={applicantCareer.career.code} className={className}>
-          {applicantCareer.isGraduate ?
-            <GraduateCareerDetail
-              applicantCareer={applicantCareer}
-              regularFontWeight={regularFontWeight}
-              translations={translations}
-            />
-            :
-            <StudentCareerDetail
-              applicantCareer={applicantCareer}
-              regularFontWeight={regularFontWeight}
-              translations={translations}
-              withSubjects={withSubjects}
-            />
-          }
-        </div>
-      )
-    }
+    {careers?.map(applicantCareer => (
+      <div key={applicantCareer.career.code} className={className}>
+        {applicantCareer.isGraduate ? (
+          <GraduateCareerDetail
+            applicantCareer={applicantCareer}
+            regularFontWeight={regularFontWeight}
+            translations={translations}
+          />
+        ) : (
+          <StudentCareerDetail
+            applicantCareer={applicantCareer}
+            regularFontWeight={regularFontWeight}
+            translations={translations}
+            withSubjects={withSubjects}
+          />
+        )}
+      </div>
+    ))}
   </>
 );
 

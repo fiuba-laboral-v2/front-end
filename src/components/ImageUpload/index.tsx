@@ -3,17 +3,15 @@ import ImageUploading from "react-images-uploading";
 
 const MAX_MB_FILE_SIZE = 5;
 
-export const ImageUpload: FunctionComponent<IImageUploadProps> = (
-  {
-    defaultValue,
-    onChange,
-    maxNumber,
-    maxFileSize = MAX_MB_FILE_SIZE,
-    multiple,
-    acceptType,
-    children
-  }
-) => (
+export const ImageUpload: FunctionComponent<IImageUploadProps> = ({
+  defaultValue,
+  onChange,
+  maxNumber,
+  maxFileSize = MAX_MB_FILE_SIZE,
+  multiple,
+  acceptType,
+  children
+}) => (
   <ImageUploading
     defaultValue={defaultValue}
     onChange={onChange}

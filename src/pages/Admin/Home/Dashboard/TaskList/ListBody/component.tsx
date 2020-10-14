@@ -5,16 +5,14 @@ import { AdminTask } from "../AdminTask";
 import { List } from "$components/List";
 import styles from "./styles.module.scss";
 
-export const ListBody: FunctionComponent<IListBodyProps> = (
-  {
-    loading,
-    adminTasks,
-    onSelectTask,
-    selectedTask,
-    fetchMore,
-    shouldFetchMore
-  }
-) => (
+export const ListBody: FunctionComponent<IListBodyProps> = ({
+  loading,
+  adminTasks,
+  onSelectTask,
+  selectedTask,
+  fetchMore,
+  shouldFetchMore
+}) => (
   <List
     list={adminTasks}
     fetchMoreClassName={styles.fetchMore}
@@ -22,16 +20,16 @@ export const ListBody: FunctionComponent<IListBodyProps> = (
     shouldFetchMore={shouldFetchMore}
     loading={loading}
   >
-    {adminTask =>
+    {adminTask => (
       <Card
         key={adminTask.uuid}
         className={styles.card}
         onClick={() => onSelectTask(adminTask)}
         selected={adminTask.uuid === selectedTask?.uuid}
       >
-        <AdminTask adminTask={adminTask}/>
+        <AdminTask adminTask={adminTask} />
       </Card>
-    }
+    )}
   </List>
 );
 

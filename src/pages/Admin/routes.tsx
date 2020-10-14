@@ -6,14 +6,7 @@ import { Offers } from "./Offers";
 import { JobApplications } from "./JobApplications";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-const {
-  admins,
-  applicants,
-  companies,
-  home,
-  offers,
-  jobApplications
-} = RoutesBuilder.admin;
+const { admins, applicants, companies, home, offers, jobApplications } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
   { path: admins(), component: Admins },

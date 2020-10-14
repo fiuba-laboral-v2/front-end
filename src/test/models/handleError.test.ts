@@ -45,13 +45,10 @@ describe("handleError", () => {
     const error = createError([{ errorType: "BadCredentialsError" }]);
     const defaultErrorCallback = jest.fn();
     const badCredentialsErrorCallback = jest.fn();
-    handleError(
-      error,
-      {
-        BadCredentialsError: badCredentialsErrorCallback,
-        defaultHandler: defaultErrorCallback
-      }
-      );
+    handleError(error, {
+      BadCredentialsError: badCredentialsErrorCallback,
+      defaultHandler: defaultErrorCallback
+    });
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(1);
     expect(defaultErrorCallback.mock.calls.length).toBe(0);
   });
@@ -61,55 +58,42 @@ describe("handleError", () => {
     const defaultErrorCallback = jest.fn();
     const badCredentialsErrorCallback = jest.fn();
     const userEmailAlreadyExistsErrorCallback = jest.fn();
-    handleError(
-      error,
-      {
-        UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
-        BadCredentialsError: badCredentialsErrorCallback,
-        defaultHandler: defaultErrorCallback
-      }
-    );
+    handleError(error, {
+      UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
+      BadCredentialsError: badCredentialsErrorCallback,
+      defaultHandler: defaultErrorCallback
+    });
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(0);
     expect(defaultErrorCallback.mock.calls.length).toBe(0);
   });
 
   it("should execute the UserEmailAlreadyExistsError and BadCredentialsError", () => {
-    const error = createError(
-      [
-        { errorType: "UserEmailAlreadyExistsError" },
-        { errorType: "BadCredentialsError" }
-      ]
-    );
+    const error = createError([
+      { errorType: "UserEmailAlreadyExistsError" },
+      { errorType: "BadCredentialsError" }
+    ]);
     const badCredentialsErrorCallback = jest.fn();
     const userEmailAlreadyExistsErrorCallback = jest.fn();
-    handleError(
-      error,
-      {
-        UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
-        BadCredentialsError: badCredentialsErrorCallback
-      }
-    );
+    handleError(error, {
+      UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
+      BadCredentialsError: badCredentialsErrorCallback
+    });
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
     expect(badCredentialsErrorCallback.mock.calls.length).toBe(1);
   });
 
   it("should execute the UserEmailAlreadyExistsError and defaultHandler", () => {
-    const error = createError(
-      [
-        { errorType: "UserEmailAlreadyExistsError" },
-        { errorType: "UnknownError" }
-      ]
-    );
+    const error = createError([
+      { errorType: "UserEmailAlreadyExistsError" },
+      { errorType: "UnknownError" }
+    ]);
     const defaultErrorCallback = jest.fn();
     const userEmailAlreadyExistsErrorCallback = jest.fn();
-    handleError(
-      error,
-      {
-        UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
-        defaultHandler: defaultErrorCallback
-      }
-    );
+    handleError(error, {
+      UserEmailAlreadyExistsError: userEmailAlreadyExistsErrorCallback,
+      defaultHandler: defaultErrorCallback
+    });
     expect(userEmailAlreadyExistsErrorCallback.mock.calls.length).toBe(1);
     expect(defaultErrorCallback.mock.calls.length).toBe(1);
   });

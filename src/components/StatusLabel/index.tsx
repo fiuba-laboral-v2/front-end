@@ -5,25 +5,11 @@ import { PendingLabel } from "./PendingLabel";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
-export const StatusLabel: FunctionComponent<IStatusLabelProps> = (
-  {
-    status,
-    ...props
-  }
-) => (
+export const StatusLabel: FunctionComponent<IStatusLabelProps> = ({ status, ...props }) => (
   <>
-    {
-      status === ApprovalStatus.approved &&
-      <ApprovedLabel {...props} />
-    }
-    {
-      status === ApprovalStatus.rejected &&
-      <RejectedLabel {...props} />
-    }
-    {
-      status === ApprovalStatus.pending &&
-      <PendingLabel {...props} />
-    }
+    {status === ApprovalStatus.approved && <ApprovedLabel {...props} />}
+    {status === ApprovalStatus.rejected && <RejectedLabel {...props} />}
+    {status === ApprovalStatus.pending && <PendingLabel {...props} />}
   </>
 );
 

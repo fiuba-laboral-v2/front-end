@@ -13,8 +13,7 @@ const expectToThrowCheckErrorForRoutes = (
   currentUser: TCurrentUser,
   routes: Array<() => string>,
   error: object
-) =>
-  routes.forEach(route => expect(() => Permissions.check(currentUser, route())).toThrow(error));
+) => routes.forEach(route => expect(() => Permissions.check(currentUser, route())).toThrow(error));
 
 describe("Permissions", () => {
   const userAttributes = {
@@ -35,13 +34,14 @@ describe("Permissions", () => {
       jobApplications,
       applicantDetail
     } = RoutesBuilder.company;
-    const createCurrentCompanyUser = (status: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      company: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus: status
-      }
-    });
+    const createCurrentCompanyUser = (status: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        company: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus: status
+        }
+      });
 
     describe("check", () => {
       it("does not throw error if status is pending for myProfile route", () => {
@@ -154,13 +154,14 @@ describe("Permissions", () => {
       companyProfile
     } = RoutesBuilder.applicant;
 
-    const createCurrentApplicantUser = (status: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      applicant: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus: status
-      }
-    });
+    const createCurrentApplicantUser = (status: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        applicant: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus: status
+        }
+      });
 
     describe("check", () => {
       it("does not throw error if status is pending for myProfile route", () => {

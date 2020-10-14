@@ -5,17 +5,15 @@ import classNames from "classnames";
 import { TextField } from "@material-ui/core";
 import { IBaseProps, IValidatorProps } from "./interfaces";
 
-export const NumberInput: FunctionComponent<NumberInputProps> = (
-  {
-    name,
-    label,
-    helperText,
-    className,
-    validate,
-    fast = true,
-    withoutMargin = false
-  }
-) => {
+export const NumberInput: FunctionComponent<NumberInputProps> = ({
+  name,
+  label,
+  helperText,
+  className,
+  validate,
+  fast = true,
+  withoutMargin = false
+}) => {
   const fieldProps = {
     name,
     validate,
@@ -31,11 +29,9 @@ export const NumberInput: FunctionComponent<NumberInputProps> = (
       return (
         <TextField
           label={label}
-          className={classNames(
-            styles.textInput,
-            className,
-            { [styles.withoutMargin]: withoutMargin }
-          )}
+          className={classNames(styles.textInput, className, {
+            [styles.withoutMargin]: withoutMargin
+          })}
           defaultValue={isNaN(meta.value) ? "" : meta.value.toString(10)}
           onBlur={() => form.setFieldTouched(name, true)}
           onFocus={event => setFormValue(event.target.value)}
@@ -47,7 +43,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = (
       );
     }
   };
-  return fast ? <FastField {...fieldProps}/> : <Field {...fieldProps}/>;
+  return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
 export type NumberInputProps = IBaseProps & IValidatorProps;

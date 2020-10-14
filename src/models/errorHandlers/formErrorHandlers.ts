@@ -7,9 +7,10 @@ export interface IFormErrorHandlers {
   enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
 }
 
-export const formErrorHandlers = ({ enqueueSnackbar }: IFormErrorHandlers) =>
-  (handlers?: ErrorHandlers) => ({
-    ValidationError: handleValidationError({ enqueueSnackbar }),
-    defaultHandler: handleGenericError({ enqueueSnackbar }),
-    ...handlers
-  });
+export const formErrorHandlers = ({ enqueueSnackbar }: IFormErrorHandlers) => (
+  handlers?: ErrorHandlers
+) => ({
+  ValidationError: handleValidationError({ enqueueSnackbar }),
+  defaultHandler: handleGenericError({ enqueueSnackbar }),
+  ...handlers
+});

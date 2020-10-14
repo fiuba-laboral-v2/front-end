@@ -5,14 +5,12 @@ import { Window } from "$components/Window";
 import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
 
-export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
-  {
-    jobApplications,
-    fetchMore,
-    shouldFetchMore,
-    loading
-  }
-) => (
+export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
+  jobApplications,
+  fetchMore,
+  shouldFetchMore,
+  loading
+}) => (
   <Window>
     <List
       list={jobApplications}
@@ -21,13 +19,13 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = (
       shouldFetchMore={shouldFetchMore}
       loading={loading}
     >
-      {jobApplication =>
+      {jobApplication => (
         <JobApplication
           className={styles.card}
           key={jobApplication.uuid}
           jobApplication={jobApplication}
         />
-      }
+      )}
     </List>
   </Window>
 );

@@ -15,9 +15,9 @@ export const NavBarContainer: FunctionComponent = () => {
   const currentUserResponse = useCurrentUser();
   const { logout } = useLogout();
 
-  if (!translations || currentUserResponse.loading) return <Fragment/>;
+  if (!translations || currentUserResponse.loading) return <Fragment />;
   if (currentUserResponse.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
 
   const currentUser = currentUserResponse.data.getCurrentUser;

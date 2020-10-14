@@ -54,8 +54,9 @@ type MutationFunctionResult<TData, TVariables> = (
   options?: IMutationOptions<TData, TVariables>
 ) => Promise<UseMutationResult<TData>>;
 
-type MutationFunction<TData, TVariables> =
-  (options?: MutationFunctionOptions<TData, TVariables>) => Promise<UseMutationResult<TData>>;
+type MutationFunction<TData, TVariables> = (
+  options?: MutationFunctionOptions<TData, TVariables>
+) => Promise<UseMutationResult<TData>>;
 
 type MutationTuple<TData, TVariables> = [
   MutationFunction<TData, TVariables>,

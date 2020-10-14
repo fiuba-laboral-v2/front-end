@@ -5,7 +5,7 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export const Applicant: FunctionComponent<IApplicantProps> = ({ applicant }) => (
   <Window>
-    <ApplicantDetail applicant={applicant}/>
+    <ApplicantDetail applicant={applicant} />
   </Window>
 );
 
