@@ -11,7 +11,7 @@
     "@apollo/client": "3.1.4",
     "@material-ui/core": "4.9.0",
     "@material-ui/icons": "4.5.1",
-    "@material-ui/lab": "^4.0.0-alpha.46",
+    "@material-ui/lab": "4.0.0-alpha.46",
     "@testing-library/dom": "6.11.0",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.3.2",
@@ -93,13 +93,13 @@
     }
   },
   "devDependencies": {
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "3.1.4",
     "prettier": "2.1.2",
     "stylelint": "13.3.3",
     "stylelint-config-sass-guidelines": "7.0.0",
     "stylelint-config-standard": "20.0.0",
     "tslint-config-fiuba-laboral-v2": "1.0.9",
-    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-prettier": "1.18.0",
     "tslint-react-hooks": "2.2.1"
   },
   "_moduleAliases": {
