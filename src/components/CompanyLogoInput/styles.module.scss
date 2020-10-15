@@ -1,10 +1,19 @@
-@import "$styles/mixins/_text";
 @import "$styles/_variables";
 
-.text {
-  @include text;
+.inputContainer {
+  display: block;
+  position: relative;
+}
 
-  color: $black;
+.inputContainer,
+.overlay {
+  border-radius: 0.11 * 140px;
+  height: 140px;
+  width: 140px;
+}
+
+.uploadLogo {
+  color: $selectedColor;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -12,17 +21,25 @@
   visibility: hidden;
 }
 
-.dropzone {
+.logo {
+  position: absolute;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
   cursor: pointer;
-  position: relative;
+  display: none;
+  position: absolute;
   user-select: none;
+  z-index: 1;
+}
 
-  &:hover {
-    opacity: 50%;
-    transition: opacity 0.3s ease-out;
+.inputContainer:hover {
+  .overlay {
+    display: block;
+  }
 
-    .text {
-      visibility: visible;
-    }
+  .uploadLogo {
+    visibility: visible;
   }
 }
