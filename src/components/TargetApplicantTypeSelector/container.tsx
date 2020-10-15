@@ -5,6 +5,6 @@ import { IContainerProps, ITranslations } from "./interfaces";
 
 export const TargetApplicantTypeSelectorContainer: FunctionComponent<IContainerProps> = props => {
   const translations = useTranslations<ITranslations>("targetApplicantTypeSelector");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
   return <TargetApplicantTypeSelector translations={translations} {...props} />;
 };

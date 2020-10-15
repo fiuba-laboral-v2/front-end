@@ -7,13 +7,7 @@ import { IMyOffer } from "$interfaces/Applicant";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import styles from "./styles.module.scss";
 
-export const OfferDetail: FunctionComponent<IOfferDetail> = (
-  {
-    offer,
-    apply,
-    translations
-  }
-) => {
+export const OfferDetail: FunctionComponent<IOfferDetail> = ({ offer, apply, translations }) => {
   return (
     <Window>
       <Detail

@@ -39,7 +39,7 @@ export interface IJobApplicationAdminTask {
 }
 
 export type TAdminTask =
-  ICompanyAdminTask
+  | ICompanyAdminTask
   | IApplicantAdminTask
   | IOfferAdminTask
   | IJobApplicationAdminTask;

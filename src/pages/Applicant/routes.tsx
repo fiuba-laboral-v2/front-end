@@ -23,8 +23,7 @@ const {
 export const ApplicantRoutes = [
   {
     path: offerList(),
-    component: (props: { location: Location }) =>
-      <Home searchQuery={props.location.search}/>
+    component: (props: { location: Location }) => <Home searchQuery={props.location.search} />
   },
   { path: list(), component: List },
   { path: signUp(), component: SignUp, public: true },

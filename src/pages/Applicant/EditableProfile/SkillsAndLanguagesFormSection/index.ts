@@ -1,3 +1,1 @@
-export {
-  SkillsAndLanguagesFormSectionContainer as SkillsAndLanguagesFormSection
-} from "./container";
+export { SkillsAndLanguagesFormSectionContainer as SkillsAndLanguagesFormSection } from "./container";

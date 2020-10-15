@@ -11,8 +11,8 @@ import styles from "./styles.module.scss";
 
 export const OfferInfo: FunctionComponent<IOfferInfoProps> = ({ offer, className }) => (
   <div className={classNames(styles.mainContainer, className)}>
-    <OfferCareers className={styles.careers} offer={offer}/>
-    <OfferWorkload className={styles.hours} offer={offer}/>
+    <OfferCareers className={styles.careers} offer={offer} />
+    <OfferWorkload className={styles.hours} offer={offer} />
     <OfferSalary className={styles.salary} offer={offer} />
     <OfferTargetApplicantType offer={offer} />
   </div>

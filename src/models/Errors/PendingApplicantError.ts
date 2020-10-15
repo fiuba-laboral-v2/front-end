@@ -1,2 +1,1 @@
-export class PendingApplicantError extends Error {
-}
+export class PendingApplicantError extends Error {}

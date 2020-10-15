@@ -11,12 +11,14 @@ describe("saveApplicantArguments", () => {
         password: "password"
       },
       padron: 98544,
-      careers: [{
-        isGraduate: false,
-        careerCode: "10",
-        approvedSubjectCount: 35,
-        currentCareerYear: 5
-      }]
+      careers: [
+        {
+          isGraduate: false,
+          careerCode: "10",
+          approvedSubjectCount: 35,
+          currentCareerYear: 5
+        }
+      ]
     };
     const variables = saveApplicantArguments({ ...inputVariables });
     expect(variables).toEqual(inputVariables);
@@ -34,23 +36,27 @@ describe("saveApplicantArguments", () => {
         password: "password"
       },
       padron: 98544,
-      careers: [{
-        isGraduate: true,
-        careerCode: "10",
-        approvedSubjectCount: 35,
-        currentCareerYear: 5
-      }]
+      careers: [
+        {
+          isGraduate: true,
+          careerCode: "10",
+          approvedSubjectCount: 35,
+          currentCareerYear: 5
+        }
+      ]
     };
     const variables = saveApplicantArguments(inputVariables);
     expect(variables).toEqual({
       user: { name, surname },
       ...inputVariables,
-      careers: [{
-        isGraduate: true,
-        careerCode: "10",
-        approvedSubjectCount: undefined,
-        currentCareerYear: undefined
-      }]
+      careers: [
+        {
+          isGraduate: true,
+          careerCode: "10",
+          approvedSubjectCount: undefined,
+          currentCareerYear: undefined
+        }
+      ]
     });
   });
 });

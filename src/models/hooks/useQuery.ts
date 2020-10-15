@@ -8,8 +8,7 @@ import {
 import { DocumentNode } from "graphql";
 import { ErrorHandlers, handleError } from "$models/handleError";
 
-export type UseQueryResult<TVariables, TData> =
-  QueryResult<TData, TVariables> &
+export type UseQueryResult<TVariables, TData> = QueryResult<TData, TVariables> &
   (ILoadingQuery | IErroredQuery | ISuccessfulQuery<TVariables, TData>);
 
 type ILoadingQuery = {
@@ -42,15 +41,13 @@ export const useQuery = <TVariables = {}, TData = {}>(
   options?: IQueryOptions<TData, TVariables>
 ) => {
   const { errorHandlers, ...apolloOptions } = options || { errorHandlers: {} };
-  const {
-    data, error, loading, refetch, fetchMore
-  } = apolloUseQuery<TData, TVariables>(node, { ...defaultApolloOptions, ...apolloOptions });
-  useEffect(
-    () => {
-      if (error) handleError(error, errorHandlers);
-    },
-    [error, errorHandlers]
-  );
+  const { data, error, loading, refetch, fetchMore } = apolloUseQuery<TData, TVariables>(node, {
+    ...defaultApolloOptions,
+    ...apolloOptions
+  });
+  useEffect(() => {
+    if (error) handleError(error, errorHandlers);
+  }, [error, errorHandlers]);
 
   return { data, error, loading, refetch, fetchMore } as UseQueryResult<TVariables, TData>;
 };

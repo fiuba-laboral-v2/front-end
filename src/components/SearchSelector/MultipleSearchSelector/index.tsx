@@ -9,20 +9,18 @@ import { TextFormatter } from "$models/TextFormatter";
 
 import styles from "./styles.module.scss";
 
-export const MultipleSearchSelector = <Option, Value>(
-  {
-    name,
-    validate,
-    getOptionValue,
-    stringToValue,
-    valueToString,
-    compareValuesBy,
-    options,
-    initialValue,
-    getOptionLabel,
-    ...props
-  }: IMultipleSelectorProps<Option, Value>
-) => {
+export const MultipleSearchSelector = <Option, Value>({
+  name,
+  validate,
+  getOptionValue,
+  stringToValue,
+  valueToString,
+  compareValuesBy,
+  options,
+  initialValue,
+  getOptionLabel,
+  ...props
+}: IMultipleSelectorProps<Option, Value>) => {
   const [inputValue, setInputValue] = useState("");
 
   return (
@@ -51,16 +49,15 @@ export const MultipleSearchSelector = <Option, Value>(
             onKeyPress={event => {
               if (event.key !== "Enter") return;
               event.preventDefault();
-              const selectedOption = options.find(option =>
-                compareValuesBy(getOptionValue(option)) ===
-                compareValuesBy(stringToValue(inputValue))
+              const selectedOption = options.find(
+                option =>
+                  compareValuesBy(getOptionValue(option)) ===
+                  compareValuesBy(stringToValue(inputValue))
               );
-              const selectedValue = selectedOption ?
-                getOptionValue(selectedOption) : stringToValue(inputValue);
-              form.setFieldValue(
-                name,
-                unionBy(meta.value, [selectedValue], compareValuesBy)
-              );
+              const selectedValue = selectedOption
+                ? getOptionValue(selectedOption)
+                : stringToValue(inputValue);
+              form.setFieldValue(name, unionBy(meta.value, [selectedValue], compareValuesBy));
               setInputValue("");
             }}
           />

@@ -5,5 +5,5 @@ import { IDesktopOnlyOverlayTranslations } from "./interface";
 
 export const DesktopOnlyOverlayContainer: FunctionComponent = () => {
   const translations = useTranslations<IDesktopOnlyOverlayTranslations>("desktopOnlyOverlay");
-  return <DesktopOnlyOverlay translations={translations}/>;
+  return <DesktopOnlyOverlay translations={translations} />;
 };

@@ -14,7 +14,7 @@ interface ITranslationMapperParams {
   getTranslations: ITranslation[] | undefined;
 }
 
-const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): T | undefined => {
+const translationMapper = <T>({ getTranslations }: ITranslationMapperParams): T | undefined => {
   const translations: any = {};
   if (getTranslations) {
     for (const { key, value } of getTranslations) {
@@ -25,7 +25,7 @@ const translationMapper = <T, >({ getTranslations }: ITranslationMapperParams): 
   }
 };
 
-export const useTranslations = <T, >(translationGroup: string) => {
+export const useTranslations = <T>(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
   const { data } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(

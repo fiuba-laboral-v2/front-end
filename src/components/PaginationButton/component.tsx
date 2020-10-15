@@ -6,22 +6,16 @@ import { IPaginationButtonProps } from "./interface";
 
 import styles from "./styles.module.scss";
 
-export const PaginationButton = (
-  {
-    className,
-    shouldFetchMore,
-    fetchMore,
-    translations,
-    loading
-  }: IPaginationButtonProps
-) => (
+export const PaginationButton = ({
+  className,
+  shouldFetchMore,
+  fetchMore,
+  translations,
+  loading
+}: IPaginationButtonProps) => (
   <>
-    {
-      loading &&
-      <LoadingSpinner/>
-    }
-    {
-      shouldFetchMore && fetchMore && !loading &&
+    {loading && <LoadingSpinner />}
+    {shouldFetchMore && fetchMore && !loading && (
       <Button
         kind="primary"
         onClick={fetchMore}
@@ -29,6 +23,6 @@ export const PaginationButton = (
       >
         {translations.fetchMore}
       </Button>
-    }
+    )}
   </>
 );

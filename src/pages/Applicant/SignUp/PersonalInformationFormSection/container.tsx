@@ -5,9 +5,9 @@ import { ITranslations, IContainer } from "./interfaces";
 
 const PersonalInformationFormSectionContainer: FunctionComponent<IContainer> = ({ className }) => {
   const translations = useTranslations<ITranslations>("personalInformationSignUpFormSection");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return <PersonalInformationFormSection translations={translations} className={className}/>;
+  return <PersonalInformationFormSection translations={translations} className={className} />;
 };
 
 export { PersonalInformationFormSectionContainer };

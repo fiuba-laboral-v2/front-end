@@ -10,15 +10,10 @@ import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
-export const JobApplication: FunctionComponent<IJobApplicationProps> = (
-  {
-    className,
-    jobApplication: {
-      updatedAt,
-      offer,
-      applicant
-    }
-  }) => {
+export const JobApplication: FunctionComponent<IJobApplicationProps> = ({
+  className,
+  jobApplication: { updatedAt, offer, applicant }
+}) => {
   const history = useHistory();
   return (
     <Card
@@ -29,17 +24,12 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = (
         <Subtitle className={styles.applicantName}>
           {`${applicant.user.name} ${applicant.user.surname}`}
         </Subtitle>
-        <hr className={styles.separator}/>
+        <hr className={styles.separator} />
         <Subtitle className={styles.offerTitle}>
-          <Link to={RoutesBuilder.company.offer(offer.uuid)}>
-            {offer.title}
-          </Link>
+          <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
         </Subtitle>
       </div>
-      <TimeHumanizer
-        className={styles.updatedAt}
-        since={updatedAt}
-      />
+      <TimeHumanizer className={styles.updatedAt} since={updatedAt} />
     </Card>
   );
 };

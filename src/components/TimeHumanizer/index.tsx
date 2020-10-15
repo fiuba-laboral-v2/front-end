@@ -5,13 +5,11 @@ import "moment/locale/es";
 import styles from "./styles.module.scss";
 import { capitalize } from "lodash";
 
-export const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = (
-  {
-    className,
-    since,
-    labelPrefix
-  }
-) => {
+export const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({
+  className,
+  since,
+  labelPrefix
+}) => {
   const timeString = moment(since).fromNow();
   return (
     <p className={classNames(styles.time, className)}>

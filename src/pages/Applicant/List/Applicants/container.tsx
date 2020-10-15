@@ -6,20 +6,13 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Redirect } from "$components/Redirect";
 
 const ApplicantsContainer: FunctionComponent = () => {
-  const {
-    data: { getApplicants } = { getApplicants: { results: [] } },
-    error,
-    loading
-  } = useQuery(GET_APPLICANTS);
-
-  if (error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-
-  return (
-    <Applicants
-      loading={loading}
-      applicants={getApplicants.results}
-    />
+  const { data: { getApplicants } = { getApplicants: { results: [] } }, error, loading } = useQuery(
+    GET_APPLICANTS
   );
+
+  if (error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
+
+  return <Applicants loading={loading} applicants={getApplicants.results} />;
 };
 
 export { ApplicantsContainer };

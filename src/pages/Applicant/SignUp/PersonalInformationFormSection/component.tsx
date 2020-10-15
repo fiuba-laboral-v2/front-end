@@ -10,23 +10,13 @@ import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
-  {
-    className,
-    translations
-  }
-) => (
-  <FormSection
-    className={className}
-    title={translations.title}
-  >
+export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
+  className,
+  translations
+}) => (
+  <FormSection className={className} title={translations.title}>
     <div className={styles.firstRow}>
-      <NameField
-        className={styles.name}
-        name="user.name"
-        label={translations.name}
-        withoutMargin
-      />
+      <NameField className={styles.name} name="user.name" label={translations.name} withoutMargin />
       <NameField
         className={styles.surname}
         name="user.surname"

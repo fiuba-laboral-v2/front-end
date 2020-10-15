@@ -4,12 +4,10 @@ import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { NumberInput } from "../index";
 import { IBaseProps } from "../interfaces";
 
-export const PositiveNumberInput: FunctionComponent<IPositiveNumberInputProps> = (
-  {
-    mandatory,
-    ...props
-  }
-) => (
+export const PositiveNumberInput: FunctionComponent<IPositiveNumberInputProps> = ({
+  mandatory,
+  ...props
+}) => (
   <NumberInput
     {...props}
     validate={FormikValidator({

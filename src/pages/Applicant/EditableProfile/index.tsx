@@ -4,6 +4,6 @@ import { Window } from "$components/Window";
 
 export const EditableProfile: FunctionComponent = () => (
   <Window>
-    <EditableDetail/>
+    <EditableDetail />
   </Window>
 );

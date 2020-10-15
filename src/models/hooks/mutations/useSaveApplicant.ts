@@ -4,10 +4,9 @@ import { IApplicant, IApplicantCareerInput } from "$interfaces/Applicant";
 import { IFiubaUserInput } from "$interfaces/User";
 
 export const useSaveApplicant = () => {
-  const {
-    mutation,
-    ...result
-  } = useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(SAVE_APPLICANT);
+  const { mutation, ...result } = useMutation<ISaveApplicant, { saveApplicant: IApplicant }>(
+    SAVE_APPLICANT
+  );
   return { saveApplicant: mutation, ...result };
 };
 

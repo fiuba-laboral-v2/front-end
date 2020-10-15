@@ -13,20 +13,19 @@ export const Companies: FunctionComponent = () => {
 
   return (
     <>
-    {
-      companies &&
-      <ListPageContainer
-        titleTranslationPath={"adminCompanyListMainTitle"}
-        listHeader={<ListHeader />}
-        listContentItem={(company: ICompany) => <ListContentItem company={company}/>}
-        listHeaderClassName={styles.tableDisplay}
-        rowClassName={styles.tableDisplay}
-        items={companies}
-        fetchMore={response.fetchMore}
-        shouldFetchMore={response?.data.getCompanies.shouldFetchMore}
-        loading={response.loading}
-      />
-    }
-  </>
+      {companies && (
+        <ListPageContainer
+          titleTranslationPath={"adminCompanyListMainTitle"}
+          listHeader={<ListHeader />}
+          listContentItem={(company: ICompany) => <ListContentItem company={company} />}
+          listHeaderClassName={styles.tableDisplay}
+          rowClassName={styles.tableDisplay}
+          items={companies}
+          fetchMore={response.fetchMore}
+          shouldFetchMore={response?.data.getCompanies.shouldFetchMore}
+          loading={response.loading}
+        />
+      )}
+    </>
   );
 };

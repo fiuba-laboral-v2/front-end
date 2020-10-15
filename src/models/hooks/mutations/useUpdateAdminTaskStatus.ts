@@ -25,14 +25,12 @@ const useGetTranslations = () => {
   return translationsResponse;
 };
 
-export const useUpdateAdminTaskStatus = (
-  {
-    type,
-    documentNode,
-    refetchAdminTasks,
-    approvalStatusAttribute
-  }: IUseUpdateAdminTask
-) => {
+export const useUpdateAdminTaskStatus = ({
+  type,
+  documentNode,
+  refetchAdminTasks,
+  approvalStatusAttribute
+}: IUseUpdateAdminTask) => {
   const translations = useGetTranslations();
   const showError = useShowError();
   const showSuccess = useShowSuccess();
@@ -40,24 +38,19 @@ export const useUpdateAdminTaskStatus = (
     documentNode,
     refetchAdminTasks
   });
-  const updateAdminTaskStatus = async (
-    {
-      uuid,
-      status,
-      onStatusUpdate
-    }: IUpdateAdminTask
-  ) => {
+  const updateAdminTaskStatus = async ({ uuid, status, onStatusUpdate }: IUpdateAdminTask) => {
     const response = await mutation({
       variables: {
         uuid: uuid,
         approvalStatus: status
       },
-      update: cache => cache.modify({
-        id: `${type}:${uuid}`,
-        fields: {
-          [approvalStatusAttribute]: () => status
-        }
-      })
+      update: cache =>
+        cache.modify({
+          id: `${type}:${uuid}`,
+          fields: {
+            [approvalStatusAttribute]: () => status
+          }
+        })
     });
 
     if (response.error) return showError({ reloadPrompt: true });

@@ -4,14 +4,12 @@ import { IStudentTranslations } from "../CareersDetail/interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
-  {
-    applicantCareer,
-    translations,
-    withSubjects,
-    regularFontWeight
-  }
-) => (
+export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = ({
+  applicantCareer,
+  translations,
+  withSubjects,
+  regularFontWeight
+}) => (
   <span>
     <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {applicantCareer.currentCareerYear}° {translations.currentCareerYear}
@@ -20,9 +18,7 @@ export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
     <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {applicantCareer.career.description}
     </b>
-    {withSubjects &&
-      `${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`
-    }
+    {withSubjects && `${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`}
   </span>
 );
 

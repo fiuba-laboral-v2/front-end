@@ -1,20 +1,20 @@
 import { ApolloError } from "@apollo/client";
 
 type ErrorName =
-  "UserEmailAlreadyExistsError" |
-  "CompanyCuitAlreadyExistsError" |
-  "BadCredentialsError" |
-  "UserNotFoundError" |
-  "OfferNotFoundError" |
-  "ApplicantNotFound" |
-  "CompanyNotFoundError" |
-  "AuthenticationError" |
-  "UnauthorizedError" |
-  "ValidationError" |
-  "JobApplicationAlreadyExistsError" |
-  "FiubaUsersServiceFetchError" |
-  "JobApplicationNotFoundError" |
-  "MissingTranslationError";
+  | "UserEmailAlreadyExistsError"
+  | "CompanyCuitAlreadyExistsError"
+  | "BadCredentialsError"
+  | "UserNotFoundError"
+  | "OfferNotFoundError"
+  | "ApplicantNotFound"
+  | "CompanyNotFoundError"
+  | "AuthenticationError"
+  | "UnauthorizedError"
+  | "ValidationError"
+  | "JobApplicationAlreadyExistsError"
+  | "FiubaUsersServiceFetchError"
+  | "JobApplicationNotFoundError"
+  | "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";
 

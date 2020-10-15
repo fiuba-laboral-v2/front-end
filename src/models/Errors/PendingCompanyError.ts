@@ -1,2 +1,1 @@
-export class PendingCompanyError extends Error {
-}
+export class PendingCompanyError extends Error {}

@@ -8,14 +8,12 @@ import { FormikValidator } from "$models/FormikValidator";
 import { ISection } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 
-export const SectionsFormSection: FunctionComponent<IComponentProps> = (
-  {
-    className,
-    translations,
-    sections,
-    name
-  }
-) => (
+export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
+  className,
+  translations,
+  sections,
+  name
+}) => (
   <Card largePadding className={className}>
     <FormSet
       title={translations.title}

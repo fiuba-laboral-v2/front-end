@@ -3,15 +3,13 @@ import classNames from "classnames";
 
 import styles from "./styles.module.scss";
 
-export const Card: FunctionComponent<IClickableCardProps> = (
-  {
-    children,
-    className,
-    largePadding,
-    selected,
-    onClick
-  }
-) => {
+export const Card: FunctionComponent<IClickableCardProps> = ({
+  children,
+  className,
+  largePadding,
+  selected,
+  onClick
+}) => {
   const [touched, setTouched] = useState(false);
   return (
     <div

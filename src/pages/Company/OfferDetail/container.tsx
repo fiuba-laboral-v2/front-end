@@ -13,7 +13,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const response = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
 
-  if (response.loading || response.error || !translations) return <LoadingSpinner/>;
+  if (response.loading || response.error || !translations) return <LoadingSpinner />;
 
   const offer = response.data.getOfferByUuid;
 
@@ -23,9 +23,8 @@ export const OfferDetailContainer: FunctionComponent = () => {
         editButton={
           <Button
             kind={"primary"}
-            onClick={() => history.push(
-              RoutesBuilder.company.editOffer(offer.uuid)
-            )}>
+            onClick={() => history.push(RoutesBuilder.company.editOffer(offer.uuid))}
+          >
             {translations.edit}
           </Button>
         }

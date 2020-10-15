@@ -5,12 +5,10 @@ import { CompanyLogo } from "$components/CompanyLogo";
 
 import styles from "./styles.module.scss";
 
-export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = (
-  {
-    setLogo,
-    className
-  }
-) => (
+export const CompanyLogoInput: FunctionComponent<ICompanyLogoInputProps> = ({
+  setLogo,
+  className
+}) => (
   <div className={className}>
     <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
       {({ imageList, onImageUpload }) => (

@@ -8,19 +8,13 @@ const timeDescription = "horas por día";
 const setSalary = ({ minimumSalary, maximumSalary }: ISalary) =>
   maximumSalary ? `${minimumSalary} - ${maximumSalary}` : `${minimumSalary}`;
 
-export const JobSpecs: FunctionComponent<IJobSpecsProps> = (
-  {
-    salary,
-    workload,
-    className
-  }
-) => (
+export const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload, className }) => (
   <div className={className}>
     <SpecItem item={`${workload}`} description={timeDescription}>
       <AccessTimeIcon fontSize="small" />
     </SpecItem>
-    <SpecItem item={setSalary(salary)} >
-      <AttachMoneyIcon fontSize="small"/>
+    <SpecItem item={setSalary(salary)}>
+      <AttachMoneyIcon fontSize="small" />
     </SpecItem>
   </div>
 );

@@ -6,22 +6,18 @@ import { RejectButton } from "./RejectButton";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import styles from "./styles.module.scss";
 
-export const Actions: FunctionComponent<IActionsProps> = (
-  {
-    currentStatus,
-    setStatus,
-    loading
-  }
-) => (
+export const Actions: FunctionComponent<IActionsProps> = ({
+  currentStatus,
+  setStatus,
+  loading
+}) => (
   <div className={styles.actions}>
-    {
-      currentStatus !== ApprovalStatus.rejected &&
+    {currentStatus !== ApprovalStatus.rejected && (
       <RejectButton loading={loading} setStatus={setStatus} />
-    }
-    {
-      currentStatus !== ApprovalStatus.approved &&
-      <ApproveButton loading={loading} setStatus={setStatus}/>
-    }
+    )}
+    {currentStatus !== ApprovalStatus.approved && (
+      <ApproveButton loading={loading} setStatus={setStatus} />
+    )}
   </div>
 );
 

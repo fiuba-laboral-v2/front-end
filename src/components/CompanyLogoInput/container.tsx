@@ -3,15 +3,13 @@ import { useTranslations } from "$hooks";
 import { CompanyLogoInput } from "./component";
 import { ICompanyLogoInputContainerProps, ICompanyLogoInputTranslations } from "./interfaces";
 
-export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputContainerProps> = (
-  {
-    className,
-    setLogo,
-    initialValue
-  }
-) => {
+export const CompanyLogoInputContainer: FunctionComponent<ICompanyLogoInputContainerProps> = ({
+  className,
+  setLogo,
+  initialValue
+}) => {
   const translations = useTranslations<ICompanyLogoInputTranslations>("CompanyLogoInput");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
   return (
     <CompanyLogoInput

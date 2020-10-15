@@ -7,22 +7,13 @@ import { FormSection } from "$components/FormSection";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const PersonalInformationFormSection: FunctionComponent<IComponent> = (
-  {
-    translations,
-    className
-  }
-) => (
-  <FormSection
-    className={className}
-  >
+export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
+  translations,
+  className
+}) => (
+  <FormSection className={className}>
     <div className={styles.firstRow}>
-      <NameField
-        className={styles.name}
-        name="user.name"
-        label={translations.name}
-        withoutMargin
-      />
+      <NameField className={styles.name} name="user.name" label={translations.name} withoutMargin />
       <NameField
         className={styles.surname}
         name="user.surname"

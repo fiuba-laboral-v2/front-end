@@ -13,22 +13,21 @@ export const JobApplications: FunctionComponent = () => {
 
   return (
     <>
-    {
-      jobApplications &&
-      <ListPageContainer
-        titleTranslationPath={"adminJobApplicationsListMainTitle"}
-        listHeader={<ListHeader />}
-        listContentItem={
-          (jobApplication: IJobApplication) => <ListContentItem jobApplication={jobApplication}/>
-        }
-        listHeaderClassName={styles.tableDisplay}
-        rowClassName={styles.tableDisplay}
-        items={jobApplications}
-        fetchMore={response.fetchMore}
-        shouldFetchMore={response?.data.getJobApplications.shouldFetchMore}
-        loading={response.loading}
-      />
-    }
-  </>
+      {jobApplications && (
+        <ListPageContainer
+          titleTranslationPath={"adminJobApplicationsListMainTitle"}
+          listHeader={<ListHeader />}
+          listContentItem={(jobApplication: IJobApplication) => (
+            <ListContentItem jobApplication={jobApplication} />
+          )}
+          listHeaderClassName={styles.tableDisplay}
+          rowClassName={styles.tableDisplay}
+          items={jobApplications}
+          fetchMore={response.fetchMore}
+          shouldFetchMore={response?.data.getJobApplications.shouldFetchMore}
+          loading={response.loading}
+        />
+      )}
+    </>
   );
 };

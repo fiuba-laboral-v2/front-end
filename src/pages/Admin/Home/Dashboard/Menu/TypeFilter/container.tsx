@@ -5,15 +5,13 @@ import { ITypeFilterContainerProps, ITypeFilterTranslations } from "./interfaces
 import { TAdminTaskType } from "$interfaces/AdminTask";
 import { without } from "lodash";
 
-export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = (
-  {
-    className,
-    types,
-    onFilterByType
-  }
-) => {
+export const TypeFilterContainer: FunctionComponent<ITypeFilterContainerProps> = ({
+  className,
+  types,
+  onFilterByType
+}) => {
   const transactions = useTranslations<ITypeFilterTranslations>("typeFilterMenu");
-  if (!transactions) return <Fragment/>;
+  if (!transactions) return <Fragment />;
 
   const toggleType = (adminTaskType: TAdminTaskType) => {
     if (types.includes(adminTaskType)) return onFilterByType(without(types, adminTaskType));

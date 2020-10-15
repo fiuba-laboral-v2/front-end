@@ -4,8 +4,5 @@ import { FormikValidator } from "$models/FormikValidator";
 import { validateCuit } from "validations-fiuba-laboral-v2";
 
 export const CuitField: FunctionComponent<ITextInputProps> = props => (
-  <TextInput
-    {...props}
-    validate={FormikValidator({ validator: validateCuit, mandatory: true })}
-  />
+  <TextInput {...props} validate={FormikValidator({ validator: validateCuit, mandatory: true })} />
 );

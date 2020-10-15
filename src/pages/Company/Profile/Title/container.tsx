@@ -5,14 +5,9 @@ import { IHeaderProps } from "$components/Header/interface";
 
 const TitleContainer: FunctionComponent = () => {
   const translations = useTranslations<IHeaderProps>("companyProfileTitle");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return (
-    <Header
-      title={translations.title}
-      subtitle={translations.subtitle}
-    />
-  );
+  return <Header title={translations.title} subtitle={translations.subtitle} />;
 };
 
 export { TitleContainer };

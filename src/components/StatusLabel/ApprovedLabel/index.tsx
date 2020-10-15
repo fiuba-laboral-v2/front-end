@@ -4,9 +4,5 @@ import { Label } from "$components/Label";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
 
 export const ApprovedLabel: FunctionComponent<ILabelLayoutProps & ILabelTextProps> = props => (
-  <Label
-    Icon={CheckIcon}
-    color="Green"
-    {...props}
-  />
+  <Label Icon={CheckIcon} color="Green" {...props} />
 );

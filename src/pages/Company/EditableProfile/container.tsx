@@ -17,16 +17,13 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const companyProfile = useMyCompanyProfile();
 
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
-  if (!translations || companyProfile.loading) return <LoadingSpinner/>;
+  if (!translations || companyProfile.loading) return <LoadingSpinner />;
   if (companyProfile.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
 
   const onUpdate = async (
-    {
-      _form,
-      ...companyValues
-    }: IEditableProfileFormValues,
+    { _form, ...companyValues }: IEditableProfileFormValues,
     { setErrors, setSubmitting }: FormikHelpers<IEditableProfileFormValues>
   ) => {
     const updateCompanyResult = await updateCurrentCompany({

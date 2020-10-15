@@ -2,15 +2,10 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
-const OfferSalaryInfo: FunctionComponent<IOfferSalaryInfoProps> = (
-  {
-    amount,
-    label
-  }
-) => (
+const OfferSalaryInfo: FunctionComponent<IOfferSalaryInfoProps> = ({ amount, label }) => (
   <div className={styles.salaryInfo}>
     <span className={styles.salaryInfoText}>{label}</span>
-    <AttachMoneyIcon fontSize="small"/>
+    <AttachMoneyIcon fontSize="small" />
     <span className={styles.amount}>{amount}</span>
   </div>
 );

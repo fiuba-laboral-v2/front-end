@@ -1,2 +1,1 @@
-export class RejectedApplicantError extends Error {
-}
+export class RejectedApplicantError extends Error {}

@@ -1,4 +1,4 @@
-query getCompanyByUuidWithUsers ($uuid: ID!) {
+query getCompanyByUuidWithUsers($uuid: ID!) {
   getCompanyByUuid(uuid: $uuid) {
     uuid
     cuit

@@ -4,9 +4,10 @@ import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const CompanyIcon: FunctionComponent<SvgIconProps> = ({ className, ...props }) =>
+export const CompanyIcon: FunctionComponent<SvgIconProps> = ({ className, ...props }) => (
   <BusinessIcon
     {...props}
     className={classNames(styles.companyIcon, className)}
     fontSize="default"
-  />;
+  />
+);

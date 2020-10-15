@@ -16,30 +16,26 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const response = useOfferForApplicant(uuid);
 
-  if (response.error || response.loading || !translations) return <LoadingSpinner/>;
+  if (response.error || response.loading || !translations) return <LoadingSpinner />;
 
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
       variables: { offerUuid },
       errorHandlers: {
-        JobApplicationAlreadyExistsError: () =>
-          showError({ message: translations.alreadyApplied })
+        JobApplicationAlreadyExistsError: () => showError({ message: translations.alreadyApplied })
       },
-      update: cache => cache.modify({
-        id: `Offer:${offerUuid}`,
-        fields: {
-          hasApplied: () => true
-        }
-      })
+      update: cache =>
+        cache.modify({
+          id: `Offer:${offerUuid}`,
+          fields: {
+            hasApplied: () => true
+          }
+        })
     });
     if (!error) showSuccess({ message: translations.applySuccess });
   };
 
   return (
-    <OfferDetail
-      offer={response.data.getOfferByUuid}
-      apply={apply}
-      translations={translations}
-    />
+    <OfferDetail offer={response.data.getOfferByUuid} apply={apply} translations={translations} />
   );
 };

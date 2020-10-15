@@ -4,30 +4,26 @@ import { ListContainer } from "./ListContainer";
 import { ListContent } from "./ListContent";
 import { ListableReactNodes, Listable } from "../interfaces";
 
-export const List: FunctionComponent<IListProps> = (
-  {
-    headerClassName,
-    listHeader,
-    listContentItem,
-    items,
-    rowClassName,
-    fetchMore,
-    shouldFetchMore,
-    loading
-  }
-) => (
+export const List: FunctionComponent<IListProps> = ({
+  headerClassName,
+  listHeader,
+  listContentItem,
+  items,
+  rowClassName,
+  fetchMore,
+  shouldFetchMore,
+  loading
+}) => (
   <ListContainer>
-    <ListHeader className={headerClassName}>
-      { listHeader }
-    </ListHeader>
+    <ListHeader className={headerClassName}>{listHeader}</ListHeader>
     <ListContent
       items={items}
       rowClassName={rowClassName}
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
-      >
-      { listContentItem }
+    >
+      {listContentItem}
     </ListContent>
   </ListContainer>
 );

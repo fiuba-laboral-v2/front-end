@@ -4,12 +4,13 @@ import { ITaskListTranslations } from "../interface";
 import { ListInfo } from "./component";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export const ListInfoContainer: FunctionComponent<IListInfoProps> = (
-  { translations, statuses }
-) => {
+export const ListInfoContainer: FunctionComponent<IListInfoProps> = ({
+  translations,
+  statuses
+}) => {
   // @ts-ignore
   const translation: string = translations[statuses.sort().join("_or_") || "none"];
-  return <ListInfo translation={translation}/>;
+  return <ListInfo translation={translation} />;
 };
 
 interface IListInfoProps {

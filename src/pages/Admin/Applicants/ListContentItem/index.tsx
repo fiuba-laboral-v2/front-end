@@ -7,26 +7,16 @@ import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   applicant: {
-    user: {
-      name,
-      surname,
-      dni
-    },
+    user: { name, surname, dni },
     padron,
     careers,
     approvalStatus
   }
 }) => (
   <>
-    <p className={classNames(styles.text, styles.names)}>
-      {`${name} ${surname}`}
-    </p>
-    <p className={styles.text}>
-      {padron}
-    </p>
-    <p className={styles.text}>
-      {dni}
-    </p>
+    <p className={classNames(styles.text, styles.names)}>{`${name} ${surname}`}</p>
+    <p className={styles.text}>{padron}</p>
+    <p className={styles.text}>{dni}</p>
     <div className={styles.careersContainer}>
       <CareersDetail
         className={styles.careers}
@@ -36,11 +26,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       />
     </div>
     <div className={styles.statusContainer}>
-      <SharedStatusLabel
-        status={approvalStatus}
-        withTooltip
-        type="large"
-      />
+      <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
   </>
 );

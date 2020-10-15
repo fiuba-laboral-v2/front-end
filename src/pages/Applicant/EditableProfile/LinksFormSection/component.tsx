@@ -10,13 +10,11 @@ import { validateURL } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const LinksFormSection: FunctionComponent<IComponent> = (
-  {
-    className,
-    translations,
-    links
-  }
-) => (
+export const LinksFormSection: FunctionComponent<IComponent> = ({
+  className,
+  translations,
+  links
+}) => (
   <Card largePadding className={className}>
     <FormSet
       title={translations.links}

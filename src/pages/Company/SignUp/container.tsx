@@ -17,17 +17,10 @@ export const SignUpContainer: FunctionComponent = () => {
   const { login } = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
-  if (!translations) return <LoadingSpinner/>;
+  if (!translations) return <LoadingSpinner />;
 
   const onSubmit = async (
-    {
-      _form,
-      user: {
-        passwordConfirm,
-        ...userAttributes
-      },
-      ...companyValues
-    }: ISignUpFormValues,
+    { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,
     { setErrors, setSubmitting }: FormikHelpers<ISignUpFormValues>
   ) => {
     const createCompanyResult = await createCompany({
@@ -37,7 +30,7 @@ export const SignUpContainer: FunctionComponent = () => {
     if (createCompanyResult.error) return;
 
     const loginResult = await login({
-      variables: { email: userAttributes.email , password: userAttributes.password },
+      variables: { email: userAttributes.email, password: userAttributes.password },
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;

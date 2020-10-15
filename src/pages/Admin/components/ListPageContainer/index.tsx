@@ -5,19 +5,17 @@ import { MainContainer } from "./MainContainer";
 import { List } from "./List";
 import { Listable, ListableReactNodes } from "./interfaces";
 
-export const ListPageContainer: FunctionComponent<IListPageContainer> = (
-  {
-    titleTranslationPath,
-    listHeader,
-    listContentItem,
-    items,
-    listHeaderClassName,
-    rowClassName,
-    fetchMore,
-    shouldFetchMore,
-    loading
-  }
-) => (
+export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
+  titleTranslationPath,
+  listHeader,
+  listContentItem,
+  items,
+  listHeaderClassName,
+  rowClassName,
+  fetchMore,
+  shouldFetchMore,
+  loading
+}) => (
   <Window width="fullWidth" desktopOnly>
     <MainContainer>
       <MainTitle translationPath={titleTranslationPath} />

@@ -4,12 +4,7 @@ import { StatusFilter } from "./StatusFilter";
 import { IMenuProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const Menu: FunctionComponent<IMenuProps> = (
-  {
-    filter,
-    onFilter
-  }
-) => (
+export const Menu: FunctionComponent<IMenuProps> = ({ filter, onFilter }) => (
   <div className={styles.menuContent}>
     <TypeFilter
       className={styles.typeFilter}

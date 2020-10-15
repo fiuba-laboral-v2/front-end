@@ -29,13 +29,14 @@ describe("NavBarLinks", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (status: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      company: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus: status
-      }
-    });
+    const createCurrentCompanyUser = (status: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        company: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus: status
+        }
+      });
 
     it("returns a list of company links in the navBar in pending status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
@@ -46,17 +47,17 @@ describe("NavBarLinks", () => {
           tooltipMessage: translations.pendingProfile
         },
         {
-          path:  RoutesBuilder.company.createOffer(),
+          path: RoutesBuilder.company.createOffer(),
           title: translations.createOffer,
           tooltipMessage: translations.pendingProfile
         },
         {
-          path:  RoutesBuilder.company.myOffers(),
+          path: RoutesBuilder.company.myOffers(),
           title: translations.myOffers,
           tooltipMessage: translations.pendingProfile
         },
         {
-          path:  RoutesBuilder.company.myProfile(),
+          path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile
         }
       ]);
@@ -71,17 +72,17 @@ describe("NavBarLinks", () => {
           tooltipMessage: translations.rejectedProfile
         },
         {
-          path:  RoutesBuilder.company.createOffer(),
+          path: RoutesBuilder.company.createOffer(),
           title: translations.createOffer,
           tooltipMessage: translations.rejectedProfile
         },
         {
-          path:  RoutesBuilder.company.myOffers(),
+          path: RoutesBuilder.company.myOffers(),
           title: translations.myOffers,
           tooltipMessage: translations.rejectedProfile
         },
         {
-          path:  RoutesBuilder.company.myProfile(),
+          path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile
         }
       ]);
@@ -95,15 +96,15 @@ describe("NavBarLinks", () => {
           title: translations.jobApplications
         },
         {
-          path:  RoutesBuilder.company.createOffer(),
+          path: RoutesBuilder.company.createOffer(),
           title: translations.createOffer
         },
         {
-          path:  RoutesBuilder.company.myOffers(),
+          path: RoutesBuilder.company.myOffers(),
           title: translations.myOffers
         },
         {
-          path:  RoutesBuilder.company.myProfile(),
+          path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile
         }
       ]);
@@ -111,13 +112,14 @@ describe("NavBarLinks", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicant = (approvalStatus: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      applicant: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus
-      }
-    });
+    const createCurrentApplicant = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        applicant: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus
+        }
+      });
 
     it("returns a list of applicant links in the navBar in approved status", () => {
       const currentApplicant = createCurrentApplicant(ApprovalStatus.approved);
@@ -179,15 +181,16 @@ describe("NavBarLinks", () => {
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () => CurrentUser({
-      ...userAttributes,
-      admin: {
-        user: {
-          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
-        },
-        secretary: Secretary.graduados
-      }
-    });
+    const createCurrentAdmin = () =>
+      CurrentUser({
+        ...userAttributes,
+        admin: {
+          user: {
+            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+          },
+          secretary: Secretary.graduados
+        }
+      });
 
     it("returns a list of admin links in the navBar", () => {
       const currentAdmin = createCurrentAdmin();

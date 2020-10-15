@@ -4,17 +4,15 @@ import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const BaseSearchSelector = <Option, Value>(
-  {
-    label,
-    className,
-    getOptionValue,
-    initialValue,
-    errorMessage,
-    options,
-    ...autocompleteProps
-  }: IBaseSelectorProps<Option, Value>
-) => {
+export const BaseSearchSelector = <Option, Value>({
+  label,
+  className,
+  getOptionValue,
+  initialValue,
+  errorMessage,
+  options,
+  ...autocompleteProps
+}: IBaseSelectorProps<Option, Value>) => {
   const [defaultValue] = useState(options.find(option => getOptionValue(option) === initialValue));
 
   return (
@@ -25,14 +23,9 @@ export const BaseSearchSelector = <Option, Value>(
       defaultValue={defaultValue}
       multiple={false}
       options={options}
-      renderInput={inputProps =>
-        <TextField
-          {...inputProps}
-          label={label}
-          error={!!errorMessage}
-          helperText={errorMessage}
-        />
-      }
+      renderInput={inputProps => (
+        <TextField {...inputProps} label={label} error={!!errorMessage} helperText={errorMessage} />
+      )}
     />
   );
 };

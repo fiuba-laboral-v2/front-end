@@ -3,15 +3,13 @@ import { TextInput, ITextInputProps } from "$components/TextInput";
 import { FormikValidator } from "$models/FormikValidator";
 import { validatePassword } from "validations-fiuba-laboral-v2";
 
-export const PasswordField: FunctionComponent<IPasswordFieldProps> = (
-  {
-    name,
-    label,
-    validate,
-    autoComplete,
-    ...props
-  }
-) => {
+export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({
+  name,
+  label,
+  validate,
+  autoComplete,
+  ...props
+}) => {
   const validatorOptions = {
     validator: validate ? validatePassword : undefined,
     mandatory: true

@@ -12,13 +12,14 @@ describe("Router", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      company: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus
-      }
-    });
+    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        company: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus
+        }
+      });
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
@@ -37,13 +38,14 @@ describe("Router", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => CurrentUser({
-      ...userAttributes,
-      applicant: {
-        uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-        approvalStatus
-      }
-    });
+    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
+        ...userAttributes,
+        applicant: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
+          approvalStatus
+        }
+      });
 
     it("returns offerList route if status is approved", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
@@ -62,15 +64,16 @@ describe("Router", () => {
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () => CurrentUser({
-      ...userAttributes,
-      admin: {
-        user: {
-          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
-        },
-        secretary: Secretary.graduados
-      }
-    });
+    const createCurrentAdmin = () =>
+      CurrentUser({
+        ...userAttributes,
+        admin: {
+          user: {
+            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+          },
+          secretary: Secretary.graduados
+        }
+      });
 
     it("returns home route", () => {
       const currentAdmin = createCurrentAdmin();

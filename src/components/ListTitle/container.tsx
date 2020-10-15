@@ -4,13 +4,11 @@ import { IListTitleProps } from "./interface";
 import { Header } from "$components/Header";
 import { IHeaderProps } from "../Header/interface";
 
-export const ListTitleContainer: FunctionComponent<IListTitleProps> = (
-  {
-    titleTranslationPath
-  }
-) => {
+export const ListTitleContainer: FunctionComponent<IListTitleProps> = ({
+  titleTranslationPath
+}) => {
   const translations = useTranslations<IHeaderProps>(titleTranslationPath);
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return <Header title={translations.title}/>;
+  return <Header title={translations.title} />;
 };

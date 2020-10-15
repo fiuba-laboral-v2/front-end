@@ -14,21 +14,23 @@ export const MyOffersContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("MyOffers");
 
   if (response.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
+    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
-  if (!translations) return <LoadingSpinner/>;
+  if (!translations) return <LoadingSpinner />;
 
-  return <Window>
-    <Feed
-      loading={response.loading}
-      title={translations.title}
-      offers={response.data?.getMyOffers.results || []}
-      onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
-      fetchMore={response.fetchMore}
-      shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
-      withStatusLabels
-    />
-  </Window>;
+  return (
+    <Window>
+      <Feed
+        loading={response.loading}
+        title={translations.title}
+        offers={response.data?.getMyOffers.results || []}
+        onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
+        fetchMore={response.fetchMore}
+        shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
+        withStatusLabels
+      />
+    </Window>
+  );
 };
 
 interface ITranslations {

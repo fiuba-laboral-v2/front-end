@@ -1,7 +1,7 @@
 mutation updateJobApplicationApprovalStatus($uuid: ID!, $approvalStatus: ApprovalStatus!) {
-    updateJobApplicationApprovalStatus(uuid: $uuid, approvalStatus: $approvalStatus) {
-        offerUuid
-        applicantUuid
-        approvalStatus
-    }
+  updateJobApplicationApprovalStatus(uuid: $uuid, approvalStatus: $approvalStatus) {
+    offerUuid
+    applicantUuid
+    approvalStatus
+  }
 }

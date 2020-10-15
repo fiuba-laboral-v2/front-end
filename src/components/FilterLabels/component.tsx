@@ -4,18 +4,16 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { sortBy } from "lodash";
 
-export const FilterLabels = <ListItem, >(
-  {
-    items,
-    getKey,
-    getLabel,
-    applied,
-    className,
-    onClick
-  }: IFilterLabelsProps<ListItem>
-) => (
+export const FilterLabels = <ListItem,>({
+  items,
+  getKey,
+  getLabel,
+  applied,
+  className,
+  onClick
+}: IFilterLabelsProps<ListItem>) => (
   <div className={classNames(styles.container, className)}>
-    {sortBy(items, getLabel).map(item =>
+    {sortBy(items, getLabel).map(item => (
       <FilterLabel
         applied={applied}
         className={styles.filter}
@@ -24,7 +22,7 @@ export const FilterLabels = <ListItem, >(
       >
         {getLabel(item)}
       </FilterLabel>
-    )}
+    ))}
   </div>
 );
 

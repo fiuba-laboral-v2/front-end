@@ -4,13 +4,11 @@ import { IGraduateTranslations } from "../CareersDetail/interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = (
-  {
-    applicantCareer,
-    translations,
-    regularFontWeight
-  }
-) => (
+export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = ({
+  applicantCareer,
+  translations,
+  regularFontWeight
+}) => (
   <>
     <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {translations.isGraduate}

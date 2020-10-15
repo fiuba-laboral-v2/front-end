@@ -4,11 +4,7 @@ import { ListHeader } from "./component";
 
 export const ListHeaderContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("adminApplicantListHeader");
-  return (
-    <>
-      {translations && <ListHeader translations={translations} />}
-    </>
-  );
+  return <>{translations && <ListHeader translations={translations} />}</>;
 };
 
 export interface ITranslations {

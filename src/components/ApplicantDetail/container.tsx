@@ -5,17 +5,15 @@ import { ApplicantDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailContainerProps, ITranslations } from "./interface";
 
-export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = (
-  {
-    mobileLayout,
-    className,
-    applicant,
-    editButton,
-    withStatusLabel
-  }
-) => {
+export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = ({
+  mobileLayout,
+  className,
+  applicant,
+  editButton,
+  withStatusLabel
+}) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
-  if (!translations) return <LoadingSpinner/>;
+  if (!translations) return <LoadingSpinner />;
 
   return (
     <ApplicantDetail

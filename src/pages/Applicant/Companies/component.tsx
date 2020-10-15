@@ -8,42 +8,36 @@ import { Window } from "$components/Window";
 import { ICompany } from "$interfaces/Company";
 import styles from "./styles.module.scss";
 
-export const Companies: FunctionComponent<ICompaniesProps> = (
-  {
-    companies,
-    onClickView,
-    loading
-  }) => {
+export const Companies: FunctionComponent<ICompaniesProps> = ({
+  companies,
+  onClickView,
+  loading
+}) => {
   if (loading) {
     return (
       <Window>
-        <ListTitle titleTranslationPath={"companiesList"}/>
-        <LoadingSpinner/>
+        <ListTitle titleTranslationPath={"companiesList"} />
+        <LoadingSpinner />
       </Window>
     );
   }
 
   return (
     <Window>
-      <ListTitle titleTranslationPath={"companiesList"}/>
-      {
-        companies.map(company =>
-          <Card
-            key={company.uuid}
-            className={styles.row}
-            onClick={() => onClickView(company.uuid)}>
-            <div className={styles.childrenContainer}>
-              <CompanyLogo
-                className={styles.companyLogo}
-                size="large"
-                companyName={company.companyName}
-                logo={company.logo}
-              />
-              <Subtitle className={styles.name}>{company.companyName}</Subtitle>
-            </div>
-          </Card>
-        )
-      }
+      <ListTitle titleTranslationPath={"companiesList"} />
+      {companies.map(company => (
+        <Card key={company.uuid} className={styles.row} onClick={() => onClickView(company.uuid)}>
+          <div className={styles.childrenContainer}>
+            <CompanyLogo
+              className={styles.companyLogo}
+              size="large"
+              companyName={company.companyName}
+              logo={company.logo}
+            />
+            <Subtitle className={styles.name}>{company.companyName}</Subtitle>
+          </div>
+        </Card>
+      ))}
     </Window>
   );
 };

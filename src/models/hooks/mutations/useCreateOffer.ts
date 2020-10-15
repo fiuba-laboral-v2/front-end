@@ -3,10 +3,7 @@ import { useMutation } from "$hooks";
 import { ICreateOffer } from "$interfaces/Offer";
 
 export const useCreateOffer = () => {
-  const {
-    mutation,
-    ...result
-  } = useMutation<ICreateOffer, ICreateOfferResponse>(CREATE_OFFER);
+  const { mutation, ...result } = useMutation<ICreateOffer, ICreateOfferResponse>(CREATE_OFFER);
   return { createOffer: mutation, ...result };
 };
 

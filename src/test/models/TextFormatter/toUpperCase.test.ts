@@ -5,10 +5,8 @@ const testCapitalize = (input: string, output: string) =>
 
 describe("toUpperCase", () => {
   it("Replaces the first character in words with its upper case counterpart", () =>
-    testCapitalize("something interesting", "Something Interesting")
-  );
+    testCapitalize("something interesting", "Something Interesting"));
 
   it("Keeps spaces", () =>
-    testCapitalize("  someThing   MORE interestIng  ", "  Something   More Interesting  ")
-  );
+    testCapitalize("  someThing   MORE interestIng  ", "  Something   More Interesting  "));
 });

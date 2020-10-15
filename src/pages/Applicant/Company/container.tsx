@@ -8,9 +8,9 @@ export const CompanyProfileContainer: FunctionComponent = () => {
   const { uuid } = useParams<IRouteParams>();
   const response = useCompanyByUuid({ uuid });
 
-  if (response.error || response.loading) return <LoadingSpinner/>;
+  if (response.error || response.loading) return <LoadingSpinner />;
 
-  return <CompanyProfile company={response.data.getCompanyByUuid}/>;
+  return <CompanyProfile company={response.data.getCompanyByUuid} />;
 };
 
 interface IRouteParams {

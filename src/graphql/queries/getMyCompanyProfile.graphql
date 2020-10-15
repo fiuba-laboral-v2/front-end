@@ -1,19 +1,19 @@
 query getMyCompanyProfile {
-    getCurrentUser {
-        uuid
-        company {
-            uuid
-            cuit
-            approvalStatus
-            companyName
-            businessName
-            slogan
-            description
-            logo
-            website
-            email
-            phoneNumbers
-            photos
-        }
+  getCurrentUser {
+    uuid
+    company {
+      uuid
+      cuit
+      approvalStatus
+      companyName
+      businessName
+      slogan
+      description
+      logo
+      website
+      email
+      phoneNumbers
+      photos
     }
+  }
 }

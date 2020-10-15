@@ -6,12 +6,10 @@ import { useHistory } from "react-router-dom";
 import { ICompany } from "$interfaces/Company";
 import { IUser } from "$interfaces/User";
 
-export const useCompanyByUuid = <T extends IUser | undefined = undefined>(
-  {
-    uuid,
-    withUsers = false
-  }: IUseCompanyByUuid
-) => {
+export const useCompanyByUuid = <T extends IUser | undefined = undefined>({
+  uuid,
+  withUsers = false
+}: IUseCompanyByUuid) => {
   const history = useHistory();
   const query = withUsers ? GET_COMPANY_BY_UUID_WITH_USERS : GET_COMPANY_BY_UUID;
   const options = {

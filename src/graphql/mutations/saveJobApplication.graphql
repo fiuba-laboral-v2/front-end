@@ -1,6 +1,6 @@
 mutation saveJobApplication($offerUuid: String!) {
-    saveJobApplication(offerUuid: $offerUuid) {
-        offerUuid
-        applicantUuid
-    }
+  saveJobApplication(offerUuid: $offerUuid) {
+    offerUuid
+    applicantUuid
+  }
 }

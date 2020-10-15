@@ -12,7 +12,7 @@ const App: FunctionComponent = () => (
     <ThemeProvider theme={MaterialUITheme}>
       <SnackbarProvider maxSnack={3}>
         <Router>
-          <Routes/>
+          <Routes />
         </Router>
       </SnackbarProvider>
     </ThemeProvider>

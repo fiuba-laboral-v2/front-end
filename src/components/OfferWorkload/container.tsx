@@ -3,19 +3,12 @@ import { useTranslations } from "$hooks";
 import { OfferWorkload } from "./component";
 import { IOfferWorkloadContainerProps, IOfferWorkloadTranslations } from "./interface";
 
-export const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = (
-  {
-    offer,
-    className
-  }) => {
+export const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerProps> = ({
+  offer,
+  className
+}) => {
   const translations = useTranslations<IOfferWorkloadTranslations>("offerWorkload");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  return (
-    <OfferWorkload
-      className={className}
-      translations={translations}
-      offer={offer}
-    />
-  );
+  return <OfferWorkload className={className} translations={translations} offer={offer} />;
 };

@@ -6,17 +6,11 @@ import { FormSection } from "$components/FormSection";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
-  {
-    className,
-    translations
-  }
-) => (
-  <FormSection
-    className={className}
-    title={translations.title}
-    subtitle={translations.subtitle}
-  >
+export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = ({
+  className,
+  translations
+}) => (
+  <FormSection className={className} title={translations.title} subtitle={translations.subtitle}>
     <div className={styles.fields}>
       <DniField
         className={styles.dniField}

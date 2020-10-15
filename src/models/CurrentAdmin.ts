@@ -6,11 +6,10 @@ export type TCurrentAdminAttributes = {
   secretary: Secretary;
 };
 
-export const CurrentAdmin = (
-  {
-    secretary,
-    ...attributes
-  }: TCurrentAdminAttributes): TCurrentAdmin => {
+export const CurrentAdmin = ({
+  secretary,
+  ...attributes
+}: TCurrentAdminAttributes): TCurrentAdmin => {
   return {
     ...attributes,
     secretary,

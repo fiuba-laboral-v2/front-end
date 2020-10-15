@@ -6,13 +6,12 @@ import { CareerList } from "../CareerList";
 
 import { IOfferCareersComponentProps } from "./interface";
 
-const OfferCareers: FunctionComponent<IOfferCareersComponentProps> = (
-  {
-    offer,
-    careersTitle,
-    className
-  }) => {
-  if (offer.careers === undefined || offer.careers.length === 0) return <Fragment/>;
+const OfferCareers: FunctionComponent<IOfferCareersComponentProps> = ({
+  offer,
+  careersTitle,
+  className
+}) => {
+  if (offer.careers === undefined || offer.careers.length === 0) return <Fragment />;
   return (
     <OfferInfoItem className={classNames(styles.careers, className)} title={careersTitle}>
       <CareerList careers={offer.careers} className={styles.career} />

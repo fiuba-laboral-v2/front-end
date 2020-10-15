@@ -4,12 +4,7 @@ import styles from "./styles.module.scss";
 import { IHeaderProps } from "./interface";
 import classNames from "classnames";
 
-const Header: FunctionComponent<IHeaderProps> = (
-  {
-    title,
-    subtitle
-  }
-) => (
+const Header: FunctionComponent<IHeaderProps> = ({ title, subtitle }) => (
   <div className={styles.container}>
     <h1 className={classNames(styles.title, { [styles.noMargin]: !subtitle })}>{title}</h1>
     <Subtitle>{subtitle}</Subtitle>

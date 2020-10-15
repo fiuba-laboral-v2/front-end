@@ -7,9 +7,7 @@ const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
   RoutesBuilder.company.myProfile()
 ];
 
-const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [
-  RoutesBuilder.company.myProfile()
-];
+const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [RoutesBuilder.company.myProfile()];
 
 export const CompanyPermissions = {
   check: (currentCompany: ICurrentCompany, route: string) => {

@@ -7,13 +7,11 @@ import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 import { APPLICANT } from "$typenames";
 
-export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = (
-  {
-    refetchAdminTasks,
-    selectedApplicant,
-    onStatusUpdate
-  }
-) => {
+export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
+  refetchAdminTasks,
+  selectedApplicant,
+  onStatusUpdate
+}) => {
   const response = useApplicantByUuid(selectedApplicant.uuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,

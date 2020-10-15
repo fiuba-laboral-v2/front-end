@@ -12,14 +12,16 @@ export const ProfileContainer: FunctionComponent = () => {
   const response = useMyApplicantProfile();
   const history = useHistory();
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
-  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()}/>;
-  if (response.loading) return <LoadingSpinner/>;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
+  if (response.loading) return <LoadingSpinner />;
 
-  return <Profile
-    applicant={response.data.getCurrentUser.applicant}
-    translations={translations}
-    onClickEdit={() => history.push(RoutesBuilder.applicant.editMyProfile())}
-  />;
+  return (
+    <Profile
+      applicant={response.data.getCurrentUser.applicant}
+      translations={translations}
+      onClickEdit={() => history.push(RoutesBuilder.applicant.editMyProfile())}
+    />
+  );
 };

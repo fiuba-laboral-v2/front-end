@@ -6,23 +6,11 @@ import { OfferSalaryInfo } from "../OfferSalaryInfo";
 
 import { IOfferSalaryProps } from "./interface";
 
-const OfferSalary: FunctionComponent<IOfferSalaryProps> = (
-  {
-    offer,
-    translations,
-    className
-  }) => (
-    <OfferInfoItem className={classNames(styles.salary, className)}
-                   title={translations.salaryTitle}>
-      <OfferSalaryInfo
-        label={translations.salaryFrom}
-        amount={offer.minimumSalary}
-      />
-      <OfferSalaryInfo
-        label={translations.salaryTo}
-        amount={offer.maximumSalary}
-      />
-    </OfferInfoItem>
+const OfferSalary: FunctionComponent<IOfferSalaryProps> = ({ offer, translations, className }) => (
+  <OfferInfoItem className={classNames(styles.salary, className)} title={translations.salaryTitle}>
+    <OfferSalaryInfo label={translations.salaryFrom} amount={offer.minimumSalary} />
+    <OfferSalaryInfo label={translations.salaryTo} amount={offer.maximumSalary} />
+  </OfferInfoItem>
 );
 
 export { OfferSalary };

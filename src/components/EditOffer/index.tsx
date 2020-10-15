@@ -9,20 +9,17 @@ import { validateIntegerInRange, validateSalaryRange } from "validations-fiuba-l
 import { ICreateOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 
-export const EditOffer: FunctionComponent<ICreateOfferProps> = (
-  {
-    title,
-    onSubmit,
-    translations,
-    initialValues,
-    formFooter
-  }
-) => (
+export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
+  title,
+  onSubmit,
+  translations,
+  initialValues,
+  formFooter
+}) => (
   <Window>
     <div className={styles.mainContainer}>
       <h1 className={styles.title}>{title}</h1>
-      <Formik
-        <ICreateOfferValues>
+      <Formik<ICreateOfferValues>
         initialValues={initialValues}
         onSubmit={onSubmit}
         validate={values => {
@@ -34,7 +31,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
           }
         }}
       >
-        {({ values, errors, isSubmitting, submitForm }) =>
+        {({ values, errors, isSubmitting, submitForm }) => (
           <>
             <Form className={styles.formContainer}>
               <TextInput
@@ -85,7 +82,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = (
             </Form>
             {formFooter({ isSubmitting, submitForm, errors })}
           </>
-        }
+        )}
       </Formik>
     </div>
   </Window>

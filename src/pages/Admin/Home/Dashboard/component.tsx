@@ -7,19 +7,17 @@ import styles from "./styles.module.scss";
 import { IAdminTasksFilter, TAdminTask } from "$interfaces/AdminTask";
 import { TRefetchGetAdminTasks } from "$hooks/queries";
 
-export const Dashboard: FunctionComponent<IDashboardProps> = (
-  {
-    loading,
-    refetchGetAdminTasks,
-    adminTasks,
-    selectedTask,
-    setSelectedTask,
-    filter,
-    setFilter,
-    fetchMore,
-    shouldFetchMore
-  }
-) => (
+export const Dashboard: FunctionComponent<IDashboardProps> = ({
+  loading,
+  refetchGetAdminTasks,
+  adminTasks,
+  selectedTask,
+  setSelectedTask,
+  filter,
+  setFilter,
+  fetchMore,
+  shouldFetchMore
+}) => (
   <Window width="fullWidth" desktopOnly>
     <div className={styles.mainContent}>
       <Menu
@@ -37,9 +35,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = (
         shouldFetchMore={shouldFetchMore}
       />
       <TaskDetail
-        refetchAdminTasks={() =>
-          refetchGetAdminTasks && refetchGetAdminTasks(filter)
-        }
+        refetchAdminTasks={() => refetchGetAdminTasks && refetchGetAdminTasks(filter)}
         selectedTask={selectedTask}
         onStatusUpdate={() => setSelectedTask(undefined)}
       />
