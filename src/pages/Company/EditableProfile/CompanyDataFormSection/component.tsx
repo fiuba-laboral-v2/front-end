@@ -21,6 +21,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
     />
     <NameField name="companyName" label={translations.companyName} withoutMargin />
     <Field name="slogan" label={translations.slogan} />
-    <Field name="description" label={translations.description} multiline withoutMargin />
+    <Field name="description" label={translations.description} multiline />
   </FormSection>
 );

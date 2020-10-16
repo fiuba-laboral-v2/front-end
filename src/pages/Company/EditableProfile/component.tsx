@@ -1,13 +1,15 @@
 import React, { FunctionComponent } from "react";
+
 import { Form, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
-import { Window } from "$components/Window";
-import { CompanyLogoInput } from "$components/CompanyLogoInput";
-import { CompanyFields } from "$components/CompanyFields";
 
-import styles from "./styles.module.scss";
-import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
+import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
+import { CompanyDataFormSection } from "./CompanyDataFormSection";
+import { ContactInformationFormSection } from "../SignUp/ContactInformationFormSection";
+
+import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
+import styles from "./styles.module.scss";
 
 export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
   initialValues,
@@ -15,28 +17,24 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
   translations
 }) => (
   <Window>
-    <div className={styles.mainContainer}>
-      <h1 className={styles.title}>{translations.title}</h1>
-      <Formik initialValues={initialValues} validateOnMount onSubmit={onUpdate}>
-        {({ values, setFieldValue, isSubmitting, errors }) => (
-          <>
-            <Form>
-              <CompanyLogoInput
-                className={styles.logo}
-                initialValue={values.logo}
-                setLogo={(logo: string) => setFieldValue("logo", logo)}
-              />
-              <CompanyFields edit />
-              <FormFooter
-                isSubmitting={isSubmitting}
-                submitButtonText={translations.submit}
-                errors={errors}
-              />
-            </Form>
-          </>
-        )}
-      </Formik>
-    </div>
+    <h1 className={styles.title}>{translations.title}</h1>
+    <Formik initialValues={initialValues} validateOnMount onSubmit={onUpdate}>
+      {({ values, setFieldValue, isSubmitting, errors }) => (
+        <Form>
+          <CompanyDataFormSection
+            className={styles.formSection}
+            setFieldValue={setFieldValue}
+            initialLogo={values.logo}
+          />
+          <ContactInformationFormSection className={styles.formSection} />
+          <FormFooter
+            isSubmitting={isSubmitting}
+            submitButtonText={translations.submit}
+            errors={errors}
+          />
+        </Form>
+      )}
+    </Formik>
   </Window>
 );
 
