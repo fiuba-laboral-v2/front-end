@@ -12,7 +12,6 @@
 }
 
 .uploadLogo {
-  color: $selectedColor;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -25,20 +24,28 @@
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
   display: none;
   position: absolute;
-  user-select: none;
+}
+
+.visibility {
+  color: $grey;
+  display: block;
+  visibility: visible;
   z-index: 1;
 }
 
 .inputContainer:hover {
   .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
     display: block;
+    user-select: none;
+    z-index: 1;
   }
 
   .uploadLogo {
+    color: $selectedColor;
     visibility: visible;
   }
 }

@@ -16,8 +16,18 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
     <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
       {({ imageList, onImageUpload }) => (
         <>
-          <div className={styles.overlay} onClick={imageList[0]?.onUpdate || onImageUpload}>
-            <CloudUploadOutlinedIcon className={styles.uploadLogo} fontSize="large" />
+          <div
+            className={classNames(styles.overlay, {
+              [styles.visibility]: !initialValue
+            })}
+            onClick={imageList[0]?.onUpdate || onImageUpload}
+          >
+            <CloudUploadOutlinedIcon
+              className={classNames(styles.uploadLogo, {
+                [styles.visibility]: !initialValue
+              })}
+              fontSize="large"
+            />
           </div>
           <CompanyLogo
             className={styles.logo}
