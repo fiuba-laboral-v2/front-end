@@ -14,7 +14,7 @@ export const ListContent: FunctionComponent<IListContentProps> = ({
   fetchMore,
   children
 }) => (
-  <>
+  <div className={styles.listContent}>
     <Row items={items} className={rowClassName}>
       {children as (item: Listable) => ReactNode}
     </Row>
@@ -24,5 +24,5 @@ export const ListContent: FunctionComponent<IListContentProps> = ({
       className={styles.fetchMore}
       loading={loading}
     />
-  </>
+  </div>
 );
