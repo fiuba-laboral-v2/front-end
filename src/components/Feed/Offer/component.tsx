@@ -15,6 +15,7 @@ export const Offer: FunctionComponent<IOfferProps> = ({
       companyName={company.companyName}
       logo={company.logo}
       size="extraLarge"
+      useDefaultIcon
     />
     <Info data={{ company, ...props }} withStatusLabels={withStatusLabels} />
   </div>

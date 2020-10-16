@@ -1,10 +1,17 @@
-@import "$styles/mixins/_text";
 @import "$styles/_variables";
+@import "$styles/mixins/_logoSize";
 
-.text {
-  @include text;
+.inputContainer {
+  display: block;
+  position: relative;
+}
 
-  color: $black;
+.inputContainer,
+.overlay {
+  @include size($extraLarge, $extraLarge);
+}
+
+.uploadLogo {
   left: 50%;
   position: absolute;
   top: 50%;
@@ -12,17 +19,33 @@
   visibility: hidden;
 }
 
-.dropzone {
-  cursor: pointer;
-  position: relative;
-  user-select: none;
+.logo {
+  position: absolute;
+}
 
-  &:hover {
-    opacity: 50%;
-    transition: opacity 0.3s ease-out;
+.overlay {
+  display: none;
+  position: absolute;
+}
 
-    .text {
-      visibility: visible;
-    }
+.visibility {
+  color: $grey;
+  display: block;
+  visibility: visible;
+  z-index: 1;
+}
+
+.inputContainer:hover {
+  .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .uploadLogo {
+    color: $selectedColor;
+    visibility: visible;
   }
 }

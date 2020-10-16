@@ -1,26 +1,21 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_customMedia";
-
-@mixin size($width, $height) {
-  border-radius: 0.11 * $height;
-  height: $height;
-  width: $width;
-}
+@import "$styles/mixins/_logoSize";
 
 .small {
-  @include size(38px, 38px);
+  @include size($small, $small);
 }
 
 .medium {
-  @include size(48px, 48px);
+  @include size($medium, $medium);
 }
 
 .large {
-  @include size(70px, 70px);
+  @include size($large, $large);
 }
 
 .extraLarge {
-  @include size(140px, 140px);
+  @include size($extraLarge, $extraLarge);
 }
 
 .logoContainer {
@@ -29,12 +24,21 @@
   display: flex;
   flex-shrink: 0;
   overflow: hidden;
+  position: relative;
+}
 
-  .logo {
-    margin: auto;
-    max-height: 100%;
-    max-width: 100%;
-  }
+.logo {
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.defaultIcon {
+  color: $selectedColor;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @include customMedia {

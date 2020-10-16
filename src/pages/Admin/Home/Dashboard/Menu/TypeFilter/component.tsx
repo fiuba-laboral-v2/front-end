@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
+
 import { Tab } from "../Tab";
-import { CompanyIcon } from "../../Icons/CompanyIcon";
-import { ApplicantIcon } from "../../Icons/ApplicantIcon";
-import { OfferIcon } from "../../Icons/OfferIcon";
-import { JobApplicationIcon } from "../../Icons/JobApplicationIcon";
+import { CompanyIcon } from "$components/Icons/CompanyIcon";
+import { ApplicantIcon } from "$components/Icons/ApplicantIcon";
+import { OfferIcon } from "$components/Icons/OfferIcon";
+import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
+
 import { ITypeFilterComponentProps } from "./interfaces";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import styles from "./styles.module.scss";

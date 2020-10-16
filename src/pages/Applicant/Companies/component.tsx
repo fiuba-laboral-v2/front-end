@@ -33,6 +33,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
               size="large"
               companyName={company.companyName}
               logo={company.logo}
+              useDefaultIcon
             />
             <Subtitle className={styles.name}>{company.companyName}</Subtitle>
           </div>

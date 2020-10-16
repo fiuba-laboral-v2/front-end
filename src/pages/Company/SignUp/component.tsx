@@ -6,7 +6,7 @@ import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
 import { UserDataFormSection } from "./UserDataFormSection";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
-import { ContactInformationFormSection } from "./ContactInformationFormSection";
+import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import styles from "./styles.module.scss";

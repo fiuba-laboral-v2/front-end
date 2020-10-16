@@ -1,10 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useAdminApprovalStatusAttribute } from "$hooks/queries";
 import { TAdminTask } from "$interfaces/AdminTask";
-import { CompanyIcon } from "../../Icons/CompanyIcon";
-import { ApplicantIcon } from "../../Icons/ApplicantIcon";
-import { OfferIcon } from "../../Icons/OfferIcon";
-import { JobApplicationIcon } from "../../Icons/JobApplicationIcon";
+
+import { CompanyIcon } from "$components/Icons/CompanyIcon";
+import { ApplicantIcon } from "$components/Icons/ApplicantIcon";
+import { OfferIcon } from "$components/Icons/OfferIcon";
+import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { AdminTask } from "./component";
 
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
