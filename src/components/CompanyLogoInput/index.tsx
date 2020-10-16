@@ -17,7 +17,7 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
       {({ imageList, onImageUpload }) => (
         <>
           <div className={styles.overlay} onClick={imageList[0]?.onUpdate || onImageUpload}>
-            <CloudUploadOutlinedIcon className={styles.uploadLogo} />
+            <CloudUploadOutlinedIcon className={styles.uploadLogo} fontSize="large" />
           </div>
           <CompanyLogo
             className={styles.logo}
