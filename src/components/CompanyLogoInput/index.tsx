@@ -21,8 +21,9 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
           </div>
           <CompanyLogo
             className={styles.logo}
-            logo={imageList[0]?.dataURL || initialValue || "images/imageUpload.png"}
+            logo={imageList[0]?.dataURL || initialValue}
             size="extraLarge"
+            ignoreAlt
           />
         </>
       )}

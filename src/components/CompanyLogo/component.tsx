@@ -9,7 +9,8 @@ export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = ({
   size,
   className,
   onClick,
-  children
+  children,
+  ignoreAlt
 }) => (
   <div
     className={classNames(styles.logoContainer, className, styles[size], {
@@ -17,12 +18,17 @@ export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = ({
     })}
     onClick={onClick}
   >
-    <img className={styles.logo} src={logo} alt={`Logo de ${companyName || "la empresa"}`} />
+    <img
+      className={styles.logo}
+      src={logo}
+      alt={ignoreAlt ? "" : `Logo de ${companyName || "la empresa"}`}
+    />
     {children}
   </div>
 );
 
 interface ICompanyLogoProps {
+  ignoreAlt?: boolean;
   mobileLayout?: boolean;
   companyName?: string;
   logo?: string;
