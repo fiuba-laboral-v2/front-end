@@ -30,6 +30,7 @@ export const Info: FunctionComponent<IOfferProps> = ({
         companyName={company.companyName}
         logo={company.logo}
         size="large"
+        useDefaultIcon
       />
       <div className={styles.subtitleContainer}>
         <Subtitle className={styles.jobDescription}>{title}</Subtitle>

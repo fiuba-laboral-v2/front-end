@@ -23,7 +23,7 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
             className={styles.logo}
             logo={imageList[0]?.dataURL || initialValue}
             size="extraLarge"
-            ignoreAlt
+            useDefaultIcon={false}
           />
         </>
       )}

@@ -1,16 +1,17 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
+import { CompanyIcon } from "../../pages/Admin/Home/Dashboard/Icons/CompanyIcon";
+
+import { companyIconStyles } from "./styles";
 import styles from "./styles.module.scss";
 
 export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = ({
   mobileLayout,
-  companyName,
   logo,
   size,
   className,
   onClick,
-  children,
-  ignoreAlt
+  useDefaultIcon
 }) => (
   <div
     className={classNames(styles.logoContainer, className, styles[size], {
@@ -18,17 +19,15 @@ export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = ({
     })}
     onClick={onClick}
   >
-    <img
-      className={styles.logo}
-      src={logo}
-      alt={ignoreAlt ? "" : `Logo de ${companyName || "la empresa"}`}
-    />
-    {children}
+    <img className={styles.logo} src={logo} alt="" />
+    {useDefaultIcon && !logo && (
+      <CompanyIcon classes={companyIconStyles()} className={styles.defaultIcon} />
+    )}
   </div>
 );
 
 interface ICompanyLogoProps {
-  ignoreAlt?: boolean;
+  useDefaultIcon: boolean;
   mobileLayout?: boolean;
   companyName?: string;
   logo?: string;

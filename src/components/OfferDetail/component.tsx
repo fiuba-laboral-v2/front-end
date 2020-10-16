@@ -31,6 +31,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         size="extraLarge"
         companyName={offer.company.companyName}
         logo={offer.company.logo}
+        useDefaultIcon
       />
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
