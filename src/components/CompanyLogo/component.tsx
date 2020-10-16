@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { CompanyIcon } from "../../pages/Admin/Home/Dashboard/Icons/CompanyIcon";
+
+import { CompanyIcon } from "$components/Icons/CompanyIcon";
 
 import { companyIconStyles } from "./styles";
 import styles from "./styles.module.scss";
