@@ -6,7 +6,7 @@ import { FormikHelpers } from "formik/dist/types";
 import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
-import { ContactInformationFormSection } from "../SignUp/ContactInformationFormSection";
+import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import styles from "./styles.module.scss";
