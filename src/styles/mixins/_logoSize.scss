@@ -1,0 +1,10 @@
+@mixin size($width, $height) {
+  border-radius: 0.11 * $height;
+  height: $height;
+  width: $width;
+}
+
+$extraLarge: 140px;
+$large: 70px;
+$medium: 48px;
+$small: 38px;
