@@ -15,7 +15,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   mobileLayout,
   className,
   applicant: {
-    user: { name, surname },
+    user: { name, surname, email },
     description,
     approvalStatus,
     careers,
@@ -38,6 +38,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
         />
         <div>{editButton}</div>
       </div>
+      <Links links={[{ name: email, url: email }]} />
       <Links links={links} />
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
