@@ -15,8 +15,6 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
 }) => (
   <>
     <p className={classNames(styles.text, styles.names)}>{`${name} ${surname}`}</p>
-    <p className={styles.text}>{padron}</p>
-    <p className={styles.text}>{dni}</p>
     <div className={styles.careersContainer}>
       <CareersDetail
         className={styles.careers}
@@ -25,6 +23,8 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
         withSubjects={false}
       />
     </div>
+    <p className={styles.text}>{padron}</p>
+    <p className={styles.text}>{dni}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
