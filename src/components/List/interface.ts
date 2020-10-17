@@ -8,4 +8,6 @@ export interface IListProps<ListItem> {
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  emptyListComponent?: ReactNode;
+  withHeading?: boolean;
 }

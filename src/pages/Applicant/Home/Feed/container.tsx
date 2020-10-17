@@ -6,9 +6,10 @@ import { Feed } from "$components/Feed";
 import { useApprovedOffers, useMyCareers, useTranslations } from "$hooks/queries";
 import { Window } from "$components/Window";
 import { Filters } from "./Filters";
-import styles from "./styles.module.scss";
 import { IOfferListTranslations } from "./interface";
 import { OfferFilter } from "$models/OfferFilter";
+
+import styles from "./styles.module.scss";
 
 export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQuery }) => {
   const history = useHistory();
@@ -38,6 +39,12 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
         fetchMore={offers.fetchMore}
         shouldFetchMore={offers.data?.getApprovedOffers.shouldFetchMore}
         withStatusLabels={false}
+        emptyFeedAction={() => {
+          filter.clear();
+          const searchParams = filter.toString();
+          history.push(RoutesBuilder.applicant.offerList({ searchParams }));
+        }}
+        emptyTranslationSource="applicantEmptyOfferList"
       />
     </Window>
   );

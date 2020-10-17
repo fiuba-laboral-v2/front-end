@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  font-size: $fontSize-l;
+  margin: $spacing-m 0 $spacing-m;
+  max-width: 350px;
+  text-align: center;
+}

@@ -12,10 +12,19 @@ export const List = <ListItem,>({
   shouldFetchMore,
   fetchMore,
   fetchMoreClassName,
-  loading
+  loading,
+  emptyListComponent,
+  withHeading = false
 }: IListProps<ListItem>) => (
   <>
-    <div className={classNames(styles.list, className)}>{list.map(item => children(item))}</div>
+    {list.length > 0 && (
+      <div className={classNames(styles.list, className)}>{list.map(item => children(item))}</div>
+    )}
+    {list.length === 0 && (
+      <div className={classNames(styles.emptyList, { [styles.withHeading]: withHeading })}>
+        {emptyListComponent}
+      </div>
+    )}
     <PaginationButton
       shouldFetchMore={shouldFetchMore}
       fetchMore={fetchMore}

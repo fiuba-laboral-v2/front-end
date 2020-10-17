@@ -7,6 +7,7 @@ import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
+import styles from "./styles.module.scss";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -21,6 +22,7 @@ export const MyOffersContainer: FunctionComponent = () => {
   return (
     <Window>
       <Feed
+        className={styles.feedContainer}
         loading={response.loading}
         title={translations.title}
         offers={response.data?.getMyOffers.results || []}
@@ -28,6 +30,8 @@ export const MyOffersContainer: FunctionComponent = () => {
         fetchMore={response.fetchMore}
         shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
         withStatusLabels
+        emptyFeedAction={() => history.push(RoutesBuilder.company.createOffer())}
+        emptyTranslationSource="emptyTranslationSource"
       />
     </Window>
   );

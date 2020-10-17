@@ -5,3 +5,15 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.emptyList {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+}
+
+.withHeading {
+  height: 80%;
+}
