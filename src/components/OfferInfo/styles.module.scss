@@ -3,7 +3,7 @@
 
 .mainContainer {
   background-color: $lighterGrey;
-  border-radius: $defaultBorderRadius;
+  border-radius: $borderRadius-l;
   display: flex;
   flex-direction: column;
   padding: $spacing-m;

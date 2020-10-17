@@ -4,6 +4,7 @@
 .cardContainer {
   @include scrollOverlay;
 
+  border-radius: $borderRadius-m;
   display: flex;
   flex-direction: column;
   min-width: $laptopWidth;
