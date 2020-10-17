@@ -9,4 +9,6 @@
 
 .listContent {
   @include scrollOverlay;
+
+  background-color: mix($lighterGrey, $white, 30%);
 }
