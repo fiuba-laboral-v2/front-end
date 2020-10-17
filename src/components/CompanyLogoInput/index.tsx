@@ -12,33 +12,28 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
   setLogo,
   className
 }) => (
-  <div className={classNames(styles.inputContainer, className)}>
-    <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
-      {({ imageList, onImageUpload }) => (
-        <>
-          <div
-            className={classNames(styles.overlay, {
-              [styles.visibility]: !initialValue
-            })}
-            onClick={imageList[0]?.onUpdate || onImageUpload}
-          >
-            <CloudUploadOutlinedIcon
-              className={classNames(styles.uploadLogo, {
-                [styles.visibility]: !initialValue
-              })}
-              fontSize="large"
-            />
-          </div>
-          <CompanyLogo
-            className={styles.logo}
-            logo={imageList[0]?.dataURL || initialValue}
-            size="extraLarge"
-            useDefaultIcon={false}
-          />
-        </>
-      )}
-    </ImageUpload>
-  </div>
+  <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
+    {({ imageList, onImageUpload }) => (
+      <div
+        className={classNames(styles.inputContainer, className)}
+        onClick={imageList[0]?.onUpdate || onImageUpload}
+      >
+        <div className={classNames(styles.overlay)} />
+        <CloudUploadOutlinedIcon
+          className={classNames(styles.uploadIcon, {
+            [styles.alwaysVisibleUploadIcon]: !initialValue
+          })}
+          fontSize="large"
+        />
+        <CompanyLogo
+          className={styles.logo}
+          logo={imageList[0]?.dataURL || initialValue}
+          size="extraLarge"
+          useDefaultIcon={false}
+        />
+      </div>
+    )}
+  </ImageUpload>
 );
 
 export interface IComponentProps {
