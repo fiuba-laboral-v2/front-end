@@ -18,7 +18,8 @@ export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = ({
     <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
       {applicantCareer.career.description}
     </b>
-    {withSubjects && `${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`}
+    {withSubjects &&
+      `: ${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`}
   </span>
 );
 
