@@ -27,8 +27,8 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     </div>
     <p className={styles.text}>{hoursPerDay}</p>
     <div className={styles.salary}>
-      <p className={styles.text}>{`Max: ${maximumSalary}`}</p>
-      <p className={styles.text}>{`Min: ${minimumSalary}`}</p>
+      <p>{`Max: ${maximumSalary}`}</p>
+      <p>{`Min: ${minimumSalary}`}</p>
     </div>
     <div className={styles.careersContainer}>
       {careers ? (

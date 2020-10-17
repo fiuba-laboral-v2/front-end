@@ -1,11 +1,7 @@
-@import "$styles/_variables";
+@import "$styles/mixins/_tableList";
 
 .item {
-  align-self: center;
-  font-size: $fontSize-m;
-  font-weight: 600;
-  justify-self: center;
-  text-align: center;
+  @include headerItem;
 
   &.companyName {
     grid-area: companyName;

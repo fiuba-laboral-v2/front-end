@@ -1,8 +1,10 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_tableList";
 
 .row {
+  @include tableRow;
+
   min-height: $spacing-xxl;
-  padding: $spacing-s;
 
   &:nth-child(odd) {
     background-color: $lighterGrey;
