@@ -3,10 +3,6 @@
 
 .text {
   @include bodyItem;
-
-  &.names {
-    font-weight: $fontWeight-b;
-  }
 }
 
 .careersContainer {
