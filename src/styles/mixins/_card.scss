@@ -2,7 +2,7 @@
 
 @mixin card {
   background: #fcfcfc;
-  border-radius: $defaultBorderRadius;
+  border-radius: $borderRadius-l;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   padding: $spacing-xxl;
 }
