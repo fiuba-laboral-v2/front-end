@@ -1,6 +1,0 @@
-@import "$styles/_variables";
-
-@mixin formSetMainColumn($proportion: 0.7) {
-  flex-shrink: 0;
-  width: calc(#{$proportion} * #{$detailContainerWidth - 2 * $spacing-xxl} - #{$spacing-l});
-}
