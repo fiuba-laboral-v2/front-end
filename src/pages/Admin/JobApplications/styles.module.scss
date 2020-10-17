@@ -1,6 +1,8 @@
+@import "$styles/mixins/_tableList";
+
 .tableDisplay {
-  display: grid;
+  @include tableDisplay;
+
   grid-template-areas: "companyName cuit applicantName padron approvalStatus updatedAt";
-  grid-template-columns: 3fr 2fr 3fr 2fr 1fr 3fr;
-  grid-template-rows: auto;
+  grid-template-columns: 3fr 2fr 3fr 2fr 2fr 2fr;
 }

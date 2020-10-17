@@ -57,7 +57,7 @@
   background: $dashboardBackgroundWhite;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .desktopApplyFilters {
     display: none;
   }

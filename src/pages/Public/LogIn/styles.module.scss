@@ -26,7 +26,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .mainContent {
     .loginMainContainer {
       flex-direction: column;

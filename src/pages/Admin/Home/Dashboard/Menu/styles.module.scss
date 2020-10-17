@@ -14,7 +14,7 @@
   margin-bottom: $spacing-l;
 }
 
-@media (max-width: $largeContainerThreshold) {
+@media (max-width: $largeLaptopWidth) {
   .menuContent {
     width: unset;
   }

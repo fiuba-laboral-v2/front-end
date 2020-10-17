@@ -60,7 +60,7 @@
   overflow: hidden;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .navBar {
     flex-direction: column;
   }
@@ -118,7 +118,7 @@
   }
 }
 
-@media (max-width: $smallMobileContainerThreshold) {
+@media (max-width: $smallMobileWidth) {
   .menu {
     .user {
       flex-direction: column;

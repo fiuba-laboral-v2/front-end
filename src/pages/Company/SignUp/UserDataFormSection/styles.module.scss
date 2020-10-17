@@ -14,7 +14,7 @@ div.password {
   margin-bottom: $spacing-m;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .firstRow,
   .secondRow {
     flex-direction: column;

@@ -1,9 +1,7 @@
-@import "$styles/_variables";
+@import "$styles/mixins/_tableList";
 
 .item {
-  font-size: $fontSize-l;
-  font-weight: 600;
-  justify-self: center;
+  @include headerItem;
 
   &.padron {
     grid-area: padron;

@@ -1,28 +1,15 @@
 @import "$styles/_variables";
-
-@mixin rowItem {
-  align-self: center;
-  font-size: $fontSize-m;
-  font-weight: $fontWeight-r;
-  justify-self: center;
-  text-align: center;
-}
+@import "$styles/mixins/_tableList";
 
 .text {
-  @include rowItem;
+  @include bodyItem;
 }
 
 .careersContainer {
-  @include rowItem;
+  @include bodyItem;
 
   display: flex;
   flex-direction: column;
-}
-
-.careers {
-  @include rowItem;
-
-  text-align: center;
 }
 
 .container {
@@ -32,10 +19,7 @@
 }
 
 .salary {
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include bodyItem;
 }
 
 .separatedStatusLabel {

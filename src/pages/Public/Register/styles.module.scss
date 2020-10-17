@@ -61,7 +61,7 @@
   color: $mainBlueDark;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .header {
     height: 150px;
   }
@@ -83,7 +83,7 @@
   }
 }
 
-@media (max-width: $smallMobileContainerThreshold) {
+@media (max-width: $smallMobileWidth) {
   .header {
     height: 100px;
   }

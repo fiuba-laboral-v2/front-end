@@ -1,18 +1,7 @@
-@import "$styles/_variables";
-
-@mixin rowItem {
-  align-self: center;
-  font-size: $fontSize-l;
-  font-weight: $fontWeight-r;
-  justify-self: center;
-}
+@import "$styles/mixins/_tableList";
 
 .text {
-  @include rowItem;
-}
-
-.careerText {
-  font-weight: $fontWeight-r;
+  @include bodyItem;
 }
 
 .statusContainer {

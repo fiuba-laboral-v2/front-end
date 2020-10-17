@@ -1,6 +1,8 @@
+@import "$styles/mixins/_tableList";
+
 .tableDisplay {
-  display: grid;
-  grid-template-areas: "companyName title  hoursPerDay salary careers targetApplicantType approvalStatus updatedAt";
-  grid-template-columns: 3fr 3fr 1fr 2fr 3fr 2fr 2fr 2fr;
-  grid-template-rows: auto;
+  @include tableDisplay;
+
+  grid-template-areas: "companyName title careers hoursPerDay salary approvalStatus updatedAt";
+  grid-template-columns: 3fr 3fr 3fr 1fr 2fr 2fr 2fr;
 }
