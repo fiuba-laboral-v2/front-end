@@ -8,7 +8,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   jobApplication: {
     applicant: {
       padron,
-      user: { name }
+      user: { name, surname }
     },
     offer: {
       company: { companyName, cuit }
@@ -20,7 +20,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   <>
     <p className={styles.text}>{companyName}</p>
     <p className={styles.text}>{cuit}</p>
-    <p className={styles.text}>{name}</p>
+    <p className={styles.text}>{`${name} ${surname}`}</p>
     <p className={styles.text}>{padron}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
