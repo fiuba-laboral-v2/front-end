@@ -17,6 +17,8 @@
 
   &.hoursPerDay {
     grid-area: hoursPerDay;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &.salary {

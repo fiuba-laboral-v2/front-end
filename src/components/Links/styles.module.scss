@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .links {
     flex-direction: column;
 

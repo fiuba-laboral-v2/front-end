@@ -28,7 +28,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .editButton {
     margin-top: $spacing-m;
   }

@@ -42,7 +42,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .card {
     flex-direction: column;
 

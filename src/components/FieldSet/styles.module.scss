@@ -32,7 +32,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .childrenContainer {
     flex-direction: column;
   }

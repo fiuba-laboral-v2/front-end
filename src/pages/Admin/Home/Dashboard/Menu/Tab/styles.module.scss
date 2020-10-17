@@ -103,7 +103,7 @@
   margin: $spacing-s 0;
 }
 
-@media (max-width: $largeContainerThreshold) {
+@media (max-width: $largeLaptopWidth) {
   .description {
     display: none;
   }

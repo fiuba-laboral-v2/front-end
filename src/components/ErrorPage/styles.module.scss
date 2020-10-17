@@ -22,7 +22,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .error .imgSrc {
     max-width: 90vw;
   }

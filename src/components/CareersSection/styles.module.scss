@@ -10,7 +10,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .items {
     column-count: 1;
     margin-top: 20px;

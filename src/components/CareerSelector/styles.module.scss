@@ -43,7 +43,7 @@ div.currentCareerYear {
   width: unset;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .fieldsContainer {
     flex-direction: column;
   }
