@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
-import { EmptyList } from "./EmptyList";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 import { Headline } from "$components/Headline";
@@ -16,8 +15,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   loading,
   className,
   withStatusLabels,
-  emptyFeedAction,
-  emptyTranslationSource
+  emptyListComponent
 }) => (
   <div className={className}>
     {title && (
@@ -31,10 +29,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
       fetchMoreClassName={styles.fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
-      {...(title && { withHeading: true })}
-      emptyListComponent={
-        <EmptyList emptyTranslationSource={emptyTranslationSource} onClick={emptyFeedAction} />
-      }
+      emptyListComponent={emptyListComponent}
     >
       {offer => (
         <Card
@@ -58,6 +53,5 @@ interface IFeedProps {
   shouldFetchMore?: boolean;
   loading: boolean;
   className?: string;
-  emptyFeedAction: () => void;
-  emptyTranslationSource: string;
+  emptyListComponent: ReactNode;
 }

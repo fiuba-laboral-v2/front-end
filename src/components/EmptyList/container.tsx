@@ -7,10 +7,15 @@ import { EmptyList } from "./component";
 
 export const EmptyListContainer: FunctionComponent<IEmptyListContainerProps> = ({
   emptyTranslationSource,
+  buttonKind,
   onClick
 }) => {
   const translations = useTranslations<ITranslations>(emptyTranslationSource);
   return (
-    <>{translations && <EmptyList onClick={onClick} translations={translations}></EmptyList>}</>
+    <>
+      {translations && (
+        <EmptyList onClick={onClick} buttonKind={buttonKind} translations={translations} />
+      )}
+    </>
   );
 };

@@ -5,6 +5,7 @@ import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { useApprovedOffers, useMyCareers, useTranslations } from "$hooks/queries";
 import { Window } from "$components/Window";
+import { EmptyList } from "$components/EmptyList";
 import { Filters } from "./Filters";
 import { IOfferListTranslations } from "./interface";
 import { OfferFilter } from "$models/OfferFilter";
@@ -39,12 +40,17 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
         fetchMore={offers.fetchMore}
         shouldFetchMore={offers.data?.getApprovedOffers.shouldFetchMore}
         withStatusLabels={false}
-        emptyFeedAction={() => {
-          filter.clear();
-          const searchParams = filter.toString();
-          history.push(RoutesBuilder.applicant.offerList({ searchParams }));
-        }}
-        emptyTranslationSource="applicantEmptyOfferList"
+        emptyListComponent={
+          <EmptyList
+            emptyTranslationSource="applicantEmptyOfferList"
+            buttonKind="secondary"
+            onClick={() => {
+              filter.clear();
+              const searchParams = filter.toString();
+              history.push(RoutesBuilder.applicant.offerList({ searchParams }));
+            }}
+          />
+        }
       />
     </Window>
   );

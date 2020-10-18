@@ -6,6 +6,7 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
+import { EmptyList } from "$components/EmptyList";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
 import styles from "./styles.module.scss";
 
@@ -30,8 +31,13 @@ export const MyOffersContainer: FunctionComponent = () => {
         fetchMore={response.fetchMore}
         shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
         withStatusLabels
-        emptyFeedAction={() => history.push(RoutesBuilder.company.createOffer())}
-        emptyTranslationSource="emptyTranslationSource"
+        emptyListComponent={
+          <EmptyList
+            emptyTranslationSource="companyEmptyOfferList"
+            buttonKind="primary"
+            onClick={() => history.push(RoutesBuilder.company.createOffer())}
+          />
+        }
       />
     </Window>
   );

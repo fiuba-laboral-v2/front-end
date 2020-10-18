@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { List } from "$components/List";
 import { JobApplication } from "./JobApplication";
 import { Window } from "$components/Window";
@@ -9,7 +9,8 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
   jobApplications,
   fetchMore,
   shouldFetchMore,
-  loading
+  loading,
+  emptyListComponent
 }) => (
   <Window>
     <List
@@ -18,6 +19,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
+      emptyListComponent={emptyListComponent}
     >
       {jobApplication => (
         <JobApplication
@@ -35,4 +37,5 @@ interface IMyJobApplications {
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  emptyListComponent: ReactNode;
 }
