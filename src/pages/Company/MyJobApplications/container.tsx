@@ -5,10 +5,12 @@ import { Redirect } from "$components/Redirect";
 import { EmptyList } from "$components/EmptyList";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useMyJobApplications } from "$hooks/queries/useMyJobApplications";
+import { useTranslations } from "$hooks";
 
 export const MyJobApplicationsContainer: FunctionComponent = () => {
   const history = useHistory();
   const response = useMyJobApplications();
+  const translations = useTranslations<ITranslation>("companyJobApplicationsListTitle");
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
   return (
@@ -17,6 +19,7 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
       fetchMore={response.fetchMore}
       shouldFetchMore={response.data?.getMyLatestJobApplications.shouldFetchMore}
       loading={response.loading}
+      {...(translations?.title && { title: translations.title })}
       emptyListComponent={
         <EmptyList
           emptyTranslationSource="jobApplicationEmptyOfferList"
@@ -27,3 +30,7 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
     />
   );
 };
+
+interface ITranslation {
+  title: string;
+}
