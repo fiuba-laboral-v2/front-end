@@ -42,15 +42,13 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
           </Card>
         ))}
       {companies.length === 0 && (
-        <div className={styles.emptyListContainer}>
-          <EmptyList
-            emptyTranslationSource="applicantEmptyCompaniesList"
-            buttonKind="secondary"
-            onClick={() => {
-              // sacar los filtros cuando hayan
-            }}
-          />
-        </div>
+        <EmptyList
+          emptyTranslationSource="applicantEmptyCompaniesList"
+          buttonKind="secondary"
+          onClick={() => {
+            // sacar los filtros cuando hayan
+          }}
+        />
       )}
     </Window>
   );

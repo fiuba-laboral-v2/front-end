@@ -8,7 +8,6 @@ import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
-import styles from "./styles.module.scss";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -23,7 +22,6 @@ export const MyOffersContainer: FunctionComponent = () => {
   return (
     <Window>
       <Feed
-        className={styles.feedContainer}
         loading={response.loading}
         title={translations.title}
         offers={response.data?.getMyOffers.results || []}

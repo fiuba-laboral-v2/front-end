@@ -1,6 +1,8 @@
+import { IButtonProps } from "../Button";
+
 export interface IEmptyListCommonProps {
   onClick: () => void;
-  buttonKind: "primary" | "secondary" | "warning" | "danger";
+  buttonKind: IButtonProps["kind"];
 }
 
 export interface IEmptyListContainerProps extends IEmptyListCommonProps {

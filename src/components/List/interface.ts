@@ -9,5 +9,4 @@ export interface IListProps<ListItem> {
   shouldFetchMore?: boolean;
   loading: boolean;
   emptyListComponent?: ReactNode;
-  withHeading?: boolean;
 }
