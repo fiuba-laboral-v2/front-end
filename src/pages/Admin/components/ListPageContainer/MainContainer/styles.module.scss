@@ -3,7 +3,6 @@
 .mainContent {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - #{$navBarHeight} - #{$spacing-xxl * 2});
   overflow-x: auto;
   overflow-y: hidden;
   padding: $spacing-xxl;

@@ -20,7 +20,7 @@ const Register: FunctionComponent<IRegisterProps> = (
     <NavBar/>
     <section className={styles.container}>
       <section className={styles.header}>
-        <img className={styles.logo} src={"images/logo.png"} alt="Register logo"/>
+        <img className={styles.logo} src={"images/logo.svg"} alt="Register logo"/>
       </section>
       <section className={styles.body}>
         <Card className={styles.applicantCard} onClick={onClickRegisterApplicant}>

@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
+.mainBody {
+  display: flex;
+}
+
 @media (max-width: $laptopWidth) {
   .desktopOnly {
     display: none;
