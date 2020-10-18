@@ -50,10 +50,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
           </div>
         )}
       </Formik>
-      <AcceptanceCriteria
-        className={styles.acceptanceCriteria}
-        text={acceptanceCriteria.repeat(100)}
-      />
+      <AcceptanceCriteria className={styles.acceptanceCriteria} text={acceptanceCriteria} />
     </div>
   </Window>
 );
