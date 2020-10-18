@@ -4,6 +4,7 @@
 .middleContainer {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .formContainer {
@@ -11,7 +12,10 @@
 }
 
 .acceptanceCriteria {
-  max-height: 100vh;
+  left: 65%;
+  max-height: calc(100vh - #{4 * $spacing-xl} - #{$spacing-xxl} - #{$navBarHeight} - #{$fontSize-xxl});
+  position: sticky;
+  top: 7%;
   width: 20%;
 }
 
