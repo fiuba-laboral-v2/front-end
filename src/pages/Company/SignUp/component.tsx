@@ -17,7 +17,8 @@ const formName = "signUpForm";
 export const SignUp: FunctionComponent<ISignUpProps> = ({
   initialValues,
   onSubmit,
-  translations
+  translations,
+  acceptanceCriteria
 }) => (
   <Window>
     <h1 className={styles.title}>{translations.title}</h1>
@@ -51,21 +52,14 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
       </Formik>
       <AcceptanceCriteria
         className={styles.acceptanceCriteria}
-        text={
-          "Criterio de aprobación de perfiles de empresas: \n\n" +
-          "* No hacer X cosa  \n" +
-          "* No hacer Y otra cosa" +
-          "* Si hacés Z, te rechazo de una \n" +
-          "* Si te haces sponsor, te apruebo al toque \n\n" +
-          "Ante consultas/reclamos comunicarse a: \n\n" +
-          "queseyo@fi.uba.ar".repeat(100)
-        }
+        text={acceptanceCriteria.repeat(100)}
       />
     </div>
   </Window>
 );
 
 interface ISignUpProps {
+  acceptanceCriteria: string;
   initialValues: ISignUpFormValues;
   translations: ISignUpTranslations;
   onSubmit: (
