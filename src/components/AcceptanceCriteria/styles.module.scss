@@ -6,7 +6,6 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   height: fit-content;
   margin-left: $fontSize-xl;
-  max-height: calc(100% - #{4 * $spacing-xxl});
   overflow-y: auto;
   padding: 16px;
   white-space: pre-wrap;

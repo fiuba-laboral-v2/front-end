@@ -1,6 +1,20 @@
 @import "$styles/mixins/_card";
 @import "$styles/mixins/_title";
 
+.middleContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.formContainer {
+  width: 80%;
+}
+
+.acceptanceCriteria {
+  max-height: 100vh;
+  width: 20%;
+}
+
 .title {
   @include title;
 
