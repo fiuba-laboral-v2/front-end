@@ -25,6 +25,10 @@
   }
 }
 
+.emptyListContainer {
+  margin-top: 20%;
+}
+
 @media (max-width: $smallMobileContainerThreshold) {
   .childrenContainer {
     flex-direction: column;
