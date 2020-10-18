@@ -13,7 +13,7 @@
 
 .acceptanceCriteria {
   left: 65%;
-  max-height: calc(100vh + #{$spacing-xl} + #{$navBarHeight});
+  max-height: calc(100vh - #{4* $spacing-xl} - #{$navBarHeight});
   position: sticky;
   top: 7%;
   width: 20%;
