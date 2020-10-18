@@ -28,3 +28,20 @@
 .formSection {
   margin-bottom: $spacing-xl;
 }
+
+@media (max-width: $laptopWidth) {
+  .middleContainer {
+    flex-direction: column-reverse;
+  }
+
+  .formContainer {
+    width: unset;
+  }
+
+  .acceptanceCriteria {
+    margin: 0 0 $spacing-xl;
+    max-height: 5 * $spacing-xxl;
+    position: unset;
+    width: unset;
+  }
+}
