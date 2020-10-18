@@ -15,8 +15,7 @@ export const ListContentItem: FunctionComponent<IListContentItem> = ({
   translations
 }) => (
   <>
-    <p className={styles.text}>{name}</p>
-    <p className={styles.text}>{surname}</p>
+    <p className={styles.text}>{`${name} ${surname}`}</p>
     <p className={styles.text}>{email}</p>
     <p className={styles.text}>
       {secretary === Secretary.graduados ? translations.graduados : translations.extension}

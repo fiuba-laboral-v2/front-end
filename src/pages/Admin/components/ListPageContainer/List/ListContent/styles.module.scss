@@ -1,7 +1,14 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_scrollOverlay";
 
 .fetchMore {
   align-self: center;
   display: flex;
-  margin: $spacing-m 0;
+  margin: $spacing-s auto;
+}
+
+.listContent {
+  @include scrollOverlay;
+
+  background-color: mix($lighterGrey, $white, 30%);
 }

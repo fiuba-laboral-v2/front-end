@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-@media (max-width: $largeContainerThreshold) {
+@media (max-width: $largeLaptopWidth) {
   .firstRow {
     flex-direction: column;
   }

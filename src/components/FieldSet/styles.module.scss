@@ -8,7 +8,7 @@
 
 .fieldSetContainer {
   background: #f1f1f1;
-  border-radius: $defaultBorderRadius;
+  border-radius: $borderRadius-l;
   display: flex;
   padding: $spacing-m $spacing-l;
 
@@ -32,7 +32,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .childrenContainer {
     flex-direction: column;
   }

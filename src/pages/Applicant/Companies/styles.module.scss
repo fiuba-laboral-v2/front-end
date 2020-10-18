@@ -29,7 +29,7 @@
   margin-top: 20%;
 }
 
-@media (max-width: $smallMobileContainerThreshold) {
+@media (max-width: $smallMobileWidth) {
   .childrenContainer {
     flex-direction: column;
 

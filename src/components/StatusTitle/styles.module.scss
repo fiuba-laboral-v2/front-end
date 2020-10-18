@@ -17,7 +17,7 @@
   margin-right: $spacing-s;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .desktopStatus {
     display: none;
   }

@@ -10,7 +10,6 @@ export const ListHeaderContainer: FunctionComponent = () => {
 export interface ITranslations {
   companyName: string;
   title: string;
-  targetApplicantType: string;
   hoursPerDay: string;
   salary: string;
   careers: string;

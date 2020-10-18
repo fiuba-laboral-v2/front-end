@@ -8,7 +8,7 @@ div.businessName {
   display: flex;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .lastRow {
     flex-direction: column;
   }

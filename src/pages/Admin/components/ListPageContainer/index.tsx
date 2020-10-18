@@ -16,7 +16,7 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   shouldFetchMore,
   loading
 }) => (
-  <Window width="fullWidth" desktopOnly>
+  <Window width="fullWidth">
     <MainContainer>
       <MainTitle translationPath={titleTranslationPath} />
       <List

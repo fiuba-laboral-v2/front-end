@@ -1,6 +1,6 @@
 @import "$styles/_variables";
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .desktopOnly {
     display: none;
   }

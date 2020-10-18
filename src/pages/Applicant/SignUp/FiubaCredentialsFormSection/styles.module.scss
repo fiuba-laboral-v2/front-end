@@ -8,7 +8,7 @@ div.dniField {
   margin-right: $spacing-xxl;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .fields {
     flex-direction: column;
   }

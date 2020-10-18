@@ -14,7 +14,7 @@ svg.icon {
   width: 100vw;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .desktopOnlyOverlay {
     background: $bodyBackgroundColor;
     display: flex;

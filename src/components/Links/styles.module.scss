@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: $spacing-s;
 }
 
 .link {
@@ -21,7 +22,7 @@
   }
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .links {
     flex-direction: column;
 

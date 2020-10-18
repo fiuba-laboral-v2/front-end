@@ -1,5 +1,4 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_formSetMainColumn";
 
 .fieldsContainer {
   display: flex;
@@ -13,8 +12,6 @@
 }
 
 div.career {
-  @include formSetMainColumn;
-
   margin-right: $spacing-xxl;
 }
 
@@ -34,8 +31,6 @@ div.career {
 }
 
 div.currentCareerYear {
-  @include formSetMainColumn(0.5);
-
   margin-right: $spacing-xxl;
 }
 
@@ -43,7 +38,7 @@ div.currentCareerYear {
   width: unset;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .fieldsContainer {
     flex-direction: column;
   }

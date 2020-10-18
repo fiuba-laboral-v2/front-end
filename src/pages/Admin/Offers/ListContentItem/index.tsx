@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { IOffer } from "$interfaces/Offer";
 import { CareerList } from "$components/CareerList";
 import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
-import { TargetApplicantType } from "$components/TargetApplicantType";
 import { TimeFormatter } from "$models/TimeFormatter";
 import styles from "./styles.module.scss";
 
@@ -25,19 +24,14 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <div className={styles.container}>
       <p className={styles.text}>{title}</p>
     </div>
+    <div className={styles.careersContainer}>
+      {careers ? <CareerList className={styles.careers} careers={careers} shorten={true} /> : <p />}
+    </div>
     <p className={styles.text}>{hoursPerDay}</p>
     <div className={styles.salary}>
-      <p className={styles.text}>{`Max: ${maximumSalary}`}</p>
-      <p className={styles.text}>{`Min: ${minimumSalary}`}</p>
+      <p>{`Max: ${maximumSalary}`}</p>
+      <p>{`Min: ${minimumSalary}`}</p>
     </div>
-    <div className={styles.careersContainer}>
-      {careers ? (
-        <CareerList className={styles.careers} careers={careers} shorten={true} />
-      ) : (
-        <p></p>
-      )}
-    </div>
-    <TargetApplicantType targetApplicantType={targetApplicantType} className={styles.text} />
     <div className={styles.container}>
       <SeparatedStatusLabel
         styles={styles}

@@ -2,6 +2,7 @@
 @import "$styles/mixins/_logoSize";
 
 .inputContainer {
+  cursor: pointer;
   display: block;
   position: relative;
 }
@@ -11,12 +12,17 @@
   @include size($extraLarge, $extraLarge);
 }
 
-.uploadLogo {
+.overlay,
+.uploadIcon {
+  pointer-events: none;
+}
+
+.uploadIcon {
+  color: $white;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  visibility: hidden;
 }
 
 .logo {
@@ -24,28 +30,26 @@
 }
 
 .overlay {
-  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
   position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  user-select: none;
+  z-index: 1;
 }
 
-.visibility {
+.alwaysVisibleUploadIcon {
   color: $grey;
-  display: block;
-  visibility: visible;
+  opacity: 1;
   z-index: 1;
 }
 
 .inputContainer:hover {
   .overlay {
-    background: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    display: block;
-    user-select: none;
-    z-index: 1;
+    opacity: 1;
   }
 
-  .uploadLogo {
-    color: $selectedColor;
-    visibility: visible;
+  .alwaysVisibleUploadIcon {
+    color: $white;
   }
 }

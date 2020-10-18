@@ -5,7 +5,7 @@
   $iconFontSize: floor($multiplier * 12px);
 
   align-items: center;
-  border-radius: $defaultBorderRadius;
+  border-radius: $borderRadius-l;
   display: flex;
   padding: floor($multiplier * 2px);
   width: fit-content;

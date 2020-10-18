@@ -1,8 +1,5 @@
-@import "$styles/_variables";
+@import "$styles/mixins/_tableList";
 
 .text {
-  align-self: center;
-  font-size: $fontSize-l;
-  font-weight: $fontWeight-r;
-  justify-self: center;
+  @include bodyItem;
 }

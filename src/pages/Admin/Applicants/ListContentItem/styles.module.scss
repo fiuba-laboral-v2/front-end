@@ -1,27 +1,12 @@
 @import "$styles/_variables";
-
-@mixin rowItem {
-  align-self: center;
-  font-size: $fontSize-l;
-  font-weight: $fontWeight-r;
-  justify-self: center;
-}
+@import "$styles/mixins/_tableList";
 
 .text {
-  @include rowItem;
-
-  &.names {
-    font-weight: 600;
-    text-align: center;
-  }
+  @include bodyItem;
 }
 
 .careersContainer {
-  @include rowItem;
-}
-
-.careers {
-  text-align: center;
+  @include bodyItem;
 }
 
 .careerText {

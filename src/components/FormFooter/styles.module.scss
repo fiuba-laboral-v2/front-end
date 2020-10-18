@@ -12,7 +12,7 @@
   margin: auto $spacing-m auto auto;
 }
 
-@media (max-width: $mobileContainerThreshold) {
+@media (max-width: $laptopWidth) {
   .footer {
     display: flex;
     flex-direction: row;

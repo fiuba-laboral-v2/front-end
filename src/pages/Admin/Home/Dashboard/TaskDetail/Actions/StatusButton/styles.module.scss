@@ -13,7 +13,7 @@
   margin-left: 1px;
 }
 
-@media (max-width: $largeContainerThreshold) {
+@media (max-width: $largeLaptopWidth) {
   svg.icon {
     display: none;
   }

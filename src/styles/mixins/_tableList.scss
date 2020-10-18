@@ -1,0 +1,31 @@
+@import "$styles/_variables";
+
+@mixin tableDisplay {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+@mixin tableItem {
+  align-self: center;
+  font-size: $fontSize-m;
+  justify-self: center;
+  padding: $spacing-s;
+  text-align: center;
+  word-break: break-word;
+}
+
+@mixin headerItem {
+  @include tableItem;
+
+  font-weight: $fontWeight-b;
+}
+
+@mixin bodyItem {
+  @include tableItem;
+
+  font-weight: $fontWeight-r;
+}
+
+@mixin tableRow {
+  padding: 0 $spacing-m 0 $spacing-s;
+}

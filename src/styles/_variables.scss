@@ -16,9 +16,10 @@ $fontSize-m: 16px;
 $fontSize-s: 14px;
 
 $fontWeight-r: 400;
+$fontWeight-b: 600;
 
-$defaultBorderRadius: 15px;
-$smallBorderRadius: 5px;
+$borderRadius-l: 15px;
+$borderRadius-m: 10px;
 
 $selectedColor: #dde6ee;
 $mainBlueLight: #0fb3ff;
@@ -43,7 +44,11 @@ $bodyBackgroundColor: #ededed;
 
 $detailContainerWidth: 900px;
 $detailContainerHorizontalPadding: 20px;
-$largeContainerThreshold: 1440px;
-$mobileContainerThreshold: $detailContainerWidth + 2 * $detailContainerHorizontalPadding;
-$smallMobileContainerThreshold: 320px;
 $headerContainerPadding: 10px;
+
+$largeLaptopWidth: 1440px;
+$laptopWidth: 1024px;
+$tabletWidth: 768px;
+$largeMobileWidth: 425px;
+$mobileWidth: 375px;
+$smallMobileWidth: 320px;
