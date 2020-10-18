@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.mainContentContainer {
+  margin: $spacing-xxl auto;
+}
+
 @media (max-width: $laptopWidth) {
   .desktopOnly {
     display: none;

@@ -11,7 +11,7 @@ export const Window: FunctionComponent<IWindowProps> = ({ desktopOnly, children,
     <TitleBar />
     <div className={styles.mainBody}>
       <NavBar />
-      <div>
+      <div className={styles.mainContentContainer}>
         {desktopOnly && <DesktopOnlyOverlay />}
         <MainContent {...props} {...(desktopOnly && { className: styles.desktopOnly })}>
           {children}

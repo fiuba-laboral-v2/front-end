@@ -1,8 +1,19 @@
 @import "$styles/_variables";
 
-.navBar {
+.navBarContainer {
   background: $dashboardBackgroundWhite;
   display: flex;
   flex-direction: column;
+}
+
+.navBar {
+  max-height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
+.navBarContainer,
+.navBar {
   width: 285px;
 }
