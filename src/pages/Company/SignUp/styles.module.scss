@@ -40,7 +40,7 @@
 
   .acceptanceCriteria {
     margin: 0 0 $spacing-xl;
-    max-height: 5 * $spacing-xxl;
+    max-height: unset;
     position: unset;
     width: unset;
   }
