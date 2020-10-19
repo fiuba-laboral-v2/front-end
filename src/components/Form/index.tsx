@@ -7,14 +7,17 @@ import styles from "./styles.module.scss";
 export const Form: FunctionComponent<IFormProps> = ({ title, acceptanceCriteria, children }) => (
   <Window>
     <h1 className={styles.title}>{title}</h1>
-    <div className={styles.middleContainer}>
-      <div className={styles.formContainer}>{children}</div>
-      <AcceptanceCriteria className={styles.acceptanceCriteria} text={acceptanceCriteria} />
-    </div>
+    {acceptanceCriteria && (
+      <div className={styles.middleContainer}>
+        <div className={styles.formContainer}>{children}</div>
+        <AcceptanceCriteria className={styles.acceptanceCriteria} text={acceptanceCriteria} />
+      </div>
+    )}
+    {!acceptanceCriteria && <>{children}</>}
   </Window>
 );
 
 interface IFormProps {
   title: string;
-  acceptanceCriteria: string;
+  acceptanceCriteria?: string;
 }
