@@ -46,3 +46,16 @@ a {
 code {
   font-family: $monospace;
 }
+
+::-webkit-scrollbar {
+  width: $spacing-s;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: $borderRadius-m;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $grey;
+  border-radius: $borderRadius-m;
+}

@@ -17,7 +17,8 @@ export const SignUpContainer: FunctionComponent = () => {
   const { login } = useLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
-  if (!translations) return <LoadingSpinner />;
+  const acceptanceCriteria = useTranslations<{ text: string }>("companySignUpAcceptanceCriteria");
+  if (!translations || !acceptanceCriteria) return <LoadingSpinner />;
 
   const onSubmit = async (
     { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,
@@ -42,6 +43,7 @@ export const SignUpContainer: FunctionComponent = () => {
   return (
     <SignUp
       translations={translations}
+      acceptanceCriteria={acceptanceCriteria.text}
       onSubmit={onSubmit}
       initialValues={{
         user: {
