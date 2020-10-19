@@ -7,16 +7,41 @@
 }
 
 .navBar {
-  display: flex;
-  flex-direction: column;
-  font-size: $fontSize-l;
-  max-height: 100vh;
+  font-size: 18px;
+  height: calc(100vh - 165px);
   overflow-y: auto;
   position: sticky;
   top: 0;
 }
 
+.navBar,
+.top,
+.bottom {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
 .navBarContainer,
-.navBar {
+.navBar,
+.bottom {
   width: 285px;
+}
+
+.top {
+  margin-top: 3vh;
+}
+
+.bottom {
+  bottom: 0;
+  left: 0;
+  margin-bottom: 3vh;
+  position: fixed;
+}
+
+.username {
+  overflow: hidden;
+  padding: 0 $spacing-l;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -3,6 +3,13 @@ import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Secretary } from "$interfaces/Secretary";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
+import BusinessIcon from "@material-ui/icons/Business";
+import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
+import SchoolIcon from "@material-ui/icons/School";
+import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -44,21 +51,25 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
-          tooltipMessage: translations.pendingProfile
+          tooltipMessage: translations.pendingProfile,
+          icon: PersonAddIcon
         },
         {
           path: RoutesBuilder.company.createOffer(),
           title: translations.createOffer,
-          tooltipMessage: translations.pendingProfile
+          tooltipMessage: translations.pendingProfile,
+          icon: LibraryAddIcon
         },
         {
           path: RoutesBuilder.company.myOffers(),
           title: translations.myOffers,
-          tooltipMessage: translations.pendingProfile
+          tooltipMessage: translations.pendingProfile,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.company.myProfile(),
-          title: translations.myCompanyProfile
+          title: translations.myCompanyProfile,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -69,21 +80,25 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.jobApplications(),
           title: translations.jobApplications,
-          tooltipMessage: translations.rejectedProfile
+          tooltipMessage: translations.rejectedProfile,
+          icon: PersonAddIcon
         },
         {
           path: RoutesBuilder.company.createOffer(),
           title: translations.createOffer,
-          tooltipMessage: translations.rejectedProfile
+          tooltipMessage: translations.rejectedProfile,
+          icon: LibraryAddIcon
         },
         {
           path: RoutesBuilder.company.myOffers(),
           title: translations.myOffers,
-          tooltipMessage: translations.rejectedProfile
+          tooltipMessage: translations.rejectedProfile,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.company.myProfile(),
-          title: translations.myCompanyProfile
+          title: translations.myCompanyProfile,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -93,19 +108,23 @@ describe("NavBarLinks", () => {
       expect(NavBarLinks.create(currentCompany, translations)).toEqual([
         {
           path: RoutesBuilder.company.jobApplications(),
-          title: translations.jobApplications
+          title: translations.jobApplications,
+          icon: PersonAddIcon
         },
         {
           path: RoutesBuilder.company.createOffer(),
-          title: translations.createOffer
+          title: translations.createOffer,
+          icon: LibraryAddIcon
         },
         {
           path: RoutesBuilder.company.myOffers(),
-          title: translations.myOffers
+          title: translations.myOffers,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.company.myProfile(),
-          title: translations.myCompanyProfile
+          title: translations.myCompanyProfile,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -126,15 +145,18 @@ describe("NavBarLinks", () => {
       expect(NavBarLinks.create(currentApplicant, translations)).toEqual([
         {
           path: RoutesBuilder.applicant.offerList(),
-          title: translations.jobOffers
+          title: translations.jobOffers,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.applicant.myProfile(),
-          title: translations.myProfile
+          title: translations.myProfile,
+          icon: SchoolIcon
         },
         {
           path: RoutesBuilder.applicant.companies(),
-          title: translations.companies
+          title: translations.companies,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -145,16 +167,19 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.applicant.offerList(),
           title: translations.jobOffers,
-          tooltipMessage: translations.pendingProfile
+          tooltipMessage: translations.pendingProfile,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.applicant.myProfile(),
-          title: translations.myProfile
+          title: translations.myProfile,
+          icon: SchoolIcon
         },
         {
           path: RoutesBuilder.applicant.companies(),
           title: translations.companies,
-          tooltipMessage: translations.pendingProfile
+          tooltipMessage: translations.pendingProfile,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -165,16 +190,19 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.applicant.offerList(),
           title: translations.jobOffers,
-          tooltipMessage: translations.rejectedProfile
+          tooltipMessage: translations.rejectedProfile,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.applicant.myProfile(),
-          title: translations.myProfile
+          title: translations.myProfile,
+          icon: SchoolIcon
         },
         {
           path: RoutesBuilder.applicant.companies(),
           title: translations.companies,
-          tooltipMessage: translations.rejectedProfile
+          tooltipMessage: translations.rejectedProfile,
+          icon: BusinessIcon
         }
       ]);
     });
@@ -197,27 +225,33 @@ describe("NavBarLinks", () => {
       expect(NavBarLinks.create(currentAdmin, translations)).toEqual([
         {
           path: RoutesBuilder.admin.home(),
-          title: translations.tasks
+          title: translations.tasks,
+          icon: FormatListBulletedIcon
         },
         {
           path: RoutesBuilder.admin.applicants(),
-          title: translations.applicants
+          title: translations.applicants,
+          icon: SchoolIcon
         },
         {
           path: RoutesBuilder.admin.companies(),
-          title: translations.companies
+          title: translations.companies,
+          icon: BusinessIcon
         },
         {
           path: RoutesBuilder.admin.admins(),
-          title: translations.admins
+          title: translations.admins,
+          icon: SupervisedUserCircleIcon
         },
         {
           path: RoutesBuilder.admin.offers(),
-          title: translations.jobOffers
+          title: translations.jobOffers,
+          icon: LibraryBooksIcon
         },
         {
           path: RoutesBuilder.admin.jobApplications(),
-          title: translations.jobApplications
+          title: translations.jobApplications,
+          icon: PersonAddIcon
         }
       ]);
     });
