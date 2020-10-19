@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { Form, Formik, FormikErrors } from "formik";
+import { Form as FormikForm, Formik, FormikErrors } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
-import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
 import { UserDataFormSection } from "./UserDataFormSection";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
-import { AcceptanceCriteria } from "$components/AcceptanceCriteria";
+import { Form } from "$components/Form";
 
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import styles from "./styles.module.scss";
@@ -20,39 +19,33 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   translations,
   acceptanceCriteria
 }) => (
-  <Window>
-    <h1 className={styles.title}>{translations.title}</h1>
-    <div className={styles.middleContainer}>
-      <Formik
-        initialValues={initialValues}
-        validate={values => {
-          const errors: FormikErrors<ISignUpFormValues> = {};
-          if (values.user.password !== values.user.passwordConfirm) {
-            errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
-          }
-          return errors;
-        }}
-        validateOnMount
-        onSubmit={onSubmit}
-      >
-        {({ isSubmitting, errors }) => (
-          <div className={styles.formContainer}>
-            <Form id={formName}>
-              <UserDataFormSection className={styles.formSection} />
-              <CompanyDataFormSection className={styles.formSection} />
-              <ContactInformationFormSection className={styles.formSection} />
-              <FormFooter
-                isSubmitting={isSubmitting}
-                submitButtonText={translations.submit}
-                errors={errors}
-              />
-            </Form>
-          </div>
-        )}
-      </Formik>
-      <AcceptanceCriteria className={styles.acceptanceCriteria} text={acceptanceCriteria} />
-    </div>
-  </Window>
+  <Form title={translations.title} acceptanceCriteria={acceptanceCriteria}>
+    <Formik
+      initialValues={initialValues}
+      validate={values => {
+        const errors: FormikErrors<ISignUpFormValues> = {};
+        if (values.user.password !== values.user.passwordConfirm) {
+          errors.user = { passwordConfirm: "Las contraseñas no coinciden" };
+        }
+        return errors;
+      }}
+      validateOnMount
+      onSubmit={onSubmit}
+    >
+      {({ isSubmitting, errors }) => (
+        <FormikForm id={formName}>
+          <UserDataFormSection className={styles.formSection} />
+          <CompanyDataFormSection className={styles.formSection} />
+          <ContactInformationFormSection className={styles.formSection} />
+          <FormFooter
+            isSubmitting={isSubmitting}
+            submitButtonText={translations.submit}
+            errors={errors}
+          />
+        </FormikForm>
+      )}
+    </Formik>
+  </Form>
 );
 
 interface ISignUpProps {
