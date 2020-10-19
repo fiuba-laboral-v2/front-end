@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { List } from "$components/List";
 import { Card } from "$components/Card";
 import { Offer } from "./Offer";
@@ -14,7 +14,8 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   shouldFetchMore,
   loading,
   className,
-  withStatusLabels
+  withStatusLabels,
+  emptyListComponent
 }) => (
   <div className={className}>
     {title && (
@@ -22,25 +23,24 @@ export const Feed: FunctionComponent<IFeedProps> = ({
         {title}
       </Headline>
     )}
-    <div>
-      <List
-        list={offers}
-        fetchMore={fetchMore}
-        fetchMoreClassName={styles.fetchMore}
-        shouldFetchMore={shouldFetchMore}
-        loading={loading}
-      >
-        {offer => (
-          <Card
-            key={offer.uuid}
-            className={styles.cardContainer}
-            onClick={() => onCardClick(offer.uuid)}
-          >
-            <Offer data={offer} withStatusLabels={withStatusLabels} />
-          </Card>
-        )}
-      </List>
-    </div>
+    <List
+      list={offers}
+      fetchMore={fetchMore}
+      fetchMoreClassName={styles.fetchMore}
+      shouldFetchMore={shouldFetchMore}
+      loading={loading}
+      emptyListComponent={emptyListComponent}
+    >
+      {offer => (
+        <Card
+          key={offer.uuid}
+          className={styles.cardContainer}
+          onClick={() => onCardClick(offer.uuid)}
+        >
+          <Offer data={offer} withStatusLabels={withStatusLabels} />
+        </Card>
+      )}
+    </List>
   </div>
 );
 
@@ -53,4 +53,5 @@ interface IFeedProps {
   shouldFetchMore?: boolean;
   loading: boolean;
   className?: string;
+  emptyListComponent: ReactNode;
 }

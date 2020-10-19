@@ -19,4 +19,8 @@ export class OfferFilter extends URLSearchParams {
       .join(SEPARATOR);
     this.set(CAREERS, careers || ALL);
   }
+
+  public clear() {
+    this.set(CAREERS, "");
+  }
 }
