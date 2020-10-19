@@ -7,6 +7,9 @@
 }
 
 .navBar {
+  display: flex;
+  flex-direction: column;
+  font-size: $fontSize-l;
   max-height: 100vh;
   overflow-y: auto;
   position: sticky;

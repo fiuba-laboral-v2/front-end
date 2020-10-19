@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.linkContent {
+  color: $darkGrey;
+  display: inline-block;
+  font-weight: $fontWeight-b;
+  padding: $spacing-m;
+  text-decoration: none;
+}
+
+.link:hover .linkContent {
+  background: transparentize($mainBlue, 0.85);
+  border-radius: 100px;
+  color: $mainBlue;
+}

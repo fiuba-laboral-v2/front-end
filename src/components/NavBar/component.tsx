@@ -1,12 +1,9 @@
 import React, { FunctionComponent } from "react";
-
-import { Link } from "$components/Link";
-
 import { RoutesBuilder } from "$models/RoutesBuilder";
-
-import styles from "./styles.module.scss";
 import { INavBarTranslations } from "./interface";
 import { INavBarLink } from "$models/NavBarLinks/Interfaces";
+import { NavBarLink } from "./NavBarLink";
+import styles from "./styles.module.scss";
 
 export const NavBar: FunctionComponent<INavBarProps> = ({
   logOut,
@@ -18,22 +15,21 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   <div className={styles.navBarContainer}>
     <div className={styles.navBar}>
       {links.map(link => (
-        <Link key={link.path} disabledErrorMessage={link.tooltipMessage} to={link.path}>
+        <NavBarLink key={link.path} disabledErrorMessage={link.tooltipMessage} to={link.path}>
           {link.title}
-        </Link>
+        </NavBarLink>
       ))}
-      <div className={styles.separator} />
       {isLoggedIn ? (
         <>
           <p className={styles.username}>{username}</p>
-          <Link onClick={logOut} to="#">
+          <NavBarLink onClick={logOut} to="#">
             {translations.logOut}
-          </Link>
+          </NavBarLink>
         </>
       ) : (
         <>
-          <Link to={RoutesBuilder.public.login()}>{translations.logIn}</Link>
-          <Link to={RoutesBuilder.public.register()}>{translations.signUp}</Link>
+          <NavBarLink to={RoutesBuilder.public.login()}>{translations.logIn}</NavBarLink>
+          <NavBarLink to={RoutesBuilder.public.register()}>{translations.signUp}</NavBarLink>
         </>
       )}
     </div>
