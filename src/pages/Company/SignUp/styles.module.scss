@@ -15,7 +15,7 @@
   left: 65%;
   max-height: calc(100vh - #{4 * $spacing-xl} - #{$navBarHeight} - #{2 * $spacing-xxl});
   position: sticky;
-  top: 7%;
+  top: $navBarHeight + $spacing-xl;
   width: 20%;
 }
 
