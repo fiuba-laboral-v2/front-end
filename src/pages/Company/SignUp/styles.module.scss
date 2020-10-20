@@ -1,47 +1,5 @@
-@import "$styles/mixins/_card";
-@import "$styles/mixins/_title";
-
-.middleContainer {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-.formContainer {
-  width: 80%;
-}
-
-.acceptanceCriteria {
-  left: 65%;
-  max-height: calc(100vh - #{4 * $spacing-xl} - #{$navBarHeight} - #{2 * $spacing-xxl});
-  position: sticky;
-  top: $navBarHeight + $spacing-xl;
-  width: 20%;
-}
-
-.title {
-  @include title;
-
-  margin-bottom: $spacing-xl;
-}
+@import "$styles/_variables";
 
 .formSection {
   margin-bottom: $spacing-xl;
-}
-
-@media (max-width: $laptopWidth) {
-  .middleContainer {
-    flex-direction: column-reverse;
-  }
-
-  .formContainer {
-    width: unset;
-  }
-
-  .acceptanceCriteria {
-    margin: 0 0 $spacing-xl;
-    max-height: unset;
-    position: unset;
-    width: unset;
-  }
 }

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form, Formik } from "formik";
+import { Form as FormikForm, Formik } from "formik";
 
 import { PersonalInformationFormSection } from "../PersonalInformationFormSection";
 import { SkillsAndLanguagesFormSection } from "../SkillsAndLanguagesFormSection";
@@ -8,6 +8,7 @@ import { CareersSelectorFormSection } from "$components/CareersSelectorFormSecti
 import { WorkExperienceFormSection } from "../WorkExperienceFormSection";
 import { AdditionalKnowledgeFormSection } from "../AdditionalKnowledgeFormSection";
 import { FormFooter } from "$components/FormFooter";
+import { Form } from "$components/Form";
 
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import styles from "./styles.module.scss";
@@ -20,8 +21,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
 }) => {
   const formName = "editApplicantDetailForm";
   return (
-    <>
-      <h1 className={styles.title}>{translations.title}</h1>
+    <Form title={translations.title}>
       <Formik
         initialValues={initialValues}
         validateOnMount
@@ -29,7 +29,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
         validate={validateForm}
       >
         {({ values, isSubmitting, errors }) => (
-          <Form id={formName}>
+          <FormikForm id={formName}>
             <PersonalInformationFormSection className={styles.formSection} />
             <SkillsAndLanguagesFormSection className={styles.formSection} />
             <LinksFormSection links={values.links} className={styles.formSection} />
@@ -54,10 +54,10 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
               submitButtonText={translations.submit}
               errors={errors}
             />
-          </Form>
+          </FormikForm>
         )}
       </Formik>
-    </>
+    </Form>
   );
 };
 

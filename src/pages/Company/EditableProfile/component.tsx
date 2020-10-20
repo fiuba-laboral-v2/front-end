@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 
-import { Form, Formik } from "formik";
+import { Form as FormikForm, Formik } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
-import { Window } from "$components/Window";
 import { FormFooter } from "$components/FormFooter";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
+import { Form } from "$components/Form";
 
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import styles from "./styles.module.scss";
@@ -14,13 +14,13 @@ import styles from "./styles.module.scss";
 export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
   initialValues,
   onUpdate,
-  translations
+  translations,
+  acceptanceCriteria
 }) => (
-  <Window>
-    <h1 className={styles.title}>{translations.title}</h1>
+  <Form title={translations.title} acceptanceCriteria={acceptanceCriteria}>
     <Formik initialValues={initialValues} validateOnMount onSubmit={onUpdate}>
       {({ values, setFieldValue, isSubmitting, errors }) => (
-        <Form>
+        <FormikForm>
           <CompanyDataFormSection
             className={styles.formSection}
             setFieldValue={setFieldValue}
@@ -32,13 +32,14 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
             submitButtonText={translations.submit}
             errors={errors}
           />
-        </Form>
+        </FormikForm>
       )}
     </Formik>
-  </Window>
+  </Form>
 );
 
 interface IEditableProfileProps {
+  acceptanceCriteria: string;
   initialValues: IEditableProfileFormValues;
   translations: IEditableProfileTranslations;
   onUpdate: (

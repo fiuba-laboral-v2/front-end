@@ -12,7 +12,7 @@ import { handleValidationError } from "$models/errorHandlers/handleValidationErr
 import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
 import { saveApplicantArguments } from "$models/MutationArguments";
 
-const SignUpContainer: FunctionComponent = () => {
+export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { saveApplicant } = useSaveApplicant();
   const { login } = useLogin();
@@ -58,5 +58,3 @@ const SignUpContainer: FunctionComponent = () => {
 
   return <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />;
 };
-
-export { SignUpContainer };
