@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { FormikValidator } from "$models/FormikValidator";
 import { IComponentProps } from "./interfaces";
@@ -10,11 +11,12 @@ import styles from "./styles.module.scss";
 const name = "targetApplicantType";
 
 export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
+  className,
   translations,
   value,
   error
 }) => (
-  <FormControl className={styles.container} error={!!error}>
+  <FormControl className={classNames(className, styles.container)} error={!!error}>
     <InputLabel htmlFor={name}>{translations.title}</InputLabel>
     <Field
       className={styles.select}
