@@ -13,7 +13,7 @@ export const Form: FunctionComponent<IFormProps> = ({ title, acceptanceCriteria,
         <AcceptanceCriteria className={styles.acceptanceCriteria} text={acceptanceCriteria} />
       </div>
     )}
-    {!acceptanceCriteria && <>{children}</>}
+    {!acceptanceCriteria && children}
   </Window>
 );
 
