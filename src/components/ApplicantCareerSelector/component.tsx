@@ -2,11 +2,11 @@ import React, { FunctionComponent } from "react";
 import { SearchSelector } from "$components/SearchSelector";
 import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
 import { CheckboxInput } from "$components/CheckboxInput";
-import { ICareerSelectorProps } from "./interface";
+import { IComponentProps } from "./interface";
 import { FormikValidator } from "$models/FormikValidator";
 import styles from "./styles.module.scss";
 
-export const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
+export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
   index,
   options,
   translations,

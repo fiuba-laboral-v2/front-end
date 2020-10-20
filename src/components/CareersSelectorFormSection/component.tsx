@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "$components/Card";
 import { FormSet } from "$components/FormSet";
-import { CareerSelector } from "$components/CareerSelector";
+import { ApplicantCareerSelector } from "$components/ApplicantCareerSelector";
 import { IComponent } from "./interfaces";
 
 export const CareersSelectorFormSection: FunctionComponent<IComponent> = ({
@@ -16,7 +16,7 @@ export const CareersSelectorFormSection: FunctionComponent<IComponent> = ({
       name={"careers"}
       values={careers}
       defaultValue={defaultValue}
-      fields={(value, index) => <CareerSelector key={index} index={index} value={value} />}
+      fields={(value, index) => <ApplicantCareerSelector key={index} index={index} value={value} />}
     />
   </Card>
 );
