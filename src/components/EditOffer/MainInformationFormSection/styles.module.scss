@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+
+.secondRow {
+  display: flex;
+}
+
+div.minimumSalary {
+  margin-right: $spacing-xxl;
+}
