@@ -18,7 +18,7 @@ export const Dashboard: FunctionComponent<IDashboardProps> = ({
   fetchMore,
   shouldFetchMore
 }) => (
-  <Window width="fullWidth" desktopOnly>
+  <Window width="fullWidth" desktopOnly hideNavBar>
     <div className={styles.mainContent}>
       <Menu
         refetchGetAdminTasks={refetchGetAdminTasks}

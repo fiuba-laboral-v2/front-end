@@ -1,21 +1,22 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { INavBarTranslations } from "./interface";
-import { INavBarLink } from "$models/NavBarLinks/Interfaces";
+import { INavBarProps } from "./interface";
 import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 export const NavBar: FunctionComponent<INavBarProps> = ({
   logOut,
   links,
   isLoggedIn,
   username,
-  translations
+  translations,
+  inDrawer = false
 }) => (
-  <div className={styles.navBarContainer}>
+  <div className={classNames(styles.navBarContainer, { [styles.inDrawer]: inDrawer })}>
     <div className={styles.navBar}>
       <div className={styles.top}>
         {links.map(link => (
@@ -51,11 +52,3 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
     </div>
   </div>
 );
-
-interface INavBarProps {
-  logOut: () => void;
-  links: INavBarLink[];
-  isLoggedIn: boolean;
-  username?: string;
-  translations: INavBarTranslations;
-}

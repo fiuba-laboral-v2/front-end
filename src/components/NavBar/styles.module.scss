@@ -9,6 +9,7 @@
 .navBar {
   font-size: 18px;
   height: calc(100vh - 165px);
+  min-height: calc(100vh - 78px);
   overflow-y: auto;
   position: sticky;
   top: 0;
@@ -44,4 +45,20 @@
   padding: 0 $spacing-l;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.inDrawer {
+  .navBar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top {
+    flex-grow: 1;
+  }
+
+  .bottom {
+    flex-shrink: 0;
+    position: initial;
+  }
 }

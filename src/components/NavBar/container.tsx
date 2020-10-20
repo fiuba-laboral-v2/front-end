@@ -4,11 +4,11 @@ import { useApolloClient } from "@apollo/client";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useCurrentUser, useLogout, useTranslations } from "$hooks";
 import { NavBar } from "./component";
-import { INavBarTranslations } from "./interface";
+import { INavBarContainerProps, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { NavBarLinks } from "$models/NavBarLinks";
 
-export const NavBarContainer: FunctionComponent = () => {
+export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
   const history = useHistory();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
@@ -36,6 +36,7 @@ export const NavBarContainer: FunctionComponent = () => {
       isLoggedIn={!!currentUser}
       translations={translations}
       username={currentUser?.name}
+      {...props}
     />
   );
 };

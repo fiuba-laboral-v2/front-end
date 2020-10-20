@@ -1,3 +1,5 @@
+import { INavBarLink } from "../../models/NavBarLinks/Interfaces";
+
 export interface INavBarTranslations {
   companies: string;
   applicants: string;
@@ -14,4 +16,16 @@ export interface INavBarTranslations {
   myOffers: string;
   pendingProfile: string;
   rejectedProfile: string;
+}
+
+export interface INavBarContainerProps {
+  inDrawer?: boolean;
+}
+
+export interface INavBarProps extends INavBarContainerProps {
+  logOut: () => void;
+  links: INavBarLink[];
+  isLoggedIn: boolean;
+  username?: string;
+  translations: INavBarTranslations;
 }

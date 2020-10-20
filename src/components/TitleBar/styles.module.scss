@@ -5,6 +5,8 @@
   color: $white;
   display: flex;
   font-size: $fontSize-xxl;
+  position: relative;
+  z-index: 5000;
 }
 
 .title,
@@ -20,4 +22,13 @@
 .logo {
   flex-shrink: 0;
   height: 50px;
+}
+
+svg.icon {
+  color: $white;
+  font-size: 35px;
+}
+
+button.button {
+  margin: 9px -6px 9px 4px;
 }
