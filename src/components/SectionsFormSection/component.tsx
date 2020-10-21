@@ -5,7 +5,7 @@ import { FormSet } from "$components/FormSet";
 import { TextInput } from "$components/TextInput";
 
 import { FormikValidator } from "$models/FormikValidator";
-import { ISection } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 import styles from "./styles.module.scss";
 
 export const SectionsFormSection: FunctionComponent<IComponentProps> = ({

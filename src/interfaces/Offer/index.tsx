@@ -1,4 +1,5 @@
-import { ApplicantType, ISection } from "$interfaces/Applicant";
+import { ApplicantType } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
 import { ICareer } from "../Career";
