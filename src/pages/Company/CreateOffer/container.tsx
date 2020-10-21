@@ -27,6 +27,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
         minimumSalary: NaN,
         maximumSalary: NaN,
         careers: [],
+        sections: [],
         _form: ""
       }}
       onSubmit={async variables => {

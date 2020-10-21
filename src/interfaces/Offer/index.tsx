@@ -1,14 +1,7 @@
-import { ApplicantType } from "$interfaces/Applicant";
+import { ApplicantType, ISection } from "$interfaces/Applicant";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
 import { ICareer } from "../Career";
-
-export interface IOfferSection {
-  uuid?: string;
-  title: string;
-  text: string;
-  displayOrder: number;
-}
 
 export interface ICreateOffer {
   title: string;
@@ -17,7 +10,8 @@ export interface ICreateOffer {
   minimumSalary: number;
   maximumSalary: number;
   targetApplicantType: ApplicantType | "";
-  careers?: ICareer[];
+  careers: ICareer[];
+  sections: ISection[];
 }
 
 export interface IUpdateOffer extends ICreateOffer {
@@ -32,5 +26,4 @@ export interface IOffer extends ICreateOffer {
   extensionApprovalStatus: ApprovalStatus;
   createdAt: string;
   updatedAt: string;
-  sections?: IOfferSection[];
 }
