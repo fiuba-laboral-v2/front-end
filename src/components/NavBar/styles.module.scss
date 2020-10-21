@@ -9,7 +9,7 @@
 .navBar {
   font-size: 18px;
   height: calc(100vh - 165px);
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - #{$navBarHeight});
   overflow-y: auto;
   position: sticky;
   top: 0;
