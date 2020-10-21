@@ -61,3 +61,17 @@
     flex-shrink: 0;
   }
 }
+
+@media (max-width: $largeLaptopWidth) {
+  .navBarContainer:not(.inDrawer) {
+    .username {
+      display: none;
+    }
+
+    &,
+    .navBar,
+    .bottom {
+      width: 66px;
+    }
+  }
+}

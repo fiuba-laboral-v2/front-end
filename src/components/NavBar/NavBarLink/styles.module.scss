@@ -5,7 +5,7 @@
   color: $darkGrey;
   display: inline-flex;
   font-weight: $fontWeight-b;
-  padding: 11px $spacing-m;
+  padding: 11px;
 }
 
 .link {
@@ -31,4 +31,12 @@ svg.icon {
   margin-left: $spacing-s;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media (max-width: $largeLaptopWidth) {
+  .link:not(.inDrawer) {
+    .text {
+      display: none;
+    }
+  }
 }

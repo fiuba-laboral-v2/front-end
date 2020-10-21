@@ -25,6 +25,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
             key={link.path}
             disabledErrorMessage={link.tooltipMessage}
             to={link.path}
+            inDrawer={inDrawer}
           >
             {link.title}
           </NavBarLink>
@@ -34,16 +35,20 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
         {isLoggedIn ? (
           <>
             <p className={styles.username}>{username}</p>
-            <NavBarLink icon={ExitToAppIcon} onClick={logOut} to="#">
+            <NavBarLink icon={ExitToAppIcon} onClick={logOut} to="#" inDrawer={inDrawer}>
               {translations.logOut}
             </NavBarLink>
           </>
         ) : (
           <>
-            <NavBarLink icon={PersonIcon} to={RoutesBuilder.public.login()}>
+            <NavBarLink icon={PersonIcon} to={RoutesBuilder.public.login()} inDrawer={inDrawer}>
               {translations.logIn}
             </NavBarLink>
-            <NavBarLink icon={PersonAddIcon} to={RoutesBuilder.public.register()}>
+            <NavBarLink
+              icon={PersonAddIcon}
+              to={RoutesBuilder.public.register()}
+              inDrawer={inDrawer}
+            >
               {translations.signUp}
             </NavBarLink>
           </>
