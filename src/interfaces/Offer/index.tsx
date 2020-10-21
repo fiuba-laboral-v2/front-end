@@ -17,6 +17,7 @@ export interface ICreateOffer {
   minimumSalary: number;
   maximumSalary: number;
   targetApplicantType: ApplicantType | "";
+  careers?: ICareer[];
 }
 
 export interface IUpdateOffer extends ICreateOffer {
@@ -32,5 +33,4 @@ export interface IOffer extends ICreateOffer {
   createdAt: string;
   updatedAt: string;
   sections?: IOfferSection[];
-  careers?: ICareer[];
 }
