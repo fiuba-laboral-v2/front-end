@@ -6,7 +6,7 @@ import {
   ISectionsFormSection,
   ITranslations,
   SectionsFormSection
-} from "$pages/Applicant/EditableProfile/SectionsFormSection";
+} from "$components/SectionsFormSection";
 
 export const DescriptionFormSectionContainer: FunctionComponent<ISectionsFormSection> = props => {
   const translations = useTranslations<ITranslations>("descriptionFormSection");

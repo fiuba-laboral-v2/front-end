@@ -1,5 +1,9 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { SectionsFormSection, ITranslations, ISectionsFormSection } from "../SectionsFormSection";
+import {
+  SectionsFormSection,
+  ITranslations,
+  ISectionsFormSection
+} from "$components/SectionsFormSection";
 import { useTranslations } from "$hooks";
 
 const AdditionalKnowledgeFormSectionContainer: FunctionComponent<ISectionsFormSection> = props => {
