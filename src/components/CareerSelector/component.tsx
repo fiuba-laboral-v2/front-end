@@ -21,7 +21,7 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
     valueToString={({ description }) => description}
     stringToValue={stringValue => {
       const option = options.find(({ description }) => description === stringValue);
-      if (!option) return { code: "", description: "" };
+      if (!option) return { code: "", description: stringValue };
 
       return {
         code: option.code,
@@ -30,5 +30,6 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
     }}
     options={options}
     label={translations.career}
+    allowNewOption
   />
 );
