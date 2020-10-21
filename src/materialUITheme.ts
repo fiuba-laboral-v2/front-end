@@ -17,12 +17,10 @@ export const MaterialUITheme = createMuiTheme({
       }
     },
     MuiDrawer: {
-      root: {
-        top: "78px !important"
-      },
       paper: {
         top: 78,
-        background: "#f6f5f5"
+        background: "#f6f5f5",
+        height: "calc(100vh - 78px)"
       }
     },
     MuiButton: {
