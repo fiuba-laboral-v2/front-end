@@ -11,6 +11,7 @@
 .link {
   padding: $spacing-xs $spacing-s 0;
   text-decoration: none;
+  width: 100%;
 
   &:last-child {
     padding-bottom: $spacing-xs;
@@ -33,10 +34,22 @@ svg.icon {
   white-space: nowrap;
 }
 
+.tooltip {
+  display: none;
+}
+
+.linkContainer {
+  display: flex;
+}
+
 @media (max-width: $largeLaptopWidth) {
   .link:not(.inDrawer) {
     .text {
       display: none;
     }
+  }
+
+  .tooltip:not(.hidden) {
+    display: unset;
   }
 }

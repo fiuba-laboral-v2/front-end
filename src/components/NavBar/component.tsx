@@ -26,31 +26,36 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
             disabledErrorMessage={link.tooltipMessage}
             to={link.path}
             inDrawer={inDrawer}
-          >
-            {link.title}
-          </NavBarLink>
+            text={link.title}
+          />
         ))}
       </div>
       <div className={styles.bottom}>
         {isLoggedIn ? (
           <>
             <p className={styles.username}>{username}</p>
-            <NavBarLink icon={ExitToAppIcon} onClick={logOut} to="#" inDrawer={inDrawer}>
-              {translations.logOut}
-            </NavBarLink>
+            <NavBarLink
+              icon={ExitToAppIcon}
+              onClick={logOut}
+              to="#"
+              inDrawer={inDrawer}
+              text={translations.logOut}
+            ></NavBarLink>
           </>
         ) : (
           <>
-            <NavBarLink icon={PersonIcon} to={RoutesBuilder.public.login()} inDrawer={inDrawer}>
-              {translations.logIn}
-            </NavBarLink>
+            <NavBarLink
+              icon={PersonIcon}
+              to={RoutesBuilder.public.login()}
+              inDrawer={inDrawer}
+              text={translations.logIn}
+            ></NavBarLink>
             <NavBarLink
               icon={PersonAddIcon}
               to={RoutesBuilder.public.register()}
               inDrawer={inDrawer}
-            >
-              {translations.signUp}
-            </NavBarLink>
+              text={translations.signUp}
+            />
           </>
         )}
       </div>
