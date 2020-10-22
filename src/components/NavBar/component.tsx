@@ -7,16 +7,19 @@ import PersonIcon from "@material-ui/icons/Person";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { noop } from "lodash";
 
 export const NavBar: FunctionComponent<INavBarProps> = ({
+  className,
   logOut,
   links,
   isLoggedIn,
   username,
   translations,
-  inDrawer = false
+  inDrawer = false,
+  toggleDrawer = noop
 }) => (
-  <div className={classNames(styles.navBarContainer, { [styles.inDrawer]: inDrawer })}>
+  <div className={classNames(styles.navBarContainer, className, { [styles.inDrawer]: inDrawer })}>
     <div className={styles.navBar}>
       <div className={styles.top}>
         {links.map(link => (
@@ -27,6 +30,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
             to={link.path}
             inDrawer={inDrawer}
             text={link.title}
+            onClick={toggleDrawer}
           />
         ))}
       </div>
@@ -40,7 +44,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
               to="#"
               inDrawer={inDrawer}
               text={translations.logOut}
-            ></NavBarLink>
+            />
           </>
         ) : (
           <>
@@ -49,12 +53,14 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
               to={RoutesBuilder.public.login()}
               inDrawer={inDrawer}
               text={translations.logIn}
-            ></NavBarLink>
+              onClick={toggleDrawer}
+            />
             <NavBarLink
               icon={PersonAddIcon}
               to={RoutesBuilder.public.register()}
               inDrawer={inDrawer}
               text={translations.signUp}
+              onClick={toggleDrawer}
             />
           </>
         )}

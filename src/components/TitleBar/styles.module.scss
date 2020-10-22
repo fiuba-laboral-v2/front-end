@@ -34,5 +34,27 @@ svg.icon {
 }
 
 button.button {
+  display: none;
   margin: 9px -6px 9px 4px;
+}
+
+button.button.alwaysShow {
+  display: unset;
+}
+
+@media (max-width: $laptopWidth) {
+  .titleBar {
+    position: sticky;
+    top: 0;
+  }
+
+  button.button {
+    display: unset;
+  }
+}
+
+@media (max-width: $tabletWidth) {
+  .title {
+    color: transparent;
+  }
 }

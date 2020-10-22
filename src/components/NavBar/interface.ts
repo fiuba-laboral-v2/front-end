@@ -19,7 +19,9 @@ export interface INavBarTranslations {
 }
 
 export interface INavBarContainerProps {
+  className?: string;
   inDrawer?: boolean;
+  toggleDrawer?: () => void;
 }
 
 export interface INavBarProps extends INavBarContainerProps {

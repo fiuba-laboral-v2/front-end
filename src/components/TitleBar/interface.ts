@@ -1,5 +1,5 @@
 export interface ITitleBarContainerProps {
-  withDrawerButton: boolean;
+  alwaysShowDrawerButton: boolean;
   toggleDrawer: () => void;
 }
 

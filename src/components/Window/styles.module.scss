@@ -2,6 +2,7 @@
 
 .mainBody {
   display: flex;
+  flex-grow: 1;
 }
 
 .mainContentContainer {
@@ -9,8 +10,13 @@
   width: 100%;
 }
 
+.alwaysHide {
+  display: none;
+}
+
 @media (max-width: $laptopWidth) {
-  .desktopOnly {
+  .desktopOnly,
+  .desktopNavBar {
     display: none;
   }
 }

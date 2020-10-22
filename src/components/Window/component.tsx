@@ -6,10 +6,11 @@ import styles from "./styles.module.scss";
 import { TitleBar } from "../TitleBar";
 import { NavBar } from "../NavBar";
 import { Drawer } from "@material-ui/core";
+import classNames from "classnames";
 
 export const Window: FunctionComponent<IWindowProps> = ({
   desktopOnly,
-  hideNavBar = false,
+  alwaysHideNavbar = false,
   children,
   ...props
 }) => {
@@ -18,14 +19,18 @@ export const Window: FunctionComponent<IWindowProps> = ({
 
   return (
     <>
-      <TitleBar withDrawerButton={hideNavBar} toggleDrawer={toggleDrawer} />
-      {hideNavBar && (
-        <Drawer open={drawerIsOpen} onClose={toggleDrawer}>
-          <NavBar inDrawer />
-        </Drawer>
-      )}
+      <TitleBar alwaysShowDrawerButton={alwaysHideNavbar} toggleDrawer={toggleDrawer} />
+      <Drawer
+        open={drawerIsOpen}
+        onClose={toggleDrawer}
+        className={classNames({ [styles.alwaysHideNavbar]: alwaysHideNavbar })}
+      >
+        <NavBar toggleDrawer={toggleDrawer} inDrawer />
+      </Drawer>
       <div className={styles.mainBody}>
-        {!hideNavBar && <NavBar />}
+        <NavBar
+          className={classNames(styles.desktopNavBar, { [styles.alwaysHide]: alwaysHideNavbar })}
+        />
         <div className={styles.mainContentContainer}>
           {desktopOnly && <DesktopOnlyOverlay />}
           <MainContent {...props} {...(desktopOnly && { className: styles.desktopOnly })}>
@@ -39,5 +44,5 @@ export const Window: FunctionComponent<IWindowProps> = ({
 
 interface IWindowProps extends IMainContentProps {
   desktopOnly?: boolean;
-  hideNavBar?: boolean;
+  alwaysHideNavbar?: boolean;
 }
