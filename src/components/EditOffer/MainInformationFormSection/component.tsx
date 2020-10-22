@@ -5,6 +5,7 @@ import { Field, SalaryField } from "$components/Fields";
 
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
+import { PositiveNumberInput } from "../../NumberInput/PositiveNumberInput";
 
 export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   className,
@@ -27,7 +28,12 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
         mandatory
       />
     </div>
-    <Field name="hoursPerDay" label={translations.hoursPerDay} mandatory multiline withoutMargin />
+    <PositiveNumberInput
+      name="hoursPerDay"
+      label={translations.hoursPerDay}
+      mandatory
+      withoutMargin
+    />
     <Field name="description" label={translations.description} mandatory multiline withoutMargin />
   </FormSection>
 );
