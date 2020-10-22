@@ -20,11 +20,7 @@ export const Window: FunctionComponent<IWindowProps> = ({
   return (
     <>
       <TitleBar alwaysShowDrawerButton={alwaysHideNavbar} toggleDrawer={toggleDrawer} />
-      <Drawer
-        open={drawerIsOpen}
-        onClose={toggleDrawer}
-        className={classNames({ [styles.alwaysHideNavbar]: alwaysHideNavbar })}
-      >
+      <Drawer open={drawerIsOpen} onClose={toggleDrawer}>
         <NavBar toggleDrawer={toggleDrawer} inDrawer />
       </Drawer>
       <div className={styles.mainBody}>
