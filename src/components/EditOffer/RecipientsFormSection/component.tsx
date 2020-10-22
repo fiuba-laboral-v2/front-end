@@ -15,7 +15,6 @@ export const RecipientsFormSection: FunctionComponent<IComponentProps> = ({
   <FormSection className={className} title={translations.title}>
     <CareerSelector name="careers" className={styles.careers} />
     <TargetApplicantTypeSelector
-      className={styles.targetApplicantType}
       value={targetApplicantType.value}
       error={targetApplicantType.error}
     />
