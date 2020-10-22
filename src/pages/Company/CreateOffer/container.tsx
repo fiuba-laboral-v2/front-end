@@ -32,7 +32,10 @@ export const CreateOfferContainer: FunctionComponent = () => {
       }}
       onSubmit={async variables => {
         const response = await createOffer({
-          variables,
+          variables: {
+            ...variables,
+            careers: variables.careers.map(({ code }) => ({ careerCode: code }))
+          },
           errorHandlers: formErrorHandlers({ enqueueSnackbar })()
         });
         if (response.error) return;

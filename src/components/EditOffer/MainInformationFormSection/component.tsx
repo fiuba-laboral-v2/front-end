@@ -27,6 +27,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
         mandatory
       />
     </div>
+    <Field name="hoursPerDay" label={translations.hoursPerDay} mandatory multiline withoutMargin />
     <Field name="description" label={translations.description} mandatory multiline withoutMargin />
   </FormSection>
 );

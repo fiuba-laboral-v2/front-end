@@ -7,7 +7,7 @@ import { useSnackbar } from "notistack";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog, IConfirmDialogTranslations } from "$components/FormConfirmDialog";
-import { ICreateOffer } from "$interfaces/Offer";
+import { ICreateOfferValues } from "$interfaces/Offer";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -22,11 +22,12 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   if (!translations || getOffer.loading || getOffer.error) return <Fragment />;
 
-  const onSubmit = async (variables: ICreateOffer) => {
+  const onSubmit = async (variables: ICreateOfferValues) => {
     const response = await editOffer({
       variables: {
         uuid: getOffer.data.getOfferByUuid.uuid,
-        ...variables
+        ...variables,
+        careers: variables.careers.map(({ code }) => ({ careerCode: code }))
       },
       errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
       update: cache =>

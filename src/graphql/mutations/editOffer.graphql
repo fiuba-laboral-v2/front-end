@@ -6,6 +6,7 @@ mutation editOffer(
   $hoursPerDay: Int!
   $minimumSalary: Int!
   $maximumSalary: Int!
+  $sections: [OfferSectionInput]!
 ) {
   editOffer(
     uuid: $uuid
@@ -15,6 +16,7 @@ mutation editOffer(
     hoursPerDay: $hoursPerDay
     minimumSalary: $minimumSalary
     maximumSalary: $maximumSalary
+    sections: $sections
   ) {
     uuid
     title
@@ -24,5 +26,11 @@ mutation editOffer(
     maximumSalary
     createdAt
     updatedAt
+    sections {
+      uuid
+      text
+      text
+      displayOrder
+    }
   }
 }
