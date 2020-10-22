@@ -16,11 +16,14 @@ export const EditOfferContainer: FunctionComponent = () => {
   const translations = useTranslations<IEditOfferTranslations & IConfirmDialogTranslations>(
     "editOffer"
   );
+  const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
   const { uuid } = useParams();
   const { editOffer } = useEditOffer();
   const getOffer = useCompanyOfferByUuid(uuid);
 
-  if (!translations || getOffer.loading || getOffer.error) return <Fragment />;
+  if (!translations || getOffer.loading || getOffer.error || !acceptanceCriteria) {
+    return <Fragment />;
+  }
 
   const onSubmit = async (variables: ICreateOfferValues) => {
     const response = await editOffer({
@@ -45,6 +48,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   return (
     <EditOffer
       title={translations.edit}
+      acceptanceCriteria={acceptanceCriteria.text}
       initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
       onSubmit={onSubmit}
       formFooter={({ isSubmitting, submitForm, errors }) => (

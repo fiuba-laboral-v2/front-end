@@ -13,11 +13,12 @@ import styles from "./styles.module.scss";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
   title,
+  acceptanceCriteria,
   onSubmit,
   initialValues,
   formFooter
 }) => (
-  <Form title={title} acceptanceCriteria={""}>
+  <Form title={title} acceptanceCriteria={acceptanceCriteria}>
     <Formik<ICreateOfferValues>
       initialValues={initialValues}
       onSubmit={onSubmit}
@@ -71,6 +72,7 @@ interface IFormFooterParams {
 }
 
 interface ICreateOfferProps {
+  acceptanceCriteria: string;
   title: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;
