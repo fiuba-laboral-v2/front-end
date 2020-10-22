@@ -16,7 +16,7 @@
 
 @media (max-width: $laptopWidth) {
   .desktopOnly,
-  .desktopNavBar {
+  .navBar.desktopNavBar {
     display: none;
   }
 }

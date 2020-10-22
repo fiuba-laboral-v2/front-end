@@ -29,7 +29,9 @@ export const Window: FunctionComponent<IWindowProps> = ({
       </Drawer>
       <div className={styles.mainBody}>
         <NavBar
-          className={classNames(styles.desktopNavBar, { [styles.alwaysHide]: alwaysHideNavbar })}
+          className={classNames(styles.desktopNavBar, styles.navBar, {
+            [styles.alwaysHide]: alwaysHideNavbar
+          })}
         />
         <div className={styles.mainContentContainer}>
           {desktopOnly && <DesktopOnlyOverlay />}
