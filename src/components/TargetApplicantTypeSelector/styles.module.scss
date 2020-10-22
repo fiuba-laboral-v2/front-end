@@ -3,8 +3,6 @@
 
 div.container {
   @include textInput;
-
-  margin-bottom: $spacing-m;
 }
 
 .select {
