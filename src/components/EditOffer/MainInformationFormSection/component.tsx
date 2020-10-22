@@ -34,6 +34,6 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
       mandatory
       withoutMargin
     />
-    <Field name="description" label={translations.description} mandatory multiline withoutMargin />
+    <Field name="description" label={translations.description} mandatory multiline />
   </FormSection>
 );
