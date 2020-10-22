@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from "react";
 
+import { FormikValidator } from "$models/FormikValidator";
+import { arrayMaxOrZero } from "$models/arrayMaxOrZero";
+
 import { Card } from "$components/Card";
 import { FormSet } from "$components/FormSet";
 import { TextInput } from "$components/TextInput";
 
-import { FormikValidator } from "$models/FormikValidator";
-import { ISection } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 import styles from "./styles.module.scss";
 
 export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
@@ -22,7 +24,7 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
       defaultValue={{
         title: "",
         text: "",
-        displayOrder: Math.max(...sections.map(({ displayOrder }) => displayOrder)) + 1
+        displayOrder: arrayMaxOrZero(sections.map(({ displayOrder }) => displayOrder)) + 1
       }}
       fields={(_, index) => (
         <div className={styles.section}>

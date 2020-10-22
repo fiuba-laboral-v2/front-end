@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
+
+.acceptanceCriteria {
+  @include card;
+
+  background-color: #eaf3b6;
+  height: fit-content;
+  margin-left: $fontSize-xl;
+  overflow-y: auto;
+  padding: $spacing-m;
+  white-space: pre-wrap;
+  width: fit-content;
+  word-break: break-word;
+}

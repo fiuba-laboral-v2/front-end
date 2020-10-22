@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Form, Formik, FormikErrors } from "formik";
+import { Form as FormikForm, Formik, FormikErrors } from "formik";
 
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
 import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
 import { FormFooter } from "$components/FormFooter";
+import { Form } from "$components/Form";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
@@ -30,8 +31,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   };
 
   return (
-    <>
-      <h1 className={styles.title}>{translations.title}</h1>
+    <Form title={translations.title}>
       <Formik
         initialValues={initialValues}
         validate={values => {
@@ -44,23 +44,23 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
         onSubmit={onSubmit}
       >
         {({ values, isSubmitting, errors }) => (
-          <Form className={styles.formContainer}>
-            <FiubaCredentialsFormSection className={styles.fiubaCredentials} />
-            <PersonalInformationFormSection className={styles.personalInformation} />
+          <FormikForm>
+            <FiubaCredentialsFormSection className={styles.formSection} />
+            <PersonalInformationFormSection className={styles.formSection} />
             <CareersSelectorFormSection
+              className={styles.formSection}
               defaultValue={careerInitialValue}
               careers={values.careers}
             />
             <FormFooter
-              className={styles.footer}
               isSubmitting={isSubmitting}
               submitButtonText={translations.submit}
               errors={errors}
             />
-          </Form>
+          </FormikForm>
         )}
       </Formik>
-    </>
+    </Form>
   );
 };
 

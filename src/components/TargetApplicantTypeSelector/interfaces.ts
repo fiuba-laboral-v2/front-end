@@ -1,6 +1,7 @@
 import { ApplicantType } from "$interfaces/Applicant";
 
 export interface IContainerProps {
+  className?: string;
   value: ApplicantType | "";
   error?: string;
 }

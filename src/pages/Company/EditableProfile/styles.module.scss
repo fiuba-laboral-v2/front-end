@@ -1,11 +1,4 @@
 @import "$styles/_variables";
-@import "$styles/mixins/_title";
-
-.title {
-  @include title;
-
-  margin-bottom: $spacing-xl;
-}
 
 .formSection {
   margin-bottom: $spacing-xl;

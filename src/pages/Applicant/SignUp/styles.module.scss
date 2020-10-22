@@ -1,27 +1,5 @@
-@import "$styles/mixins/_card";
-@import "$styles/mixins/_title";
 @import "$styles/_variables";
 
-.title {
-  @include title;
-
-  margin-bottom: $spacing-xl;
-  margin-top: $spacing-xxl;
-}
-
-.formContainer {
-  align-content: space-between;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0;
-}
-
-.fiubaCredentials,
-.personalInformation {
+.formSection {
   margin: 0 0 $spacing-xl;
-}
-
-.footer {
-  margin-top: $spacing-l;
 }

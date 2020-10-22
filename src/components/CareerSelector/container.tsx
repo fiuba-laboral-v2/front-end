@@ -1,10 +1,10 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ICareerSelectorContainerProps, ICareerSelectorTranslations } from "./interface";
+import { IContainerProps, ITranslations } from "./interfaces";
 import { CareerSelector } from "./component";
 import { useTranslations, useCareers } from "$hooks";
 
-export const CareerSelectorContainer: FunctionComponent<ICareerSelectorContainerProps> = props => {
-  const translations = useTranslations<ICareerSelectorTranslations>("careerSelector");
+export const CareerSelectorContainer: FunctionComponent<IContainerProps> = props => {
+  const translations = useTranslations<ITranslations>("careersSelector");
   const careersResponse = useCareers();
   if (!translations || careersResponse.error || careersResponse.loading) return <Fragment />;
 

@@ -17,10 +17,9 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const companyProfile = useMyCompanyProfile();
 
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
-  if (!translations || companyProfile.loading) return <LoadingSpinner />;
-  if (companyProfile.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-  }
+  const acceptanceCriteria = useTranslations<{ text: string }>("companyEditableAcceptanceCriteria");
+  if (!translations || companyProfile.loading || !acceptanceCriteria) return <LoadingSpinner />;
+  if (companyProfile.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
   const onUpdate = async (
     { _form, ...companyValues }: IEditableProfileFormValues,
@@ -40,6 +39,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
 
   return (
     <EditableProfile
+      acceptanceCriteria={acceptanceCriteria.text}
       initialValues={{
         uuid: company.uuid,
         companyName: company.companyName,
