@@ -1,4 +1,4 @@
-import { INavBarLink } from "../../models/NavBarLinks/Interfaces";
+import { INavBarLink } from "$models/NavBarLinks/Interfaces";
 
 export interface INavBarTranslations {
   companies: string;
