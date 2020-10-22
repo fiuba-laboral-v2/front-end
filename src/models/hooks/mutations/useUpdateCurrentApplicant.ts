@@ -1,7 +1,8 @@
 import { UPDATE_CURRENT_APPLICANT } from "$mutations";
 import { useMutation, IMutationOptions } from "$hooks";
 import { IEditableUser } from "$interfaces/User";
-import { IApplicantCareerInput, ILink, ISection } from "$interfaces/Applicant";
+import { IApplicantCareerInput, ILink } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 import { ICapability } from "$interfaces/Capability";
 
 export const useUpdateCurrentApplicant = () => {

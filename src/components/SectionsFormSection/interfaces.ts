@@ -1,4 +1,4 @@
-import { ISection } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 
 export interface ITranslations {
   title: string;

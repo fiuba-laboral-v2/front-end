@@ -2,6 +2,7 @@ import { IFiubaUser } from "../User";
 import { ICapability } from "../Capability";
 import { ICareer } from "../Career";
 import { IOffer } from "../Offer";
+import { ISection } from "../Section";
 import { ApprovalStatus } from "../ApprovalStatus";
 
 export enum ApplicantType {
@@ -21,13 +22,6 @@ export interface IApplicantCareer {
   approvedSubjectCount?: number;
   currentCareerYear?: number;
   isGraduate: boolean;
-}
-
-export interface ISection {
-  uuid?: string;
-  title: string;
-  text: string;
-  displayOrder: number;
 }
 
 export interface ILink {

@@ -1,16 +1,14 @@
 import { ApplicantType } from "$interfaces/Applicant";
+import { ISection } from "$interfaces/Section";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
 import { ICareer } from "../Career";
 
-export interface IOfferSection {
-  uuid?: string;
-  title: string;
-  text: string;
-  displayOrder: number;
+export interface ICareerInput {
+  careerCode: string;
 }
 
-export interface ICreateOffer {
+export interface IOfferAttributes {
   title: string;
   description: string;
   hoursPerDay: number;
@@ -19,11 +17,21 @@ export interface ICreateOffer {
   targetApplicantType: ApplicantType | "";
 }
 
-export interface IUpdateOffer extends ICreateOffer {
+export interface ICreateOfferValues extends IOfferAttributes {
+  careers: ICareer[];
+  sections: ISection[];
+}
+
+export interface ICreateOffer extends IOfferAttributes {
+  careers: ICareerInput[];
+  sections: ISection[];
+}
+
+export interface IEditOffer extends ICreateOffer {
   uuid: string;
 }
 
-export interface IOffer extends ICreateOffer {
+export interface IOffer extends ICreateOfferValues {
   uuid: string;
   company: ICompany;
   targetApplicantType: ApplicantType;
@@ -31,6 +39,4 @@ export interface IOffer extends ICreateOffer {
   extensionApprovalStatus: ApprovalStatus;
   createdAt: string;
   updatedAt: string;
-  sections?: IOfferSection[];
-  careers?: ICareer[];
 }

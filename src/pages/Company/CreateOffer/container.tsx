@@ -13,12 +13,14 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { createOffer } = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
+  const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
 
-  if (!translations) return <LoadingSpinner />;
+  if (!translations || !acceptanceCriteria) return <LoadingSpinner />;
 
   return (
     <EditOffer
       title={translations.create}
+      acceptanceCriteria={acceptanceCriteria.text}
       initialValues={{
         title: "",
         description: "",
@@ -26,17 +28,21 @@ export const CreateOfferContainer: FunctionComponent = () => {
         hoursPerDay: NaN,
         minimumSalary: NaN,
         maximumSalary: NaN,
+        careers: [],
+        sections: [],
         _form: ""
       }}
       onSubmit={async variables => {
         const response = await createOffer({
-          variables,
+          variables: {
+            ...variables,
+            careers: variables.careers.map(({ code }) => ({ careerCode: code }))
+          },
           errorHandlers: formErrorHandlers({ enqueueSnackbar })()
         });
         if (response.error) return;
         history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
       }}
-      translations={translations}
       formFooter={({ isSubmitting, submitForm, errors }) => (
         <FormFooter
           isSubmitting={isSubmitting}

@@ -1,53 +1,38 @@
 import React, { FunctionComponent } from "react";
-import { SearchSelector } from "$components/SearchSelector";
-import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
-import { CheckboxInput } from "$components/CheckboxInput";
-import { ICareerSelectorProps } from "./interface";
-import { FormikValidator } from "$models/FormikValidator";
-import styles from "./styles.module.scss";
 
-export const CareerSelector: FunctionComponent<ICareerSelectorProps> = ({
-  index,
+import { identity } from "lodash";
+import { TextFormatter } from "$models/TextFormatter";
+
+import { MultipleSearchSelector } from "$components/SearchSelector/MultipleSearchSelector";
+import { IComponentProps } from "./interfaces";
+import { ICareer } from "$interfaces/Career";
+
+export const CareerSelector: FunctionComponent<IComponentProps> = ({
+  className,
   options,
   translations,
-  value
+  name
 }) => (
-  <div className={styles.fieldsContainer}>
-    <div className={styles.firstRow}>
-      <SearchSelector
-        name={`careers.${index}.careerCode`}
-        options={options}
-        label={translations.career}
-        className={styles.career}
-        validate={FormikValidator({ mandatory: true })}
-        getOptionLabel={option => option.description}
-        getOptionValue={option => option.code}
-        initialValue={value?.careerCode}
-      />
-      <div className={styles.isGraduate}>
-        <p className={styles.isGraduateLabel}>{translations.isGraduate}</p>
-        <CheckboxInput checked={value.isGraduate} name={`careers.${index}.isGraduate`} />
-      </div>
-    </div>
-    {!value.isGraduate && (
-      <div className={styles.secondRow}>
-        <PositiveNumberInput
-          className={styles.currentCareerYear}
-          name={`careers.${index}.currentCareerYear`}
-          label={translations.currentCareerYear}
-          helperText={translations.withoutCBC}
-          mandatory
-          withoutMargin
-        />
-        <PositiveNumberInput
-          className={styles.approvedSubjectCount}
-          name={`careers.${index}.approvedSubjectCount`}
-          label={translations.approvedSubjectCount}
-          helperText={translations.withoutCBC}
-          mandatory
-          withoutMargin
-        />
-      </div>
-    )}
-  </div>
+  <MultipleSearchSelector<ICareer, ICareer>
+    className={className}
+    name={name}
+    getOptionValue={identity}
+    getOptionLabel={({ description }) => description}
+    compareValuesBy={({ code }) => code}
+    valueToString={({ description }) => description}
+    stringToValue={stringValue => {
+      const option = options.find(
+        ({ description }) => TextFormatter.capitalize(description) === stringValue
+      );
+      if (!option) return { code: "", description: stringValue };
+
+      return {
+        code: option.code,
+        description: stringValue
+      };
+    }}
+    options={options}
+    label={translations.career}
+    allowNewOption
+  />
 );

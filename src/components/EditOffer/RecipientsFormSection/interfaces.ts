@@ -1,16 +1,17 @@
 import { ApplicantType } from "$interfaces/Applicant";
 
-export interface IContainerProps {
-  className?: string;
-  value: ApplicantType | "";
-  error?: string;
-}
-
 export interface ITranslations {
   title: string;
-  graduate: string;
-  student: string;
-  both: string;
+  careers: string;
+  targetApplicantType: string;
+}
+
+export interface IContainerProps {
+  className?: string;
+  targetApplicantType: {
+    value: ApplicantType | "";
+    error?: string;
+  };
 }
 
 export interface IComponentProps extends IContainerProps {
