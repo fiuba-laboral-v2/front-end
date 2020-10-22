@@ -45,7 +45,6 @@ export const EditOfferContainer: FunctionComponent = () => {
   return (
     <EditOffer
       title={translations.edit}
-      translations={translations}
       initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
       onSubmit={onSubmit}
       formFooter={({ isSubmitting, submitForm, errors }) => (

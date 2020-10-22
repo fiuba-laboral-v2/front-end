@@ -41,7 +41,6 @@ export const CreateOfferContainer: FunctionComponent = () => {
         if (response.error) return;
         history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
       }}
-      translations={translations}
       formFooter={({ isSubmitting, submitForm, errors }) => (
         <FormFooter
           isSubmitting={isSubmitting}

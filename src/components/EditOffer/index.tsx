@@ -61,11 +61,6 @@ export interface IEditOfferFormProps extends ICreateOfferValues {
 export interface IEditOfferTranslations {
   create: string;
   edit: string;
-  offerTitle: string;
-  description: string;
-  hoursPerDay: string;
-  minimumSalary: string;
-  maximumSalary: string;
   submit: string;
 }
 
@@ -79,6 +74,5 @@ interface ICreateOfferProps {
   title: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;
-  translations: IEditOfferTranslations;
   formFooter: (params: IFormFooterParams) => ReactNode;
 }
