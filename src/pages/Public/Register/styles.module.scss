@@ -10,22 +10,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: $navBarHeight;
-}
-
-.header {
-  background-image: url("header.jpg");
-  background-position-x: right;
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  height: 260px;
-  justify-content: center;
-
-  .logo {
-    align-self: center;
-  }
 }
 
 .body {
@@ -62,10 +46,6 @@
 }
 
 @media (max-width: $laptopWidth) {
-  .header {
-    height: 150px;
-  }
-
   .body {
     align-items: center;
     flex-direction: column;

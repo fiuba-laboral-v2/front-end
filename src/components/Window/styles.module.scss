@@ -1,7 +1,22 @@
 @import "$styles/_variables";
 
+.mainBody {
+  display: flex;
+  flex-grow: 1;
+}
+
+.mainContentContainer {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.desktopNavBar.navBar.alwaysHide {
+  display: none;
+}
+
 @media (max-width: $laptopWidth) {
-  .desktopOnly {
+  .desktopOnly,
+  .navBar.desktopNavBar {
     display: none;
   }
 }

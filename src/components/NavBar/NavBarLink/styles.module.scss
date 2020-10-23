@@ -1,0 +1,55 @@
+@import "$styles/_variables";
+
+.linkContent {
+  align-items: center;
+  color: $darkGrey;
+  display: inline-flex;
+  font-weight: $fontWeight-b;
+  padding: 11px;
+}
+
+.link {
+  padding: $spacing-xs $spacing-s 0;
+  text-decoration: none;
+  width: 100%;
+
+  &:last-child {
+    padding-bottom: $spacing-xs;
+  }
+}
+
+.link:hover .linkContent {
+  background: transparentize($mainBlue, 0.85);
+  border-radius: 30px;
+  color: $mainBlue;
+}
+
+svg.icon {
+  font-size: 28px;
+}
+
+.text {
+  margin-left: $spacing-s;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tooltip {
+  display: none;
+}
+
+.linkContainer {
+  display: flex;
+}
+
+@media (max-width: $largeLaptopWidth) {
+  .link:not(.inDrawer) {
+    .text {
+      display: none;
+    }
+  }
+
+  .tooltip:not(.hidden) {
+    display: unset;
+  }
+}

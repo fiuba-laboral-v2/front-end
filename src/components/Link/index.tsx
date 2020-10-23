@@ -22,6 +22,6 @@ export const Link: FunctionComponent<ILinkProps> = ({
   );
 };
 
-interface ILinkProps extends LinkProps {
+export interface ILinkProps extends LinkProps {
   disabledErrorMessage?: string;
 }

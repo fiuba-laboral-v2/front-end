@@ -1,66 +1,70 @@
-import React, { FunctionComponent, useState } from "react";
-import classnames from "classnames";
-
-import { Link } from "$components/Link";
-import MenuIcon from "@material-ui/icons/Menu";
-
+import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-
+import { INavBarProps } from "./interface";
+import { NavBarLink } from "./NavBarLink";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import PersonIcon from "@material-ui/icons/Person";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
-import { INavBarTranslations } from "./interface";
-import { INavBarLink } from "$models/NavBarLinks/Interfaces";
+import { noop } from "lodash";
 
 export const NavBar: FunctionComponent<INavBarProps> = ({
+  className,
   logOut,
   links,
   isLoggedIn,
   username,
-  translations
-}) => {
-  const [showMenu, setShowMenu] = useState(false);
-
-  return (
-    <div className={classnames(styles.navBar)}>
-      <div className={styles.main}>
-        <div className={styles.toggle}>
-          <div className={styles.separator} />
-          <div className={styles.menuIcon} onClick={() => setShowMenu(!showMenu)}>
-            <MenuIcon />
-          </div>
-        </div>
-      </div>
-      <div className={classNames(styles.menu, showMenu && styles.showOnMobile)}>
+  translations,
+  inDrawer = false,
+  toggleDrawer = noop
+}) => (
+  <div className={classNames(styles.navBarContainer, className, { [styles.inDrawer]: inDrawer })}>
+    <div className={styles.navBar}>
+      <div className={styles.top}>
         {links.map(link => (
-          <Link key={link.path} disabledErrorMessage={link.tooltipMessage} to={link.path}>
-            {link.title}
-          </Link>
+          <NavBarLink
+            icon={link.icon}
+            key={link.path}
+            disabledErrorMessage={link.tooltipMessage}
+            to={link.path}
+            inDrawer={inDrawer}
+            text={link.title}
+            onClick={toggleDrawer}
+          />
         ))}
-        <div className={styles.separator} />
-        <div className={styles.user}>
-          {isLoggedIn ? (
-            <>
-              <p className={styles.username}>{username}</p>
-              <Link onClick={logOut} to="#">
-                {translations.logOut}
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to={RoutesBuilder.public.login()}>{translations.logIn}</Link>
-              <Link to={RoutesBuilder.public.register()}>{translations.signUp}</Link>
-            </>
-          )}
-        </div>
+      </div>
+      <div className={styles.bottom}>
+        {isLoggedIn ? (
+          <>
+            <p className={styles.username}>{username}</p>
+            <NavBarLink
+              icon={ExitToAppIcon}
+              onClick={logOut}
+              to="#"
+              inDrawer={inDrawer}
+              text={translations.logOut}
+            />
+          </>
+        ) : (
+          <>
+            <NavBarLink
+              icon={PersonIcon}
+              to={RoutesBuilder.public.login()}
+              inDrawer={inDrawer}
+              text={translations.logIn}
+              onClick={toggleDrawer}
+            />
+            <NavBarLink
+              icon={PersonAddIcon}
+              to={RoutesBuilder.public.register()}
+              inDrawer={inDrawer}
+              text={translations.signUp}
+              onClick={toggleDrawer}
+            />
+          </>
+        )}
       </div>
     </div>
-  );
-};
-
-interface INavBarProps {
-  logOut: () => void;
-  links: INavBarLink[];
-  isLoggedIn: boolean;
-  username?: string;
-  translations: INavBarTranslations;
-}
+  </div>
+);

@@ -11,6 +11,18 @@ export const MaterialUITheme = createMuiTheme({
     fontFamily: "inherit"
   },
   overrides: {
+    MuiBackdrop: {
+      root: {
+        top: 78
+      }
+    },
+    MuiDrawer: {
+      paper: {
+        top: 78,
+        background: "#f6f5f5",
+        height: "calc(100vh - 78px)"
+      }
+    },
     MuiButton: {
       textSizeSmall: {
         fontSize: 14

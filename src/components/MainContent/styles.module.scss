@@ -6,12 +6,11 @@
 }
 
 .narrow {
-  margin: ($navBarHeight + $spacing-xxl) auto $spacing-xxl;
+  margin: $spacing-xxl auto;
   width: $detailContainerWidth;
 }
 
 .fullWidth {
-  margin-top: $navBarHeight;
   width: 100%;
 }
 

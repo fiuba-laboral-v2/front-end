@@ -1,127 +1,77 @@
 @import "$styles/_variables";
 
-.menu :last-child {
-  margin-right: 0;
+.navBarContainer {
+  background: $dashboardBackgroundWhite;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - #{$navBarHeight});
 }
 
 .navBar {
-  align-items: center;
-  background: #233445;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: $white;
-  display: flex;
-  font-size: $fontSize-m;
-  font-style: normal;
-  left: 0;
-  padding: 0 $pageMargin;
-  position: fixed;
-  right: 0;
+  font-size: 18px;
+  height: calc(100vh - 170px);
+  overflow-y: auto;
+  position: sticky;
   top: 0;
-  z-index: 1;
-
-  a {
-    color: $white;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  a,
-  p {
-    display: inline-block;
-    height: $navBarHeight;
-    line-height: $navBarHeight;
-    margin: 0 6px;
-
-    @media (max-width: 240px) {
-      &.userName {
-        display: none;
-      }
-    }
-  }
-
-  .main :first-child {
-    margin-left: 0;
-  }
 }
 
-.separator,
-.toggle,
-.menu {
-  flex-grow: 1;
+.navBar,
+.top,
+.bottom {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
-.toggle {
-  display: none;
+.navBarContainer,
+.navBar,
+.bottom {
+  width: 285px;
 }
 
-.main,
-.menu {
-  display: inline-flex;
+.top {
+  padding-top: 3vh;
+}
+
+.bottom {
+  bottom: 0;
+  left: 0;
+  margin-bottom: 3vh;
+  position: fixed;
+}
+
+.username {
   overflow: hidden;
+  padding: 0 $spacing-l;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@media (max-width: $laptopWidth) {
+.inDrawer {
   .navBar {
-    flex-direction: column;
-  }
-
-  .toggle {
-    display: inline-flex;
-  }
-
-  .main {
-    flex-grow: 1;
-    padding: 0 $pageMargin;
-  }
-
-  .main,
-  .menu {
-    width: 100%;
-  }
-
-  .menu {
     display: flex;
     flex-direction: column;
-
-    > :not(.separator) {
-      border-top: solid 1px #004369;
-      flex-grow: 1;
-      margin: 0;
-    }
-
-    .user {
-      display: flex;
-      flex-direction: row-reverse;
-
-      :last-child {
-        flex-grow: 1;
-      }
-
-      > * {
-        margin: 0;
-      }
-    }
   }
 
-  .menu:not(.showOnMobile) {
-    display: none;
+  .top {
+    flex-grow: 1;
+  }
+
+  .bottom {
+    flex-shrink: 0;
   }
 }
 
-.menuIcon {
-  display: flex;
-  height: $navBarHeight;
-  width: $navBarHeight;
+@media (max-width: $largeLaptopWidth) {
+  .navBarContainer:not(.inDrawer) {
+    .username {
+      display: none;
+    }
 
-  :first-child:last-child {
-    margin: auto 0 auto auto;
-  }
-}
-
-@media (max-width: $smallMobileWidth) {
-  .menu {
-    .user {
-      flex-direction: column;
+    &,
+    .navBar,
+    .bottom {
+      width: 66px;
     }
   }
 }
