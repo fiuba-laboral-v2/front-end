@@ -16,7 +16,7 @@ export const Link: FunctionComponent<ILinkProps> = ({
   if (!disabledErrorMessage) return reactRouterLink;
 
   return (
-    <Tooltip interactive title={disabledErrorMessage}>
+    <Tooltip interactive title={disabledErrorMessage} placement="right-end">
       <div className={styles.disabled}>{reactRouterLink}</div>
     </Tooltip>
   );
