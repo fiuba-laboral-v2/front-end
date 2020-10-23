@@ -20,9 +20,7 @@ export const MyOffersContainer: FunctionComponent = () => {
 
   return (
     <Window>
-      {!translations ? (
-        <LoadingSpinner />
-      ) : (
+      {translations ? (
         <Feed
           loading={response.loading}
           title={translations.title}
@@ -39,6 +37,8 @@ export const MyOffersContainer: FunctionComponent = () => {
             />
           }
         />
+      ) : (
+        <LoadingSpinner />
       )}
     </Window>
   );
