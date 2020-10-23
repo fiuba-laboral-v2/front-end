@@ -1,6 +1,6 @@
 import { queries } from "./queries";
 
-const merge = (_: object[] | undefined, incoming: object[]) => incoming;
+const discardExistingResults = (_: object[] | undefined, incoming: object[]) => incoming;
 
 export const typePolicies = {
   Query: {
@@ -10,13 +10,13 @@ export const typePolicies = {
   },
   Applicant: {
     fields: {
-      knowledgeSections: { merge },
-      experienceSections: { merge }
+      knowledgeSections: { merge: discardExistingResults },
+      experienceSections: { merge: discardExistingResults }
     }
   },
   Offer: {
     fields: {
-      sections: { merge }
+      sections: { merge: discardExistingResults }
     }
   }
 };
