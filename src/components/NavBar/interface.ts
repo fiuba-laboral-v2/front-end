@@ -30,4 +30,5 @@ export interface INavBarProps extends INavBarContainerProps {
   isLoggedIn: boolean;
   username?: string;
   translations: INavBarTranslations;
+  currentPath: string;
 }

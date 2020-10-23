@@ -16,6 +16,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   isLoggedIn,
   username,
   translations,
+  currentPath,
   inDrawer = false,
   toggleDrawer = noop
 }) => (
@@ -31,6 +32,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
             inDrawer={inDrawer}
             text={link.title}
             onClick={toggleDrawer}
+            current={link.path === currentPath}
           />
         ))}
       </div>

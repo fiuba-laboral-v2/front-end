@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useApolloClient } from "@apollo/client";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useCurrentUser, useLogout, useTranslations } from "$hooks";
@@ -10,6 +10,7 @@ import { NavBarLinks } from "$models/NavBarLinks";
 
 export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
   const history = useHistory();
+  const location = useLocation();
   const client = useApolloClient();
   const translations = useTranslations<INavBarTranslations>("navBar");
   const currentUserResponse = useCurrentUser();
@@ -36,6 +37,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
       isLoggedIn={!!currentUser}
       translations={translations}
       username={currentUser?.name}
+      currentPath={location.pathname}
       {...props}
     />
   );
