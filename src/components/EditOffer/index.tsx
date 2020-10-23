@@ -72,8 +72,8 @@ interface IFormFooterParams {
 }
 
 interface ICreateOfferProps {
-  acceptanceCriteria: string;
-  title: string;
+  acceptanceCriteria?: string;
+  title?: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;
   formFooter: (params: IFormFooterParams) => ReactNode;

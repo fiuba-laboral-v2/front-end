@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { useCreateOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "notistack";
@@ -15,12 +14,10 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
 
-  if (!translations || !acceptanceCriteria) return <LoadingSpinner />;
-
   return (
     <EditOffer
-      title={translations.create}
-      acceptanceCriteria={acceptanceCriteria.text}
+      title={translations?.create}
+      acceptanceCriteria={acceptanceCriteria?.text}
       initialValues={{
         title: "",
         description: "",
@@ -43,14 +40,17 @@ export const CreateOfferContainer: FunctionComponent = () => {
         if (response.error) return;
         history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
       }}
-      formFooter={({ isSubmitting, submitForm, errors }) => (
-        <FormFooter
-          isSubmitting={isSubmitting}
-          submitButtonText={translations.submit}
-          errors={errors}
-          onSubmit={submitForm}
-        />
-      )}
+      formFooter={({ isSubmitting, submitForm, errors }) =>
+        translations &&
+        acceptanceCriteria && (
+          <FormFooter
+            isSubmitting={isSubmitting}
+            submitButtonText={translations?.submit}
+            errors={errors}
+            onSubmit={submitForm}
+          />
+        )
+      }
     />
   );
 };
