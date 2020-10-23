@@ -37,7 +37,8 @@ export const EditOfferContainer: FunctionComponent = () => {
         cache.modify({
           id: `Offer:${getOffer.data.getOfferByUuid.uuid}`,
           fields: {
-            targetApplicantType: () => variables.targetApplicantType
+            targetApplicantType: () => variables.targetApplicantType,
+            sections: () => variables.sections
           }
         })
     });
