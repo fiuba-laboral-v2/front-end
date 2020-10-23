@@ -56,5 +56,15 @@ button.button.alwaysShow {
 @media (max-width: $tabletWidth) {
   .title {
     color: transparent;
+    padding: 0;
+  }
+
+  button.button {
+    display: unset;
+    margin: 0;
+  }
+
+  .logo {
+    height: 35px;
   }
 }
