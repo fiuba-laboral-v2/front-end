@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { TitleBar } from "./component";
-import { ITitleBarContainerProps } from "./interface";
+import { ITitleBarContainerProps, ITranslations } from "./interface";
+import { useTranslations } from "../../models/hooks/queries";
 
 export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = props => {
-  return <TitleBar title={"Bolsa de trabajo FIUBA"} {...props} />;
+  const translations = useTranslations<ITranslations>("titleBar");
+
+  return <TitleBar title={translations?.title} {...props} />;
 };

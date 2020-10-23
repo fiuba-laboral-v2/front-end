@@ -4,5 +4,9 @@ export interface ITitleBarContainerProps {
 }
 
 export interface ITitleBarProps extends ITitleBarContainerProps {
+  title?: string;
+}
+
+export interface ITranslations {
   title: string;
 }
