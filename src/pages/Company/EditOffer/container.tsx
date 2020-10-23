@@ -8,6 +8,8 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog, IConfirmDialogTranslations } from "$components/FormConfirmDialog";
 import { ICreateOfferValues } from "$interfaces/Offer";
+import { Window } from "$components/Window";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -47,27 +49,33 @@ export const EditOfferContainer: FunctionComponent = () => {
   };
 
   return (
-    <EditOffer
-      title={translations.edit}
-      acceptanceCriteria={acceptanceCriteria.text}
-      initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
-      onSubmit={onSubmit}
-      formFooter={({ isSubmitting, submitForm, errors }) => (
-        <>
-          <FormFooter
-            isSubmitting={isSubmitting}
-            submitButtonText={translations.submit}
-            errors={errors}
-            onSubmit={() => setConfirmDialogIsOpen(true)}
-          />
-          <FormConfirmDialog
-            isOpen={confirmDialogIsOpen}
-            onConfirm={submitForm}
-            onClose={() => setConfirmDialogIsOpen(false)}
-            translations={translations}
-          />
-        </>
+    <Window>
+      {translations && acceptanceCriteria && getOffer ? (
+        <EditOffer
+          title={translations.edit}
+          acceptanceCriteria={acceptanceCriteria.text}
+          initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
+          onSubmit={onSubmit}
+          formFooter={({ isSubmitting, submitForm, errors }) => (
+            <>
+              <FormFooter
+                isSubmitting={isSubmitting}
+                submitButtonText={translations.submit}
+                errors={errors}
+                onSubmit={() => setConfirmDialogIsOpen(true)}
+              />
+              <FormConfirmDialog
+                isOpen={confirmDialogIsOpen}
+                onConfirm={submitForm}
+                onClose={() => setConfirmDialogIsOpen(false)}
+                translations={translations}
+              />
+            </>
+          )}
+        />
+      ) : (
+        <LoadingSpinner />
       )}
-    />
+    </Window>
   );
 };

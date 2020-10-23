@@ -4,11 +4,12 @@ import { FormikHelpers } from "formik";
 import { useMyCompanyProfile, useTranslations, useUpdateCurrentCompany } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { EditableProfile } from "./component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
 import { useSnackbar } from "notistack";
+import { Window } from "$components/Window";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,7 +19,6 @@ export const EditableProfileContainer: FunctionComponent = () => {
 
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
   const acceptanceCriteria = useTranslations<{ text: string }>("companyEditableAcceptanceCriteria");
-  if (!translations || companyProfile.loading || !acceptanceCriteria) return <LoadingSpinner />;
   if (companyProfile.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
   const onUpdate = async (
@@ -35,25 +35,31 @@ export const EditableProfileContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.company.myProfile());
   };
 
-  const company = companyProfile.data.getCurrentUser.company;
+  const company = companyProfile.data?.getCurrentUser.company;
 
   return (
-    <EditableProfile
-      acceptanceCriteria={acceptanceCriteria.text}
-      initialValues={{
-        uuid: company.uuid,
-        companyName: company.companyName,
-        slogan: company.slogan,
-        description: company.description,
-        logo: company.logo,
-        website: company.website,
-        email: company.email,
-        phoneNumbers: company.phoneNumbers,
-        photos: company.photos,
-        _form: ""
-      }}
-      translations={translations}
-      onUpdate={onUpdate}
-    />
+    <Window>
+      {translations && companyProfile && acceptanceCriteria && company ? (
+        <EditableProfile
+          acceptanceCriteria={acceptanceCriteria.text}
+          initialValues={{
+            uuid: company.uuid,
+            companyName: company.companyName,
+            slogan: company.slogan,
+            description: company.description,
+            logo: company.logo,
+            website: company.website,
+            email: company.email,
+            phoneNumbers: company.phoneNumbers,
+            photos: company.photos,
+            _form: ""
+          }}
+          translations={translations}
+          onUpdate={onUpdate}
+        />
+      ) : (
+        <LoadingSpinner />
+      )}
+    </Window>
   );
 };

@@ -9,6 +9,7 @@ import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
 import { useSnackbar } from "notistack";
+import { Window } from "$components/Window";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,7 +19,6 @@ export const SignUpContainer: FunctionComponent = () => {
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
   const acceptanceCriteria = useTranslations<{ text: string }>("companySignUpAcceptanceCriteria");
-  if (!translations || !acceptanceCriteria) return <LoadingSpinner />;
 
   const onSubmit = async (
     { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,
@@ -41,27 +41,33 @@ export const SignUpContainer: FunctionComponent = () => {
   };
 
   return (
-    <SignUp
-      translations={translations}
-      acceptanceCriteria={acceptanceCriteria.text}
-      onSubmit={onSubmit}
-      initialValues={{
-        user: {
-          email: "",
-          password: "",
-          passwordConfirm: "",
-          name: "",
-          surname: ""
-        },
-        companyName: "",
-        businessName: "",
-        cuit: "",
-        email: "",
-        slogan: "",
-        description: "",
-        website: "",
-        _form: ""
-      }}
-    />
+    <Window>
+      {translations && acceptanceCriteria ? (
+        <SignUp
+          translations={translations}
+          acceptanceCriteria={acceptanceCriteria.text}
+          onSubmit={onSubmit}
+          initialValues={{
+            user: {
+              email: "",
+              password: "",
+              passwordConfirm: "",
+              name: "",
+              surname: ""
+            },
+            companyName: "",
+            businessName: "",
+            cuit: "",
+            email: "",
+            slogan: "",
+            description: "",
+            website: "",
+            _form: ""
+          }}
+        />
+      ) : (
+        <LoadingSpinner />
+      )}
+    </Window>
   );
 };
