@@ -15,7 +15,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
   title
 }) => (
   <Window>
-    {title && <Title>{title}</Title>}
+    {title && <Title className={styles.title}>{title}</Title>}
     <List
       list={jobApplications}
       fetchMoreClassName={styles.fetchMore}
