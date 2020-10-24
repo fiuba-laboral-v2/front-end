@@ -4,7 +4,7 @@ import { Card } from "$components/Card";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,
@@ -18,11 +18,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   emptyListComponent
 }) => (
   <div className={className}>
-    {title && (
-      <Headline color="dark" className={styles.title}>
-        {title}
-      </Headline>
-    )}
+    {title && <Title className={styles.title}>{title}</Title>}
     <List
       list={offers}
       fetchMore={fetchMore}

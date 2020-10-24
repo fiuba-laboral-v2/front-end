@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Link } from "$components/Link";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 import { PasswordField, EmailField } from "$components/Fields";
 
 import styles from "./styles.module.scss";
@@ -25,7 +25,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
 ) => (
   <>
     <div className={classNames(styles.mainContainer, className)}>
-      <Headline className={styles.title}>{translations.title}</Headline>
+      <Title>{translations.title}</Title>
       <Formik
         initialValues={initialValues}
         validateOnMount

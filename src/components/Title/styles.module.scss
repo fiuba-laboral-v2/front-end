@@ -1,0 +1,10 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
+@import "$styles/mixins/_customMedia";
+
+.title {
+  @include title;
+
+  margin-bottom: $spacing-xl;
+  word-break: break-word;
+}

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 import { AppliedFilters } from "./AppliedFilters";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
@@ -26,7 +26,7 @@ export const Filters: FunctionComponent<IFiltersProps> = ({
     <div className={classNames(styles.filtersContainer, className)}>
       <div className={styles.filters}>
         <div className={styles.titleContainer}>
-          <Headline className={styles.title}>{translations?.title}</Headline>
+          <Title className={styles.title}>{translations?.title}</Title>
           <div>
             <Button
               className={styles.openMobileApplyFilters}
