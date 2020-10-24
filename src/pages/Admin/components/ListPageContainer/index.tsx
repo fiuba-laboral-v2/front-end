@@ -4,6 +4,7 @@ import { MainTitle } from "./MainTitle";
 import { MainContainer } from "./MainContainer";
 import { List } from "./List";
 import { Listable, ListableReactNodes } from "./interfaces";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   titleTranslationPath,
@@ -17,19 +18,23 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   loading
 }) => (
   <Window width="fullWidth" desktopOnly>
-    <MainContainer>
-      <MainTitle translationPath={titleTranslationPath} />
-      <List
-        headerClassName={listHeaderClassName}
-        rowClassName={rowClassName}
-        listHeader={listHeader}
-        listContentItem={listContentItem}
-        items={items}
-        fetchMore={fetchMore}
-        shouldFetchMore={shouldFetchMore}
-        loading={loading}
-      />
-    </MainContainer>
+    {items ? (
+      <MainContainer>
+        <MainTitle translationPath={titleTranslationPath} />
+        <List
+          headerClassName={listHeaderClassName}
+          rowClassName={rowClassName}
+          listHeader={listHeader}
+          listContentItem={listContentItem}
+          items={items}
+          fetchMore={fetchMore}
+          shouldFetchMore={shouldFetchMore}
+          loading={loading}
+        />
+      </MainContainer>
+    ) : (
+      <LoadingSpinner />
+    )}
   </Window>
 );
 
@@ -37,7 +42,7 @@ interface IListPageContainer {
   titleTranslationPath: string;
   listHeader: ReactNode;
   listContentItem: ListableReactNodes;
-  items: Listable[];
+  items?: Listable[];
   listHeaderClassName: string;
   rowClassName: string;
   fetchMore?: () => void;

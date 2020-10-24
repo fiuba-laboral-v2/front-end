@@ -11,20 +11,16 @@ export const Applicants: FunctionComponent = () => {
   const applicants = response?.data?.getApplicants.results;
 
   return (
-    <>
-      {applicants && (
-        <ListPageContainer
-          titleTranslationPath={"adminApplicantListMainTitle"}
-          listHeader={<ListHeader />}
-          listContentItem={(applicant: IApplicant) => <ListContentItem applicant={applicant} />}
-          listHeaderClassName={styles.tableDisplay}
-          rowClassName={styles.tableDisplay}
-          items={applicants}
-          fetchMore={response.fetchMore}
-          shouldFetchMore={response?.data.getApplicants.shouldFetchMore}
-          loading={response.loading}
-        />
-      )}
-    </>
+    <ListPageContainer
+      titleTranslationPath={"adminApplicantListMainTitle"}
+      listHeader={<ListHeader />}
+      listContentItem={(applicant: IApplicant) => <ListContentItem applicant={applicant} />}
+      listHeaderClassName={styles.tableDisplay}
+      rowClassName={styles.tableDisplay}
+      items={applicants}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={response.data?.getApplicants.shouldFetchMore}
+      loading={response.loading}
+    />
   );
 };
