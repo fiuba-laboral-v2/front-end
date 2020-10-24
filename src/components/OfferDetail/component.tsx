@@ -35,7 +35,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
       />
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
-          <Title>{offer.title}</Title>
+          <Title className={styles.title}>{offer.title}</Title>
           <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName}>

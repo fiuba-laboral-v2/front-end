@@ -25,7 +25,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
 ) => (
   <>
     <div className={classNames(styles.mainContainer, className)}>
-      <Title>{translations.title}</Title>
+      <Title className={styles.title}>{translations.title}</Title>
       <Formik
         initialValues={initialValues}
         validateOnMount

@@ -5,6 +5,5 @@
 .title {
   @include title;
 
-  margin-bottom: $spacing-xl;
   word-break: break-word;
 }
