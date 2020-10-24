@@ -1,6 +1,6 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_customMedia";
-@import "$styles/mixins/_customSmallMedia";
+@import "$styles/mixins/_mobileClass";
 
 .headline,
 .firstContainerInfo {
@@ -50,7 +50,7 @@
   }
 }
 
-@include customSmallMedia {
+@include mobileClass {
   .header {
     flex-direction: column;
   }

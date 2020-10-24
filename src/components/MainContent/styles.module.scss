@@ -19,6 +19,8 @@
 
 @media (max-width: $laptopWidth) {
   .mainContent.narrow {
+    padding-left: 0;
+    padding-right: 0;
     width: 90vw;
   }
 }

@@ -74,6 +74,9 @@ export const MaterialUITheme = createMuiTheme({
       },
       paperFullScreen: {
         padding: 0
+      },
+      root: {
+        zIndex: "5010 !important" as any
       }
     },
     MuiDialogTitle: {
