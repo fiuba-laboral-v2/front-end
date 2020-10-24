@@ -5,7 +5,7 @@ import { CompanyLogo } from "$components/CompanyLogo";
 import { Subtitle } from "$components/Subtitle";
 import { Card } from "$components/Card";
 import { StatusLabels } from "./StatusLabels";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 import { SectionDetail } from "$components/SectionDetail";
 import { OfferInfo } from "$components/OfferInfo";
 import { sortBy } from "lodash";
@@ -35,9 +35,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
       />
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
-          <Headline className={styles.title} mobileLayout={mobileLayout}>
-            {offer.title}
-          </Headline>
+          <Title className={styles.title}>{offer.title}</Title>
           <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName}>

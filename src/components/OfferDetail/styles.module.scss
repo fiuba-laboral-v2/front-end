@@ -2,7 +2,7 @@
 @import "$styles/mixins/_card";
 @import "$styles/mixins/_text";
 @import "$styles/mixins/_customMedia";
-@import "$styles/mixins/_customSmallMedia";
+@import "$styles/mixins/_mobileClass";
 
 .mainContainer {
   @include card;
@@ -91,7 +91,7 @@
   }
 }
 
-@include customSmallMedia {
+@include mobileClass {
   .titleContainer {
     flex-direction: column;
     margin-bottom: $spacing-m;

@@ -11,20 +11,16 @@ export const Admins: FunctionComponent = () => {
   const response = useAdmins();
   const admins = response?.data?.getAdmins.results;
   return (
-    <>
-      {admins && (
-        <ListPageContainer
-          titleTranslationPath={"adminAdminListMainTitle"}
-          listHeader={<ListHeader />}
-          listContentItem={(admin: IAdmin) => <ListContentItem admin={admin} />}
-          listHeaderClassName={styles.tableDisplay}
-          rowClassName={styles.tableDisplay}
-          items={admins}
-          fetchMore={response.fetchMore}
-          shouldFetchMore={response?.data.getAdmins.shouldFetchMore}
-          loading={response.loading}
-        />
-      )}
-    </>
+    <ListPageContainer
+      titleTranslationPath={"adminAdminListMainTitle"}
+      listHeader={<ListHeader />}
+      listContentItem={(admin: IAdmin) => <ListContentItem admin={admin} />}
+      listHeaderClassName={styles.tableDisplay}
+      rowClassName={styles.tableDisplay}
+      items={admins}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={response.data?.getAdmins.shouldFetchMore}
+      loading={response.loading}
+    />
   );
 };

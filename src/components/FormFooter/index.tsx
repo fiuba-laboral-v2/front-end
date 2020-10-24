@@ -37,7 +37,7 @@ export const FormFooter = <Values extends { _form?: string | string[] }>({
 interface IFormFooterProps<Values> {
   onSubmit?: () => void;
   isSubmitting: boolean;
-  submitButtonText: string;
+  submitButtonText?: string;
   className?: string;
   errors: FormikErrors<Values>;
 }

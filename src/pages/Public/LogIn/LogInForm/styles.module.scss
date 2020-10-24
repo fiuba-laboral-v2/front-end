@@ -6,14 +6,14 @@
   flex-direction: column;
   padding: 100px 70px 70px;
 
-  .title {
-    margin-bottom: $spacing-l;
-  }
-
   .body {
     display: flex;
     flex-direction: column;
   }
+}
+
+.title {
+  margin-bottom: $spacing-xl;
 }
 
 .formContainer {

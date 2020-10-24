@@ -8,3 +8,9 @@
 div.name {
   margin-right: $spacing-xxl;
 }
+
+@media (max-width: $largeMobileWidth) {
+  .firstRow {
+    flex-direction: column;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { SignUp } from "./component";
@@ -11,6 +11,8 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
 import { saveApplicantArguments } from "$models/MutationArguments";
+import { Window } from "$components/Window";
+import { LoadingWindow } from "$components/LoadingWindow";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,6 +20,8 @@ export const SignUpContainer: FunctionComponent = () => {
   const { login } = useLogin();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
+
+  if (!translations) return <LoadingWindow />;
 
   const validateForm = (values: IApplicantSignUpFormValues) => {
     const selectedCodes = values.careers.map(career => career.careerCode);
@@ -54,7 +58,9 @@ export const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.applicant.editMyProfile());
   };
 
-  if (!translations) return <Fragment />;
-
-  return <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />;
+  return (
+    <Window>
+      <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />
+    </Window>
+  );
 };
