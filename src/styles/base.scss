@@ -60,12 +60,13 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: $borderRadius-m;
+  background: transparent;
+  border-radius: 0 $borderRadius-s $borderRadius-s 0;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $grey;
-  border-radius: $borderRadius-m;
+  border-radius: $borderRadius-s;
 
   &:hover {
     background: darken($grey, 7%);

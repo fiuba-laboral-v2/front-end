@@ -1,8 +1,12 @@
 @import "$styles/_variables";
 
-@mixin card {
-  background: #fcfcfc;
+@mixin card($cardBackgroundColor: #fcfcfc) {
+  background: $cardBackgroundColor;
   border-radius: $borderRadius-l;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   padding: $spacing-xxl;
+
+  &::-webkit-scrollbar-track {
+    background: $cardBackgroundColor;
+  }
 }
