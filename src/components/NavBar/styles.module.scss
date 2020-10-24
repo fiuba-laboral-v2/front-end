@@ -48,9 +48,12 @@
 }
 
 .inDrawer {
+  height: 100%;
+
   .navBar {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   .top {
@@ -59,6 +62,8 @@
 
   .bottom {
     flex-shrink: 0;
+    margin-top: $spacing-xl;
+    position: initial;
   }
 }
 
