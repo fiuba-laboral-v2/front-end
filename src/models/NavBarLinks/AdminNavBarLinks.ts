@@ -1,12 +1,12 @@
 import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
 import { INavBarTranslations } from "$components/NavBar/interface";
-import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import HomeIcon from "@material-ui/icons/Home";
 
 const { home, applicants, companies, admins, offers, jobApplications } = RoutesBuilder.admin;
 
@@ -15,7 +15,7 @@ export const AdminNavBarLinks = {
     {
       path: home(),
       title: translations.tasks,
-      icon: FormatListBulletedIcon
+      icon: HomeIcon
     },
     {
       path: applicants(),

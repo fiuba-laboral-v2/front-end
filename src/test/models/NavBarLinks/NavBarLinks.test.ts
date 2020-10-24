@@ -8,8 +8,8 @@ import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
 import BusinessIcon from "@material-ui/icons/Business";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
-import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import HomeIcon from "@material-ui/icons/Home";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -226,7 +226,7 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.admin.home(),
           title: translations.tasks,
-          icon: FormatListBulletedIcon
+          icon: HomeIcon
         },
         {
           path: RoutesBuilder.admin.applicants(),
