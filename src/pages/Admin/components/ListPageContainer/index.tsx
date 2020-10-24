@@ -4,7 +4,8 @@ import { MainTitle } from "./MainTitle";
 import { MainContainer } from "./MainContainer";
 import { List } from "./List";
 import { Listable, ListableReactNodes } from "./interfaces";
-import { LoadingSpinner } from "$components/LoadingSpinner";
+import { LoadingWindow } from "$components/LoadingWindow";
+import { IWindowProps } from "$components/Window/component";
 
 export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   titleTranslationPath,
@@ -16,9 +17,16 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   fetchMore,
   shouldFetchMore,
   loading
-}) => (
-  <Window width="fullWidth" desktopOnly>
-    {items ? (
+}) => {
+  const windowProps: IWindowProps = {
+    width: "fullWidth",
+    desktopOnly: true
+  };
+
+  if (!items) return <LoadingWindow {...windowProps} />;
+
+  return (
+    <Window {...windowProps}>
       <MainContainer>
         <MainTitle translationPath={titleTranslationPath} />
         <List
@@ -32,11 +40,9 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
           loading={loading}
         />
       </MainContainer>
-    ) : (
-      <LoadingSpinner />
-    )}
-  </Window>
-);
+    </Window>
+  );
+};
 
 interface IListPageContainer {
   titleTranslationPath: string;

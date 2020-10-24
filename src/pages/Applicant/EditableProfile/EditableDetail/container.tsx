@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import { Redirect } from "$components/Redirect";
@@ -11,13 +10,15 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
 import { useSnackbar } from "notistack";
 import { Window } from "$components/Window";
+import { LoadingWindow } from "$components/LoadingWindow";
 
 export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { updateCurrentApplicant } = useUpdateCurrentApplicant();
-  const applicantProfile = useMyApplicantProfile();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
+  const applicantProfile = useMyApplicantProfile();
+  const applicant = applicantProfile.data?.getCurrentUser.applicant;
 
   const validateForm = useCallback(
     ({ careers: selectedCareers, links: selectedLinks }: IApplicantEditableFormValues) => {
@@ -59,38 +60,35 @@ export const EditableDetailContainer: FunctionComponent = () => {
     if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
   };
 
-  const applicant = applicantProfile.data?.getCurrentUser.applicant;
+  if (!applicantProfile || !translations || !applicant) return <LoadingWindow />;
+
   return (
     <Window>
-      {applicantProfile && translations && applicant ? (
-        <EditableDetail
-          onSubmit={onSubmit}
-          translations={translations}
-          initialValues={{
-            user: {
-              email: applicant.user.email,
-              name: applicant.user.name,
-              surname: applicant.user.surname
-            },
-            padron: applicant.padron,
-            description: applicant.description || "",
-            links: applicant.links,
-            careers: applicant.careers.map(applicantCareer => ({
-              careerCode: applicantCareer.career.code,
-              approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
-              currentCareerYear: applicantCareer.currentCareerYear || NaN,
-              isGraduate: applicantCareer.isGraduate
-            })),
-            capabilities: applicant.capabilities,
-            knowledgeSections: applicant.knowledgeSections,
-            experienceSections: applicant.experienceSections,
-            _form: []
-          }}
-          validateForm={validateForm}
-        />
-      ) : (
-        <LoadingSpinner />
-      )}
+      <EditableDetail
+        onSubmit={onSubmit}
+        translations={translations}
+        initialValues={{
+          user: {
+            email: applicant.user.email,
+            name: applicant.user.name,
+            surname: applicant.user.surname
+          },
+          padron: applicant.padron,
+          description: applicant.description || "",
+          links: applicant.links,
+          careers: applicant.careers.map(applicantCareer => ({
+            careerCode: applicantCareer.career.code,
+            approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
+            currentCareerYear: applicantCareer.currentCareerYear || NaN,
+            isGraduate: applicantCareer.isGraduate
+          })),
+          capabilities: applicant.capabilities,
+          knowledgeSections: applicant.knowledgeSections,
+          experienceSections: applicant.experienceSections,
+          _form: []
+        }}
+        validateForm={validateForm}
+      />
     </Window>
   );
 };

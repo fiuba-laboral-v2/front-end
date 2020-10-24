@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { useCompanyOfferByUuid, useEditOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
@@ -9,7 +9,7 @@ import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog, IConfirmDialogTranslations } from "$components/FormConfirmDialog";
 import { ICreateOfferValues } from "$interfaces/Offer";
 import { Window } from "$components/Window";
-import { LoadingSpinner } from "$components/LoadingSpinner";
+import { LoadingWindow } from "$components/LoadingWindow";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -23,9 +23,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   const { editOffer } = useEditOffer();
   const getOffer = useCompanyOfferByUuid(uuid);
 
-  if (!translations || getOffer.loading || getOffer.error || !acceptanceCriteria) {
-    return <Fragment />;
-  }
+  if (!translations || !getOffer.data || !acceptanceCriteria) return <LoadingWindow />;
 
   const onSubmit = async (variables: ICreateOfferValues) => {
     const response = await editOffer({
@@ -50,32 +48,28 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   return (
     <Window>
-      {translations && acceptanceCriteria && getOffer ? (
-        <EditOffer
-          title={translations.edit}
-          acceptanceCriteria={acceptanceCriteria.text}
-          initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
-          onSubmit={onSubmit}
-          formFooter={({ isSubmitting, submitForm, errors }) => (
-            <>
-              <FormFooter
-                isSubmitting={isSubmitting}
-                submitButtonText={translations.submit}
-                errors={errors}
-                onSubmit={() => setConfirmDialogIsOpen(true)}
-              />
-              <FormConfirmDialog
-                isOpen={confirmDialogIsOpen}
-                onConfirm={submitForm}
-                onClose={() => setConfirmDialogIsOpen(false)}
-                translations={translations}
-              />
-            </>
-          )}
-        />
-      ) : (
-        <LoadingSpinner />
-      )}
+      <EditOffer
+        title={translations.edit}
+        acceptanceCriteria={acceptanceCriteria.text}
+        initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
+        onSubmit={onSubmit}
+        formFooter={({ isSubmitting, submitForm, errors }) => (
+          <>
+            <FormFooter
+              isSubmitting={isSubmitting}
+              submitButtonText={translations.submit}
+              errors={errors}
+              onSubmit={() => setConfirmDialogIsOpen(true)}
+            />
+            <FormConfirmDialog
+              isOpen={confirmDialogIsOpen}
+              onConfirm={submitForm}
+              onClose={() => setConfirmDialogIsOpen(false)}
+              translations={translations}
+            />
+          </>
+        )}
+      />
     </Window>
   );
 };
