@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+
+.card {
+  cursor: pointer;
+  display: flex;
+  height: fit-content;
+  max-width: 300px;
+  min-height: 40px;
+  padding: $spacing-l;
+  width: fit-content;
+}
+
+.cardLogo {
+  align-self: center;
+  color: $mainBlueDark;
+  margin-right: $spacing-l;
+}
+
+.cardText {
+  align-self: center;
+  color: $mainBlueDark;
+}
