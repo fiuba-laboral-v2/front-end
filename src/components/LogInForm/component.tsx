@@ -14,7 +14,7 @@ import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "logInForm";
 
-const LogInForm: FunctionComponent<ILogInFormProps> = ({
+export const LogInForm: FunctionComponent<ILogInFormProps> = ({
   className,
   translations,
   initialValues,
@@ -72,5 +72,3 @@ interface ILogInFormProps {
     formikHelpers: FormikHelpers<ILoginVariables>
   ) => void | Promise<any>;
 }
-
-export { LogInForm };

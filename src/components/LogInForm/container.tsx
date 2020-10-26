@@ -7,7 +7,7 @@ import { ILoginVariables, useLogin, useTranslations } from "$hooks";
 import { ILogInFormTranslationsProps } from "./interface";
 import { useSnackbar } from "notistack";
 
-const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
+export const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { login } = useLogin();
@@ -48,5 +48,3 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
 interface ILogInFormContainerProps {
   className?: string;
 }
-
-export { LogInFormContainer };
