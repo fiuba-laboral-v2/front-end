@@ -1,6 +1,7 @@
 export interface IRegisterTranslations {
-  registerAsApplicant: string;
-  registerAsCompany: string;
+  title: string;
+  fiubaLogin: string;
+  companyLogin: string;
 }
 
 export interface IRegisterProps {

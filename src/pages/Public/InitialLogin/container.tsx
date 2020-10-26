@@ -1,23 +1,21 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { Register } from "./component";
+import { InitialLogin } from "./component";
 
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IRegisterTranslations } from "./interface";
 
-const RegisterContainer: FunctionComponent = () => {
+export const InitialLoginContainer: FunctionComponent = () => {
   const history = useHistory();
-  const translations = useTranslations<IRegisterTranslations>("register");
+  const translations = useTranslations<IRegisterTranslations>("initialLogin");
   if (!translations) return <Fragment/>;
 
   return (
-    <Register
+    <InitialLogin
       onClickRegisterApplicant={() => history.push(RoutesBuilder.applicant.signUp())}
       onClickRegisterCompany={() => history.push(RoutesBuilder.company.signUp())}
       translations={translations}
     />
   );
 };
-
-export { RegisterContainer };

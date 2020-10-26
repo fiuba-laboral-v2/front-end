@@ -1,0 +1,17 @@
+@import "$styles/_variables";
+
+.applicantCard {
+  margin-bottom: $spacing-xxl;
+}
+
+.companyCard,
+.applicantCard {
+  min-width: 300px;
+}
+
+@media (max-width: $laptopWidth) {
+  .companyCard,
+  .applicantCard {
+    width: unset;
+  }
+}
