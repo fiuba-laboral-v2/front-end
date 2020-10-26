@@ -4,11 +4,7 @@
   background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
-  padding: $spacing-m;
-
-  .title {
-    margin-bottom: $spacing-xl;
-  }
+  padding: $spacing-xxl;
 
   .body {
     display: flex;
@@ -35,5 +31,11 @@
 
   .dontHaveAnAccount {
     margin-right: $spacing-s;
+  }
+}
+
+@media (max-width: $laptopWidth) {
+  .mainContainer {
+    padding: $spacing-xl;
   }
 }
