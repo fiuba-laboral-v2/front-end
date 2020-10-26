@@ -33,5 +33,6 @@ export interface INavBarProps extends INavBarContainerProps {
   translations: INavBarTranslations;
   currentPath: string;
   bottomEl: RefObject<HTMLDivElement>;
+  navBarEl: RefObject<HTMLDivElement>;
   canScroll: boolean;
 }

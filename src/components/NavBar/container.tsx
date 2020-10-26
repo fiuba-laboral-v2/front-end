@@ -17,6 +17,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const currentUserResponse = useCurrentUser();
   const { logout } = useLogout();
   const bottomEl = useRef<HTMLDivElement>(null);
+  const navBarEl = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(true);
   useEffect(() => {
     if (!bottomEl.current) return;
@@ -50,6 +51,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
       username={currentUser?.name}
       currentPath={location.pathname}
       bottomEl={bottomEl}
+      navBarEl={navBarEl}
       canScroll={canScroll}
       {...props}
     />

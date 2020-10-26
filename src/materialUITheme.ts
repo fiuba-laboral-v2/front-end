@@ -14,6 +14,7 @@ export const MaterialUITheme = createMuiTheme({
     MuiBackdrop: {
       root: {
         top: 78,
+        bottom: 0,
         "@media (max-width: 768px)": {
           top: 63
         }
@@ -22,11 +23,11 @@ export const MaterialUITheme = createMuiTheme({
     MuiDrawer: {
       paper: {
         top: 78,
+        bottom: 0,
+        height: "unset",
         background: "#f6f5f5",
-        height: "calc(100vh - 78px)",
         "@media (max-width: 768px)": {
-          top: 63,
-          height: "calc(100vh - 63px)"
+          top: 63
         }
       }
     },

@@ -5,6 +5,7 @@
 
   .navBar {
     font-size: 18px;
+    overflow-x: hidden;
   }
 
   .navBarContainer,
@@ -90,11 +91,11 @@
 svg.scrollIndicator {
   background: $dashboardBackgroundWhite;
   border-radius: 100%;
-  bottom: 16px;
+  bottom: $spacing-m;
   color: $darkGrey;
-  left: 250px;
   opacity: 1;
-  position: fixed;
+  position: absolute;
+  right: $spacing-m;
   transition: opacity 0.1s;
 
   &.hidden {

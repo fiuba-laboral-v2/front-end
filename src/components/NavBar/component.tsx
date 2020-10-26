@@ -21,10 +21,11 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   inDrawer = false,
   toggleDrawer = noop,
   bottomEl,
+  navBarEl,
   canScroll
 }) => (
   <div className={classNames(styles.navBarContainer, className, { [styles.inDrawer]: inDrawer })}>
-    <div className={styles.navBar}>
+    <div className={styles.navBar} ref={navBarEl}>
       <div className={styles.top}>
         {links.map(link => (
           <NavBarLink
@@ -73,6 +74,12 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
     </div>
     <ExpandMoreIcon
       className={classNames(styles.scrollIndicator, { [styles.hidden]: !canScroll })}
+      onClick={() =>
+        navBarEl.current?.scrollTo({
+          top: navBarEl.current.scrollHeight,
+          behavior: "smooth"
+        })
+      }
     />
   </div>
 );
