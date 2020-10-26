@@ -34,5 +34,6 @@ export interface INavBarProps extends INavBarContainerProps {
   currentPath: string;
   bottomEl: RefObject<HTMLDivElement>;
   navBarEl: RefObject<HTMLDivElement>;
+  iconEl: RefObject<SVGSVGElement>;
   canScroll: boolean;
 }

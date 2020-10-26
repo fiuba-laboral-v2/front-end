@@ -92,11 +92,11 @@ svg.scrollIndicator {
   background: $dashboardBackgroundWhite;
   border-radius: 100%;
   bottom: $spacing-m;
-  color: $darkGrey;
+  color: transparent;
   opacity: 1;
   position: absolute;
   right: $spacing-m;
-  transition: opacity 0.1s;
+  transition: opacity 0.1s, color 0.1s linear 250ms;
 
   &.hidden {
     opacity: 0;

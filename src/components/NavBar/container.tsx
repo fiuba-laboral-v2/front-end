@@ -18,14 +18,20 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const { logout } = useLogout();
   const bottomEl = useRef<HTMLDivElement>(null);
   const navBarEl = useRef<HTMLDivElement>(null);
+  const iconEl = useRef<SVGSVGElement>(null);
   const [canScroll, setCanScroll] = useState(true);
   useEffect(() => {
     if (!bottomEl.current) return;
     const observer = new IntersectionObserver(
-      entries => setCanScroll(!some(entries, "isIntersecting")),
+      entries => {
+        if (!iconEl.current) return;
+        setCanScroll(!some(entries, "isIntersecting"));
+        iconEl.current.style.color = "#40403f";
+      },
       { threshold: 0.8 }
     );
     observer.observe(bottomEl.current);
+    return () => observer.disconnect();
   });
 
   if (!translations || currentUserResponse.loading) return <Fragment />;
@@ -52,6 +58,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
       currentPath={location.pathname}
       bottomEl={bottomEl}
       navBarEl={navBarEl}
+      iconEl={iconEl}
       canScroll={canScroll}
       {...props}
     />
