@@ -12,7 +12,8 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [touched, setTouched] = useState(false);
-  const [moveCount, setMoveCount] = useState(0);
+  const [xPosition, setXPosition] = useState(0);
+  const [yPosition, setYPosition] = useState(0);
 
   return (
     <div
@@ -24,13 +25,20 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
         [styles.selected]: selected
       })}
       onClick={onClick}
-      onTouchStart={() => setTouched(true)}
-      onTouchMove={() => {
-        if (moveCount === 15) {
-          setTouched(false);
-          setMoveCount(0);
+      onTouchStart={event => {
+        setTouched(true);
+        setXPosition(event.touches[0].pageX);
+        setYPosition(event.touches[0].pageY);
+      }}
+      onTouchMove={event => {
+        const touch = event.touches[0];
+        const newXPosition = touch.pageX;
+        const newYPosition = touch.pageY;
+        if (Math.max(Math.abs(newXPosition - xPosition), Math.abs(newYPosition - yPosition)) > 10) {
+          return setTouched(false);
         }
-        setMoveCount(moveCount + 1);
+        setXPosition(newXPosition);
+        setYPosition(newYPosition);
       }}
       onTouchEnd={() => {
         if (!touched) return;
