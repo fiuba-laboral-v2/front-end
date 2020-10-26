@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { LogInForm } from "./LogInForm";
+import { LogInForm } from "$components/LogInForm";
 import { LoginWindow } from "$components/LoginWindow";
 
 import styles from "./styles.module.scss";
