@@ -34,11 +34,9 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
         const touch = event.touches[0];
         const newXPosition = touch.pageX;
         const newYPosition = touch.pageY;
-        if (Math.max(Math.abs(newXPosition - xPosition), Math.abs(newYPosition - yPosition)) > 10) {
+        if (Math.max(Math.abs(newXPosition - xPosition), Math.abs(newYPosition - yPosition)) > 15) {
           return setTouched(false);
         }
-        setXPosition(newXPosition);
-        setYPosition(newYPosition);
       }}
       onTouchEnd={() => {
         if (!touched) return;
