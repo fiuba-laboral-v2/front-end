@@ -4,6 +4,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .title {
@@ -23,5 +25,10 @@
   .companyCard,
   .applicantCard {
     width: unset;
+  }
+
+  .rightContainer {
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 }

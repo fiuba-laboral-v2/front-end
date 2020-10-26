@@ -24,10 +24,7 @@
 
 .rightContainer {
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
-  width: 30%;
 }
 
 @media (max-width: $laptopWidth) {
@@ -38,17 +35,11 @@
   .logo {
     background-image: url("/images/loginMobile.svg");
     flex-grow: 1;
+    min-height: unset;
   }
 
   .logo,
   .rightContainer {
     width: unset;
-  }
-
-  .rightContainer {
-    align-items: center;
-    flex-direction: column;
-    padding-left: 5vw;
-    padding-right: 5vw;
   }
 }

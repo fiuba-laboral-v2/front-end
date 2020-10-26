@@ -4,10 +4,10 @@
   background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
-  padding: 100px 70px 70px;
+  padding: $spacing-m;
 
   .title {
-    margin-bottom: $spacing-l;
+    margin-bottom: $spacing-xl;
   }
 
   .body {
