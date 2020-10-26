@@ -15,7 +15,7 @@ export const InitialLogin: FunctionComponent<IRegisterProps> = (
     translations
   }
 ) => (
-  <LoginWindow>
+  <LoginWindow title={translations.title}>
     <EnterButton
       className={styles.applicantCard}
       Icon={SchoolIcon}
