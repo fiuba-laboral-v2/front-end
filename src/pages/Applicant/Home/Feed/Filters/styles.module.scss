@@ -50,7 +50,7 @@
   background: $bodyBackgroundColor;
   display: flex;
   flex-shrink: 0;
-  height: 63px;
+  min-height: 63px;
   padding-right: $spacing-s;
 }
 
