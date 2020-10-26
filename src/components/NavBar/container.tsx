@@ -26,7 +26,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
       entries => {
         if (!iconEl.current) return;
         setCanScroll(!some(entries, "isIntersecting"));
-        iconEl.current.style.color = "#40403f";
+        iconEl.current.style.visibility = "visible";
       },
       { threshold: 0.8 }
     );
