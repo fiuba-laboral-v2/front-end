@@ -1,0 +1,13 @@
+@import "$styles/_variables";
+
+.form {
+  display: flex;
+}
+
+@media (max-width: $laptopWidth) {
+  .form {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: unset;
+  }
+}

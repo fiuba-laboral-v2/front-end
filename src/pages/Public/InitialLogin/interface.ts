@@ -5,7 +5,7 @@ export interface IRegisterTranslations {
 }
 
 export interface IRegisterProps {
-  onClickRegisterApplicant: () => void;
-  onClickRegisterCompany: () => void;
+  loginAsFiubaUser: () => void;
+  loginAsCompanyUser: () => void;
   translations: IRegisterTranslations;
 }

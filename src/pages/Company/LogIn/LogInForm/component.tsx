@@ -15,22 +15,16 @@ import { SubmitButton } from "$components/SubmitButton";
 
 const formName = "logInForm";
 
-const LogInForm: FunctionComponent<ILogInFormProps> = (
-  {
-    className,
-    translations,
-    initialValues,
-    onSubmit
-  }
-) => (
+const LogInForm: FunctionComponent<ILogInFormProps> = ({
+  className,
+  translations,
+  initialValues,
+  onSubmit
+}) => (
   <>
     <div className={classNames(styles.mainContainer, className)}>
       <Headline className={styles.title}>{translations.title}</Headline>
-      <Formik
-        initialValues={initialValues}
-        validateOnMount
-        onSubmit={onSubmit}
-      >
+      <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>
         {({ isSubmitting, errors }) => (
           <div className={styles.body}>
             <Form className={styles.formContainer} id={formName}>
@@ -61,7 +55,7 @@ const LogInForm: FunctionComponent<ILogInFormProps> = (
               </SubmitButton>
               <div className={styles.register}>
                 <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
-                <Link to={RoutesBuilder.public.register()}>{translations.register}</Link>
+                <Link to={RoutesBuilder.company.signUp()}>{translations.register}</Link>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
   const { enqueueSnackbar } = useSnackbar();
   const { login } = useLogin();
   const translations = useTranslations<ILogInFormTranslationsProps>("login");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <Fragment />;
 
   const setBadCredentialsError = () =>
     enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
@@ -21,16 +21,14 @@ const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ class
     values: ILoginVariables,
     { setSubmitting }: FormikHelpers<ILoginVariables>
   ) => {
-    const loginResult = await login(
-      {
-        variables: values,
-        errorHandlers: {
-          BadCredentialsError: () => setBadCredentialsError(),
-          UserNotFoundError: () => setBadCredentialsError(),
-          defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-        }
+    const loginResult = await login({
+      variables: values,
+      errorHandlers: {
+        BadCredentialsError: () => setBadCredentialsError(),
+        UserNotFoundError: () => setBadCredentialsError(),
+        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
       }
-    );
+    });
     if (loginResult.error) return;
 
     setSubmitting(false);

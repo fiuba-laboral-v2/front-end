@@ -13,8 +13,8 @@ export const InitialLoginContainer: FunctionComponent = () => {
 
   return (
     <InitialLogin
-      onClickRegisterApplicant={() => history.push(RoutesBuilder.applicant.signUp())}
-      onClickRegisterCompany={() => history.push(RoutesBuilder.company.signUp())}
+      loginAsFiubaUser={() => history.push(RoutesBuilder.applicant.signUp())}
+      loginAsCompanyUser={() => history.push(RoutesBuilder.company.login())}
       translations={translations}
     />
   );

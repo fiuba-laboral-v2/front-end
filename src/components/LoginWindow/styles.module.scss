@@ -8,11 +8,6 @@
   width: auto;
 }
 
-.title {
-  display: flex;
-  margin-bottom: $spacing-xxl;
-}
-
 .loginMainContainer {
   display: flex;
   flex-grow: 1;
@@ -28,16 +23,11 @@
 }
 
 .rightContainer {
-  align-items: center;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   justify-content: center;
   width: 30%;
-}
-
-.middleSection {
-  display: flex;
-  flex-direction: column;
 }
 
 @media (max-width: $laptopWidth) {

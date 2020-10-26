@@ -1,5 +1,15 @@
 @import "$styles/_variables";
 
+.rightContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: $spacing-xxl;
+}
+
 .applicantCard {
   margin-bottom: $spacing-xxl;
 }
