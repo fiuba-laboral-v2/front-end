@@ -5,6 +5,7 @@ import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { noop } from "lodash";
@@ -18,7 +19,9 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   translations,
   currentPath,
   inDrawer = false,
-  toggleDrawer = noop
+  toggleDrawer = noop,
+  bottomEl,
+  canScroll
 }) => (
   <div className={classNames(styles.navBarContainer, className, { [styles.inDrawer]: inDrawer })}>
     <div className={styles.navBar}>
@@ -36,7 +39,7 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
           />
         ))}
       </div>
-      <div className={styles.bottom}>
+      <div className={styles.bottom} ref={bottomEl}>
         {isLoggedIn ? (
           <>
             <p className={styles.username}>{username}</p>
@@ -68,5 +71,8 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
         )}
       </div>
     </div>
+    <ExpandMoreIcon
+      className={classNames(styles.scrollIndicator, { [styles.hidden]: !canScroll })}
+    />
   </div>
 );

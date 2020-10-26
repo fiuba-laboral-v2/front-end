@@ -1,4 +1,5 @@
 import { INavBarLink } from "$models/NavBarLinks/Interfaces";
+import { RefObject } from "react";
 
 export interface INavBarTranslations {
   companies: string;
@@ -31,4 +32,6 @@ export interface INavBarProps extends INavBarContainerProps {
   username?: string;
   translations: INavBarTranslations;
   currentPath: string;
+  bottomEl: RefObject<HTMLDivElement>;
+  canScroll: boolean;
 }

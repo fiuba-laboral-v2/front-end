@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useApolloClient } from "@apollo/client";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -7,6 +7,7 @@ import { NavBar } from "./component";
 import { INavBarContainerProps, INavBarTranslations } from "./interface";
 import { Redirect } from "../Redirect";
 import { NavBarLinks } from "$models/NavBarLinks";
+import { some } from "lodash";
 
 export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
   const history = useHistory();
@@ -15,6 +16,16 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const translations = useTranslations<INavBarTranslations>("navBar");
   const currentUserResponse = useCurrentUser();
   const { logout } = useLogout();
+  const bottomEl = useRef<HTMLDivElement>(null);
+  const [canScroll, setCanScroll] = useState(true);
+  useEffect(() => {
+    if (!bottomEl.current) return;
+    const observer = new IntersectionObserver(
+      entries => setCanScroll(!some(entries, "isIntersecting")),
+      { threshold: 0.8 }
+    );
+    observer.observe(bottomEl.current);
+  });
 
   if (!translations || currentUserResponse.loading) return <Fragment />;
   if (currentUserResponse.error) {
@@ -38,6 +49,8 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
       translations={translations}
       username={currentUser?.name}
       currentPath={location.pathname}
+      bottomEl={bottomEl}
+      canScroll={canScroll}
       {...props}
     />
   );
