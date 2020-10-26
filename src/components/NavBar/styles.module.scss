@@ -81,3 +81,18 @@
     }
   }
 }
+
+svg.scrollIndicator {
+  background: $dashboardBackgroundWhite;
+  border-radius: 100%;
+  bottom: 16px;
+  color: $darkGrey;
+  left: 250px;
+  opacity: 1;
+  position: fixed;
+  transition: opacity 0.1s;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
