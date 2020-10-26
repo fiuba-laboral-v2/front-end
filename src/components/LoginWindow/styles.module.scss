@@ -1,0 +1,55 @@
+@import "$styles/_variables";
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  width: auto;
+}
+
+.loginMainContainer {
+  display: flex;
+  flex-grow: 1;
+}
+
+.logo {
+  background-image: url("/images/loginDesktop.svg");
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70%;
+}
+
+.rightContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  width: 30%;
+}
+
+@media (max-width: $laptopWidth) {
+  .loginMainContainer {
+    flex-direction: column;
+  }
+
+  .logo {
+    background-image: url("/images/loginMobile.svg");
+    flex-grow: 1;
+  }
+
+  .logo,
+  .rightContainer {
+    width: unset;
+  }
+
+  .rightContainer {
+    align-items: center;
+    flex-direction: column;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
