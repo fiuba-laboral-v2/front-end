@@ -4,7 +4,7 @@
   align-items: center;
   display: none;
   flex-direction: column;
-  height: calc(100vh - #{$navBarHeight});
+  height: calc(100vh - #{$desktopNavBarHeight});
   justify-content: center;
 }
 

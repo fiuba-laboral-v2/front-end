@@ -47,7 +47,7 @@
   &:not(.inDrawer) {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - #{$navBarHeight});
+    min-height: calc(100vh - #{$desktopNavBarHeight});
 
     .navBar {
       height: calc(100vh - 170px);
