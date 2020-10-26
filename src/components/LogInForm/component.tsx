@@ -1,20 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
-import { FormikHelpers } from "formik/dist/types";
 import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Link } from "$components/Link";
 import { PasswordField, EmailField } from "$components/Fields";
+import { SubmitButton } from "$components/SubmitButton";
 
 import styles from "./styles.module.scss";
-import { ILogInFormTranslationsProps } from "./interface";
-import { ILoginVariables } from "$hooks";
-import { SubmitButton } from "$components/SubmitButton";
+import { IComponentProps } from "./interface";
 
 const formName = "logInForm";
 
-export const LogInForm: FunctionComponent<ILogInFormProps> = ({
+export const LogInForm: FunctionComponent<IComponentProps> = ({
   className,
   translations,
   initialValues,
@@ -62,13 +60,3 @@ export const LogInForm: FunctionComponent<ILogInFormProps> = ({
     </div>
   </>
 );
-
-interface ILogInFormProps {
-  className?: string;
-  translations: ILogInFormTranslationsProps;
-  initialValues: ILoginVariables;
-  onSubmit: (
-    values: ILoginVariables,
-    formikHelpers: FormikHelpers<ILoginVariables>
-  ) => void | Promise<any>;
-}

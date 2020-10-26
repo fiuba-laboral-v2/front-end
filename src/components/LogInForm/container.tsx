@@ -4,14 +4,14 @@ import { FormikHelpers } from "formik";
 import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ILoginVariables, useLogin, useTranslations } from "$hooks";
-import { ILogInFormTranslationsProps } from "./interface";
+import { ITranslations, IContainerProps } from "./interface";
 import { useSnackbar } from "notistack";
 
-export const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = ({ className }) => {
+export const LogInFormContainer: FunctionComponent<IContainerProps> = props => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { login } = useLogin();
-  const translations = useTranslations<ILogInFormTranslationsProps>("login");
+  const translations = useTranslations<ITranslations>("login");
   if (!translations) return <Fragment />;
 
   const setBadCredentialsError = () =>
@@ -37,14 +37,10 @@ export const LogInFormContainer: FunctionComponent<ILogInFormContainerProps> = (
 
   return (
     <LogInForm
-      className={className}
+      {...props}
       initialValues={{ email: "", password: "" }}
       onSubmit={onSubmit}
       translations={translations}
     />
   );
 };
-
-interface ILogInFormContainerProps {
-  className?: string;
-}
