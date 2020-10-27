@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { ErrorHandlers } from "$models/handleError";
-import { ILoginVariables } from "$hooks";
 import { FormikHelpers } from "formik/dist/types";
 
 export interface ITranslations {
@@ -10,25 +9,22 @@ export interface ITranslations {
   badCredentialsMessage: string;
 }
 
-export interface IContainerProps {
+export interface IContainerProps<IVariables> {
   className?: string;
   fields: ReactElement;
   footer: ReactElement;
-  onSubmit: OnSubmit;
+  initialValues: IVariables;
+  onSubmit: OnSubmit<IVariables>;
 }
 
-export type OnSubmit = (
-  values: ILoginVariables,
-  formikHelpers: FormikHelpers<ILoginVariables>,
+export type OnSubmit<IVariables> = (
+  values: IVariables,
+  formikHelpers: FormikHelpers<IVariables>,
   errorHandlers: ErrorHandlers
 ) => void | Promise<any>;
 
-export interface IComponentProps extends IContainerProps {
+export interface IComponentProps<IVariables> extends IContainerProps<IVariables> {
   className?: string;
   translations: ITranslations;
-  initialValues: ILoginVariables;
-  onSubmit: (
-    values: ILoginVariables,
-    formikHelpers: FormikHelpers<ILoginVariables>
-  ) => void | Promise<any>;
+  onSubmit: (values: IVariables, formikHelpers: FormikHelpers<IVariables>) => void | Promise<any>;
 }

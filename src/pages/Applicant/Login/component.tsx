@@ -13,8 +13,9 @@ import styles from "./styles.module.scss";
 
 export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
-    <LogInForm
+    <LogInForm<{ dni: string; password: string }>
       {...props}
+      initialValues={{ dni: "", password: "" }}
       className={styles.form}
       fields={<DniField name="dni" label={translations.dni} />}
       footer={
@@ -31,6 +32,6 @@ export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...pro
 );
 
 interface IComponentProps {
-  onSubmit: OnSubmit;
+  onSubmit: OnSubmit<{ dni: string; password: string }>;
   translations: ITranslations;
 }

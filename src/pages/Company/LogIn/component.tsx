@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { ILoginVariables } from "$hooks";
 
 import { LogInForm } from "$components/LogInForm";
 import { OnSubmit } from "$components/LogInForm/interface";
@@ -13,8 +14,9 @@ import styles from "./styles.module.scss";
 
 export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
-    <LogInForm
+    <LogInForm<ILoginVariables>
       {...props}
+      initialValues={{ email: "", password: "" }}
       className={styles.form}
       fields={<EmailField name="email" label={translations.email} autoComplete="email" />}
       footer={
@@ -28,6 +30,6 @@ export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...pro
 );
 
 interface IComponentProps {
-  onSubmit: OnSubmit;
+  onSubmit: OnSubmit<ILoginVariables>;
   translations: ITranslations;
 }

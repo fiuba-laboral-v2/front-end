@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { Form, Formik } from "formik";
 import classNames from "classnames";
 
@@ -10,14 +10,14 @@ import { IComponentProps } from "./interface";
 
 const formName = "logInForm";
 
-export const LogInForm: FunctionComponent<IComponentProps> = ({
+export const LogInForm = <TVariables,>({
   className,
   fields,
   footer,
   translations,
   initialValues,
   onSubmit
-}) => (
+}: IComponentProps<TVariables>) => (
   <>
     <div className={classNames(styles.mainContainer, className)}>
       <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>

@@ -1,13 +1,16 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { LogInForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ILoginVariables, useTranslations } from "$hooks";
+import { useTranslations } from "$hooks";
 import { ITranslations, IContainerProps } from "./interface";
 import { useSnackbar } from "notistack";
 
-export const LogInFormContainer: FunctionComponent<IContainerProps> = ({ onSubmit, ...props }) => {
+export const LogInFormContainer = <TVariables extends {}>({
+  onSubmit,
+  ...props
+}: IContainerProps<TVariables>) => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<ITranslations>("login");
@@ -16,10 +19,7 @@ export const LogInFormContainer: FunctionComponent<IContainerProps> = ({ onSubmi
   const setBadCredentialsError = () =>
     enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
 
-  const onClick = async (
-    values: ILoginVariables,
-    formikHelpers: FormikHelpers<ILoginVariables>
-  ) => {
+  const onClick = async (values: TVariables, formikHelpers: FormikHelpers<TVariables>) => {
     return onSubmit(values, formikHelpers, {
       BadCredentialsError: () => setBadCredentialsError(),
       UserNotFoundError: () => setBadCredentialsError(),
@@ -27,12 +27,5 @@ export const LogInFormContainer: FunctionComponent<IContainerProps> = ({ onSubmi
     });
   };
 
-  return (
-    <LogInForm
-      {...props}
-      initialValues={{ email: "", password: "" }}
-      onSubmit={onClick}
-      translations={translations}
-    />
-  );
+  return <LogInForm {...props} onSubmit={onClick} translations={translations} />;
 };
