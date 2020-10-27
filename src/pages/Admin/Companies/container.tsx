@@ -12,20 +12,16 @@ export const Companies: FunctionComponent = () => {
   const companies = response?.data?.getCompanies.results;
 
   return (
-    <>
-      {companies && (
-        <ListPageContainer
-          titleTranslationPath={"adminCompanyListMainTitle"}
-          listHeader={<ListHeader />}
-          listContentItem={(company: ICompany) => <ListContentItem company={company} />}
-          listHeaderClassName={styles.tableDisplay}
-          rowClassName={styles.tableDisplay}
-          items={companies}
-          fetchMore={response.fetchMore}
-          shouldFetchMore={response?.data.getCompanies.shouldFetchMore}
-          loading={response.loading}
-        />
-      )}
-    </>
+    <ListPageContainer
+      titleTranslationPath={"adminCompanyListMainTitle"}
+      listHeader={<ListHeader />}
+      listContentItem={(company: ICompany) => <ListContentItem company={company} />}
+      listHeaderClassName={styles.tableDisplay}
+      rowClassName={styles.tableDisplay}
+      items={companies}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={response.data?.getCompanies.shouldFetchMore}
+      loading={response.loading}
+    />
   );
 };

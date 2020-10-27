@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useRef, useState } from "react";
 import classNames from "classnames";
 
 import styles from "./styles.module.scss";
@@ -10,9 +10,14 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
   selected,
   onClick
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [touched, setTouched] = useState(false);
+  const [xPosition, setXPosition] = useState(0);
+  const [yPosition, setYPosition] = useState(0);
+
   return (
     <div
+      ref={ref}
       className={classNames(styles.card, className, {
         [styles.largePadding]: largePadding,
         [styles.hoverable]: onClick,
@@ -20,9 +25,23 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
         [styles.selected]: selected
       })}
       onClick={onClick}
-      onTouchStart={() => setTouched(true)}
-      onTouchMove={() => setTouched(false)}
-      onTouchEnd={() => setTouched(false)}
+      onTouchStart={event => {
+        setTouched(true);
+        setXPosition(event.touches[0].screenX);
+        setYPosition(event.touches[0].screenY);
+      }}
+      onTouchMove={event => {
+        const touch = event.touches[0];
+        const newXPosition = touch.screenX;
+        const newYPosition = touch.screenY;
+        if (Math.max(Math.abs(newXPosition - xPosition), Math.abs(newYPosition - yPosition)) > 15) {
+          return setTouched(false);
+        }
+      }}
+      onTouchEnd={() => {
+        if (!touched) return;
+        ref.current?.click();
+      }}
     >
       {children}
     </div>

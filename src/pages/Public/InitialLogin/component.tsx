@@ -4,7 +4,7 @@ import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
 import { EnterButton } from "./EnterButton";
 import { LoginWindow } from "$components/LoginWindow";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 
 import { IRegisterProps } from "./interface";
 import styles from "./styles.module.scss";
@@ -18,7 +18,7 @@ export const InitialLogin: FunctionComponent<IRegisterProps> = (
 ) => (
   <LoginWindow>
     <section className={styles.rightContainer}>
-      <Headline className={styles.title}>{translations.title}</Headline>
+      <Title className={styles.title}>{translations.title}</Title>
       <EnterButton
         className={styles.applicantCard}
         Icon={SchoolIcon}

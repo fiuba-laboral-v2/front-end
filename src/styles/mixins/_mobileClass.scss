@@ -1,11 +1,11 @@
 @import "$styles/_variables";
 
-@mixin customSmallMedia {
+@mixin mobileClass {
   .mobile {
     @content;
   }
 
-  @media (max-width: $smallMobileWidth) {
+  @media (max-width: $largeMobileWidth) {
     @content;
   }
 }

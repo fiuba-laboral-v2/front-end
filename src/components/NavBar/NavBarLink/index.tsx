@@ -5,6 +5,7 @@ import classNames from "classnames";
 import Tooltip from "@material-ui/core/Tooltip";
 
 export const NavBarLink: FunctionComponent<INavBarLinkProps> = ({
+  current,
   text,
   inDrawer,
   icon: Icon,
@@ -19,7 +20,7 @@ export const NavBarLink: FunctionComponent<INavBarLinkProps> = ({
   >
     <div className={styles.linkContainer}>
       <Link className={classNames(styles.link, { [styles.inDrawer]: inDrawer })} {...props}>
-        <div className={styles.linkContent}>
+        <div className={classNames(styles.linkContent, { [styles.selected]: current })}>
           <Icon className={styles.icon} />
           <span className={styles.text}>{text}</span>
         </div>
@@ -29,6 +30,7 @@ export const NavBarLink: FunctionComponent<INavBarLinkProps> = ({
 );
 
 interface INavBarLinkProps extends ILinkProps {
+  current?: boolean;
   icon: FunctionComponent<{ className: string }>;
   inDrawer: boolean;
   text: string;

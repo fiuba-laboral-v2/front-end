@@ -4,6 +4,7 @@ import { INavBarProps } from "./interface";
 import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { noop } from "lodash";
@@ -15,11 +16,16 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   isLoggedIn,
   username,
   translations,
+  currentPath,
   inDrawer = false,
-  toggleDrawer = noop
+  toggleDrawer = noop,
+  bottomEl,
+  navBarEl,
+  iconEl,
+  canScroll
 }) => (
   <div className={classNames(styles.navBarContainer, className, { [styles.inDrawer]: inDrawer })}>
-    <div className={styles.navBar}>
+    <div className={styles.navBar} ref={navBarEl}>
       <div className={styles.top}>
         {links.map(link => (
           <NavBarLink
@@ -30,10 +36,11 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
             inDrawer={inDrawer}
             text={link.title}
             onClick={toggleDrawer}
+            current={link.path === currentPath}
           />
         ))}
       </div>
-      <div className={styles.bottom}>
+      <div className={styles.bottom} ref={bottomEl}>
         {isLoggedIn ? (
           <>
             <p className={styles.username}>{username}</p>
@@ -58,5 +65,15 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
         )}
       </div>
     </div>
+    <ExpandMoreIcon
+      ref={iconEl}
+      className={classNames(styles.scrollIndicator, { [styles.hidden]: !canScroll })}
+      onClick={() =>
+        navBarEl.current?.scrollTo({
+          top: navBarEl.current.scrollHeight,
+          behavior: "smooth"
+        })
+      }
+    />
   </div>
 );

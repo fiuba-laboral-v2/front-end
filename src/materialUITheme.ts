@@ -13,14 +13,22 @@ export const MaterialUITheme = createMuiTheme({
   overrides: {
     MuiBackdrop: {
       root: {
-        top: 78
+        top: 78,
+        bottom: 0,
+        "@media (max-width: 768px)": {
+          top: 63
+        }
       }
     },
     MuiDrawer: {
       paper: {
         top: 78,
+        bottom: 0,
+        height: "unset",
         background: "#f6f5f5",
-        height: "calc(100vh - 78px)"
+        "@media (max-width: 768px)": {
+          top: 63
+        }
       }
     },
     MuiButton: {
@@ -67,6 +75,9 @@ export const MaterialUITheme = createMuiTheme({
       },
       paperFullScreen: {
         padding: 0
+      },
+      root: {
+        zIndex: "5010 !important" as any
       }
     },
     MuiDialogTitle: {

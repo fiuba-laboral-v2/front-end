@@ -24,6 +24,10 @@
   color: $mainBlue;
 }
 
+.selected {
+  color: $mainBlue;
+}
+
 svg.icon {
   font-size: 28px;
 }
@@ -40,6 +44,7 @@ svg.icon {
 
 .linkContainer {
   display: flex;
+  flex-shrink: 0;
 }
 
 @media (max-width: $largeLaptopWidth) {

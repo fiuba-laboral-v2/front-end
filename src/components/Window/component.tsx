@@ -40,7 +40,7 @@ export const Window: FunctionComponent<IWindowProps> = ({
   );
 };
 
-interface IWindowProps extends IMainContentProps {
+export interface IWindowProps extends IMainContentProps {
   desktopOnly?: boolean;
   alwaysHideNavbar?: boolean;
 }

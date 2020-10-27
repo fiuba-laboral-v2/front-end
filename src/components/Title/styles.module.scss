@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
+@import "$styles/mixins/_customMedia";
+
+.title {
+  @include title;
+
+  word-break: break-word;
+}

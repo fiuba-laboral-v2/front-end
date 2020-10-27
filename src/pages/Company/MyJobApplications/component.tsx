@@ -4,7 +4,7 @@ import { JobApplication } from "./JobApplication";
 import { Window } from "$components/Window";
 import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
-import { Headline } from "$components/Headline";
+import { Title } from "$components/Title";
 
 export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
   jobApplications,
@@ -15,11 +15,7 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
   title
 }) => (
   <Window>
-    {title && (
-      <Headline color="dark" className={styles.title}>
-        {title}
-      </Headline>
-    )}
+    {title && <Title className={styles.title}>{title}</Title>}
     <List
       list={jobApplications}
       fetchMoreClassName={styles.fetchMore}

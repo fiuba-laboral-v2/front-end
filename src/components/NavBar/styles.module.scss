@@ -2,76 +2,104 @@
 
 .navBarContainer {
   background: $dashboardBackgroundWhite;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - #{$navBarHeight});
-}
 
-.navBar {
-  font-size: 18px;
-  height: calc(100vh - 170px);
-  overflow-y: auto;
-  position: sticky;
-  top: 0;
-}
-
-.navBar,
-.top,
-.bottom {
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-
-.navBarContainer,
-.navBar,
-.bottom {
-  width: 285px;
-}
-
-.top {
-  padding-top: 3vh;
-}
-
-.bottom {
-  bottom: 0;
-  left: 0;
-  margin-bottom: 3vh;
-  position: fixed;
-}
-
-.username {
-  overflow: hidden;
-  padding: 0 $spacing-l;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.inDrawer {
   .navBar {
-    display: flex;
-    flex-direction: column;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+
+  .navBarContainer,
+  .navBar,
+  .bottom {
+    width: 285px;
   }
 
   .top {
-    flex-grow: 1;
+    padding-top: 3vh;
   }
 
   .bottom {
-    flex-shrink: 0;
+    margin: $spacing-l 0 3vh 0;
+  }
+
+  .username {
+    overflow: hidden;
+    padding: 0 $spacing-l;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.inDrawer {
+    height: 100%;
+
+    .navBar {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .top {
+      flex-grow: 1;
+    }
+  }
+
+  &:not(.inDrawer) {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - #{$desktopNavBarHeight});
+
+    .navBar {
+      height: calc(100vh - 170px);
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+    }
+
+    .navBar,
+    .top,
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .bottom {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+    }
+
+    @media (max-width: $largeLaptopWidth) {
+      .username {
+        display: none;
+      }
+
+      &,
+      .navBar,
+      .bottom {
+        width: 66px;
+      }
+    }
+
+    @media (max-width: $laptopWidth) {
+      display: none;
+    }
   }
 }
 
-@media (max-width: $largeLaptopWidth) {
-  .navBarContainer:not(.inDrawer) {
-    .username {
-      display: none;
-    }
+svg.scrollIndicator {
+  background: $dashboardBackgroundWhite;
+  border-radius: 100%;
+  bottom: $spacing-m;
+  color: $darkGrey;
+  opacity: 1;
+  position: absolute;
+  right: $spacing-m;
+  transition: opacity 0.1s, visibility 0.1s linear 250ms;
+  visibility: hidden;
 
-    &,
-    .navBar,
-    .bottom {
-      width: 66px;
-    }
+  &.hidden {
+    opacity: 0;
   }
 }

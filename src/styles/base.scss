@@ -24,12 +24,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  overflow-y: overlay;
 }
 
 .applicationRoot {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 p {
@@ -58,10 +60,19 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: $borderRadius-m;
+  background: transparent;
+  border-radius: 0 $borderRadius-s $borderRadius-s 0;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $grey;
-  border-radius: $borderRadius-m;
+  border-radius: $borderRadius-s;
+
+  &:hover {
+    background: darken($grey, 7%);
+  }
+
+  &:active {
+    background: darken($grey, 14%);
+  }
 }

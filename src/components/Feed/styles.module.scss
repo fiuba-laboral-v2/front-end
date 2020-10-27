@@ -10,15 +10,15 @@
   }
 }
 
-.title {
-  margin-bottom: $spacing-xxl;
-}
-
 .fetchMore {
   margin-top: $spacing-l;
 }
 
-@media (max-width: $laptopWidth) {
+.title {
+  margin-bottom: $spacing-xl;
+}
+
+@media (max-width: $tabletWidth) {
   .cardContainer {
     margin: 0;
     padding: $spacing-m;

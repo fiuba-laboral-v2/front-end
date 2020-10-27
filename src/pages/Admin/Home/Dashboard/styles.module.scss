@@ -2,6 +2,6 @@
 
 .mainContent {
   display: flex;
-  height: calc(100vh - #{$navBarHeight});
+  height: calc(100vh - #{$desktopNavBarHeight});
   overflow: hidden;
 }

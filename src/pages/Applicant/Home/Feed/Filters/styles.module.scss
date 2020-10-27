@@ -49,6 +49,8 @@
   align-items: center;
   background: $bodyBackgroundColor;
   display: flex;
+  flex-shrink: 0;
+  min-height: 63px;
   padding-right: $spacing-s;
 }
 

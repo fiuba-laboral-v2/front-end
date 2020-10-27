@@ -2,9 +2,8 @@
 @import "$styles/mixins/_card";
 
 .acceptanceCriteria {
-  @include card;
+  @include card(#eaf3b6);
 
-  background-color: #eaf3b6;
   height: fit-content;
   margin-left: $fontSize-xl;
   overflow-y: auto;

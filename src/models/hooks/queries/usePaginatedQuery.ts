@@ -45,7 +45,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
 
   return {
     ...result,
-    data: result.data as IUsePaginatedOffersResponse<Result>,
+    data: result.data as IUsePaginatedOffersResponse<Result> | undefined,
     fetchMore: result.loading ? undefined : fetchMore,
     refetch: result.loading ? undefined : refetch
   };
