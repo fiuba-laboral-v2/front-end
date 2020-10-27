@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+import { ErrorHandlers } from "$models/handleError";
 import { ILoginVariables } from "$hooks";
 import { FormikHelpers } from "formik/dist/types";
 
@@ -13,7 +15,15 @@ export interface ITranslations {
 
 export interface IContainerProps {
   className?: string;
+  fields: ReactElement;
+  onSubmit: OnSubmit;
 }
+
+export type OnSubmit = (
+  values: ILoginVariables,
+  formikHelpers: FormikHelpers<ILoginVariables>,
+  errorHandlers: ErrorHandlers
+) => void | Promise<any>;
 
 export interface IComponentProps extends IContainerProps {
   className?: string;

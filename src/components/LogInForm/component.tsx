@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Link } from "$components/Link";
-import { PasswordField, EmailField } from "$components/Fields";
+import { PasswordField } from "$components/Fields";
 import { SubmitButton } from "$components/SubmitButton";
 
 import styles from "./styles.module.scss";
@@ -14,6 +14,7 @@ const formName = "logInForm";
 
 export const LogInForm: FunctionComponent<IComponentProps> = ({
   className,
+  fields,
   translations,
   initialValues,
   onSubmit
@@ -24,14 +25,9 @@ export const LogInForm: FunctionComponent<IComponentProps> = ({
         {({ isSubmitting, errors }) => (
           <div className={styles.body}>
             <Form className={styles.formContainer} id={formName}>
-              <EmailField
-                className={styles.textInput}
-                name="email"
-                label={translations.email}
-                autoComplete="email"
-              />
+              {fields}
               <PasswordField
-                className={styles.textInput}
+                className={styles.password}
                 label={translations.password}
                 name="password"
                 validate
