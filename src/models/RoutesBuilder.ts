@@ -39,6 +39,8 @@ export const RoutesBuilder = {
 
     signUp: () => applicantRoute(SIGN_UP),
 
+    login: () => applicantRoute(LOGIN),
+
     myProfile: () => applicantRoute(PROFILE),
 
     editMyProfile: () => applicantRoute(PROFILE, EDIT),

@@ -13,7 +13,7 @@ export const InitialLoginContainer: FunctionComponent = () => {
 
   return (
     <InitialLogin
-      loginAsFiubaUser={() => history.push(RoutesBuilder.applicant.signUp())}
+      loginAsFiubaUser={() => history.push(RoutesBuilder.applicant.login())}
       loginAsCompanyUser={() => history.push(RoutesBuilder.company.login())}
       translations={translations}
     />

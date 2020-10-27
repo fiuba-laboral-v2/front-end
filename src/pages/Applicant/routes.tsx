@@ -1,4 +1,5 @@
 import { SignUp } from "./SignUp";
+import { Login } from "./Login";
 import { Profile } from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { List } from "./List";
@@ -13,6 +14,7 @@ const {
   offerList,
   list,
   signUp,
+  login,
   myProfile,
   editMyProfile,
   offerDetail,
@@ -27,6 +29,7 @@ export const ApplicantRoutes = [
   },
   { path: list(), component: List },
   { path: signUp(), component: SignUp, public: true },
+  { path: login(), component: Login, public: true },
   { path: myProfile(), component: Profile },
   { path: editMyProfile(), component: EditableProfile },
   { path: offerDetail(":uuid"), component: OfferDetail },
