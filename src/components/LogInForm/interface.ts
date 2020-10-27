@@ -16,6 +16,7 @@ export interface ITranslations {
 export interface IContainerProps {
   className?: string;
   fields: ReactElement;
+  footer: ReactElement;
   onSubmit: OnSubmit;
 }
 

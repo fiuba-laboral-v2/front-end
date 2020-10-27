@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import classNames from "classnames";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { Link } from "$components/Link";
 import { PasswordField } from "$components/Fields";
 import { SubmitButton } from "$components/SubmitButton";
 
@@ -15,6 +13,7 @@ const formName = "logInForm";
 export const LogInForm: FunctionComponent<IComponentProps> = ({
   className,
   fields,
+  footer,
   translations,
   initialValues,
   onSubmit
@@ -45,10 +44,7 @@ export const LogInForm: FunctionComponent<IComponentProps> = ({
               >
                 {translations.logIn}
               </SubmitButton>
-              <div className={styles.register}>
-                <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
-                <Link to={RoutesBuilder.company.signUp()}>{translations.register}</Link>
-              </div>
+              {footer}
             </div>
           </div>
         )}

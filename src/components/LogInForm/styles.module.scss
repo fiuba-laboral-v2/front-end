@@ -25,14 +25,6 @@
 .footer {
   display: flex;
   flex-direction: column;
-
-  .register {
-    margin-top: $spacing-l;
-  }
-
-  .dontHaveAnAccount {
-    margin-right: $spacing-s;
-  }
 }
 
 @media (max-width: $laptopWidth) {
