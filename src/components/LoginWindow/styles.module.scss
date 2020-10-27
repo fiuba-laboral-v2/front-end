@@ -28,6 +28,10 @@
 }
 
 @media (max-width: $laptopWidth) {
+  .mainContent {
+    flex-direction: unset;
+  }
+
   .loginMainContainer {
     flex-direction: column;
   }
