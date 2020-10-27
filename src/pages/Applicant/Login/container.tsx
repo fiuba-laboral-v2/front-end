@@ -11,7 +11,7 @@ import { ITranslations } from "./interfaces";
 import { FormikHelpers } from "formik";
 
 export const LogInContainer: FunctionComponent = () => {
-  const translations = useTranslations<ITranslations>("login");
+  const translations = useTranslations<ITranslations>("applicantLogin");
   const { login } = useFiubaLogin();
   const history = useHistory();
 

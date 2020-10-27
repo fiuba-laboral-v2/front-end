@@ -8,4 +8,14 @@
 
 .footer {
   display: flex;
+  flex-direction: column;
+}
+
+.register {
+  margin-bottom: $spacing-m;
+  margin-top: $spacing-l;
+}
+
+.forgotYourPassword {
+  margin-right: $spacing-xs;
 }

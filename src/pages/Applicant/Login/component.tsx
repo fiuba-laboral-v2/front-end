@@ -21,10 +21,14 @@ export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...pro
       fields={<DniField name="dni" label={translations.dni} />}
       footer={
         <div className={styles.footer}>
-          <Link to={RoutesBuilder.applicant.signUp()}>{translations.register}</Link>
+          <Link className={styles.register} to={RoutesBuilder.applicant.signUp()}>
+            {translations.register}
+          </Link>
           <div>
             <span className={styles.forgotYourPassword}>{translations.forgotYourPassword}</span>
-            <Link to={RoutesBuilder.company.signUp()}>{translations.manageYourFiubaAccount}</Link>
+            <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
+              {translations.manageYourFiubaAccount}
+            </a>
           </div>
         </div>
       }
