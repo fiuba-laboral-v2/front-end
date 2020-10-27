@@ -5,11 +5,8 @@ import { FormikHelpers } from "formik/dist/types";
 
 export interface ITranslations {
   title: string;
-  email: string;
   password: string;
   logIn: string;
-  dontHaveAnAccount: string;
-  register: string;
   badCredentialsMessage: string;
 }
 
