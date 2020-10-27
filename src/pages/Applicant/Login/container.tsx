@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useTranslations } from "$hooks";
+import { useTranslations, useFiubaLogin, IFiubaLoginVariables } from "$hooks";
 
 import { LogIn } from "./component";
 
@@ -12,15 +12,18 @@ import { FormikHelpers } from "formik";
 
 export const LogInContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("login");
+  const { login } = useFiubaLogin();
   const history = useHistory();
 
   if (!translations) return <Fragment />;
 
   const onSubmit = async (
-    _: { dni: string; password: string },
-    { setSubmitting }: FormikHelpers<{ dni: string; password: string }>,
-    __: ErrorHandlers
+    variables: IFiubaLoginVariables,
+    { setSubmitting }: FormikHelpers<IFiubaLoginVariables>,
+    errorHandlers: ErrorHandlers
   ) => {
+    const loginResult = await login({ variables, errorHandlers });
+    if (loginResult.error) return;
     setSubmitting(false);
     history.push(RoutesBuilder.public.home());
   };

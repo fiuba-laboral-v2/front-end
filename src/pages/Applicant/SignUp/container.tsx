@@ -2,7 +2,7 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { SignUp } from "./component";
-import { useLogin, useSaveApplicant, useTranslations } from "$hooks";
+import { useFiubaLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
@@ -15,7 +15,7 @@ import { saveApplicantArguments } from "$models/MutationArguments";
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { saveApplicant } = useSaveApplicant();
-  const { login } = useLogin();
+  const { login } = useFiubaLogin();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 
@@ -45,7 +45,7 @@ export const SignUpContainer: FunctionComponent = () => {
     if (saveApplicantResult.error) return;
 
     const loginResult = await login({
-      variables: { email: user.email, password: user.password },
+      variables: { dni: user.dni, password: user.password },
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;

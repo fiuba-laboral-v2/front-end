@@ -7,7 +7,8 @@ const CREATE_COMPANY = loader("./createCompany.graphql");
 const UPDATE_CURRENT_COMPANY = loader("./updateCurrentCompany.graphql");
 const CREATE_OFFER = loader("./createOffer.graphql");
 const EDIT_OFFER = loader("./editOffer.graphql");
-const LOGIN = loader("./login.graphql");
+const COMPANY_LOGIN = loader("./companyLogin.graphql");
+const FIUBA_LOGIN = loader("./fiubaLogin.graphql");
 const LOGOUT = loader("./logout.graphql");
 const UPDATE_COMPANY_APPROVAL_STATUS = loader("./updateCompanyApprovalStatus.graphql");
 const UPDATE_APPLICANT_APPROVAL_STATUS = loader("./updateApplicantApprovalStatus.graphql");
@@ -17,7 +18,8 @@ const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
 );
 
 export {
-  LOGIN,
+  FIUBA_LOGIN,
+  COMPANY_LOGIN,
   LOGOUT,
   SAVE_APPLICANT,
   UPDATE_CURRENT_APPLICANT,

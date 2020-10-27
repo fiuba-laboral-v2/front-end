@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { IFiubaLoginVariables } from "$hooks";
 
 import { LogInForm } from "$components/LogInForm";
 import { OnSubmit } from "$components/LogInForm/interface";
@@ -13,7 +14,7 @@ import styles from "./styles.module.scss";
 
 export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
-    <LogInForm<{ dni: string; password: string }>
+    <LogInForm<IFiubaLoginVariables>
       {...props}
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
@@ -32,6 +33,6 @@ export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...pro
 );
 
 interface IComponentProps {
-  onSubmit: OnSubmit<{ dni: string; password: string }>;
+  onSubmit: OnSubmit<IFiubaLoginVariables>;
   translations: ITranslations;
 }
