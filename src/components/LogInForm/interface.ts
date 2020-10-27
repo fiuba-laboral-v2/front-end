@@ -11,6 +11,7 @@ export interface ITranslations {
 
 export interface IContainerProps<IVariables> {
   className?: string;
+  title?: string;
   fields: ReactElement;
   footer: ReactElement;
   initialValues: IVariables;

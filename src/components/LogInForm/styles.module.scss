@@ -1,4 +1,5 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
 
 .mainContainer {
   background-color: #fcfcfc;
@@ -20,6 +21,14 @@
     margin-bottom: $spacing-l;
     margin-top: $spacing-l;
   }
+}
+
+.title {
+  @include subtitle;
+
+  color: $grey;
+  font-weight: unset;
+  margin-bottom: $spacing-xxl;
 }
 
 .footer {

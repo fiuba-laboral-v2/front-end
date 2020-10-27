@@ -16,6 +16,7 @@ export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...pro
   <LoginWindow>
     <LogInForm<IFiubaLoginVariables>
       {...props}
+      title={translations.title}
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
       fields={<DniField name="dni" label={translations.dni} />}

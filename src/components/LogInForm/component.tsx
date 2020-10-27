@@ -12,6 +12,7 @@ const formName = "logInForm";
 
 export const LogInForm = <TVariables,>({
   className,
+  title,
   fields,
   footer,
   translations,
@@ -20,6 +21,7 @@ export const LogInForm = <TVariables,>({
 }: IComponentProps<TVariables>) => (
   <>
     <div className={classNames(styles.mainContainer, className)}>
+      {title && <span className={styles.title}>{title}</span>}
       <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>
         {({ isSubmitting, errors }) => (
           <div className={styles.body}>
