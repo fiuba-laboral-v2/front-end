@@ -1,16 +1,20 @@
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ILoginVariables, useLogin } from "$hooks";
+import { ILoginVariables, useLogin, useTranslations } from "$hooks";
+import { ITranslations } from "./interfaces";
 
 import { LogIn } from "./component";
 import { FormikHelpers } from "formik";
 
 export const LogInContainer: FunctionComponent = () => {
+  const translations = useTranslations<ITranslations>("companyLogin");
   const history = useHistory();
   const { login } = useLogin();
+
+  if (!translations) return <Fragment />;
 
   const onSubmit = async (
     variables: ILoginVariables,
@@ -24,5 +28,5 @@ export const LogInContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.public.home());
   };
 
-  return <LogIn onSubmit={onSubmit} />;
+  return <LogIn onSubmit={onSubmit} translations={translations} />;
 };
