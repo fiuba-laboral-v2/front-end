@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form as FormikForm, Formik } from "formik";
+import { Form as FormikForm } from "formik";
 
 import { PersonalInformationFormSection } from "../PersonalInformationFormSection";
 import { SkillsAndLanguagesFormSection } from "../SkillsAndLanguagesFormSection";
@@ -9,6 +9,7 @@ import { WorkExperienceFormSection } from "../WorkExperienceFormSection";
 import { AdditionalKnowledgeFormSection } from "../AdditionalKnowledgeFormSection";
 import { FormFooter } from "$components/FormFooter";
 import { Form } from "$components/Form";
+import { Formik } from "$components/Formik";
 
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
 import styles from "./styles.module.scss";

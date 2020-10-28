@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from "react";
 
-import { Form as FormikForm, Formik } from "formik";
+import { Form as FormikForm } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
 import { FormFooter } from "$components/FormFooter";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 import { Form } from "$components/Form";
+import { Formik } from "$components/Formik";
 
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import styles from "./styles.module.scss";

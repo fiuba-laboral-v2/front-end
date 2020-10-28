@@ -1,9 +1,10 @@
 import React from "react";
-import { Form, Formik } from "formik";
+import { Form } from "formik";
 import classNames from "classnames";
 
 import { PasswordField } from "$components/Fields";
 import { SubmitButton } from "$components/SubmitButton";
+import { Formik } from "$components/Formik";
 
 import styles from "./styles.module.scss";
 import { IComponentProps } from "./interface";

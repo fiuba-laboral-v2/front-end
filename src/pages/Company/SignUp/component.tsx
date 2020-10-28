@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form as FormikForm, Formik, FormikErrors } from "formik";
+import { Form as FormikForm, FormikErrors } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 
 import { FormFooter } from "$components/FormFooter";
@@ -7,6 +7,7 @@ import { UserDataFormSection } from "./UserDataFormSection";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 import { Form } from "$components/Form";
+import { Formik } from "$components/Formik";
 
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import styles from "./styles.module.scss";
