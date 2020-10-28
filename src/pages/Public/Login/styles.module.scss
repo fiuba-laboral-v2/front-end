@@ -1,9 +1,12 @@
 @import "$styles/_variables";
 
 .rightContainer {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
+  padding: $spacing-xxl + $spacing-m;
 }
 
 .title {
@@ -17,13 +20,14 @@
 
 .companyCard,
 .applicantCard {
-  min-width: 300px;
+  display: flex;
+  width: 100%;
 }
 
 @media (max-width: $laptopWidth) {
   .companyCard,
   .applicantCard {
-    width: unset;
+    width: 100%;
   }
 
   .rightContainer {
