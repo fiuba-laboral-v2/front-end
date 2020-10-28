@@ -1,1 +1,1 @@
-export { LogInContainer as Login } from "./container";
+export { LoginContainer as Login } from "./container";

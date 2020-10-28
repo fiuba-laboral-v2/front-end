@@ -12,7 +12,7 @@ import { Link } from "$components/Link";
 import { ITranslations } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
+export const Login: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
     <LoginForm<IFiubaLoginVariables>
       {...props}
