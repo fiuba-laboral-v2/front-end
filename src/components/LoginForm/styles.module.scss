@@ -5,7 +5,7 @@
   background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
-  padding: $spacing-xxl;
+  padding: $spacing-xxl + $spacing-m;
 }
 
 .body {
