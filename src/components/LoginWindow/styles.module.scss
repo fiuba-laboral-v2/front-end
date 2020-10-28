@@ -14,6 +14,10 @@
   flex-grow: 1;
 }
 
+.mobileLogo {
+  display: none;
+}
+
 .logo {
   background-color: $mainBlueDark;
   background-image: url("/images/loginDesktop.svg");
@@ -40,13 +44,21 @@
   }
 
   .logo {
-    background-image: url("/images/loginMobile.svg");
-    flex-grow: 1;
-    min-height: unset;
+    display: none;
   }
 
-  .logo,
+  .mobileLogo {
+    background-color: $mainBlue;
+    display: flex;
+  }
+
   .rightContainer {
     width: unset;
+  }
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .mobileLogo {
+    display: none;
   }
 }
