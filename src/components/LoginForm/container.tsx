@@ -13,7 +13,7 @@ export const LoginFormContainer = <TVariables extends {}>({
 }: IContainerProps<TVariables>) => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-  const translations = useTranslations<ITranslations>("login");
+  const translations = useTranslations<ITranslations>("loginForm");
   if (!translations) return <Fragment />;
 
   const showBadCredentialsError = () =>

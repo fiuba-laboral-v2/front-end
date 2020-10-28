@@ -6,10 +6,10 @@ import { EnterButton } from "./EnterButton";
 import { LoginWindow } from "$components/LoginWindow";
 import { Title } from "$components/Title";
 
-import { IRegisterProps } from "./interface";
+import { IComponentProps } from "./interface";
 import styles from "./styles.module.scss";
 
-export const InitialLogin: FunctionComponent<IRegisterProps> = (
+export const Login: FunctionComponent<IComponentProps> = (
   {
     loginAsFiubaUser,
     loginAsCompanyUser,
