@@ -1,7 +1,7 @@
 import { Profile } from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { SignUp } from "./SignUp";
-import { LogIn } from "./LogIn";
+import { Login } from "./Login";
 import { CreateOffer } from "./CreateOffer";
 import { OfferDetail } from "./OfferDetail";
 import { MyOffers } from "./MyOffers";
@@ -25,7 +25,7 @@ const {
 
 export const CompanyRoutes = [
   { path: signUp(), component: SignUp, public: true },
-  { path: login(), component: LogIn, public: true },
+  { path: login(), component: Login, public: true },
   { path: myOffers(), component: MyOffers },
   { path: createOffer(), component: CreateOffer },
   { path: editOffer(":uuid"), component: EditOffer },

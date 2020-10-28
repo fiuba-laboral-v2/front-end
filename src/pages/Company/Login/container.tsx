@@ -6,10 +6,10 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICompanyLoginVariables, useCompanyLogin, useTranslations } from "$hooks";
 import { ITranslations } from "./interfaces";
 
-import { LogIn } from "./component";
+import { Login } from "./component";
 import { FormikHelpers } from "formik";
 
-export const LogInContainer: FunctionComponent = () => {
+export const LoginContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("companyLogin");
   const history = useHistory();
   const { login } = useCompanyLogin();
@@ -28,5 +28,5 @@ export const LogInContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.public.home());
   };
 
-  return <LogIn onSubmit={onSubmit} translations={translations} />;
+  return <Login onSubmit={onSubmit} translations={translations} />;
 };
