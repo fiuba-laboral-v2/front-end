@@ -1,14 +1,15 @@
-import { LOGIN } from "$mutations";
-import { IMutationOptions, useMutation, UseMutationResult } from "$hooks";
+import { IMutationOptions, UseMutationResult, IHookResponse } from "$hooks";
 import { useApolloClient } from "@apollo/client";
 
-export const useLogin = () => {
-  const { mutation, ...result } = useMutation<ILoginVariables, { login: string }>(LOGIN);
+export const useLogin = <TVariables extends object, TData extends object>({
+  mutation,
+  ...result
+}: IHookResponse<TData, TVariables>) => {
   const client = useApolloClient();
 
   const login = async (
-    options?: IMutationOptions<{ login: string }, ILoginVariables>
-  ): Promise<UseMutationResult<{ login: string }>> => {
+    options?: IMutationOptions<TData, TVariables>
+  ): Promise<UseMutationResult<TData>> => {
     const mutationResult = await mutation(options);
     await client.clearStore();
     return mutationResult;
@@ -16,8 +17,3 @@ export const useLogin = () => {
 
   return { login, ...result };
 };
-
-export interface ILoginVariables {
-  email: string;
-  password: string;
-}

@@ -1,0 +1,20 @@
+@import "$styles/_variables";
+
+.form {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
+  margin-bottom: $spacing-m;
+}
+
+.forgotYourPassword {
+  margin-right: $spacing-xs;
+}

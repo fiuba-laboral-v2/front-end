@@ -39,6 +39,8 @@ export const RoutesBuilder = {
 
     signUp: () => applicantRoute(SIGN_UP),
 
+    login: () => applicantRoute(LOGIN),
+
     myProfile: () => applicantRoute(PROFILE),
 
     editMyProfile: () => applicantRoute(PROFILE, EDIT),
@@ -70,13 +72,13 @@ export const RoutesBuilder = {
 
     jobApplications: () => companyRoute(APPLICATIONS),
 
-    applicantDetail: (uuid: string) => companyRoute(APPLICANTS, uuid)
+    applicantDetail: (uuid: string) => companyRoute(APPLICANTS, uuid),
+
+    login: () => companyRoute(LOGIN)
   },
 
   public: {
     home: () => publicRoute(),
-
-    register: () => publicRoute(SIGN_UP),
 
     login: () => publicRoute(LOGIN),
 

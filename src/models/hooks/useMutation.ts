@@ -50,7 +50,7 @@ export interface IMutationOptions<TData, TVariables>
   errorHandlers?: ErrorHandlers;
 }
 
-type MutationFunctionResult<TData, TVariables> = (
+export type MutationFunctionResult<TData, TVariables> = (
   options?: IMutationOptions<TData, TVariables>
 ) => Promise<UseMutationResult<TData>>;
 
@@ -63,7 +63,7 @@ type MutationTuple<TData, TVariables> = [
   MutationResult<TData>
 ];
 
-interface IHookResponse<TData, TVariables> {
+export interface IHookResponse<TData, TVariables> {
   mutation: MutationFunctionResult<TData, TVariables>;
   loading: boolean;
 }

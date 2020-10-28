@@ -1,0 +1,36 @@
+@import "$styles/_variables";
+
+.rightContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: $spacing-xxl + $spacing-m;
+}
+
+.title {
+  align-self: flex-start;
+  margin-bottom: $spacing-xxl;
+}
+
+.applicantCard {
+  margin-bottom: $spacing-l;
+}
+
+.companyCard,
+.applicantCard {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: $laptopWidth) {
+  .companyCard,
+  .applicantCard {
+    width: 100%;
+  }
+
+  .rightContainer {
+    padding: $spacing-xxl;
+  }
+}

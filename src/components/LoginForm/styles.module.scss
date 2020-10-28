@@ -1,0 +1,48 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_subtitle";
+
+.mainContainer {
+  background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-xxl + $spacing-m;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include subtitle;
+
+  color: $grey;
+  font-size: $fontSize-m;
+  font-weight: unset;
+  margin-bottom: $spacing-xxl;
+}
+
+.password {
+  margin-top: $spacing-l;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitButton {
+  margin-bottom: $spacing-xl;
+  margin-top: $spacing-xs;
+}
+
+@media (max-width: $laptopWidth) {
+  .mainContainer {
+    padding: $spacing-xl;
+  }
+}

@@ -1,0 +1,3 @@
+mutation fiubaLogin($dni: String!, $password: String!) {
+  fiubaLogin(dni: $dni, password: $password)
+}

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useCreateCompany, useTranslations } from "$hooks";
-import { useLogin } from "$models/hooks";
+import { useCompanyLogin } from "$models/hooks";
 import { SignUp } from "./component";
 import { ISignUpFormValues, ISignUpTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -15,7 +15,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { createCompany } = useCreateCompany();
-  const { login } = useLogin();
+  const { login } = useCompanyLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
   const acceptanceCriteria = useTranslations<{ text: string }>("companySignUpAcceptanceCriteria");

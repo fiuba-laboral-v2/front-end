@@ -1,6 +1,5 @@
 import { InternalServerError } from "./InternalServerError";
-import { LogIn } from "./LogIn";
-import { Register } from "./Register";
+import { Login } from "./Login";
 import Home from "./Home";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { NotFound } from "./NotFound";
@@ -8,7 +7,6 @@ import { Forbidden } from "./Forbidden";
 
 const {
   home,
-  register,
   login,
   internalServerError,
   notFound,
@@ -17,8 +15,7 @@ const {
 
 export const PublicRoutes = [
   { path: home(), component: Home },
-  { path: register(), component: Register },
-  { path: login(), component: LogIn },
+  { path: login(), component: Login },
   { path: internalServerError(), component: InternalServerError },
   { path: notFound(), component: NotFound },
   { path: forbidden(), component: Forbidden }

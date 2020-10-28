@@ -4,7 +4,6 @@ import { INavBarProps } from "./interface";
 import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
@@ -60,13 +59,6 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
               to={RoutesBuilder.public.login()}
               inDrawer={inDrawer}
               text={translations.logIn}
-              onClick={toggleDrawer}
-            />
-            <NavBarLink
-              icon={PersonAddIcon}
-              to={RoutesBuilder.public.register()}
-              inDrawer={inDrawer}
-              text={translations.signUp}
               onClick={toggleDrawer}
             />
           </>

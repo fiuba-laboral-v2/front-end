@@ -1,10 +1,11 @@
 import React, { FunctionComponent, ReactNode } from "react";
 
-import { Form as FormikForm, Formik, FormikErrors } from "formik";
+import { Form as FormikForm, FormikErrors } from "formik";
 import { Form } from "$components/Form";
 import { MainInformationFormSection } from "./MainInformationFormSection";
 import { DescriptionFormSection } from "./DescriptionFormSection";
 import { RecipientsFormSection } from "./RecipientsFormSection";
+import { Formik } from "$components/Formik";
 
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 
@@ -20,6 +21,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
 }) => (
   <Form title={title} acceptanceCriteria={acceptanceCriteria}>
     <Formik<ICreateOfferValues>
+      validateOnMount={false}
       initialValues={initialValues}
       onSubmit={onSubmit}
       validate={values => {

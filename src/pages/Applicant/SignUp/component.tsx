@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { Form as FormikForm, Formik, FormikErrors } from "formik";
+import { Form as FormikForm, FormikErrors } from "formik";
 
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
 import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
 import { FormFooter } from "$components/FormFooter";
 import { Form } from "$components/Form";
+import { Formik } from "$components/Formik";
 
 import styles from "./styles.module.scss";
 import { FormikHelpers } from "formik/dist/types";
@@ -40,7 +41,6 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
           if (formErrorMessage) errors._form = formErrorMessage;
           return errors;
         }}
-        validateOnMount
         onSubmit={onSubmit}
       >
         {({ values, isSubmitting, errors }) => (
