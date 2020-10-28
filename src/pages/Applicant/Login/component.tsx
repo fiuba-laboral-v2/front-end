@@ -19,7 +19,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       title={translations.title}
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
-      fields={<DniField name="dni" label={translations.dni} />}
+      usernameField={<DniField name="dni" label={translations.dni} />}
       footer={
         <div className={styles.footer}>
           <Link className={styles.register} to={RoutesBuilder.applicant.signUp()}>

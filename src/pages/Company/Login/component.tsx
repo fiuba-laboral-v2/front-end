@@ -18,7 +18,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       {...props}
       initialValues={{ email: "", password: "" }}
       className={styles.form}
-      fields={<EmailField name="email" label={translations.email} autoComplete="email" />}
+      usernameField={<EmailField name="email" label={translations.email} autoComplete="email" />}
       footer={
         <div className={styles.register}>
           <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>

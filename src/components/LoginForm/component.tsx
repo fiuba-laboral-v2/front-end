@@ -13,7 +13,7 @@ const formName = "logInForm";
 export const LoginForm = <TVariables,>({
   className,
   title,
-  fields,
+  usernameField,
   footer,
   translations,
   initialValues,
@@ -26,7 +26,7 @@ export const LoginForm = <TVariables,>({
         {({ isSubmitting, errors }) => (
           <div className={styles.body}>
             <Form className={styles.formContainer} id={formName}>
-              {fields}
+              {usernameField}
               <PasswordField
                 className={styles.password}
                 label={translations.password}

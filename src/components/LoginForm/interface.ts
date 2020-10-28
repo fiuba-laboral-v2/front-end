@@ -12,7 +12,7 @@ export interface ITranslations {
 export interface IContainerProps<IVariables> {
   className?: string;
   title?: string;
-  fields: ReactElement;
+  usernameField: ReactElement;
   footer: ReactElement;
   initialValues: IVariables;
   onSubmit: OnSubmit<IVariables>;
