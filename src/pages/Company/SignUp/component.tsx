@@ -30,7 +30,6 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
         }
         return errors;
       }}
-      validateOnMount
       onSubmit={onSubmit}
     >
       {({ isSubmitting, errors }) => (

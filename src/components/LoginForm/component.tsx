@@ -22,7 +22,7 @@ export const LoginForm = <TVariables,>({
 }: IComponentProps<TVariables>) => (
   <div className={classNames(styles.mainContainer, className)}>
     {title && <span className={styles.title}>{title}</span>}
-    <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ isSubmitting, errors }) => (
         <div className={styles.body}>
           <Form className={styles.formContainer} id={formName}>

@@ -23,12 +23,7 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
   const formName = "editApplicantDetailForm";
   return (
     <Form title={translations.title}>
-      <Formik
-        initialValues={initialValues}
-        validateOnMount
-        onSubmit={onSubmit}
-        validate={validateForm}
-      >
+      <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validateForm}>
         {({ values, isSubmitting, errors }) => (
           <FormikForm id={formName}>
             <PersonalInformationFormSection className={styles.formSection} />

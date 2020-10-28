@@ -21,6 +21,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
 }) => (
   <Form title={title} acceptanceCriteria={acceptanceCriteria}>
     <Formik<ICreateOfferValues>
+      validateOnMount={false}
       initialValues={initialValues}
       onSubmit={onSubmit}
       validate={values => {

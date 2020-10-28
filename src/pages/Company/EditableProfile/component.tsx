@@ -19,7 +19,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
   acceptanceCriteria
 }) => (
   <Form title={translations.title} acceptanceCriteria={acceptanceCriteria}>
-    <Formik initialValues={initialValues} validateOnMount onSubmit={onUpdate}>
+    <Formik initialValues={initialValues} onSubmit={onUpdate}>
       {({ values, setFieldValue, isSubmitting, errors }) => (
         <FormikForm>
           <CompanyDataFormSection

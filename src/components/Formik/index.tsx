@@ -5,10 +5,16 @@ import { FormikConfig, FormikValues } from "formik/dist/types";
 export const Formik = <Values extends FormikValues = FormikValues, ExtraProps = {}>({
   children,
   onSubmit,
+  validateOnMount = true,
   initialValues,
   ...props
 }: FormikProps<Values, ExtraProps>) => (
-  <FormikContainer {...props} initialValues={initialValues} onSubmit={onSubmit} validateOnMount>
+  <FormikContainer
+    {...props}
+    initialValues={initialValues}
+    onSubmit={onSubmit}
+    validateOnMount={validateOnMount}
+  >
     {children}
   </FormikContainer>
 );
