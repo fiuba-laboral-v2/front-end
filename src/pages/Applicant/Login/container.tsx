@@ -1,13 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations, useFiubaLogin, IFiubaLoginVariables } from "$hooks";
-
 import { Login } from "./component";
 import { LoadingLoginWindow } from "$components/LoadingLoginWindow";
-
 import { ITranslations } from "./interfaces";
 import { FormikHelpers } from "formik";
 
