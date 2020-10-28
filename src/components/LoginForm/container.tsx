@@ -16,13 +16,13 @@ export const LoginFormContainer = <TVariables extends {}>({
   const translations = useTranslations<ITranslations>("login");
   if (!translations) return <Fragment />;
 
-  const setBadCredentialsError = () =>
+  const showBadCredentialsError = () =>
     enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
 
   const onClick = async (values: TVariables, formikHelpers: FormikHelpers<TVariables>) => {
     return onSubmit(values, formikHelpers, {
-      BadCredentialsError: () => setBadCredentialsError(),
-      UserNotFoundError: () => setBadCredentialsError(),
+      BadCredentialsError: () => showBadCredentialsError(),
+      UserNotFoundError: () => showBadCredentialsError(),
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     });
   };
