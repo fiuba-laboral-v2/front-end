@@ -19,38 +19,36 @@ export const LoginForm = <TVariables,>({
   initialValues,
   onSubmit
 }: IComponentProps<TVariables>) => (
-  <>
-    <div className={classNames(styles.mainContainer, className)}>
-      {title && <span className={styles.title}>{title}</span>}
-      <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>
-        {({ isSubmitting, errors }) => (
-          <div className={styles.body}>
-            <Form className={styles.formContainer} id={formName}>
-              {usernameField}
-              <PasswordField
-                className={styles.password}
-                label={translations.password}
-                name="password"
-                validate
-                autoComplete="current-password"
-              />
-            </Form>
-            <div className={styles.footer}>
-              <SubmitButton
-                form={formName}
-                kind="primary"
-                width="expand"
-                type="submit"
-                disabled={isSubmitting}
-                errors={errors}
-              >
-                {translations.logIn}
-              </SubmitButton>
-              {footer}
-            </div>
+  <div className={classNames(styles.mainContainer, className)}>
+    {title && <span className={styles.title}>{title}</span>}
+    <Formik initialValues={initialValues} validateOnMount onSubmit={onSubmit}>
+      {({ isSubmitting, errors }) => (
+        <div className={styles.body}>
+          <Form className={styles.formContainer} id={formName}>
+            {usernameField}
+            <PasswordField
+              className={styles.password}
+              label={translations.password}
+              name="password"
+              validate
+              autoComplete="current-password"
+            />
+          </Form>
+          <div className={styles.footer}>
+            <SubmitButton
+              form={formName}
+              kind="primary"
+              width="expand"
+              type="submit"
+              disabled={isSubmitting}
+              errors={errors}
+            >
+              {translations.logIn}
+            </SubmitButton>
+            {footer}
           </div>
-        )}
-      </Formik>
-    </div>
-  </>
+        </div>
+      )}
+    </Formik>
+  </div>
 );
