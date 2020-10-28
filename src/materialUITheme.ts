@@ -42,9 +42,6 @@ export const MaterialUITheme = createMuiTheme({
       }
     },
     MuiInput: {
-      root: {
-        fontSize: "22px"
-      },
       underline: {
         "&:before, &:after": {
           "border-width": "1px !important"
