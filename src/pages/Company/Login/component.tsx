@@ -20,10 +20,10 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       className={styles.form}
       usernameField={<EmailField name="email" label={translations.email} autoComplete="email" />}
       footer={
-        <div className={styles.register}>
+        <>
           <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
           <Link to={RoutesBuilder.company.signUp()}>{translations.register}</Link>
-        </div>
+        </>
       }
     />
   </LoginWindow>

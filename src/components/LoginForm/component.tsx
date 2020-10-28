@@ -32,10 +32,12 @@ export const LoginForm = <TVariables,>({
               name="password"
               validate
               autoComplete="current-password"
+              withoutMargin
             />
           </Form>
           <div className={styles.footer}>
             <SubmitButton
+              className={styles.submitButton}
               form={formName}
               kind="primary"
               width="expand"

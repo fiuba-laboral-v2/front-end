@@ -6,21 +6,16 @@
   display: flex;
   flex-direction: column;
   padding: $spacing-xxl;
+}
 
-  .body {
-    display: flex;
-    flex-direction: column;
-  }
+.body {
+  display: flex;
+  flex-direction: column;
 }
 
 .formContainer {
   display: flex;
   flex-direction: column;
-
-  .password {
-    margin-bottom: $spacing-l;
-    margin-top: $spacing-l;
-  }
 }
 
 .title {
@@ -31,9 +26,18 @@
   margin-bottom: $spacing-xxl;
 }
 
+.password {
+  margin-top: $spacing-l;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
+}
+
+.submitButton {
+  margin-bottom: $spacing-xl;
+  margin-top: $spacing-xs;
 }
 
 @media (max-width: $laptopWidth) {
