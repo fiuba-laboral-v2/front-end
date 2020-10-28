@@ -1,11 +1,11 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICompanyLoginVariables, useCompanyLogin, useTranslations } from "$hooks";
 import { ITranslations } from "./interfaces";
-
+import { LoadingLoginWindow } from "$components/LoadingLoginWindow";
 import { Login } from "./component";
 import { FormikHelpers } from "formik";
 
@@ -14,7 +14,7 @@ export const LoginContainer: FunctionComponent = () => {
   const history = useHistory();
   const { login } = useCompanyLogin();
 
-  if (!translations) return <Fragment />;
+  if (!translations) return <LoadingLoginWindow />;
 
   const onSubmit = async (
     variables: ICompanyLoginVariables,

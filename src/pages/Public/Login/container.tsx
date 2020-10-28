@@ -1,7 +1,7 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { Login } from "./component";
-
+import { LoadingLoginWindow } from "$components/LoadingLoginWindow";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITranslations } from "./interface";
@@ -9,7 +9,7 @@ import { ITranslations } from "./interface";
 export const LoginContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("login");
-  if (!translations) return <Fragment/>;
+  if (!translations) return <LoadingLoginWindow />;
 
   return (
     <Login
