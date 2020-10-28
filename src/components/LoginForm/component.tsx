@@ -10,7 +10,7 @@ import { IComponentProps } from "./interface";
 
 const formName = "logInForm";
 
-export const LogInForm = <TVariables,>({
+export const LoginForm = <TVariables,>({
   className,
   title,
   fields,

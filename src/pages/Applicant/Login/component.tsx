@@ -3,8 +3,8 @@ import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IFiubaLoginVariables } from "$hooks";
 
-import { LogInForm } from "$components/LogInForm";
-import { OnSubmit } from "$components/LogInForm/interface";
+import { LoginForm } from "$components/LoginForm";
+import { OnSubmit } from "$components/LoginForm/interface";
 import { LoginWindow } from "$components/LoginWindow";
 import { DniField } from "$components/Fields";
 import { Link } from "$components/Link";
@@ -14,7 +14,7 @@ import styles from "./styles.module.scss";
 
 export const LogIn: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
-    <LogInForm<IFiubaLoginVariables>
+    <LoginForm<IFiubaLoginVariables>
       {...props}
       title={translations.title}
       initialValues={{ dni: "", password: "" }}

@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { LogInForm } from "./component";
+import { LoginForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
 import { ITranslations, IContainerProps } from "./interface";
 import { useSnackbar } from "notistack";
 
-export const LogInFormContainer = <TVariables extends {}>({
+export const LoginFormContainer = <TVariables extends {}>({
   onSubmit,
   ...props
 }: IContainerProps<TVariables>) => {
@@ -27,5 +27,5 @@ export const LogInFormContainer = <TVariables extends {}>({
     });
   };
 
-  return <LogInForm {...props} onSubmit={onClick} translations={translations} />;
+  return <LoginForm {...props} onSubmit={onClick} translations={translations} />;
 };
