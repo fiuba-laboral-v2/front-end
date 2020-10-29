@@ -35,8 +35,6 @@ export const RoutesBuilder = {
   },
 
   applicant: {
-    list: () => "/todos-los-postulantes", // TODO: /admin/postulantes
-
     signUp: () => applicantRoute(SIGN_UP),
 
     login: () => applicantRoute(LOGIN),
