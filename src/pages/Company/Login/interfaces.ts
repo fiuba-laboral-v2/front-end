@@ -1,5 +1,5 @@
 export interface ITranslations {
   email: string;
-  dontHaveAnAccount: string;
-  register: string;
+  signup: string;
+  recoverPassword: string;
 }

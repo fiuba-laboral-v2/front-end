@@ -19,12 +19,10 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       initialValues={{ email: "", password: "" }}
       className={styles.form}
       usernameField={<EmailField name="email" label={translations.email} autoComplete="email" />}
-      footer={
-        <div>
-          <span className={styles.dontHaveAnAccount}>{translations.dontHaveAnAccount}</span>
-          <Link to={RoutesBuilder.company.signUp()}>{translations.register}</Link>
-        </div>
+      recoverPasswordLink={
+        <Link to={RoutesBuilder.company.login()}>{translations.recoverPassword}</Link>
       }
+      signUpLink={<Link to={RoutesBuilder.company.signUp()}>{translations.signup}</Link>}
     />
   </LoginWindow>
 );

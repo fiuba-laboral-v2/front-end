@@ -20,19 +20,12 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
       usernameField={<DniField name="dni" label={translations.dni} />}
-      footer={
-        <div className={styles.footer}>
-          <Link className={styles.register} to={RoutesBuilder.applicant.signUp()}>
-            {translations.register}
-          </Link>
-          <div>
-            <span className={styles.forgotYourPassword}>{translations.forgotYourPassword}</span>
-            <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
-              {translations.manageYourFiubaAccount}
-            </a>
-          </div>
-        </div>
+      recoverPasswordLink={
+        <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
+          {translations.recoverPassword}
+        </a>
       }
+      signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
     />
   </LoginWindow>
 );

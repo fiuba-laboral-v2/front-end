@@ -21,7 +21,6 @@ describe("NavBarLinks", () => {
     createOffer: "createOffer",
     signUp: "signUp",
     tasks: "tasks",
-    logIn: "logIn",
     logOut: "logOut",
     myProfile: "myProfile",
     myCompanyProfile: "myCompanyProfile",

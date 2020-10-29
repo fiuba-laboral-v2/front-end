@@ -15,26 +15,30 @@
 }
 
 .mobileLogo {
+  background-color: #0084d2;
   display: none;
+  max-height: 200px;
 }
 
 .logo {
-  background-color: $mainBlueDark;
+  background-color: #006fc6;
   background-image: url("./loginDesktop.svg");
   background-position-x: right;
   background-position-y: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto 100%;
+  flex-shrink: 0;
   width: 70%;
 }
 
 .rightContainer {
+  background-color: #fcfcfc;
   display: flex;
   flex-grow: 1;
   justify-content: center;
 }
 
-@media (max-width: $laptopWidth) {
+@media (max-width: $laptopWidth), (max-aspect-ratio: 16/9) {
   .mainContent {
     flex-direction: unset;
   }
@@ -48,8 +52,8 @@
   }
 
   .mobileLogo {
-    background-color: $mainBlue;
     display: flex;
+    min-height: 0;
   }
 
   .rightContainer {
@@ -57,7 +61,7 @@
   }
 }
 
-@media (min-aspect-ratio: 16/9) {
+@media (max-height: 600px) {
   .mobileLogo {
     display: none;
   }

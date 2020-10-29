@@ -2,10 +2,19 @@
 @import "$styles/mixins/_subtitle";
 
 .mainContainer {
-  background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
-  padding: $spacing-xxl + $spacing-m;
+  max-width: 450px;
+  padding: $spacing-xl;
+}
+
+.links {
+  align-self: center;
+  display: flex;
+}
+
+.separator {
+  margin: 0 $spacing-s;
 }
 
 .body {
@@ -43,6 +52,17 @@
 
 @media (max-width: $laptopWidth) {
   .mainContainer {
-    padding: $spacing-xl;
+    padding: $spacing-m;
+  }
+}
+
+@media (max-width: $smallMobileWidth) {
+  .separator {
+    color: transparent;
+  }
+
+  .links {
+    align-self: unset;
+    flex-direction: column;
   }
 }

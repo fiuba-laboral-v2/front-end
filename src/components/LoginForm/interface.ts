@@ -13,7 +13,8 @@ export interface IContainerProps<IVariables> {
   className?: string;
   title?: string;
   usernameField: ReactElement;
-  footer: ReactElement;
+  recoverPasswordLink: ReactElement;
+  signUpLink: ReactElement;
   initialValues: IVariables;
   onSubmit: OnSubmit<IVariables>;
 }

@@ -16,7 +16,7 @@ export const Login: FunctionComponent<IComponentProps> = (
     translations
   }
 ) => (
-  <LoginWindow>
+  <LoginWindow containerClassName={styles.container}>
     <section className={styles.rightContainer}>
       <Title className={styles.title}>{translations.title}</Title>
       <EnterButton
