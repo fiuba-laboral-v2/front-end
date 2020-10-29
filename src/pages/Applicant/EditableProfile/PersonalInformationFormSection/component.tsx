@@ -21,7 +21,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
         withoutMargin
       />
     </div>
-    <EmailField name="user.email" label={translations.email} />
+    <EmailField mandatory name="user.email" label={translations.email} />
     <TextInput name="description" label={translations.description} multiline />
   </FormSection>
 );

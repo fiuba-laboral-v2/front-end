@@ -40,7 +40,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
       />
     </div>
     <EmailField
-      required
+      mandatory
       className={styles.email}
       name="user.email"
       label={translations.email}

@@ -27,7 +27,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
     <div className={styles.secondRow}>
       <EmailField
         className={styles.email}
-        required
+        mandatory
         name="user.email"
         label={translations.email}
         withoutMargin
