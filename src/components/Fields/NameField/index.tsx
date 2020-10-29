@@ -4,5 +4,9 @@ import { FormikValidator } from "$models/FormikValidator";
 import { validateName } from "validations-fiuba-laboral-v2";
 
 export const NameField: FunctionComponent<ITextInputProps> = props => (
-  <TextInput {...props} validate={FormikValidator({ validator: validateName, mandatory: true })} />
+  <TextInput
+    {...props}
+    required={true}
+    validate={FormikValidator({ validator: validateName, mandatory: true })}
+  />
 );

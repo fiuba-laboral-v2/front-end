@@ -12,7 +12,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormSection className={className} title={translations.title}>
     <NameField
-      required
       className={styles.companyName}
       name="companyName"
       label={translations.companyName}
