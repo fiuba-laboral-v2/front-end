@@ -3,9 +3,9 @@ import React, { FunctionComponent } from "react";
 import { Card } from "$components/Card";
 import { TextInput } from "$components/TextInput";
 import { FormSet } from "$components/FormSet";
+import { UrlField } from "$components/Fields";
 
 import { FormikValidator } from "$models/FormikValidator";
-import { validateURL } from "validations-fiuba-laboral-v2";
 
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -29,12 +29,11 @@ export const LinksFormSection: FunctionComponent<IComponent> = ({
             label={translations.linkTitle}
             validate={FormikValidator({ mandatory: true })}
           />
-          <TextInput
+          <UrlField
             mandatory
             name={`links.${index}.url`}
             label={translations.link}
             type="url"
-            validate={FormikValidator({ validator: validateURL, mandatory: true })}
             withoutMargin
           />
         </div>
