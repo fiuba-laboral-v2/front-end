@@ -1,11 +1,8 @@
 import React, { FunctionComponent } from "react";
 
 import { Card } from "$components/Card";
-import { TextInput } from "$components/TextInput";
 import { FormSet } from "$components/FormSet";
-import { UrlField } from "$components/Fields";
-
-import { FormikValidator } from "$models/FormikValidator";
+import { UrlField, Field } from "$components/Fields";
 
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -23,12 +20,7 @@ export const LinksFormSection: FunctionComponent<IComponent> = ({
       defaultValue={{ url: "", name: "" }}
       fields={(_, index) => (
         <div className={styles.link}>
-          <TextInput
-            mandatory
-            name={`links.${index}.name`}
-            label={translations.linkTitle}
-            validate={FormikValidator({ mandatory: true })}
-          />
+          <Field mandatory name={`links.${index}.name`} label={translations.linkTitle} />
           <UrlField
             mandatory
             name={`links.${index}.url`}
