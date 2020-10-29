@@ -13,11 +13,7 @@ export const MaterialUITheme = createMuiTheme({
   overrides: {
     MuiBackdrop: {
       root: {
-        top: 78,
-        bottom: 0,
-        "@media (max-width: 768px)": {
-          top: 63
-        }
+        position: "absolute"
       }
     },
     MuiDrawer: {
