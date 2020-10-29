@@ -5,7 +5,7 @@ mutation editOffer(
   $targetApplicantType: ApplicantType!
   $hoursPerDay: Int!
   $minimumSalary: Int!
-  $maximumSalary: Int!
+  $maximumSalary: Int
   $sections: [OfferSectionInput]!
   $careers: [OfferCareerInput]!
 ) {

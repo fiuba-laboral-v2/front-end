@@ -21,7 +21,7 @@ export const JobSpecs: FunctionComponent<IJobSpecsProps> = ({ salary, workload, 
 
 interface ISalary {
   minimumSalary: number;
-  maximumSalary: number;
+  maximumSalary?: number;
 }
 interface IJobSpecsProps {
   salary: ISalary;

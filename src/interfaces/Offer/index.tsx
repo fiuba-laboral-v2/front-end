@@ -12,6 +12,7 @@ export interface IOfferAttributes {
   title: string;
   description: string;
   hoursPerDay: number;
+  isInternship: boolean;
   minimumSalary: number;
   maximumSalary: number;
   targetApplicantType: ApplicantType | "";

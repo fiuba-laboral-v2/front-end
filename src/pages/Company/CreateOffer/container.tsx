@@ -30,6 +30,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
           hoursPerDay: NaN,
           minimumSalary: NaN,
           maximumSalary: NaN,
+          isInternship: false,
           careers: [],
           sections: [],
           _form: ""
