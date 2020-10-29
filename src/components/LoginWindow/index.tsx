@@ -5,14 +5,14 @@ import styles from "./styles.module.scss";
 
 export const LoginWindow: FunctionComponent<IComponent> = ({
   className,
-  containerClassName,
+  rightContainerClassName,
   children
 }) => (
   <div className={classNames(className, styles.mainContent)}>
     <div className={styles.loginMainContainer}>
       <div className={styles.logo} />
       <img className={styles.mobileLogo} src={"images/loginMobile.svg"} alt="FIUBA mobile logo" />
-      <section className={classNames(styles.rightContainer, containerClassName)}>
+      <section className={classNames(styles.rightContainer, rightContainerClassName)}>
         {children}
       </section>
     </div>
@@ -21,5 +21,5 @@ export const LoginWindow: FunctionComponent<IComponent> = ({
 
 interface IComponent {
   className?: string;
-  containerClassName?: string;
+  rightContainerClassName?: string;
 }
