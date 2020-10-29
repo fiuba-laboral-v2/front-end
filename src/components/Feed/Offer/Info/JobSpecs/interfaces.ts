@@ -1,6 +1,6 @@
 export interface ISalary {
   minimumSalary: number;
-  maximumSalary: number;
+  maximumSalary?: number;
 }
 
 interface ICommonProps {
