@@ -12,6 +12,7 @@ export const SalaryField: FunctionComponent<ISalaryFieldProps> = ({
   ...props
 }) => (
   <NumberInput
+    required={mandatory}
     {...props}
     validate={FormikValidator({
       validator: validateIntegerInRange({ min: { value: 0, include: false } }),

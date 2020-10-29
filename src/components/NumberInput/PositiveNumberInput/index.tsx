@@ -10,6 +10,7 @@ export const PositiveNumberInput: FunctionComponent<IPositiveNumberInputProps> =
 }) => (
   <NumberInput
     {...props}
+    required={mandatory}
     validate={FormikValidator({
       validator: validateIntegerInRange({ min: { value: 0, include: false } }),
       mandatory

@@ -13,8 +13,9 @@ export const RecipientsFormSection: FunctionComponent<IComponentProps> = ({
   targetApplicantType
 }) => (
   <FormSection className={className} title={translations.title}>
-    <CareerSelector name="careers" className={styles.careers} />
+    <CareerSelector required name="careers" className={styles.careers} />
     <TargetApplicantTypeSelector
+      required
       value={targetApplicantType.value}
       error={targetApplicantType.error}
     />
