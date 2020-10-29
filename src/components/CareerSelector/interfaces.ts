@@ -2,7 +2,7 @@ import { ICareer } from "$interfaces/Career";
 
 export interface IContainerProps {
   className?: string;
-  required?: boolean;
+  mandatory?: boolean;
   name: string;
 }
 

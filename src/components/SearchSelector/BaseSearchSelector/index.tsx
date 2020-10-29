@@ -11,7 +11,7 @@ export const BaseSearchSelector = <Option, Value>({
   initialValue,
   errorMessage,
   options,
-  required = false,
+  mandatory = false,
   ...autocompleteProps
 }: IBaseSelectorProps<Option, Value>) => {
   const [defaultValue] = useState(options.find(option => getOptionValue(option) === initialValue));
@@ -27,7 +27,7 @@ export const BaseSearchSelector = <Option, Value>({
       renderInput={inputProps => (
         <TextField
           {...inputProps}
-          required={required}
+          required={mandatory}
           label={label}
           error={!!errorMessage}
           helperText={errorMessage}
@@ -53,5 +53,5 @@ export interface IBaseSelectorProps<Option, Value> {
   disabled?: boolean;
   disableClearable?: boolean;
   inputValue?: string;
-  required?: boolean;
+  mandatory?: boolean;
 }

@@ -22,7 +22,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
     </div>
     <div className={styles.secondRow}>
       <PasswordField
-        required
+        mandatory
         className={styles.password}
         name="user.password"
         label={translations.password}
@@ -30,7 +30,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         autoComplete="new-password"
       />
       <PasswordField
-        required
+        mandatory
         className={styles.passwordConfirm}
         name="user.passwordConfirm"
         label={translations.passwordConfirm}

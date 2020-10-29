@@ -13,14 +13,14 @@ export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
   <FormSection className={className} title={translations.title} subtitle={translations.subtitle}>
     <div className={styles.fields}>
       <DniField
-        required
+        mandatory
         className={styles.dniField}
         name="user.dni"
         label={translations.dni}
         withoutMargin
       />
       <PasswordField
-        required
+        mandatory
         className={styles.passwordField}
         name="user.password"
         label={translations.password}

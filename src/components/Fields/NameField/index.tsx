@@ -6,7 +6,7 @@ import { validateName } from "validations-fiuba-laboral-v2";
 export const NameField: FunctionComponent<ITextInputProps> = props => (
   <TextInput
     {...props}
-    required={true}
+    mandatory
     validate={FormikValidator({ validator: validateName, mandatory: true })}
   />
 );

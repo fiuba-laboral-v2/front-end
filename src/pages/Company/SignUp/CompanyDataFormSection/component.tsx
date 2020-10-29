@@ -27,7 +27,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
     />
     <div className={styles.lastRow}>
       <Field
-        required
         className={styles.businessName}
         name="businessName"
         label={translations.businessName}
@@ -36,7 +35,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       />
       <CuitField
         className={styles.cuit}
-        required
+        mandatory
         name="cuit"
         label={translations.cuit}
         withoutMargin

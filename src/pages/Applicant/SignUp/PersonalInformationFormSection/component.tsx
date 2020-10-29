@@ -34,7 +34,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
       />
       <NumberInput
         className={styles.padron}
-        required
+        mandatory
         name="padron"
         label={translations.padron}
         withoutMargin

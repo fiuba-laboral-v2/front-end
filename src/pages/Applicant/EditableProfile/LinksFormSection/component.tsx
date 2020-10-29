@@ -24,11 +24,13 @@ export const LinksFormSection: FunctionComponent<IComponent> = ({
       fields={(_, index) => (
         <div className={styles.link}>
           <TextInput
+            mandatory
             name={`links.${index}.name`}
             label={translations.linkTitle}
             validate={FormikValidator({ mandatory: true })}
           />
           <TextInput
+            mandatory
             name={`links.${index}.url`}
             label={translations.link}
             type="url"

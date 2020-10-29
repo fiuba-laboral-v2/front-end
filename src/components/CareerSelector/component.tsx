@@ -12,11 +12,11 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
   options,
   translations,
   name,
-  required
+  mandatory
 }) => (
   <MultipleSearchSelector<ICareer, ICareer>
     className={className}
-    required={required}
+    mandatory={mandatory}
     name={name}
     getOptionValue={identity}
     getOptionLabel={({ description }) => description}

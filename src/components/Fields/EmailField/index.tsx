@@ -9,7 +9,7 @@ export const EmailField: FunctionComponent<IEmailFieldProps> = ({
 }) => (
   <TextInput
     {...props}
-    required={mandatory}
+    mandatory={mandatory}
     type="email"
     autoComplete="email"
     validate={FormikValidator({ validator: validateEmail, mandatory })}

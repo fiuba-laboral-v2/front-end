@@ -6,7 +6,7 @@ export interface IBaseProps {
   helperText?: string;
   className?: string;
   fast?: boolean;
-  required?: boolean;
+  mandatory?: boolean;
   withoutMargin?: boolean;
 }
 

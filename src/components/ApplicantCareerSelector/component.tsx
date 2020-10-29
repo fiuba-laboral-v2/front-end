@@ -16,7 +16,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
   <div className={styles.fieldsContainer}>
     <div className={styles.firstRow}>
       <SearchSelector
-        required={mandatory}
+        mandatory={mandatory}
         name={`careers.${index}.careerCode`}
         options={options}
         label={translations.career}

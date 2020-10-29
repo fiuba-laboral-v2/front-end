@@ -29,11 +29,13 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
       fields={(_, index) => (
         <div className={styles.section}>
           <TextInput
+            mandatory
             name={`${name}.${index}.title`}
             label={translations.sectionTitle}
             validate={FormikValidator({ mandatory: true })}
           />
           <TextInput
+            mandatory
             name={`${name}.${index}.text`}
             label={translations.sectionContent}
             validate={FormikValidator({ mandatory: true })}
