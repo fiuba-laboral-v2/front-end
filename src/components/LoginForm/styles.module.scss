@@ -13,6 +13,12 @@
   display: flex;
 }
 
+.switchLoginFormLink {
+  :last-child {
+    margin-top: $spacing-s;
+  }
+}
+
 .separator {
   margin: 0 $spacing-s;
 }
@@ -58,11 +64,15 @@
 
 @media (max-width: $smallMobileWidth) {
   .separator {
-    color: transparent;
+    display: none;
   }
 
   .links {
     align-self: unset;
     flex-direction: column;
+
+    :last-child {
+      margin-top: $spacing-s;
+    }
   }
 }

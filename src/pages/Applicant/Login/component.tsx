@@ -26,6 +26,9 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
         </a>
       }
       signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
+      switchLoginFormLink={
+        <Link to={RoutesBuilder.company.login()}>{translations.goToCompany}</Link>
+      }
     />
   </LoginWindow>
 );

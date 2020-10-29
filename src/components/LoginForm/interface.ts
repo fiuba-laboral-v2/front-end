@@ -15,6 +15,7 @@ export interface IContainerProps<IVariables> {
   usernameField: ReactElement;
   recoverPasswordLink: ReactElement;
   signUpLink: ReactElement;
+  switchLoginFormLink: ReactElement;
   initialValues: IVariables;
   onSubmit: OnSubmit<IVariables>;
 }

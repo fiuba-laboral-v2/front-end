@@ -16,6 +16,7 @@ export const LoginForm = <TVariables,>({
   title,
   usernameField,
   recoverPasswordLink,
+  switchLoginFormLink,
   signUpLink,
   translations,
   initialValues,
@@ -53,6 +54,9 @@ export const LoginForm = <TVariables,>({
               {recoverPasswordLink}
               <span className={styles.separator}>·</span>
               {signUpLink}
+            </div>
+            <div className={classNames(styles.links, styles.switchLoginFormLink)}>
+              {switchLoginFormLink}
             </div>
           </div>
         </div>

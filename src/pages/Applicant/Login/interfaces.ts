@@ -3,4 +3,5 @@ export interface ITranslations {
   dni: string;
   signup: string;
   recoverPassword: string;
+  goToCompany: string;
 }
