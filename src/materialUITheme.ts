@@ -43,7 +43,7 @@ export const MaterialUITheme = createMuiTheme({
     },
     MuiFormLabel: {
       asterisk: {
-        color: "#db3131"
+        color: "#767676"
       }
     },
     MuiInput: {
