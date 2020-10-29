@@ -5,6 +5,7 @@ export interface ITitleBarContainerProps {
 
 export interface ITitleBarProps extends ITitleBarContainerProps {
   title?: string;
+  showNavBar: boolean;
 }
 
 export interface ITranslations {
