@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 
 import { identity } from "lodash";
-import { TextFormatter } from "$models/TextFormatter";
 
 import { MultipleSearchSelector } from "$components/SearchSelector/MultipleSearchSelector";
 import { IComponentProps } from "./interfaces";
@@ -23,9 +22,7 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
     compareValuesBy={({ code }) => code}
     valueToString={({ description }) => description}
     stringToValue={stringValue => {
-      const option = options.find(
-        ({ description }) => TextFormatter.capitalize(description) === stringValue
-      );
+      const option = options.find(({ description }) => description === stringValue);
       if (!option) return { code: "", description: stringValue };
 
       return {
