@@ -10,7 +10,6 @@ export interface INavBarTranslations {
   createOffer: string;
   tasks: string;
   signUp: string;
-  logIn: string;
   logOut: string;
   myProfile: string;
   myCompanyProfile: string;
@@ -28,7 +27,6 @@ export interface INavBarContainerProps {
 export interface INavBarProps extends INavBarContainerProps {
   logOut: () => void;
   links: INavBarLink[];
-  isLoggedIn: boolean;
   username?: string;
   translations: INavBarTranslations;
   currentPath: string;

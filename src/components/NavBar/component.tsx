@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 import { INavBarProps } from "./interface";
 import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import PersonIcon from "@material-ui/icons/Person";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
@@ -13,7 +11,6 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
   className,
   logOut,
   links,
-  isLoggedIn,
   username,
   translations,
   currentPath,
@@ -41,28 +38,14 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
         ))}
       </div>
       <div className={styles.bottom} ref={bottomEl}>
-        {isLoggedIn ? (
-          <>
-            <p className={styles.username}>{username}</p>
-            <NavBarLink
-              icon={ExitToAppIcon}
-              onClick={logOut}
-              to="#"
-              inDrawer={inDrawer}
-              text={translations.logOut}
-            />
-          </>
-        ) : (
-          <>
-            <NavBarLink
-              icon={PersonIcon}
-              to={RoutesBuilder.public.login()}
-              inDrawer={inDrawer}
-              text={translations.logIn}
-              onClick={toggleDrawer}
-            />
-          </>
-        )}
+        <p className={styles.username}>{username}</p>
+        <NavBarLink
+          icon={ExitToAppIcon}
+          onClick={logOut}
+          to="#"
+          inDrawer={inDrawer}
+          text={translations.logOut}
+        />
       </div>
     </div>
     <ExpandMoreIcon

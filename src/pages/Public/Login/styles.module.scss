@@ -6,7 +6,8 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  padding: $spacing-xxl + $spacing-m;
+  max-width: 450px;
+  padding: $spacing-xl;
 }
 
 .title {
@@ -24,13 +25,13 @@
   width: 100%;
 }
 
+.rightWindowContainer {
+  background-color: transparent;
+}
+
 @media (max-width: $laptopWidth) {
   .companyCard,
   .applicantCard {
     width: 100%;
-  }
-
-  .rightContainer {
-    padding: $spacing-xxl;
   }
 }

@@ -2,10 +2,25 @@
 @import "$styles/mixins/_subtitle";
 
 .mainContainer {
-  background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
-  padding: $spacing-xxl + $spacing-m;
+  max-width: 450px;
+  padding: $spacing-xl;
+}
+
+.links {
+  align-self: center;
+  display: flex;
+}
+
+.switchLoginFormLink {
+  :last-child {
+    margin-top: $spacing-s;
+  }
+}
+
+.separator {
+  margin: 0 $spacing-s;
 }
 
 .body {
@@ -43,6 +58,21 @@
 
 @media (max-width: $laptopWidth) {
   .mainContainer {
-    padding: $spacing-xl;
+    padding: $spacing-m;
+  }
+}
+
+@media (max-width: $smallMobileWidth) {
+  .separator {
+    display: none;
+  }
+
+  .links {
+    align-self: unset;
+    flex-direction: column;
+
+    :last-child {
+      margin-top: $spacing-s;
+    }
   }
 }

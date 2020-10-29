@@ -42,6 +42,8 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const currentUser = currentUserResponse.data.getCurrentUser;
   const links = currentUser ? NavBarLinks.create(currentUser, translations) : [];
 
+  if (!currentUser) return <Fragment />;
+
   const onLogOut = async () => {
     await client.clearStore();
     await logout();
@@ -52,7 +54,6 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
     <NavBar
       logOut={onLogOut}
       links={links}
-      isLoggedIn={!!currentUser}
       translations={translations}
       username={currentUser?.name}
       currentPath={location.pathname}

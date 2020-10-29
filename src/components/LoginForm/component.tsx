@@ -15,7 +15,9 @@ export const LoginForm = <TVariables,>({
   className,
   title,
   usernameField,
-  footer,
+  recoverPasswordLink,
+  switchLoginFormLink,
+  signUpLink,
   translations,
   initialValues,
   onSubmit
@@ -48,7 +50,14 @@ export const LoginForm = <TVariables,>({
             >
               {translations.logIn}
             </SubmitButton>
-            {footer}
+            <div className={styles.links}>
+              {recoverPasswordLink}
+              <span className={styles.separator}>·</span>
+              {signUpLink}
+            </div>
+            <div className={classNames(styles.links, styles.switchLoginFormLink)}>
+              {switchLoginFormLink}
+            </div>
           </div>
         </div>
       )}
