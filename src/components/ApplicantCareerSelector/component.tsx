@@ -11,7 +11,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
   options,
   translations,
   value,
-  mandatory = false
+  mandatory
 }) => (
   <div className={styles.fieldsContainer}>
     <div className={styles.firstRow}>
