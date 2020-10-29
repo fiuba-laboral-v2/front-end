@@ -19,7 +19,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       initialValue={initialLogo}
       setLogo={logo => setFieldValue("logo", logo)}
     />
-    <NameField name="companyName" label={translations.companyName} withoutMargin />
+    <NameField mandatory name="companyName" label={translations.companyName} withoutMargin />
     <Field name="slogan" label={translations.slogan} />
     <Field name="description" label={translations.description} multiline />
   </FormSection>

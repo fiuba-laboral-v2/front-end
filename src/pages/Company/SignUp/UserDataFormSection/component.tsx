@@ -12,9 +12,16 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormSection className={className} title={translations.title}>
     <div className={styles.firstRow}>
-      <NameField className={styles.name} name="user.name" label={translations.name} withoutMargin />
+      <NameField
+        className={styles.name}
+        mandatory
+        name="user.name"
+        label={translations.name}
+        withoutMargin
+      />
       <NameField
         className={styles.surname}
+        mandatory
         name="user.surname"
         label={translations.surname}
         withoutMargin

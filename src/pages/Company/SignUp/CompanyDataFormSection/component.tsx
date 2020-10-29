@@ -13,6 +13,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
   <FormSection className={className} title={translations.title}>
     <NameField
       className={styles.companyName}
+      mandatory
       name="companyName"
       label={translations.companyName}
       withoutMargin
