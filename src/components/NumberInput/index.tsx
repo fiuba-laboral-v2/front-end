@@ -12,7 +12,8 @@ export const NumberInput: FunctionComponent<NumberInputProps> = ({
   className,
   validate,
   fast = true,
-  withoutMargin = false
+  withoutMargin = false,
+  required = false
 }) => {
   const fieldProps = {
     name,
@@ -28,6 +29,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = ({
 
       return (
         <TextField
+          required={required}
           label={label}
           className={classNames(styles.textInput, className, {
             [styles.withoutMargin]: withoutMargin
