@@ -3,8 +3,9 @@ mutation createOffer(
   $description: String!
   $targetApplicantType: ApplicantType!
   $hoursPerDay: Int!
+  $isInternship: Boolean!
   $minimumSalary: Int!
-  $maximumSalary: Int!
+  $maximumSalary: Int
   $sections: [OfferSectionInput]!
   $careers: [OfferCareerInput]!
 ) {
@@ -13,6 +14,7 @@ mutation createOffer(
     description: $description
     targetApplicantType: $targetApplicantType
     hoursPerDay: $hoursPerDay
+    isInternship: $isInternship
     minimumSalary: $minimumSalary
     maximumSalary: $maximumSalary
     sections: $sections

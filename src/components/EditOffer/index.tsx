@@ -11,6 +11,7 @@ import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 
 import { ICreateOfferValues } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
+import { isNil } from "lodash";
 
 export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
   title,
@@ -25,6 +26,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
       initialValues={initialValues}
       onSubmit={onSubmit}
       validate={values => {
+        if (isNil(values.maximumSalary)) return;
         if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
         try {
           validateSalaryRange(values.minimumSalary, values.maximumSalary);

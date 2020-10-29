@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { TextField } from "@material-ui/core";
 import { IBaseProps, IValidatorProps } from "./interfaces";
+import { isNil } from "lodash";
 
 export const NumberInput: FunctionComponent<NumberInputProps> = ({
   name,
@@ -34,7 +35,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = ({
           className={classNames(styles.textInput, className, {
             [styles.withoutMargin]: withoutMargin
           })}
-          defaultValue={isNaN(meta.value) ? "" : meta.value.toString(10)}
+          defaultValue={isNaN(meta.value) || isNil(meta.value) ? "" : meta.value.toString(10)}
           onBlur={() => form.setFieldTouched(name, true)}
           onFocus={event => setFormValue(event.target.value)}
           onChange={event => setFormValue(event.target.value)}
