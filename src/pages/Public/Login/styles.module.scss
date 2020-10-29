@@ -7,7 +7,7 @@
   flex-grow: 1;
   justify-content: center;
   max-width: 450px;
-  padding: $spacing-xxl + $spacing-m;
+  padding: $spacing-xl;
 }
 
 .title {
@@ -33,9 +33,5 @@
   .companyCard,
   .applicantCard {
     width: 100%;
-  }
-
-  .rightContainer {
-    padding: $spacing-xxl;
   }
 }
