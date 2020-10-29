@@ -1,12 +1,8 @@
 import React, { FunctionComponent } from "react";
-
-import { FormikValidator } from "$models/FormikValidator";
 import { arrayMaxOrZero } from "$models/arrayMaxOrZero";
-
 import { Card } from "$components/Card";
 import { FormSet } from "$components/FormSet";
-import { TextInput } from "$components/TextInput";
-
+import { Field } from "$components/Fields";
 import { ISection } from "$interfaces/Section";
 import styles from "./styles.module.scss";
 
@@ -28,15 +24,11 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
       }}
       fields={(_, index) => (
         <div className={styles.section}>
-          <TextInput
-            name={`${name}.${index}.title`}
-            label={translations.sectionTitle}
-            validate={FormikValidator({ mandatory: true })}
-          />
-          <TextInput
+          <Field mandatory name={`${name}.${index}.title`} label={translations.sectionTitle} />
+          <Field
+            mandatory
             name={`${name}.${index}.text`}
             label={translations.sectionContent}
-            validate={FormikValidator({ mandatory: true })}
             multiline
           />
         </div>

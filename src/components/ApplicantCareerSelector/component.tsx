@@ -10,11 +10,13 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
   index,
   options,
   translations,
-  value
+  value,
+  mandatory = true
 }) => (
   <div className={styles.fieldsContainer}>
     <div className={styles.firstRow}>
       <SearchSelector
+        mandatory={mandatory}
         name={`careers.${index}.careerCode`}
         options={options}
         label={translations.career}

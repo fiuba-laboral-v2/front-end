@@ -4,6 +4,7 @@ import { ICareer } from "$interfaces/Career";
 export interface IContainerProps {
   index: number;
   value: IApplicantCareerInput;
+  mandatory?: boolean;
 }
 
 export interface IComponentProps extends IContainerProps {

@@ -41,6 +41,11 @@ export const MaterialUITheme = createMuiTheme({
         fontSize: 14
       }
     },
+    MuiFormLabel: {
+      asterisk: {
+        color: "#767676"
+      }
+    },
     MuiInput: {
       underline: {
         "&:before, &:after": {

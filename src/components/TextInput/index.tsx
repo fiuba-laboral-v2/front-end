@@ -9,10 +9,12 @@ export const TextInput: FunctionComponent<ITextInputProps> = ({
   className,
   fast = true,
   withoutMargin = false,
+  mandatory = false,
   ...props
 }) => {
   const fieldProps = {
     ...props,
+    required: mandatory,
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
     component: TextField
   };
@@ -22,4 +24,5 @@ export const TextInput: FunctionComponent<ITextInputProps> = ({
 export interface ITextInputProps extends FieldAttributes<any> {
   fast?: boolean;
   withoutMargin?: boolean;
+  mandatory?: boolean;
 }

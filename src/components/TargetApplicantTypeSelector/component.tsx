@@ -14,10 +14,13 @@ export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
   className,
   translations,
   value,
-  error
+  error,
+  mandatory = false
 }) => (
   <FormControl className={classNames(className, styles.container)} error={!!error}>
-    <InputLabel htmlFor={name}>{translations.title}</InputLabel>
+    <InputLabel required={mandatory} htmlFor={name}>
+      {translations.title}
+    </InputLabel>
     <Field
       className={styles.select}
       name={name}

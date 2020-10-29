@@ -4,6 +4,7 @@ export interface IContainerProps {
   className?: string;
   value: ApplicantType | "";
   error?: string;
+  mandatory?: boolean;
 }
 
 export interface ITranslations {

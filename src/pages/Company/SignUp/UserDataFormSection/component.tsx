@@ -12,9 +12,16 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormSection className={className} title={translations.title}>
     <div className={styles.firstRow}>
-      <NameField className={styles.name} name="user.name" label={translations.name} withoutMargin />
+      <NameField
+        className={styles.name}
+        mandatory
+        name="user.name"
+        label={translations.name}
+        withoutMargin
+      />
       <NameField
         className={styles.surname}
+        mandatory
         name="user.surname"
         label={translations.surname}
         withoutMargin
@@ -22,6 +29,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
     </div>
     <div className={styles.secondRow}>
       <PasswordField
+        mandatory
         className={styles.password}
         name="user.password"
         label={translations.password}
@@ -29,6 +37,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         autoComplete="new-password"
       />
       <PasswordField
+        mandatory
         className={styles.passwordConfirm}
         name="user.passwordConfirm"
         label={translations.passwordConfirm}
@@ -38,6 +47,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
       />
     </div>
     <EmailField
+      mandatory
       className={styles.email}
       name="user.email"
       label={translations.email}
