@@ -12,6 +12,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormSection className={className} title={translations.title}>
     <NameField
+      required
       className={styles.companyName}
       name="companyName"
       label={translations.companyName}
@@ -27,13 +28,20 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
     />
     <div className={styles.lastRow}>
       <Field
+        required
         className={styles.businessName}
         name="businessName"
         label={translations.businessName}
         mandatory
         withoutMargin
       />
-      <CuitField className={styles.cuit} name="cuit" label={translations.cuit} withoutMargin />
+      <CuitField
+        className={styles.cuit}
+        required
+        name="cuit"
+        label={translations.cuit}
+        withoutMargin
+      />
     </div>
   </FormSection>
 );
