@@ -33,7 +33,7 @@ export const MultipleSearchSelector = <Option, Value>({
     );
 
   return (
-    <Field name={name} validate={validate || FormikValidator({ mandatory })}>
+    <Field name={name} validate={FormikValidator({ mandatory })}>
       {({ meta, form }: FieldProps<Value[]>) => (
         <div className={classNames(className, styles.container)}>
           <BaseSearchSelector
