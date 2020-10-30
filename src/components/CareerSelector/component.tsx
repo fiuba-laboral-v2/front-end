@@ -32,6 +32,6 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
     }}
     options={options}
     label={translations.career}
-    disallowNewOption
+    allowOnlySelectableOptions
   />
 );

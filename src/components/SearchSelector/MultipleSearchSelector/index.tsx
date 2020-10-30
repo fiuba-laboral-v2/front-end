@@ -22,7 +22,7 @@ export const MultipleSearchSelector = <Option, Value>({
   options,
   initialValue,
   getOptionLabel,
-  disallowNewOption,
+  allowOnlySelectableOptions,
   mandatory = false,
   ...props
 }: IMultipleSelectorProps<Option, Value>) => {
@@ -67,7 +67,7 @@ export const MultipleSearchSelector = <Option, Value>({
               const selectedValue = selectedOption
                 ? getOptionValue(selectedOption)
                 : stringToValue(inputValue);
-              if (!selectedOptionExists(selectedValue) && disallowNewOption) {
+              if (!selectedOptionExists(selectedValue) && allowOnlySelectableOptions) {
                 return setInputValue("");
               }
               form.setFieldValue(name, unionBy(meta.value, [selectedValue], compareValuesBy));
@@ -95,5 +95,5 @@ interface IMultipleSelectorProps<Option, Value> extends IBaseSelectorProps<Optio
   stringToValue: (inputValue: string) => Value;
   valueToString: (value: Value) => string;
   compareValuesBy: (value: Value) => any;
-  disallowNewOption?: boolean;
+  allowOnlySelectableOptions?: boolean;
 }
