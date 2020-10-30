@@ -1,15 +1,15 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
+
 import classNames from "classnames";
+import { FormikValidator } from "$models/FormikValidator";
+import { differenceBy, unionBy } from "lodash";
+import { TextFormatter } from "$models/TextFormatter";
 
 import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
 import { TagSet } from "$components/TagSet";
 
-import { differenceBy, unionBy } from "lodash";
-import { TextFormatter } from "$models/TextFormatter";
-
 import styles from "./styles.module.scss";
-import { FormikValidator } from "../../../models/FormikValidator";
 
 export const MultipleSearchSelector = <Option, Value>({
   className,
