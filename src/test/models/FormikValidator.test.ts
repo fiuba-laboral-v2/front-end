@@ -39,6 +39,11 @@ describe("FormikValidator", () => {
       expect(validator("any value")).toEqual(errorMessage);
     });
 
+    it("returns undefined if the validator does not fail", async () => {
+      const validator = FormikValidator({ validator: () => true });
+      expect(validator("any value")).toBeUndefined();
+    });
+
     it("skips validator if given a null value", async () => {
       const validator = FormikValidator({ validator: customFailingValidator });
       expect(validator(null)).toBeUndefined();
