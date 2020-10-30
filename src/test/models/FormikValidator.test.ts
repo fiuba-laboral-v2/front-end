@@ -27,4 +27,36 @@ describe("FormikValidator", () => {
       expectToReceiveMandatoryMessageError([]);
     });
   });
+
+  describe("When it only uses the given validator", () => {
+    const errorMessage = "My custom error message";
+    const customFailingValidator = () => {
+      throw new Error(errorMessage);
+    };
+
+    it("throws an error if the validator fails", async () => {
+      const validator = FormikValidator({ validator: customFailingValidator });
+      expect(validator("any value")).toEqual(errorMessage);
+    });
+
+    it("skips validator if given a null value", async () => {
+      const validator = FormikValidator({ validator: customFailingValidator });
+      expect(validator(null)).toBeUndefined();
+    });
+
+    it("skips validator if given an undefined value", async () => {
+      const validator = FormikValidator({ validator: customFailingValidator });
+      expect(validator(undefined)).toBeUndefined();
+    });
+
+    it("skips validator if given an empty array value", async () => {
+      const validator = FormikValidator({ validator: customFailingValidator });
+      expect(validator([])).toBeUndefined();
+    });
+
+    it("skips validator if given an empty object value", async () => {
+      const validator = FormikValidator({ validator: customFailingValidator });
+      expect(validator({})).toBeUndefined();
+    });
+  });
 });
