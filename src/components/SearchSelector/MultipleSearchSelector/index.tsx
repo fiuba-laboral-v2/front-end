@@ -9,6 +9,7 @@ import { differenceBy, unionBy } from "lodash";
 import { TextFormatter } from "$models/TextFormatter";
 
 import styles from "./styles.module.scss";
+import { FormikValidator } from "../../../models/FormikValidator";
 
 export const MultipleSearchSelector = <Option, Value>({
   className,
@@ -21,7 +22,8 @@ export const MultipleSearchSelector = <Option, Value>({
   options,
   initialValue,
   getOptionLabel,
-  allowNewOption,
+  disallowNewOption,
+  mandatory = false,
   ...props
 }: IMultipleSelectorProps<Option, Value>) => {
   const [inputValue, setInputValue] = useState("");
@@ -31,11 +33,12 @@ export const MultipleSearchSelector = <Option, Value>({
     );
 
   return (
-    <Field name={name} validate={validate}>
+    <Field name={name} validate={validate || FormikValidator({ mandatory })}>
       {({ meta, form }: FieldProps<Value[]>) => (
         <div className={classNames(className, styles.container)}>
           <BaseSearchSelector
             {...props}
+            mandatory={mandatory}
             freeSolo
             disableClearable
             disabled={form.isSubmitting}
@@ -64,7 +67,9 @@ export const MultipleSearchSelector = <Option, Value>({
               const selectedValue = selectedOption
                 ? getOptionValue(selectedOption)
                 : stringToValue(inputValue);
-              if (!selectedOptionExists(selectedValue) && allowNewOption) return setInputValue("");
+              if (!selectedOptionExists(selectedValue) && disallowNewOption) {
+                return setInputValue("");
+              }
               form.setFieldValue(name, unionBy(meta.value, [selectedValue], compareValuesBy));
               setInputValue("");
             }}
@@ -90,5 +95,5 @@ interface IMultipleSelectorProps<Option, Value> extends IBaseSelectorProps<Optio
   stringToValue: (inputValue: string) => Value;
   valueToString: (value: Value) => string;
   compareValuesBy: (value: Value) => any;
-  allowNewOption?: boolean;
+  disallowNewOption?: boolean;
 }
