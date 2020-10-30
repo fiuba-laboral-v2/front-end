@@ -1,12 +1,13 @@
 import { Field, FieldProps } from "formik";
 import React, { useState } from "react";
+
 import classNames from "classnames";
+import { FormikValidator } from "$models/FormikValidator";
+import { differenceBy, unionBy } from "lodash";
+import { TextFormatter } from "$models/TextFormatter";
 
 import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
 import { TagSet } from "$components/TagSet";
-
-import { differenceBy, unionBy } from "lodash";
-import { TextFormatter } from "$models/TextFormatter";
 
 import styles from "./styles.module.scss";
 
@@ -21,7 +22,8 @@ export const MultipleSearchSelector = <Option, Value>({
   options,
   initialValue,
   getOptionLabel,
-  allowNewOption,
+  allowOnlySelectableOptions,
+  mandatory = false,
   ...props
 }: IMultipleSelectorProps<Option, Value>) => {
   const [inputValue, setInputValue] = useState("");
@@ -31,11 +33,12 @@ export const MultipleSearchSelector = <Option, Value>({
     );
 
   return (
-    <Field name={name} validate={validate}>
+    <Field name={name} validate={FormikValidator({ mandatory })}>
       {({ meta, form }: FieldProps<Value[]>) => (
         <div className={classNames(className, styles.container)}>
           <BaseSearchSelector
             {...props}
+            mandatory={mandatory}
             freeSolo
             disableClearable
             disabled={form.isSubmitting}
@@ -64,7 +67,9 @@ export const MultipleSearchSelector = <Option, Value>({
               const selectedValue = selectedOption
                 ? getOptionValue(selectedOption)
                 : stringToValue(inputValue);
-              if (!selectedOptionExists(selectedValue) && allowNewOption) return setInputValue("");
+              if (!selectedOptionExists(selectedValue) && allowOnlySelectableOptions) {
+                return setInputValue("");
+              }
               form.setFieldValue(name, unionBy(meta.value, [selectedValue], compareValuesBy));
               setInputValue("");
             }}
@@ -90,5 +95,5 @@ interface IMultipleSelectorProps<Option, Value> extends IBaseSelectorProps<Optio
   stringToValue: (inputValue: string) => Value;
   valueToString: (value: Value) => string;
   compareValuesBy: (value: Value) => any;
-  allowNewOption?: boolean;
+  allowOnlySelectableOptions?: boolean;
 }

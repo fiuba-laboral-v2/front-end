@@ -1,3 +1,5 @@
+import { isEmpty } from "lodash";
+
 export const FormikValidator = <Value>({
   validator,
   mandatory = false
@@ -6,7 +8,7 @@ export const FormikValidator = <Value>({
   mandatory?: boolean;
 } = {}) => {
   return (value: Value) => {
-    if (["", null, undefined, {}].includes(value)) {
+    if (isEmpty(value)) {
       if (mandatory) return "Este campo es obligatorio";
       return;
     }
