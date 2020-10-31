@@ -28,8 +28,9 @@ const buildLabel = ({ secretary, status, translations, withStatusText }: IBuildL
 const getTooltipLabel = (secretary: Secretary, translations?: ITranslations) => {
   if (!translations) return "";
 
-  if (secretary === Secretary.extension) return translations.extensionTooltip;
-  return translations.graduadosTooltip;
+  const secretaryTranslation =
+    secretary === Secretary.extension ? translations.extension : translations.graduados;
+  return `${translations.tooltipPrefix}${secretaryTranslation}`;
 };
 
 export const useSeparatedStatusTranslations = ({
@@ -42,7 +43,14 @@ export const useSeparatedStatusTranslations = ({
   const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
   const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
 
-  const translations = useTranslations<ITranslations>("separatedStatusLabel");
+  const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
+  const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
+
+  const translations = labelTranslations &&
+    institutionsTranslations && {
+      ...labelTranslations,
+      ...institutionsTranslations
+    };
 
   return {
     ...(targetsGraduates && {
@@ -97,12 +105,18 @@ interface IUseSeparatedStatusResponse {
   graduados?: IResponse;
 }
 
-export interface ITranslations {
-  extensionTooltip: string;
-  graduadosTooltip: string;
+interface ILabelTranslations {
+  tooltipPrefix: string;
   graduate: string;
   student: string;
   pending: string;
   approved: string;
   rejected: string;
 }
+
+interface IInstitutionsTranslations {
+  extension: string;
+  graduados: string;
+}
+
+type ITranslations = ILabelTranslations & IInstitutionsTranslations;
