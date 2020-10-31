@@ -30,7 +30,7 @@ const getTooltipLabel = (secretary: Secretary, translations?: ITranslations) => 
 
   const secretaryTranslation =
     secretary === Secretary.extension ? translations.extension : translations.graduados;
-  return `${translations.tooltipPrefix}${secretaryTranslation}`;
+  return `${translations.tooltipPrefix} ${secretaryTranslation}`;
 };
 
 export const useSeparatedStatusTranslations = ({
