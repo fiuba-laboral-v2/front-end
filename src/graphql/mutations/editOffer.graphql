@@ -7,7 +7,7 @@ mutation editOffer(
   $minimumSalary: Int!
   $maximumSalary: Int
   $sections: [OfferSectionInput]!
-  $careers: [OfferCareerInput]!
+  $careers: [OfferCareerInput!]!
 ) {
   editOffer(
     uuid: $uuid
