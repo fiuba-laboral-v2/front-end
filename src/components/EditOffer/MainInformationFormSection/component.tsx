@@ -15,13 +15,12 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
     <Field name="title" label={translations.offerTitle} mandatory />
     <div className={styles.secondRow}>
       <SalaryField
-        salaryType="min"
         className={styles.minimumSalary}
         name="minimumSalary"
         label={translations.minimumSalary}
         mandatory
       />
-      <SalaryField salaryType="max" name="maximumSalary" label={translations.maximumSalary} />
+      <SalaryField name="maximumSalary" label={translations.maximumSalary} />
     </div>
     <PositiveNumberInput
       name="hoursPerDay"

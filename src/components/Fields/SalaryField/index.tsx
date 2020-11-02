@@ -6,11 +6,7 @@ import { IBaseProps } from "$components/NumberInput/interfaces";
 import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 
-export const SalaryField: FunctionComponent<ISalaryFieldProps> = ({
-  salaryType,
-  mandatory,
-  ...props
-}) => (
+export const SalaryField: FunctionComponent<ISalaryFieldProps> = ({ mandatory, ...props }) => (
   <NumberInput
     mandatory={mandatory}
     {...props}
@@ -22,6 +18,5 @@ export const SalaryField: FunctionComponent<ISalaryFieldProps> = ({
 );
 
 interface ISalaryFieldProps extends IBaseProps {
-  salaryType: "max" | "min";
   mandatory?: boolean;
 }
