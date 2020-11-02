@@ -1,4 +1,4 @@
-import { isEmpty } from "lodash";
+import { isEmpty } from "$models/isEmpty";
 
 export const FormikValidator = <Value>({
   validator,
