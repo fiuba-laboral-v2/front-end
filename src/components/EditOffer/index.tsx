@@ -2,10 +2,11 @@ import React, { FunctionComponent, ReactNode } from "react";
 
 import { Form as FormikForm, FormikErrors } from "formik";
 import { Form } from "$components/Form";
+import { Formik } from "$components/Formik";
+import { InfoMessage } from "$components/InfoMessage";
 import { MainInformationFormSection } from "./MainInformationFormSection";
 import { DescriptionFormSection } from "./DescriptionFormSection";
 import { RecipientsFormSection } from "./RecipientsFormSection";
-import { Formik } from "$components/Formik";
 
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 
@@ -16,11 +17,13 @@ import { isNil } from "lodash";
 export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
   title,
   acceptanceCriteria,
+  infoMessageTranslation,
   onSubmit,
   initialValues,
   formFooter
 }) => (
   <Form title={title} acceptanceCriteria={acceptanceCriteria}>
+    {infoMessageTranslation && <InfoMessage translationName={infoMessageTranslation} />}
     <Formik<ICreateOfferValues>
       validateOnMount={false}
       initialValues={initialValues}
@@ -78,6 +81,7 @@ interface IFormFooterParams {
 interface ICreateOfferProps {
   acceptanceCriteria: string;
   title: string;
+  infoMessageTranslation?: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;
   formFooter: (params: IFormFooterParams) => ReactNode;
