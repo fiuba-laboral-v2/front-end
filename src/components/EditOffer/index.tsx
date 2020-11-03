@@ -17,13 +17,15 @@ import { isNil } from "lodash";
 export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
   title,
   acceptanceCriteria,
-  infoMessageTranslation,
+  infoMessageTranslationGroup,
   onSubmit,
   initialValues,
   formFooter
 }) => (
   <Form title={title} acceptanceCriteria={acceptanceCriteria}>
-    {infoMessageTranslation && <InfoMessage translationName={infoMessageTranslation} />}
+    {infoMessageTranslationGroup && (
+      <InfoMessage translationGroupName={infoMessageTranslationGroup} />
+    )}
     <Formik<ICreateOfferValues>
       validateOnMount={false}
       initialValues={initialValues}
@@ -81,7 +83,7 @@ interface IFormFooterParams {
 interface ICreateOfferProps {
   acceptanceCriteria: string;
   title: string;
-  infoMessageTranslation?: string;
+  infoMessageTranslationGroup?: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;
   formFooter: (params: IFormFooterParams) => ReactNode;

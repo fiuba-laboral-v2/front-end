@@ -1,15 +1,15 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 import { useTranslations } from "$hooks";
 
 import { InfoMessage } from "./component";
 import { IInfoMessageContainerProps, ITranslations } from "./interface";
 
-export const InfoMessageContainer = ({
+export const InfoMessageContainer: FunctionComponent<IInfoMessageContainerProps> = ({
   className,
-  translationName
-}: IInfoMessageContainerProps) => {
-  const translations = useTranslations<ITranslations>(translationName);
+  translationGroupName
+}) => {
+  const translations = useTranslations<ITranslations>(translationGroupName);
   return (
     <>
       {translations?.message && (

@@ -3,7 +3,7 @@ interface IInfoMessageCommonProps {
 }
 
 export interface IInfoMessageContainerProps extends IInfoMessageCommonProps {
-  translationName: string;
+  translationGroupName: string;
 }
 
 export interface IInfoMessageProps extends IInfoMessageCommonProps, ITranslations {}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import classnames from "classnames";
 import InfoIcon from "@material-ui/icons/InfoOutlined";
 
@@ -7,7 +7,7 @@ import { IInfoMessageProps } from "./interface";
 
 import styles from "./styles.module.scss";
 
-export const InfoMessage = ({ className, message }: IInfoMessageProps) => (
+export const InfoMessage: FunctionComponent<IInfoMessageProps> = ({ className, message }) => (
   <Card className={classnames(className, styles.card)}>
     <InfoIcon fontSize="small" className={styles.icon} />
     {message}
