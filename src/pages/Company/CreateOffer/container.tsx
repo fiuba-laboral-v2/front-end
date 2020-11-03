@@ -23,6 +23,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
       <EditOffer
         title={translations?.create}
         acceptanceCriteria={acceptanceCriteria?.text}
+        infoMessageTranslationGroup="offerCreationInfoMessage"
         initialValues={{
           title: "",
           description: "",
