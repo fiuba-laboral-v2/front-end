@@ -7,7 +7,7 @@ mutation createOffer(
   $minimumSalary: Int!
   $maximumSalary: Int
   $sections: [OfferSectionInput]!
-  $careers: [OfferCareerInput]!
+  $careers: [OfferCareerInput!]!
 ) {
   createOffer(
     title: $title
