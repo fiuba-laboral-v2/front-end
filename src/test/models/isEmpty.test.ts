@@ -5,6 +5,10 @@ describe("isEmpty", () => {
     expect(isEmpty([])).toBe(true);
   });
 
+  it("returns true if the value is Nan", async () => {
+    expect(isEmpty(NaN)).toBe(true);
+  });
+
   it("returns true if the value is an empty object", async () => {
     expect(isEmpty({})).toBe(true);
   });
