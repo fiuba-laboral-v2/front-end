@@ -6,4 +6,7 @@ describe("formatNumber", () => {
 
   it("Properly formats DNIs", () =>
     expect(NumberFormatter.formatNumber(39049956)).toEqual("39.049.956"));
+
+  it("Accepts strings as well", () =>
+    expect(NumberFormatter.formatNumber("39555777")).toEqual("39.555.777"));
 });

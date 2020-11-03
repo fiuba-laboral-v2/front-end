@@ -5,6 +5,7 @@ import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { TimeFormatter } from "$models/TimeFormatter";
 import styles from "./styles.module.scss";
 import { isNil } from "lodash";
+import { NumberFormatter } from "$models/NumberFormatter";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   offer: {
@@ -31,12 +32,17 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <p className={styles.text}>{hoursPerDay}</p>
     <div className={styles.salary}>
       {isNil(maximumSalary) ? (
-        <p>{minimumSalary}</p>
+        <span>{NumberFormatter.formatMoney(minimumSalary)}</span>
       ) : (
-        <>
-          <p>{`Min: ${minimumSalary}`}</p>
-          <p>{`Max: ${maximumSalary}`}</p>
-        </>
+        [
+          ["Min: ", minimumSalary],
+          ["Max: ", maximumSalary]
+        ].map(([label, salary]) => (
+          <p key={label}>
+            <i>{label}</i>
+            <span>{NumberFormatter.formatMoney(salary)}</span>
+          </p>
+        ))
       )}
     </div>
     <div className={styles.container}>
