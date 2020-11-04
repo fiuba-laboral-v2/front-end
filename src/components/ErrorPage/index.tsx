@@ -7,13 +7,12 @@ import styles from "./styles.module.scss";
 export const ErrorPage: FunctionComponent<IErrorPageProps> = ({
   title,
   icon,
-  buttonMessage = "Ir a la página principal",
-  onClickButton = Window.goHome
+  buttonMessage = "Ir a la página principal"
 }) => (
   <section className={styles.error}>
     <Title>{title}</Title>
     <div className={styles.imgSrc}>{icon}</div>
-    <Button onClick={onClickButton} kind="primary">
+    <Button onClick={Window.goHome} kind="primary">
       {buttonMessage}
     </Button>
   </section>
@@ -22,6 +21,5 @@ export const ErrorPage: FunctionComponent<IErrorPageProps> = ({
 interface IErrorPageProps {
   title: string;
   buttonMessage?: string;
-  onClickButton?: () => void;
   icon: ReactElement;
 }
