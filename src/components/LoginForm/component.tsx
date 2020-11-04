@@ -33,7 +33,7 @@ export const LoginForm = <TVariables,>({
               className={styles.password}
               label={translations.password}
               name="password"
-              validate
+              validate={false}
               autoComplete="current-password"
               withoutMargin
             />

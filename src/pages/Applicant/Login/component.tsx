@@ -20,12 +20,12 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
       usernameField={<DniField name="dni" label={translations.dni} />}
+      signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
       recoverPasswordLink={
         <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
           {translations.recoverPassword}
         </a>
       }
-      signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
       switchLoginFormLink={
         <Link to={RoutesBuilder.company.login()}>{translations.goToCompany}</Link>
       }
