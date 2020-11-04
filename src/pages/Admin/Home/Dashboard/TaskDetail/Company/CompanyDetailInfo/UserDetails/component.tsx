@@ -5,6 +5,7 @@ import { TaskHeaderInfo } from "../../../TaskHeaderInfo";
 import { IUserDetailsProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
+import { NumberFormatter } from "$models/NumberFormatter";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
   company: {
@@ -16,7 +17,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
   <div className={styles.userDetails}>
     <div className={styles.firstRow}>
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
-      <TaskHeaderInfo title={translations.cuit} value={cuit} />
+      <TaskHeaderInfo title={translations.cuit} value={NumberFormatter.formatCuit(cuit)} />
     </div>
     <TaskHeaderInfo value={email} Icon={EmailOutlinedIcon} />
   </div>

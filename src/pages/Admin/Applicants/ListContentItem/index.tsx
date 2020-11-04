@@ -4,6 +4,7 @@ import { IApplicant } from "$interfaces/Applicant";
 import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
+import { NumberFormatter } from "$models/NumberFormatter";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   applicant: {
@@ -24,7 +25,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       />
     </div>
     <p className={styles.text}>{padron}</p>
-    <p className={styles.text}>{dni}</p>
+    <p className={styles.text}>{NumberFormatter.formatNumber(dni)}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>

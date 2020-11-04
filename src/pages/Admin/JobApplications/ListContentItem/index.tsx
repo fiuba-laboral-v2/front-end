@@ -3,6 +3,7 @@ import { IJobApplication } from "$interfaces/JobApplication";
 import { TimeFormatter } from "$models/TimeFormatter";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import styles from "./styles.module.scss";
+import { NumberFormatter } from "$models/NumberFormatter";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   jobApplication: {
@@ -19,7 +20,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
 }) => (
   <>
     <p className={styles.text}>{companyName}</p>
-    <p className={styles.text}>{cuit}</p>
+    <p className={styles.text}>{NumberFormatter.formatCuit(cuit)}</p>
     <p className={styles.text}>{`${name} ${surname}`}</p>
     <p className={styles.text}>{padron}</p>
     <div className={styles.statusContainer}>
