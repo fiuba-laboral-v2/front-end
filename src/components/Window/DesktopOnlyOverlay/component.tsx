@@ -8,7 +8,7 @@ export const DesktopOnlyOverlay: FunctionComponent<IDesktopOnlyOverlayProps> = (
 }) => (
   <div className={styles.desktopOnlyOverlay}>
     <AspectRatioIcon className={styles.icon} />
-    <p>{translations?.message}</p>
+    <p className={styles.message}>{translations?.message}</p>
   </div>
 );
 
