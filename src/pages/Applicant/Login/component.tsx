@@ -20,6 +20,8 @@ DNI  | Nombre      | Rol
 333  | Sebastián   | Alumno y graduado 
 888  | Federico    | Admin extensión
 999  | Aldana      | Admin graduados
+
+Cualquier contraseña es válida
 `;
 
 export const Login: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
