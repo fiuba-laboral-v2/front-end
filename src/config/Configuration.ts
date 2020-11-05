@@ -1,23 +1,28 @@
 const configurationForAllEnvironments = {
   production: {
     sub_domain: "/",
-    application_base_url: "http://laboral.fi.uba.ar/graphql"
+    application_base_url: "http://laboral.fi.uba.ar/graphql",
+    show_seeded_users: false
   },
   staging: {
     sub_domain: "/",
-    application_base_url: "http://antiguos.fi.uba.ar/graphql"
+    application_base_url: "http://antiguos.fi.uba.ar/graphql",
+    show_seeded_users: true
   },
   development: {
     sub_domain: "/",
-    application_base_url: "http://localhost:5006/graphql"
+    application_base_url: "http://localhost:5006/graphql",
+    show_seeded_users: true
   },
   test: {
     sub_domain: "/",
-    application_base_url: "http://localhost:5006/graphql"
+    application_base_url: "http://localhost:5006/graphql",
+    show_seeded_users: false
   },
   test_travis: {
     sub_domain: "/",
-    application_base_url: "http://localhost:5006/graphql"
+    application_base_url: "http://localhost:5006/graphql",
+    show_seeded_users: false
   }
 };
 

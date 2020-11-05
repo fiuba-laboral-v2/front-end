@@ -28,7 +28,7 @@
   background-repeat: no-repeat;
   background-size: auto 100%;
   flex-shrink: 0;
-  width: 70%;
+  width: 68%;
 }
 
 .rightContainer {
@@ -36,6 +36,9 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 32%;
 }
 
 @media (max-width: $laptopWidth), (max-aspect-ratio: 16/9) {
@@ -45,6 +48,7 @@
 
   .loginMainContainer {
     flex-direction: column;
+    width: 100%;
   }
 
   .logo {
@@ -57,6 +61,7 @@
   }
 
   .rightContainer {
+    max-height: unset;
     width: unset;
   }
 }

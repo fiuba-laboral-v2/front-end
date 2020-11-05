@@ -12,6 +12,7 @@ export interface ITranslations {
 export interface IContainerProps<IVariables> {
   className?: string;
   title: string;
+  seededUsersText: string;
   usernameField: ReactElement;
   recoverPasswordLink: ReactElement;
   signUpLink: ReactElement;
