@@ -25,6 +25,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
   <LoginWindow>
     <LoginForm<ICompanyLoginVariables>
       {...props}
+      title={translations.title}
       initialValues={{ email: "", password: "" }}
       className={styles.form}
       usernameField={<EmailField name="email" label={translations.email} autoComplete="email" />}
