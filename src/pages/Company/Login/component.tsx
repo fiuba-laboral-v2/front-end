@@ -12,6 +12,15 @@ import { Link } from "$components/Link";
 import { ITranslations } from "./interfaces";
 import styles from "./styles.module.scss";
 
+const seededUsersText = `
+Email                    | Nombre   | Rol
+------------------------------------------------------------
+claudio@devartis.com     | Claudio  | Admin de devartis
+marcos@mercadolibre.com  | Marcos   | Admin de Mercado Libre
+
+Contraseña de ambos: SecurePassword1010
+`;
+
 export const Login: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
     <LoginForm<ICompanyLoginVariables>
@@ -26,6 +35,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       switchLoginFormLink={
         <Link to={RoutesBuilder.applicant.login()}>{translations.goToApplicant}</Link>
       }
+      seededUsersText={seededUsersText}
     />
   </LoginWindow>
 );

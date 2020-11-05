@@ -1,0 +1,18 @@
+@import "$styles/_variables";
+
+.container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.seededUsers,
+.title {
+  font-family: $monospace;
+  font-size: 11px;
+  white-space: pre;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: $spacing-xxl;
+}

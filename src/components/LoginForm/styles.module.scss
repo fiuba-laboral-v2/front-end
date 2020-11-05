@@ -4,7 +4,7 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  max-width: 450px;
+  max-width: 500px;
   padding: $spacing-xl;
 }
 
@@ -56,13 +56,7 @@
   margin-top: $spacing-xs;
 }
 
-@media (max-width: $laptopWidth) {
-  .mainContainer {
-    padding: $spacing-m;
-  }
-}
-
-@media (max-width: $smallMobileWidth) {
+@media (max-width: $smallMobileWidth), (max-width: $largeLaptopWidth) and (min-width: $laptopWidth) {
   .separator {
     display: none;
   }

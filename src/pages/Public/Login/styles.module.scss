@@ -2,11 +2,12 @@
 
 .rightContainer {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  max-width: 450px;
+  max-width: 500px;
   padding: $spacing-xl;
 }
 

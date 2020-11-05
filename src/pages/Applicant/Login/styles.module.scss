@@ -1,7 +1,9 @@
 @import "$styles/_variables";
 
 .form {
+  box-sizing: border-box;
   display: flex;
   flex-grow: 1;
   justify-content: center;
+  width: 100%;
 }
