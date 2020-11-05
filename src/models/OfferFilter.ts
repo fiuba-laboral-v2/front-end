@@ -21,6 +21,6 @@ export class OfferFilter extends URLSearchParams {
   }
 
   public clear() {
-    this.set(CAREERS, "");
+    this.set(CAREERS, ALL);
   }
 }
