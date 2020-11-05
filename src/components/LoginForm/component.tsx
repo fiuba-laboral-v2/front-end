@@ -8,6 +8,8 @@ import { Formik } from "$components/Formik";
 
 import styles from "./styles.module.scss";
 import { IComponentProps } from "./interface";
+import { Configuration } from "$config";
+import { SeededUsers } from "../SeededUsers";
 
 const formName = "logInForm";
 
@@ -20,7 +22,8 @@ export const LoginForm = <TVariables,>({
   signUpLink,
   translations,
   initialValues,
-  onSubmit
+  onSubmit,
+  seededUsersText
 }: IComponentProps<TVariables>) => (
   <div className={classNames(styles.mainContainer, className)}>
     {title && <span className={styles.title}>{title}</span>}
@@ -62,5 +65,6 @@ export const LoginForm = <TVariables,>({
         </div>
       )}
     </Formik>
+    {Configuration.show_seeded_users && <SeededUsers>{seededUsersText}</SeededUsers>}
   </div>
 );
