@@ -20,13 +20,8 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
     name,
     validate: FormikValidator({ validator, mandatory }),
     children: ({ meta, form }: FieldProps<number>) => {
-      const setFormValue = (stringValue: string) => {
-        let value;
-        if (stringValue !== "") {
-          value = Number(stringValue.replace(",", "."));
-        }
-        form.setFieldValue(name, value);
-      };
+      const setFormValue = (stringValue: string) =>
+        form.setFieldValue(name, stringValue === "" ? null : Number(stringValue.replace(",", ".")));
 
       return (
         <TextField
@@ -49,7 +44,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
   return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
-export interface INumberInputProps {
+export interface IBaseNumberInputProps {
   name: string;
   label: string;
   helperText?: string;
@@ -57,5 +52,8 @@ export interface INumberInputProps {
   fast?: boolean;
   mandatory?: boolean;
   withoutMargin?: boolean;
-  validator?: (value: number) => void;
+}
+
+export interface INumberInputProps extends IBaseNumberInputProps {
+  validator: (value: number) => void;
 }

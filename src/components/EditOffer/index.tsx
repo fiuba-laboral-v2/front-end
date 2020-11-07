@@ -40,7 +40,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
         }
       }}
     >
-      {({ values, errors, isSubmitting, submitForm }) => (
+      {({ values, errors, isSubmitting, submitForm, touched }) => (
         <>
           <FormikForm className={styles.formContainer}>
             <MainInformationFormSection className={styles.formSection} />
@@ -53,7 +53,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
               className={styles.formSection}
               targetApplicantType={{
                 value: values.targetApplicantType,
-                error: errors.targetApplicantType
+                error: touched.targetApplicantType ? undefined : errors.targetApplicantType
               }}
             />
           </FormikForm>

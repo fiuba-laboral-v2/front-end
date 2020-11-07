@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { EmailField, NameField } from "$components/Fields";
-import { NumberInput } from "$components/NumberInput";
 import { FormSection } from "$components/FormSection";
-import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
+import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
 
 export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
   className,
@@ -35,13 +34,12 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
         label={translations.email}
         withoutMargin
       />
-      <NumberInput
+      <PositiveNumberInput
         className={styles.padron}
         mandatory
         name="padron"
         label={translations.padron}
         withoutMargin
-        validator={validateIntegerInRange({ min: { value: 0, include: false } })}
       />
     </div>
   </FormSection>

@@ -1,6 +1,4 @@
-import { isEmpty as enumerableIsEmpty } from "lodash";
+import { isNaN } from "lodash";
 
-export const isEmpty = <Value>(value: Value) => {
-  if (typeof value === "number") return isNaN(value);
-  return enumerableIsEmpty(value);
-};
+export const isEmpty = <Value>(value: Value) =>
+  !isNaN(value) && [undefined, "null", "{}", "[]", '""'].includes(JSON.stringify(value));

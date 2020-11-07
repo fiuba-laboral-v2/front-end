@@ -8,6 +8,6 @@ export const DniField: FunctionComponent<ITextInputProps> = props => (
   <TextInput
     {...props}
     autoComplete="username"
-    validator={value => validate(Number.parseInt(value, 10))}
+    validator={value => validate(Number(value.replace(",", ".")))}
   />
 );
