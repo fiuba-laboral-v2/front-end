@@ -24,7 +24,7 @@ export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
     <Field
       className={styles.select}
       name={name}
-      validate={FormikValidator({ mandatory: true })}
+      validate={FormikValidator({ mandatory })}
       inputProps={{ id: name }}
       component={Select}
       native

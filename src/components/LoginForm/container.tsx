@@ -23,6 +23,7 @@ export const LoginFormContainer = <TVariables extends {}>({
     return onSubmit(values, formikHelpers, {
       BadCredentialsError: () => showBadCredentialsError(),
       UserNotFoundError: () => showBadCredentialsError(),
+      InvalidEmptyPasswordError: () => showBadCredentialsError(),
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     });
   };

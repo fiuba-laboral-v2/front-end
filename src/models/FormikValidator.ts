@@ -1,4 +1,5 @@
 import { isEmpty } from "$models/isEmpty";
+import { isNaN } from "lodash";
 
 export const FormikValidator = <Value>({
   validator,
@@ -8,7 +9,7 @@ export const FormikValidator = <Value>({
   mandatory?: boolean;
 } = {}) => {
   return (value: Value) => {
-    if (isEmpty(value)) {
+    if (isEmpty(value) && !isNaN(value)) {
       if (mandatory) return "Este campo es obligatorio";
       return;
     }

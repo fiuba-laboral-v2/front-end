@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
-
 import { DniField, PasswordField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
-
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 

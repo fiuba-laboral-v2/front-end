@@ -3,7 +3,6 @@ import { SearchSelector } from "$components/SearchSelector";
 import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { IComponentProps } from "./interface";
-import { FormikValidator } from "$models/FormikValidator";
 import styles from "./styles.module.scss";
 
 export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
@@ -21,7 +20,6 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
         options={options}
         label={translations.career}
         className={styles.career}
-        validate={FormikValidator({ mandatory: true })}
         getOptionLabel={option => option.description}
         getOptionValue={option => option.code}
         initialValue={value?.careerCode}

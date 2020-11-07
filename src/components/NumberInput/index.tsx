@@ -3,22 +3,22 @@ import { FastField, Field, FieldProps } from "formik";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { TextField } from "@material-ui/core";
-import { IBaseProps, IValidatorProps } from "./interfaces";
 import { isNil } from "lodash";
+import { FormikValidator } from "$models/FormikValidator";
 
-export const NumberInput: FunctionComponent<NumberInputProps> = ({
+export const NumberInput: FunctionComponent<INumberInputProps> = ({
   name,
   label,
   helperText,
   className,
-  validate,
+  validator,
   fast = true,
   withoutMargin = false,
   mandatory = false
 }) => {
   const fieldProps = {
     name,
-    validate,
+    validate: FormikValidator({ validator, mandatory }),
     children: ({ meta, form }: FieldProps<number>) => {
       const setFormValue = (stringValue: string) => {
         let value;
@@ -30,7 +30,7 @@ export const NumberInput: FunctionComponent<NumberInputProps> = ({
 
       return (
         <TextField
-          required={mandatory}
+          InputLabelProps={{ required: mandatory }}
           label={label}
           className={classNames(styles.textInput, className, {
             [styles.withoutMargin]: withoutMargin
@@ -49,4 +49,13 @@ export const NumberInput: FunctionComponent<NumberInputProps> = ({
   return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
-export type NumberInputProps = IBaseProps & IValidatorProps;
+export interface INumberInputProps {
+  name: string;
+  label: string;
+  helperText?: string;
+  className?: string;
+  fast?: boolean;
+  mandatory?: boolean;
+  withoutMargin?: boolean;
+  validator?: (value: number) => void;
+}

@@ -1,12 +1,8 @@
 import React, { FunctionComponent } from "react";
-
 import { EmailField, NameField } from "$components/Fields";
 import { NumberInput } from "$components/NumberInput";
 import { FormSection } from "$components/FormSection";
-
-import { FormikValidator } from "$models/FormikValidator";
 import { validateIntegerInRange } from "validations-fiuba-laboral-v2";
-
 import { IComponent } from "./interfaces";
 import styles from "./styles.module.scss";
 
@@ -45,10 +41,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
         name="padron"
         label={translations.padron}
         withoutMargin
-        validate={FormikValidator({
-          validator: validateIntegerInRange({ min: { value: 0, include: false } }),
-          mandatory: true
-        })}
+        validator={validateIntegerInRange({ min: { value: 0, include: false } })}
       />
     </div>
   </FormSection>

@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { TextInput, ITextInputProps } from "$components/TextInput";
-import { FormikValidator } from "$models/FormikValidator";
 import { validateEmail } from "validations-fiuba-laboral-v2";
 
 export const EmailField: FunctionComponent<IEmailFieldProps> = ({ mandatory, ...props }) => (
@@ -9,7 +8,7 @@ export const EmailField: FunctionComponent<IEmailFieldProps> = ({ mandatory, ...
     mandatory={mandatory}
     type="email"
     autoComplete="email"
-    validate={FormikValidator({ validator: validateEmail, mandatory })}
+    validator={validateEmail}
   />
 );
 

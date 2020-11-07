@@ -1,14 +1,14 @@
 import { FastField, FieldProps } from "formik";
 import React from "react";
 import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
+import { FormikValidator } from "$models/FormikValidator";
 
 export const SearchSelector = <Option, Value>({
   name,
-  validate,
   getOptionValue,
   ...props
 }: ISelectorProps<Option, Value>) => (
-  <FastField name={name} validate={validate}>
+  <FastField name={name} validate={FormikValidator({ mandatory: props.mandatory })}>
     {({ meta, form }: FieldProps<Value>) => (
       <BaseSearchSelector
         {...props}
@@ -26,5 +26,4 @@ export const SearchSelector = <Option, Value>({
 
 interface ISelectorProps<Option, Value> extends IBaseSelectorProps<Option, Value> {
   name: string;
-  validate?: (option?: Option) => string | undefined;
 }

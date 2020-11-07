@@ -27,7 +27,7 @@ export const BaseSearchSelector = <Option, Value>({
       renderInput={inputProps => (
         <TextField
           {...inputProps}
-          required={mandatory}
+          InputLabelProps={{ required: mandatory }}
           label={label}
           error={!!errorMessage}
           helperText={errorMessage}
