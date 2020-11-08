@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useQuery } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { handleGenericError } from "$models/errorHandlers/handleGenericError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
