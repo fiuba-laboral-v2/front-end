@@ -1,8 +1,6 @@
 import React from "react";
 import { OptionsObject, SnackbarMessage, useSnackbar as originalUseSnackbar } from "notistack";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
-import styles from "./styles.module.scss";
+import { CloseButton } from "$components/Snackbar/CloseButton";
 
 export const useSnackbar = () => {
   const { enqueueSnackbar, closeSnackbar } = originalUseSnackbar();
@@ -13,9 +11,7 @@ export const useSnackbar = () => {
         action: (
           <>
             {options?.action}
-            <IconButton disableRipple size="small" onClick={() => closeSnackbar(key)}>
-              <CloseIcon fontSize="small" className={styles.closeIcon} />
-            </IconButton>
+            <CloseButton onClick={() => closeSnackbar(key)} />
           </>
         )
       });

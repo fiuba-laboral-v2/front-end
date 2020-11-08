@@ -1,13 +1,9 @@
 import React from "react";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
-import { Button } from "$components/Button";
 import { Window } from "$models/Window";
+import { ActionButton } from "$components/Snackbar/ActionButton";
 
-const reloadAction = (
-  <Button kind="danger" onClick={Window.reload}>
-    Recargar
-  </Button>
-);
+const reloadAction = <ActionButton onClick={Window.reload}>Recargar</ActionButton>;
 
 export const useShowError = () => {
   const { enqueueSnackbar } = useSnackbar();
