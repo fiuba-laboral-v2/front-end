@@ -12,6 +12,7 @@ export const FiubaCredentialsFormSection: FunctionComponent<IComponentProps> = (
     <div className={styles.fields}>
       <DniField
         mandatory
+        autoFocus
         className={styles.dniField}
         name="user.dni"
         label={translations.dni}
