@@ -16,7 +16,9 @@ export const CareersSelectorFormSection: FunctionComponent<IComponent> = ({
       name={"careers"}
       values={careers}
       defaultValue={defaultValue}
-      fields={(value, index) => <ApplicantCareerSelector key={index} index={index} value={value} />}
+      fields={(value, index, autofocusInputRef) => (
+        <ApplicantCareerSelector key={index} {...{ index, value, autofocusInputRef }} />
+      )}
     />
   </Card>
 );
