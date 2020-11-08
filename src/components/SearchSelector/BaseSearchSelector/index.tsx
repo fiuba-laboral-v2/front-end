@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { KeyboardEventHandler, RefObject, useState } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
 import styles from "./styles.module.scss";
@@ -12,6 +12,7 @@ export const BaseSearchSelector = <Option, Value>({
   errorMessage,
   options,
   mandatory = false,
+  autofocusInputRef,
   ...autocompleteProps
 }: IBaseSelectorProps<Option, Value>) => {
   const [defaultValue] = useState(options.find(option => getOptionValue(option) === initialValue));
@@ -27,6 +28,7 @@ export const BaseSearchSelector = <Option, Value>({
       renderInput={inputProps => (
         <TextField
           {...inputProps}
+          inputRef={autofocusInputRef}
           InputLabelProps={{ required: mandatory }}
           label={label}
           error={!!errorMessage}
@@ -54,4 +56,5 @@ export interface IBaseSelectorProps<Option, Value> {
   disableClearable?: boolean;
   inputValue?: string;
   mandatory?: boolean;
+  autofocusInputRef?: RefObject<HTMLInputElement>;
 }

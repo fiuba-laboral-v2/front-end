@@ -5,7 +5,7 @@ import { LoginForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
 import { ITranslations, IContainerProps } from "./interface";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 
 export const LoginFormContainer = <TVariables extends {}>({
   onSubmit,

@@ -2,9 +2,8 @@ import React, { FunctionComponent } from "react";
 import { arrayMaxOrZero } from "$models/arrayMaxOrZero";
 import { Card } from "$components/Card";
 import { FormSet } from "$components/FormSet";
-import { Field } from "$components/Fields";
 import { ISection } from "$interfaces/Section";
-import styles from "./styles.module.scss";
+import { SectionFormSection } from "./SectionFormSection";
 
 export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
   className,
@@ -22,16 +21,8 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
         text: "",
         displayOrder: arrayMaxOrZero(sections.map(({ displayOrder }) => displayOrder)) + 1
       }}
-      fields={(_, index) => (
-        <div className={styles.section}>
-          <Field mandatory name={`${name}.${index}.title`} label={translations.sectionTitle} />
-          <Field
-            mandatory
-            name={`${name}.${index}.text`}
-            label={translations.sectionContent}
-            multiline
-          />
-        </div>
+      fields={(_, index, autofocusInputRef) => (
+        <SectionFormSection {...{ name, index, translations, autofocusInputRef }} />
       )}
     />
   </Card>
