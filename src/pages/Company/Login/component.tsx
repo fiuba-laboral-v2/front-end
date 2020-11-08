@@ -28,7 +28,9 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       title={translations.title}
       initialValues={{ email: "", password: "" }}
       className={styles.form}
-      usernameField={<EmailField name="email" label={translations.email} autoComplete="email" />}
+      usernameField={
+        <EmailField autoFocus name="email" label={translations.email} autoComplete="email" />
+      }
       signUpLink={<Link to={RoutesBuilder.company.signUp()}>{translations.signup}</Link>}
       recoverPasswordLink={
         <Link to={RoutesBuilder.company.login()}>{translations.recoverPassword}</Link>
