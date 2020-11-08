@@ -7,7 +7,7 @@ import { EditableProfile } from "./component";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
 import { LoadingWindow } from "$components/LoadingWindow";
 

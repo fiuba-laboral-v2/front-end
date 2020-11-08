@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, IButtonProps } from "$components/Button";
 import { FormikErrors } from "formik";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { isEmpty, keys } from "lodash";
 
