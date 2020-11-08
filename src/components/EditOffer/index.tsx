@@ -20,7 +20,8 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
   infoMessageTranslationGroup,
   onSubmit,
   initialValues,
-  formFooter
+  formFooter,
+  autoFocus
 }) => (
   <Form title={title} acceptanceCriteria={acceptanceCriteria}>
     {infoMessageTranslationGroup && (
@@ -43,7 +44,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
       {({ values, errors, isSubmitting, submitForm, touched }) => (
         <>
           <FormikForm className={styles.formContainer}>
-            <MainInformationFormSection className={styles.formSection} />
+            <MainInformationFormSection className={styles.formSection} autoFocus={autoFocus} />
             <DescriptionFormSection
               className={styles.formSection}
               sections={values.sections}
@@ -81,6 +82,7 @@ interface IFormFooterParams {
 }
 
 interface ICreateOfferProps {
+  autoFocus?: boolean;
   acceptanceCriteria: string;
   title: string;
   infoMessageTranslationGroup?: string;

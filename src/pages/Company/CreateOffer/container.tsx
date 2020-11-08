@@ -21,6 +21,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
   return (
     <Window>
       <EditOffer
+        autoFocus
         title={translations?.create}
         acceptanceCriteria={acceptanceCriteria?.text}
         infoMessageTranslationGroup="offerCreationInfoMessage"
