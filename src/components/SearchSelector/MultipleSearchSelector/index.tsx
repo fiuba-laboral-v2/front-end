@@ -14,7 +14,6 @@ import styles from "./styles.module.scss";
 export const MultipleSearchSelector = <Option, Value>({
   className,
   name,
-  validate,
   getOptionValue,
   stringToValue,
   valueToString,
@@ -91,7 +90,6 @@ export const MultipleSearchSelector = <Option, Value>({
 
 interface IMultipleSelectorProps<Option, Value> extends IBaseSelectorProps<Option, Value> {
   name: string;
-  validate?: (option?: Option[]) => string | undefined;
   stringToValue: (inputValue: string) => Value;
   valueToString: (value: Value) => string;
   compareValuesBy: (value: Value) => any;
