@@ -1,5 +1,5 @@
 import React from "react";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Button } from "$components/Button";
 import { Window } from "$models/Window";
 

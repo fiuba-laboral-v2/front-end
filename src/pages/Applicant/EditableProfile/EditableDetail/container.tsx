@@ -8,7 +8,7 @@ import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } fr
 import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
 import { LoadingWindow } from "$components/LoadingWindow";
 
