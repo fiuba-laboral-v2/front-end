@@ -9,10 +9,11 @@ import { PositiveNumberInput } from "../../NumberInput/PositiveNumberInput";
 
 export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   className,
-  translations
+  translations,
+  autoFocus
 }) => (
   <FormSection className={className}>
-    <Field name="title" label={translations.offerTitle} mandatory />
+    <Field name="title" label={translations.offerTitle} autoFocus={autoFocus} mandatory />
     <div className={styles.secondRow}>
       <SalaryField
         className={styles.minimumSalary}

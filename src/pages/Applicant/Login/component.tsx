@@ -31,7 +31,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       title={translations.title}
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
-      usernameField={<DniField mandatory={false} name="dni" label={translations.dni} />}
+      usernameField={<DniField autoFocus mandatory={false} name="dni" label={translations.dni} />}
       signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
       recoverPasswordLink={
         <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>

@@ -12,12 +12,14 @@ export const TextInput: FunctionComponent<ITextInputProps> = ({
   mandatory = false,
   validator,
   inputRef,
+  autoFocus,
   ...props
 }) => {
   const fieldProps = {
     ...props,
     InputLabelProps: { required: mandatory },
     inputRef,
+    InputProps: { autoFocus },
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
     component: TextField,
     validate: FormikValidator({ validator, mandatory })
@@ -36,6 +38,7 @@ export interface ITextInputProps {
   multiline?: boolean;
   withoutMargin?: boolean;
   mandatory?: boolean;
+  autoFocus?: boolean;
   validator?: (value: string) => void;
   inputRef?: RefObject<HTMLInputElement>;
 }

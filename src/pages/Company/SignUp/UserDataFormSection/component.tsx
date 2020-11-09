@@ -13,6 +13,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
   <FormSection className={className} title={translations.title}>
     <div className={styles.firstRow}>
       <NameField
+        autoFocus
         className={styles.name}
         mandatory
         name="user.name"

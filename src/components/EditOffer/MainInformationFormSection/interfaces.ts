@@ -7,6 +7,7 @@ export interface ITranslations {
 }
 
 export interface IContainerProps {
+  autoFocus?: boolean;
   className?: string;
 }
 
