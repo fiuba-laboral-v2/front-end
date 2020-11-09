@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { List } from "$components/List";
 import { Window } from "$components/Window";
+import { Notification } from "$components/Notification";
 import { IComponentProps } from "./interfaces";
 
 export const Notifications: FunctionComponent<IComponentProps> = ({
@@ -17,7 +18,7 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
       shouldFetchMore={shouldFetchMore}
       loading={loading}
     >
-      {notification => <div>{notification.__typename}</div>}
+      {notification => <Notification notification={notification} />}
     </List>
   </Window>
 );
