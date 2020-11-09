@@ -6,5 +6,6 @@ export const useApplicants = () =>
   usePaginatedQuery<{}, IApplicant>({
     documentNode: GET_APPLICANTS,
     queryName: "getApplicants",
-    variables: {}
+    variables: {},
+    timestampKey: "updatedAt"
   });

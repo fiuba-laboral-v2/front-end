@@ -9,6 +9,7 @@ export const useApprovedOffers = ({ filter, skip }: IUseApprovedOffers) => {
     documentNode: GET_APPROVED_OFFERS,
     queryName: "getApprovedOffers",
     variables: { careerCodes: careerCodes.length === 0 ? undefined : careerCodes },
+    timestampKey: "updatedAt",
     skip
   });
 };

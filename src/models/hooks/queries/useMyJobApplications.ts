@@ -6,5 +6,6 @@ export const useMyJobApplications = () =>
   usePaginatedQuery<{}, IJobApplication>({
     documentNode: GET_MY_JOB_APPLICATIONS,
     queryName: "getMyLatestJobApplications",
-    variables: {}
+    variables: {},
+    timestampKey: "updatedAt"
   });

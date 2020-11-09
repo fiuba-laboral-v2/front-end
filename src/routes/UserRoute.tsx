@@ -1,8 +1,8 @@
 import { RoutesBuilder } from "../models/RoutesBuilder";
 import React, { Fragment, FunctionComponent } from "react";
 import { Route, RouteProps } from "react-router-dom";
-import { useCurrentUser } from "../models/hooks/queries";
-import { Redirect } from "../components/Redirect";
+import { useCurrentUser } from "$hooks";
+import { Redirect } from "$components/Redirect";
 
 const { login, internalServerError, forbidden } = RoutesBuilder.public;
 

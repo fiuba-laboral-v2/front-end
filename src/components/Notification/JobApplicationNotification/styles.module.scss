@@ -1,0 +1,36 @@
+@import "$styles/_variables";
+
+.notification {
+  display: flex;
+}
+
+.statusIcon {
+  align-self: flex-start;
+  margin-right: $spacing-l;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.title {
+  font-size: $fontSize-l;
+  font-weight: bold;
+  margin-bottom: $spacing-s;
+  white-space: pre-wrap;
+}
+
+.body {
+  display: flex;
+  margin-bottom: $spacing-s;
+}
+
+.separator {
+  margin-left: $spacing-xs;
+  margin-right: $spacing-xs;
+}
+
+.name {
+  font-size: $fontSize-m;
+  white-space: pre-wrap;
+}

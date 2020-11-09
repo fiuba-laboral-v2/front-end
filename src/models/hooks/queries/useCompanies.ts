@@ -6,5 +6,6 @@ export const useCompanies = () =>
   usePaginatedQuery<{}, ICompany>({
     documentNode: GET_COMPANIES,
     queryName: "getCompanies",
-    variables: {}
+    variables: {},
+    timestampKey: "updatedAt"
   });

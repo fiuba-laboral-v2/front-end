@@ -21,7 +21,8 @@ export const useAdminTasks = (filter: IAdminTasksFilter) =>
     documentNode: GET_ADMIN_TASKS,
     queryName: "getAdminTasks",
     variables: filter,
-    normalizeVariables: normalizeFilter
+    normalizeVariables: normalizeFilter,
+    timestampKey: "updatedAt"
   });
 
 export type TRefetchGetAdminTasks = (filter: IAdminTasksFilter) => void;

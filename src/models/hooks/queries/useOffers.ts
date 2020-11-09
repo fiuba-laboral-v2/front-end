@@ -6,5 +6,6 @@ export const useOffers = () =>
   usePaginatedQuery<{}, IOffer>({
     documentNode: GET_OFFERS,
     queryName: "getOffers",
-    variables: {}
+    variables: {},
+    timestampKey: "updatedAt"
   });

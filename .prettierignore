@@ -4,3 +4,4 @@ public/
 scripts/
 report.*.json
 *.scss
+config/

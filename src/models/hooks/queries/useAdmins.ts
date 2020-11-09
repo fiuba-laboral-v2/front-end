@@ -6,5 +6,6 @@ export const useAdmins = () =>
   usePaginatedQuery<{}, IAdmin>({
     documentNode: GET_ADMINS,
     queryName: "getAdmins",
-    variables: {}
+    variables: {},
+    timestampKey: "updatedAt"
   });

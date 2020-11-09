@@ -10,6 +10,7 @@ import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import HomeIcon from "@material-ui/icons/Home";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -19,6 +20,7 @@ describe("NavBarLinks", () => {
     jobOffers: "jobOffers",
     jobApplications: "jobApplications",
     createOffer: "createOffer",
+    notifications: "notifications",
     signUp: "signUp",
     tasks: "tasks",
     logOut: "logOut",
@@ -69,6 +71,12 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.company.notifications(),
+          title: translations.notifications,
+          tooltipMessage: translations.pendingProfile,
+          icon: NotificationsIcon
         }
       ]);
     });
@@ -98,6 +106,12 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.company.notifications(),
+          title: translations.notifications,
+          tooltipMessage: translations.rejectedProfile,
+          icon: NotificationsIcon
         }
       ]);
     });
@@ -124,6 +138,11 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.myProfile(),
           title: translations.myCompanyProfile,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.company.notifications(),
+          title: translations.notifications,
+          icon: NotificationsIcon
         }
       ]);
     });

@@ -6,3 +6,5 @@ export const OFFER = "Offer";
 export type OFFER_TYPE = "Offer";
 export const JOB_APPLICATION = "JobApplication";
 export type JOB_APPLICATION_TYPE = "JobApplication";
+export const JOB_APPLICATION_NOTIFICATION = "JobApplicationNotification";
+export type JOB_APPLICATION_NOTIFICATION_TYPE = "JobApplicationNotification";

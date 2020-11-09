@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { TimeHumanizer } from "$components/TimeHumanizer";
-import { StatusIcon } from "./StatusIcon";
+import { StatusIcon } from "$components/StatusIcon";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 
 export const AdminTask: FunctionComponent<IAdminTaskProps> = ({
