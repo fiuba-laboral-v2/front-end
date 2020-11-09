@@ -10,6 +10,7 @@ export const BaseSearchSelector = <Option, Value>({
   getOptionValue,
   initialValue,
   errorMessage,
+  helperText,
   options,
   mandatory = false,
   autofocusInputRef,
@@ -32,7 +33,7 @@ export const BaseSearchSelector = <Option, Value>({
           InputLabelProps={{ required: mandatory }}
           label={label}
           error={!!errorMessage}
-          helperText={errorMessage}
+          helperText={errorMessage || helperText}
         />
       )}
     />
@@ -45,6 +46,7 @@ export interface IBaseSelectorProps<Option, Value> {
   getOptionValue: (option: Option) => Value;
   initialValue?: Value;
   errorMessage?: string;
+  helperText?: string;
   getOptionLabel: (option: Option) => string;
   onBlur?: () => void;
   onChange?: (event: React.ChangeEvent<{}>, value: Option | null) => void;
