@@ -12,7 +12,7 @@ export const useNotifications = () =>
 
 export type TNotification = IJobApplicationNotification;
 
-interface IJobApplicationNotification {
+export interface IJobApplicationNotification {
   __typename: "JobApplicationNotification";
   uuid: string;
   message: string;

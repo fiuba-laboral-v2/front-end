@@ -10,6 +10,19 @@ query GetNotifications($updatedBeforeThan: PaginatedInput) {
         jobApplication {
           __typename
           uuid
+          approvalStatus
+          offer {
+            uuid
+            title
+          }
+          applicant {
+            uuid
+            user {
+              uuid
+              name
+              surname
+            }
+          }
         }
       }
     }

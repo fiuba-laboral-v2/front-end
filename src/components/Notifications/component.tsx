@@ -18,7 +18,7 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
       shouldFetchMore={shouldFetchMore}
       loading={loading}
     >
-      {notification => <Notification notification={notification} />}
+      {notification => <Notification key={notification.uuid} notification={notification} />}
     </List>
   </Window>
 );
