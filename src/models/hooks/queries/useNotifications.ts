@@ -3,14 +3,14 @@ import { usePaginatedQuery } from "$hooks";
 import { IJobApplication } from "$interfaces/JobApplication";
 
 export const useNotifications = () =>
-  usePaginatedQuery<{}, Notification>({
+  usePaginatedQuery<{}, TNotification>({
     documentNode: GET_NOTIFICATIONS,
     queryName: "getNotifications",
     variables: {},
     timestampKey: "createdAt"
   });
 
-export type Notification = IJobApplicationNotification;
+export type TNotification = IJobApplicationNotification;
 
 interface IJobApplicationNotification {
   __typename: "JobApplicationNotification";
