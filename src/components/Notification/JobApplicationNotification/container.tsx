@@ -16,7 +16,7 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
   const currentUser = response.data.getCurrentUser;
-  if (currentUser?.company) return <ApplicantJobApplicationNotification {...props} />;
+  if (currentUser?.applicant) return <ApplicantJobApplicationNotification {...props} />;
   if (currentUser?.company) return <CompanyJobApplicationNotification {...props} />;
   return <Fragment />;
 };
