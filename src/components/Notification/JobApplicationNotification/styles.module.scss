@@ -20,8 +20,17 @@
   white-space: pre-wrap;
 }
 
+.body {
+  display: flex;
+  margin-bottom: $spacing-s;
+}
+
+.separator {
+  margin-left: $spacing-xs;
+  margin-right: $spacing-xs;
+}
+
 .name {
   font-size: $fontSize-m;
-  margin-bottom: $spacing-xs;
   white-space: pre-wrap;
 }

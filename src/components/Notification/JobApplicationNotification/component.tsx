@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
 import { Card } from "$components/Card";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 import { TimeHumanizer } from "$components/TimeHumanizer";
+import { Link } from "$components/Link";
 
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -12,13 +15,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   title,
   notification: {
     createdAt,
-    jobApplication: {
-      approvalStatus,
-      offer,
-      applicant: {
-        user: { name, surname }
-      }
-    }
+    jobApplication: { approvalStatus, offer, applicant }
   }
 }) => (
   <Card className={className}>
@@ -30,7 +27,17 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
       />
       <div className={styles.info}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.name}>{`${name} ${surname} - ${offer.title}`}</div>
+        <div className={styles.body}>
+          <div className={styles.applicant}>
+            <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
+              {`${applicant.user.name} ${applicant.user.surname}`}
+            </Link>
+          </div>
+          <div className={styles.separator}>-</div>
+          <div className={styles.offer}>
+            <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
+          </div>
+        </div>
         <TimeHumanizer since={createdAt} />
       </div>
     </div>
