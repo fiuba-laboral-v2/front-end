@@ -3,7 +3,6 @@ import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { JobApplicationNotification } from "../component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Link } from "$components/Link";
 
 import { IContainerProps } from "../interfaces";
@@ -13,7 +12,6 @@ export const CompanyJobApplicationNotificationContainer: FunctionComponent<ICont
   ...props
 }) => {
   const translations = useTranslations<ITranslations>("companyJobApplicationNotification");
-  if (!translations) return <LoadingSpinner />;
 
   const applicant = notification.jobApplication.applicant;
 
@@ -22,7 +20,7 @@ export const CompanyJobApplicationNotificationContainer: FunctionComponent<ICont
       {...props}
       hideApprovalStatus
       notification={notification}
-      title={translations.companyTitle}
+      title={translations?.companyTitle || ""}
       firstLink={
         <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
           {`${applicant.user.name} ${applicant.user.surname}`}
