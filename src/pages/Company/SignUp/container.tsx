@@ -4,7 +4,7 @@ import { FormikHelpers } from "formik";
 import { useCreateCompany, useTranslations } from "$hooks";
 import { useCompanyLogin } from "$models/hooks";
 import { SignUp } from "./component";
-import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { ISignUpFormValues, ISignUpTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";

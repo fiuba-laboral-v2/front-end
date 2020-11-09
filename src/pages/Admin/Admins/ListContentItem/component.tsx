@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { Secretary } from "$interfaces/Secretary";
 import { TimeFormatter } from "$models/TimeFormatter";
 
-import { IListContentItem } from "./interface";
+import { IListContentItem } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItem> = ({

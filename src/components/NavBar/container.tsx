@@ -4,7 +4,7 @@ import { useApolloClient } from "@apollo/client";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useCurrentUser, useLogout, useTranslations } from "$hooks";
 import { NavBar } from "./component";
-import { INavBarContainerProps, INavBarTranslations } from "./interface";
+import { INavBarContainerProps, INavBarTranslations } from "./interfaces";
 import { Redirect } from "../Redirect";
 import { NavBarLinks } from "$models/NavBarLinks";
 import { some } from "lodash";

@@ -1,6 +1,6 @@
 import { RoutesBuilder } from "../RoutesBuilder";
 import { INavBarLink } from "./Interfaces";
-import { INavBarTranslations } from "$components/NavBar/interface";
+import { INavBarTranslations } from "$components/NavBar/interfaces";
 import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";

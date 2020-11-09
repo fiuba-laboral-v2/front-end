@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { OfferCareers } from "./component";
-import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interface";
+import { IOfferCareersComponentProps, IOfferCareersContainerProps } from "./interfaces";
 
 export const OfferCareersContainer: FunctionComponent<IOfferCareersContainerProps> = ({
   offer,

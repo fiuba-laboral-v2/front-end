@@ -4,7 +4,7 @@ import { Login } from "./component";
 import { LoadingLoginWindow } from "$components/LoadingLoginWindow";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ITranslations } from "./interface";
+import { ITranslations } from "./interfaces";
 
 export const LoginContainer: FunctionComponent = () => {
   const history = useHistory();

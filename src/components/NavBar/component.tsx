@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { INavBarProps } from "./interface";
+import { INavBarProps } from "./interfaces";
 import { NavBarLink } from "./NavBarLink";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";

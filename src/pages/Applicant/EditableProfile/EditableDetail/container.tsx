@@ -4,7 +4,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
 import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
-import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
+import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interfaces";
 import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";

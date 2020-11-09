@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ICareersProps } from "./interface";
+import { ICareersProps } from "./interfaces";
 import styles from "./styles.module.scss";
 import { Subtitle } from "$components/Subtitle";
 import { CareersDetail } from "./CareersDetail";

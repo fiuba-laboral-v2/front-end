@@ -3,7 +3,7 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import { OfferInfoItem } from "$components/OfferInfoItem";
 
-import { IOfferWorkloadComponentProps } from "./interface";
+import { IOfferWorkloadComponentProps } from "./interfaces";
 
 export const OfferWorkload: FunctionComponent<IOfferWorkloadComponentProps> = ({
   offer,

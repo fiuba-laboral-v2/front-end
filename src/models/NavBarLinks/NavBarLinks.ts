@@ -2,7 +2,7 @@ import { TCurrentUser } from "$models/CurrentUser";
 import { CompanyNavBarLinks } from "./CompanyNavBarLinks";
 import { ApplicantNavBarLinks } from "./ApplicantNavBarLinks";
 import { AdminNavBarLinks } from "./AdminNavBarLinks";
-import { INavBarTranslations } from "$components/NavBar/interface";
+import { INavBarTranslations } from "$components/NavBar/interfaces";
 
 export const NavBarLinks = {
   create: (currentUser: TCurrentUser, translations: INavBarTranslations) => {

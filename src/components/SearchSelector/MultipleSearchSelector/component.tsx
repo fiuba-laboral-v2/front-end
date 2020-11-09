@@ -5,7 +5,7 @@ import { differenceBy, unionBy } from "lodash";
 import { TextFormatter } from "$models/TextFormatter";
 import { BaseSearchSelector } from "../BaseSearchSelector";
 import { TagSet } from "$components/TagSet";
-import { IMultipleSelectorComponentProps } from "./interface";
+import { IMultipleSelectorComponentProps } from "./interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 

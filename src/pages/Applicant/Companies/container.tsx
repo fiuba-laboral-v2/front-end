@@ -6,7 +6,7 @@ import { GET_COMPANIES } from "$queries";
 import { Companies } from "./component";
 import { Redirect } from "$components/Redirect";
 import { ICompany } from "$interfaces/Company";
-import { IPaginatedResult } from "$hooks/queries/interface";
+import { IPaginatedResult } from "$hooks/queries/interfaces";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
 import { ListBody } from "./ListBody";
-import { ITaskListProps } from "./interface";
+import { ITaskListProps } from "./interfaces";
 import { ListInfo } from "./ListInfo";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 

@@ -1,7 +1,7 @@
 import { useQuery } from "../useQuery";
 import { GET_MY_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
-import { IPaginatedResult } from "./interface";
+import { IPaginatedResult } from "./interfaces";
 
 export const useMyOffers = () => {
   const result = useQuery<{}, IUseMyOffers>(GET_MY_OFFERS);

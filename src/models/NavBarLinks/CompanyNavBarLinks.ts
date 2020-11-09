@@ -1,7 +1,7 @@
 import { TCurrentUser } from "$models/CurrentUser";
 import { RoutesBuilder } from "../RoutesBuilder";
 import { getTooltipMessage } from "./getTooltipMessage";
-import { INavBarTranslations } from "$components/NavBar/interface";
+import { INavBarTranslations } from "$components/NavBar/interfaces";
 import { INavBarLink } from "./Interfaces";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";

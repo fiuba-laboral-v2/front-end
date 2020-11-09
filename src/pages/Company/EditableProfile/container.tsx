@@ -4,7 +4,7 @@ import { FormikHelpers } from "formik";
 import { useMyCompanyProfile, useTranslations, useUpdateCurrentCompany } from "$hooks";
 import { Redirect } from "$components/Redirect";
 import { EditableProfile } from "./component";
-import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
+import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";

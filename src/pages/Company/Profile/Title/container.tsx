@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { Header } from "$components/Header";
-import { IHeaderProps } from "$components/Header/interface";
+import { IHeaderProps } from "$components/Header/interfaces";
 
 const TitleContainer: FunctionComponent = () => {
   const translations = useTranslations<IHeaderProps>("companyProfileTitle");

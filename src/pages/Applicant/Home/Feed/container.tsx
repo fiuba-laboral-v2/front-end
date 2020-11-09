@@ -7,7 +7,7 @@ import { useApprovedOffers, useMyCareers, useTranslations } from "$hooks/queries
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
 import { Filters } from "./Filters";
-import { IOfferListTranslations } from "./interface";
+import { IOfferListTranslations } from "./interfaces";
 import { OfferFilter } from "$models/OfferFilter";
 
 import styles from "./styles.module.scss";

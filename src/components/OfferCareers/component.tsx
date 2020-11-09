@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { OfferInfoItem } from "../OfferInfoItem";
 import { CareerList } from "../CareerList";
 
-import { IOfferCareersComponentProps } from "./interface";
+import { IOfferCareersComponentProps } from "./interfaces";
 
 const OfferCareers: FunctionComponent<IOfferCareersComponentProps> = ({
   offer,

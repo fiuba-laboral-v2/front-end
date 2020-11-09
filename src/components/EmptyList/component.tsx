@@ -3,7 +3,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import { Button } from "$components/Button";
 
-import { IEmptyListProps } from "./interface";
+import { IEmptyListProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const EmptyList: FunctionComponent<IEmptyListProps> = ({

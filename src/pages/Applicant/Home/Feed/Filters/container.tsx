@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { Filters } from "./component";
 import { useCareers } from "$hooks/queries";
-import { IFiltersContainerProps } from "./interface";
+import { IFiltersContainerProps } from "./interfaces";
 
 export const FiltersContainer: FunctionComponent<IFiltersContainerProps> = ({
   className,

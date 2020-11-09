@@ -6,7 +6,7 @@ import { EnterButton } from "./EnterButton";
 import { LoginWindow } from "$components/LoginWindow";
 import { Title } from "$components/Title";
 
-import { IComponentProps } from "./interface";
+import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const Login: FunctionComponent<IComponentProps> = (

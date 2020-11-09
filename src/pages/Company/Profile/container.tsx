@@ -5,7 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Redirect } from "$components/Redirect";
 import { Profile } from "./component";
-import { IProfileTranslations } from "./interface";
+import { IProfileTranslations } from "./interfaces";
 
 export const ProfileContainer: FunctionComponent = () => {
   const history = useHistory();

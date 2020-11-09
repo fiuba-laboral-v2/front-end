@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { ITaskListTranslations } from "../interface";
+import { ITaskListTranslations } from "../interfaces";
 import { ListInfo } from "./component";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 

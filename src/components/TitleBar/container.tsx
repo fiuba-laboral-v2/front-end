@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Fragment } from "react";
 import { TitleBar } from "./component";
-import { ITitleBarContainerProps, ITranslations } from "./interface";
+import { ITitleBarContainerProps, ITranslations } from "./interfaces";
 import { useCurrentUser, useTranslations } from "../../models/hooks/queries";
 
 export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = props => {

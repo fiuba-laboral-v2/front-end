@@ -7,7 +7,7 @@ import { SubmitButton } from "$components/SubmitButton";
 import { Formik } from "$components/Formik";
 
 import styles from "./styles.module.scss";
-import { IComponentProps } from "./interface";
+import { IComponentProps } from "./interfaces";
 import { Configuration } from "$config";
 import { SeededUsers } from "../SeededUsers";
 

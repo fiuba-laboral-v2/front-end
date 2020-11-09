@@ -7,7 +7,7 @@ import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
-import { ISignUpFormValues, ISignUpTranslations } from "./interface";
+import { ISignUpFormValues, ISignUpTranslations } from "./interfaces";
 import styles from "./styles.module.scss";
 
 const formName = "signUpForm";
