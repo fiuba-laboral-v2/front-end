@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useCurrentUser } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
@@ -15,5 +15,5 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
   const currentUser = response.data.getCurrentUser;
   if (currentUser?.applicant) return <ApplicantJobApplicationNotification {...props} />;
   if (currentUser?.company) return <CompanyJobApplicationNotification {...props} />;
-  return <Fragment />;
+  throw new Error("The current user cannot see a JobApplicationNotification");
 };
