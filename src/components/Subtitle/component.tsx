@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { ISubtitleProps } from "./interface";
+import { ISubtitleProps } from "./interfaces";
 import classNames from "classnames";
 
 const Subtitle: FunctionComponent<ISubtitleProps> = ({ className, children }) => {

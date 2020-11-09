@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { Row } from "./Row";
 import { Listable } from "../../interfaces";
-import { IListContentProps } from "./interface";
+import { IListContentProps } from "./interfaces";
 import { PaginationButton } from "$components/PaginationButton";
 
 import styles from "./styles.module.scss";

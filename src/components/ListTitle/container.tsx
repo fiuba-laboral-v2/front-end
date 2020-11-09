@@ -1,8 +1,8 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
-import { IListTitleProps } from "./interface";
+import { IListTitleProps } from "./interfaces";
 import { Header } from "$components/Header";
-import { IHeaderProps } from "../Header/interface";
+import { IHeaderProps } from "../Header/interfaces";
 
 export const ListTitleContainer: FunctionComponent<IListTitleProps> = ({
   titleTranslationPath

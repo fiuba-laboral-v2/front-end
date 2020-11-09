@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks/queries";
 import { ListContentItem } from "./component";
-import { IListContentItemContainer, ITranslations } from "./interface";
+import { IListContentItemContainer, ITranslations } from "./interfaces";
 
 export const ListContentItemContainer: FunctionComponent<IListContentItemContainer> = ({
   admin

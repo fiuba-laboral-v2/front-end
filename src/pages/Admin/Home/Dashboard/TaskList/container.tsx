@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ITaskListContainerProps, ITaskListTranslations } from "./interface";
+import { ITaskListContainerProps, ITaskListTranslations } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 import { TaskList } from "./component";
 

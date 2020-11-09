@@ -9,7 +9,7 @@ import { StatusTitle } from "$components/StatusTitle";
 import { Description } from "$components/Description";
 
 import styles from "./styles.module.scss";
-import { IApplicantDetailProps } from "./interface";
+import { IApplicantDetailProps } from "./interfaces";
 
 export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   mobileLayout,

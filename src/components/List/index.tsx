@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { IListProps } from "./interface";
+import { IListProps } from "./interfaces";
 import { PaginationButton } from "../PaginationButton";
 
 import styles from "./styles.module.scss";

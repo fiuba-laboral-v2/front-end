@@ -1,4 +1,4 @@
-import { INavBarTranslations } from "$components/NavBar/interface";
+import { INavBarTranslations } from "$components/NavBar/interfaces";
 import {
   PendingApplicantError,
   PendingCompanyError,

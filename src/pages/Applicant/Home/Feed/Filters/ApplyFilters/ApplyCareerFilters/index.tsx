@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { FilterLabels } from "$components/FilterLabels";
 import { OfferFilter } from "$models/OfferFilter";
 import { ICareer } from "$interfaces/Career";
-import { IOfferListTranslations } from "../../../interface";
+import { IOfferListTranslations } from "../../../interfaces";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 

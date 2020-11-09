@@ -3,7 +3,7 @@ import { useTranslations } from "$hooks";
 import { sortBy } from "lodash";
 import { ApplicantDetail } from "./component";
 import { LoadingSpinner } from "$components/LoadingSpinner";
-import { IApplicantDetailContainerProps, ITranslations } from "./interface";
+import { IApplicantDetailContainerProps, ITranslations } from "./interfaces";
 
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = ({
   mobileLayout,

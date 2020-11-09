@@ -7,7 +7,7 @@ import { FormFooter } from "$components/FormFooter";
 import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
 import { FormikHelpers } from "formik/dist/types";
-import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
+import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const SignUp: FunctionComponent<ISignUpProps> = ({

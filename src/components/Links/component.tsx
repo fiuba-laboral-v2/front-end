@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
-import { ILinksProps } from "./interface";
+import { ILinksProps } from "./interfaces";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import shortid from "shortid";

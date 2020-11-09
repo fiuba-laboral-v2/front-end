@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
-import { IHeaderProps } from "./interface";
+import { IHeaderProps } from "./interfaces";
 import classNames from "classnames";
 
 const Header: FunctionComponent<IHeaderProps> = ({ title, subtitle }) => (

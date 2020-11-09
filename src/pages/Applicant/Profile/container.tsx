@@ -4,7 +4,7 @@ import { Redirect } from "$components/Redirect";
 import { Profile } from "./component";
 import { useMyApplicantProfile, useTranslations } from "$hooks";
 import { useHistory } from "react-router-dom";
-import { ITranslations } from "./interface";
+import { ITranslations } from "./interfaces";
 import { Window } from "$components/Window";
 import { LoadingWindow } from "$components/LoadingWindow";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { IMultipleSelectorContainerProps } from "./interface";
+import { IMultipleSelectorContainerProps } from "./interfaces";
 import { MultipleSearchSelector } from "./component";
 import { useTranslations } from "$hooks/queries";
 

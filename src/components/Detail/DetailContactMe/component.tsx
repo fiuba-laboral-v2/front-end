@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Subtitle } from "$components/Subtitle";
 import styles from "./styles.module.scss";
-import { IDetailContactMeProps } from "./interface";
+import { IDetailContactMeProps } from "./interfaces";
 
 const DetailContactMe: FunctionComponent<IDetailContactMeProps> = ({ email, website }) => (
   <div className={styles.contactInfo}>

@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { LoadingSpinner } from "../LoadingSpinner";
 import { Button } from "../Button";
-import { IPaginationButtonProps } from "./interface";
+import { IPaginationButtonProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
 

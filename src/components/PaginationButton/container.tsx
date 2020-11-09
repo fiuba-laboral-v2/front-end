@@ -1,6 +1,6 @@
 import React from "react";
 import { PaginationButton } from "./component";
-import { IPaginationButtonContainerProps, IListTranslations } from "./interface";
+import { IPaginationButtonContainerProps, IListTranslations } from "./interfaces";
 import { useTranslations } from "../../models/hooks/queries";
 
 export const PaginationButtonContainer = (props: IPaginationButtonContainerProps) => {

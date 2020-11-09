@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ICapabilitiesProps } from "./interface";
+import { ICapabilitiesProps } from "./interfaces";
 import { Subtitle } from "$components/Subtitle";
 import { TagSet } from "$components/TagSet";
 import { TextFormatter } from "$models/TextFormatter";

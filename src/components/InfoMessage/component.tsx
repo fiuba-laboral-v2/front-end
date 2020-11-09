@@ -3,7 +3,7 @@ import classnames from "classnames";
 import InfoIcon from "@material-ui/icons/InfoOutlined";
 
 import { Card } from "$components/Card";
-import { IInfoMessageProps } from "./interface";
+import { IInfoMessageProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
 

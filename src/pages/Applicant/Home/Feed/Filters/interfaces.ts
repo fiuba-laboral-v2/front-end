@@ -1,6 +1,6 @@
 import { ICareer } from "$interfaces/Career";
 import { OfferFilter } from "$models/OfferFilter";
-import { IOfferListTranslations } from "../interface";
+import { IOfferListTranslations } from "../interfaces";
 
 export interface IFiltersContainerProps {
   className?: string;

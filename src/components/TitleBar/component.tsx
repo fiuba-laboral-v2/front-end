@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
-import { ITitleBarProps } from "./interface";
+import { ITitleBarProps } from "./interfaces";
 import { IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import classNames from "classnames";

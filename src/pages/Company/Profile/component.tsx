@@ -4,7 +4,7 @@ import { CompanyDetail } from "$components/CompanyDetail";
 import { Window } from "$components/Window";
 import { Button } from "$components/Button";
 import { ICompany } from "$interfaces/Company";
-import { IProfileTranslations } from "./interface";
+import { IProfileTranslations } from "./interfaces";
 import { LoadingWindow } from "$components/LoadingWindow";
 
 export const Profile: FunctionComponent<IProfile> = ({ company, onClickEdit, translations }) => {

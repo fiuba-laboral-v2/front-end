@@ -4,7 +4,7 @@ import { AppliedFilters } from "./AppliedFilters";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { ApplyFilters } from "./ApplyFilters";
-import { IFiltersProps } from "./interface";
+import { IFiltersProps } from "./interfaces";
 import { Button } from "$components/Button";
 import { Dialog, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";

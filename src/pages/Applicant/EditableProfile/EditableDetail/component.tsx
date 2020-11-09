@@ -11,7 +11,7 @@ import { FormFooter } from "$components/FormFooter";
 import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
 
-import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interface";
+import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = ({

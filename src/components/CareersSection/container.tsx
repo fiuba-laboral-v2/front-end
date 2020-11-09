@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ICareersContainerProps, ICareerTranslations } from "./interface";
+import { ICareersContainerProps, ICareerTranslations } from "./interfaces";
 import { CareersSection } from "./component";
 import { useTranslations } from "$hooks";
 

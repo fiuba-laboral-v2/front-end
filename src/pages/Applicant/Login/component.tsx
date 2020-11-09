@@ -4,7 +4,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IFiubaLoginVariables } from "$hooks";
 
 import { LoginForm } from "$components/LoginForm";
-import { OnSubmit } from "$components/LoginForm/interface";
+import { OnSubmit } from "$components/LoginForm/interfaces";
 import { LoginWindow } from "$components/LoginWindow";
 import { DniField } from "$components/Fields";
 import { Link } from "$components/Link";

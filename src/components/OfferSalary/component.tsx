@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { OfferInfoItem } from "../OfferInfoItem";
 import { OfferSalaryInfo } from "../OfferSalaryInfo";
 
-import { IOfferSalaryProps } from "./interface";
+import { IOfferSalaryProps } from "./interfaces";
 
 const OfferSalary: FunctionComponent<IOfferSalaryProps> = ({ offer, translations, className }) => (
   <OfferInfoItem className={classNames(styles.salary, className)} title={translations.salaryTitle}>

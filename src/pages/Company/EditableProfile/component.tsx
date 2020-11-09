@@ -9,7 +9,7 @@ import { ContactInformationFormSection } from "$components/ContactInformationFor
 import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
 
-import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interface";
+import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({

@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 
 import { InfoMessage } from "./component";
-import { IInfoMessageContainerProps, ITranslations } from "./interface";
+import { IInfoMessageContainerProps, ITranslations } from "./interfaces";
 
 export const InfoMessageContainer: FunctionComponent<IInfoMessageContainerProps> = ({
   className,

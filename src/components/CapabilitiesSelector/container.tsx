@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { ICapabilitiesSelectorContainer } from "./interface";
+import { ICapabilitiesSelectorContainer } from "./interfaces";
 import { CapabilitiesSelector } from "./compontent";
 import { ICapability } from "$interfaces/Capability";
 import { useQuery } from "@apollo/client";

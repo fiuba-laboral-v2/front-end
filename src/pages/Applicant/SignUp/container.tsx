@@ -5,7 +5,7 @@ import { SignUp } from "./component";
 import { useFiubaLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
+import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interfaces";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";

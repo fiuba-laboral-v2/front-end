@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ApplyCareerFilters } from "./ApplyCareerFilters";
 import { ICareer } from "$interfaces/Career";
 import { OfferFilter } from "$models/OfferFilter";
-import { IOfferListTranslations } from "../../interface";
+import { IOfferListTranslations } from "../../interfaces";
 import { ApplyFiltersTitle } from "../ApplyFiltersTitle";
 
 export const ApplyFilters: FunctionComponent<IApplyFiltersProps> = ({
