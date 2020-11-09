@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 
 export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   className,
+  title,
   notification: {
     createdAt,
     jobApplication: {
@@ -28,7 +29,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
         approvalStatus={approvalStatus}
       />
       <div className={styles.info}>
-        <div className={styles.title}>Nueva postulación</div>
+        <div className={styles.title}>{title}</div>
         <div className={styles.name}>{`${name} ${surname} - ${offer.title}`}</div>
         <TimeHumanizer since={createdAt} />
       </div>
