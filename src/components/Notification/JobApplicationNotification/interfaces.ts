@@ -1,5 +1,5 @@
 import React from "react";
-import { IJobApplicationNotification } from "$hooks";
+import { IJobApplicationNotification } from "$interfaces/Notification";
 
 export interface IContainerProps {
   notification: IJobApplicationNotification;

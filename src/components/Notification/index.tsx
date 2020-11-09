@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { TNotification } from "$hooks";
+import { TNotification } from "$interfaces/Notification";
 import { JOB_APPLICATION_NOTIFICATION } from "$typenames";
 import { JobApplicationNotification } from "./JobApplicationNotification";
 

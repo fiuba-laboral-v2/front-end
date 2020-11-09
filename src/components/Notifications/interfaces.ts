@@ -1,4 +1,4 @@
-import { TNotification } from "$hooks";
+import { TNotification } from "$interfaces/Notification";
 
 export interface IComponentProps {
   notifications?: TNotification[];
