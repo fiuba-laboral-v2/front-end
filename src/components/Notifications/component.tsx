@@ -14,7 +14,6 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
   <Window>
     <List
       list={notifications || []}
-      fetchMoreClassName={""}
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
