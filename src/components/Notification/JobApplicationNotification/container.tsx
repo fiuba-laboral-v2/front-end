@@ -1,40 +1,22 @@
-import React, { FunctionComponent } from "react";
-import { useCurrentUser, useTranslations } from "$hooks";
+import React, { Fragment, FunctionComponent } from "react";
+import { useCurrentUser } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { JobApplicationNotification } from "./component";
+import { ApplicantJobApplicationNotification } from "./ApplicantJobApplicationNotification";
+import { CompanyJobApplicationNotification } from "./CompanyJobApplicationNotification";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Redirect } from "$components/Redirect";
 
-import { IContainerProps, ITranslations } from "./interfaces";
-import { ApprovalStatus } from "../../../interfaces/ApprovalStatus";
+import { IContainerProps } from "./interfaces";
 
-export const JobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
-  notification,
-  ...props
-}) => {
-  const currentUserResponse = useCurrentUser();
-  const translations = useTranslations<ITranslations>("jobApplicationNotification");
+export const JobApplicationNotificationContainer: FunctionComponent<IContainerProps> = props => {
+  const response = useCurrentUser();
 
-  if (currentUserResponse.loading || !translations) return <LoadingSpinner />;
-  if (currentUserResponse.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-  }
+  if (response.loading) return <LoadingSpinner />;
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
 
-  const buildTitleLabel = () => {
-    const currentUser = currentUserResponse.data.getCurrentUser;
-    if (currentUser?.company) return translations.companyTitle;
-    if (currentUser?.applicant) {
-      return {
-        [ApprovalStatus.pending]: translations.pendingApplicantTitle,
-        [ApprovalStatus.approved]: translations.approvedApplicantTitle,
-        [ApprovalStatus.rejected]: translations.rejectedApplicantTitle
-      }[notification.jobApplication.approvalStatus];
-    }
-    return "";
-  };
-
-  return (
-    <JobApplicationNotification {...props} notification={notification} title={buildTitleLabel()} />
-  );
+  const currentUser = response.data.getCurrentUser;
+  if (currentUser?.company) return <ApplicantJobApplicationNotification {...props} />;
+  if (currentUser?.company) return <CompanyJobApplicationNotification {...props} />;
+  return <Fragment />;
 };

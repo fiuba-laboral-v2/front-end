@@ -28,15 +28,11 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
       <div className={styles.info}>
         <div className={styles.title}>{title}</div>
         <div className={styles.body}>
-          <div className={styles.applicant}>
-            <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
-              {`${applicant.user.name} ${applicant.user.surname}`}
-            </Link>
-          </div>
+          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
+            {`${applicant.user.name} ${applicant.user.surname}`}
+          </Link>
           <div className={styles.separator}>-</div>
-          <div className={styles.offer}>
-            <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
-          </div>
+          <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
         </div>
         <TimeHumanizer since={createdAt} />
       </div>
