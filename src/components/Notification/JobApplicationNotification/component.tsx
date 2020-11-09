@@ -12,10 +12,11 @@ import styles from "./styles.module.scss";
 
 export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   className,
+  firstLink,
   title,
   notification: {
     createdAt,
-    jobApplication: { approvalStatus, offer, applicant }
+    jobApplication: { approvalStatus, offer }
   }
 }) => (
   <Card className={className}>
@@ -28,9 +29,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
       <div className={styles.info}>
         <div className={styles.title}>{title}</div>
         <div className={styles.body}>
-          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
-            {`${applicant.user.name} ${applicant.user.surname}`}
-          </Link>
+          {firstLink}
           <div className={styles.separator}>-</div>
           <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
         </div>
