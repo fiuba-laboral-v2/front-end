@@ -22,6 +22,7 @@ const GET_ADMIN_TASKS = loader("./getAdminTasks.graphql");
 const GET_JOB_APPLICATION_BY_UUID = loader("./getJobApplicationByUuid.graphql");
 const GET_OFFER_FOR_APPLICANT = loader("./getOfferForApplicant.graphql");
 const GET_JOB_APPLICATIONS = loader("./getJobApplications.graphql");
+const GET_NOTIFICATIONS = loader("./getNotifications.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -45,5 +46,6 @@ export {
   GET_ADMIN_TASKS,
   GET_JOB_APPLICATION_BY_UUID,
   GET_ADMINS,
-  GET_JOB_APPLICATIONS
+  GET_JOB_APPLICATIONS,
+  GET_NOTIFICATIONS
 };

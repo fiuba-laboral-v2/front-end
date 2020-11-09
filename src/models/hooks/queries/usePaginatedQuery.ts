@@ -5,12 +5,18 @@ import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const usePaginatedQuery = <TVariables extends IVariables, Result extends IResult>({
+const getDateTime = (result: TResult, timestampKey: Timestamp) => {
+  if (timestampKey === "createdAt") return (result as ICreatedAtResult).createdAt;
+  return (result as IUpdatedAtResult).updatedAt;
+};
+
+export const usePaginatedQuery = <TVariables extends IVariables, Result extends TResult>({
   documentNode,
   queryName,
   variables,
   fetchPolicy,
   skip,
+  timestampKey = "updatedAt",
   normalizeVariables = (v: TVariables) => v
 }: IUsePaginatedOffers<TVariables>) => {
   const history = useHistory();
@@ -34,7 +40,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
         normalizeVariables({
           ...variables,
           updatedBeforeThan: {
-            dateTime: lastResult.updatedAt,
+            dateTime: getDateTime(lastResult, timestampKey),
             uuid: lastResult.uuid
           }
         })
@@ -62,7 +68,10 @@ interface IUsePaginatedOffers<TVariables> {
   fetchPolicy?: WatchQueryFetchPolicy;
   normalizeVariables?: (variables: TVariables) => TVariables;
   skip?: boolean;
+  timestampKey: Timestamp;
 }
+
+type Timestamp = "createdAt" | "updatedAt";
 
 export interface IVariables {
   updatedBeforeThan?: {
@@ -71,7 +80,14 @@ export interface IVariables {
   };
 }
 
-interface IResult {
+type TResult = IUpdatedAtResult | ICreatedAtResult;
+
+interface ICreatedAtResult {
+  uuid: string;
+  createdAt: string;
+}
+
+interface IUpdatedAtResult {
   uuid: string;
   updatedAt: string;
 }

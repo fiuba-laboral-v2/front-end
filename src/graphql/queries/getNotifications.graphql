@@ -1,0 +1,18 @@
+query GetNotifications($updatedBeforeThan: PaginatedInput) {
+  getNotifications(updatedBeforeThan: $updatedBeforeThan) {
+    results {
+      ... on JobApplicationNotification {
+        __typename
+        uuid
+        adminEmail
+        message
+        createdAt
+        jobApplication {
+          __typename
+          uuid
+        }
+      }
+    }
+    shouldFetchMore
+  }
+}
