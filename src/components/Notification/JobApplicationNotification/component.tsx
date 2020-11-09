@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "$components/Card";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
-import { StatusIcon } from "../../../pages/Admin/Home/Dashboard/TaskList/AdminTask/StatusIcon";
+import { StatusIcon } from "$components/StatusIcon";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
 import { IComponentProps } from "./interfaces";
