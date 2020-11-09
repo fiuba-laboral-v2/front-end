@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, RefObject } from "react";
 import { FastField, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import styles from "./styles.module.scss";
@@ -11,11 +11,13 @@ export const TextInput: FunctionComponent<ITextInputProps> = ({
   withoutMargin = false,
   mandatory = false,
   validator,
+  inputRef,
   ...props
 }) => {
   const fieldProps = {
     ...props,
     InputLabelProps: { required: mandatory },
+    inputRef,
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
     component: TextField,
     validate: FormikValidator({ validator, mandatory })
@@ -35,4 +37,5 @@ export interface ITextInputProps {
   withoutMargin?: boolean;
   mandatory?: boolean;
   validator?: (value: string) => void;
+  inputRef?: RefObject<HTMLInputElement>;
 }

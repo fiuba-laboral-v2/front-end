@@ -4,7 +4,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { FormFooter } from "$components/FormFooter";
 import { Window } from "$components/Window";
 import { LoadingWindow } from "$components/LoadingWindow";

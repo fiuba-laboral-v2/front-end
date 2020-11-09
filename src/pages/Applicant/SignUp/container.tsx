@@ -6,7 +6,7 @@ import { useFiubaLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interface";
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";

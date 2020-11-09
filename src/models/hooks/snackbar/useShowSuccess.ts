@@ -1,4 +1,4 @@
-import { useSnackbar } from "notistack";
+import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 
 export const useShowSuccess = () => {
   const { enqueueSnackbar } = useSnackbar();
