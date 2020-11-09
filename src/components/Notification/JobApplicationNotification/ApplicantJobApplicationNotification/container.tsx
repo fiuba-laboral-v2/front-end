@@ -14,13 +14,11 @@ export const ApplicantJobApplicationNotificationContainer: FunctionComponent<ICo
   const translations = useTranslations<ITranslations>("applicantJobApplicationNotification");
   if (!translations) return <LoadingSpinner />;
 
-  const title = () => {
-    return {
-      [ApprovalStatus.pending]: translations.pendingApplicantTitle,
-      [ApprovalStatus.approved]: translations.approvedApplicantTitle,
-      [ApprovalStatus.rejected]: translations.rejectedApplicantTitle
-    }[notification.jobApplication.approvalStatus];
-  };
+  const title = {
+    [ApprovalStatus.pending]: translations.pendingApplicantTitle,
+    [ApprovalStatus.approved]: translations.approvedApplicantTitle,
+    [ApprovalStatus.rejected]: translations.rejectedApplicantTitle
+  }[notification.jobApplication.approvalStatus];
 
   const company = notification.jobApplication.offer.company;
 
@@ -28,7 +26,7 @@ export const ApplicantJobApplicationNotificationContainer: FunctionComponent<ICo
     <JobApplicationNotification
       {...props}
       notification={notification}
-      title={title()}
+      title={title}
       firstLink={
         <Link to={RoutesBuilder.applicant.companyProfile(company.uuid)}>{company.companyName}</Link>
       }
