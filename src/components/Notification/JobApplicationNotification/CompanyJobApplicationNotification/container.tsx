@@ -20,6 +20,7 @@ export const CompanyJobApplicationNotificationContainer: FunctionComponent<ICont
   return (
     <JobApplicationNotification
       {...props}
+      hideApprovalStatus
       notification={notification}
       title={translations.companyTitle}
       firstLink={

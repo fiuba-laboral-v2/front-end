@@ -7,6 +7,7 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps extends IContainerProps {
+  hideApprovalStatus?: boolean;
   title: string;
   firstLink: React.ReactElement;
 }

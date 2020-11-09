@@ -14,17 +14,19 @@ export const StatusIcon: FunctionComponent<IAdminTaskProps> = ({
     <div className={styles.iconContainer}>
       <Icon className={styles.icon} />
     </div>
-    <SharedStatusLabel
-      className={styles.statusLabel}
-      status={approvalStatus}
-      withTooltip
-      type="small"
-    />
+    {approvalStatus && (
+      <SharedStatusLabel
+        className={styles.statusLabel}
+        status={approvalStatus}
+        withTooltip
+        type="small"
+      />
+    )}
   </div>
 );
 
 interface IAdminTaskProps {
   className?: string;
-  approvalStatus: ApprovalStatus;
+  approvalStatus?: ApprovalStatus;
   Icon: FunctionComponent<SvgIconProps>;
 }

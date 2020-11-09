@@ -14,6 +14,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   className,
   firstLink,
   title,
+  hideApprovalStatus,
   notification: {
     createdAt,
     jobApplication: { approvalStatus, offer }
@@ -24,7 +25,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
       <StatusIcon
         className={styles.statusIcon}
         Icon={JobApplicationIcon}
-        approvalStatus={approvalStatus}
+        approvalStatus={hideApprovalStatus ? undefined : approvalStatus}
       />
       <div className={styles.info}>
         <div className={styles.title}>{title}</div>
