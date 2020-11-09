@@ -2,13 +2,14 @@ import React, { Fragment, FunctionComponent } from "react";
 import { TNotification } from "$hooks";
 import { JobApplicationNotification } from "./JobApplicationNotification";
 
-export const Notification: FunctionComponent<IContainerProps> = ({ notification }) => {
+export const Notification: FunctionComponent<IContainerProps> = ({ className, notification }) => {
   if (notification.__typename === "JobApplicationNotification") {
-    return <JobApplicationNotification notification={notification} />;
+    return <JobApplicationNotification className={className} notification={notification} />;
   }
   return <Fragment />;
 };
 
 interface IContainerProps {
+  className?: string;
   notification: TNotification;
 }
