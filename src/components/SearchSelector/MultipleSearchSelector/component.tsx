@@ -44,7 +44,6 @@ export const MultipleSearchSelector = <Option, Value>({
             onInputChange={(_, value) => setInputValue(value)}
             inputValue={valueToString(stringToValue(inputValue))}
             errorMessage={meta.touched ? meta.error : undefined}
-            helperText={"Presionar Enter para agregar"}
             options={options}
             getOptionValue={getOptionValue}
             getOptionLabel={(option: Option | string) =>
