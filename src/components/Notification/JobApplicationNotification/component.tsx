@@ -32,7 +32,9 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
         <div className={styles.body}>
           {firstLink}
           <div className={styles.separator}>-</div>
-          <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
+          <Link className={styles.offer} to={RoutesBuilder.company.offer(offer.uuid)}>
+            {offer.title}
+          </Link>
         </div>
         <TimeHumanizer since={createdAt} />
       </div>

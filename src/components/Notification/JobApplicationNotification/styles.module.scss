@@ -34,3 +34,17 @@
   font-size: $fontSize-m;
   white-space: pre-wrap;
 }
+
+@media (max-width: $laptopWidth) {
+  .body {
+    flex-direction: column;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .offer {
+    margin-top: $spacing-xs;
+  }
+}
