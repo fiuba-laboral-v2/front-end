@@ -4,8 +4,10 @@ import { Window } from "$components/Window";
 import { Notification } from "$components/Notification";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
+import { Title } from "../Title";
 
 export const Notifications: FunctionComponent<IComponentProps> = ({
+  translations,
   notifications,
   fetchMore,
   shouldFetchMore,
@@ -13,6 +15,7 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
   emptyListComponent
 }) => (
   <Window>
+    <Title className={styles.title}>{translations.title}</Title>
     <List
       list={notifications || []}
       fetchMore={fetchMore}
