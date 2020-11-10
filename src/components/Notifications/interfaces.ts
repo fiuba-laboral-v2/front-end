@@ -1,6 +1,11 @@
 import { TNotification } from "$interfaces/Notification";
+import { ReactNode } from "react";
 
-export interface IComponentProps {
+export interface IContainerProps {
+  emptyListComponent: ReactNode;
+}
+
+export interface IComponentProps extends IContainerProps {
   notifications?: TNotification[];
   loading: boolean;
   fetchMore?: () => void;

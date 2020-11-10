@@ -9,7 +9,8 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
   notifications,
   fetchMore,
   shouldFetchMore,
-  loading
+  loading,
+  emptyListComponent
 }) => (
   <Window>
     <List
@@ -17,6 +18,7 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
+      emptyListComponent={emptyListComponent}
     >
       {notification => (
         <Notification
