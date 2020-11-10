@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
+.title {
+  margin-bottom: $spacing-xxl;
+}
+
 .notification {
   margin-bottom: $spacing-xl;
 }
