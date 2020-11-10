@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 import { List } from "$components/List";
 import { Window } from "$components/Window";
 import { Notification } from "$components/Notification";
+import { Title } from "$components/Title";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
-import { Title } from "../Title";
 
 export const Notifications: FunctionComponent<IComponentProps> = ({
   translations,
