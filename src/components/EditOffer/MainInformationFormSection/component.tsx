@@ -27,6 +27,6 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
       mandatory
       withoutMargin
     />
-    <TextField name="description" label={translations.description} mandatory multiline />
+    <TextField name="description" label={translations.description} mandatory />
   </FormSection>
 );

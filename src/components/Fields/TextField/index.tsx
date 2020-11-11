@@ -10,6 +10,7 @@ export const TextField: FunctionComponent<ITextFieldProps> = ({
   fast = true,
   withoutMargin = false,
   mandatory = false,
+  singleLine = false,
   validator,
   inputRef,
   autoFocus,
@@ -17,8 +18,9 @@ export const TextField: FunctionComponent<ITextFieldProps> = ({
 }) => {
   const fieldProps = {
     ...props,
-    InputLabelProps: { required: mandatory },
     inputRef,
+    multiline: !singleLine,
+    InputLabelProps: { required: mandatory },
     InputProps: { autoFocus },
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
     component: MaterialTextField,
@@ -35,7 +37,7 @@ export interface ITextFieldProps {
   type?: string;
   label: string;
   fast?: boolean;
-  multiline?: boolean;
+  singleLine?: boolean;
   withoutMargin?: boolean;
   mandatory?: boolean;
   autoFocus?: boolean;

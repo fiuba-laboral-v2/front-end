@@ -21,7 +21,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       className={styles.description}
       name="description"
       label={translations.description}
-      multiline
       withoutMargin
     />
     <div className={styles.lastRow}>
