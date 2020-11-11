@@ -16,6 +16,12 @@ export const MaterialUITheme = createMuiTheme({
         position: "absolute"
       }
     },
+    MuiFormHelperText: {
+      root: {
+        overflow: "hidden",
+        textOverflow: "ellipsis"
+      }
+    },
     MuiDrawer: {
       paper: {
         top: 78,

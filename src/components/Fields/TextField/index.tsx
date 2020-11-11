@@ -11,6 +11,7 @@ export const TextField: FunctionComponent<ITextFieldProps> = ({
   withoutMargin = false,
   mandatory = false,
   singleLine = false,
+  helperText = " ",
   validator,
   inputRef,
   autoFocus,
@@ -19,6 +20,7 @@ export const TextField: FunctionComponent<ITextFieldProps> = ({
   const fieldProps = {
     ...props,
     inputRef,
+    helperText,
     multiline: !singleLine,
     InputLabelProps: { required: mandatory },
     InputProps: { autoFocus },

@@ -12,6 +12,7 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({
 }) => (
   <TextField
     {...props}
+    singleLine
     name={name}
     label={label}
     type="password"

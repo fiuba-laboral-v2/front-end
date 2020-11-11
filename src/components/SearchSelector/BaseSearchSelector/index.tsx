@@ -10,7 +10,7 @@ export const BaseSearchSelector = <Option, Value>({
   getOptionValue,
   initialValue,
   errorMessage,
-  helperText,
+  helperText = " ",
   options,
   mandatory = false,
   autofocusInputRef,

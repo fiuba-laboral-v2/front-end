@@ -9,7 +9,7 @@ import { FormikValidator } from "$models/FormikValidator";
 export const NumberInput: FunctionComponent<INumberInputProps> = ({
   name,
   label,
-  helperText,
+  helperText = " ",
   className,
   validator,
   fast = true,
