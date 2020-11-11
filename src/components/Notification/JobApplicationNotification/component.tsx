@@ -5,6 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Card } from "$components/Card";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
+import { IsNewLabel } from "./IsNewLabel";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 import { Link } from "$components/Link";
 
@@ -23,7 +24,7 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   }
 }) => (
   <Card className={classNames(className, styles.card)}>
-    {isNew && <div className={styles.isNew}>Nueva</div>}
+    {isNew && <IsNewLabel />}
     <div className={styles.notification}>
       <StatusIcon
         className={styles.statusIcon}

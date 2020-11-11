@@ -4,17 +4,6 @@
   position: relative;
 }
 
-.isNew {
-  background-color: #0288d1;
-  border-bottom-left-radius: $borderRadius-s;
-  border-top-right-radius: $borderRadius-l;
-  color: $white;
-  left: calc(100% - #{4 * $spacing-m});
-  padding: $spacing-xs / 2 $spacing-s;
-  position: absolute;
-  top: 0;
-}
-
 .notification {
   display: flex;
   margin-top: $spacing-s;
