@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { TextInput, ITextInputProps } from "$components/TextInput";
+import { TextField } from "$components/Fields";
 import { validatePassword } from "validations-fiuba-laboral-v2";
+import { ITextFieldProps } from "../TextField";
 
 export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({
   name,
@@ -9,7 +10,7 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({
   autoComplete,
   ...props
 }) => (
-  <TextInput
+  <TextField
     {...props}
     name={name}
     label={label}
@@ -19,6 +20,6 @@ export const PasswordField: FunctionComponent<IPasswordFieldProps> = ({
   />
 );
 
-export interface IPasswordFieldProps extends ITextInputProps {
+export interface IPasswordFieldProps extends ITextFieldProps {
   validate: boolean;
 }

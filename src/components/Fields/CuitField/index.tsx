@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { TextInput, ITextInputProps } from "$components/TextInput";
+import { TextField } from "$components/Fields";
 import { validateCuit } from "validations-fiuba-laboral-v2";
+import { ITextFieldProps } from "../TextField";
 
-export const CuitField: FunctionComponent<ITextInputProps> = props => (
-  <TextInput {...props} validator={validateCuit} mandatory />
+export const CuitField: FunctionComponent<ITextFieldProps> = props => (
+  <TextField {...props} validator={validateCuit} mandatory />
 );

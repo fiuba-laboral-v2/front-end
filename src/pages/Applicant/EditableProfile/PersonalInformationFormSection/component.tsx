@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { EmailField, NameField } from "$components/Fields";
-import { TextInput } from "$components/TextInput";
+import { EmailField, NameField, TextField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
 
 import { IComponent } from "./interfaces";
@@ -29,6 +28,6 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
       />
     </div>
     <EmailField mandatory name="user.email" label={translations.email} />
-    <TextInput name="description" label={translations.description} multiline />
+    <TextField name="description" label={translations.description} multiline />
   </FormSection>
 );

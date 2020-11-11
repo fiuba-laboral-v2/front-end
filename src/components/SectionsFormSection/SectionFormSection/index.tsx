@@ -1,7 +1,7 @@
 import React, { FunctionComponent, RefObject, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { ITranslations } from "../component";
-import { TextInput } from "$components/TextInput";
+import { TextField } from "$components/Fields";
 
 export const SectionFormSection: FunctionComponent<ISectionFormSection> = ({
   name,
@@ -13,13 +13,13 @@ export const SectionFormSection: FunctionComponent<ISectionFormSection> = ({
 
   return (
     <div className={styles.section}>
-      <TextInput
+      <TextField
         mandatory
         name={`${name}.${index}.title`}
         label={translations.sectionTitle}
         inputRef={autofocusInputRef}
       />
-      <TextInput
+      <TextField
         mandatory
         name={`${name}.${index}.text`}
         label={translations.sectionContent}
