@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { TextInput, ITextInputProps } from "$components/TextInput";
+import { TextField } from "$components/Fields";
 import { validateEmail } from "validations-fiuba-laboral-v2";
+import { ITextFieldProps } from "../TextField";
 
 export const EmailField: FunctionComponent<IEmailFieldProps> = ({ mandatory, ...props }) => (
-  <TextInput
+  <TextField
     {...props}
     mandatory={mandatory}
     type="email"
@@ -12,6 +13,6 @@ export const EmailField: FunctionComponent<IEmailFieldProps> = ({ mandatory, ...
   />
 );
 
-interface IEmailFieldProps extends ITextInputProps {
+interface IEmailFieldProps extends ITextFieldProps {
   mandatory?: boolean;
 }

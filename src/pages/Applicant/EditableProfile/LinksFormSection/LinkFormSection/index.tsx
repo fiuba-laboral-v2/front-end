@@ -1,8 +1,8 @@
 import React, { FunctionComponent, RefObject, useEffect } from "react";
 import styles from "./styles.module.scss";
-import { Field } from "$components/Fields/Field";
 import { UrlField } from "$components/Fields/UrlField";
 import { ITranslations } from "../interfaces";
+import { TextField } from "$components/Fields";
 
 export const LinkFormSection: FunctionComponent<ILinkFormSectionProps> = ({
   index,
@@ -13,7 +13,7 @@ export const LinkFormSection: FunctionComponent<ILinkFormSectionProps> = ({
 
   return (
     <div className={styles.link}>
-      <Field
+      <TextField
         mandatory
         name={`links.${index}.name`}
         label={translations.linkTitle}

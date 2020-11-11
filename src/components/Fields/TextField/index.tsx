@@ -1,11 +1,11 @@
 import React, { FunctionComponent, RefObject } from "react";
 import { FastField, Field } from "formik";
-import { TextField } from "formik-material-ui";
+import { TextField as MaterialTextField } from "formik-material-ui";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { FormikValidator } from "$models/FormikValidator";
 
-export const TextInput: FunctionComponent<ITextInputProps> = ({
+export const TextField: FunctionComponent<ITextFieldProps> = ({
   className,
   fast = true,
   withoutMargin = false,
@@ -21,13 +21,13 @@ export const TextInput: FunctionComponent<ITextInputProps> = ({
     inputRef,
     InputProps: { autoFocus },
     className: classNames(styles.textInput, className, { [styles.withoutMargin]: withoutMargin }),
-    component: TextField,
+    component: MaterialTextField,
     validate: FormikValidator({ validator, mandatory })
   };
   return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
-export interface ITextInputProps {
+export interface ITextFieldProps {
   className?: string;
   autoComplete?: string;
   helperText?: string;
