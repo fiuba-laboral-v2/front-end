@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
-
-import { NameField, Field, CuitField } from "$components/Fields";
+import { NameField, CuitField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
-
 import { IComponentProps } from "./interfaces";
+import { TextInput } from "$components/TextInput";
 import styles from "./styles.module.scss";
 
 export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
@@ -18,8 +17,8 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       label={translations.companyName}
       withoutMargin
     />
-    <Field className={styles.slogan} name="slogan" label={translations.slogan} />
-    <Field
+    <TextInput className={styles.slogan} name="slogan" label={translations.slogan} />
+    <TextInput
       className={styles.description}
       name="description"
       label={translations.description}
@@ -27,7 +26,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       withoutMargin
     />
     <div className={styles.lastRow}>
-      <Field
+      <TextInput
         className={styles.businessName}
         name="businessName"
         label={translations.businessName}

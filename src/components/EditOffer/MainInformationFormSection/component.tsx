@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from "react";
-
 import { FormSection } from "$components/FormSection";
-import { Field, SalaryField } from "$components/Fields";
-
+import { SalaryField } from "$components/Fields";
 import { IComponentProps } from "./interfaces";
-import styles from "./styles.module.scss";
 import { PositiveNumberInput } from "../../NumberInput/PositiveNumberInput";
+import { TextInput } from "$components/TextInput";
+import styles from "./styles.module.scss";
 
 export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   className,
@@ -13,7 +12,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   autoFocus
 }) => (
   <FormSection className={className}>
-    <Field name="title" label={translations.offerTitle} autoFocus={autoFocus} mandatory />
+    <TextInput name="title" label={translations.offerTitle} autoFocus={autoFocus} mandatory />
     <div className={styles.secondRow}>
       <SalaryField
         className={styles.minimumSalary}
@@ -29,6 +28,6 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
       mandatory
       withoutMargin
     />
-    <Field name="description" label={translations.description} mandatory multiline />
+    <TextInput name="description" label={translations.description} mandatory multiline />
   </FormSection>
 );

@@ -1,4 +1,3 @@
-export { Field } from "./Field";
 export { DniField } from "./DniField";
 export { EmailField } from "./EmailField";
 export { NameField } from "./NameField";

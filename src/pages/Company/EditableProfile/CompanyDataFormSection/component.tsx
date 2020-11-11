@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
-
-import { NameField, Field } from "$components/Fields";
+import { NameField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
 import { CompanyLogoInput } from "$components/CompanyLogoInput";
-
 import { IComponentProps } from "./interfaces";
+import { TextInput } from "$components/TextInput";
 import styles from "./styles.module.scss";
 
 export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
@@ -20,7 +19,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       setLogo={logo => setFieldValue("logo", logo)}
     />
     <NameField mandatory name="companyName" label={translations.companyName} withoutMargin />
-    <Field name="slogan" label={translations.slogan} />
-    <Field name="description" label={translations.description} multiline />
+    <TextInput name="slogan" label={translations.slogan} />
+    <TextInput name="description" label={translations.description} multiline />
   </FormSection>
 );
