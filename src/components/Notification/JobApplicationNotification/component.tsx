@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Card } from "$components/Card";
@@ -16,11 +17,13 @@ export const JobApplicationNotification: FunctionComponent<IComponentProps> = ({
   title,
   hideApprovalStatus,
   notification: {
+    isNew,
     createdAt,
     jobApplication: { approvalStatus, offer }
   }
 }) => (
-  <Card className={className}>
+  <Card className={classNames(className, styles.card)}>
+    {isNew && <div className={styles.isNew}>Nueva</div>}
     <div className={styles.notification}>
       <StatusIcon
         className={styles.statusIcon}
