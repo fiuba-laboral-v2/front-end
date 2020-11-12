@@ -3,6 +3,7 @@
 .firstRow,
 .secondRow {
   display: flex;
+  margin-bottom: $spacing-m;
 }
 
 div.name,
@@ -10,13 +11,14 @@ div.password {
   margin: 0 $spacing-xxl 0 0;
 }
 
-.firstRow {
-  margin-bottom: $spacing-m;
-}
-
 @media (max-width: $laptopWidth) {
   .firstRow,
   .secondRow {
     flex-direction: column;
+  }
+
+  div.name,
+  div.password {
+    margin-bottom: $spacing-m;
   }
 }

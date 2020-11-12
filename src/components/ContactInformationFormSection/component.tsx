@@ -10,7 +10,7 @@ export const ContactInformationFormSection: FunctionComponent<IComponentProps> =
   translations
 }) => (
   <FormSection className={className} title={translations.title} subtitle={translations.subtitle}>
-    <EmailField name="email" label={translations.email} withoutMargin />
+    <EmailField name="email" label={translations.email} />
     <UrlField name="website" label={translations.website} withoutMargin />
   </FormSection>
 );
