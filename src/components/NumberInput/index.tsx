@@ -12,6 +12,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
   helperText = " ",
   className,
   validator,
+  singleLine = false,
   fast = true,
   withoutMargin = false,
   mandatory = false
@@ -30,6 +31,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
           className={classNames(styles.textInput, className, {
             [styles.withoutMargin]: withoutMargin
           })}
+          multiline={!singleLine}
           defaultValue={isNaN(meta.value) || isNil(meta.value) ? "" : meta.value.toString(10)}
           onBlur={() => form.setFieldTouched(name, true)}
           onFocus={event => setFormValue(event.target.value)}
@@ -49,6 +51,7 @@ export interface IBaseNumberInputProps {
   label: string;
   helperText?: string;
   className?: string;
+  singleLine?: boolean;
   fast?: boolean;
   mandatory?: boolean;
   withoutMargin?: boolean;
