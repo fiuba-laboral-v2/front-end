@@ -26,7 +26,7 @@ export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
             <Select
               className={styles.select}
               id={name}
-              onClose={() => form.setFieldTouched(name, true)}
+              onBlur={() => form.setFieldTouched(name, true)}
               onChange={event => form.setFieldValue(name, event.target.value)}
               native
             >
@@ -37,7 +37,7 @@ export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
                 </option>
               ))}
             </Select>
-            {error && <FormHelperText>{error}</FormHelperText>}
+            <FormHelperText>{error}</FormHelperText>
           </FormControl>
         </>
       );

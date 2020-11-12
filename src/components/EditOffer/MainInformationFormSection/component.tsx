@@ -21,12 +21,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
       />
       <SalaryField name="maximumSalary" label={translations.maximumSalary} />
     </div>
-    <PositiveNumberInput
-      name="hoursPerDay"
-      label={translations.hoursPerDay}
-      mandatory
-      withoutMargin
-    />
-    <TextField name="description" label={translations.description} mandatory />
+    <PositiveNumberInput name="hoursPerDay" label={translations.hoursPerDay} mandatory />
+    <TextField name="description" label={translations.description} mandatory withoutMargin />
   </FormSection>
 );
