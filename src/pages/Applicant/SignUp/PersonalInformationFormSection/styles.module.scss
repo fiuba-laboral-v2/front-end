@@ -31,4 +31,9 @@ div.padron {
   .secondRow {
     flex-direction: column;
   }
+
+  div.surname,
+  div.padron {
+    margin-top: $spacing-m;
+  }
 }
