@@ -2,6 +2,7 @@
 
 .notification {
   display: flex;
+  margin-top: $spacing-s;
 }
 
 .statusIcon {
@@ -17,7 +18,7 @@
   font-size: $fontSize-l;
   font-weight: bold;
   margin-bottom: $spacing-s;
-  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .body {
@@ -32,7 +33,7 @@
 
 .name {
   font-size: $fontSize-m;
-  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 @media (max-width: $laptopWidth) {

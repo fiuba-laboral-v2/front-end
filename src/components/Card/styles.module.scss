@@ -6,12 +6,12 @@
   @include card;
 
   box-sizing: border-box;
-  padding: 15px;
+  padding: $spacing-m;
+  position: relative;
 }
 
 .largePadding {
   padding: $spacing-xxl;
-  position: relative;
 }
 
 .selected {

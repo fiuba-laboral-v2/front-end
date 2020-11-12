@@ -1,0 +1,12 @@
+@import "$styles/_variables";
+
+.isNew {
+  background-color: #0288d1;
+  border-bottom-left-radius: $borderRadius-s;
+  border-top-right-radius: $borderRadius-l;
+  color: $white;
+  padding: $spacing-xs / 2 $spacing-s;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
