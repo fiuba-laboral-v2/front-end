@@ -38,7 +38,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
           onChange={event => setFormValue(event.target.value)}
           disabled={form.isSubmitting}
           error={meta.touched && !!meta.error}
-          helperText={meta.touched ? meta.error : helperText}
+          helperText={meta.touched && meta.error ? meta.error : helperText}
         />
       );
     }
