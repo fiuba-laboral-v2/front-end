@@ -6,12 +6,14 @@ import { FormikValidator } from "$models/FormikValidator";
 export const SearchSelector = <Option, Value>({
   name,
   getOptionValue,
+  helperText = " ",
   ...props
 }: ISelectorProps<Option, Value>) => (
   <FastField name={name} validate={FormikValidator({ mandatory: props.mandatory })}>
     {({ meta, form }: FieldProps<Value>) => (
       <BaseSearchSelector
         {...props}
+        helperText={helperText}
         disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
         onChange={(_, option) =>
