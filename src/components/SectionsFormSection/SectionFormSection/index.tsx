@@ -19,7 +19,12 @@ export const SectionFormSection: FunctionComponent<ISectionFormSection> = ({
         label={translations.sectionTitle}
         inputRef={autofocusInputRef}
       />
-      <TextField mandatory name={`${name}.${index}.text`} label={translations.sectionContent} />
+      <TextField
+        mandatory
+        withoutMargin
+        name={`${name}.${index}.text`}
+        label={translations.sectionContent}
+      />
     </div>
   );
 };

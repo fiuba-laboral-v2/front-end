@@ -28,6 +28,6 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
       />
     </div>
     <EmailField mandatory name="user.email" label={translations.email} />
-    <TextField name="description" label={translations.description} />
+    <TextField withoutMargin name="description" label={translations.description} />
   </FormSection>
 );
