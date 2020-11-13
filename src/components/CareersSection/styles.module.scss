@@ -1,4 +1,5 @@
 @import "$styles/_variables";
+@import "$styles/mixins/_customMedia";
 
 .items {
   display: flex;
@@ -10,8 +11,8 @@
   }
 }
 
-@media (max-width: $laptopWidth) {
-  .items {
+@include customMedia {
+  &.items {
     column-count: 1;
     margin-top: 20px;
     max-width: 430px;
