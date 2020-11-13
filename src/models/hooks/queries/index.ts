@@ -17,3 +17,5 @@ export * from "./useApprovedOffers";
 export * from "./usePaginatedQuery";
 export * from "./useJobApplications";
 export * from "./useNotifications";
+export * from "./useGetExtensionOfferDuration";
+export * from "./useGetGraduadosOfferDuration";
