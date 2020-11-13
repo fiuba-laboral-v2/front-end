@@ -7,6 +7,7 @@ import { TagSet } from "$components/TagSet";
 import { IMultipleSelectorComponentProps } from "./interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const MultipleSearchSelector = <Option, Value>({
   className,
@@ -48,7 +49,7 @@ export const MultipleSearchSelector = <Option, Value>({
         };
 
         let helperText;
-        if (meta.value.length === 0) helperText = " ";
+        if (meta.value.length === 0) helperText = EMPTY_SPACE;
         if (!allowOnlySelectableOptions) helperText = originalHelperText;
 
         return (

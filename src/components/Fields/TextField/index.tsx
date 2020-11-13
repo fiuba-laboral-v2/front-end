@@ -4,6 +4,7 @@ import { TextField as MaterialTextField } from "formik-material-ui";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { FormikValidator } from "$models/FormikValidator";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const TextField: FunctionComponent<ITextFieldProps> = ({
   className,
@@ -11,7 +12,7 @@ export const TextField: FunctionComponent<ITextFieldProps> = ({
   withoutMargin = false,
   mandatory = false,
   singleLine = false,
-  helperText = " ",
+  helperText = EMPTY_SPACE,
   validator,
   inputRef,
   autoFocus,

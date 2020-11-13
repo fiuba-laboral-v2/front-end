@@ -5,11 +5,12 @@ import classNames from "classnames";
 import { TextField } from "@material-ui/core";
 import { isNil } from "lodash";
 import { FormikValidator } from "$models/FormikValidator";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const NumberInput: FunctionComponent<INumberInputProps> = ({
   name,
   label,
-  helperText = " ",
+  helperText = EMPTY_SPACE,
   className,
   validator,
   singleLine = false,
