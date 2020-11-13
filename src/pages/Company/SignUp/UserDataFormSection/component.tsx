@@ -18,7 +18,6 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         mandatory
         name="user.name"
         label={translations.name}
-        withoutMargin
       />
       <NameField
         className={styles.surname}

@@ -21,9 +21,9 @@ export const SectionFormSection: FunctionComponent<ISectionFormSection> = ({
       />
       <TextField
         mandatory
+        withoutMargin
         name={`${name}.${index}.text`}
         label={translations.sectionContent}
-        multiline
       />
     </div>
   );

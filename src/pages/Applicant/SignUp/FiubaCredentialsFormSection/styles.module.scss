@@ -12,4 +12,8 @@ div.dniField {
   .fields {
     flex-direction: column;
   }
+
+  div.dniField {
+    margin-bottom: $spacing-m;
+  }
 }

@@ -14,23 +14,15 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       mandatory
       name="companyName"
       label={translations.companyName}
-      withoutMargin
     />
     <TextField className={styles.slogan} name="slogan" label={translations.slogan} />
-    <TextField
-      className={styles.description}
-      name="description"
-      label={translations.description}
-      multiline
-      withoutMargin
-    />
+    <TextField className={styles.description} name="description" label={translations.description} />
     <div className={styles.lastRow}>
       <TextField
         className={styles.businessName}
         name="businessName"
         label={translations.businessName}
         mandatory
-        withoutMargin
       />
       <CuitField
         className={styles.cuit}

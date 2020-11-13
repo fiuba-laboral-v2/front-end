@@ -5,13 +5,15 @@ import classNames from "classnames";
 import { TextField } from "@material-ui/core";
 import { isNil } from "lodash";
 import { FormikValidator } from "$models/FormikValidator";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const NumberInput: FunctionComponent<INumberInputProps> = ({
   name,
   label,
-  helperText,
+  helperText = EMPTY_SPACE,
   className,
   validator,
+  singleLine = false,
   fast = true,
   withoutMargin = false,
   mandatory = false
@@ -30,13 +32,14 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
           className={classNames(styles.textInput, className, {
             [styles.withoutMargin]: withoutMargin
           })}
+          multiline={!singleLine}
           defaultValue={isNaN(meta.value) || isNil(meta.value) ? "" : meta.value.toString(10)}
           onBlur={() => form.setFieldTouched(name, true)}
           onFocus={event => setFormValue(event.target.value)}
           onChange={event => setFormValue(event.target.value)}
           disabled={form.isSubmitting}
           error={meta.touched && !!meta.error}
-          helperText={meta.touched ? meta.error : helperText}
+          helperText={meta.touched && meta.error ? meta.error : helperText}
         />
       );
     }
@@ -49,6 +52,7 @@ export interface IBaseNumberInputProps {
   label: string;
   helperText?: string;
   className?: string;
+  singleLine?: boolean;
   fast?: boolean;
   mandatory?: boolean;
   withoutMargin?: boolean;

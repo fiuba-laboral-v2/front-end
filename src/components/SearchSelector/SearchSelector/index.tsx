@@ -2,16 +2,19 @@ import { FastField, FieldProps } from "formik";
 import React from "react";
 import { BaseSearchSelector, IBaseSelectorProps } from "../BaseSearchSelector";
 import { FormikValidator } from "$models/FormikValidator";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const SearchSelector = <Option, Value>({
   name,
   getOptionValue,
+  helperText = EMPTY_SPACE,
   ...props
 }: ISelectorProps<Option, Value>) => (
   <FastField name={name} validate={FormikValidator({ mandatory: props.mandatory })}>
     {({ meta, form }: FieldProps<Value>) => (
       <BaseSearchSelector
         {...props}
+        helperText={helperText}
         disabled={form.isSubmitting}
         onBlur={() => form.setFieldTouched(name, true)}
         onChange={(_, option) =>

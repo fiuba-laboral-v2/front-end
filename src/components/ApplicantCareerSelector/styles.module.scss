@@ -28,6 +28,7 @@ div.career {
 .secondRow {
   display: flex;
   flex-direction: row;
+  margin-top: $spacing-m;
 }
 
 div.currentCareerYear {
@@ -46,6 +47,10 @@ div.currentCareerYear {
   .firstRow,
   .secondRow {
     flex-direction: column;
+  }
+
+  .isGraduate {
+    margin-top: $spacing-m;
   }
 
   div.career {

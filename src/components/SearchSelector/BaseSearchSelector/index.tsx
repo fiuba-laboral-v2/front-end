@@ -29,6 +29,7 @@ export const BaseSearchSelector = <Option, Value>({
       renderInput={inputProps => (
         <TextField
           {...inputProps}
+          multiline
           inputRef={autofocusInputRef}
           InputLabelProps={{ required: mandatory }}
           label={label}

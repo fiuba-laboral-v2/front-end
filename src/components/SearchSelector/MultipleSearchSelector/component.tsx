@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Field, FieldProps } from "formik";
 import { FormikValidator } from "$models/FormikValidator";
 import { differenceBy, unionBy } from "lodash";
-import { TextFormatter } from "$models/TextFormatter";
 import { BaseSearchSelector } from "../BaseSearchSelector";
 import { TagSet } from "$components/TagSet";
 import { IMultipleSelectorComponentProps } from "./interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
+import { EMPTY_SPACE } from "$models/emptySpace";
 
 export const MultipleSearchSelector = <Option, Value>({
   className,
@@ -21,6 +21,7 @@ export const MultipleSearchSelector = <Option, Value>({
   getOptionLabel,
   allowOnlySelectableOptions,
   mandatory = false,
+  helperText: originalHelperText,
   ...props
 }: IMultipleSelectorComponentProps<Option, Value>) => {
   const [inputValue, setInputValue] = useState("");
@@ -47,10 +48,15 @@ export const MultipleSearchSelector = <Option, Value>({
           setInputValue("");
         };
 
+        let helperText;
+        if (meta.value.length === 0) helperText = EMPTY_SPACE;
+        if (!allowOnlySelectableOptions) helperText = originalHelperText;
+
         return (
           <div className={classNames(className, styles.container)}>
             <BaseSearchSelector
               {...props}
+              helperText={helperText}
               mandatory={mandatory}
               freeSolo
               disableClearable
@@ -90,9 +96,7 @@ export const MultipleSearchSelector = <Option, Value>({
               }}
             />
             <TagSet
-              tags={
-                new Set(meta.value.map(value => TextFormatter.capitalize(valueToString(value))))
-              }
+              tags={new Set(meta.value.map(value => valueToString(value)))}
               onRemove={stringValue =>
                 form.setFieldValue(
                   name,
