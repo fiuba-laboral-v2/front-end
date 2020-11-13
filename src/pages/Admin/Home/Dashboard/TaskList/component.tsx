@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
-
-import styles from "./styles.module.scss";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ListBody } from "./ListBody";
 import { ITaskListProps } from "./interfaces";
 import { ListInfo } from "./ListInfo";
-import { LoadingSpinner } from "$components/LoadingSpinner";
+import styles from "./styles.module.scss";
 
 export const TaskList: FunctionComponent<ITaskListProps> = ({
   adminTasks,

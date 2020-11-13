@@ -24,6 +24,17 @@
   width: 100%;
 }
 
+.taskDetailContainer {
+  background-color: $dashboardBackgroundWhite;
+}
+
+.taskDetail {
+  align-self: center;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.taskDetailContainer,
 .taskDetail {
   display: flex;
   flex-direction: column;
