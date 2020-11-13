@@ -18,14 +18,9 @@ const configurationForAllEnvironments = {
     sub_domain: "/",
     application_base_url: "http://localhost:5006/graphql",
     show_seeded_users: false
-  },
-  test_travis: {
-    sub_domain: "/",
-    application_base_url: "http://localhost:5006/graphql",
-    show_seeded_users: false
   }
 };
 
-type Env = "production" | "staging" | "development" | "test" | "test_travis";
+type Env = "production" | "staging" | "development" | "test";
 const env = (process.env.REACT_APP_STAGE || process.env.NODE_ENV) as Env;
 export const Configuration = configurationForAllEnvironments[env];
