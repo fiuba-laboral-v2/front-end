@@ -91,7 +91,11 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
       </>
     );
   }
-  return <div className={styles.taskDetail}>{children}</div>;
+  return (
+    <div className={styles.taskDetailContainer}>
+      <div className={styles.taskDetail}>{children}</div>
+    </div>
+  );
 };
 
 interface ITaskDetailProps {

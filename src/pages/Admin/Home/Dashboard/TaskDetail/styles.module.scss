@@ -9,7 +9,7 @@
 .contentContainer {
   display: flex;
   flex-shrink: 1;
-  height: 100%;
+  max-height: 100%;
   overflow: hidden;
 }
 
@@ -24,6 +24,17 @@
   width: 100%;
 }
 
+.taskDetailContainer {
+  background-color: $dashboardBackgroundWhite;
+}
+
+.taskDetail {
+  align-self: center;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.taskDetailContainer,
 .taskDetail {
   display: flex;
   flex-direction: column;

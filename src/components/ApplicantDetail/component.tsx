@@ -47,7 +47,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
         title={translations.capabilities}
         capabilities={capabilities}
       />
-      <CareersSection className={styles.careers} careers={careers} />
+      <CareersSection className={styles.careers} careers={careers} mobileLayout={mobileLayout} />
     </div>
     <Description>{description}</Description>
     {knowledgeSections.map(section => (

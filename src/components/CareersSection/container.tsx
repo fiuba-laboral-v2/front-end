@@ -3,17 +3,8 @@ import { ICareersContainerProps, ICareerTranslations } from "./interfaces";
 import { CareersSection } from "./component";
 import { useTranslations } from "$hooks";
 
-export const CareersSectionContainer: FunctionComponent<ICareersContainerProps> = ({
-  careers,
-  className
-}) => {
+export const CareersSectionContainer: FunctionComponent<ICareersContainerProps> = props => {
   const translations = useTranslations<ICareerTranslations>("careersSection");
 
-  return (
-    <>
-      {translations && (
-        <CareersSection className={className} careers={careers} translations={translations} />
-      )}
-    </>
-  );
+  return <>{translations && <CareersSection translations={translations} {...props} />}</>;
 };
