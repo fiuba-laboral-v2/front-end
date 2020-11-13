@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-
 import { ImageUpload } from "$components/ImageUpload";
 import { CompanyLogo } from "$components/CompanyLogo";
 import CloudUploadOutlinedIcon from "@material-ui/icons/CloudUploadOutlined";
-
 import styles from "./styles.module.scss";
 
 export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
@@ -18,13 +16,8 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
         className={classNames(styles.inputContainer, className)}
         onClick={imageList[0]?.onUpdate || onImageUpload}
       >
-        <div className={classNames(styles.overlay)} />
-        <CloudUploadOutlinedIcon
-          className={classNames(styles.uploadIcon, {
-            [styles.alwaysVisibleUploadIcon]: !initialValue
-          })}
-          fontSize="large"
-        />
+        <div className={styles.overlay} />
+        <CloudUploadOutlinedIcon className={styles.uploadIcon} fontSize="large" />
         <CompanyLogo
           className={styles.logo}
           logo={imageList[0]?.dataURL || initialValue}
