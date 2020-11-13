@@ -1,0 +1,27 @@
+name: front-end-build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.15.0]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Run linter and tests
+        run: yarn lint && yarn test
+      - name: Trigger deploy workflow
+        if: success() && contains('refs/heads/staging refs/heads/production', github.ref)
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
+          repository: fiuba-laboral-v2/deploy
+          event-type: deploy
+          client-payload: '{"stage": "${{ github.ref }}", "project": "frontend"}'
