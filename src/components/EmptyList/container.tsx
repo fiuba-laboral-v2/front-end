@@ -1,21 +1,12 @@
 import React, { FunctionComponent } from "react";
-
 import { useTranslations } from "$hooks";
-
 import { IEmptyListContainerProps, ITranslations } from "./interfaces";
 import { EmptyList } from "./component";
 
 export const EmptyListContainer: FunctionComponent<IEmptyListContainerProps> = ({
   emptyTranslationSource,
-  buttonKind,
-  onClick
+  ...props
 }) => {
   const translations = useTranslations<ITranslations>(emptyTranslationSource);
-  return (
-    <>
-      {translations && (
-        <EmptyList onClick={onClick} buttonKind={buttonKind} translations={translations} />
-      )}
-    </>
-  );
+  return <>{translations && <EmptyList translations={translations} {...props} />}</>;
 };

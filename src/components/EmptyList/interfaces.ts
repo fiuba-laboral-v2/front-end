@@ -3,6 +3,7 @@ import { IButtonProps } from "../Button";
 export interface IEmptyListCommonProps {
   onClick: () => void;
   buttonKind: IButtonProps["kind"];
+  className?: string;
 }
 
 export interface IEmptyListContainerProps extends IEmptyListCommonProps {
