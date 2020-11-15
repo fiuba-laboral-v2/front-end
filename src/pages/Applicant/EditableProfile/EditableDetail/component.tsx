@@ -31,7 +31,12 @@ export const EditableDetail: FunctionComponent<IApplicantDetailEditableProps> = 
             <LinksFormSection links={values.links} className={styles.formSection} />
             <CareersSelectorFormSection
               className={styles.formSection}
-              defaultValue={{ careerCode: "", isGraduate: true }}
+              defaultValue={{
+                careerCode: "",
+                isGraduate: true,
+                approvedSubjectCount: NaN,
+                currentCareerYear: NaN
+              }}
               careers={values.careers}
             />
             <WorkExperienceFormSection

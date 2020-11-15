@@ -9,15 +9,10 @@ import styles from "./styles.module.scss";
 
 export const RecipientsFormSection: FunctionComponent<IComponentProps> = ({
   className,
-  translations,
-  targetApplicantType
+  translations
 }) => (
   <FormSection className={className} title={translations.title}>
     <CareerSelector mandatory name="careers" className={styles.careers} />
-    <TargetApplicantTypeSelector
-      mandatory
-      value={targetApplicantType.value}
-      error={targetApplicantType.error}
-    />
+    <TargetApplicantTypeSelector mandatory />
   </FormSection>
 );

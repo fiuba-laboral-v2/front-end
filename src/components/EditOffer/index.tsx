@@ -41,7 +41,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
         }
       }}
     >
-      {({ values, errors, isSubmitting, submitForm, touched }) => (
+      {({ values, errors, isSubmitting, submitForm }) => (
         <>
           <FormikForm className={styles.formContainer}>
             <MainInformationFormSection className={styles.formSection} autoFocus={autoFocus} />
@@ -50,13 +50,7 @@ export const EditOffer: FunctionComponent<ICreateOfferProps> = ({
               sections={values.sections}
               name="sections"
             />
-            <RecipientsFormSection
-              className={styles.formSection}
-              targetApplicantType={{
-                value: values.targetApplicantType,
-                error: touched.targetApplicantType ? undefined : errors.targetApplicantType
-              }}
-            />
+            <RecipientsFormSection className={styles.formSection} />
           </FormikForm>
           {formFooter({ isSubmitting, submitForm, errors })}
         </>

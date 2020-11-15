@@ -4,6 +4,7 @@ import { PositiveNumberField } from "$components/Fields";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
+import { SelectField } from "../Fields/SelectField";
 
 export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
   index,
@@ -36,13 +37,19 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
       </div>
       {!value.isGraduate && (
         <div className={styles.secondRow}>
-          <PositiveNumberField
-            className={styles.currentCareerYear}
-            name={`careers.${index}.currentCareerYear`}
-            label={translations.currentCareerYear}
-            helperText={translations.withoutCBC}
+          <SelectField
             mandatory
-            withoutMargin
+            title={translations.currentCareerYear}
+            helperText={translations.withoutCBC}
+            className={styles.currentCareerYear}
+            fieldName={`careers.${index}.currentCareerYear`}
+            options={[
+              { value: 1, label: translations.firstYear },
+              { value: 2, label: translations.secondYear },
+              { value: 3, label: translations.thirdYear },
+              { value: 4, label: translations.fourthYear },
+              { value: 5, label: translations.fifthYear }
+            ]}
           />
           <PositiveNumberField
             className={styles.approvedSubjectCount}

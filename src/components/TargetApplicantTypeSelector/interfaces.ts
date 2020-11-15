@@ -1,10 +1,5 @@
-import { ApplicantType } from "$interfaces/Applicant";
-
 export interface IContainerProps {
-  className?: string;
-  value: ApplicantType | "";
-  error?: string;
-  mandatory?: boolean;
+  mandatory: boolean;
 }
 
 export interface ITranslations {

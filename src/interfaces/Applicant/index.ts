@@ -17,11 +17,18 @@ export const targetApplicantTypeEnumValues = [
   ApplicantType.both
 ];
 
-export interface IApplicantCareer {
-  career: ICareer;
+interface IBaseApplicantCareer {
   approvedSubjectCount?: number;
   currentCareerYear?: number;
   isGraduate: boolean;
+}
+
+export interface IApplicantCareer extends IBaseApplicantCareer {
+  career: ICareer;
+}
+
+export interface IApplicantCareerInput extends IBaseApplicantCareer {
+  careerCode: string;
 }
 
 export interface ILink {
@@ -43,13 +50,6 @@ export interface IApplicant {
   experienceSections: ISection[];
   capabilities: ICapability[];
   careers: IApplicantCareer[];
-}
-
-export interface IApplicantCareerInput {
-  careerCode: string;
-  approvedSubjectCount?: number;
-  currentCareerYear?: number;
-  isGraduate: boolean;
 }
 
 export interface IMyOffer extends IOffer {
