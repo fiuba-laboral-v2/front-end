@@ -32,7 +32,11 @@ export const SelectField: FunctionComponent<ISelectFieldProps> = ({
             >
               {isEmpty(meta.value) && <option value="" />}
               {options.map(option => (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  selected={meta.value === option.value}
+                >
                   {option.label}
                 </option>
               ))}
