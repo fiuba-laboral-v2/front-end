@@ -4,19 +4,17 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { Secretary } from "$interfaces/Secretary";
 
-export const useGetExtensionOfferDuration = () => {
+export const useSecretaryOfferDuration = (secretary: Secretary) => {
   const history = useHistory();
-  const query = GET_SECRETARY_OFFER_DURATION;
-  const options = {
-    variables: { secretary: Secretary.extension },
-    errorHandlers: {
-      defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
-    }
-  };
 
   const response = useQuery<{}, { getSecretaryOfferDuration: { offerDurationInDays: number } }>(
-    query,
-    options
+    GET_SECRETARY_OFFER_DURATION,
+    {
+      variables: { secretary },
+      errorHandlers: {
+        defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
+      }
+    }
   );
 
   return response.data?.getSecretaryOfferDuration.offerDurationInDays;
