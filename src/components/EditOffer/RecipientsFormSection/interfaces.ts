@@ -1,5 +1,3 @@
-import { ApplicantType } from "$interfaces/Applicant";
-
 export interface ITranslations {
   title: string;
   careers: string;
@@ -8,10 +6,6 @@ export interface ITranslations {
 
 export interface IContainerProps {
   className?: string;
-  targetApplicantType: {
-    value: ApplicantType | "";
-    error?: string;
-  };
 }
 
 export interface IComponentProps extends IContainerProps {

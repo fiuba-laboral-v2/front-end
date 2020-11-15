@@ -20,4 +20,9 @@ export interface ITranslations {
   approvedSubjectCount: string;
   currentCareerYear: string;
   withoutCBC: string;
+  firstYear: string;
+  secondYear: string;
+  thirdYear: string;
+  fourthYear: string;
+  fifthYear: string;
 }
