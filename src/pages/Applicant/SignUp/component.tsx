@@ -18,7 +18,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   const careerInitialValue = {
     careerCode: "",
     isGraduate: true,
-    currentCareerYear: "",
+    currentCareerYear: NaN,
     approvedSubjectCount: NaN
   };
   const initialValues: IApplicantSignUpFormValues = {

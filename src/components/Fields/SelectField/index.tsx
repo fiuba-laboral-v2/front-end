@@ -1,22 +1,29 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { FormControl, FormHelperText, InputLabel, Select } from "@material-ui/core";
 import { FastField, FastFieldProps } from "formik";
 import { FormikValidator } from "$models/FormikValidator";
 import { isEmpty } from "$models/isEmpty";
+import { isNaN } from "lodash";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const SelectField: FunctionComponent<ISelectFieldProps> = ({
+const valueToString = (value: IBaseValue) => (isNaN(value) ? "" : value.toString());
+
+export const SelectField = <Value extends IBaseValue>({
   mandatory,
   fieldName,
   options,
   title,
   className,
   helperText
-}) => (
-  <FastField name={fieldName} validate={FormikValidator({ mandatory })}>
-    {({ meta, form }: FastFieldProps) => {
+}: ISelectFieldProps<Value>) => (
+  <FastField
+    name={fieldName}
+    validate={(value: number) => FormikValidator({ mandatory })(valueToString(value))}
+  >
+    {({ meta, form }: FastFieldProps<Value>) => {
       const error = meta.touched && meta.error;
+      const stringValue = valueToString(meta.value);
       return (
         <>
           <FormControl className={classNames(styles.container, className)} error={!!error}>
@@ -28,18 +35,18 @@ export const SelectField: FunctionComponent<ISelectFieldProps> = ({
               id={fieldName}
               onBlur={() => form.setFieldTouched(fieldName, true)}
               onChange={event => form.setFieldValue(fieldName, event.target.value)}
+              value={stringValue}
               native
             >
-              {isEmpty(meta.value) && <option value="" />}
-              {options.map(option => (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  selected={meta.value === option.value}
-                >
-                  {option.label}
-                </option>
-              ))}
+              {isEmpty(stringValue) && <option value="" />}
+              {options.map(option => {
+                const stringOptionValue = option.value.toString();
+                return (
+                  <option key={stringOptionValue} value={stringOptionValue}>
+                    {option.label}
+                  </option>
+                );
+              })}
             </Select>
             <FormHelperText>{error || helperText}</FormHelperText>
           </FormControl>
@@ -49,16 +56,20 @@ export const SelectField: FunctionComponent<ISelectFieldProps> = ({
   </FastField>
 );
 
-interface ISelectFieldProps {
+interface ISelectFieldProps<Value> {
   className?: string;
   helperText?: string;
   mandatory: boolean;
   fieldName: string;
-  options: ISelectFieldOption[];
+  options: Array<ISelectFieldOption<Value>>;
   title: string;
 }
 
-interface ISelectFieldOption {
+interface ISelectFieldOption<Value> {
   label: string;
-  value: string;
+  value: Value;
+}
+
+interface IBaseValue {
+  toString: () => string;
 }

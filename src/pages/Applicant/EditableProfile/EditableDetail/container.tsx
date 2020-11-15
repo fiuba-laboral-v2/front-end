@@ -79,7 +79,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
           careers: applicant.careers.map(applicantCareer => ({
             careerCode: applicantCareer.career.code,
             approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
-            currentCareerYear: applicantCareer.currentCareerYear || "",
+            currentCareerYear: applicantCareer.currentCareerYear || NaN,
             isGraduate: applicantCareer.isGraduate
           })),
           capabilities: applicant.capabilities,

@@ -23,7 +23,7 @@ describe("updateCurrentApplicantArguments", () => {
     expect(variables).toEqual(inputVariables);
   });
 
-  it("sets to undefined approvedSubjectCount and currentCareerYear if isGraduate", async () => {
+  it("sets to NaN approvedSubjectCount and currentCareerYear if isGraduate", async () => {
     const inputVariables = {
       user: {
         name: "name",
@@ -51,8 +51,8 @@ describe("updateCurrentApplicantArguments", () => {
         {
           isGraduate: true,
           careerCode: "10",
-          approvedSubjectCount: undefined,
-          currentCareerYear: undefined
+          approvedSubjectCount: NaN,
+          currentCareerYear: NaN
         }
       ]
     });

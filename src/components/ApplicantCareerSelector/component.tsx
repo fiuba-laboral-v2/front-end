@@ -44,11 +44,11 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
             className={styles.currentCareerYear}
             fieldName={`careers.${index}.currentCareerYear`}
             options={[
-              { value: "1", label: translations.firstYear },
-              { value: "2", label: translations.secondYear },
-              { value: "3", label: translations.thirdYear },
-              { value: "4", label: translations.fourthYear },
-              { value: "5", label: translations.fifthYear }
+              { value: 1, label: translations.firstYear },
+              { value: 2, label: translations.secondYear },
+              { value: 3, label: translations.thirdYear },
+              { value: 4, label: translations.fourthYear },
+              { value: 5, label: translations.fifthYear }
             ]}
           />
           <PositiveNumberInput
