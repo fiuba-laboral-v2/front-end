@@ -1,7 +1,7 @@
 import { applicantCareersInputArguments } from "$models/MutationArguments";
 
 describe("applicantCareersInputArguments", () => {
-  it("sets to NaN approvedSubjectCount and currentCareerYear if isGraduate", async () => {
+  it("sets to undefined approvedSubjectCount and currentCareerYear if isGraduate", async () => {
     const inputVariables = [
       {
         isGraduate: true,
@@ -15,8 +15,8 @@ describe("applicantCareersInputArguments", () => {
       {
         isGraduate: true,
         careerCode: "10",
-        approvedSubjectCount: NaN,
-        currentCareerYear: NaN
+        approvedSubjectCount: undefined,
+        currentCareerYear: undefined
       }
     ]);
   });

@@ -18,8 +18,8 @@ export const targetApplicantTypeEnumValues = [
 ];
 
 interface IBaseApplicantCareer {
-  approvedSubjectCount: number;
-  currentCareerYear: number;
+  approvedSubjectCount?: number;
+  currentCareerYear?: number;
   isGraduate: boolean;
 }
 
