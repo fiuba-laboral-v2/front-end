@@ -20,7 +20,7 @@ export const targetApplicantTypeEnumValues = [
 export interface IApplicantCareer {
   career: ICareer;
   approvedSubjectCount?: number;
-  currentCareerYear?: number;
+  currentCareerYear?: string;
   isGraduate: boolean;
 }
 
@@ -48,7 +48,7 @@ export interface IApplicant {
 export interface IApplicantCareerInput {
   careerCode: string;
   approvedSubjectCount?: number;
-  currentCareerYear?: number;
+  currentCareerYear?: string | number;
   isGraduate: boolean;
 }
 

@@ -15,7 +15,12 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   onSubmit,
   validateForm
 }) => {
-  const careerInitialValue = { careerCode: "", isGraduate: true };
+  const careerInitialValue = {
+    careerCode: "",
+    isGraduate: true,
+    currentCareerYear: "",
+    approvedSubjectCount: NaN
+  };
   const initialValues: IApplicantSignUpFormValues = {
     user: {
       email: "",
