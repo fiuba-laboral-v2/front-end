@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { SearchSelector } from "$components/SearchSelector";
-import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
+import { PositiveNumberField } from "$components/Fields";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -51,7 +51,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
               { value: 5, label: translations.fifthYear }
             ]}
           />
-          <PositiveNumberInput
+          <PositiveNumberField
             className={styles.approvedSubjectCount}
             name={`careers.${index}.approvedSubjectCount`}
             label={translations.approvedSubjectCount}
