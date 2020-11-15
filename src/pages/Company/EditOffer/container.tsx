@@ -51,6 +51,7 @@ export const EditOfferContainer: FunctionComponent = () => {
       <EditOffer
         title={translations.edit}
         acceptanceCriteria={acceptanceCriteria.text}
+        infoMessageTranslationGroup="offerEditionInfoMessage"
         initialValues={{ _form: "", ...getOffer.data.getOfferByUuid }}
         onSubmit={onSubmit}
         formFooter={({ isSubmitting, submitForm, errors }) => (
