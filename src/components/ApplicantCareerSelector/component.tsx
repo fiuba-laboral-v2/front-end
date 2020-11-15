@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { SearchSelector } from "$components/SearchSelector";
-import { PositiveNumberInput } from "$components/NumberInput/PositiveNumberInput";
+import { PositiveNumberField } from "$components/Fields";
 import { CheckboxInput } from "$components/CheckboxInput";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -36,7 +36,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
       </div>
       {!value.isGraduate && (
         <div className={styles.secondRow}>
-          <PositiveNumberInput
+          <PositiveNumberField
             className={styles.currentCareerYear}
             name={`careers.${index}.currentCareerYear`}
             label={translations.currentCareerYear}
@@ -44,7 +44,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
             mandatory
             withoutMargin
           />
-          <PositiveNumberInput
+          <PositiveNumberField
             className={styles.approvedSubjectCount}
             name={`careers.${index}.approvedSubjectCount`}
             label={translations.approvedSubjectCount}

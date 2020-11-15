@@ -7,7 +7,7 @@ import { isNil } from "lodash";
 import { FormikValidator } from "$models/FormikValidator";
 import { EMPTY_SPACE } from "$models/emptySpace";
 
-export const NumberInput: FunctionComponent<INumberInputProps> = ({
+export const NumberField: FunctionComponent<INumberFieldProps> = ({
   name,
   label,
   helperText = EMPTY_SPACE,
@@ -47,7 +47,7 @@ export const NumberInput: FunctionComponent<INumberInputProps> = ({
   return fast ? <FastField {...fieldProps} /> : <Field {...fieldProps} />;
 };
 
-export interface IBaseNumberInputProps {
+export interface IBaseNumberField {
   name: string;
   label: string;
   helperText?: string;
@@ -58,6 +58,6 @@ export interface IBaseNumberInputProps {
   withoutMargin?: boolean;
 }
 
-export interface INumberInputProps extends IBaseNumberInputProps {
+export interface INumberFieldProps extends IBaseNumberField {
   validator: (value: number) => void;
 }
