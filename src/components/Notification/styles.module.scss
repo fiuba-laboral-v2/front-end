@@ -1,0 +1,33 @@
+@import "$styles/_variables";
+
+.notification {
+  display: flex;
+  margin-top: $spacing-s;
+}
+
+.icon {
+  align-self: flex-start;
+  margin-right: $spacing-l;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.title {
+  font-size: $fontSize-l;
+  font-weight: bold;
+  margin-bottom: $spacing-s;
+  word-break: break-word;
+}
+
+.body {
+  display: flex;
+  margin-bottom: $spacing-s;
+}
+
+@media (max-width: $laptopWidth) {
+  .body {
+    flex-direction: column;
+  }
+}
