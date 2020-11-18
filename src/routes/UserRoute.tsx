@@ -9,12 +9,13 @@ const { login, internalServerError, forbidden } = RoutesBuilder.public;
 export const UserRoute: FunctionComponent<IUserRoute> = props => {
   const currentUserResponse = useCurrentUser();
 
+  if (props.public) return <Route {...props} />;
+
   if (currentUserResponse.loading) return <Fragment />;
   if (currentUserResponse.error) return <Redirect to={internalServerError()} />;
 
   const currentUser = currentUserResponse.data.getCurrentUser;
 
-  if (props.public) return <Route {...props} />;
   if (!currentUser) return <Redirect to={login()} />;
   if (!currentUser[props.userType]) return <Redirect to={forbidden()} />;
 
