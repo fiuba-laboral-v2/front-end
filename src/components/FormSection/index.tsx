@@ -8,9 +8,10 @@ export const FormSection: FunctionComponent<IFormSectionProps> = ({
   className,
   title,
   subtitle,
-  children
+  children,
+  hidden
 }) => (
-  <Card largePadding className={classNames(styles.card, className)}>
+  <Card largePadding className={classNames(styles.card, className)} hidden={hidden}>
     <div
       className={classNames(styles.header, {
         [styles.headerWithMarginBottom]: title
@@ -33,4 +34,5 @@ interface IFormSectionProps {
   className?: string;
   title?: string;
   subtitle?: string;
+  hidden?: boolean;
 }

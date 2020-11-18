@@ -11,5 +11,5 @@ export interface IContainer {
 }
 
 export interface IComponent extends IContainer {
-  translations: ITranslations;
+  translations?: ITranslations;
 }

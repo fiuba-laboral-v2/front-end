@@ -1,5 +1,9 @@
 @import "$styles/_variables";
 
+.hidden {
+  display: none;
+}
+
 .mainBody {
   display: flex;
   flex-grow: 1;

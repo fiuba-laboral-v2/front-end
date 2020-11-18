@@ -8,7 +8,8 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
   className,
   largePadding,
   selected,
-  onClick
+  onClick,
+  hidden
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [touched, setTouched] = useState(false);
@@ -17,6 +18,7 @@ export const Card: FunctionComponent<IClickableCardProps> = ({
 
   return (
     <div
+      hidden={hidden}
       ref={ref}
       className={classNames(styles.card, className, {
         [styles.largePadding]: largePadding,
@@ -53,4 +55,5 @@ interface IClickableCardProps {
   onClick?: () => void;
   selected?: boolean;
   largePadding?: boolean;
+  hidden?: boolean;
 }

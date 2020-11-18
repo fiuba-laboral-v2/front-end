@@ -7,10 +7,12 @@ import { TitleBar } from "../TitleBar";
 import { NavBar } from "../NavBar";
 import { Drawer } from "@material-ui/core";
 import classNames from "classnames";
+import { LoadingSpinner } from "../LoadingSpinner";
 
 export const Window: FunctionComponent<IWindowProps> = ({
   desktopOnly,
   alwaysHideNavbar = false,
+  loading = false,
   children,
   ...props
 }) => {
@@ -31,7 +33,11 @@ export const Window: FunctionComponent<IWindowProps> = ({
         />
         <div className={styles.mainContentContainer}>
           {desktopOnly && <DesktopOnlyOverlay />}
-          <MainContent {...props} {...(desktopOnly && { className: styles.desktopOnly })}>
+          {loading && <LoadingSpinner />}
+          <MainContent
+            {...props}
+            className={classNames({ [styles.desktopOnly]: desktopOnly, [styles.hidden]: loading })}
+          >
             {children}
           </MainContent>
         </div>
@@ -43,4 +49,5 @@ export const Window: FunctionComponent<IWindowProps> = ({
 export interface IWindowProps extends IMainContentProps {
   desktopOnly?: boolean;
   alwaysHideNavbar?: boolean;
+  loading?: boolean;
 }
