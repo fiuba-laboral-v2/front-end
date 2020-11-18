@@ -16,9 +16,10 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   initialValues,
   onSubmit,
   translations,
-  acceptanceCriteria
+  acceptanceCriteria,
+  hidden
 }) => (
-  <Form title={translations.title} acceptanceCriteria={acceptanceCriteria}>
+  <Form title={translations?.title} acceptanceCriteria={acceptanceCriteria}>
     <Formik
       initialValues={initialValues}
       validate={values => {
@@ -31,13 +32,13 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
       onSubmit={onSubmit}
     >
       {({ isSubmitting, errors }) => (
-        <FormikForm id={formName}>
+        <FormikForm id={formName} hidden={hidden}>
           <UserDataFormSection className={styles.formSection} />
           <CompanyDataFormSection className={styles.formSection} />
           <ContactInformationFormSection className={styles.formSection} />
           <FormFooter
             isSubmitting={isSubmitting}
-            submitButtonText={translations.submit}
+            submitButtonText={translations?.submit}
             errors={errors}
           />
         </FormikForm>
@@ -47,9 +48,10 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
 );
 
 interface ISignUpProps {
-  acceptanceCriteria: string;
+  hidden: boolean;
+  acceptanceCriteria?: string;
   initialValues: ISignUpFormValues;
-  translations: ISignUpTranslations;
+  translations?: ISignUpTranslations;
   onSubmit: (
     values: ISignUpFormValues,
     formikHelpers: FormikHelpers<ISignUpFormValues>
