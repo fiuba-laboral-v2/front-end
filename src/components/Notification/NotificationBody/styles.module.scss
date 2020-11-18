@@ -1,0 +1,12 @@
+@import "$styles/_variables";
+
+.body {
+  display: flex;
+  margin-bottom: $spacing-s;
+}
+
+@media (max-width: $laptopWidth) {
+  .body {
+    flex-direction: column;
+  }
+}
