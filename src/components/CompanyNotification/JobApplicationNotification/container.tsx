@@ -3,6 +3,8 @@ import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Notification } from "$components/Notification";
+import { NotificationTitle } from "$components/Notification/NotificationTitle";
+import { NotificationBody } from "$components/Notification/NotificationBody";
 import { Link } from "$components/Link";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
@@ -23,20 +25,19 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
     <Notification
       {...props}
       notification={notification}
-      title={translations?.companyTitle || ""}
       icon={<StatusIcon Icon={JobApplicationIcon} />}
-      body={
-        <>
-          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
-            {`${applicant.user.name} ${applicant.user.surname}`}
-          </Link>
-          <div className={styles.separator}>-</div>
-          <Link className={styles.offer} to={RoutesBuilder.company.offer(offer.uuid)}>
-            {offer.title}
-          </Link>
-        </>
-      }
-    />
+    >
+      <NotificationTitle>{translations?.companyTitle || ""}</NotificationTitle>
+      <NotificationBody>
+        <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
+          {`${applicant.user.name} ${applicant.user.surname}`}
+        </Link>
+        <div className={styles.separator}>-</div>
+        <Link className={styles.offer} to={RoutesBuilder.company.offer(offer.uuid)}>
+          {offer.title}
+        </Link>
+      </NotificationBody>
+    </Notification>
   );
 };
 

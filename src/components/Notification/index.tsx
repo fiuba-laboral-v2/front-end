@@ -8,8 +8,7 @@ import styles from "./styles.module.scss";
 export const Notification: FunctionComponent<IComponentProps> = ({
   className,
   icon,
-  body,
-  title,
+  children,
   notification
 }) => (
   <Card className={className}>
@@ -17,8 +16,7 @@ export const Notification: FunctionComponent<IComponentProps> = ({
     <div className={styles.notification}>
       <div className={styles.icon}>{icon}</div>
       <div className={styles.info}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.body}>{body}</div>
+        {children}
         <TimeHumanizer since={notification.createdAt} />
       </div>
     </div>
@@ -28,7 +26,5 @@ export const Notification: FunctionComponent<IComponentProps> = ({
 interface IComponentProps {
   className?: string;
   icon: React.ReactElement;
-  title: string;
-  body: React.ReactElement;
   notification: TNotification;
 }
