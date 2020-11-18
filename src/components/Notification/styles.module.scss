@@ -5,7 +5,7 @@
   margin-top: $spacing-s;
 }
 
-.statusIcon {
+.icon {
   align-self: flex-start;
   margin-right: $spacing-l;
 }
@@ -26,26 +26,8 @@
   margin-bottom: $spacing-s;
 }
 
-.separator {
-  margin-left: $spacing-xs;
-  margin-right: $spacing-xs;
-}
-
-.name {
-  font-size: $fontSize-m;
-  word-break: break-word;
-}
-
 @media (max-width: $laptopWidth) {
   .body {
     flex-direction: column;
-  }
-
-  .separator {
-    display: none;
-  }
-
-  .offer {
-    margin-top: $spacing-xs;
   }
 }

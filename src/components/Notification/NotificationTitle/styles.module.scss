@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+
+.title {
+  font-size: $fontSize-l;
+  font-weight: bold;
+  margin-bottom: $spacing-s;
+  word-break: break-word;
+}
