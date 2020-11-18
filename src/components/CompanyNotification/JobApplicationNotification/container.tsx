@@ -18,8 +18,9 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
 }) => {
   const translations = useTranslations<ITranslations>("companyJobApplicationNotification");
 
-  const applicant = notification.jobApplication.applicant;
-  const offer = notification.jobApplication.offer;
+  const {
+    jobApplication: { applicant, offer }
+  } = notification;
 
   return (
     <Notification
