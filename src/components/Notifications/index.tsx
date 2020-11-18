@@ -4,7 +4,7 @@ import { Window } from "$components/Window";
 import { Title } from "$components/Title";
 import styles from "./styles.module.scss";
 
-export const Notifications = <T extends { uuid: string }>({
+export const Notifications = <Notification extends { uuid: string }>({
   title,
   notifications,
   fetchMore,
@@ -12,7 +12,7 @@ export const Notifications = <T extends { uuid: string }>({
   loading,
   emptyListComponent,
   Notification
-}: IComponentProps<T>) => (
+}: IComponentProps<Notification>) => (
   <Window>
     <Title className={styles.title}>{title}</Title>
     <List
@@ -33,10 +33,10 @@ export const Notifications = <T extends { uuid: string }>({
   </Window>
 );
 
-interface IComponentProps<T> {
+interface IComponentProps<Notification> {
   emptyListComponent: ReactNode;
-  Notification: FunctionComponent<{ className?: string; notification: T }>;
-  notifications?: T[];
+  Notification: FunctionComponent<{ className?: string; notification: Notification }>;
+  notifications?: Notification[];
   loading: boolean;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
