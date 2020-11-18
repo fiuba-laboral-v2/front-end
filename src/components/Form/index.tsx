@@ -16,6 +16,6 @@ export const Form: FunctionComponent<IFormProps> = ({ title, acceptanceCriteria,
 );
 
 interface IFormProps {
-  title: string;
+  title?: string;
   acceptanceCriteria?: string;
 }

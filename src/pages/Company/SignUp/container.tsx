@@ -9,7 +9,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
-import { LoadingWindow } from "$components/LoadingWindow";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -19,8 +19,6 @@ export const SignUpContainer: FunctionComponent = () => {
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
   const acceptanceCriteria = useTranslations<{ text: string }>("companySignUpAcceptanceCriteria");
-
-  if (!translations || !acceptanceCriteria) return <LoadingWindow />;
 
   const onSubmit = async (
     { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,
@@ -42,11 +40,15 @@ export const SignUpContainer: FunctionComponent = () => {
     history.push(RoutesBuilder.company.myProfile());
   };
 
+  const loading = !translations || !acceptanceCriteria;
+
   return (
     <Window>
+      {loading && <LoadingSpinner />}
       <SignUp
+        hidden={loading}
         translations={translations}
-        acceptanceCriteria={acceptanceCriteria.text}
+        acceptanceCriteria={acceptanceCriteria?.text}
         onSubmit={onSubmit}
         initialValues={{
           user: {

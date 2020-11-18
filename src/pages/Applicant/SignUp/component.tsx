@@ -35,7 +35,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   };
 
   return (
-    <Form title={translations.title}>
+    <Form title={translations?.title}>
       <Formik
         initialValues={initialValues}
         validate={values => {
@@ -57,7 +57,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
             />
             <FormFooter
               isSubmitting={isSubmitting}
-              submitButtonText={translations.submit}
+              submitButtonText={translations?.submit}
               errors={errors}
             />
           </FormikForm>
@@ -68,7 +68,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
 };
 
 interface ISignUpProps {
-  translations: IApplicantSignUpTranslations;
+  translations?: IApplicantSignUpTranslations;
   validateForm: (values: IApplicantSignUpFormValues) => string | undefined;
   onSubmit: (
     values: IApplicantSignUpFormValues,

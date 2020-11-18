@@ -11,6 +11,7 @@ import { Link } from "$components/Link";
 
 import { ITranslations } from "./interfaces";
 import styles from "./styles.module.scss";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const seededUsersText = `
 Email                    | Nombre   | Rol
@@ -23,20 +24,30 @@ Contraseña de ambos: SecurePassword1010
 
 export const Login: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
+    {!translations && <LoadingSpinner />}
     <LoginForm<ICompanyLoginVariables>
       {...props}
-      title={translations.title}
+      hidden={!translations}
+      title={translations?.title}
       initialValues={{ email: "", password: "" }}
       className={styles.form}
       usernameField={
-        <EmailField autoFocus name="email" label={translations.email} autoComplete="email" />
+        translations && (
+          <EmailField autoFocus name="email" label={translations.email} autoComplete="email" />
+        )
       }
-      signUpLink={<Link to={RoutesBuilder.company.signUp()}>{translations.signup}</Link>}
+      signUpLink={
+        translations && <Link to={RoutesBuilder.company.signUp()}>{translations.signup}</Link>
+      }
       recoverPasswordLink={
-        <Link to={RoutesBuilder.company.login()}>{translations.recoverPassword}</Link>
+        translations && (
+          <Link to={RoutesBuilder.company.login()}>{translations.recoverPassword}</Link>
+        )
       }
       switchLoginFormLink={
-        <Link to={RoutesBuilder.applicant.login()}>{translations.goToApplicant}</Link>
+        translations && (
+          <Link to={RoutesBuilder.applicant.login()}>{translations.goToApplicant}</Link>
+        )
       }
       seededUsersText={seededUsersText}
     />
@@ -45,5 +56,5 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
 
 interface IComponentProps {
   onSubmit: OnSubmit<ICompanyLoginVariables>;
-  translations: ITranslations;
+  translations?: ITranslations;
 }

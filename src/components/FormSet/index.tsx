@@ -51,7 +51,7 @@ export const FormSet = <Value,>({
 };
 
 interface IFormSetProps<Value> {
-  title: string;
+  title?: string;
   name: string;
   values: Value[];
   defaultValue: Value;

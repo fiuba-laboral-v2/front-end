@@ -12,7 +12,7 @@ export const CareersSelectorFormSection: FunctionComponent<IComponent> = ({
 }) => (
   <Card largePadding className={className}>
     <FormSet
-      title={translations.title}
+      title={translations?.title}
       name={"careers"}
       values={careers}
       defaultValue={defaultValue}

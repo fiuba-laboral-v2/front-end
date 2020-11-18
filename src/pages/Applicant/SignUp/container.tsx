@@ -12,7 +12,6 @@ import { handleValidationError } from "$models/errorHandlers/handleValidationErr
 import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
 import { saveApplicantArguments } from "$models/MutationArguments";
 import { Window } from "$components/Window";
-import { LoadingWindow } from "$components/LoadingWindow";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -20,8 +19,6 @@ export const SignUpContainer: FunctionComponent = () => {
   const { login } = useFiubaLogin();
   const { enqueueSnackbar } = useSnackbar();
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
-
-  if (!translations) return <LoadingWindow />;
 
   const validateForm = (values: IApplicantSignUpFormValues) => {
     const selectedCodes = values.careers.map(career => career.careerCode);
@@ -59,7 +56,7 @@ export const SignUpContainer: FunctionComponent = () => {
   };
 
   return (
-    <Window>
+    <Window loading={!translations}>
       <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />
     </Window>
   );

@@ -11,14 +11,15 @@ export interface ITranslations {
 
 export interface IContainerProps<IVariables> {
   className?: string;
-  title: string;
+  title?: string;
   seededUsersText: string;
-  usernameField: ReactElement;
-  recoverPasswordLink: ReactElement;
-  signUpLink: ReactElement;
-  switchLoginFormLink: ReactElement;
+  usernameField?: ReactElement;
+  recoverPasswordLink?: ReactElement;
+  signUpLink?: ReactElement;
+  switchLoginFormLink?: ReactElement;
   initialValues: IVariables;
   onSubmit: OnSubmit<IVariables>;
+  hidden: boolean;
 }
 
 export type OnSubmit<IVariables> = (

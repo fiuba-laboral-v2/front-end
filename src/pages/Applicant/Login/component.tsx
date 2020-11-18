@@ -11,6 +11,7 @@ import { Link } from "$components/Link";
 
 import { ITranslations } from "./interfaces";
 import styles from "./styles.module.scss";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const seededUsersText = `
 DNI  | Nombre      | Rol 
@@ -26,20 +27,28 @@ Cualquier contraseña es válida
 
 export const Login: FunctionComponent<IComponentProps> = ({ translations, ...props }) => (
   <LoginWindow>
+    {!translations && <LoadingSpinner />}
     <LoginForm<IFiubaLoginVariables>
       {...props}
-      title={translations.title}
+      hidden={!translations}
+      title={translations?.title}
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
-      usernameField={<DniField autoFocus mandatory={false} name="dni" label={translations.dni} />}
-      signUpLink={<Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>}
+      usernameField={
+        translations && <DniField autoFocus mandatory={false} name="dni" label={translations.dni} />
+      }
+      signUpLink={
+        translations && <Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>
+      }
       recoverPasswordLink={
-        <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
-          {translations.recoverPassword}
-        </a>
+        translations && (
+          <a target="_blank" rel="noopener noreferrer" href={"http://cambio.fi.uba.ar/"}>
+            {translations.recoverPassword}
+          </a>
+        )
       }
       switchLoginFormLink={
-        <Link to={RoutesBuilder.company.login()}>{translations.goToCompany}</Link>
+        translations && <Link to={RoutesBuilder.company.login()}>{translations.goToCompany}</Link>
       }
       seededUsersText={seededUsersText}
     />
@@ -48,5 +57,5 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
 
 interface IComponentProps {
   onSubmit: OnSubmit<IFiubaLoginVariables>;
-  translations: ITranslations;
+  translations?: ITranslations;
 }
