@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { List } from "$components/List";
 import { Window } from "$components/Window";
-import { Notification } from "$components/Notification";
+import { CompanyNotification } from "$components/CompanyNotification";
 import { Title } from "$components/Title";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -24,7 +24,7 @@ export const Notifications: FunctionComponent<IComponentProps> = ({
       emptyListComponent={emptyListComponent}
     >
       {notification => (
-        <Notification
+        <CompanyNotification
           className={styles.notification}
           key={notification.uuid}
           notification={notification}

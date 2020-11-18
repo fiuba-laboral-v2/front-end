@@ -3,7 +3,10 @@ import { TNotification } from "$interfaces/Notification";
 import { JOB_APPLICATION_NOTIFICATION } from "$typenames";
 import { JobApplicationNotification } from "./JobApplicationNotification";
 
-export const Notification: FunctionComponent<IComponentProps> = ({ className, notification }) => {
+export const CompanyNotification: FunctionComponent<IComponentProps> = ({
+  className,
+  notification
+}) => {
   if (notification.__typename === JOB_APPLICATION_NOTIFICATION) {
     return <JobApplicationNotification className={className} notification={notification} />;
   }
