@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { sortBy } from "lodash";
 import { ApplicantDetail } from "./component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailContainerProps, ITranslations } from "./interfaces";
 
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = ({
@@ -13,17 +12,18 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   withStatusLabel
 }) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
-  if (!translations) return <LoadingSpinner />;
 
   return (
     <ApplicantDetail
       mobileLayout={mobileLayout}
       className={className}
-      applicant={{
-        ...applicant,
-        knowledgeSections: sortBy(applicant.knowledgeSections, ["displayOrder"]),
-        experienceSections: sortBy(applicant.experienceSections, ["displayOrder"])
-      }}
+      applicant={
+        applicant && {
+          ...applicant,
+          knowledgeSections: sortBy(applicant.knowledgeSections, ["displayOrder"]),
+          experienceSections: sortBy(applicant.experienceSections, ["displayOrder"])
+        }
+      }
       translations={translations}
       editButton={editButton}
       withStatusLabel={withStatusLabel}

@@ -5,7 +5,7 @@ export interface ITranslations {
 }
 
 export interface IProfileParams {
-  applicant: IApplicant;
-  translations: ITranslations;
+  applicant?: IApplicant;
+  translations?: ITranslations;
   onClickEdit: () => void;
 }

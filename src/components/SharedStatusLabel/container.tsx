@@ -3,9 +3,12 @@ import { useTranslations } from "$hooks/queries";
 import { SharedStatusLabel } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
 
-export const SharedStatusLabelContainer: FunctionComponent<IContainerProps> = props => {
+export const SharedStatusLabelContainer: FunctionComponent<IContainerProps> = ({
+  status,
+  ...props
+}) => {
   const translations = useTranslations<ITranslations>("statusLabel");
-  if (!translations) return <Fragment />;
+  if (!translations || !status) return <Fragment />;
 
-  return <SharedStatusLabel translations={translations} {...props} />;
+  return <SharedStatusLabel translations={translations} status={status} {...props} />;
 };

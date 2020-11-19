@@ -11,5 +11,5 @@ export interface ICareersContainerProps {
 }
 
 export interface ICareersProps extends ICareersContainerProps {
-  translations: ICareerTranslations;
+  translations?: ICareerTranslations;
 }

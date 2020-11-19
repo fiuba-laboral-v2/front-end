@@ -5,6 +5,5 @@ import { useTranslations } from "$hooks";
 
 export const CareersSectionContainer: FunctionComponent<ICareersContainerProps> = props => {
   const translations = useTranslations<ICareerTranslations>("careersSection");
-
-  return <>{translations && <CareersSection translations={translations} {...props} />}</>;
+  return <CareersSection translations={translations} {...props} />;
 };

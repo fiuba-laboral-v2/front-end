@@ -12,17 +12,13 @@ export const StatusTitle: FunctionComponent<IComponentProps> = ({
 }) => (
   <div className={classNames(styles.statusTitle, className)}>
     <Title className={styles.title}>{detailTitle}</Title>
-    {approvalStatus && (
-      <>
-        <SharedStatusLabel
-          className={styles.desktopStatus}
-          status={approvalStatus}
-          withTooltip
-          type="large"
-        />
-        <SharedStatusLabel className={styles.mobileStatus} status={approvalStatus} type="large" />
-      </>
-    )}
+    <SharedStatusLabel
+      className={styles.desktopStatus}
+      status={approvalStatus}
+      withTooltip
+      type="large"
+    />
+    <SharedStatusLabel className={styles.mobileStatus} status={approvalStatus} type="large" />
   </div>
 );
 

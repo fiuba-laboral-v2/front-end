@@ -9,11 +9,11 @@ export interface ITranslations {
 export interface IApplicantDetailContainerProps {
   mobileLayout?: boolean;
   className?: string;
-  applicant: IApplicant;
+  applicant?: IApplicant;
   editButton?: ReactElement;
   withStatusLabel?: boolean;
 }
 
 export interface IApplicantDetailProps extends IApplicantDetailContainerProps {
-  translations: ITranslations;
+  translations?: ITranslations;
 }
