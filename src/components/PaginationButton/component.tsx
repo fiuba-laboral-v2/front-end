@@ -1,6 +1,5 @@
 import React from "react";
 import classNames from "classnames";
-import { LoadingSpinner } from "../LoadingSpinner";
 import { Button } from "../Button";
 import { IPaginationButtonProps } from "./interfaces";
 
@@ -14,7 +13,6 @@ export const PaginationButton = ({
   loading
 }: IPaginationButtonProps) => (
   <>
-    {loading && <LoadingSpinner />}
     {shouldFetchMore && fetchMore && !loading && (
       <Button
         kind="primary"
