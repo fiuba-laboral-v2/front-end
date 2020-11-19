@@ -51,9 +51,9 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
 };
 
 export interface ISeparatedStatusLabelProps {
-  extensionApprovalStatus: ApprovalStatus;
-  graduadosApprovalStatus: ApprovalStatus;
-  targetApplicantType: ApplicantType;
+  extensionApprovalStatus?: ApprovalStatus;
+  graduadosApprovalStatus?: ApprovalStatus;
+  targetApplicantType?: ApplicantType;
   className?: string;
 }
 

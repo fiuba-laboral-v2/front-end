@@ -17,5 +17,5 @@ interface IPublishedSinceContainerTranslations {
 
 interface IPublishedSinceContainerProps {
   className?: string;
-  date: string;
+  date?: string;
 }

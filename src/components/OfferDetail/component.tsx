@@ -29,33 +29,33 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         mobileLayout={mobileLayout}
         className={styles.companyLogo}
         size="extraLarge"
-        companyName={offer.company.companyName}
-        logo={offer.company.logo}
+        companyName={offer?.company.companyName}
+        logo={offer?.company.logo}
         useDefaultIcon
       />
       <div className={styles.rightHeader}>
         <div className={styles.titleContainer}>
-          <Title className={styles.title}>{offer.title}</Title>
+          <Title className={styles.title}>{offer?.title}</Title>
           <div>{editButton}</div>
         </div>
         <Subtitle className={styles.companyName}>
-          {goToCompany && <Link to={goToCompany}>{offer.company.companyName}</Link>}
-          {!goToCompany && <p>{offer.company.companyName}</p>}
+          {goToCompany && <Link to={goToCompany}>{offer?.company.companyName}</Link>}
+          {!goToCompany && <p>{offer?.company.companyName}</p>}
         </Subtitle>
-        <PublishedSince className={styles.updatedAt} date={offer.updatedAt} />
+        <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
         {withStatusLabel && (
           <StatusLabels
-            targetApplicantType={offer.targetApplicantType}
-            graduadosApprovalStatus={offer.graduadosApprovalStatus}
-            extensionApprovalStatus={offer.extensionApprovalStatus}
+            targetApplicantType={offer?.targetApplicantType}
+            graduadosApprovalStatus={offer?.graduadosApprovalStatus}
+            extensionApprovalStatus={offer?.extensionApprovalStatus}
           />
         )}
       </div>
     </div>
     <div className={styles.body}>
       <div className={styles.leftBodyContainer}>
-        <p className={styles.description}>{offer.description}</p>
-        {sortBy(offer.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) => (
+        <p className={styles.description}>{offer?.description}</p>
+        {sortBy(offer?.sections, ["displayOrder"])?.map(({ displayOrder, title, text }) => (
           <SectionDetail key={displayOrder} title={title} text={text} />
         ))}
       </div>
@@ -72,7 +72,7 @@ interface IOfferDetailProps {
   className?: string;
   applyButton?: ReactElement;
   editButton?: ReactElement;
-  offer: IMyOffer | IOffer;
+  offer?: IMyOffer | IOffer;
   goToCompany?: string;
   withStatusLabel?: boolean;
 }

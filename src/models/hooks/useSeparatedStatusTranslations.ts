@@ -52,6 +52,13 @@ export const useSeparatedStatusTranslations = ({
       ...institutionsTranslations
     };
 
+  if (!extensionApprovalStatus || !graduadosApprovalStatus || !targetApplicantType) {
+    return {
+      graduados: undefined,
+      extension: undefined
+    };
+  }
+
   return {
     ...(targetsGraduates && {
       graduados: {
@@ -88,9 +95,9 @@ interface IBuildLabel {
 }
 
 interface IUseSeparatedStatus {
-  extensionApprovalStatus: ApprovalStatus;
-  graduadosApprovalStatus: ApprovalStatus;
-  targetApplicantType: ApplicantType;
+  extensionApprovalStatus?: ApprovalStatus;
+  graduadosApprovalStatus?: ApprovalStatus;
+  targetApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 

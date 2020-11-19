@@ -19,6 +19,6 @@ export const OfferInfo: FunctionComponent<IOfferInfoProps> = ({ offer, className
 );
 
 interface IOfferInfoProps {
-  offer: IOffer;
+  offer?: IOffer;
   className?: string;
 }
