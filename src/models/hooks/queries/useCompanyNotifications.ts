@@ -1,9 +1,9 @@
 import { GET_COMPANY_NOTIFICATIONS } from "$queries";
 import { usePaginatedQuery } from "$hooks";
-import { TNotification } from "$interfaces/Notification";
+import { TCompanyNotification } from "$interfaces/CompanyNotification";
 
 export const useCompanyNotifications = () =>
-  usePaginatedQuery<{}, TNotification>({
+  usePaginatedQuery<{}, TCompanyNotification>({
     documentNode: GET_COMPANY_NOTIFICATIONS,
     queryName: "getCompanyNotifications",
     variables: {},

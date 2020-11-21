@@ -10,7 +10,7 @@ import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import styles from "./styles.module.scss";
-import { ICompanyNewJobApplicationNotification } from "$interfaces/Notification";
+import { ICompanyNewJobApplicationNotification } from "$interfaces/CompanyNotification";
 
 export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
   notification,

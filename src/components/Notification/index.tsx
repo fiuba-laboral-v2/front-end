@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { IsNewLabel } from "./IsNewLabel";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 import { Card } from "$components/Card";
-import { TNotification } from "$interfaces/Notification";
 import styles from "./styles.module.scss";
 
 export const Notification: FunctionComponent<IComponentProps> = ({
@@ -26,5 +25,8 @@ export const Notification: FunctionComponent<IComponentProps> = ({
 interface IComponentProps {
   className?: string;
   icon: React.ReactElement;
-  notification: TNotification;
+  notification: {
+    createdAt: string;
+    isNew: boolean;
+  };
 }
