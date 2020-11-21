@@ -12,7 +12,7 @@ export const CompanyNotification: FunctionComponent<IComponentProps> = ({
       <CompanyNewJobApplicationNotification className={className} notification={notification} />
     );
   }
-  throw new Error("The current user cannot see a JobApplicationNotification");
+  throw new Error(`No component associated to type: ${notification.__typename}`);
 };
 
 interface IComponentProps {
