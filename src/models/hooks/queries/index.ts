@@ -20,3 +20,4 @@ export * from "./useNotifications";
 export * from "./useExtensionOfferDuration";
 export * from "./useGraduadosOfferDuration";
 export * from "./useSecretaryOfferDuration";
+export * from "./useCompanyNotifications";

@@ -23,6 +23,7 @@ const GET_JOB_APPLICATION_BY_UUID = loader("./getJobApplicationByUuid.graphql");
 const GET_OFFER_FOR_APPLICANT = loader("./getOfferForApplicant.graphql");
 const GET_JOB_APPLICATIONS = loader("./getJobApplications.graphql");
 const GET_NOTIFICATIONS = loader("./getNotifications.graphql");
+const GET_COMPANY_NOTIFICATIONS = loader("./getCompanyNotifications.graphql");
 const GET_SECRETARY_OFFER_DURATION = loader("./getSecretaryOfferDuration.graphql");
 
 export {
@@ -49,5 +50,6 @@ export {
   GET_ADMINS,
   GET_JOB_APPLICATIONS,
   GET_NOTIFICATIONS,
-  GET_SECRETARY_OFFER_DURATION
+  GET_SECRETARY_OFFER_DURATION,
+  GET_COMPANY_NOTIFICATIONS
 };
