@@ -10,13 +10,13 @@ import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import styles from "./styles.module.scss";
-import { IJobApplicationNotification } from "$interfaces/Notification";
+import { ICompanyNewJobApplicationNotification } from "$interfaces/CompanyNotification";
 
-export const JobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
+export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
   notification,
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("companyJobApplicationNotification");
+  const translations = useTranslations<ITranslations>("companyNewJobApplicationNotification");
 
   const {
     jobApplication: { applicant, offer }
@@ -28,7 +28,7 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
       notification={notification}
       icon={<StatusIcon Icon={JobApplicationIcon} />}
     >
-      <NotificationTitle>{translations?.companyTitle || ""}</NotificationTitle>
+      <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <NotificationBody>
         <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
           {`${applicant.user.name} ${applicant.user.surname}`}
@@ -43,10 +43,10 @@ export const JobApplicationNotificationContainer: FunctionComponent<IContainerPr
 };
 
 interface IContainerProps {
-  notification: IJobApplicationNotification;
+  notification: ICompanyNewJobApplicationNotification;
   className?: string;
 }
 
 interface ITranslations {
-  companyTitle: string;
+  title: string;
 }

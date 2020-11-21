@@ -1,11 +1,10 @@
-query GetNotifications($updatedBeforeThan: PaginatedInput) {
-  getNotifications(updatedBeforeThan: $updatedBeforeThan) {
+query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
+  getCompanyNotifications(updatedBeforeThan: $updatedBeforeThan) {
     results {
-      ... on JobApplicationNotification {
+      ... on CompanyNewJobApplicationNotification {
         __typename
         uuid
         adminEmail
-        message
         isNew
         createdAt
         jobApplication {
