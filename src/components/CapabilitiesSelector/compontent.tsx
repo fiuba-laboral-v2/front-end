@@ -16,10 +16,12 @@ export const CapabilitiesSelector: FunctionComponent<ICapabilitiesSelector> = ({
     compareValuesBy={({ description }) => description.toLowerCase()}
     valueToString={({ description }) => TextFormatter.capitalize(description)}
     stringToValue={stringValue => ({ description: stringValue })}
-    options={options.map(({ uuid, description }) => ({
-      uuid,
-      description: TextFormatter.capitalize(description)
-    }))}
+    options={
+      options?.map(({ uuid, description }) => ({
+        uuid,
+        description: TextFormatter.capitalize(description)
+      })) || []
+    }
     label={label}
   />
 );

@@ -34,16 +34,15 @@ export const EditableDetailContainer: FunctionComponent = () => {
     padron: model?.padron || NaN,
     description: model?.description || "",
     links: model?.links || [],
-    careers:
-      model?.careers.map(applicantCareer => ({
-        careerCode: applicantCareer.career.code,
-        approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
-        currentCareerYear: applicantCareer.currentCareerYear || NaN,
-        isGraduate: applicantCareer.isGraduate
-      })) || [],
-    capabilities: model?.capabilities || [],
-    knowledgeSections: model?.knowledgeSections || [],
-    experienceSections: model?.experienceSections || [],
+    careers: model?.careers.map(applicantCareer => ({
+      careerCode: applicantCareer.career.code,
+      approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
+      currentCareerYear: applicantCareer.currentCareerYear || NaN,
+      isGraduate: applicantCareer.isGraduate
+    })) || [{ careerCode: "", isGraduate: true }],
+    capabilities: model?.capabilities || [{ description: "" }],
+    knowledgeSections: model?.knowledgeSections || [{ title: "", text: "", displayOrder: NaN }],
+    experienceSections: model?.experienceSections || [{ title: "", text: "", displayOrder: NaN }],
     _form: []
   });
 

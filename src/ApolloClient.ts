@@ -6,7 +6,8 @@ import { BatchHttpLink } from "@apollo/client/link/batch-http";
 export const ApolloClient = new ApolloClientClass({
   link: new BatchHttpLink({
     uri: Configuration.application_base_url,
-    credentials: "include"
+    credentials: "include",
+    batchMax: 50
   }),
   cache: InMemoryCache
 });

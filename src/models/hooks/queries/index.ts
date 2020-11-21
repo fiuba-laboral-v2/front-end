@@ -14,6 +14,7 @@ export * from "./useCareers";
 export * from "./useAdminApprovalStatusAttribute";
 export * from "./useJobApplicationByUuid";
 export * from "./useApprovedOffers";
+export * from "./useCapabilities";
 export * from "./usePaginatedQuery";
 export * from "./useJobApplications";
 export * from "./useNotifications";

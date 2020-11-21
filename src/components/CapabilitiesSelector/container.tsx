@@ -1,20 +1,13 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { ICapabilitiesSelectorContainer } from "./interfaces";
 import { CapabilitiesSelector } from "./compontent";
-import { ICapability } from "$interfaces/Capability";
-import { useQuery } from "@apollo/client";
-import { GET_CAPABILITIES } from "$queries";
+import { useCapabilities } from "$hooks/queries";
 
-const CapabilitiesSelectorContainer: FunctionComponent<ICapabilitiesSelectorContainer> = props => {
-  const {
-    data: { getCapabilities: capabilities } = { getCapabilities: [] as ICapability[] },
-    error: capabilitiesError,
-    loading: loadingCapabilities
-  } = useQuery(GET_CAPABILITIES);
-
-  if (capabilitiesError || loadingCapabilities) return <Fragment />;
-
-  return <CapabilitiesSelector {...props} options={capabilities} />;
+const CapabilitiesSelectorContainer: FunctionComponent<ICapabilitiesSelectorContainer> = ({
+  label
+}) => {
+  const result = useCapabilities();
+  return <CapabilitiesSelector label={label} options={result.data?.getCapabilities} />;
 };
 
 export { CapabilitiesSelectorContainer };
