@@ -87,7 +87,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
     <Window loading={!applicantProfile || !translations || !applicant}>
       <Formik2
         formName="editApplicantDetailForm"
-        model={applicant}
+        initialValuesModel={applicant}
         {...{ modelToValues, validateForm, onSubmit }}
       >
         {formikProps => <EditableDetail {...{ translations, formikProps }} />}

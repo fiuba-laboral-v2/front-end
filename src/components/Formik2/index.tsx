@@ -3,24 +3,24 @@ import { Formik as FormikContainer, FormikProps, Form } from "formik";
 import { FormikConfig, FormikValues } from "formik/dist/types";
 
 const FillOnLoad = <Model, Values>({
-  model,
+  initialValuesModel,
   setValues,
   modelToValues
 }: IFillOnLoadProps<Model, Values>) => {
   useEffect(() => {
-    if (model) setValues(modelToValues(model), false);
-  }, [model, setValues, modelToValues]);
+    if (initialValuesModel) setValues(modelToValues(initialValuesModel), false);
+  }, [initialValuesModel, setValues, modelToValues]);
   return null;
 };
 
 interface IFillOnLoadProps<Model, Values> {
-  model?: Model;
+  initialValuesModel?: Model;
   setValues: (values: Values, shouldValidate?: boolean) => void;
   modelToValues: (model?: Model) => Values;
 }
 
 export const Formik2 = <Model, Values extends FormikValues = FormikValues, ExtraProps = {}>({
-  model,
+  initialValuesModel,
   children,
   onSubmit,
   modelToValues,
@@ -36,7 +36,9 @@ export const Formik2 = <Model, Values extends FormikValues = FormikValues, Extra
     >
       {formikProps => (
         <Form name={formName}>
-          <FillOnLoad {...{ model, setValues: formikProps.setValues, modelToValues }} />
+          <FillOnLoad
+            {...{ initialValuesModel, setValues: formikProps.setValues, modelToValues }}
+          />
           {children(formikProps)}
         </Form>
       )}
@@ -50,7 +52,7 @@ type IFormikProps<Model, Values, ExtraProps> = Omit<
 > &
   ExtraProps & {
     formName: string;
-    model?: Model;
+    initialValuesModel?: Model;
     modelToValues: (model?: Model) => Values;
     children: (props: FormikProps<Values>) => ReactNode;
   };
