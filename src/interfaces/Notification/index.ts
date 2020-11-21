@@ -1,12 +1,11 @@
-import { JOB_APPLICATION_NOTIFICATION_TYPE } from "$typenames";
+import { COMPANY_NEW_JOB_APPLICATION_NOTIFICATION_TYPE } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
 
-export type TNotification = IJobApplicationNotification;
+export type TNotification = ICompanyNewJobApplicationNotification;
 
-export interface IJobApplicationNotification {
-  __typename: JOB_APPLICATION_NOTIFICATION_TYPE;
+export interface ICompanyNewJobApplicationNotification {
+  __typename: COMPANY_NEW_JOB_APPLICATION_NOTIFICATION_TYPE;
   uuid: string;
-  message: string;
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
