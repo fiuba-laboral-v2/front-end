@@ -16,7 +16,7 @@ export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IC
   notification,
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("companyJobApplicationNotification");
+  const translations = useTranslations<ITranslations>("companyNewJobApplicationNotification");
 
   const {
     jobApplication: { applicant, offer }
@@ -28,7 +28,7 @@ export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IC
       notification={notification}
       icon={<StatusIcon Icon={JobApplicationIcon} />}
     >
-      <NotificationTitle>{translations?.companyTitle || ""}</NotificationTitle>
+      <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <NotificationBody>
         <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
           {`${applicant.user.name} ${applicant.user.surname}`}
@@ -48,5 +48,5 @@ interface IContainerProps {
 }
 
 interface ITranslations {
-  companyTitle: string;
+  title: string;
 }
