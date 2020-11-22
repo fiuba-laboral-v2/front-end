@@ -8,7 +8,7 @@ export const OfferWorkloadContainer: FunctionComponent<IOfferWorkloadContainerPr
   className
 }) => {
   const translations = useTranslations<IOfferWorkloadTranslations>("offerWorkload");
-  if (!translations) return <Fragment />;
+  if (!translations || !offer) return <Fragment />;
 
   return <OfferWorkload className={className} translations={translations} offer={offer} />;
 };

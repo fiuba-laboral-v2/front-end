@@ -8,7 +8,7 @@ export const OfferTargetApplicantTypeContainer: FunctionComponent<IContainerProp
   className
 }) => {
   const translations = useTranslations<ITranslations>("offerTargetApplicantType");
-  if (!translations) return <Fragment />;
+  if (!translations || !offer) return <Fragment />;
 
   return (
     <OfferTargetApplicantType className={className} translations={translations} offer={offer} />

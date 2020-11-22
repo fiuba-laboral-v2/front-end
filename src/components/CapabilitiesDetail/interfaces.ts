@@ -3,6 +3,6 @@ import { ICapability } from "$interfaces/Capability";
 export interface ICapabilitiesProps {
   mobileLayout?: boolean;
   capabilities: ICapability[];
-  title: string;
+  title?: string;
   className?: string;
 }

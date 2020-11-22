@@ -39,13 +39,16 @@ export const useSeparatedStatusTranslations = ({
   targetApplicantType,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
-  const targetsBoth = targetApplicantType === ApplicantType.both;
-  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
-  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
-
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
   const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
 
+  if (!extensionApprovalStatus || !graduadosApprovalStatus || !targetApplicantType) {
+    return { graduados: undefined, extension: undefined };
+  }
+
+  const targetsBoth = targetApplicantType === ApplicantType.both;
+  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
+  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
   const translations = labelTranslations &&
     institutionsTranslations && {
       ...labelTranslations,
@@ -88,9 +91,9 @@ interface IBuildLabel {
 }
 
 interface IUseSeparatedStatus {
-  extensionApprovalStatus: ApprovalStatus;
-  graduadosApprovalStatus: ApprovalStatus;
-  targetApplicantType: ApplicantType;
+  extensionApprovalStatus?: ApprovalStatus;
+  graduadosApprovalStatus?: ApprovalStatus;
+  targetApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 

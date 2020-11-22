@@ -14,6 +14,7 @@ export const Window: FunctionComponent<IWindowProps> = ({
   alwaysHideNavbar = false,
   loading = false,
   children,
+  className,
   ...props
 }) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -36,7 +37,10 @@ export const Window: FunctionComponent<IWindowProps> = ({
           {loading && <LoadingSpinner />}
           <MainContent
             {...props}
-            className={classNames({ [styles.desktopOnly]: desktopOnly, [styles.hidden]: loading })}
+            className={classNames(className, {
+              [styles.desktopOnly]: desktopOnly,
+              [styles.hidden]: loading
+            })}
           >
             {children}
           </MainContent>

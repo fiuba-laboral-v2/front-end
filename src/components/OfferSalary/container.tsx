@@ -8,7 +8,7 @@ export const OfferSalaryContainer: FunctionComponent<IOfferSalaryContainerProps>
   className
 }) => {
   const translations = useTranslations<IOfferSalaryTranslations>("offerSalary");
-  if (!translations) return <Fragment />;
+  if (!translations || !offer) return <Fragment />;
 
   return <OfferSalary className={className} translations={translations} offer={offer} />;
 };

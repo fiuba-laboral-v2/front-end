@@ -6,7 +6,6 @@ import { useMyApplicantProfile, useTranslations } from "$hooks";
 import { useHistory } from "react-router-dom";
 import { ITranslations } from "./interfaces";
 import { Window } from "$components/Window";
-import { LoadingWindow } from "$components/LoadingWindow";
 
 export const ProfileContainer: FunctionComponent = () => {
   const response = useMyApplicantProfile();
@@ -14,12 +13,12 @@ export const ProfileContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
 
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-  if (!response.data || !translations) return <LoadingWindow />;
+  const loading = !response.data || !translations;
 
   return (
-    <Window>
+    <Window loading={loading}>
       <Profile
-        applicant={response.data.getCurrentUser.applicant}
+        applicant={response.data?.getCurrentUser.applicant}
         translations={translations}
         onClickEdit={() => history.push(RoutesBuilder.applicant.editMyProfile())}
       />

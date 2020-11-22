@@ -20,6 +20,6 @@ export const TimeHumanizer: FunctionComponent<ITimeHumanizerProps> = ({
 
 interface ITimeHumanizerProps {
   className?: string;
-  since: string;
+  since?: string;
   labelPrefix?: string;
 }

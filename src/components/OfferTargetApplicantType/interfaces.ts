@@ -2,7 +2,7 @@ import { IOffer } from "$interfaces/Offer";
 
 export interface IContainerProps {
   className?: string;
-  offer: IOffer;
+  offer?: IOffer;
 }
 
 export interface ITranslations {
@@ -14,4 +14,5 @@ export interface ITranslations {
 
 export interface IComponentProps extends IContainerProps {
   translations: ITranslations;
+  offer: IOffer;
 }

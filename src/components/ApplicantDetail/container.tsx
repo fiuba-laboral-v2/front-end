@@ -1,9 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useMemo } from "react";
 import { useTranslations } from "$hooks";
-import { sortBy } from "lodash";
 import { ApplicantDetail } from "./component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IApplicantDetailContainerProps, ITranslations } from "./interfaces";
+import { sortSections } from "../../models/sortSections";
 
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = ({
   mobileLayout,
@@ -13,17 +12,16 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   withStatusLabel
 }) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
-  if (!translations) return <LoadingSpinner />;
+  const knowledgeSections = useMemo(() => sortSections(applicant?.knowledgeSections), [applicant]);
+  const experienceSections = useMemo(() => sortSections(applicant?.experienceSections), [
+    applicant
+  ]);
 
   return (
     <ApplicantDetail
       mobileLayout={mobileLayout}
       className={className}
-      applicant={{
-        ...applicant,
-        knowledgeSections: sortBy(applicant.knowledgeSections, ["displayOrder"]),
-        experienceSections: sortBy(applicant.experienceSections, ["displayOrder"])
-      }}
+      applicant={applicant && { ...applicant, knowledgeSections, experienceSections }}
       translations={translations}
       editButton={editButton}
       withStatusLabel={withStatusLabel}

@@ -10,7 +10,8 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
-import { LoadingWindow } from "$components/LoadingWindow";
+import { Formik2 } from "$components/Formik2";
+import { IApplicant } from "$interfaces/Applicant";
 
 export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -18,7 +19,30 @@ export const EditableDetailContainer: FunctionComponent = () => {
   const { updateCurrentApplicant } = useUpdateCurrentApplicant();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
   const applicantProfile = useMyApplicantProfile();
-  const applicant = applicantProfile.data?.getCurrentUser.applicant;
+
+  const modelToValues = useCallback(
+    (model?: IApplicant) => ({
+      user: {
+        email: model?.user.email || "",
+        name: model?.user.name || "",
+        surname: model?.user.surname || ""
+      },
+      padron: model?.padron || NaN,
+      description: model?.description || "",
+      links: model?.links || [],
+      careers: model?.careers.map(applicantCareer => ({
+        careerCode: applicantCareer.career.code,
+        approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
+        currentCareerYear: applicantCareer.currentCareerYear || NaN,
+        isGraduate: applicantCareer.isGraduate
+      })) || [{ careerCode: "", isGraduate: true }],
+      capabilities: model?.capabilities || [{ description: "" }],
+      knowledgeSections: model?.knowledgeSections || [{ title: "", text: "", displayOrder: NaN }],
+      experienceSections: model?.experienceSections || [{ title: "", text: "", displayOrder: NaN }],
+      _form: []
+    }),
+    []
+  );
 
   const validateForm = useCallback(
     ({ careers: selectedCareers, links: selectedLinks }: IApplicantEditableFormValues) => {
@@ -48,47 +72,32 @@ export const EditableDetailContainer: FunctionComponent = () => {
     []
   );
 
+  const onSubmit = useCallback(
+    async ({ _form, ...variables }: IApplicantEditableFormValues) => {
+      const result = await updateCurrentApplicant({
+        variables: updateCurrentApplicantArguments(variables),
+        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+      });
+      if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
+    },
+    [enqueueSnackbar, history, updateCurrentApplicant]
+  );
+
   if (applicantProfile.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
 
-  const onSubmit = async ({ _form, ...variables }: IApplicantEditableFormValues) => {
-    const result = await updateCurrentApplicant({
-      variables: updateCurrentApplicantArguments(variables),
-      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
-    });
-    if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
-  };
-
-  if (!applicantProfile || !translations || !applicant) return <LoadingWindow />;
+  const applicant = applicantProfile.data?.getCurrentUser.applicant;
 
   return (
-    <Window>
-      <EditableDetail
-        onSubmit={onSubmit}
-        translations={translations}
-        initialValues={{
-          user: {
-            email: applicant.user.email,
-            name: applicant.user.name,
-            surname: applicant.user.surname
-          },
-          padron: applicant.padron,
-          description: applicant.description || "",
-          links: applicant.links,
-          careers: applicant.careers.map(applicantCareer => ({
-            careerCode: applicantCareer.career.code,
-            approvedSubjectCount: applicantCareer.approvedSubjectCount || NaN,
-            currentCareerYear: applicantCareer.currentCareerYear || NaN,
-            isGraduate: applicantCareer.isGraduate
-          })),
-          capabilities: applicant.capabilities,
-          knowledgeSections: applicant.knowledgeSections,
-          experienceSections: applicant.experienceSections,
-          _form: []
-        }}
-        validateForm={validateForm}
-      />
+    <Window loading={!applicantProfile || !translations || !applicant}>
+      <Formik2
+        formName="editApplicantDetailForm"
+        initialValuesModel={applicant}
+        {...{ modelToValues, validateForm, onSubmit }}
+      >
+        {formikProps => <EditableDetail {...{ translations, formikProps }} />}
+      </Formik2>
     </Window>
   );
 };

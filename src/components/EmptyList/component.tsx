@@ -11,10 +11,11 @@ export const EmptyList: FunctionComponent<IEmptyListProps> = ({
   onClick,
   buttonKind,
   className,
+  hidden,
   translations: { text, button }
 }) => {
   return (
-    <div className={classNames(className, styles.container)}>
+    <div className={classNames(className, styles.container)} hidden={hidden}>
       <SearchIcon fontSize="large" />
       <p className={styles.text}>{text}</p>
       <Button kind={buttonKind} onClick={onClick}>

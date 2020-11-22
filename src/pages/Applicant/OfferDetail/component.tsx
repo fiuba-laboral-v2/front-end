@@ -8,21 +8,21 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import styles from "./styles.module.scss";
 
 export const OfferDetail: FunctionComponent<IOfferDetail> = ({ offer, apply, translations }) => (
-  <Window>
+  <Window loading={!offer || !translations}>
     <Detail
-      goToCompany={RoutesBuilder.applicant.companyProfile(offer.company.uuid)}
+      goToCompany={offer && RoutesBuilder.applicant.companyProfile(offer.company.uuid)}
       offer={offer}
       applyButton={
         <div className={styles.applyButton}>
           <Button
-            onClick={() => apply(offer.uuid)}
+            onClick={() => offer && apply(offer.uuid)}
             kind="primary"
             width="expand"
             type="submit"
-            disabled={offer.hasApplied}
-            title={offer.hasApplied ? translations.alreadyApplied : ""}
+            disabled={offer?.hasApplied}
+            title={offer?.hasApplied ? translations?.alreadyApplied : ""}
           >
-            {translations.apply}
+            {translations?.apply}
           </Button>
         </div>
       }
@@ -31,7 +31,7 @@ export const OfferDetail: FunctionComponent<IOfferDetail> = ({ offer, apply, tra
 );
 
 interface IOfferDetail {
-  offer: IMyOffer;
+  offer?: IMyOffer;
   apply: (uuid: string) => void;
-  translations: IOfferDetailTranslations;
+  translations?: IOfferDetailTranslations;
 }

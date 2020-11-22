@@ -13,7 +13,7 @@ export const CareersSection: FunctionComponent<ICareersProps> = ({
 }) => (
   <div className={className}>
     <section className={classNames(styles.items, { [styles.mobile]: mobileLayout })}>
-      <Subtitle>{translations.careersTitle}</Subtitle>
+      <Subtitle>{translations?.careersTitle}</Subtitle>
       <CareersDetail
         careers={careers}
         className={styles.item}
