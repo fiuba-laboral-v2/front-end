@@ -1,30 +1,14 @@
-import React, { ReactNode, useEffect } from "react";
-import { Formik as FormikContainer, FormikProps, Form } from "formik";
+import React, { ReactNode } from "react";
+import { Formik as FormikContainer, FormikProps } from "formik";
 import { FormikConfig, FormikValues } from "formik/dist/types";
-
-const FillOnLoad = <Model, Values>({
-  initialValuesModel,
-  setValues,
-  modelToValues
-}: IFillOnLoadProps<Model, Values>) => {
-  useEffect(() => {
-    if (initialValuesModel) setValues(modelToValues(initialValuesModel), false);
-  }, [initialValuesModel, setValues, modelToValues]);
-  return null;
-};
-
-interface IFillOnLoadProps<Model, Values> {
-  initialValuesModel?: Model;
-  setValues: (values: Values, shouldValidate?: boolean) => void;
-  modelToValues: (model?: Model) => Values;
-}
+import { Form } from "./Form";
 
 export const Formik2 = <Model, Values extends FormikValues = FormikValues, ExtraProps = {}>({
   initialValuesModel,
   children,
   onSubmit,
   modelToValues,
-  formName,
+  formName: name,
   ...props
 }: IFormikProps<Model, Values, ExtraProps>) => {
   return (
@@ -35,10 +19,7 @@ export const Formik2 = <Model, Values extends FormikValues = FormikValues, Extra
       validateOnMount={false}
     >
       {formikProps => (
-        <Form name={formName}>
-          <FillOnLoad
-            {...{ initialValuesModel, setValues: formikProps.setValues, modelToValues }}
-          />
+        <Form setValues={formikProps.setValues} {...{ name, initialValuesModel, modelToValues }}>
           {children(formikProps)}
         </Form>
       )}
@@ -46,13 +27,13 @@ export const Formik2 = <Model, Values extends FormikValues = FormikValues, Extra
   );
 };
 
-type IFormikProps<Model, Values, ExtraProps> = Omit<
-  FormikConfig<Values>,
-  "initialValues" | "children"
-> &
-  ExtraProps & {
-    formName: string;
-    initialValuesModel?: Model;
-    modelToValues: (model?: Model) => Values;
-    children: (props: FormikProps<Values>) => ReactNode;
-  };
+type BaseFormikConfig<Values> = Omit<FormikConfig<Values>, "initialValues" | "children">;
+type FormikConfigExtension<Model, Values> = {
+  formName: string;
+  initialValuesModel?: Model;
+  modelToValues: (model?: Model) => Values;
+  children: (props: FormikProps<Values>) => ReactNode;
+};
+type IFormikProps<Model, Values, ExtraProps> = BaseFormikConfig<Values> &
+  ExtraProps &
+  FormikConfigExtension<Model, Values>;
