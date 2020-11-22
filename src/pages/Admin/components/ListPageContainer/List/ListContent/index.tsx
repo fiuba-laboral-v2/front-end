@@ -19,6 +19,7 @@ export const ListContent: FunctionComponent<IListContentProps> = ({
       {children as (item: Listable) => ReactNode}
     </Row>
     <PaginationButton
+      listIsEmpty={items.length === 0}
       shouldFetchMore={shouldFetchMore}
       fetchMore={fetchMore}
       className={styles.fetchMore}

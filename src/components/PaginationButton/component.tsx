@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { Button } from "../Button";
 import { IPaginationButtonProps } from "./interfaces";
+import { LoadingSpinner } from "../LoadingSpinner";
 
 import styles from "./styles.module.scss";
 
@@ -10,9 +11,13 @@ export const PaginationButton = ({
   shouldFetchMore,
   fetchMore,
   translations,
-  loading
+  loading,
+  listIsEmpty
 }: IPaginationButtonProps) => (
   <>
+    {loading && (
+      <LoadingSpinner className={classNames(styles.spinner, { [styles.emptyList]: listIsEmpty })} />
+    )}
     {shouldFetchMore && fetchMore && !loading && (
       <Button
         kind="primary"

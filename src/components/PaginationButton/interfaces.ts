@@ -3,6 +3,7 @@ export interface IPaginationButtonContainerProps {
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  listIsEmpty: boolean;
 }
 
 export interface IListTranslations {

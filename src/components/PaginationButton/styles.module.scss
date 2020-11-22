@@ -1,3 +1,14 @@
+@import "$styles/_variables";
+
 .fetchMoreButton {
   margin: 0 auto;
+}
+
+.spinner {
+  height: unset;
+  margin-top: $spacing-m;
+
+  &.emptyList {
+    height: #{5 * $spacing-xxl};
+  }
 }

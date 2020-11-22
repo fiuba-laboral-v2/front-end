@@ -4,7 +4,6 @@ export interface IEmptyListCommonProps {
   onClick: () => void;
   buttonKind: IButtonProps["kind"];
   className?: string;
-  hidden?: boolean;
 }
 
 export interface IEmptyListContainerProps extends IEmptyListCommonProps {

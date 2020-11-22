@@ -9,7 +9,6 @@ import { EmptyList } from "$components/EmptyList";
 import { Filters } from "./Filters";
 import { IOfferListTranslations } from "./interfaces";
 import { OfferFilter } from "$models/OfferFilter";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 
 import styles from "./styles.module.scss";
 
@@ -42,20 +41,16 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
         shouldFetchMore={offers.data?.getApprovedOffers.shouldFetchMore}
         withStatusLabels={false}
         emptyListComponent={
-          <>
-            {offers.loading && <LoadingSpinner className={styles.listPlaceholder} />}
-            <EmptyList
-              hidden={offers.loading}
-              className={styles.listPlaceholder}
-              emptyTranslationSource="applicantEmptyOfferList"
-              buttonKind="secondary"
-              onClick={() => {
-                filter.clear();
-                const searchParams = filter.toString();
-                history.push(RoutesBuilder.applicant.offerList({ searchParams }));
-              }}
-            />
-          </>
+          <EmptyList
+            className={styles.listPlaceholder}
+            emptyTranslationSource="applicantEmptyOfferList"
+            buttonKind="secondary"
+            onClick={() => {
+              filter.clear();
+              const searchParams = filter.toString();
+              history.push(RoutesBuilder.applicant.offerList({ searchParams }));
+            }}
+          />
         }
       />
     </Window>
