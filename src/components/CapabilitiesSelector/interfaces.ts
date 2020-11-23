@@ -1,9 +1,10 @@
-import { ICapability } from "../../interfaces/Capability";
+import { ICapability } from "$interfaces/Capability";
 
 export interface ICapabilitiesSelectorContainer {
-  label: string;
+  label?: string;
 }
 
 export interface ICapabilitiesSelector extends ICapabilitiesSelectorContainer {
-  options: ICapability[];
+  label?: string;
+  options?: ICapability[];
 }

@@ -7,7 +7,6 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { FormFooter } from "$components/FormFooter";
 import { Window } from "$components/Window";
-import { LoadingWindow } from "$components/LoadingWindow";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -16,10 +15,8 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
 
-  if (!translations || !acceptanceCriteria) return <LoadingWindow />;
-
   return (
-    <Window>
+    <Window loading={!translations || !acceptanceCriteria}>
       <EditOffer
         autoFocus
         title={translations?.create}

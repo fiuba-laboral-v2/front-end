@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useOfferForApplicant, useMutation, useTranslations } from "$hooks";
 import { SAVE_JOB_APPLICATION } from "$mutations";
 import { OfferDetail } from "./component";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { IOfferDetailTranslations } from "./interfaces";
 import { useShowError } from "$hooks/snackbar/useShowError";
 import { useShowSuccess } from "$hooks/snackbar/useShowSuccess";
@@ -16,13 +15,11 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const response = useOfferForApplicant(uuid);
 
-  if (response.error || response.loading || !translations) return <LoadingSpinner />;
-
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
       variables: { offerUuid },
       errorHandlers: {
-        JobApplicationAlreadyExistsError: () => showError({ message: translations.alreadyApplied })
+        JobApplicationAlreadyExistsError: () => showError({ message: translations?.alreadyApplied })
       },
       update: cache =>
         cache.modify({
@@ -32,10 +29,10 @@ export const OfferDetailContainer: FunctionComponent = () => {
           }
         })
     });
-    if (!error) showSuccess({ message: translations.applySuccess });
+    if (!error && translations) showSuccess({ message: translations.applySuccess });
   };
 
   return (
-    <OfferDetail offer={response.data.getOfferByUuid} apply={apply} translations={translations} />
+    <OfferDetail offer={response.data?.getOfferByUuid} apply={apply} translations={translations} />
   );
 };

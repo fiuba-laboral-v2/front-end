@@ -2,7 +2,7 @@ import { ILabelLayoutProps } from "$components/Label";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export interface IContainerProps extends ILabelLayoutProps {
-  status: ApprovalStatus;
+  status?: ApprovalStatus;
   withTooltip?: boolean;
 }
 
@@ -13,5 +13,6 @@ export interface ITranslations {
 }
 
 export interface IComponentProps extends IContainerProps {
+  status: ApprovalStatus;
   translations: ITranslations;
 }

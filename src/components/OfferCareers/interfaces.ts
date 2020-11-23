@@ -1,7 +1,7 @@
 import { IOffer } from "$interfaces/Offer";
 
 export interface IOfferCareersContainerProps {
-  offer: IOffer;
+  offer?: IOffer;
   className?: string;
 }
 

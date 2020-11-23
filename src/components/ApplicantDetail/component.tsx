@@ -23,7 +23,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
     knowledgeSections,
     experienceSections,
     capabilities
-  },
+  } = { user: {} },
   translations,
   editButton,
   withStatusLabel
@@ -38,22 +38,30 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
         />
         <div>{editButton}</div>
       </div>
-      <Links links={[{ name: email, url: email }]} />
-      <Links links={links} />
+      {email && links && (
+        <>
+          <Links links={[{ name: email, url: email }]} />
+          <Links links={links} />
+        </>
+      )}
     </div>
     <div className={styles.capabilitiesAndCareersContainer}>
       <CapabilitiesDetail
         className={styles.capabilities}
-        title={translations.capabilities}
-        capabilities={capabilities}
+        title={translations?.capabilities}
+        capabilities={capabilities || []}
       />
-      <CareersSection className={styles.careers} careers={careers} mobileLayout={mobileLayout} />
+      <CareersSection
+        className={styles.careers}
+        careers={careers || []}
+        mobileLayout={mobileLayout}
+      />
     </div>
     <Description>{description}</Description>
-    {knowledgeSections.map(section => (
+    {knowledgeSections?.map(section => (
       <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
     ))}
-    {experienceSections.map(section => (
+    {experienceSections?.map(section => (
       <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
     ))}
   </Card>

@@ -3,6 +3,7 @@ import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
 import { ApplicantType } from "$interfaces/Applicant";
 import { TimeFormatter } from "$models/TimeFormatter";
+import moment from "moment";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,
@@ -47,7 +48,7 @@ const buildLabel = ({
 
 const isExpired = (expirationDateTime?: string | null) => {
   if (!expirationDateTime) return false;
-  return TimeFormatter.date(expirationDateTime) < TimeFormatter.today();
+  return expirationDateTime < moment(Date.now()).format("YYYY-MM-DD");
 };
 
 const getTooltipLabel = (secretary: Secretary, translations?: ITranslations) => {
@@ -66,13 +67,16 @@ export const useSeparatedStatusTranslations = ({
   targetApplicantType,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
-  const targetsBoth = targetApplicantType === ApplicantType.both;
-  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
-  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
-
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
   const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
 
+  if (!extensionApprovalStatus || !graduadosApprovalStatus || !targetApplicantType) {
+    return { graduados: undefined, extension: undefined };
+  }
+
+  const targetsBoth = targetApplicantType === ApplicantType.both;
+  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
+  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
   const translations = labelTranslations &&
     institutionsTranslations && {
       ...labelTranslations,
@@ -130,11 +134,11 @@ interface IBuildLabel {
 }
 
 interface IUseSeparatedStatus {
-  extensionApprovalStatus: ApprovalStatus;
-  graduadosApprovalStatus: ApprovalStatus;
+  extensionApprovalStatus?: ApprovalStatus;
+  graduadosApprovalStatus?: ApprovalStatus;
   studentsExpirationDateTime?: string | null;
   graduatesExpirationDateTime?: string | null;
-  targetApplicantType: ApplicantType;
+  targetApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 

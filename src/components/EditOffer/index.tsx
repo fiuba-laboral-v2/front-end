@@ -77,8 +77,8 @@ interface IFormFooterParams {
 
 interface ICreateOfferProps {
   autoFocus?: boolean;
-  acceptanceCriteria: string;
-  title: string;
+  acceptanceCriteria?: string;
+  title?: string;
   infoMessageTranslationGroup?: string;
   initialValues: IEditOfferFormProps;
   onSubmit: (values: ICreateOfferValues) => void;

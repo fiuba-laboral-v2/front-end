@@ -13,6 +13,11 @@ export const StatusLabel: FunctionComponent<IStatusLabelProps> = ({ status, ...p
   </>
 );
 
-export interface IStatusLabelProps extends ILabelLayoutProps, ILabelTextProps {
+export interface IStatusLabelProps extends ILabelContainerProps {
   status?: ApprovalStatus;
+}
+
+export interface ILabelContainerProps extends ILabelLayoutProps, ILabelTextProps {
+  hasExpired?: boolean;
+  withStatusText?: boolean;
 }

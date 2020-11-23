@@ -1,7 +1,7 @@
 import { IOffer } from "$interfaces/Offer";
 
 export interface IOfferSalaryContainerProps {
-  offer: IOffer;
+  offer?: IOffer;
   className?: string;
 }
 
@@ -12,5 +12,6 @@ export interface IOfferSalaryTranslations {
 }
 
 export interface IOfferSalaryProps extends IOfferSalaryContainerProps {
+  offer: IOffer;
   translations: IOfferSalaryTranslations;
 }

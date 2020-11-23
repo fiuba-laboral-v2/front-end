@@ -42,7 +42,7 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
         withStatusLabels={false}
         emptyListComponent={
           <EmptyList
-            className={styles.emptyList}
+            className={styles.listPlaceholder}
             emptyTranslationSource="applicantEmptyOfferList"
             buttonKind="secondary"
             onClick={() => {
