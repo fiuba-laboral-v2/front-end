@@ -7,7 +7,6 @@ import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
 import { useMyOffers } from "$hooks/queries/useMyOffers";
-import { LoadingWindow } from "$components/LoadingWindow";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -17,13 +16,12 @@ export const MyOffersContainer: FunctionComponent = () => {
   if (response.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
-  if (!translations) return <LoadingWindow />;
 
   return (
-    <Window>
+    <Window loading={!translations}>
       <Feed
         loading={response.loading}
-        title={translations.title}
+        title={translations?.title}
         offers={response.data?.getMyOffers.results || []}
         onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
         fetchMore={response.fetchMore}
