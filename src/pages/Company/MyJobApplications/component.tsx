@@ -18,7 +18,6 @@ export const MyJobApplications: FunctionComponent<IMyJobApplications> = ({
     {title && <Title className={styles.title}>{title}</Title>}
     <List
       list={jobApplications}
-      fetchMoreClassName={styles.fetchMore}
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}

@@ -42,7 +42,13 @@ export const useSeparatedStatusTranslations = ({
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
   const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
 
-  if (!extensionApprovalStatus || !graduadosApprovalStatus || !targetApplicantType) {
+  if (
+    !extensionApprovalStatus ||
+    !graduadosApprovalStatus ||
+    !targetApplicantType ||
+    !labelTranslations ||
+    !institutionsTranslations
+  ) {
     return { graduados: undefined, extension: undefined };
   }
 

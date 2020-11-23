@@ -7,8 +7,8 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps extends IContainerProps {
-  translations: ITranslations;
-  options: ICareer[];
+  translations?: ITranslations;
+  options?: ICareer[];
 }
 
 export interface ITranslations {

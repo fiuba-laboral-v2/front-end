@@ -21,6 +21,7 @@ export interface IOfferAttributes {
 export interface ICreateOfferValues extends IOfferAttributes {
   careers: ICareer[];
   sections: ISection[];
+  _form: string[];
 }
 
 export interface ICreateOffer extends IOfferAttributes {

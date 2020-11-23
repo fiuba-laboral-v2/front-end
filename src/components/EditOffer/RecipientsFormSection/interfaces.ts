@@ -9,5 +9,5 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps extends IContainerProps {
-  translations: ITranslations;
+  translations?: ITranslations;
 }

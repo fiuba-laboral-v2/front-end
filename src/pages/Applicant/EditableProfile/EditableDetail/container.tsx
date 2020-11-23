@@ -10,8 +10,9 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
-import { Formik2 } from "$components/Formik2";
 import { IApplicant } from "$interfaces/Applicant";
+import { FormikForm } from "$components/FormikForm";
+import { Formik } from "$components/Formik";
 
 export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -91,9 +92,13 @@ export const EditableDetailContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!applicantProfile || !translations || !applicant}>
-      <Formik2 initialValuesModel={applicant} {...{ modelToValues, validateForm, onSubmit }}>
-        {formikProps => <EditableDetail {...{ translations, formikProps }} />}
-      </Formik2>
+      <Formik initialValues={modelToValues()} {...{ validateForm, onSubmit }}>
+        {formikProps => (
+          <FormikForm initialValuesModel={applicant} {...{ modelToValues, formikProps }}>
+            <EditableDetail {...{ translations, formikProps }} />
+          </FormikForm>
+        )}
+      </Formik>
     </Window>
   );
 };

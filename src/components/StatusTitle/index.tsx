@@ -24,6 +24,6 @@ export const StatusTitle: FunctionComponent<IComponentProps> = ({
 
 interface IComponentProps {
   className?: string;
-  detailTitle: string;
+  detailTitle?: string;
   approvalStatus?: ApprovalStatus;
 }

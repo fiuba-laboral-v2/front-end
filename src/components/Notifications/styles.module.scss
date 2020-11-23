@@ -4,6 +4,6 @@
   margin-bottom: $spacing-xxl;
 }
 
-.notification {
+.notification:not(:last-child) {
   margin-bottom: $spacing-xl;
 }
