@@ -22,7 +22,6 @@ export const Feed: FunctionComponent<IFeedProps> = ({
     <List
       list={offers}
       fetchMore={fetchMore}
-      fetchMoreClassName={styles.fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}
       emptyListComponent={emptyListComponent}
