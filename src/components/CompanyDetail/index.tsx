@@ -13,41 +13,37 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
   className,
   editButton,
   withStatusLabel,
-  company: {
-    companyName,
-    approvalStatus,
-    email = "",
-    slogan = "",
-    logo = "",
-    website = "",
-    description = "",
-    photos = []
-  }
+  company
 }) => (
   <Card largePadding className={className}>
     <div className={styles.header}>
-      <CompanyLogo size="extraLarge" companyName={companyName} logo={logo} useDefaultIcon />
+      <CompanyLogo
+        size="extraLarge"
+        companyName={company?.companyName}
+        logo={company?.logo}
+        useDefaultIcon
+      />
       <div className={styles.mainInfo}>
         <StatusTitle
-          detailTitle={companyName}
-          approvalStatus={withStatusLabel ? approvalStatus : undefined}
+          detailTitle={company?.companyName}
+          approvalStatus={withStatusLabel ? company?.approvalStatus : undefined}
         />
-        <Subtitle className={styles.companySlogan}>{slogan}</Subtitle>
-        <DetailContactMe email={email} website={website} />
+        <Subtitle className={styles.companySlogan}>{company?.slogan}</Subtitle>
+        <DetailContactMe email={company?.email} website={company?.website} />
       </div>
       <div className={styles.editButton}>{editButton}</div>
     </div>
-    <Description>{description}</Description>
+    <Description>{company?.description}</Description>
     <section className={styles.photos}>
-      {photos.map((source, index) => (
-        <img key={index} src={source} alt={`${companyName}`} />
+      {company?.photos?.map((source, index) => (
+        <img key={index} src={source} alt={`${company.companyName}`} />
       ))}
     </section>
   </Card>
 );
 
 interface ICompanyDetailProps {
-  company: ICompany;
+  company?: ICompany;
   editButton?: React.ReactElement;
   withStatusLabel?: boolean;
   className?: string;
