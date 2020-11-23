@@ -1,21 +1,21 @@
 import React, { ReactNode, useEffect } from "react";
-import { Form as FormikForm } from "formik";
+import { Form, FormikProps } from "formik";
 
-export const Form = <Model, Values>({
+export const FormikForm = <Model, Values>({
   children,
   initialValuesModel,
-  setValues,
+  formikProps: { setValues },
   modelToValues
 }: IFormProps<Model, Values>) => {
   useEffect(() => {
     if (initialValuesModel) setValues(modelToValues(initialValuesModel), false);
   }, [initialValuesModel, setValues, modelToValues]);
-  return <FormikForm>{children}</FormikForm>;
+  return <Form>{children}</Form>;
 };
 
 interface IFormProps<Model, Values> {
   initialValuesModel?: Model;
-  setValues: (values: Values, shouldValidate?: boolean) => void;
+  formikProps: FormikProps<Values>;
   modelToValues: (model?: Model) => Values;
   children: ReactNode;
 }
