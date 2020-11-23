@@ -19,16 +19,15 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
   acceptanceCriteria,
   modelToValues,
   validateForm: validate,
-  infoMessageTranslationGroup
+  infoMessageTranslationGroup,
+  loading
 }) => (
-  <Window>
+  <Window {...{ loading }}>
     <Formik initialValues={modelToValues()} {...{ validate, onSubmit }}>
       {formikProps => (
         <Form title={title} acceptanceCriteria={acceptanceCriteria}>
           <FormikForm initialValuesModel={offer} {...{ modelToValues, formikProps }}>
-            {infoMessageTranslationGroup && (
-              <InfoMessage translationGroupName={infoMessageTranslationGroup} />
-            )}
+            <InfoMessage translationGroupName={infoMessageTranslationGroup} />
             <MainInformationFormSection className={styles.formSection} autoFocus={autoFocus} />
             <DescriptionFormSection
               className={styles.formSection}

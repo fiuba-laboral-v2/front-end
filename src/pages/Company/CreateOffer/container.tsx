@@ -31,6 +31,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
 
   return (
     <EditOffer
+      loading={!translations}
       autoFocus
       onSubmit={onSubmit}
       title={translations?.create}

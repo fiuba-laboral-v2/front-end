@@ -6,7 +6,10 @@ import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
 import { isNil } from "lodash";
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 
-export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = props => {
+export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = ({
+  loading,
+  ...props
+}) => {
   const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
 
   const modelToValues = useCallback((model?: IOffer) => {
@@ -40,6 +43,7 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = p
       acceptanceCriteria={acceptanceCriteria?.text}
       {...{ modelToValues, validateForm }}
       {...props}
+      loading={loading || !acceptanceCriteria?.text}
     />
   );
 };

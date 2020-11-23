@@ -47,6 +47,7 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   return (
     <EditOffer
+      loading={!translations || getOffer.loading}
       offer={offer}
       onSubmit={onSubmit}
       title={translations?.edit}

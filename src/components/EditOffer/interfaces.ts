@@ -10,6 +10,7 @@ export interface IEditOfferTranslations extends IConfirmDialogTranslations {
 }
 
 export interface IEditOfferContainerProps {
+  loading: boolean;
   title?: string;
   offer?: IOffer;
   autoFocus?: boolean;
