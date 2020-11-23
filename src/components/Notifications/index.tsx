@@ -17,6 +17,7 @@ export const Notifications = <Notification extends { uuid: string }>({
     <Title className={styles.title}>{title}</Title>
     <List
       list={notifications || []}
+      fetchMoreClassName={styles.fetchMore}
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
       loading={loading}

@@ -28,7 +28,7 @@ export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IC
       notification={notification}
       icon={<StatusIcon Icon={JobApplicationIcon} />}
     >
-      <NotificationTitle>{translations?.title || ""}</NotificationTitle>
+      <NotificationTitle>{translations?.title || " "}</NotificationTitle>
       <NotificationBody>
         <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
           {`${applicant.user.name} ${applicant.user.surname}`}
