@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Form as FormikForm, FormikErrors } from "formik";
+import { FormikErrors } from "formik";
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
 import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
@@ -8,6 +8,7 @@ import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
 import { FormikHelpers } from "formik/dist/types";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interfaces";
+import { FormikForm } from "$components/FormikForm";
 import styles from "./styles.module.scss";
 
 export const SignUp: FunctionComponent<ISignUpProps> = ({
