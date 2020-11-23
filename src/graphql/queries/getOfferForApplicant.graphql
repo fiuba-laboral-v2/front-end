@@ -9,6 +9,8 @@ query getOfferForApplicant($uuid: ID!) {
     targetApplicantType
     extensionApprovalStatus
     graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
     createdAt
     updatedAt
     hasApplied

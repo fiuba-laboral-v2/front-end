@@ -5,6 +5,8 @@ import styles from "./styles.module.scss";
 export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = ({
   extensionApprovalStatus,
   graduadosApprovalStatus,
+  graduatesExpirationDateTime,
+  studentsExpirationDateTime,
   targetApplicantType,
   className
 }) => {
@@ -16,6 +18,8 @@ export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = ({
       targetApplicantType={targetApplicantType}
       graduadosApprovalStatus={graduadosApprovalStatus}
       extensionApprovalStatus={extensionApprovalStatus}
+      graduatesExpirationDateTime={graduatesExpirationDateTime}
+      studentsExpirationDateTime={studentsExpirationDateTime}
     />
   );
 };

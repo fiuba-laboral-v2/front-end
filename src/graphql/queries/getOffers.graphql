@@ -10,6 +10,8 @@ query GetOffers($updatedBeforeThan: PaginatedInput) {
       updatedAt
       graduadosApprovalStatus
       extensionApprovalStatus
+      studentsExpirationDateTime
+      graduatesExpirationDateTime
       company {
         uuid
         companyName

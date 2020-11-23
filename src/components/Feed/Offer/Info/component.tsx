@@ -19,6 +19,8 @@ export const Info: FunctionComponent<IOfferProps> = ({
     updatedAt,
     extensionApprovalStatus,
     graduadosApprovalStatus,
+    graduatesExpirationDateTime,
+    studentsExpirationDateTime,
     targetApplicantType
   },
   withStatusLabels
@@ -53,6 +55,8 @@ export const Info: FunctionComponent<IOfferProps> = ({
             extensionApprovalStatus={extensionApprovalStatus}
             graduadosApprovalStatus={graduadosApprovalStatus}
             targetApplicantType={targetApplicantType}
+            graduatesExpirationDateTime={graduatesExpirationDateTime}
+            studentsExpirationDateTime={studentsExpirationDateTime}
           />
         )}
         <PublishedSince

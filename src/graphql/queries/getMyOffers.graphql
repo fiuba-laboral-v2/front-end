@@ -8,6 +8,8 @@ query getMyOffers($updatedBeforeThan: PaginatedInput) {
       targetApplicantType
       extensionApprovalStatus
       graduadosApprovalStatus
+      studentsExpirationDateTime
+      graduatesExpirationDateTime
       hoursPerDay
       minimumSalary
       maximumSalary

@@ -9,6 +9,8 @@ query getOfferByUuid($uuid: ID!) {
     maximumSalary
     extensionApprovalStatus
     graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
     createdAt
     updatedAt
     sections {

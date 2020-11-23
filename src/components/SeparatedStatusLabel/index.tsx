@@ -11,6 +11,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
   type,
   extensionApprovalStatus,
   graduadosApprovalStatus,
+  studentsExpirationDateTime,
+  graduatesExpirationDateTime,
   targetApplicantType,
   withStatusText = true,
   className
@@ -19,6 +21,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
     targetApplicantType,
     graduadosApprovalStatus,
     extensionApprovalStatus,
+    studentsExpirationDateTime,
+    graduatesExpirationDateTime,
     withStatusText
   });
 
@@ -53,6 +57,8 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
 export interface ISeparatedStatusLabelProps {
   extensionApprovalStatus: ApprovalStatus;
   graduadosApprovalStatus: ApprovalStatus;
+  studentsExpirationDateTime?: string | null;
+  graduatesExpirationDateTime?: string | null;
   targetApplicantType: ApplicantType;
   className?: string;
 }
