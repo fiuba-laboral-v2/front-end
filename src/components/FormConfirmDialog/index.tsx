@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, Fragment } from "react";
 import {
   Dialog,
   DialogActions,
@@ -14,30 +14,34 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   onClose,
   onConfirm,
   translations
-}) => (
-  <Dialog open={isOpen} onClose={onClose}>
-    <DialogTitle>
-      <span className={styles.title}>{translations.confirmDialogTitle}</span>
-    </DialogTitle>
-    <DialogContent>
-      <DialogContentText>{translations.confirmDialogDescription}</DialogContentText>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose} kind="secondary">
-        {translations.confirmDialogCancel}
-      </Button>
-      <Button
-        onClick={() => {
-          onConfirm();
-          onClose();
-        }}
-        kind="primary"
-      >
-        {translations.confirmDialogConfirm}
-      </Button>
-    </DialogActions>
-  </Dialog>
-);
+}) => {
+  if (!translations) return <Fragment />;
+
+  return (
+    <Dialog open={isOpen} onClose={onClose}>
+      <DialogTitle>
+        <span className={styles.title}>{translations.confirmDialogTitle}</span>
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText>{translations.confirmDialogDescription}</DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose} kind="secondary">
+          {translations.confirmDialogCancel}
+        </Button>
+        <Button
+          onClick={() => {
+            onConfirm();
+            onClose();
+          }}
+          kind="primary"
+        >
+          {translations.confirmDialogConfirm}
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
 
 export interface IConfirmDialogTranslations {
   confirmDialogTitle: string;
@@ -50,5 +54,5 @@ interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
-  translations: IConfirmDialogTranslations;
+  translations?: IConfirmDialogTranslations;
 }
