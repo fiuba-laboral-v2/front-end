@@ -7,5 +7,5 @@ export const ListContentItemContainer: FunctionComponent<IListContentItemContain
   admin
 }) => {
   const translations = useTranslations<ITranslations>("secretaryNames");
-  return <>{translations && <ListContentItem admin={admin} translations={translations} />}</>;
+  return <ListContentItem admin={admin} translations={translations} />;
 };
