@@ -35,7 +35,7 @@ export const CareersDetail: FunctionComponent<ICareersDetail> = ({
 
 interface ICareersDetail {
   careers: IApplicantCareer[];
-  translations: ITranslations;
+  translations?: ITranslations;
   className?: string;
   regularFontWeight?: boolean;
   withSubjects: boolean;

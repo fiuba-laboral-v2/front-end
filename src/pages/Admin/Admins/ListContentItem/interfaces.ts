@@ -10,5 +10,5 @@ export interface IListContentItemContainer {
 }
 
 export interface IListContentItem extends IListContentItemContainer {
-  translations: ITranslations;
+  translations?: ITranslations;
 }

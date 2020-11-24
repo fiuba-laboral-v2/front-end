@@ -10,22 +10,27 @@ export const StudentCareerDetail: FunctionComponent<IGraduateCareerDetail> = ({
   withSubjects,
   regularFontWeight
 }) => (
-  <span>
-    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
-      {applicantCareer.currentCareerYear}° {translations.currentCareerYear}
-    </b>
-    {` ${translations.connector} `}
-    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
-      {applicantCareer.career.description}
-    </b>
-    {withSubjects &&
-      `: ${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`}
+  <span className={styles.detail}>
+    {translations && (
+      <>
+        <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
+          {applicantCareer.currentCareerYear}° {translations.currentCareerYear}
+        </b>
+        {` ${translations.connector} `}
+        <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
+          {applicantCareer.career.description}
+        </b>
+        {withSubjects &&
+          `: ${applicantCareer.approvedSubjectCount} ${translations.approvedSubjectCount}`}
+      </>
+    )}
+    {!translations && " "}
   </span>
 );
 
 interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
-  translations: IStudentTranslations;
+  translations?: IStudentTranslations;
   withSubjects: boolean;
   regularFontWeight?: boolean;
 }
