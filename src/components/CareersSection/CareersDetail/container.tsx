@@ -13,17 +13,13 @@ export const CareersDetailContainer: FunctionComponent<ICareersDetailContainer> 
   const translations = useTranslations<ITranslations>("careersDetail");
 
   return (
-    <>
-      {translations && (
-        <CareersDetail
-          careers={careers}
-          className={className}
-          regularFontWeight={regularFontWeight}
-          translations={translations}
-          withSubjects={withSubjects}
-        />
-      )}
-    </>
+    <CareersDetail
+      careers={careers}
+      className={className}
+      regularFontWeight={regularFontWeight}
+      translations={translations}
+      withSubjects={withSubjects}
+    />
   );
 };
 

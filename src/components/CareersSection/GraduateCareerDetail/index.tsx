@@ -9,20 +9,25 @@ export const GraduateCareerDetail: FunctionComponent<IGraduateCareerDetail> = ({
   translations,
   regularFontWeight
 }) => (
-  <>
-    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
-      {translations.isGraduate}
-    </b>
-    {` ${translations.connector} `}
-    <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
-      {applicantCareer.career.description}
-    </b>
-  </>
+  <span className={styles.detail}>
+    {translations && (
+      <>
+        <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
+          {translations.isGraduate}
+        </b>
+        {` ${translations.connector} `}
+        <b className={classNames({ [styles.regularFontWeight]: regularFontWeight })}>
+          {applicantCareer.career.description}
+        </b>
+      </>
+    )}
+    {!translations && " "}
+  </span>
 );
 
 interface IGraduateCareerDetail {
   applicantCareer: IApplicantCareer;
-  translations: IGraduateTranslations;
+  translations?: IGraduateTranslations;
   className?: string;
   regularFontWeight?: boolean;
 }
