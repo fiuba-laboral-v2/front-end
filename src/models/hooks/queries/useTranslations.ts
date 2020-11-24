@@ -5,30 +5,14 @@ import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { handleGenericError } from "$models/errorHandlers/handleGenericError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-interface ITranslation {
-  key: string;
-  value: string;
+interface ITranslationResponse<T> {
+  getTranslations: T | undefined;
 }
-
-interface ITranslationMapperParams {
-  getTranslations: ITranslation[] | undefined;
-}
-
-const translationMapper = <T>({ getTranslations }: ITranslationMapperParams): T | undefined => {
-  const translations: any = {};
-  if (getTranslations) {
-    for (const { key, value } of getTranslations) {
-      translations[`${key}`] = value;
-    }
-
-    return translations;
-  }
-};
 
 export const useTranslations = <T>(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
-  const { data } = useQuery<{ translationGroup: string }, ITranslationMapperParams>(
+  const { data } = useQuery<{ translationGroup: string }, ITranslationResponse<T>>(
     GET_TRANSLATIONS,
     {
       variables: { translationGroup },
@@ -41,5 +25,5 @@ export const useTranslations = <T>(translationGroup: string) => {
       }
     }
   );
-  return data && translationMapper<T>(data);
+  return data && data.getTranslations;
 };
