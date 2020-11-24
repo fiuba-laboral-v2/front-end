@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 
 export const PaginationButton = ({
   className,
+  spinnerClassName,
   shouldFetchMore,
   fetchMore,
   translations,
@@ -16,7 +17,11 @@ export const PaginationButton = ({
 }: IPaginationButtonProps) => (
   <>
     {loading && (
-      <LoadingSpinner className={classNames(styles.spinner, { [styles.emptyList]: listIsEmpty })} />
+      <LoadingSpinner
+        className={classNames(styles.spinner, spinnerClassName, {
+          [styles.emptyList]: listIsEmpty
+        })}
+      />
     )}
     {shouldFetchMore && fetchMore && !loading && (
       <Button

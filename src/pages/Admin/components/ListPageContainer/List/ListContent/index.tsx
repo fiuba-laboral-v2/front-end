@@ -23,6 +23,7 @@ export const ListContent: FunctionComponent<IListContentProps> = ({
       shouldFetchMore={shouldFetchMore}
       fetchMore={fetchMore}
       className={styles.fetchMore}
+      spinnerClassName={styles.spinner}
       loading={loading}
     />
   </div>
