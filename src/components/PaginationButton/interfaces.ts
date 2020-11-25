@@ -1,5 +1,6 @@
 export interface IPaginationButtonContainerProps {
   className?: string;
+  spinnerClassName?: string;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;

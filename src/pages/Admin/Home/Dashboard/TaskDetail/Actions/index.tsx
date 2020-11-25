@@ -12,17 +12,21 @@ export const Actions: FunctionComponent<IActionsProps> = ({
   loading
 }) => (
   <div className={styles.actions}>
-    {currentStatus !== ApprovalStatus.rejected && (
-      <RejectButton loading={loading} setStatus={setStatus} />
-    )}
-    {currentStatus !== ApprovalStatus.approved && (
-      <ApproveButton loading={loading} setStatus={setStatus} />
-    )}
+    <RejectButton
+      hidden={currentStatus === ApprovalStatus.rejected}
+      loading={loading}
+      setStatus={setStatus}
+    />
+    <ApproveButton
+      hidden={currentStatus === ApprovalStatus.approved}
+      loading={loading}
+      setStatus={setStatus}
+    />
   </div>
 );
 
 export interface IActionsProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  currentStatus: ApprovalStatus;
+  currentStatus?: ApprovalStatus;
   loading: boolean;
 }

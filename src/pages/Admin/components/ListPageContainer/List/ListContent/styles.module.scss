@@ -4,7 +4,11 @@
 .fetchMore {
   align-self: center;
   display: flex;
-  margin: $spacing-s auto;
+  margin: 10px auto;
+}
+
+.spinner {
+  margin: 0 auto;
 }
 
 .listContent {

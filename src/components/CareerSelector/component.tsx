@@ -22,7 +22,7 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
     compareValuesBy={({ code }) => code}
     valueToString={({ description }) => description}
     stringToValue={stringValue => {
-      const option = options.find(({ description }) => description === stringValue);
+      const option = options?.find(({ description }) => description === stringValue);
       if (!option) return { code: "", description: stringValue };
 
       return {
@@ -30,8 +30,8 @@ export const CareerSelector: FunctionComponent<IComponentProps> = ({
         description: stringValue
       };
     }}
-    options={options}
-    label={translations.career}
+    options={options || []}
+    label={translations?.career}
     allowOnlySelectableOptions
   />
 );

@@ -27,6 +27,7 @@ query getOfferByUuid($uuid: ID!) {
       uuid
       companyName
       logo
+      cuit
     }
   }
 }

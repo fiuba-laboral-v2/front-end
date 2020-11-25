@@ -12,18 +12,19 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
   loading
 }) => (
   <DetailInfo
+    hidden={!jobApplication}
     loading={loading}
     mainTitle={<MainTitle jobApplication={jobApplication} />}
     currentStatus={currentStatus}
     setStatus={setStatus}
   >
-    <UserDetails applicant={jobApplication.applicant} />
+    <UserDetails applicant={jobApplication?.applicant} />
   </DetailInfo>
 );
 
 export interface IComponentProps {
   loading: boolean;
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  jobApplication: IJobApplication;
-  currentStatus: ApprovalStatus;
+  jobApplication?: IJobApplication;
+  currentStatus?: ApprovalStatus;
 }

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { JobApplicationDetailContent } from "./component";
 import { useApplicantByUuid, useCompanyOfferByUuid } from "$hooks/queries";
 import { IContainerProps } from "./interfaces";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const JobApplicationDetailContentContainer: FunctionComponent<IContainerProps> = ({
   applicantUuid,
@@ -10,18 +10,14 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   scrollToTop,
   className
 }) => {
-  const applicantResponse = useApplicantByUuid(applicantUuid);
-  const offerResponse = useCompanyOfferByUuid(offerUuid);
-
-  if (applicantResponse.error || applicantResponse.loading) return <LoadingSpinner />;
-  if (offerResponse.error || offerResponse.loading) return <LoadingSpinner />;
+  const applicant = useApplicantByUuid(applicantUuid).data?.getApplicant;
+  const offer = useCompanyOfferByUuid(offerUuid).data?.getOfferByUuid;
   scrollToTop();
-
+  const loading = !applicant || !offer;
   return (
-    <JobApplicationDetailContent
-      applicant={applicantResponse.data.getApplicant}
-      offer={offerResponse.data.getOfferByUuid}
-      className={className}
-    />
+    <>
+      {loading && <LoadingSpinner />}
+      <JobApplicationDetailContent {...{ applicant, offer, className }} />
+    </>
   );
 };

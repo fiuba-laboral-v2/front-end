@@ -17,14 +17,14 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
 }) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
-      <span className={styles.title}>{translations.confirmDialogTitle}</span>
+      <span className={styles.title}>{translations?.confirmDialogTitle}</span>
     </DialogTitle>
     <DialogContent>
-      <DialogContentText>{translations.confirmDialogDescription}</DialogContentText>
+      <DialogContentText>{translations?.confirmDialogDescription}</DialogContentText>
     </DialogContent>
     <DialogActions>
       <Button onClick={onClose} kind="secondary">
-        {translations.confirmDialogCancel}
+        {translations?.confirmDialogCancel}
       </Button>
       <Button
         onClick={() => {
@@ -33,7 +33,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
         }}
         kind="primary"
       >
-        {translations.confirmDialogConfirm}
+        {translations?.confirmDialogConfirm}
       </Button>
     </DialogActions>
   </Dialog>
@@ -50,5 +50,5 @@ interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
-  translations: IConfirmDialogTranslations;
+  translations?: IConfirmDialogTranslations;
 }

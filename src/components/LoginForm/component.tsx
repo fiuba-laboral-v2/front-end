@@ -1,15 +1,13 @@
 import React from "react";
-import { Form } from "formik";
 import classNames from "classnames";
-
 import { PasswordField } from "$components/Fields";
 import { SubmitButton } from "$components/SubmitButton";
 import { Formik } from "$components/Formik";
-
-import styles from "./styles.module.scss";
 import { IComponentProps } from "./interfaces";
 import { Configuration } from "$config";
 import { SeededUsers } from "../SeededUsers";
+import styles from "./styles.module.scss";
+import { FormikForm } from "../FormikForm";
 
 const formName = "logInForm";
 
@@ -31,7 +29,7 @@ export const LoginForm = <TVariables,>({
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ isSubmitting, errors }) => (
         <div className={styles.body}>
-          <Form className={styles.formContainer} id={formName}>
+          <FormikForm className={styles.formContainer} id={formName}>
             {usernameField}
             <PasswordField
               className={styles.password}
@@ -41,7 +39,7 @@ export const LoginForm = <TVariables,>({
               autoComplete="current-password"
               withoutMargin
             />
-          </Form>
+          </FormikForm>
           <div className={styles.footer}>
             <SubmitButton
               className={styles.submitButton}

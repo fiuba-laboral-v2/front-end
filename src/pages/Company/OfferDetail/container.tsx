@@ -5,7 +5,6 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { OfferDetail } from "$components/OfferDetail";
 import { Window } from "$components/Window";
 import { Button } from "$components/Button";
-import { LoadingWindow } from "$components/LoadingWindow";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -14,17 +13,15 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("offerDetail");
   const offer = response.data?.getOfferByUuid;
 
-  if (!response || !translations || !offer) return <LoadingWindow />;
-
   return (
-    <Window>
+    <Window loading={!response || !translations || !offer}>
       <OfferDetail
         editButton={
           <Button
             kind={"primary"}
-            onClick={() => history.push(RoutesBuilder.company.editOffer(offer.uuid))}
+            onClick={() => offer && history.push(RoutesBuilder.company.editOffer(offer.uuid))}
           >
-            {translations.edit}
+            {translations?.edit}
           </Button>
         }
         goToCompany={RoutesBuilder.company.myProfile()}

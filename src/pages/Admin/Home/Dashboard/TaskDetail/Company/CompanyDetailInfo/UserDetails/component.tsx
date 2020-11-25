@@ -8,16 +8,17 @@ import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
-  company: {
-    cuit,
-    users: [{ email, name, surname }]
+  company: { cuit, users: [{ email, name, surname }] } = {
+    cuit: "",
+    users: [{ email: "", name: "", surname: "" }]
   },
-  translations
+  translations,
+  hidden
 }) => (
-  <div className={styles.userDetails}>
+  <div className={styles.userDetails} {...{ hidden }}>
     <div className={styles.firstRow}>
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
-      <TaskHeaderInfo title={translations.cuit} value={NumberFormatter.formatCuit(cuit)} />
+      <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
     </div>
     <TaskHeaderInfo value={email} Icon={EmailOutlinedIcon} />
   </div>
