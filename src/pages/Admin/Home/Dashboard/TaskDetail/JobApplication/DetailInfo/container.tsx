@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useJobApplicationByUuid } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { IJobApplicationAdminTask } from "$interfaces/AdminTask";
@@ -12,15 +12,14 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
   selectedJobApplication,
   onStatusUpdate
 }) => {
-  const jobApplicationResponse = useJobApplicationByUuid(selectedJobApplication.uuid);
+  const jobApplication = useJobApplicationByUuid(selectedJobApplication.uuid).data
+    ?.getJobApplicationByUuid;
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,
     type: JOB_APPLICATION,
     approvalStatusAttribute: "approvalStatus"
   });
-
-  if (jobApplicationResponse.error || jobApplicationResponse.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -29,13 +28,12 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
       onStatusUpdate
     });
   };
-  const jobApplication = jobApplicationResponse.data.getJobApplicationByUuid;
 
   return (
     <JobApplicationDetailInfo
       loading={loading}
       setStatus={setStatus}
-      currentStatus={jobApplication.approvalStatus}
+      currentStatus={jobApplication?.approvalStatus}
       jobApplication={jobApplication}
     />
   );

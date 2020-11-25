@@ -8,11 +8,11 @@ import { useTranslations } from "$hooks/queries";
 export const MainTitleContainer: FunctionComponent<IContainerProps> = ({ jobApplication }) => {
   const translations = useTranslations<IAdminApplicantMainTitle>("adminJobApplicationMainTitle");
   const title = translations ? translations.title : "";
-  return <MainTitle title={title} updatedAt={jobApplication.updatedAt} />;
+  return <MainTitle hidden={!jobApplication} title={title} updatedAt={jobApplication?.updatedAt} />;
 };
 
 export interface IContainerProps {
-  jobApplication: IJobApplication;
+  jobApplication?: IJobApplication;
 }
 
 interface IAdminApplicantMainTitle {

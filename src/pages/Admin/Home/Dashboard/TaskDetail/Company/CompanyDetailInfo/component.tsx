@@ -14,6 +14,7 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   loading
 }) => (
   <DetailInfo
+    hidden={!company}
     loading={loading}
     mainTitle={<MainTitle company={company} />}
     setStatus={setStatus}

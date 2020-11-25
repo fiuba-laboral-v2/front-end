@@ -11,6 +11,7 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
   loading
 }) => (
   <DetailInfo
+    hidden={!applicant}
     loading={loading}
     mainTitle={<MainTitle applicant={applicant} />}
     currentStatus={applicant?.approvalStatus}

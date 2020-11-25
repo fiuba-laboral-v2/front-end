@@ -12,6 +12,7 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
   loading
 }) => (
   <DetailInfo
+    hidden={!offer}
     loading={loading}
     mainTitle={<MainTitle offer={offer} />}
     currentStatus={currentStatus}
