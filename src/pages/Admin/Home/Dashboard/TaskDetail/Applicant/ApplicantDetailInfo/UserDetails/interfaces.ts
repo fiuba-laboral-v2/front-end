@@ -1,7 +1,7 @@
 import { IApplicant } from "$interfaces/Applicant";
 
 export interface IUserDetailsContainerProps {
-  applicant: IApplicant;
+  applicant?: IApplicant;
 }
 
 export interface IUserDetailsProps extends IUserDetailsContainerProps {

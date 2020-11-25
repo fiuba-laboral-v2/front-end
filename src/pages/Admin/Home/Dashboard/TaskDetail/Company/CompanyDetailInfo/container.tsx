@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 import { COMPANY } from "$typenames";
@@ -23,7 +23,6 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     approvalStatusAttribute: "approvalStatus"
   });
   const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
-  if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -33,9 +32,9 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     });
   };
 
-  const company = response.data.getCompanyByUuid;
+  const company = response.data?.getCompanyByUuid;
 
-  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company} />;
+  return <CompanyDetailInfo {...{ loading, setStatus, company }} />;
 };
 
 interface ICompanyDetailInfoContainerProps {

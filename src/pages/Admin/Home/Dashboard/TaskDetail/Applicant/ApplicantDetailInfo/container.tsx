@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { IApplicantAdminTask } from "$interfaces/AdminTask";
@@ -12,15 +12,13 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
   selectedApplicant,
   onStatusUpdate
 }) => {
-  const response = useApplicantByUuid(selectedApplicant.uuid);
+  const applicant = useApplicantByUuid(selectedApplicant.uuid).data?.getApplicant;
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
     type: APPLICANT,
     approvalStatusAttribute: "approvalStatus"
   });
-
-  if (response.error || response.loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -30,13 +28,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoC
     });
   };
 
-  return (
-    <ApplicantDetailInfo
-      loading={loading}
-      setStatus={setStatus}
-      applicant={response.data.getApplicant}
-    />
-  );
+  return <ApplicantDetailInfo {...{ loading, applicant, setStatus }} />;
 };
 
 interface ICompanyDetailInfoContainerProps {

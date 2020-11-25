@@ -15,7 +15,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
   withStatusLabel,
   company
 }) => (
-  <Card largePadding className={className}>
+  <Card largePadding className={className} hidden={!company}>
     <div className={styles.header}>
       <CompanyLogo
         size="extraLarge"

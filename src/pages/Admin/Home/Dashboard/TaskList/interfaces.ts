@@ -12,7 +12,7 @@ export interface ITaskListContainerProps {
 }
 
 export interface ITaskListProps extends ITaskListContainerProps {
-  translations: ITaskListTranslations;
+  translations?: ITaskListTranslations;
 }
 
 export interface ITaskListTranslations {

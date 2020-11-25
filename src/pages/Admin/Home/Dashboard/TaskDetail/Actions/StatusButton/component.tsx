@@ -9,9 +9,10 @@ export const StatusButton: FunctionComponent<IComponent> = ({
   disabled,
   Icon,
   status,
-  label
+  label,
+  hidden
 }) => (
-  <Button kind={kind} onClick={() => setStatus(status)} disabled={disabled}>
+  <Button {...{ kind, disabled, hidden }} onClick={() => setStatus(status)}>
     <div className={styles.container}>
       <Icon className={styles.icon} fontSize="small" />
       <span className={styles.label}>{label}</span>

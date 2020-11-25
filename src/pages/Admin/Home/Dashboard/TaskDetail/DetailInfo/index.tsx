@@ -9,11 +9,12 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   setStatus,
   loading,
   currentStatus,
-  children
+  children,
+  hidden
 }) => (
   <>
     {mainTitle}
-    <div className={styles.details}>
+    <div className={styles.details} {...{ hidden }}>
       {children}
       <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus} />
     </div>
@@ -21,8 +22,9 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
 );
 
 export interface ICompanyDetailInfoProps {
-  currentStatus: ApprovalStatus;
+  currentStatus?: ApprovalStatus;
   mainTitle: React.ReactElement;
   setStatus: (status: ApprovalStatus) => Promise<void>;
   loading: boolean;
+  hidden: boolean;
 }

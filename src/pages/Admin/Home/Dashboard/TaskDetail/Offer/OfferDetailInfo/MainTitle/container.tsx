@@ -7,7 +7,7 @@ import { IOffer } from "$interfaces/Offer";
 export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = ({ offer }) => {
   const translations = useTranslations<IAdminOfferMainTitle>("adminOfferMainTitle");
   const title = translations ? translations.title : "";
-  return <MainTitle title={title} updatedAt={offer.updatedAt} />;
+  return <MainTitle hidden={!offer} title={title} updatedAt={offer?.updatedAt} />;
 };
 
 interface IAdminOfferMainTitle {
@@ -15,5 +15,5 @@ interface IAdminOfferMainTitle {
 }
 
 interface IMainTitleContainerProps {
-  offer: IOffer;
+  offer?: IOffer;
 }

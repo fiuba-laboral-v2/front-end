@@ -27,6 +27,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
 
   return (
     <Card
+      hidden={!offer}
       className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}
     >
       <div className={styles.header}>

@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { TimeHumanizer } from "$components/TimeHumanizer";
 
-export const MainTitle: FunctionComponent<IMainTitleProps> = ({ title, updatedAt }) => (
-  <div className={styles.header}>
+export const MainTitle: FunctionComponent<IMainTitleProps> = ({ title, updatedAt, hidden }) => (
+  <div className={styles.header} {...{ hidden }}>
     <div className={styles.main}>
       <p className={styles.title}>{title}</p>
       <TimeHumanizer since={updatedAt} />
@@ -13,5 +13,6 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = ({ title, updatedAt
 
 interface IMainTitleProps {
   title: string;
-  updatedAt: string;
+  updatedAt?: string;
+  hidden?: boolean;
 }

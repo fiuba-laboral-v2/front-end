@@ -1,17 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { OfferDetail } from "$components/OfferDetail";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 import { useOfferByUuid } from "$hooks/queries";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = ({
   offerUuid,
   scrollToTop,
   className
 }) => {
-  const response = useOfferByUuid(offerUuid);
-  if (response.error || response.loading) return <LoadingSpinner />;
+  const offer = useOfferByUuid(offerUuid).data?.getOfferByUuid;
   scrollToTop();
-  return <OfferDetail offer={response.data.getOfferByUuid} className={className} />;
+  return (
+    <>
+      {!offer && <LoadingSpinner />}
+      <OfferDetail {...{ offer, className }} />
+    </>
+  );
 };
 
 interface IOfferDetailContentProps {

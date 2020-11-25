@@ -8,6 +8,6 @@ export const CompanyDetailContent: FunctionComponent<ICompanyDetailContentProps>
 }) => <CompanyDetail company={company} className={className} />;
 
 export interface ICompanyDetailContentProps {
-  company: ICompany;
+  company?: ICompany;
   className?: string;
 }

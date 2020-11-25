@@ -1,17 +1,21 @@
 import React, { FunctionComponent } from "react";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 import { useApplicantByUuid } from "$hooks/queries";
-import { LoadingSpinner } from "$components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContentContainerProps> = ({
   applicantUuid,
   scrollToTop,
   className
 }) => {
-  const response = useApplicantByUuid(applicantUuid);
-  if (response.error || response.loading) return <LoadingSpinner />;
+  const applicant = useApplicantByUuid(applicantUuid).data?.getApplicant;
   scrollToTop();
-  return <ApplicantDetail applicant={response.data.getApplicant} className={className} />;
+  return (
+    <>
+      {!applicant && <LoadingSpinner />}
+      <ApplicantDetail {...{ applicant, className }} />
+    </>
+  );
 };
 
 interface IApplicantDetailContentContainerProps {

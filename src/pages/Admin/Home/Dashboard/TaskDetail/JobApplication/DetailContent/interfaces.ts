@@ -9,7 +9,7 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps {
-  applicant: IApplicant;
-  offer: IOffer;
+  applicant?: IApplicant;
+  offer?: IOffer;
   className?: string;
 }
