@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { ITaskListContainerProps, ITaskListTranslations } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 import { TaskList } from "./component";
@@ -13,7 +13,6 @@ export const TaskListContainer: FunctionComponent<ITaskListContainerProps> = ({
   shouldFetchMore
 }) => {
   const translations = useTranslations<ITaskListTranslations>("adminTaskList");
-  if (!translations) return <Fragment />;
 
   return (
     <TaskList
