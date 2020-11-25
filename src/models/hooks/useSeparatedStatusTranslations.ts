@@ -15,7 +15,7 @@ const getExpirationDate = (expirationDateTime: IExpirationDateTime) => ({
   [Secretary.extension]: expirationDateTime.studentsExpirationDateTime
 });
 
-const haveExpirationDate = ({
+const hasExpirationDate = ({
   studentsExpirationDateTime,
   graduatesExpirationDateTime
 }: IExpirationDateTime) => studentsExpirationDateTime || graduatesExpirationDateTime;
@@ -30,13 +30,21 @@ const buildLabel = ({
   if (!translations) return "";
 
   const applicantType = getApplicantType(translations)[secretary];
+  const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
   const expirationDate =
-    haveExpirationDate(expirationDateTime) &&
-    TimeFormatter.date(getExpirationDate(expirationDateTime)[secretary]!);
-  return {
-    [ApprovalStatus.approved]: withStatusText
+    hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
+
+  const approvedOfferText = () => {
+    const initialText = `${applicantType}: `;
+    if (hasExpired(secretaryExpirationDate)) {
+      return withStatusText ? `${initialText} ${translations.expired}` : initialText;
+    }
+    return withStatusText
       ? `${applicantType}: ${translations.approved} ${expirationDate}`
-      : `${applicantType}:`,
+      : `${applicantType}:`;
+  };
+  return {
+    [ApprovalStatus.approved]: approvedOfferText(),
     [ApprovalStatus.rejected]: withStatusText
       ? `${applicantType}: ${translations.rejected}`
       : `${applicantType}:`,
@@ -46,17 +54,26 @@ const buildLabel = ({
   }[status];
 };
 
-const isExpired = (expirationDateTime?: string | null) => {
+const hasExpired = (expirationDateTime?: string | null) => {
   if (!expirationDateTime) return false;
-  return expirationDateTime < moment(Date.now()).format("YYYY-MM-DD");
+  return moment(expirationDateTime).format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
 };
 
-const getTooltipLabel = (secretary: Secretary, translations?: ITranslations) => {
+const getTooltipLabel = (
+  secretary: Secretary,
+  expirationDateTime: IExpirationDateTime,
+  translations?: ITranslations
+) => {
   if (!translations) return "";
+  const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
+  const expirationDate =
+    hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
 
   const secretaryTranslation =
     secretary === Secretary.extension ? translations.extension : translations.graduados;
-  return `${translations.tooltipPrefix} ${secretaryTranslation}`;
+  return expirationDate
+    ? `${translations.approved} ${expirationDate}`
+    : `${translations.tooltipPrefix} ${secretaryTranslation}`;
 };
 
 export const useSeparatedStatusTranslations = ({
@@ -98,9 +115,9 @@ export const useSeparatedStatusTranslations = ({
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(Secretary.graduados, translations),
+        tooltipText: getTooltipLabel(Secretary.graduados, expirationDateTime, translations),
         status: graduadosApprovalStatus,
-        hasExpired: isExpired(graduatesExpirationDateTime)
+        hasExpired: hasExpired(graduatesExpirationDateTime)
       }
     }),
     ...(targetsStudents && {
@@ -112,9 +129,9 @@ export const useSeparatedStatusTranslations = ({
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(Secretary.extension, translations),
+        tooltipText: getTooltipLabel(Secretary.extension, expirationDateTime, translations),
         status: extensionApprovalStatus,
-        hasExpired: isExpired(studentsExpirationDateTime)
+        hasExpired: hasExpired(studentsExpirationDateTime)
       }
     })
   };
@@ -159,6 +176,7 @@ interface ILabelTranslations {
   graduate: string;
   student: string;
   pending: string;
+  expired: string;
   approved: string;
   rejected: string;
 }
