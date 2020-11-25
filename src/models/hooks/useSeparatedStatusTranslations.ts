@@ -62,23 +62,26 @@ const hasExpired = (expirationDateTime?: string | null) => {
 const getTooltipLabel = (
   secretary: Secretary,
   expirationDateTime: IExpirationDateTime,
+  withStatusText: boolean,
   translations?: ITranslations
 ) => {
-  if (!translations) return "";
+  const isEmptyOrRedundant =
+    !translations || (withStatusText && hasExpirationDate(expirationDateTime));
+  if (isEmptyOrRedundant) return "";
   const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
   const expirationDate =
     hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
 
   const approvedOfferText = () =>
     hasExpired(secretaryExpirationDate)
-      ? `${translations.expired}`
-      : `${translations.approved} ${expirationDate}`;
+      ? `${translations!.expired}`
+      : `${translations!.approved} ${expirationDate}`;
 
   const secretaryTranslation =
-    secretary === Secretary.extension ? translations.extension : translations.graduados;
+    secretary === Secretary.extension ? translations!.extension : translations!.graduados;
   return expirationDate
     ? approvedOfferText()
-    : `${translations.tooltipPrefix} ${secretaryTranslation}`;
+    : `${translations!.tooltipPrefix} ${secretaryTranslation}`;
 };
 
 export const useSeparatedStatusTranslations = ({
@@ -126,7 +129,12 @@ export const useSeparatedStatusTranslations = ({
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(Secretary.graduados, expirationDateTime, translations),
+        tooltipText: getTooltipLabel(
+          Secretary.graduados,
+          expirationDateTime,
+          withStatusText,
+          translations
+        ),
         status: graduadosApprovalStatus,
         hasExpired: hasExpired(graduatesExpirationDateTime)
       }
@@ -140,7 +148,12 @@ export const useSeparatedStatusTranslations = ({
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(Secretary.extension, expirationDateTime, translations),
+        tooltipText: getTooltipLabel(
+          Secretary.extension,
+          expirationDateTime,
+          withStatusText,
+          translations
+        ),
         status: extensionApprovalStatus,
         hasExpired: hasExpired(studentsExpirationDateTime)
       }
