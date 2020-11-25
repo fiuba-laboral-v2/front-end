@@ -17,6 +17,8 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     updatedAt,
     graduadosApprovalStatus,
     extensionApprovalStatus,
+    studentsExpirationDateTime,
+    graduatesExpirationDateTime,
     company: { companyName },
     careers
   }
@@ -53,6 +55,8 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
         targetApplicantType={targetApplicantType}
         graduadosApprovalStatus={graduadosApprovalStatus}
         extensionApprovalStatus={extensionApprovalStatus}
+        studentsExpirationDateTime={studentsExpirationDateTime}
+        graduatesExpirationDateTime={graduatesExpirationDateTime}
       />
     </div>
     <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>

@@ -69,10 +69,15 @@ const getTooltipLabel = (
   const expirationDate =
     hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
 
+  const approvedOfferText = () =>
+    hasExpired(secretaryExpirationDate)
+      ? `${translations.expired}`
+      : `${translations.approved} ${expirationDate}`;
+
   const secretaryTranslation =
     secretary === Secretary.extension ? translations.extension : translations.graduados;
   return expirationDate
-    ? `${translations.approved} ${expirationDate}`
+    ? approvedOfferText()
     : `${translations.tooltipPrefix} ${secretaryTranslation}`;
 };
 
