@@ -17,7 +17,7 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
     loading={loading}
     mainTitle={<MainTitle company={company} />}
     setStatus={setStatus}
-    currentStatus={company.approvalStatus}
+    currentStatus={company?.approvalStatus}
   >
     <UserDetails company={company} />
   </DetailInfo>
@@ -25,6 +25,6 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
 
 export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  company: ICompany<IUser>;
+  company?: ICompany<IUser>;
   loading: boolean;
 }

@@ -9,11 +9,13 @@ import { useTranslations } from "$hooks/queries";
 export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = ({ company }) => {
   const translations = useTranslations<IAdminCompanyMainTitle>("adminCompanyMainTitle");
   const title = translations ? translations.title : "";
-  return <MainTitle title={title} updatedAt={company.updatedAt} />;
+  return (
+    <MainTitle hidden={!company || !translations} title={title} updatedAt={company?.updatedAt} />
+  );
 };
 
 export interface IMainTitleContainerProps {
-  company: ICompany<IUser | undefined>;
+  company?: ICompany<IUser | undefined>;
 }
 
 interface IAdminCompanyMainTitle {

@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from "react";
+import { LoadingSpinner } from "../../LoadingSpinner";
 import { CompanyDetailContent } from "./component";
 import { useCompanyByUuid } from "$hooks/queries";
-import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentContainerProps> = ({
   companyUuid,
   scrollToTop,
   className
 }) => {
-  const response = useCompanyByUuid({ uuid: companyUuid });
-  if (response.error || response.loading) return <LoadingSpinner />;
+  const company = useCompanyByUuid({ uuid: companyUuid }).data?.getCompanyByUuid;
+  if (!company) return <LoadingSpinner />;
   scrollToTop();
-  return <CompanyDetailContent company={response.data.getCompanyByUuid} className={className} />;
+  return <CompanyDetailContent {...{ company, className }} />;
 };
 
 interface ICompanyDetailContentContainerProps {
