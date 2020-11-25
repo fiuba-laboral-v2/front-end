@@ -13,5 +13,6 @@ export const queries = {
   getOffers: paginatedQuery,
   getMyOffers: paginatedQuery,
   getApplicants: paginatedQuery,
-  getCompanies: paginatedQuery
+  getCompanies: paginatedQuery,
+  getCompanyNotifications: paginatedQuery
 };
