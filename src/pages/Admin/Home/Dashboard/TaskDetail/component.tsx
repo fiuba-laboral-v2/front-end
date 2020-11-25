@@ -5,7 +5,7 @@ import { OfferDetailContent } from "./Offer/OfferDetailContent";
 import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
-import { OfferDetailInfo } from "./Offer/OfferDeatilInfo";
+import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
 import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { TAdminTask } from "$interfaces/AdminTask";

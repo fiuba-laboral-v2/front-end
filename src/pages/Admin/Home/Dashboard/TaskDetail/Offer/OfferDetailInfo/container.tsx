@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { useCompanyOfferByUuid, useAdminApprovalStatusAttribute } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { IOfferAdminTask } from "$interfaces/AdminTask";
@@ -12,20 +12,14 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   selectedOffer,
   onStatusUpdate
 }) => {
-  const response = useCompanyOfferByUuid(selectedOffer.uuid);
-  const {
-    error,
-    loading,
-    data: { approvalStatusAttribute }
-  } = useAdminApprovalStatusAttribute();
+  const offer = useCompanyOfferByUuid(selectedOffer.uuid).data?.getOfferByUuid;
+  const approvalStatusAttribute = useAdminApprovalStatusAttribute().data.approvalStatusAttribute;
   const { updateAdminTaskStatus, loading: loadingUpdateStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_OFFER_APPROVAL_STATUS,
     refetchAdminTasks,
     type: OFFER,
     approvalStatusAttribute
   });
-
-  if (response.error || response.loading || error || loading) return <Fragment />;
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -35,14 +29,12 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
     });
   };
 
-  const offer = response.data.getOfferByUuid;
-
   return (
     <OfferDetailInfo
       loading={loadingUpdateStatus}
       setStatus={setStatus}
       offer={offer}
-      currentStatus={offer[approvalStatusAttribute]}
+      currentStatus={offer?.[approvalStatusAttribute]}
     />
   );
 };

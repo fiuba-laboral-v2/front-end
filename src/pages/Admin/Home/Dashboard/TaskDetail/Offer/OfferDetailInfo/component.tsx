@@ -17,13 +17,13 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
     currentStatus={currentStatus}
     setStatus={setStatus}
   >
-    <OfferDetails companyUuid={offer.company.uuid} />
+    <OfferDetails cuit={offer?.company.cuit} />
   </DetailInfo>
 );
 
 export interface IOfferDetailInfoProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  offer: IOffer;
-  currentStatus: ApprovalStatus;
+  offer?: IOffer;
+  currentStatus?: ApprovalStatus;
   loading: boolean;
 }
