@@ -13,7 +13,7 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
   <DetailInfo
     loading={loading}
     mainTitle={<MainTitle applicant={applicant} />}
-    currentStatus={applicant.approvalStatus}
+    currentStatus={applicant?.approvalStatus}
     setStatus={setStatus}
   >
     <UserDetails applicant={applicant} />
@@ -22,6 +22,6 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
 
 export interface IApplicantDetailInfoProps {
   setStatus: (status: ApprovalStatus) => Promise<void>;
-  applicant: IApplicant;
+  applicant?: IApplicant;
   loading: boolean;
 }

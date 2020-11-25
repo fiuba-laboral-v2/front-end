@@ -14,34 +14,29 @@ import { IApplicantDetailProps } from "./interfaces";
 export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   mobileLayout,
   className,
-  applicant: {
-    user: { name, surname, email },
-    description,
-    approvalStatus,
-    careers,
-    links,
-    knowledgeSections,
-    experienceSections,
-    capabilities
-  } = { user: {} },
+  applicant,
   translations,
   editButton,
   withStatusLabel
 }) => (
-  <Card largePadding className={classNames(className, { [styles.mobile]: mobileLayout })}>
+  <Card
+    largePadding
+    hidden={!applicant}
+    className={classNames(className, { [styles.mobile]: mobileLayout })}
+  >
     <div className={styles.headline}>
       <div className={styles.header}>
         <StatusTitle
           className={styles.title}
-          detailTitle={`${name} ${surname}`}
-          approvalStatus={withStatusLabel ? approvalStatus : undefined}
+          detailTitle={`${applicant?.user.name} ${applicant?.user.surname}`}
+          approvalStatus={withStatusLabel ? applicant?.approvalStatus : undefined}
         />
         <div>{editButton}</div>
       </div>
-      {email && links && (
+      {applicant?.user.email && applicant?.links && (
         <>
-          <Links links={[{ name: email, url: email }]} />
-          <Links links={links} />
+          <Links links={[{ name: applicant?.user.email, url: applicant?.user.email }]} />
+          <Links links={applicant?.links} />
         </>
       )}
     </div>
@@ -49,19 +44,19 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
       <CapabilitiesDetail
         className={styles.capabilities}
         title={translations?.capabilities}
-        capabilities={capabilities || []}
+        capabilities={applicant?.capabilities || []}
       />
       <CareersSection
         className={styles.careers}
-        careers={careers || []}
+        careers={applicant?.careers || []}
         mobileLayout={mobileLayout}
       />
     </div>
-    <Description>{description}</Description>
-    {knowledgeSections?.map(section => (
+    <Description>{applicant?.description}</Description>
+    {applicant?.knowledgeSections?.map(section => (
       <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
     ))}
-    {experienceSections?.map(section => (
+    {applicant?.experienceSections?.map(section => (
       <SectionDetail key={section.displayOrder} title={section.title} text={section.text} />
     ))}
   </Card>

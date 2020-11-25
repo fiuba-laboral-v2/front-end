@@ -9,9 +9,13 @@ const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentCont
   className
 }) => {
   const company = useCompanyByUuid({ uuid: companyUuid }).data?.getCompanyByUuid;
-  if (!company) return <LoadingSpinner />;
   scrollToTop();
-  return <CompanyDetailContent {...{ company, className }} />;
+  return (
+    <>
+      {!company && <LoadingSpinner />}
+      <CompanyDetailContent {...{ company, className }} />
+    </>
+  );
 };
 
 interface ICompanyDetailContentContainerProps {

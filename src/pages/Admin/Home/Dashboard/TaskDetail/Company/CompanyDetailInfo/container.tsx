@@ -34,7 +34,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   const company = response.data?.getCompanyByUuid;
 
-  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company} />;
+  return <CompanyDetailInfo {...{ loading, setStatus, company }} />;
 };
 
 interface ICompanyDetailInfoContainerProps {
