@@ -38,13 +38,7 @@ export const useUpdateAdminTaskStatus = ({
     documentNode,
     refetchAdminTasks
   });
-  const updateAdminTaskStatus = async ({
-    uuid,
-    status,
-    onStatusUpdate,
-    setLoadingStatusUpdate
-  }: IUpdateAdminTask) => {
-    setLoadingStatusUpdate(true);
+  const updateAdminTaskStatus = async ({ uuid, status, onStatusUpdate }: IUpdateAdminTask) => {
     const response = await mutation({
       variables: {
         uuid: uuid,
@@ -58,7 +52,6 @@ export const useUpdateAdminTaskStatus = ({
           }
         })
     });
-    setLoadingStatusUpdate(false);
 
     if (response.error) return showError({ reloadPrompt: true });
 
@@ -80,5 +73,4 @@ interface IUpdateAdminTask {
   uuid: string;
   status: ApprovalStatus;
   onStatusUpdate: () => void;
-  setLoadingStatusUpdate: (loading: boolean) => void;
 }

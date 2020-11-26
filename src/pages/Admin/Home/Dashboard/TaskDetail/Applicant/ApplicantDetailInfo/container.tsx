@@ -1,19 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
+import { IApplicantAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 import { APPLICANT } from "$typenames";
-import { IApplicantDetailInfoContainerProps } from "../../interfaces";
 
-export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInfoContainerProps> = ({
+export const ApplicantDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
   refetchAdminTasks,
-  selectedTask,
-  onStatusUpdate,
-  setLoadingStatusUpdate
+  selectedApplicant,
+  onStatusUpdate
 }) => {
-  const applicant = useApplicantByUuid(selectedTask.uuid).data?.getApplicant;
+  const applicant = useApplicantByUuid(selectedApplicant.uuid).data?.getApplicant;
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -23,12 +22,17 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
-      uuid: selectedTask.uuid,
+      uuid: selectedApplicant.uuid,
       status: status,
-      onStatusUpdate,
-      setLoadingStatusUpdate
+      onStatusUpdate
     });
   };
 
   return <ApplicantDetailInfo {...{ loading, applicant, setStatus }} />;
 };
+
+interface ICompanyDetailInfoContainerProps {
+  selectedApplicant: IApplicantAdminTask;
+  onStatusUpdate: () => void;
+  refetchAdminTasks: () => void;
+}
