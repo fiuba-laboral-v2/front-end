@@ -11,7 +11,8 @@ export const ListBody: FunctionComponent<IListBodyProps> = ({
   onSelectTask,
   selectedTask,
   fetchMore,
-  shouldFetchMore
+  shouldFetchMore,
+  emptyListMessage
 }) => (
   <List
     list={adminTasks}
@@ -19,6 +20,8 @@ export const ListBody: FunctionComponent<IListBodyProps> = ({
     fetchMore={fetchMore}
     shouldFetchMore={shouldFetchMore}
     loading={loading}
+    emptyListComponent={emptyListMessage}
+    emptyListClassName={styles.emptyListMessage}
   >
     {adminTask => (
       <Card
@@ -40,4 +43,5 @@ interface IListBodyProps {
   selectedTask?: TAdminTask;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
+  emptyListMessage?: string;
 }

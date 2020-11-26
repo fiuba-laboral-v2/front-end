@@ -16,6 +16,7 @@ export interface ITaskListProps extends ITaskListContainerProps {
 }
 
 export interface ITaskListTranslations {
+  emptyList: string;
   none: string;
   approved: string;
   pending: string;
