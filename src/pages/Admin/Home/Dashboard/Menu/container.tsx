@@ -9,6 +9,7 @@ export const MenuContainer: FunctionComponent<IMenuContainerProps> = ({
   onSelectFilter
 }) => {
   const onFilter = async <T extends unknown>(key: keyof IAdminTasksFilter, items: T[]) => {
+    if (!onSelectFilter) return;
     const changedFilter = { ...filter, [key]: items };
     onSelectFilter(changedFilter);
     if (refetchGetAdminTasks) await refetchGetAdminTasks(changedFilter);
