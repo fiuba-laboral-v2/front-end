@@ -14,17 +14,22 @@ export const DashboardContainer: FunctionComponent = () => {
     adminTaskTypes: [APPLICANT, COMPANY, OFFER, JOB_APPLICATION],
     statuses: [ApprovalStatus.pending]
   });
-  const { data, loading, error, refetch, fetchMore } = useAdminTasks(filter);
-  if (error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-
-  const adminTasks = data?.getAdminTasks?.results;
-  const shouldFetchMore = data?.getAdminTasks?.shouldFetchMore;
+  const response = useAdminTasks(filter);
+  if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
+  const result = response.data?.getAdminTasks;
+  const adminTasks = result?.results;
 
   return (
     <Dashboard
-      {...{ loading, setSelectedTask, filter, setFilter, fetchMore, adminTasks, shouldFetchMore }}
-      refetchGetAdminTasks={refetch}
+      loading={response.loading}
+      refetchGetAdminTasks={response.refetch}
+      adminTasks={adminTasks}
       selectedTask={find(adminTasks, ["uuid", selectedTask?.uuid])}
+      setSelectedTask={setSelectedTask}
+      filter={filter}
+      setFilter={response.loading ? undefined : setFilter}
+      fetchMore={response.fetchMore}
+      shouldFetchMore={result?.shouldFetchMore}
     />
   );
 };
