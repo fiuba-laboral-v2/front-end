@@ -48,7 +48,7 @@ interface IDashboardProps {
   selectedTask?: TAdminTask;
   setSelectedTask: (task?: TAdminTask) => void;
   filter: IAdminTasksFilter;
-  setFilter?: (filter: IAdminTasksFilter) => void;
+  setFilter: (filter: IAdminTasksFilter) => void;
   adminTasks?: TAdminTask[];
   refetchGetAdminTasks?: TRefetchGetAdminTasks;
   fetchMore?: () => void;
