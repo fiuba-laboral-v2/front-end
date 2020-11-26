@@ -8,15 +8,16 @@ import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
 import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
 import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
-import { TAdminTask } from "$interfaces/AdminTask";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
+import { ITaskDetailProps } from "./interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
   selectedTask,
   onStatusUpdate,
-  refetchAdminTasks
+  refetchAdminTasks,
+  setLoadingStatusUpdate
 }) => {
   const contentContainer = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
@@ -30,30 +31,22 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
         <div className={styles.info}>
           {selectedTask.__typename === COMPANY && (
             <CompanyDetailInfo
-              selectedCompany={selectedTask}
-              onStatusUpdate={onStatusUpdate}
-              refetchAdminTasks={refetchAdminTasks}
+              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === APPLICANT && (
             <ApplicantDetailInfo
-              selectedApplicant={selectedTask}
-              onStatusUpdate={onStatusUpdate}
-              refetchAdminTasks={refetchAdminTasks}
+              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === OFFER && (
             <OfferDetailInfo
-              selectedOffer={selectedTask}
-              onStatusUpdate={onStatusUpdate}
-              refetchAdminTasks={refetchAdminTasks}
+              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailInfo
-              selectedJobApplication={selectedTask}
-              onStatusUpdate={onStatusUpdate}
-              refetchAdminTasks={refetchAdminTasks}
+              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
         </div>
@@ -97,9 +90,3 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
     </div>
   );
 };
-
-interface ITaskDetailProps {
-  selectedTask?: TAdminTask;
-  onStatusUpdate: () => void;
-  refetchAdminTasks: () => void;
-}
