@@ -35,8 +35,8 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
       </div>
       {applicant?.user.email && applicant?.links && (
         <>
-          <Links links={[{ name: applicant?.user.email, url: applicant?.user.email }]} />
-          <Links links={applicant?.links} />
+          <Links links={[{ url: `mailto: ${applicant.user.email}`, name: applicant.user.email }]} />
+          <Links links={applicant.links} />
         </>
       )}
     </div>
