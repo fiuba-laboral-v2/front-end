@@ -62,5 +62,5 @@ export interface ILabelTextProps {
 
 interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {
   Icon: FunctionComponent<SvgIconProps>;
-  color: "Red" | "Green" | "DarkYellow";
+  color: "Red" | "Green" | "DarkYellow" | "Grey";
 }

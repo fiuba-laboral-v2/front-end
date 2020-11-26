@@ -39,6 +39,8 @@ export interface IOffer extends ICreateOfferValues {
   targetApplicantType: ApplicantType;
   graduadosApprovalStatus: ApprovalStatus;
   extensionApprovalStatus: ApprovalStatus;
+  graduatesExpirationDateTime: string | null;
+  studentsExpirationDateTime: string | null;
   createdAt: string;
   updatedAt: string;
 }

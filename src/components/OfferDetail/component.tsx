@@ -54,6 +54,8 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
               targetApplicantType={offer?.targetApplicantType}
               graduadosApprovalStatus={offer?.graduadosApprovalStatus}
               extensionApprovalStatus={offer?.extensionApprovalStatus}
+              graduatesExpirationDateTime={offer?.graduatesExpirationDateTime}
+              studentsExpirationDateTime={offer?.studentsExpirationDateTime}
             />
           )}
         </div>
