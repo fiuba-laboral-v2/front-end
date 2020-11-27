@@ -7,7 +7,7 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import BusinessIcon from "@material-ui/icons/Business";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
 
 const { jobApplications, createOffer, myOffers, myProfile, notifications } = RoutesBuilder.company;
 
@@ -41,7 +41,7 @@ export const CompanyNavBarLinks = {
       path: notifications(),
       title: translations.notifications,
       tooltipMessage: getTooltipMessage(currentUser, translations, notifications()),
-      icon: NotificationsIcon
+      icon: CompanyNotificationsIcon
     }
   ]
 };
