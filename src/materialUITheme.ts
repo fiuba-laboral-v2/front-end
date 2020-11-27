@@ -91,6 +91,12 @@ export const MaterialUITheme = createMuiTheme({
       root: {
         paddingBottom: 7
       }
+    },
+    MuiBadge: {
+      anchorOriginTopRightRectangle: {
+        top: "8px",
+        right: "8px"
+      }
     }
   }
 });
