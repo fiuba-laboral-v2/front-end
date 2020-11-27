@@ -2,7 +2,9 @@ import { useQuery } from "$hooks";
 import { GET_COMPANY_NOTIFICATION_UNREAD_COUNT } from "$queries";
 
 export const useCompanyNotificationUnreadCount = () => {
-  const response = useQuery<{}, IResponse>(GET_COMPANY_NOTIFICATION_UNREAD_COUNT);
+  const response = useQuery<{}, IResponse>(GET_COMPANY_NOTIFICATION_UNREAD_COUNT, {
+    fetchPolicy: "no-cache"
+  });
   return response.data && response.data.getCompanyNotificationUnreadCount;
 };
 
