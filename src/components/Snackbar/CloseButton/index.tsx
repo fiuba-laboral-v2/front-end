@@ -4,7 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 
 export const CloseButton: FunctionComponent<ICloseButtonProps> = ({ onClick }) => (
-  <IconButton disableRipple size="small" onClick={onClick}>
+  <IconButton disableRipple size="small" onClick={onClick} className={styles.closeButton}>
     <CloseIcon fontSize="small" className={styles.closeIcon} />
   </IconButton>
 );

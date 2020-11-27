@@ -12,6 +12,7 @@ export const List = <ListItem,>({
   shouldFetchMore,
   fetchMore,
   fetchMoreClassName,
+  emptyListClassName,
   loading,
   emptyListComponent
 }: IListProps<ListItem>) => (
@@ -20,7 +21,7 @@ export const List = <ListItem,>({
       <div className={classNames(styles.list, className)}>{list.map(item => children(item))}</div>
     )}
     {list.length === 0 && (
-      <div hidden={loading} className={styles.emptyList}>
+      <div hidden={loading} className={classNames(emptyListClassName, styles.emptyList)}>
         {emptyListComponent}
       </div>
     )}
