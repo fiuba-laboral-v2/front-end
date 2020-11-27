@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { useJobApplicationByUuid } from "$hooks/queries";
 import { useUpdateAdminTaskStatus } from "$hooks";
-import { IJobApplicationAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { JobApplicationDetailInfo } from "./component";
 import { UPDATE_JOB_APPLICATION_APPROVAL_STATUS } from "$mutations";
 import { JOB_APPLICATION } from "$typenames";
+import { IJobApplicationDetailInfoContainerProps } from "../../interfaces";
 
-export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProps> = ({
+export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicationDetailInfoContainerProps> = ({
   refetchAdminTasks,
-  selectedJobApplication,
-  onStatusUpdate
+  selectedTask,
+  onStatusUpdate,
+  setLoadingStatusUpdate
 }) => {
-  const jobApplication = useJobApplicationByUuid(selectedJobApplication.uuid).data
-    ?.getJobApplicationByUuid;
+  const jobApplication = useJobApplicationByUuid(selectedTask.uuid).data?.getJobApplicationByUuid;
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -23,9 +23,10 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
-      uuid: selectedJobApplication.uuid,
+      uuid: selectedTask.uuid,
       status: status,
-      onStatusUpdate
+      onStatusUpdate,
+      setLoadingStatusUpdate
     });
   };
 
@@ -38,9 +39,3 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IContainerProp
     />
   );
 };
-
-interface IContainerProps {
-  selectedJobApplication: IJobApplicationAdminTask;
-  onStatusUpdate: () => void;
-  refetchAdminTasks: () => void;
-}

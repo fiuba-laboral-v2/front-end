@@ -6,7 +6,9 @@ import { IDetailContactMeProps } from "./interfaces";
 const DetailContactMe: FunctionComponent<IDetailContactMeProps> = ({ email, website }) => (
   <div className={styles.contactInfo}>
     <Subtitle className={styles.email}>
-      <a href={`mailto: ${email}`}>{email}</a>
+      <a target="_blank" rel="noopener noreferrer" href={`mailto: ${email}`}>
+        {email}
+      </a>
     </Subtitle>
     <Subtitle className={styles.website}>
       <a target="_blank" rel="noopener noreferrer" href={website}>

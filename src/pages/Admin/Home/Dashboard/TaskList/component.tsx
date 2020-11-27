@@ -11,11 +11,15 @@ export const TaskList: FunctionComponent<ITaskListProps> = ({
   ...props
 }) => (
   <div className={styles.taskList}>
-    <div className={styles.info}>
+    <div>
       <ListInfo statuses={statuses} translations={translations} {...props} />
     </div>
     <div className={styles.content}>
-      <ListBody adminTasks={adminTasks || []} {...props} />
+      <ListBody
+        emptyListMessage={translations?.emptyList}
+        adminTasks={adminTasks || []}
+        {...props}
+      />
     </div>
   </div>
 );

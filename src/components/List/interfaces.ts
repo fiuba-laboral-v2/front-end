@@ -4,6 +4,7 @@ export interface IListProps<ListItem> {
   list: ListItem[];
   className?: string;
   fetchMoreClassName?: string;
+  emptyListClassName?: string;
   children: (item: ListItem) => ReactNode;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;

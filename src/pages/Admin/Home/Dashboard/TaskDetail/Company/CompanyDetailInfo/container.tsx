@@ -2,19 +2,17 @@ import React, { FunctionComponent } from "react";
 import { useUpdateAdminTaskStatus } from "$hooks";
 import { useCompanyByUuid } from "$hooks/queries";
 import { COMPANY } from "$typenames";
-
-import { ICompanyAdminTask } from "$interfaces/AdminTask";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IUser } from "$interfaces/User";
-
 import { UPDATE_COMPANY_APPROVAL_STATUS } from "$mutations";
-
 import { CompanyDetailInfo } from "./component";
+import { ICompanyDetailInfoContainerProps } from "../../interfaces";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
-  selectedCompany,
+  selectedTask,
   onStatusUpdate,
-  refetchAdminTasks
+  refetchAdminTasks,
+  setLoadingStatusUpdate
 }) => {
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_COMPANY_APPROVAL_STATUS,
@@ -22,13 +20,14 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     type: COMPANY,
     approvalStatusAttribute: "approvalStatus"
   });
-  const response = useCompanyByUuid<IUser>({ uuid: selectedCompany.uuid, withUsers: true });
+  const response = useCompanyByUuid<IUser>({ uuid: selectedTask.uuid, withUsers: true });
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
-      uuid: selectedCompany.uuid,
+      uuid: selectedTask.uuid,
       status: status,
-      onStatusUpdate
+      onStatusUpdate,
+      setLoadingStatusUpdate
     });
   };
 
@@ -36,11 +35,5 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
 
   return <CompanyDetailInfo {...{ loading, setStatus, company }} />;
 };
-
-interface ICompanyDetailInfoContainerProps {
-  selectedCompany: ICompanyAdminTask;
-  onStatusUpdate: () => void;
-  refetchAdminTasks: () => void;
-}
 
 export { CompanyDetailInfoContainer };
