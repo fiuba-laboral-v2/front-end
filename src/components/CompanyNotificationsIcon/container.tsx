@@ -5,7 +5,7 @@ import { NotificationsIcon } from "$components/NotificationsIcon";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const CompanyNotificationsIconContainer: FunctionComponent = () => {
-  const [lastUnreadValue, setLastUnreadValue] = useState<boolean | undefined>(undefined);
+  const [lastUnreadValue, setLastUnreadValue] = useState(false);
   const history = useHistory();
   const translations = useTranslations<ITranslations>("notificationsNotice");
   const unread = useUnreadCompanyNotifications();
@@ -15,9 +15,9 @@ export const CompanyNotificationsIconContainer: FunctionComponent = () => {
       action: () => history.push(RoutesBuilder.company.notifications()),
       message: translations?.message || "",
       actionMessage: translations?.actionMessage || "",
-      skip: !unread || !!lastUnreadValue
+      skip: !unread || lastUnreadValue
     });
-    setLastUnreadValue(unread);
+    setLastUnreadValue(!!unread);
   }, [lastUnreadValue, unread, showInfo, history, translations]);
   return <NotificationsIcon unread={unread} />;
 };
