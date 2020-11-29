@@ -14,10 +14,10 @@ import styles from "./styles.module.scss";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 const seededUsersText = `
-Email                    | Nombre   | Rol
-------------------------------------------------------------
-claudio@devartis.com     | Claudio  | Admin de devartis
-marcos@mercadolibre.com  | Marcos   | Admin de Mercado Libre
+Email                         | Nombre   | Rol
+-----------------------------------------------------------------
+fiubalaboralv2@gmail.com      | Claudio  | Admin de devartis
+sebastian.e.blanco@gmail.com  | Marcos   | Admin de Mercado Libre
 
 Contraseña de ambos: SecurePassword1010
 `;
