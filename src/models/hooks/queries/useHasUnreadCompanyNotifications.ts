@@ -3,7 +3,7 @@ import { HAS_UNREAD_COMPANY_NOTIFICATIONS } from "$queries";
 
 export const useHasUnreadCompanyNotifications = () => {
   const response = useQuery<{}, IResponse>(HAS_UNREAD_COMPANY_NOTIFICATIONS, {
-    pollInterval: 5000
+    pollInterval: 30000
   });
   return response.data && response.data.hasUnreadCompanyNotifications;
 };
