@@ -21,3 +21,4 @@ export * from "./useExtensionOfferDuration";
 export * from "./useGraduadosOfferDuration";
 export * from "./useSecretaryOfferDuration";
 export * from "./useCompanyNotifications";
+export * from "./useHasUnreadCompanyNotifications";

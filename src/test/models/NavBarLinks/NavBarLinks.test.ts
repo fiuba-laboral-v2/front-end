@@ -10,7 +10,7 @@ import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import HomeIcon from "@material-ui/icons/Home";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -76,7 +76,7 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.notifications(),
           title: translations.notifications,
           tooltipMessage: translations.pendingProfile,
-          icon: NotificationsIcon
+          icon: CompanyNotificationsIcon
         }
       ]);
     });
@@ -111,7 +111,7 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.notifications(),
           title: translations.notifications,
           tooltipMessage: translations.rejectedProfile,
-          icon: NotificationsIcon
+          icon: CompanyNotificationsIcon
         }
       ]);
     });
@@ -142,7 +142,7 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.notifications(),
           title: translations.notifications,
-          icon: NotificationsIcon
+          icon: CompanyNotificationsIcon
         }
       ]);
     });
