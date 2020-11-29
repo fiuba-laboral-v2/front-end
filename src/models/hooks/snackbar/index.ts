@@ -1,4 +1,4 @@
 export * from "./useShowError";
-export * from "./useShowInfo";
+export * from "./useInfoSnackbar";
 export * from "./useShowSuccess";
 export * from "./useSnackbar";
