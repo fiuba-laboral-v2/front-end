@@ -16,16 +16,16 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
   const history = useHistory();
   const careers = useMyCareers();
   const filter = new OfferFilter(searchQuery);
-  const offers = useApprovedOffers({ filter, skip: careers.loading });
+  const offers = useApprovedOffers({ filter, skip: !careers });
   const translations = useTranslations<IOfferListTranslations>("applicantOfferList");
 
-  if (searchQuery === "" && careers.data) {
-    careers.data.forEach(applicantCareer => filter.addCareer(applicantCareer.career.code));
+  if (searchQuery === "" && careers) {
+    careers.forEach(applicantCareer => filter.addCareer(applicantCareer.career.code));
     const searchParams = filter.toString();
     return <Redirect to={RoutesBuilder.applicant.offerList({ searchParams })} />;
   }
 
-  if (offers.error || careers.error) {
+  if (offers.error) {
     return <Redirect to={RoutesBuilder.public.internalServerError()} />;
   }
 

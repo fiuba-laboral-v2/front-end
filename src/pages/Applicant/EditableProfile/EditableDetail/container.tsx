@@ -5,7 +5,6 @@ import { EditableDetail } from "./component";
 import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interfaces";
-import { Redirect } from "$components/Redirect";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
@@ -19,7 +18,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { updateCurrentApplicant } = useUpdateCurrentApplicant();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
-  const applicantProfile = useMyApplicantProfile();
+  const applicant = useMyApplicantProfile();
 
   const modelToValues = useCallback(
     (model?: IApplicant) => ({
@@ -84,14 +83,8 @@ export const EditableDetailContainer: FunctionComponent = () => {
     [enqueueSnackbar, history, updateCurrentApplicant]
   );
 
-  if (applicantProfile.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-  }
-
-  const applicant = applicantProfile.data?.getCurrentUser.applicant;
-
   return (
-    <Window loading={!applicantProfile || !translations || !applicant}>
+    <Window loading={!applicant || !translations || !applicant}>
       <Formik initialValues={modelToValues()} {...{ validateForm, onSubmit }}>
         {formikProps => (
           <FormikForm initialValuesModel={applicant} {...{ modelToValues, formikProps }}>

@@ -10,8 +10,8 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   scrollToTop,
   className
 }) => {
-  const applicant = useApplicantByUuid(applicantUuid).data?.getApplicant;
-  const offer = useCompanyOfferByUuid(offerUuid).data?.getOfferByUuid;
+  const applicant = useApplicantByUuid(applicantUuid);
+  const offer = useCompanyOfferByUuid(offerUuid);
   scrollToTop();
   const loading = !applicant || !offer;
   return (

@@ -9,12 +9,11 @@ import { Button } from "$components/Button";
 export const OfferDetailContainer: FunctionComponent = () => {
   const history = useHistory();
   const { uuid } = useParams();
-  const response = useCompanyOfferByUuid(uuid);
+  const offer = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
-  const offer = response.data?.getOfferByUuid;
 
   return (
-    <Window loading={!response || !translations || !offer}>
+    <Window loading={!translations || !offer}>
       <OfferDetail
         editButton={
           <Button

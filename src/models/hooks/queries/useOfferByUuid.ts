@@ -1,4 +1,4 @@
-import { useQuery } from "$hooks";
+import { useQueryData } from "$hooks";
 import { GET_OFFER_BY_UUID, GET_OFFER_FOR_APPLICANT } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -8,14 +8,15 @@ import { IMyOffer } from "$interfaces/Applicant";
 
 const useOfferByUuidQuery = <T>({ documentNode, uuid }: IUseOfferByUuidQuery) => {
   const history = useHistory();
-  return useQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
+  return useQueryData<{ uuid?: string }, IGetOfferByUuid<T>>({
+    query: documentNode,
     variables: { uuid },
     errorHandlers: {
       OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
       UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden()),
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  });
+  })?.getOfferByUuid;
 };
 
 export const useCompanyOfferByUuid = (uuid?: string) =>

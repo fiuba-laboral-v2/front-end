@@ -5,7 +5,6 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useCurrentUser, useLogout, useTranslations } from "$hooks";
 import { NavBar } from "./component";
 import { INavBarContainerProps, INavBarTranslations } from "./interfaces";
-import { Redirect } from "../Redirect";
 import { NavBarLinks } from "$models/NavBarLinks";
 import { some } from "lodash";
 
@@ -34,15 +33,9 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
     return () => observer.disconnect();
   });
 
-  if (!translations || currentUserResponse.loading) return <Fragment />;
-  if (currentUserResponse.error) {
-    return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-  }
-
   const currentUser = currentUserResponse.data.getCurrentUser;
+  if (!translations || !currentUser) return <Fragment />;
   const links = currentUser ? NavBarLinks.create(currentUser, translations) : [];
-
-  if (!currentUser) return <Fragment />;
 
   const onLogOut = async () => {
     await client.clearStore();

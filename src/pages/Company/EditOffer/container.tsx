@@ -15,11 +15,9 @@ export const EditOfferContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { uuid } = useParams();
   const { editOffer } = useEditOffer();
-  const getOffer = useCompanyOfferByUuid(uuid);
+  const offer = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
-
-  const offer = getOffer.data?.getOfferByUuid;
-  const offerUuid = getOffer.data?.getOfferByUuid.uuid || "";
+  const offerUuid = offer?.uuid || "";
 
   const onSubmit = useCallback(
     async (values: ICreateOfferValues) => {
@@ -47,7 +45,7 @@ export const EditOfferContainer: FunctionComponent = () => {
 
   return (
     <EditOffer
-      loading={!translations || getOffer.loading}
+      loading={!translations || !offer}
       offer={offer}
       onSubmit={onSubmit}
       title={translations?.edit}

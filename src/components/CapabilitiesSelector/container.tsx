@@ -6,8 +6,8 @@ import { useCapabilities } from "$hooks/queries";
 const CapabilitiesSelectorContainer: FunctionComponent<ICapabilitiesSelectorContainer> = ({
   label
 }) => {
-  const result = useCapabilities();
-  return <CapabilitiesSelector label={label} options={result.data?.getCapabilities} />;
+  const capabilities = useCapabilities();
+  return <CapabilitiesSelector label={label} options={capabilities} />;
 };
 
 export { CapabilitiesSelectorContainer };

@@ -8,7 +8,7 @@ const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentCont
   scrollToTop,
   className
 }) => {
-  const company = useCompanyByUuid({ uuid: companyUuid }).data?.getCompanyByUuid;
+  const company = useCompanyByUuid({ uuid: companyUuid });
   scrollToTop();
   return (
     <>

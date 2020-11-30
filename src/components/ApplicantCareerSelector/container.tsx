@@ -5,14 +5,8 @@ import { useTranslations, useCareers } from "$hooks";
 
 export const ApplicantCareerSelectorContainer: FunctionComponent<IContainerProps> = props => {
   const translations = useTranslations<ITranslations>("applicantCareerSelector");
-  const careersResponse = useCareers();
-  if (!translations || careersResponse.error || careersResponse.loading) return <Fragment />;
+  const careers = useCareers();
+  if (!translations || !careers) return <Fragment />;
 
-  return (
-    <ApplicantCareerSelector
-      translations={translations}
-      options={careersResponse.data.getCareers}
-      {...props}
-    />
-  );
+  return <ApplicantCareerSelector translations={translations} options={careers} {...props} />;
 };

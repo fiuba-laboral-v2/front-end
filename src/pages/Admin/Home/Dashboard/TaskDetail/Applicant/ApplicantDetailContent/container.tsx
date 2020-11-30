@@ -8,7 +8,7 @@ const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContent
   scrollToTop,
   className
 }) => {
-  const applicant = useApplicantByUuid(applicantUuid).data?.getApplicant;
+  const applicant = useApplicantByUuid(applicantUuid);
   scrollToTop();
   return (
     <>

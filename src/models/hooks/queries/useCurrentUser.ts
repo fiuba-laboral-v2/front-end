@@ -11,7 +11,8 @@ export const useCurrentUser = () => {
   const history = useHistory();
   const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER, {
     errorHandlers: {
-      UserNotFoundError: () => history.push(RoutesBuilder.public.login())
+      UserNotFoundError: () => history.push(RoutesBuilder.public.login()),
+      defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
   });
   const currentUser = response.data?.getCurrentUser;
