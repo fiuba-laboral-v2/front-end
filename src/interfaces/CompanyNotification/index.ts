@@ -5,9 +5,12 @@ import {
 import { IJobApplication } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
 
-export type TCompanyNotification = ICompanyNewJobApplicationNotification;
+export type TCompanyNotification =
+  | ICompanyNewJobApplicationNotification
+  | ICompanyApprovedOfferNotification;
 
 interface ICommonAttributes {
+  __typename: string;
   uuid: string;
   isNew: boolean;
   createdAt: string;
