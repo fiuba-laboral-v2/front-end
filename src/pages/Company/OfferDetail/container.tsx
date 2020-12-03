@@ -19,17 +19,16 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const offer = data?.getOfferByUuid;
 
-  const onSubmit = useCallback(async () => {
-    if (offer) {
-      const response = await expireOffer({
-        variables: {
-          uuid: offer.uuid
-        },
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
-      });
-      if (response.error) return;
-      refetch();
-    }
+  const handleExpireOffer = useCallback(async () => {
+    if (!offer) return;
+    const response = await expireOffer({
+      variables: {
+        uuid: offer.uuid
+      },
+      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+    });
+    if (response.error) return;
+    refetch();
   }, [offer, expireOffer, enqueueSnackbar, refetch]);
 
   return (
@@ -40,7 +39,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
             <Button
               className={styles.expirationButton}
               kind={"danger"}
-              onClick={onSubmit}
+              onClick={handleExpireOffer}
               disabled={loading}
             >
               {translations?.expire}
