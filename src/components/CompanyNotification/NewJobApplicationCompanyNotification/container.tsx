@@ -12,11 +12,11 @@ import { StatusIcon } from "$components/StatusIcon";
 import styles from "./styles.module.scss";
 import { INewJobApplicationCompanyNotification } from "$interfaces/CompanyNotification";
 
-export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
+export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
   notification,
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("companyNewJobApplicationNotification");
+  const translations = useTranslations<ITranslations>("newJobApplicationCompanyNotification");
 
   const {
     jobApplication: { applicant, offer }
