@@ -6,7 +6,7 @@ import { IJobApplication } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
 
 export type TCompanyNotification =
-  | ICompanyNewJobApplicationNotification
+  | INewJobApplicationCompanyNotification
   | ICompanyApprovedOfferNotification;
 
 interface ICommonAttributes {
@@ -17,7 +17,7 @@ interface ICommonAttributes {
   adminEmail: string;
 }
 
-export interface ICompanyNewJobApplicationNotification extends ICommonAttributes {
+export interface INewJobApplicationCompanyNotification extends ICommonAttributes {
   __typename: NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE;
   jobApplication: IJobApplication;
 }
