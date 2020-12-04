@@ -5,7 +5,7 @@ import {
   APPROVED_OFFER_COMPANY_NOTIFICATION
 } from "$typenames";
 import { NewJobApplicationCompanyNotification } from "./NewJobApplicationCompanyNotification";
-import { CompanyApprovedOfferNotification } from "./CompanyApprovedOfferNotification";
+import { ApprovedOfferCompanyNotification } from "./ApprovedOfferCompanyNotification";
 
 export const CompanyNotification: FunctionComponent<IComponentProps> = ({
   className,
@@ -16,7 +16,7 @@ export const CompanyNotification: FunctionComponent<IComponentProps> = ({
       <NewJobApplicationCompanyNotification className={className} notification={notification} />
     )}
     {notification.__typename === APPROVED_OFFER_COMPANY_NOTIFICATION && (
-      <CompanyApprovedOfferNotification className={className} notification={notification} />
+      <ApprovedOfferCompanyNotification className={className} notification={notification} />
     )}
   </>
 );

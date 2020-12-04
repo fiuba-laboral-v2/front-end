@@ -11,11 +11,11 @@ import { StatusIcon } from "$components/StatusIcon";
 
 import { IApprovedOfferCompanyNotification } from "$interfaces/CompanyNotification";
 
-export const CompanyApprovedOfferNotificationContainer: FunctionComponent<IContainerProps> = ({
+export const ApprovedOfferCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
   notification
 }) => {
-  const translations = useTranslations<{ title: string }>("companyApprovedOfferNotification");
+  const translations = useTranslations<{ title: string }>("approvedOfferCompanyNotification");
 
   return (
     <Notification
