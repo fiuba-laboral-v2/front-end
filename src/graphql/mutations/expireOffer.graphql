@@ -1,0 +1,16 @@
+mutation ExpireOffer($uuid: ID!) {
+  expireOffer(uuid: $uuid) {
+    uuid
+    title
+    description
+    hoursPerDay
+    minimumSalary
+    maximumSalary
+    extensionApprovalStatus
+    graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
+    createdAt
+    updatedAt
+  }
+}

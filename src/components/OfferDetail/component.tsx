@@ -18,7 +18,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
   mobileLayout,
   className,
   applyButton,
-  editButton,
+  actions,
   offer,
   goToCompany,
   withStatusLabel
@@ -42,7 +42,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         <div className={styles.rightHeader}>
           <div className={styles.titleContainer}>
             <Title className={styles.title}>{offer?.title}</Title>
-            <div>{editButton}</div>
+            <div>{actions}</div>
           </div>
           <Subtitle className={styles.companyName}>
             {goToCompany && <Link to={goToCompany}>{offer?.company.companyName}</Link>}
@@ -80,7 +80,7 @@ interface IOfferDetailProps {
   mobileLayout?: boolean;
   className?: string;
   applyButton?: ReactElement;
-  editButton?: ReactElement;
+  actions?: ReactElement;
   offer?: IMyOffer | IOffer;
   goToCompany?: string;
   withStatusLabel?: boolean;

@@ -16,10 +16,12 @@ const UPDATE_OFFER_APPROVAL_STATUS = loader("./updateOfferApprovalStatus.graphql
 const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
   "./updateJobApplicationApprovalStatus.graphql"
 );
+const EXPIRE_OFFER = loader("./expireOffer.graphql");
 
 export {
   FIUBA_LOGIN,
   COMPANY_LOGIN,
+  EXPIRE_OFFER,
   LOGOUT,
   SAVE_APPLICANT,
   UPDATE_CURRENT_APPLICANT,
