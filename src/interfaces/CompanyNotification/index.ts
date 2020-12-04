@@ -7,7 +7,7 @@ import { IOffer } from "$interfaces/Offer";
 
 export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
-  | ICompanyApprovedOfferNotification;
+  | IApprovedOfferCompanyNotification;
 
 interface ICommonAttributes {
   __typename: string;
@@ -22,7 +22,7 @@ export interface INewJobApplicationCompanyNotification extends ICommonAttributes
   jobApplication: IJobApplication;
 }
 
-export interface ICompanyApprovedOfferNotification extends ICommonAttributes {
+export interface IApprovedOfferCompanyNotification extends ICommonAttributes {
   __typename: APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE;
   offer: IOffer;
 }

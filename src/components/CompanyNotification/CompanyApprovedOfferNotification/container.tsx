@@ -9,7 +9,7 @@ import { Link } from "$components/Link";
 import { OfferIcon } from "$components/Icons/OfferIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
-import { ICompanyApprovedOfferNotification } from "$interfaces/CompanyNotification";
+import { IApprovedOfferCompanyNotification } from "$interfaces/CompanyNotification";
 
 export const CompanyApprovedOfferNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
@@ -35,5 +35,5 @@ export const CompanyApprovedOfferNotificationContainer: FunctionComponent<IConta
 
 interface IContainerProps {
   className?: string;
-  notification: ICompanyApprovedOfferNotification;
+  notification: IApprovedOfferCompanyNotification;
 }
