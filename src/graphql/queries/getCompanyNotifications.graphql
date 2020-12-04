@@ -29,6 +29,17 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           }
         }
       }
+      ... on CompanyApprovedOfferNotification {
+        __typename
+        uuid
+        adminEmail
+        isNew
+        createdAt
+        offer {
+          uuid
+          title
+        }
+      }
     }
     shouldFetchMore
   }
