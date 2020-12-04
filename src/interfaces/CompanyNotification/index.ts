@@ -1,6 +1,6 @@
 import {
   NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE,
-  COMPANY_APPROVED_OFFER_NOTIFICATION_TYPE
+  APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE
 } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
@@ -23,6 +23,6 @@ export interface ICompanyNewJobApplicationNotification extends ICommonAttributes
 }
 
 export interface ICompanyApprovedOfferNotification extends ICommonAttributes {
-  __typename: COMPANY_APPROVED_OFFER_NOTIFICATION_TYPE;
+  __typename: APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE;
   offer: IOffer;
 }
