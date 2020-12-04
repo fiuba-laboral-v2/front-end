@@ -1,5 +1,5 @@
 import {
-  COMPANY_NEW_JOB_APPLICATION_NOTIFICATION_TYPE,
+  NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE,
   COMPANY_APPROVED_OFFER_NOTIFICATION_TYPE
 } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
@@ -18,7 +18,7 @@ interface ICommonAttributes {
 }
 
 export interface ICompanyNewJobApplicationNotification extends ICommonAttributes {
-  __typename: COMPANY_NEW_JOB_APPLICATION_NOTIFICATION_TYPE;
+  __typename: NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE;
   jobApplication: IJobApplication;
 }
 
