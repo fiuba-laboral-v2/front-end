@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { TCompanyNotification } from "$interfaces/CompanyNotification";
 import {
-  COMPANY_NEW_JOB_APPLICATION_NOTIFICATION,
+  NEW_JOB_APPLICATION_COMPANY_NOTIFICATION,
   COMPANY_APPROVED_OFFER_NOTIFICATION
 } from "$typenames";
 import { CompanyNewJobApplicationNotification } from "./CompanyNewJobApplicationNotification";
@@ -12,7 +12,7 @@ export const CompanyNotification: FunctionComponent<IComponentProps> = ({
   notification
 }) => (
   <>
-    {notification.__typename === COMPANY_NEW_JOB_APPLICATION_NOTIFICATION && (
+    {notification.__typename === NEW_JOB_APPLICATION_COMPANY_NOTIFICATION && (
       <CompanyNewJobApplicationNotification className={className} notification={notification} />
     )}
     {notification.__typename === COMPANY_APPROVED_OFFER_NOTIFICATION && (
