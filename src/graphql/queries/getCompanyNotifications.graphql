@@ -1,7 +1,7 @@
 query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
   getCompanyNotifications(updatedBeforeThan: $updatedBeforeThan) {
     results {
-      ... on CompanyNewJobApplicationNotification {
+      ... on NewJobApplicationCompanyNotification {
         __typename
         uuid
         adminEmail
@@ -29,7 +29,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           }
         }
       }
-      ... on CompanyApprovedOfferNotification {
+      ... on ApprovedOfferCompanyNotification {
         __typename
         uuid
         adminEmail
