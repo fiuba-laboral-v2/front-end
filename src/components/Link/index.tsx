@@ -13,14 +13,13 @@ export const Link: FunctionComponent<ILinkProps> = ({
     event.stopPropagation();
     onClick(event);
   };
-  const reactRouterLink =
-    props.to === window.location.hash.substring(1) ? (
-      <a {...props} className={classNames(props.className, styles.clickable)}>
-        {props.children}
-      </a>
-    ) : (
-      <ReactRouterLink onClick={handleOnClick} {...props} />
-    );
+  const reactRouterLink = ["#", window.location.hash.substring(1)].includes(props.to) ? (
+    <a onClick={handleOnClick} {...props} className={classNames(props.className, styles.clickable)}>
+      {props.children}
+    </a>
+  ) : (
+    <ReactRouterLink onClick={handleOnClick} {...props} />
+  );
   if (!disabledErrorMessage) return reactRouterLink;
 
   return (
@@ -32,4 +31,5 @@ export const Link: FunctionComponent<ILinkProps> = ({
 
 export interface ILinkProps extends LinkProps {
   disabledErrorMessage?: string;
+  to: string;
 }
