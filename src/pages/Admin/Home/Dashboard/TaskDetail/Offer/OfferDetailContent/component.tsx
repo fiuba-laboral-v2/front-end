@@ -8,7 +8,7 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
   scrollToTop,
   className
 }) => {
-  const offer = useOfferByUuid(offerUuid);
+  const offer = useOfferByUuid(offerUuid).data?.getOfferByUuid;
   scrollToTop();
   return (
     <>

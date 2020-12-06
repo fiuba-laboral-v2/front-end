@@ -15,7 +15,7 @@ export const EditOfferContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { uuid } = useParams();
   const { editOffer } = useEditOffer();
-  const offer = useCompanyOfferByUuid(uuid);
+  const offer = useCompanyOfferByUuid(uuid).data?.getOfferByUuid;
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
   const offerUuid = offer?.uuid || "";
 

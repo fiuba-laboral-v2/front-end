@@ -10,13 +10,13 @@ import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import styles from "./styles.module.scss";
-import { ICompanyNewJobApplicationNotification } from "$interfaces/CompanyNotification";
+import { INewJobApplicationCompanyNotification } from "$interfaces/CompanyNotification";
 
-export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IContainerProps> = ({
+export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
   notification,
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("companyNewJobApplicationNotification");
+  const translations = useTranslations<ITranslations>("newJobApplicationCompanyNotification");
 
   const {
     jobApplication: { applicant, offer }
@@ -43,7 +43,7 @@ export const CompanyNewJobApplicationNotificationContainer: FunctionComponent<IC
 };
 
 interface IContainerProps {
-  notification: ICompanyNewJobApplicationNotification;
+  notification: INewJobApplicationCompanyNotification;
   className?: string;
 }
 

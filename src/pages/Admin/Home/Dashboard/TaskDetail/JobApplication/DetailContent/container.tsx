@@ -17,7 +17,9 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   return (
     <>
       {loading && <LoadingSpinner />}
-      <JobApplicationDetailContent {...{ applicant, offer, className }} />
+      <JobApplicationDetailContent
+        {...{ applicant, offer: offer.data?.getOfferByUuid, className }}
+      />
     </>
   );
 };

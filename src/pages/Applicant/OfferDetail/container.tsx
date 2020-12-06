@@ -13,7 +13,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const showSuccess = useShowSuccess();
   const { mutation: saveJobApplication } = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
-  const offer = useOfferForApplicant(uuid);
+  const offer = useOfferForApplicant(uuid).data?.getOfferByUuid;
 
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
