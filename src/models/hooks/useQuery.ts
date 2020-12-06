@@ -16,21 +16,21 @@ export type UseQueryResult<TVariables, TData> = QueryResult<TData, TVariables> &
 type ILoadingQuery = {
   data: undefined;
   refetch: undefined;
-  error: false;
+  error: undefined;
   loading: true;
 };
 
 type IErroredQuery = {
   data: undefined;
   refetch: undefined;
-  error: true;
+  error: ApolloError;
   loading: false;
 };
 
 type ISuccessfulQuery<TVariables, TData> = {
   data: TData;
   refetch: (variables: TVariables) => void;
-  error: false;
+  error: undefined;
   loading: false;
 };
 
@@ -43,15 +43,12 @@ export const useQuery = <TVariables = {}, TData = {}>(
   options?: IQueryOptions<TData, TVariables>
 ) => {
   const { errorHandlers, ...apolloOptions } = options || { errorHandlers: {} };
-  const { data, loading, refetch, fetchMore } = apolloUseQuery<TData, TVariables>(node, {
+  const { data, error, loading, refetch, fetchMore } = apolloUseQuery<TData, TVariables>(node, {
     ...defaultApolloOptions,
     ...apolloOptions,
-    onError: error => handleError(error, errorHandlers)
+    onError: errorToHandle => handleError(errorToHandle, errorHandlers)
   });
-  return { data, error: !data && !loading, loading, refetch, fetchMore } as UseQueryResult<
-    TVariables,
-    TData
-  >;
+  return { data, error, loading, refetch, fetchMore } as UseQueryResult<TVariables, TData>;
 };
 
 export const useQueryData = <TVariables = {}, TData = {}>(
