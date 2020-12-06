@@ -5,17 +5,19 @@ import { SvgIconProps } from "@material-ui/core/SvgIcon";
 
 interface ICommonProps extends IButtonProps {
   Icon: FunctionComponent<SvgIconProps>;
-  setStatus: (status: ApprovalStatus) => Promise<void>;
-  status: ApprovalStatus;
 }
 
 export interface IContainer extends ICommonProps {
   loading: boolean;
+  status: ApprovalStatus;
+  setStatus: (status: ApprovalStatus) => Promise<void>;
 }
 
 export interface ITranslations {
   approve: string;
   reject: string;
+  confirmDialogDescription: string;
+  confirmDialogCancel: string;
 }
 
 export interface IComponent extends ICommonProps {

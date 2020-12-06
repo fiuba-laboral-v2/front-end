@@ -14,9 +14,11 @@ export const Button: FunctionComponent<IButtonProps> = ({
   </button>
 );
 
+export type ButtonKind = "primary" | "secondary" | "warning" | "danger";
+
 export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
   className?: string;
-  kind: "primary" | "secondary" | "warning" | "danger";
+  kind: ButtonKind;
   width?: "expand" | "fitContent";
   onClick?: (state: object) => void;
   disabled?: boolean;
