@@ -13,7 +13,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
-  const applicant = useApplicantByUuid(selectedTask.uuid).data?.getApplicant;
+  const applicant = useApplicantByUuid(selectedTask.uuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,

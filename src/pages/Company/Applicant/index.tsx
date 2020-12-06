@@ -6,11 +6,11 @@ import { ApplicantDetail } from "$components/ApplicantDetail";
 
 export const Applicant: FunctionComponent = () => {
   const { uuid } = useParams();
-  const response = useApplicantByUuid(uuid);
+  const applicant = useApplicantByUuid(uuid);
 
   return (
-    <Window loading={response.loading}>
-      <ApplicantDetail applicant={response.data?.getApplicant} />
+    <Window loading={!applicant}>
+      <ApplicantDetail {...{ applicant }} />
     </Window>
   );
 };

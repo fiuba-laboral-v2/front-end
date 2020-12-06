@@ -9,6 +9,7 @@ import { IEditOfferProps } from "./interfaces";
 import { Window } from "../Window";
 import { Formik } from "../Formik";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 export const EditOffer: FunctionComponent<IEditOfferProps> = ({
   title,
@@ -34,7 +35,7 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
               sections={formikProps.values.sections}
               name="sections"
             />
-            <RecipientsFormSection className={styles.formSection} />
+            <RecipientsFormSection className={classNames(styles.formSection, styles.recipients)} />
           </FormikForm>
           {formFooter(formikProps)}
         </Form>

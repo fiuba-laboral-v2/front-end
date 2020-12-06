@@ -7,11 +7,5 @@ export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = pro
   const translations = useTranslations<ITranslations>("titleBar");
   const currentUser = useCurrentUser();
 
-  return (
-    <TitleBar
-      title={translations?.title}
-      showNavBar={!!currentUser.data.getCurrentUser}
-      {...props}
-    />
-  );
+  return <TitleBar title={translations?.title} showNavBar={!!currentUser} {...props} />;
 };

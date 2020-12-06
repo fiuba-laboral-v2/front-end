@@ -8,7 +8,7 @@ export const FiltersContainer: FunctionComponent<IFiltersContainerProps> = ({
   translations,
   filter
 }) => {
-  const careers = useCareers().data?.getCareers;
+  const careers = useCareers();
   if (!careers) return <Fragment />;
   return (
     <Filters careers={careers} filter={filter} className={className} translations={translations} />

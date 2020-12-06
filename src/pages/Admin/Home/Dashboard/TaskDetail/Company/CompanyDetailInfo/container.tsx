@@ -20,7 +20,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     type: COMPANY,
     approvalStatusAttribute: "approvalStatus"
   });
-  const response = useCompanyByUuid<IUser>({ uuid: selectedTask.uuid, withUsers: true });
+  const company = useCompanyByUuid<IUser>({ uuid: selectedTask.uuid, withUsers: true });
 
   const setStatus = async (status: ApprovalStatus) => {
     await updateAdminTaskStatus({
@@ -30,8 +30,6 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
       setLoadingStatusUpdate
     });
   };
-
-  const company = response.data?.getCompanyByUuid;
 
   return <CompanyDetailInfo {...{ loading, setStatus, company }} />;
 };

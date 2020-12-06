@@ -6,11 +6,11 @@ import { CompanyDetail } from "$components/CompanyDetail";
 
 export const CompanyProfile: FunctionComponent = () => {
   const { uuid } = useParams<IRouteParams>();
-  const response = useCompanyByUuid({ uuid });
+  const company = useCompanyByUuid({ uuid });
 
   return (
     <Window>
-      <CompanyDetail company={response.data?.getCompanyByUuid} />
+      <CompanyDetail {...{ company }} />
     </Window>
   );
 };

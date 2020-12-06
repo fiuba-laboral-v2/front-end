@@ -2,7 +2,6 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useMyCompanyProfile, useTranslations, useUpdateCurrentCompany } from "$hooks";
-import { Redirect } from "$components/Redirect";
 import { EditableProfile } from "./component";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -17,11 +16,9 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const { updateCurrentCompany } = useUpdateCurrentCompany();
-  const companyProfile = useMyCompanyProfile();
+  const company = useMyCompanyProfile();
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
   const acceptanceCriteria = useTranslations<{ text: string }>("companyEditableAcceptanceCriteria");
-
-  const company = companyProfile.data?.getCurrentUser.company;
 
   const modelToValues = useCallback((model?: ICompany) => {
     const values: IEditableProfileFormValues = {
@@ -56,10 +53,8 @@ export const EditableProfileContainer: FunctionComponent = () => {
     [enqueueSnackbar, history, updateCurrentCompany]
   );
 
-  if (companyProfile.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
-
   return (
-    <Window loading={!translations || !companyProfile || !acceptanceCriteria || !company}>
+    <Window loading={!translations || !company || !acceptanceCriteria || !company}>
       <Formik initialValues={modelToValues()} {...{ onSubmit }}>
         {formikProps => (
           <FormikForm initialValuesModel={company} {...{ modelToValues, formikProps }}>

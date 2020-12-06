@@ -13,7 +13,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
-  const jobApplication = useJobApplicationByUuid(selectedTask.uuid).data?.getJobApplicationByUuid;
+  const jobApplication = useJobApplicationByUuid(selectedTask.uuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,

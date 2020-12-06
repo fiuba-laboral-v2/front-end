@@ -7,7 +7,6 @@ import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { OfferDetail } from "$components/OfferDetail";
 import { Window } from "$components/Window";
 import { Button } from "$components/Button";
-
 import styles from "./styles.module.scss";
 
 export const OfferDetailContainer: FunctionComponent = () => {
@@ -32,7 +31,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   }, [offer, expireOffer, enqueueSnackbar, refetch]);
 
   return (
-    <Window loading={!data || !translations || !offer}>
+    <Window loading={!translations || !offer}>
       <OfferDetail
         actions={
           <div className={styles.actionContainer}>

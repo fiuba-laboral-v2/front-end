@@ -11,12 +11,8 @@ import { AdminTask } from "./component";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 
 export const AdminTaskContainer: FunctionComponent<IAdminTaskContainerProps> = ({ adminTask }) => {
-  const {
-    error,
-    loading,
-    data: { approvalStatusAttribute }
-  } = useAdminApprovalStatusAttribute();
-  if (error || loading) return <Fragment />;
+  const approvalStatusAttribute = useAdminApprovalStatusAttribute();
+  if (!approvalStatusAttribute) return <Fragment />;
   let name = "";
   let Icon: FunctionComponent<{ className?: string }> = Fragment;
 

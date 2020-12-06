@@ -14,7 +14,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   setLoadingStatusUpdate
 }) => {
   const offer = useCompanyOfferByUuid(selectedTask.uuid).data?.getOfferByUuid;
-  const approvalStatusAttribute = useAdminApprovalStatusAttribute().data.approvalStatusAttribute;
+  const approvalStatusAttribute = useAdminApprovalStatusAttribute();
   const { updateAdminTaskStatus, loading: loadingUpdateStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_OFFER_APPROVAL_STATUS,
     refetchAdminTasks,
