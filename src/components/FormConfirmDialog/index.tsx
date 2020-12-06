@@ -6,14 +6,15 @@ import {
   DialogContentText,
   DialogTitle
 } from "@material-ui/core";
-import { Button } from "$components/Button";
+import { Button, ButtonKind } from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   isOpen,
   onClose,
   onConfirm,
-  translations
+  translations,
+  confirmButtonKind = "primary"
 }) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
@@ -31,7 +32,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
           onConfirm();
           onClose();
         }}
-        kind="primary"
+        kind={confirmButtonKind}
       >
         {translations?.confirmDialogConfirm}
       </Button>
@@ -51,4 +52,5 @@ interface IConfirmDialogProps {
   onClose: () => void;
   onConfirm: () => void;
   translations?: IConfirmDialogTranslations;
+  confirmButtonKind?: ButtonKind;
 }
