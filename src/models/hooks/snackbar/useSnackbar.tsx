@@ -7,6 +7,7 @@ export const useSnackbar = () => {
   return {
     enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => {
       const key = enqueueSnackbar(message, {
+        anchorOrigin: { horizontal: "right", vertical: "bottom" },
         ...options,
         action: (
           <>
