@@ -13,7 +13,7 @@ import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServic
 import { saveApplicantArguments } from "$models/MutationArguments";
 import { Window } from "$components/Window";
 
-export const SignUpContainer: FunctionComponent = () => {
+export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }) => {
   const history = useHistory();
   const { saveApplicant } = useSaveApplicant();
   const { login } = useFiubaLogin();
@@ -57,7 +57,14 @@ export const SignUpContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!translations}>
-      <SignUp translations={translations} validateForm={validateForm} onSubmit={onSubmit} />
+      <SignUp
+        {...{ translations, validateForm, onSubmit }}
+        initialDni={new URLSearchParams(searchQuery).get("dni")}
+      />
     </Window>
   );
 };
+
+interface ISignUpProps {
+  searchQuery: string;
+}

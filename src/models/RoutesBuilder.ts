@@ -20,6 +20,8 @@ const companyRoute = routeBuilder("/empresa");
 const adminRoute = routeBuilder("/admin");
 const publicRoute = routeBuilder("");
 
+const queryParams = (params?: string) => (params ? `?${params}` : "");
+
 export const RoutesBuilder = {
   admin: {
     home: () => adminRoute(""),
@@ -36,7 +38,8 @@ export const RoutesBuilder = {
   },
 
   applicant: {
-    signUp: () => applicantRoute(SIGN_UP),
+    signUp: ({ dni }: { dni?: string } = {}) =>
+      `${applicantRoute(SIGN_UP)}${dni ? queryParams(`dni=${dni}`) : ""}`,
 
     login: () => applicantRoute(LOGIN),
 
@@ -45,7 +48,7 @@ export const RoutesBuilder = {
     editMyProfile: () => applicantRoute(PROFILE, EDIT),
 
     offerList: ({ searchParams }: { searchParams?: string } = {}) =>
-      `${applicantRoute(OFFERS)}${searchParams ? `?${searchParams}` : ""}`,
+      `${applicantRoute(OFFERS)}${queryParams(searchParams)}`,
 
     offerDetail: (uuid: string) => applicantRoute(OFFERS, uuid),
 

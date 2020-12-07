@@ -14,7 +14,8 @@ import styles from "./styles.module.scss";
 export const SignUp: FunctionComponent<ISignUpProps> = ({
   translations,
   onSubmit,
-  validateForm
+  validateForm,
+  initialDni
 }) => {
   const careerInitialValue = {
     careerCode: "",
@@ -25,7 +26,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
   const initialValues: IApplicantSignUpFormValues = {
     user: {
       email: "",
-      dni: "",
+      dni: initialDni || "",
       password: "",
       name: "",
       surname: ""
@@ -69,6 +70,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
 };
 
 interface ISignUpProps {
+  initialDni: string | null;
   translations?: IApplicantSignUpTranslations;
   validateForm: (values: IApplicantSignUpFormValues) => string | undefined;
   onSubmit: (
