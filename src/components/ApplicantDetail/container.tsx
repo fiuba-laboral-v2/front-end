@@ -19,12 +19,8 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
 
   return (
     <ApplicantDetail
-      mobileLayout={mobileLayout}
-      className={className}
+      {...{ mobileLayout, className, translations, editButton, withStatusLabel }}
       applicant={applicant && { ...applicant, knowledgeSections, experienceSections }}
-      translations={translations}
-      editButton={editButton}
-      withStatusLabel={withStatusLabel}
     />
   );
 };
