@@ -4,4 +4,5 @@ export interface ITranslations {
   signup: string;
   recoverPassword: string;
   goToCompany: string;
+  userNotFoundErrorMessage: string;
 }

@@ -25,7 +25,11 @@ export const ApplicantRoutes = [
     path: offerList(),
     component: (props: { location: Location }) => <Home searchQuery={props.location.search} />
   },
-  { path: signUp(), component: SignUp, public: true },
+  {
+    path: signUp(),
+    component: (props: { location: Location }) => <SignUp searchQuery={props.location.search} />,
+    public: true
+  },
   { path: login(), component: Login, public: true },
   { path: myProfile(), component: Profile },
   { path: editMyProfile(), component: EditableProfile },
