@@ -86,7 +86,13 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
   }
   return (
     <div className={styles.taskDetailContainer}>
-      <div className={styles.taskDetail}>{children}</div>
+      <div
+        className={classNames(styles.taskDetail, {
+          [styles.jobApplication]: selectedTask?.__typename === JOB_APPLICATION
+        })}
+      >
+        {children}
+      </div>
     </div>
   );
 };
