@@ -33,7 +33,13 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       className={styles.form}
       usernameField={
         translations && (
-          <EmailField autoFocus name="email" label={translations.email} autoComplete="email" />
+          <EmailField
+            autoFocus
+            singleLine
+            name="email"
+            label={translations.email}
+            autoComplete="email"
+          />
         )
       }
       signUpLink={

@@ -35,7 +35,9 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       initialValues={{ dni: "", password: "" }}
       className={styles.form}
       usernameField={
-        translations && <DniField autoFocus mandatory={false} name="dni" label={translations.dni} />
+        translations && (
+          <DniField autoFocus singleLine mandatory={false} name="dni" label={translations.dni} />
+        )
       }
       signUpLink={
         translations && <Link to={RoutesBuilder.applicant.signUp()}>{translations.signup}</Link>
