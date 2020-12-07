@@ -1,8 +1,10 @@
 @import "$styles/_variables";
 
 @mixin customMedia {
-  .mobile {
-    @content;
+  @media (max-width: $largeDesktopWidth) {
+    .mobile {
+      @content;
+    }
   }
 
   @media (max-width: $laptopWidth) {
