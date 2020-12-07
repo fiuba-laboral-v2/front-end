@@ -1,8 +1,10 @@
 @import "$styles/_variables";
 
 @mixin mobileClass {
-  .mobile {
-    @content;
+  @media (max-width: $largeDesktopWidth) {
+    .mobile {
+      @content;
+    }
   }
 
   @media (max-width: $largeMobileWidth) {
