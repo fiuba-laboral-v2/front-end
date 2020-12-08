@@ -28,6 +28,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
           detailTitle={company?.companyName}
           approvalStatus={withStatusLabel ? company?.approvalStatus : undefined}
         />
+        <p className={styles.businessName}>{company?.businessName}</p>
         <Subtitle className={styles.companySlogan}>{company?.slogan}</Subtitle>
         <DetailContactMe email={company?.email} website={company?.website} />
       </div>
