@@ -7,3 +7,4 @@ export type OFFER_TYPE = "Offer";
 export const JOB_APPLICATION = "JobApplication";
 export type JOB_APPLICATION_TYPE = "JobApplication";
 export * from "./CompanyNotification";
+export * from "./ApplicantNotification";
