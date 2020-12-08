@@ -39,6 +39,20 @@ interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVari
   errorHandlers?: ErrorHandlers;
 }
 
+/**
+ * This hook is used when a fetchMore or refetch is required. In the paginated queries, this hooks
+ * is the one we should use.
+ * This is due to an apollo bug that involves memory leaks as explained in the following links:
+ *
+ * https://github.com/apollographql/apollo-client/pull/6216/files
+ * https://github.com/apollographql/react-apollo/issues/3402
+ *
+ * To consider: If this hooks is used more than once in the same rendered page,
+ * the memory leak will occur
+ * @constructor
+ * @param {DocumentNode} node
+ * @param {IQueryOptions} options
+ */
 export const useAdvancedQuery = <TVariables = {}, TData = {}>(
   node: DocumentNode,
   options?: IQueryOptions<TData, TVariables>
