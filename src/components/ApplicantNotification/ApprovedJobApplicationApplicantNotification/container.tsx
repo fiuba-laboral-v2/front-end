@@ -4,13 +4,11 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { NotificationBody } from "$components/Notification/NotificationBody";
-import { Link } from "$components/Link";
 import { OfferIcon } from "$components/Icons/OfferIcon";
 import { StatusIcon } from "$components/StatusIcon";
+import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
 
 import { IApprovedJobApplicationApplicantNotification } from "$interfaces/ApplicantNotification";
-import styles from "./styles.module.scss";
 
 export const ApprovedJobApplicationApplicantNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
@@ -29,15 +27,12 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
       icon={<StatusIcon Icon={OfferIcon} approvalStatus={approvalStatus} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
-      <NotificationBody>
-        <Link to={RoutesBuilder.applicant.myProfile()}>
-          {`${applicant.user.name} ${applicant.user.surname}`}
-        </Link>
-        <div className={styles.separator}>-</div>
-        <Link className={styles.offer} to={RoutesBuilder.applicant.offerDetail(offer.uuid)}>
-          {offer.title}
-        </Link>
-      </NotificationBody>
+      <JobApplicationNotificationBody
+        applicant={applicant}
+        offer={offer}
+        applicantLink={RoutesBuilder.applicant.myProfile()}
+        offerLink={RoutesBuilder.applicant.offerDetail}
+      />
     </Notification>
   );
 };
