@@ -4,7 +4,7 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { OfferIcon } from "$components/Icons/OfferIcon";
+import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
 
@@ -14,7 +14,9 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
   className,
   notification
 }) => {
-  const translations = useTranslations<{ title: string }>("approvedOfferCompanyNotification");
+  const translations = useTranslations<{ title: string }>(
+    "approvedJobApplicationApplicantNotification"
+  );
 
   const {
     jobApplication: { applicant, offer, approvalStatus }
@@ -24,7 +26,7 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
     <Notification
       className={className}
       notification={notification}
-      icon={<StatusIcon Icon={OfferIcon} approvalStatus={approvalStatus} />}
+      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={approvalStatus} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
