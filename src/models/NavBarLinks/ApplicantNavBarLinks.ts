@@ -33,7 +33,7 @@ export const ApplicantNavBarLinks = {
     {
       path: notifications(),
       title: translations.notifications,
-      tooltipMessage: getTooltipMessage(currentUser, translations, companies()),
+      tooltipMessage: getTooltipMessage(currentUser, translations, notifications()),
       icon: NotificationsIcon
     }
   ]
