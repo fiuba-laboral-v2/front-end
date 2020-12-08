@@ -1,0 +1,21 @@
+@import "$styles/_variables";
+
+.separator {
+  margin-left: $spacing-xs;
+  margin-right: $spacing-xs;
+}
+
+.name {
+  font-size: $fontSize-m;
+  word-break: break-word;
+}
+
+@media (max-width: $laptopWidth) {
+  .separator {
+    display: none;
+  }
+
+  .offer {
+    margin-top: $spacing-xs;
+  }
+}
