@@ -39,7 +39,7 @@ interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVari
   errorHandlers?: ErrorHandlers;
 }
 
-export const useQuery = <TVariables = {}, TData = {}>(
+export const useAdvancedQuery = <TVariables = {}, TData = {}>(
   node: DocumentNode,
   options?: IQueryOptions<TData, TVariables>
 ) => {

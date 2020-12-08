@@ -1,5 +1,5 @@
 import { DocumentNode } from "graphql";
-import { useQuery } from "../useQuery/useQuery";
+import { useAdvancedQuery } from "../useQuery/useQuery";
 import { IPaginatedResult } from "./interfaces";
 import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -21,7 +21,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
 }: IUsePaginatedOffers<TVariables>) => {
   const history = useHistory();
 
-  const result = useQuery<TVariables, IUsePaginatedOffersResponse<Result>>(documentNode, {
+  const result = useAdvancedQuery<TVariables, IUsePaginatedOffersResponse<Result>>(documentNode, {
     variables: variables && normalizeVariables(variables),
     fetchPolicy,
     errorHandlers: {

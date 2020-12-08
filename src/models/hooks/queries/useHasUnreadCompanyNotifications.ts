@@ -1,8 +1,8 @@
-import { useQuery } from "$hooks";
+import { useAdvancedQuery } from "$hooks";
 import { HAS_UNREAD_COMPANY_NOTIFICATIONS } from "$queries";
 
 export const useHasUnreadCompanyNotifications = () => {
-  const response = useQuery<{}, IResponse>(HAS_UNREAD_COMPANY_NOTIFICATIONS, {
+  const response = useAdvancedQuery<{}, IResponse>(HAS_UNREAD_COMPANY_NOTIFICATIONS, {
     fetchPolicy: "no-cache",
     pollInterval: 30000
   });
