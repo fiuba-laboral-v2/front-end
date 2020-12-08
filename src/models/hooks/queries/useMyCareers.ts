@@ -1,4 +1,4 @@
-import { useQueryData } from "../useQuery";
+import { useQueryData } from "../useQuery/useQuery";
 import { GET_MY_CAREERS } from "$queries";
 import { IApplicantCareer } from "$interfaces/Applicant";
 import { RoutesBuilder } from "../../RoutesBuilder";

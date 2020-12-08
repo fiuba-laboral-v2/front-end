@@ -1,5 +1,5 @@
 import { DocumentNode } from "graphql";
-import { useQuery } from "../useQuery";
+import { useQuery } from "../useQuery/useQuery";
 import { IPaginatedResult } from "./interfaces";
 import { WatchQueryFetchPolicy } from "@apollo/client/core";
 import { RoutesBuilder } from "$models/RoutesBuilder";

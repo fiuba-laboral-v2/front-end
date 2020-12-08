@@ -1,4 +1,4 @@
-import { useQuery } from "../useQuery";
+import { useQuery } from "../useQuery/useQuery";
 import { GET_MY_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
