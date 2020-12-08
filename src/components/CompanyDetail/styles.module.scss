@@ -6,6 +6,10 @@
   word-break: break-word;
 }
 
+.businessName {
+  color: $mainBlue;
+}
+
 .mainInfo {
   flex-grow: 1;
   margin-left: $spacing-xxl;
