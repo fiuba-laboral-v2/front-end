@@ -11,7 +11,7 @@ interface IQueryDataOptions<TData, TVariables> extends QueryOptions<TVariables, 
   errorHandlers?: ErrorHandlers;
 }
 
-export const useQueryData = <TVariables = {}, TData = {}>(
+export const useBasicQuery = <TVariables = {}, TData = {}>(
   options: IQueryDataOptions<TData, TVariables>
 ) => {
   const { errorHandlers, ...apolloOptions } = options;

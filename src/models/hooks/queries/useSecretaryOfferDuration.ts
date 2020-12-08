@@ -1,4 +1,4 @@
-import { useQueryData } from "$hooks";
+import { useBasicQuery } from "$hooks";
 import { GET_SECRETARY_OFFER_DURATION } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Secretary } from "$interfaces/Secretary";
 export const useSecretaryOfferDuration = (secretary: Secretary) => {
   const history = useHistory();
 
-  const data = useQueryData<{}, { getSecretaryOfferDuration: { offerDurationInDays: number } }>({
+  const data = useBasicQuery<{}, { getSecretaryOfferDuration: { offerDurationInDays: number } }>({
     query: GET_SECRETARY_OFFER_DURATION,
     variables: { secretary },
     errorHandlers: {
