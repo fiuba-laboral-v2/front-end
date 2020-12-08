@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import { ApolloError, useApolloClient } from "@apollo/client";
 import { ErrorHandlers, handleError } from "$models/handleError";
 import { QueryOptions } from "@apollo/client/core/watchQueryOptions";
-
-const defaultApolloOptions = {
-  notifyOnNetworkStatusChange: true
-};
+import { defaultApolloOptions } from "./defaultApolloOptions";
 
 interface IQueryDataOptions<TData, TVariables> extends QueryOptions<TVariables, TData> {
   errorHandlers?: ErrorHandlers;

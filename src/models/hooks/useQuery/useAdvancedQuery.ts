@@ -6,6 +6,7 @@ import {
 } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { ErrorHandlers, handleError } from "$models/handleError";
+import { defaultApolloOptions } from "./defaultApolloOptions";
 
 export type UseQueryResult<TVariables, TData> = QueryResult<TData, TVariables> &
   (ILoadingQuery | IErroredQuery | ISuccessfulQuery<TVariables, TData>);
@@ -29,10 +30,6 @@ type ISuccessfulQuery<TVariables, TData> = {
   refetch: (variables: TVariables) => void;
   error: undefined;
   loading: false;
-};
-
-const defaultApolloOptions = {
-  notifyOnNetworkStatusChange: true
 };
 
 interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVariables> {
