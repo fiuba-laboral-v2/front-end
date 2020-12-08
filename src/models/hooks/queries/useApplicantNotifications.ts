@@ -1,9 +1,9 @@
 import { GET_APPLICANT_NOTIFICATIONS } from "$queries";
 import { usePaginatedQuery } from "$hooks";
-import { TCompanyNotification } from "$interfaces/CompanyNotification";
+import { TApplicantNotification } from "$interfaces/ApplicantNotification";
 
 export const useApplicantNotifications = () =>
-  usePaginatedQuery<{}, TCompanyNotification>({
+  usePaginatedQuery<{}, TApplicantNotification>({
     documentNode: GET_APPLICANT_NOTIFICATIONS,
     queryName: "getApplicantNotifications",
     variables: {},
