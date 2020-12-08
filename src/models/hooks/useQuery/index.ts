@@ -1,2 +1,2 @@
-export * from "./useBasicQuery";
+export * from "./useQuery";
 export * from "./useAdvancedQuery";

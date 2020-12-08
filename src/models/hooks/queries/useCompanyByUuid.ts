@@ -1,4 +1,4 @@
-import { useBasicQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_COMPANY_BY_UUID } from "$queries";
 import { GET_COMPANY_BY_UUID_WITH_USERS } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -20,7 +20,7 @@ export const useCompanyByUuid = <T extends IUser | undefined = undefined>({
     }
   };
 
-  return useBasicQuery<{}, { getCompanyByUuid: ICompany<T> }>(options)?.getCompanyByUuid;
+  return useQuery<{}, { getCompanyByUuid: ICompany<T> }>(options)?.getCompanyByUuid;
 };
 
 interface IUseCompanyByUuid {
