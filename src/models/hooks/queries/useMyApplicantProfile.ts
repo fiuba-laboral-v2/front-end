@@ -1,4 +1,4 @@
-import { useBasicQuery } from "../useQuery/useQuery";
+import { useBasicQuery } from "$hooks";
 import { GET_MY_APPLICANT_PROFILE } from "$queries";
 import { IApplicant } from "$interfaces/Applicant";
 import { RoutesBuilder } from "../../RoutesBuilder";

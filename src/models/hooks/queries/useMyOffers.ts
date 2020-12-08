@@ -1,4 +1,4 @@
-import { useAdvancedQuery } from "../useQuery/useQuery";
+import { useAdvancedQuery } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
 import { IOffer } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
