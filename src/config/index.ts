@@ -1,1 +1,2 @@
-export { Configuration } from "./Configuration";
+export * from "./Configuration";
+export * from "./Notifications";
