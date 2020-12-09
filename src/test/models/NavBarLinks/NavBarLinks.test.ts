@@ -11,6 +11,7 @@ import SchoolIcon from "@material-ui/icons/School";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
+import { NotificationsIcon } from "$components/NotificationsIcon";
 
 describe("NavBarLinks", () => {
   const translations = {
@@ -175,6 +176,11 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.applicant.companies(),
           title: translations.companies,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.applicant.notifications(),
+          title: translations.notifications,
+          icon: NotificationsIcon
         }
       ]);
     });
@@ -198,6 +204,12 @@ describe("NavBarLinks", () => {
           title: translations.companies,
           tooltipMessage: translations.pendingProfile,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.applicant.notifications(),
+          title: translations.notifications,
+          tooltipMessage: translations.pendingProfile,
+          icon: NotificationsIcon
         }
       ]);
     });
@@ -221,6 +233,12 @@ describe("NavBarLinks", () => {
           title: translations.companies,
           tooltipMessage: translations.rejectedProfile,
           icon: BusinessIcon
+        },
+        {
+          path: RoutesBuilder.applicant.notifications(),
+          title: translations.notifications,
+          tooltipMessage: translations.rejectedProfile,
+          icon: NotificationsIcon
         }
       ]);
     });
