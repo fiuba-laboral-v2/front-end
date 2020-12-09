@@ -1,4 +1,4 @@
-import { useQueryData } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_JOB_APPLICATION_BY_UUID } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
@@ -6,7 +6,7 @@ import { IJobApplication } from "$interfaces/JobApplication";
 
 export const useJobApplicationByUuid = (uuid: string) => {
   const history = useHistory();
-  return useQueryData<{}, { getJobApplicationByUuid: IJobApplication }>({
+  return useQuery<{}, { getJobApplicationByUuid: IJobApplication }>({
     query: GET_JOB_APPLICATION_BY_UUID,
     variables: { uuid },
     errorHandlers: {

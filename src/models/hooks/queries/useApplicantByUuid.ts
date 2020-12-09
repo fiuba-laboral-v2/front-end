@@ -1,4 +1,4 @@
-import { useQueryData } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_APPLICANT } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
@@ -6,7 +6,7 @@ import { IApplicant } from "$interfaces/Applicant";
 
 export const useApplicantByUuid = (uuid?: string) => {
   const history = useHistory();
-  return useQueryData<{}, { getApplicant: IApplicant }>({
+  return useQuery<{}, { getApplicant: IApplicant }>({
     query: GET_APPLICANT,
     variables: { uuid },
     errorHandlers: {

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useQueryData } from "$hooks";
+import { useQuery } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { GET_COMPANIES } from "$queries";
 import { Companies } from "./component";
@@ -9,7 +9,7 @@ import { IPaginatedResult } from "$hooks/queries/interfaces";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();
-  const data = useQueryData<{}, { getCompanies: IPaginatedResult<ICompany> }>({
+  const data = useQuery<{}, { getCompanies: IPaginatedResult<ICompany> }>({
     query: GET_COMPANIES,
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
