@@ -1,0 +1,3 @@
+export const APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION =
+  "ApprovedJobApplicationApplicantNotification";
+export type APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE = "ApprovedJobApplicationApplicantNotification";

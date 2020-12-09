@@ -4,12 +4,10 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { NotificationBody } from "$components/Notification/NotificationBody";
-import { Link } from "$components/Link";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
+import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
 
-import styles from "./styles.module.scss";
 import { INewJobApplicationCompanyNotification } from "$interfaces/CompanyNotification";
 
 export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
@@ -29,15 +27,12 @@ export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IC
       icon={<StatusIcon Icon={JobApplicationIcon} />}
     >
       <NotificationTitle>{translations?.title || " "}</NotificationTitle>
-      <NotificationBody>
-        <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
-          {`${applicant.user.name} ${applicant.user.surname}`}
-        </Link>
-        <div className={styles.separator}>-</div>
-        <Link className={styles.offer} to={RoutesBuilder.company.offer(offer.uuid)}>
-          {offer.title}
-        </Link>
-      </NotificationBody>
+      <JobApplicationNotificationBody
+        applicant={applicant}
+        offer={offer}
+        applicantLink={RoutesBuilder.company.applicantDetail(applicant.uuid)}
+        offerLink={RoutesBuilder.company.offer}
+      />
     </Notification>
   );
 };
