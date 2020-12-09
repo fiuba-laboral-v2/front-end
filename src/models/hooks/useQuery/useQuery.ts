@@ -13,8 +13,6 @@ interface IQueryDataOptions<TData, TVariables> extends QueryOptions<TVariables, 
  * This is due to an apollo bug that involves memory leaks as explained in the following links:
  * https://github.com/apollographql/apollo-client/pull/6216/files
  * https://github.com/apollographql/react-apollo/issues/3402
- * @constructor
- * @param {IQueryDataOptions} options
  */
 export const useQuery = <TVariables = {}, TData = {}>(
   options: IQueryDataOptions<TData, TVariables>

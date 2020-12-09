@@ -46,9 +46,6 @@ interface IQueryOptions<TData, TVariables> extends QueryHookOptions<TData, TVari
  *
  * To consider: If this hooks is used more than once in the same rendered page,
  * the memory leak will occur
- * @constructor
- * @param {DocumentNode} node
- * @param {IQueryOptions} options
  */
 export const useAdvancedQuery = <TVariables = {}, TData = {}>(
   node: DocumentNode,
