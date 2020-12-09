@@ -1,3 +1,5 @@
+import { Environment } from "$config";
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -91,9 +93,9 @@ const checkValidServiceWorker = (swUrl: string, config?: IConfig) => {
 };
 
 const register = (config?: IConfig) => {
-  if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
+  if (Environment.NODE_ENV() === "production" && "serviceWorker" in navigator) {
     // The URL constructor is available in all browsers that support SW.
-    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+    const publicUrl = new URL(Environment.publicUrl(), window.location.href);
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
@@ -102,7 +104,7 @@ const register = (config?: IConfig) => {
     }
 
     window.addEventListener("load", () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${Environment.publicUrl()}/service-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.

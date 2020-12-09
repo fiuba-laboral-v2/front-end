@@ -1,5 +1,4 @@
-type Env = "production" | "staging" | "development" | "test";
-const env = (process.env.REACT_APP_STAGE || process.env.NODE_ENV) as Env;
+import { Environment } from "./Environment";
 
 export const NotificationsConfig = {
   production: {
@@ -14,4 +13,4 @@ export const NotificationsConfig = {
   test: {
     pollInterval: 30000
   }
-}[env];
+}[Environment.env()];

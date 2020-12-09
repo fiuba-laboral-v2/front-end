@@ -1,4 +1,6 @@
-const configurationForAllEnvironments = {
+import { Environment } from "./Environment";
+
+export const Configuration = {
   production: {
     sub_domain: "/",
     application_base_url: "http://laboral.fi.uba.ar/graphql",
@@ -19,8 +21,4 @@ const configurationForAllEnvironments = {
     application_base_url: "http://localhost:5006/graphql",
     show_seeded_users: false
   }
-};
-
-type Env = "production" | "staging" | "development" | "test";
-const env = (process.env.REACT_APP_STAGE || process.env.NODE_ENV) as Env;
-export const Configuration = configurationForAllEnvironments[env];
+}[Environment.env()];
