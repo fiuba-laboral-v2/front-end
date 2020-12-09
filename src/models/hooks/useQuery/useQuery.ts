@@ -9,10 +9,8 @@ interface IQueryDataOptions<TData, TVariables> extends QueryOptions<TVariables, 
 }
 
 /**
- * This hook is used when no fetchMore o refetch is required.
- * This is due to an apollo bug that involves memory leaks as explained in the following links:
- * https://github.com/apollographql/apollo-client/pull/6216/files
- * https://github.com/apollographql/react-apollo/issues/3402
+ * Use this hook unless you need to use fetchMode, use refetch, or access the
+ * error object outside of an errorHandler. In that case, consider useAdvancedQuery.
  */
 export const useQuery = <TVariables = {}, TData = {}>(
   options: IQueryDataOptions<TData, TVariables>
