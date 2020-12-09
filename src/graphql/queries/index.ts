@@ -26,6 +26,7 @@ const GET_COMPANY_NOTIFICATIONS = loader("./getCompanyNotifications.graphql");
 const GET_SECRETARY_OFFER_DURATION = loader("./getSecretaryOfferDuration.graphql");
 const HAS_UNREAD_COMPANY_NOTIFICATIONS = loader("./hasUnreadCompanyNotifications.graphql");
 const GET_APPLICANT_NOTIFICATIONS = loader("./getApplicantNotifications.graphql");
+const HAS_UNREAD_APPLICANT_NOTIFICATIONS = loader("./hasUnreadApplicantNotifications.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -53,5 +54,6 @@ export {
   GET_SECRETARY_OFFER_DURATION,
   GET_COMPANY_NOTIFICATIONS,
   HAS_UNREAD_COMPANY_NOTIFICATIONS,
-  GET_APPLICANT_NOTIFICATIONS
+  GET_APPLICANT_NOTIFICATIONS,
+  HAS_UNREAD_APPLICANT_NOTIFICATIONS
 };
