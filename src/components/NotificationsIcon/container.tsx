@@ -2,9 +2,9 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useInfoSnackbar, useTranslations } from "$hooks";
 import { NotificationsIcon } from "./component";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
+  actionRoute,
   useHasUnreadNotifications
 }) => {
   const [lastUnreadValue, setLastUnreadValue] = useState(false);
@@ -14,18 +14,19 @@ export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
   const infoSnackbar = useInfoSnackbar();
   useEffect(() => {
     infoSnackbar({
-      action: () => history.push(RoutesBuilder.applicant.notifications()),
+      action: () => history.push(actionRoute),
       message: translations?.message || "Tenés notificaciones",
       actionMessage: translations?.actionMessage || "Ver",
       skip: !hasUnreadNotifications || lastUnreadValue
     });
     setLastUnreadValue(!!hasUnreadNotifications);
-  }, [lastUnreadValue, hasUnreadNotifications, infoSnackbar, history, translations]);
+  }, [lastUnreadValue, hasUnreadNotifications, infoSnackbar, history, translations, actionRoute]);
   return <NotificationsIcon unread={hasUnreadNotifications} />;
 };
 
 export interface IContainerProps {
   useHasUnreadNotifications: () => boolean | undefined;
+  actionRoute: string;
 }
 
 interface ITranslations {
