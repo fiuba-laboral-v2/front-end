@@ -6,7 +6,7 @@ import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
-import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
+import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 
 import { IApprovedJobApplicationApplicantNotification } from "$interfaces/ApplicantNotification";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";

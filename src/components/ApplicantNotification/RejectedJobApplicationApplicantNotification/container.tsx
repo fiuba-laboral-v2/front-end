@@ -4,9 +4,9 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
+import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
-import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
 
 import { IRejectedJobApplicationApplicantNotification } from "$interfaces/ApplicantNotification";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
