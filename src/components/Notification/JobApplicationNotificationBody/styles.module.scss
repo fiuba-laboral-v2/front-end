@@ -10,6 +10,10 @@
   word-break: break-word;
 }
 
+.children {
+  margin-bottom: $spacing-s;
+}
+
 @media (max-width: $laptopWidth) {
   .separator {
     display: none;
