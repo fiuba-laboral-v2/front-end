@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { Links } from "$components/Links";
+import { EmailLink } from "$components/EmailLink";
 import styles from "./styles.module.scss";
 import { IComponentProps } from "./interfaces";
 
@@ -17,9 +17,10 @@ export const RejectionReason: FunctionComponent<IComponentProps> = ({
         {message}
       </p>
     </div>
-    <Links
+    <EmailLink
       className={styles.link}
-      links={[{ url: `mailto: ${moderatorEmail}`, name: translations?.contactModerator || "" }]}
+      email={moderatorEmail}
+      name={translations?.contactModerator || ""}
     />
   </div>
 );
