@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.rejectionReason {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageContainer {
+  display: flex;
+}
+
+.link a {
+  font-size: $fontSize-m;
+  margin: 0;
+}

@@ -11,15 +11,19 @@ export const JobApplicationNotificationBody: FunctionComponent<IContainerProps> 
   applicant,
   offer,
   applicantLink,
-  offerLink
+  offerLink,
+  children
 }) => (
-  <NotificationBody>
-    <Link to={applicantLink}>{`${applicant.user.name} ${applicant.user.surname}`}</Link>
-    <div className={styles.separator}>-</div>
-    <Link className={styles.offer} to={offerLink(offer.uuid)}>
-      {offer.title}
-    </Link>
-  </NotificationBody>
+  <div>
+    <NotificationBody>
+      <Link to={applicantLink}>{`${applicant.user.name} ${applicant.user.surname}`}</Link>
+      <div className={styles.separator}>-</div>
+      <Link className={styles.offer} to={offerLink(offer.uuid)}>
+        {offer.title}
+      </Link>
+    </NotificationBody>
+    {children}
+  </div>
 );
 
 interface IContainerProps {

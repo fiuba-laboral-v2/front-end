@@ -4,6 +4,7 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
+import { RejectionReason } from "$components/Notification/RejectionReason";
 import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
@@ -20,7 +21,9 @@ export const RejectedJobApplicationApplicantNotificationContainer: FunctionCompo
   );
 
   const {
-    jobApplication: { applicant, offer }
+    jobApplication: { applicant, offer },
+    moderatorMessage,
+    adminEmail
   } = notification;
 
   return (
@@ -35,7 +38,9 @@ export const RejectedJobApplicationApplicantNotificationContainer: FunctionCompo
         offer={offer}
         applicantLink={RoutesBuilder.applicant.myProfile()}
         offerLink={RoutesBuilder.applicant.offerDetail}
-      />
+      >
+        <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
+      </JobApplicationNotificationBody>
     </Notification>
   );
 };
