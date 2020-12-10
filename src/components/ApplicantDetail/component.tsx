@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import { Links } from "$components/Links";
+import { EmailLink } from "$components/EmailLink";
 import { Card } from "$components/Card";
 import { CapabilitiesDetail } from "$components/CapabilitiesDetail";
 import { CareersSection } from "$components/CareersSection";
@@ -35,7 +36,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
       </div>
       {applicant?.user.email && applicant?.links && (
         <>
-          <Links links={[{ url: `mailto: ${applicant.user.email}`, name: applicant.user.email }]} />
+          <EmailLink name={applicant.user.email} email={applicant.user.email} />
           <Links links={applicant.links} />
         </>
       )}
