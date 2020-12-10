@@ -8,7 +8,11 @@ export const useInfoSnackbar = () => {
     if (skip) return;
 
     return enqueueSnackbar(message || "", {
-      action: <ActionButton onClick={action}>{actionMessage}</ActionButton>,
+      action: (
+        <ActionButton kind="secondary" onClick={action}>
+          {actionMessage}
+        </ActionButton>
+      ),
       variant: "info"
     });
   };
