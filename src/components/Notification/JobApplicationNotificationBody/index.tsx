@@ -18,7 +18,9 @@ export const JobApplicationNotificationBody: FunctionComponent<IContainerProps> 
     <NotificationBody>
       <Link to={applicantLink}>{`${applicant.user.name} ${applicant.user.surname}`}</Link>
       <div className={styles.separator}>-</div>
-      <Link to={offerLink(offer.uuid)}>{offer.title}</Link>
+      <Link className={styles.offer} to={offerLink(offer.uuid)}>
+        {offer.title}
+      </Link>
     </NotificationBody>
     <div className={styles.children}>{children}</div>
   </div>
