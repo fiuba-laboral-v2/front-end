@@ -2,6 +2,10 @@
 @import "$styles/mixins/_customMedia";
 @import "$styles/mixins/_mobileClass";
 
+.link {
+  margin-top: $spacing-s;
+}
+
 .headline,
 .firstContainerInfo {
   margin-bottom: 25px;
