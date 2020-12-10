@@ -6,7 +6,7 @@ import { getTooltipMessage } from "./getTooltipMessage";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
 import BusinessIcon from "@material-ui/icons/Business";
-import { NotificationsIcon } from "$components/NotificationsIcon";
+import { ApplicantNotificationIcon } from "$components/ApplicantNotificationIcon";
 
 const { offerList, myProfile, companies, notifications } = RoutesBuilder.applicant;
 
@@ -34,7 +34,7 @@ export const ApplicantNavBarLinks = {
       path: notifications(),
       title: translations.notifications,
       tooltipMessage: getTooltipMessage(currentUser, translations, notifications()),
-      icon: NotificationsIcon
+      icon: ApplicantNotificationIcon
     }
   ]
 };

@@ -3,7 +3,11 @@ import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$models/Window";
 import { ActionButton } from "$components/Snackbar/ActionButton";
 
-const reloadAction = <ActionButton onClick={Window.reload}>Recargar</ActionButton>;
+const reloadAction = (
+  <ActionButton kind="danger" onClick={Window.reload}>
+    Recargar
+  </ActionButton>
+);
 
 export const useShowError = () => {
   const { enqueueSnackbar } = useSnackbar();
