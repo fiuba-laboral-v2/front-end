@@ -31,7 +31,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
     return setStatus(status, moderatorMessage);
   };
 
-  const initialValues: IValues = { moderatorMessage: undefined };
+  const initialValues: IValues = { moderatorMessage: "" };
   const formName = "updateStatus";
 
   return (
