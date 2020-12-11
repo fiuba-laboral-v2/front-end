@@ -43,7 +43,6 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
         label={label}
       />
       <FormConfirmDialog
-        width="large"
         formName={formName}
         isOpen={confirmDialogIsOpen}
         onConfirm={() => setStatus(status)}

@@ -12,7 +12,6 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   confirmButtonKind = "primary",
   confirmButtonType,
   formName,
-  width,
   children
 }) => {
   const onConfirmClick = () => {
@@ -21,7 +20,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   };
 
   return (
-    <Dialog {...(width === "large" && { classes: dialogStyles() })} open={isOpen} onClose={onClose}>
+    <Dialog classes={dialogStyles()} open={isOpen} onClose={onClose}>
       <DialogTitle>{translations?.confirmDialogTitle}</DialogTitle>
       <DialogContent>
         <DialogContentText>{translations?.confirmDialogDescription}</DialogContentText>
@@ -52,7 +51,6 @@ export interface IConfirmDialogTranslations {
 }
 
 interface IConfirmDialogProps {
-  width: "small" | "large";
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
