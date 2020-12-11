@@ -10,7 +10,7 @@ interface ICommonProps extends IButtonProps {
 export interface IContainer extends ICommonProps {
   loading: boolean;
   status: ApprovalStatus;
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
 }
 
 export interface ITranslations {

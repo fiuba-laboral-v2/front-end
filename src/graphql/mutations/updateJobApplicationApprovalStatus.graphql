@@ -1,5 +1,13 @@
-mutation updateJobApplicationApprovalStatus($uuid: ID!, $approvalStatus: ApprovalStatus!) {
-  updateJobApplicationApprovalStatus(uuid: $uuid, approvalStatus: $approvalStatus) {
+mutation UpdateJobApplicationApprovalStatus(
+  $uuid: ID!
+  $approvalStatus: ApprovalStatus!
+  $moderatorMessage: String
+) {
+  updateJobApplicationApprovalStatus(
+    uuid: $uuid
+    approvalStatus: $approvalStatus
+    moderatorMessage: $moderatorMessage
+  ) {
     offerUuid
     applicantUuid
     approvalStatus

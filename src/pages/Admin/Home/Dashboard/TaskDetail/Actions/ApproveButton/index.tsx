@@ -8,7 +8,7 @@ export const ApproveButton: FunctionComponent<IComponent> = props => (
 );
 
 interface IComponent {
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
   hidden?: boolean;
 }

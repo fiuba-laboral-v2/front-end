@@ -26,7 +26,7 @@ export const Actions: FunctionComponent<IActionsProps> = ({
 );
 
 export interface IActionsProps {
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   currentStatus?: ApprovalStatus;
   loading: boolean;
 }
