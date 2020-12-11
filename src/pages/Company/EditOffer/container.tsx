@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
-import { FormConfirmDialog } from "$components/FormConfirmDialog";
+import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { ICreateOfferValues } from "$interfaces/Offer";
 
 export const EditOfferContainer: FunctionComponent = () => {

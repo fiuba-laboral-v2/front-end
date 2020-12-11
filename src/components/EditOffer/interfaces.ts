@@ -1,7 +1,7 @@
 import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
 import { FormikProps } from "formik";
 import { ReactNode } from "react";
-import { IConfirmDialogTranslations } from "../FormConfirmDialog";
+import { IConfirmDialogTranslations } from "../Dialog/FormConfirmDialog";
 
 export interface IEditOfferTranslations extends IConfirmDialogTranslations {
   create: string;
