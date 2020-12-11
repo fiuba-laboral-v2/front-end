@@ -1,0 +1,18 @@
+@import "$styles/_variables";
+
+.rejectionReason {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageContainer {
+  display: flex;
+  font-style: italic;
+}
+
+.link a {
+  font-size: $fontSize-s;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0;
+}

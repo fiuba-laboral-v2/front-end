@@ -24,7 +24,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
 export interface ICompanyDetailInfoProps {
   currentStatus?: ApprovalStatus;
   mainTitle: React.ReactElement;
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
   hidden: boolean;
 }

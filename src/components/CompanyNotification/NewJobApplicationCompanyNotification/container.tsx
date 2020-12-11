@@ -3,10 +3,10 @@ import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { Notification } from "$components/Notification";
+import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
-import { JobApplicationNotificationBody } from "$components/JobApplicationNotificationBody";
 
 import { INewJobApplicationCompanyNotification } from "$interfaces/CompanyNotification";
 

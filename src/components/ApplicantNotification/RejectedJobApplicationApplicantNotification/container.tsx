@@ -4,30 +4,33 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
+import { RejectionReason } from "$components/Notification/RejectionReason";
+import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
-import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 
-import { IApprovedJobApplicationApplicantNotification } from "$interfaces/ApplicantNotification";
+import { IRejectedJobApplicationApplicantNotification } from "$interfaces/ApplicantNotification";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
-export const ApprovedJobApplicationApplicantNotificationContainer: FunctionComponent<IContainerProps> = ({
+export const RejectedJobApplicationApplicantNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
   notification
 }) => {
   const translations = useTranslations<{ title: string }>(
-    "approvedJobApplicationApplicantNotification"
+    "rejectedJobApplicationApplicantNotification"
   );
 
   const {
-    jobApplication: { applicant, offer }
+    jobApplication: { applicant, offer },
+    moderatorMessage,
+    adminEmail
   } = notification;
 
   return (
     <Notification
       className={className}
       notification={notification}
-      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.approved} />}
+      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.rejected} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
@@ -35,12 +38,14 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
         offer={offer}
         applicantLink={RoutesBuilder.applicant.myProfile()}
         offerLink={RoutesBuilder.applicant.offerDetail}
-      />
+      >
+        <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
+      </JobApplicationNotificationBody>
     </Notification>
   );
 };
 
 interface IContainerProps {
   className?: string;
-  notification: IApprovedJobApplicationApplicantNotification;
+  notification: IRejectedJobApplicationApplicantNotification;
 }

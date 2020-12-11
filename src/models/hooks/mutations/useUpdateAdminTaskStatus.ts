@@ -42,13 +42,15 @@ export const useUpdateAdminTaskStatus = ({
     uuid,
     status,
     onStatusUpdate,
-    setLoadingStatusUpdate
+    setLoadingStatusUpdate,
+    moderatorMessage
   }: IUpdateAdminTask) => {
     setLoadingStatusUpdate(true);
     const response = await mutation({
       variables: {
         uuid: uuid,
-        approvalStatus: status
+        approvalStatus: status,
+        moderatorMessage
       },
       update: cache =>
         cache.modify({
@@ -78,6 +80,7 @@ interface IUseUpdateAdminTask {
 
 interface IUpdateAdminTask {
   uuid: string;
+  moderatorMessage?: string;
   status: ApprovalStatus;
   onStatusUpdate: () => void;
   setLoadingStatusUpdate: (loading: boolean) => void;
