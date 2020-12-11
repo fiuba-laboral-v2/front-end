@@ -18,6 +18,7 @@ export interface ITranslations {
   reject: string;
   confirmDialogDescription: string;
   confirmDialogCancel: string;
+  rejectReasonLabel: string;
 }
 
 export interface IComponent extends ICommonProps {

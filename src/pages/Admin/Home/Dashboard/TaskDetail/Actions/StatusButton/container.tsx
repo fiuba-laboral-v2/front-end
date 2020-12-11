@@ -60,7 +60,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
           <Formik initialValues={initialValues} onSubmit={onSubmit}>
             {() => (
               <FormikForm id={formName}>
-                <TextField name="moderatorMessage" label={"Motivo"} />
+                <TextField name="moderatorMessage" label={translations?.rejectReasonLabel} />
               </FormikForm>
             )}
           </Formik>
