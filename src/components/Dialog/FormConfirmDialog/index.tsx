@@ -1,13 +1,7 @@
 import React, { FunctionComponent } from "react";
-import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle
-} from "@material-ui/core";
+import { Dialog, DialogActions, DialogContent, DialogContentText } from "@material-ui/core";
 import { Button, ButtonKind, ButtonType } from "$components/Button";
-import styles from "./styles.module.scss";
+import { DialogTitle } from "../DialogTitle";
 
 export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   isOpen,
@@ -26,9 +20,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
 
   return (
     <Dialog open={isOpen} onClose={onClose}>
-      <DialogTitle>
-        <span className={styles.title}>{translations?.confirmDialogTitle}</span>
-      </DialogTitle>
+      <DialogTitle>{translations?.confirmDialogTitle}</DialogTitle>
       <DialogContent>
         <DialogContentText>{translations?.confirmDialogDescription}</DialogContentText>
         {children}
