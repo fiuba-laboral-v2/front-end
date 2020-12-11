@@ -3,7 +3,7 @@ import { IContainer, ITranslations } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { FormikHelpers } from "formik/dist/types";
-import { FormConfirmDialog } from "$components/FormConfirmDialog";
+import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { StatusButton } from "./component";
 import { FormikForm } from "$components/FormikForm";
 import { TextField } from "$components/Fields/TextField";
