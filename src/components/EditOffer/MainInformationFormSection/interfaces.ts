@@ -4,6 +4,7 @@ export interface ITranslations {
   maximumSalary: string;
   hoursPerDay: string;
   description: string;
+  isInternship: string;
 }
 
 export interface IContainerProps {

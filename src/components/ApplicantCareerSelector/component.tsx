@@ -30,10 +30,12 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
           initialValue={value?.careerCode}
           autofocusInputRef={autofocusInputRef}
         />
-        <div className={styles.isGraduate}>
-          <p className={styles.isGraduateLabel}>{translations.isGraduate}</p>
-          <CheckboxInput checked={value.isGraduate} name={`careers.${index}.isGraduate`} />
-        </div>
+        <CheckboxInput
+          label={translations.isGraduate}
+          checked={value.isGraduate}
+          name={`careers.${index}.isGraduate`}
+          className={styles.isGraduate}
+        />
       </div>
       {!value.isGraduate && (
         <div className={styles.secondRow}>

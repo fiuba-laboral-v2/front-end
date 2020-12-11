@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Field, FieldProps } from "formik";
-import { FieldAttributes } from "formik/dist/Field";
 import { Checkbox } from "formik-material-ui";
 import styles from "./styles.module.scss";
 import CheckboxIcon from "@material-ui/icons/CheckBox";
+import classNames from "classnames";
 
-export const CheckboxInput: FunctionComponent<FieldAttributes<any>> = props => {
+export const CheckboxInput: FunctionComponent<ICheckboxInputProps> = props => {
   const children = (fieldProps: FieldProps<boolean>) => (
     <Checkbox
       type="checkbox"
@@ -16,5 +16,17 @@ export const CheckboxInput: FunctionComponent<FieldAttributes<any>> = props => {
     />
   );
 
-  return <Field className={styles.color} type="checkbox" children={children} {...props} />;
+  return (
+    <div className={classNames(styles.input, props.className)}>
+      <p className={styles.label}>{props.label}</p>
+      <Field className={styles.color} type="checkbox" children={children} {...props} />
+    </div>
+  );
 };
+
+interface ICheckboxInputProps {
+  label: string;
+  checked?: boolean;
+  name: string;
+  className?: string;
+}
