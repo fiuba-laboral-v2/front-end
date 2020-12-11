@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@material-ui/core";
 import { Button, ButtonKind, ButtonType } from "$components/Button";
 import { DialogTitle } from "../DialogTitle";
+import { dialogStyles } from "./styles";
 
 export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   isOpen,
@@ -11,6 +12,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   confirmButtonKind = "primary",
   confirmButtonType,
   formName,
+  width,
   children
 }) => {
   const onConfirmClick = () => {
@@ -19,7 +21,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   };
 
   return (
-    <Dialog open={isOpen} onClose={onClose}>
+    <Dialog {...(width === "large" && { classes: dialogStyles() })} open={isOpen} onClose={onClose}>
       <DialogTitle>{translations?.confirmDialogTitle}</DialogTitle>
       <DialogContent>
         <DialogContentText>{translations?.confirmDialogDescription}</DialogContentText>
@@ -50,6 +52,7 @@ export interface IConfirmDialogTranslations {
 }
 
 interface IConfirmDialogProps {
+  width: "small" | "large";
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
