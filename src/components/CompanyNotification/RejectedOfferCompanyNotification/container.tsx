@@ -3,6 +3,8 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
+import { NotificationItem } from "$components/Notification/NotificationItem";
+import { RejectionReason } from "$components/Notification/RejectionReason";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { NotificationBody } from "$components/Notification/NotificationBody";
 import { Link } from "$components/Link";
@@ -10,7 +12,6 @@ import { OfferIcon } from "$components/Icons/OfferIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import { IRejectedOfferCompanyNotification } from "$interfaces/CompanyNotification";
-import { RejectionReason } from "../../Notification/RejectionReason";
 
 export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
@@ -32,7 +33,9 @@ export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IConta
           {notification.offer.title}
         </Link>
       </NotificationBody>
-      <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
+      <NotificationItem>
+        <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
+      </NotificationItem>
     </Notification>
   );
 };
