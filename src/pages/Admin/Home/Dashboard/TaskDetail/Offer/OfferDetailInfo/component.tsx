@@ -23,7 +23,7 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
 );
 
 export interface IOfferDetailInfoProps {
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   offer?: IOffer;
   currentStatus?: ApprovalStatus;
   loading: boolean;
