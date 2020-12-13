@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { TitleBar } from "./component";
 import { ITitleBarContainerProps, ITranslations } from "./interfaces";
-import { useCurrentUser, useTranslations } from "$models/hooks";
+import { useCurrentUser, useTranslations } from "$hooks";
 
 export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = ({
   showNavBar,
