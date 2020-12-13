@@ -5,6 +5,7 @@ query getOfferByUuid($uuid: ID!) {
     description
     targetApplicantType
     hoursPerDay
+    isInternship
     minimumSalary
     maximumSalary
     extensionApprovalStatus

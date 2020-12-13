@@ -4,6 +4,7 @@ mutation($uuid: ID!, $approvalStatus: ApprovalStatus!) {
     title
     description
     hoursPerDay
+    isInternship
     minimumSalary
     maximumSalary
     createdAt

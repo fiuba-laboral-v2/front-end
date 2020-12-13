@@ -5,6 +5,7 @@ query GetOffers($updatedBeforeThan: PaginatedInput) {
       title
       hoursPerDay
       targetApplicantType
+      isInternship
       minimumSalary
       maximumSalary
       updatedAt

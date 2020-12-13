@@ -1,3 +1,5 @@
+import { ICreateOfferValues } from "$interfaces/Offer";
+
 export interface ITranslations {
   offerTitle: string;
   minimumSalary: string;
@@ -10,6 +12,7 @@ export interface ITranslations {
 export interface IContainerProps {
   autoFocus?: boolean;
   className?: string;
+  values: ICreateOfferValues;
 }
 
 export interface IComponentProps extends IContainerProps {

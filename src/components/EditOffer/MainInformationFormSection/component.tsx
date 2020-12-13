@@ -8,7 +8,8 @@ import { CheckboxInput } from "../../CheckboxInput";
 export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   className,
   translations,
-  autoFocus
+  autoFocus,
+  values
 }) => (
   <FormSection className={className}>
     <TextField name="title" label={translations.offerTitle} autoFocus={autoFocus} mandatory />
@@ -29,6 +30,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
         mandatory
       />
       <CheckboxInput
+        checked={values.isInternship}
         className={styles.isInternship}
         label={translations.isInternship}
         name="isInternship"

@@ -4,6 +4,7 @@ query($updatedBeforeThan: PaginatedInput, $careerCodes: [ID!]) {
       uuid
       title
       hoursPerDay
+      isInternship
       minimumSalary
       maximumSalary
       updatedAt

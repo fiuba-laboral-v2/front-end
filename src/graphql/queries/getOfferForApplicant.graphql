@@ -4,6 +4,7 @@ query getOfferForApplicant($uuid: ID!) {
     title
     description
     hoursPerDay
+    isInternship
     minimumSalary
     maximumSalary
     targetApplicantType

@@ -26,7 +26,7 @@ export const CheckboxInput: FunctionComponent<ICheckboxInputProps> = props => {
 
 interface ICheckboxInputProps {
   label: string;
-  checked?: boolean;
+  checked: boolean;
   name: string;
   className?: string;
 }
