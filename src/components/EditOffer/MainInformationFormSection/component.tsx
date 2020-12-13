@@ -20,7 +20,9 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
         label={translations.minimumSalary}
         mandatory
       />
-      <SalaryField name="maximumSalary" label={translations.maximumSalary} />
+      {!values.isInternship && (
+        <SalaryField name="maximumSalary" label={translations.maximumSalary} />
+      )}
     </div>
     <div className={styles.row}>
       <PositiveNumberField
