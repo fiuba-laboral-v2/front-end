@@ -6,3 +6,5 @@ export const REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION =
 export type REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE = "RejectedJobApplicationApplicantNotification";
 export const APPROVED_PROFILE_APPLICANT_NOTIFICATION = "ApprovedProfileApplicantNotification";
 export type APPROVED_PROFILE_APPLICANT_NOTIFICATION_TYPE = "ApprovedProfileApplicantNotification";
+export const REJECTED_PROFILE_APPLICANT_NOTIFICATION = "RejectedProfileApplicantNotification";
+export type REJECTED_PROFILE_APPLICANT_NOTIFICATION_TYPE = "RejectedProfileApplicantNotification";
