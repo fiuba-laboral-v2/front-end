@@ -43,7 +43,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const loading = !translations || !acceptanceCriteria;
 
   return (
-    <Window>
+    <Window withoutNavBar>
       {loading && <LoadingSpinner />}
       <SignUp
         hidden={loading}
