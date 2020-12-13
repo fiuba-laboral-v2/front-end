@@ -1,6 +1,7 @@
 import {
   APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE,
-  REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE
+  REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE,
+  APPROVED_PROFILE_APPLICANT_NOTIFICATION_TYPE
 } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
 
@@ -25,4 +26,8 @@ export interface IRejectedJobApplicationApplicantNotification extends ICommonAtt
   __typename: REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE;
   moderatorMessage: string;
   jobApplication: IJobApplication;
+}
+
+export interface IApprovedProfileApplicantNotification extends ICommonAttributes {
+  __typename: APPROVED_PROFILE_APPLICANT_NOTIFICATION_TYPE;
 }
