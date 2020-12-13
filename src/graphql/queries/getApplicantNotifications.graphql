@@ -58,6 +58,13 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
           }
         }
       }
+      ... on ApprovedProfileApplicantNotification {
+        __typename
+        uuid
+        adminEmail
+        isNew
+        createdAt
+      }
     }
     shouldFetchMore
   }
