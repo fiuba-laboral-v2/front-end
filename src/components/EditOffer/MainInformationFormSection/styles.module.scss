@@ -4,8 +4,8 @@
   display: flex;
 }
 
-div.leftField {
-  margin-right: $spacing-xxl;
+div.rightField {
+  margin-left: $spacing-xxl;
 }
 
 @media (max-width: $largeMobileWidth) {

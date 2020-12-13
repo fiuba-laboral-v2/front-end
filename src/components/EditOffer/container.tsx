@@ -30,11 +30,11 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
   }, []);
 
   const validateForm = useCallback((values: ICreateOfferValues) => {
-    if (isNil(values.maximumSalary)) return;
-    if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
     if (values.isInternship && values.targetApplicantType !== ApplicantType.student) {
       return { _form: "Las pasantías solo corresponden a alumnos" };
     }
+    if (isNil(values.maximumSalary)) return;
+    if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
     try {
       validateSalaryRange(values.minimumSalary, values.maximumSalary);
     } catch ({ message }) {
