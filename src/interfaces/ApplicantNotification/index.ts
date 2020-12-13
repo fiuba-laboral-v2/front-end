@@ -9,7 +9,8 @@ import { IJobApplication } from "$interfaces/JobApplication";
 export type TApplicantNotification =
   | IApprovedJobApplicationApplicantNotification
   | IRejectedJobApplicationApplicantNotification
-  | IApprovedProfileApplicantNotification;
+  | IApprovedProfileApplicantNotification
+  | IRejectedProfileApplicantNotification;
 
 interface ICommonAttributes {
   __typename: string;
