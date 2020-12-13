@@ -40,6 +40,18 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           title
         }
       }
+      ... on RejectedOfferCompanyNotification {
+        __typename
+        uuid
+        adminEmail
+        moderatorMessage
+        isNew
+        createdAt
+        offer {
+          uuid
+          title
+        }
+      }
     }
     shouldFetchMore
   }

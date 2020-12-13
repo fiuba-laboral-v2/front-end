@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { NotificationBody } from "$components/Notification/NotificationBody";
+import { NotificationItem } from "$components/Notification/NotificationItem";
 import { Link } from "$components/Link";
 
 import { IApplicant } from "$interfaces/Applicant";
@@ -22,7 +23,7 @@ export const JobApplicationNotificationBody: FunctionComponent<IContainerProps> 
         {offer.title}
       </Link>
     </NotificationBody>
-    <div className={styles.children}>{children}</div>
+    <NotificationItem>{children}</NotificationItem>
   </div>
 );
 
