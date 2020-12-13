@@ -15,6 +15,7 @@ export const Button: FunctionComponent<IButtonProps> = ({
 );
 
 export type ButtonKind = "primary" | "secondary" | "warning" | "danger";
+export type ButtonType = "button" | "submit" | "reset";
 
 export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
   className?: string;
@@ -23,7 +24,7 @@ export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
   onClick?: (state: object) => void;
   disabled?: boolean;
   autoFocus?: boolean;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: ButtonType;
   negative?: boolean;
   secondary?: boolean;
 }

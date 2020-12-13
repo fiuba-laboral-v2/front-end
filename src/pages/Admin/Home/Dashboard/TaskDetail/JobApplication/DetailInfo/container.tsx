@@ -21,12 +21,13 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
     approvalStatusAttribute: "approvalStatus"
   });
 
-  const setStatus = async (status: ApprovalStatus) => {
+  const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTask.uuid,
       status: status,
       onStatusUpdate,
-      setLoadingStatusUpdate
+      setLoadingStatusUpdate,
+      moderatorMessage
     });
   };
 

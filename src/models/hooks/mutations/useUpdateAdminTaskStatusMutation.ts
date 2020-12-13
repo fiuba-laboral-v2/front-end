@@ -29,4 +29,5 @@ interface IMutationVariables {
 interface IUseUpdateAdminTaskStatusVariables {
   uuid: string;
   approvalStatus: ApprovalStatus;
+  moderatorMessage?: string;
 }

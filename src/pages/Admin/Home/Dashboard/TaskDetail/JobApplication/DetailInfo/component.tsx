@@ -24,7 +24,7 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
 
 export interface IComponentProps {
   loading: boolean;
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   jobApplication?: IJobApplication;
   currentStatus?: ApprovalStatus;
 }

@@ -29,6 +29,35 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
           }
         }
       }
+      ... on RejectedJobApplicationApplicantNotification {
+        __typename
+        uuid
+        adminEmail
+        moderatorMessage
+        isNew
+        createdAt
+        jobApplication {
+          __typename
+          uuid
+          approvalStatus
+          offer {
+            uuid
+            title
+            company {
+              uuid
+              companyName
+            }
+          }
+          applicant {
+            uuid
+            user {
+              uuid
+              name
+              surname
+            }
+          }
+        }
+      }
     }
     shouldFetchMore
   }

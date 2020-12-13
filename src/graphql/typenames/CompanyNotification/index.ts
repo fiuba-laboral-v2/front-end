@@ -2,3 +2,5 @@ export const NEW_JOB_APPLICATION_COMPANY_NOTIFICATION = "NewJobApplicationCompan
 export type NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE = "NewJobApplicationCompanyNotification";
 export const APPROVED_OFFER_COMPANY_NOTIFICATION = "ApprovedOfferCompanyNotification";
 export type APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE = "ApprovedOfferCompanyNotification";
+export const REJECTED_OFFER_COMPANY_NOTIFICATION = "RejectedOfferCompanyNotification";
+export type REJECTED_OFFER_COMPANY_NOTIFICATION_TYPE = "RejectedOfferCompanyNotification";

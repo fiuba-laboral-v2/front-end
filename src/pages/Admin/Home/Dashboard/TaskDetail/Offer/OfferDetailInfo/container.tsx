@@ -22,12 +22,13 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
     approvalStatusAttribute
   });
 
-  const setStatus = async (status: ApprovalStatus) => {
+  const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTask.uuid,
       status: status,
       onStatusUpdate,
-      setLoadingStatusUpdate
+      setLoadingStatusUpdate,
+      moderatorMessage
     });
   };
 
