@@ -19,7 +19,7 @@ export const RejectedProfileApplicantNotificationContainer: FunctionComponent<IC
     <Notification
       className={className}
       notification={notification}
-      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.approved} />}
+      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.rejected} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
     </Notification>

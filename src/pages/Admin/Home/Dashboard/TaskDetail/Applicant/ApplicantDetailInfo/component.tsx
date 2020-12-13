@@ -22,7 +22,7 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
 );
 
 export interface IApplicantDetailInfoProps {
-  setStatus: (status: ApprovalStatus) => Promise<void>;
+  setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   applicant?: IApplicant;
   loading: boolean;
 }
