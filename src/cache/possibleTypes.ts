@@ -6,7 +6,8 @@ export const possibleTypes: PossibleTypesMap = {
     "NewJobApplicationCompanyNotification",
     "ApprovedOfferCompanyNotification",
     "RejectedOfferCompanyNotification",
-    "ApprovedProfileCompanyNotification"
+    "ApprovedProfileCompanyNotification",
+    "RejectedProfileCompanyNotification"
   ],
   ApplicantNotification: [
     "ApprovedJobApplicationApplicantNotification",
