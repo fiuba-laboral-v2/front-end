@@ -6,7 +6,6 @@ import { Notification } from "$components/Notification";
 import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
-import { StatusIcon } from "$components/StatusIcon";
 
 import { INewJobApplicationCompanyNotification } from "$interfaces/CompanyNotification";
 
@@ -21,11 +20,7 @@ export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IC
   } = notification;
 
   return (
-    <Notification
-      {...props}
-      notification={notification}
-      icon={<StatusIcon Icon={JobApplicationIcon} />}
-    >
+    <Notification {...props} notification={notification} icon={<JobApplicationIcon />}>
       <NotificationTitle>{translations?.title || " "}</NotificationTitle>
       <JobApplicationNotificationBody
         applicant={applicant}
