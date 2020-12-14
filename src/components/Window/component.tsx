@@ -12,6 +12,7 @@ import { LoadingSpinner } from "../LoadingSpinner";
 export const Window: FunctionComponent<IWindowProps> = ({
   desktopOnly,
   alwaysHideNavbar = false,
+  withoutNavBar = false,
   loading = false,
   children,
   className,
@@ -22,7 +23,11 @@ export const Window: FunctionComponent<IWindowProps> = ({
 
   return (
     <>
-      <TitleBar alwaysShowDrawerButton={alwaysHideNavbar} toggleDrawer={toggleDrawer} />
+      <TitleBar
+        showNavBar={!withoutNavBar}
+        alwaysShowDrawerButton={alwaysHideNavbar}
+        toggleDrawer={toggleDrawer}
+      />
       <Drawer open={drawerIsOpen} onClose={toggleDrawer}>
         <NavBar toggleDrawer={toggleDrawer} inDrawer />
       </Drawer>
@@ -53,5 +58,6 @@ export const Window: FunctionComponent<IWindowProps> = ({
 export interface IWindowProps extends IMainContentProps {
   desktopOnly?: boolean;
   alwaysHideNavbar?: boolean;
+  withoutNavBar?: boolean;
   loading?: boolean;
 }
