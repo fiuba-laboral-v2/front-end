@@ -12,7 +12,8 @@ export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
   | IApprovedOfferCompanyNotification
   | IRejectedOfferCompanyNotification
-  | IApprovedProfileCompanyNotification;
+  | IApprovedProfileCompanyNotification
+  | IRejectedProfileCompanyNotification;
 
 interface ICommonAttributes {
   __typename: string;
