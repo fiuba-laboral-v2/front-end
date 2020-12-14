@@ -2,7 +2,8 @@ import {
   NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE,
   APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE,
   REJECTED_OFFER_COMPANY_NOTIFICATION_TYPE,
-  APPROVED_PROFILE_COMPANY_NOTIFICATION_TYPE
+  APPROVED_PROFILE_COMPANY_NOTIFICATION_TYPE,
+  REJECTED_PROFILE_COMPANY_NOTIFICATION_TYPE
 } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
@@ -11,7 +12,8 @@ export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
   | IApprovedOfferCompanyNotification
   | IRejectedOfferCompanyNotification
-  | IApprovedProfileCompanyNotification;
+  | IApprovedProfileCompanyNotification
+  | IRejectedProfileCompanyNotification;
 
 interface ICommonAttributes {
   __typename: string;
@@ -39,4 +41,9 @@ export interface IRejectedOfferCompanyNotification extends ICommonAttributes {
 
 export interface IApprovedProfileCompanyNotification extends ICommonAttributes {
   __typename: APPROVED_PROFILE_COMPANY_NOTIFICATION_TYPE;
+}
+
+export interface IRejectedProfileCompanyNotification extends ICommonAttributes {
+  __typename: REJECTED_PROFILE_COMPANY_NOTIFICATION_TYPE;
+  moderatorMessage: string;
 }

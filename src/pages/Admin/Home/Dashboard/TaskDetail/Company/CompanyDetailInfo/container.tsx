@@ -22,12 +22,13 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
   });
   const company = useCompanyByUuid<IUser>({ uuid: selectedTask.uuid, withUsers: true });
 
-  const setStatus = async (status: ApprovalStatus) => {
+  const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTask.uuid,
       status: status,
       onStatusUpdate,
-      setLoadingStatusUpdate
+      setLoadingStatusUpdate,
+      moderatorMessage
     });
   };
 

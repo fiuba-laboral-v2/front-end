@@ -59,6 +59,14 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
         isNew
         createdAt
       }
+      ... on RejectedProfileCompanyNotification {
+        __typename
+        uuid
+        adminEmail
+        moderatorMessage
+        isNew
+        createdAt
+      }
     }
     shouldFetchMore
   }

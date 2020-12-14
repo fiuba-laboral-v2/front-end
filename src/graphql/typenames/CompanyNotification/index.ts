@@ -6,3 +6,5 @@ export const REJECTED_OFFER_COMPANY_NOTIFICATION = "RejectedOfferCompanyNotifica
 export type REJECTED_OFFER_COMPANY_NOTIFICATION_TYPE = "RejectedOfferCompanyNotification";
 export const APPROVED_PROFILE_COMPANY_NOTIFICATION = "ApprovedProfileCompanyNotification";
 export type APPROVED_PROFILE_COMPANY_NOTIFICATION_TYPE = "ApprovedProfileCompanyNotification";
+export const REJECTED_PROFILE_COMPANY_NOTIFICATION = "RejectedProfileCompanyNotification";
+export type REJECTED_PROFILE_COMPANY_NOTIFICATION_TYPE = "RejectedProfileCompanyNotification";
