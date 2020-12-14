@@ -4,7 +4,7 @@ export interface IInternshipLabelContainerProps {
 }
 
 export interface IInternshipLabelProps extends IInternshipLabelContainerProps {
-  text?: string;
+  text: string;
 }
 
 export interface ITranslations {

@@ -24,6 +24,15 @@
   justify-content: space-around;
 }
 
+.internshipLabel {
+  margin-top: $spacing-s;
+}
+
+.underCompanyName {
+  align-self: center;
+  margin: 0 0 $spacing-s 0;
+}
+
 .firstColumn,
 .secondColumn {
   align-self: center;
@@ -123,6 +132,10 @@
   .separator {
     margin: $spacing-s 0;
   }
+
+  .underCompanyName {
+    margin-top: $spacing-s;
+  }
 }
 
 @media (max-width: $largeMobileWidth) {
@@ -151,5 +164,11 @@
   .secondColumn {
     align-self: unset;
     width: unset;
+  }
+
+  .underCompanyName {
+    align-self: flex-start;
+    margin-bottom: $spacing-m;
+    margin-top: 0;
   }
 }
