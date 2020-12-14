@@ -3,7 +3,7 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
+import { ApplicantIcon } from "$components/Icons/ApplicantIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import { IApprovedProfileApplicantNotification } from "$interfaces/ApplicantNotification";
@@ -19,7 +19,7 @@ export const ApprovedProfileApplicantNotificationContainer: FunctionComponent<IC
     <Notification
       className={className}
       notification={notification}
-      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.approved} />}
+      icon={<StatusIcon Icon={ApplicantIcon} approvalStatus={ApprovalStatus.approved} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
     </Notification>

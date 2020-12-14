@@ -5,7 +5,7 @@ import { Notification } from "$components/Notification";
 import { RejectionReason } from "$components/Notification/RejectionReason";
 import { NotificationBody } from "$components/Notification/NotificationBody";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
+import { ApplicantIcon } from "$components/Icons/ApplicantIcon";
 import { StatusIcon } from "$components/StatusIcon";
 
 import { IRejectedProfileApplicantNotification } from "$interfaces/ApplicantNotification";
@@ -23,7 +23,7 @@ export const RejectedProfileApplicantNotificationContainer: FunctionComponent<IC
     <Notification
       className={className}
       notification={notification}
-      icon={<StatusIcon Icon={JobApplicationIcon} approvalStatus={ApprovalStatus.rejected} />}
+      icon={<StatusIcon Icon={ApplicantIcon} approvalStatus={ApprovalStatus.rejected} />}
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <NotificationBody>
