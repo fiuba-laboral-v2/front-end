@@ -13,6 +13,7 @@ import { IMyOffer } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 import { PublishedSince } from "../PublishedSince";
 import { sortSections } from "../../models/sortSections";
+import { InternshipLabel } from "../InternshipLabel";
 
 export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
   mobileLayout,
@@ -49,6 +50,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
             {!goToCompany && <p>{offer?.company.companyName}</p>}
           </Subtitle>
           <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
+          <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
           {withStatusLabel && (
             <StatusLabels
               targetApplicantType={offer?.targetApplicantType}
