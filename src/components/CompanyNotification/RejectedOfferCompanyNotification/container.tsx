@@ -9,7 +9,6 @@ import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { NotificationBody } from "$components/Notification/NotificationBody";
 import { Link } from "$components/Link";
 import { OfferIcon } from "$components/Icons/OfferIcon";
-import { StatusIcon } from "$components/StatusIcon";
 
 import { IRejectedOfferCompanyNotification } from "$interfaces/CompanyNotification";
 
@@ -22,11 +21,7 @@ export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IConta
   const { moderatorMessage, adminEmail } = notification;
 
   return (
-    <Notification
-      className={className}
-      notification={notification}
-      icon={<StatusIcon Icon={OfferIcon} />}
-    >
+    <Notification className={className} notification={notification} icon={<OfferIcon />}>
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <NotificationBody>
         <Link to={RoutesBuilder.company.offer(notification.offer.uuid)}>
