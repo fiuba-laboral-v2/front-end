@@ -8,6 +8,7 @@ import { PublishedSince } from "$components/PublishedSince";
 import { StatusLabels } from "./StatusLabels";
 
 import styles from "./styles.module.scss";
+import { InternshipLabel } from "$components/InternshipLabel";
 
 export const Info: FunctionComponent<IOfferProps> = ({
   data: {
@@ -21,7 +22,8 @@ export const Info: FunctionComponent<IOfferProps> = ({
     graduadosApprovalStatus,
     graduatesExpirationDateTime,
     studentsExpirationDateTime,
-    targetApplicantType
+    targetApplicantType,
+    isInternship
   },
   withStatusLabels
 }) => (
@@ -59,6 +61,12 @@ export const Info: FunctionComponent<IOfferProps> = ({
             studentsExpirationDateTime={studentsExpirationDateTime}
           />
         )}
+        <InternshipLabel
+          hidden={!isInternship}
+          className={classNames(styles.internshipLabel, {
+            [styles.underCompanyName]: !withStatusLabels
+          })}
+        />
         <PublishedSince
           className={classNames(styles.time, { [styles.alignLeft]: withStatusLabels })}
           date={updatedAt}

@@ -47,6 +47,9 @@
   display: flex;
   font-style: normal;
   font-weight: normal;
+}
+
+.marginRight {
   margin-right: 5px;
 }
 
@@ -75,6 +78,10 @@
   background: $grey;
 }
 
+.backgroundPurple {
+  background: $applicantColor;
+}
+
 .transparent {
   background: transparent;
 }
@@ -93,4 +100,8 @@
 
 .colorGrey {
   color: $darkGrey;
+}
+
+.colorPurple {
+  color: $applicantColor;
 }

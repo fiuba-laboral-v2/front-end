@@ -11,7 +11,8 @@ export const Label: FunctionComponent<ILabelProps> = ({
   text,
   tooltipText,
   color,
-  type
+  type,
+  hidden
 }) => (
   <Tooltip
     title={tooltipText || ""}
@@ -26,24 +27,28 @@ export const Label: FunctionComponent<ILabelProps> = ({
         [styles.large]: type === "large" || type === "no-background",
         [styles.withText]: !!text
       })}
+      {...{ hidden }}
     >
       {text && (
         <span
           className={classNames(styles.text, {
-            [styles[`color${color}`]]: type === "no-background"
+            [styles[`color${color}`]]: type === "no-background",
+            [styles.marginRight]: Icon
           })}
         >
           {text}
         </span>
       )}
-      <div className={styles.iconContainer}>
-        <Icon
-          className={classNames(styles.icon, {
-            [styles[`color${color}`]]: type === "no-background"
-          })}
-          fontSize="inherit"
-        />
-      </div>
+      {Icon && (
+        <div className={styles.iconContainer}>
+          <Icon
+            className={classNames(styles.icon, {
+              [styles[`color${color}`]]: type === "no-background"
+            })}
+            fontSize="inherit"
+          />
+        </div>
+      )}
     </div>
   </Tooltip>
 );
@@ -61,6 +66,7 @@ export interface ILabelTextProps {
 }
 
 interface ILabelProps extends ILabelLayoutProps, ILabelTextProps {
-  Icon: FunctionComponent<SvgIconProps>;
-  color: "Red" | "Green" | "DarkYellow" | "Grey";
+  Icon?: FunctionComponent<SvgIconProps>;
+  color: "Red" | "Green" | "DarkYellow" | "Grey" | "Purple";
+  hidden?: boolean;
 }
