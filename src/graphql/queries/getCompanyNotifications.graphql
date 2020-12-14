@@ -52,6 +52,13 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           title
         }
       }
+      ... on ApprovedProfileCompanyNotification {
+        __typename
+        uuid
+        adminEmail
+        isNew
+        createdAt
+      }
     }
     shouldFetchMore
   }

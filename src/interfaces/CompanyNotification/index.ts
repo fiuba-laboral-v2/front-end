@@ -10,7 +10,8 @@ import { IOffer } from "$interfaces/Offer";
 export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
   | IApprovedOfferCompanyNotification
-  | IRejectedOfferCompanyNotification;
+  | IRejectedOfferCompanyNotification
+  | IApprovedProfileCompanyNotification;
 
 interface ICommonAttributes {
   __typename: string;

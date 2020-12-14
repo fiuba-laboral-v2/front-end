@@ -3,8 +3,7 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
-import { OfferIcon } from "$components/Icons/OfferIcon";
-import { StatusIcon } from "$components/StatusIcon";
+import { CompanyIcon } from "$components/Icons/CompanyIcon";
 
 import { IApprovedProfileCompanyNotification } from "$interfaces/CompanyNotification";
 
@@ -15,11 +14,7 @@ export const ApprovedProfileCompanyNotificationContainer: FunctionComponent<ICon
   const translations = useTranslations<{ title: string }>("approvedProfileCompanyNotification");
 
   return (
-    <Notification
-      className={className}
-      notification={notification}
-      icon={<StatusIcon Icon={OfferIcon} />}
-    >
+    <Notification className={className} notification={notification} icon={<CompanyIcon />}>
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
     </Notification>
   );
