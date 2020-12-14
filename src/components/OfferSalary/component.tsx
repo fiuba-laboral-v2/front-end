@@ -8,7 +8,10 @@ import { IOfferSalaryProps } from "./interfaces";
 
 const OfferSalary: FunctionComponent<IOfferSalaryProps> = ({ offer, translations, className }) => (
   <OfferInfoItem className={classNames(styles.salary, className)} title={translations.salaryTitle}>
-    <OfferSalaryInfo label={translations.salaryFrom} amount={offer.minimumSalary} />
+    <OfferSalaryInfo
+      label={offer.isInternship ? undefined : translations.salaryFrom}
+      amount={offer.minimumSalary}
+    />
     {offer.maximumSalary && (
       <OfferSalaryInfo label={translations.salaryTo} amount={offer.maximumSalary} />
     )}
