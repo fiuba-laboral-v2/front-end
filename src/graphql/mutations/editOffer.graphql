@@ -4,6 +4,7 @@ mutation editOffer(
   $description: String!
   $targetApplicantType: ApplicantType!
   $hoursPerDay: Int!
+  $isInternship: Boolean!
   $minimumSalary: Int!
   $maximumSalary: Int
   $sections: [OfferSectionInput]!
@@ -15,6 +16,7 @@ mutation editOffer(
     description: $description
     targetApplicantType: $targetApplicantType
     hoursPerDay: $hoursPerDay
+    isInternship: $isInternship
     minimumSalary: $minimumSalary
     maximumSalary: $maximumSalary
     sections: $sections
@@ -24,6 +26,7 @@ mutation editOffer(
     title
     description
     hoursPerDay
+    isInternship
     minimumSalary
     maximumSalary
     createdAt

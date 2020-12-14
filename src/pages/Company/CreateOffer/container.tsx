@@ -7,6 +7,7 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { FormFooter } from "$components/FormFooter";
 import { ICreateOfferValues } from "$interfaces/Offer";
+import { saveOfferArguments } from "$models/MutationArguments";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -17,10 +18,10 @@ export const CreateOfferContainer: FunctionComponent = () => {
   const onSubmit = useCallback(
     async (values: ICreateOfferValues) => {
       const response = await createOffer({
-        variables: {
+        variables: saveOfferArguments({
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
-        },
+        }),
         errorHandlers: formErrorHandlers({ enqueueSnackbar })()
       });
       if (response.error) return;

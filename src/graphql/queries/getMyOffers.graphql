@@ -11,6 +11,7 @@ query getMyOffers($updatedBeforeThan: PaginatedInput) {
       studentsExpirationDateTime
       graduatesExpirationDateTime
       hoursPerDay
+      isInternship
       minimumSalary
       maximumSalary
       createdAt

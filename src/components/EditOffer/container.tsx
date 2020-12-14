@@ -5,6 +5,7 @@ import { useTranslations } from "$hooks/queries";
 import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
 import { isNil } from "lodash";
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
+import { ApplicantType } from "$interfaces/Applicant";
 
 export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = ({
   loading,
@@ -29,6 +30,9 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
   }, []);
 
   const validateForm = useCallback((values: ICreateOfferValues) => {
+    if (values.isInternship && values.targetApplicantType !== ApplicantType.student) {
+      return { _form: "Las pasantías solo corresponden a alumnos" };
+    }
     if (isNil(values.maximumSalary)) return;
     if (isNaN(values.minimumSalary) || isNaN(values.maximumSalary)) return;
     try {

@@ -1,15 +1,19 @@
 @import "$styles/_variables";
 
-.secondRow {
+.row {
   display: flex;
 }
 
-div.minimumSalary {
-  margin-right: $spacing-xxl;
+div.rightField {
+  margin-left: $spacing-xxl;
 }
 
 @media (max-width: $largeMobileWidth) {
-  .secondRow {
+  .row {
     flex-direction: column;
+  }
+
+  .isInternship {
+    margin-bottom: $spacing-m;
   }
 }

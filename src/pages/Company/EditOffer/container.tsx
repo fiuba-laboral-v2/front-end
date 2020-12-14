@@ -8,6 +8,7 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { ICreateOfferValues } from "$interfaces/Offer";
+import { saveOfferArguments } from "$models/MutationArguments";
 
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -22,11 +23,11 @@ export const EditOfferContainer: FunctionComponent = () => {
   const onSubmit = useCallback(
     async (values: ICreateOfferValues) => {
       const response = await editOffer({
-        variables: {
+        variables: saveOfferArguments({
           uuid: offerUuid,
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
-        },
+        }),
         errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
         update: cache =>
           cache.modify({

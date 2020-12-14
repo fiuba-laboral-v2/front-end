@@ -29,7 +29,11 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
         <Form title={title} acceptanceCriteria={acceptanceCriteria}>
           <FormikForm initialValuesModel={offer} {...{ modelToValues, formikProps }}>
             <InfoMessage translationGroupName={infoMessageTranslationGroup} />
-            <MainInformationFormSection className={styles.formSection} autoFocus={autoFocus} />
+            <MainInformationFormSection
+              values={formikProps.values}
+              className={styles.formSection}
+              autoFocus={autoFocus}
+            />
             <DescriptionFormSection
               className={styles.formSection}
               sections={formikProps.values.sections}
