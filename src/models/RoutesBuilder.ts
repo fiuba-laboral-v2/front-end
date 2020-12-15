@@ -34,7 +34,9 @@ export const RoutesBuilder = {
 
     offers: () => adminRoute(OFFERS),
 
-    jobApplications: () => adminRoute(APPLICATIONS)
+    jobApplications: () => adminRoute(APPLICATIONS),
+
+    notifications: () => adminRoute(NOTIFICATIONS)
   },
 
   applicant: {
