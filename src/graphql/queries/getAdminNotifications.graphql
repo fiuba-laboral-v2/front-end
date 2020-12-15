@@ -1,0 +1,18 @@
+query GetAdminNotifications($updatedBeforeThan: PaginatedInput) {
+  getAdminNotifications(updatedBeforeThan: $updatedBeforeThan) {
+    results {
+      ... on UpdatedCompanyProfileAdminNotification {
+        __typename
+        uuid
+        isNew
+        createdAt
+        company {
+          __typename
+          uuid
+          companyName
+        }
+      }
+    }
+    shouldFetchMore
+  }
+}

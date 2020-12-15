@@ -6,9 +6,18 @@ import BusinessIcon from "@material-ui/icons/Business";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 import HomeIcon from "@material-ui/icons/Home";
 
-const { home, applicants, companies, admins, offers, jobApplications } = RoutesBuilder.admin;
+const {
+  home,
+  applicants,
+  companies,
+  admins,
+  offers,
+  jobApplications,
+  notifications
+} = RoutesBuilder.admin;
 
 export const AdminNavBarLinks = {
   create: (translations: INavBarTranslations): INavBarLink[] => [
@@ -41,6 +50,11 @@ export const AdminNavBarLinks = {
       path: jobApplications(),
       title: translations.jobApplications,
       icon: PersonAddIcon
+    },
+    {
+      path: notifications(),
+      title: translations.notifications,
+      icon: NotificationsIcon
     }
   ]
 };

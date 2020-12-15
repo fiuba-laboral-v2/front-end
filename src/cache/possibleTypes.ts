@@ -14,5 +14,6 @@ export const possibleTypes: PossibleTypesMap = {
     "RejectedJobApplicationApplicantNotification",
     "ApprovedProfileApplicantNotification",
     "RejectedProfileApplicantNotification"
-  ]
+  ],
+  AdminNotification: ["UpdatedCompanyProfileAdminNotification"]
 };

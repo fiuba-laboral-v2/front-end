@@ -10,6 +10,7 @@ import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import HomeIcon from "@material-ui/icons/Home";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
 import { ApplicantNotificationIcon } from "$components/ApplicantNotificationIcon";
 
@@ -288,6 +289,11 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.admin.jobApplications(),
           title: translations.jobApplications,
           icon: PersonAddIcon
+        },
+        {
+          path: RoutesBuilder.admin.notifications(),
+          title: translations.notifications,
+          icon: NotificationsIcon
         }
       ]);
     });
