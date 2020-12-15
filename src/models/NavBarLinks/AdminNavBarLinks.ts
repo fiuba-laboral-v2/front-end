@@ -6,7 +6,7 @@ import BusinessIcon from "@material-ui/icons/Business";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import { AdminNotificationIcon } from "$components/AdminNotificationIcon";
 import HomeIcon from "@material-ui/icons/Home";
 
 const {
@@ -54,7 +54,7 @@ export const AdminNavBarLinks = {
     {
       path: notifications(),
       title: translations.notifications,
-      icon: NotificationsIcon
+      icon: AdminNotificationIcon
     }
   ]
 };
