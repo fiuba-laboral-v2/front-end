@@ -9,6 +9,7 @@ query GetAdminNotifications($updatedBeforeThan: PaginatedInput) {
         company {
           __typename
           uuid
+          companyName
         }
       }
     }
