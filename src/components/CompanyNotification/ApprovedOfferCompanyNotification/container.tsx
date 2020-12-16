@@ -1,5 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import {
+  OfferNotificationTitleBuilder,
+  ITitleTranslations
+} from "$models/OfferNotificationTitleBuilder";
 import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
@@ -14,11 +18,12 @@ export const ApprovedOfferCompanyNotificationContainer: FunctionComponent<IConta
   className,
   notification
 }) => {
-  const translations = useTranslations<{ title: string }>("approvedOfferCompanyNotification");
+  const translations = useTranslations<ITitleTranslations>("approvedOfferCompanyNotification");
+  const title = OfferNotificationTitleBuilder.build(notification.secretary, translations);
 
   return (
     <Notification className={className} notification={notification} icon={<OfferIcon />}>
-      <NotificationTitle>{translations?.title || ""}</NotificationTitle>
+      <NotificationTitle>{title}</NotificationTitle>
       <NotificationBody>
         <Link to={RoutesBuilder.company.offer(notification.offer.uuid)}>
           {notification.offer.title}
