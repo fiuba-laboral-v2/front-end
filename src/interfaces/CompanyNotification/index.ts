@@ -7,6 +7,7 @@ import {
 } from "$typenames";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
+import { Secretary } from "$interfaces/Secretary";
 
 export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
@@ -21,6 +22,7 @@ interface ICommonAttributes {
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
+  moderatorSecretary: Secretary;
 }
 
 export interface INewJobApplicationCompanyNotification extends ICommonAttributes {
