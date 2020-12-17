@@ -19,7 +19,7 @@ export const ApprovedOfferCompanyNotificationContainer: FunctionComponent<IConta
   notification
 }) => {
   const translations = useTranslations<ITitleTranslations>("approvedOfferCompanyNotification");
-  const title = OfferNotificationTitleBuilder.build(notification.secretary, translations);
+  const title = OfferNotificationTitleBuilder.build(notification.moderatorSecretary, translations);
 
   return (
     <Notification className={className} notification={notification} icon={<OfferIcon />}>

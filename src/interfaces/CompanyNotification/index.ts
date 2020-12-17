@@ -22,7 +22,7 @@ interface ICommonAttributes {
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
-  secretary: Secretary;
+  moderatorSecretary: Secretary;
 }
 
 export interface INewJobApplicationCompanyNotification extends ICommonAttributes {

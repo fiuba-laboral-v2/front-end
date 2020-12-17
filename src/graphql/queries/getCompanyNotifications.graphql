@@ -35,7 +35,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
         adminEmail
         isNew
         createdAt
-        secretary
+        moderatorSecretary
         offer {
           uuid
           title
@@ -48,7 +48,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
         moderatorMessage
         isNew
         createdAt
-        secretary
+        moderatorSecretary
         offer {
           uuid
           title
