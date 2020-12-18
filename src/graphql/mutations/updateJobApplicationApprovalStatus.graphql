@@ -8,8 +8,8 @@ mutation UpdateJobApplicationApprovalStatus(
     approvalStatus: $approvalStatus
     moderatorMessage: $moderatorMessage
   ) {
-    offerUuid
-    applicantUuid
+    __typename
+    uuid
     approvalStatus
   }
 }

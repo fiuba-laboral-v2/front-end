@@ -8,6 +8,7 @@ mutation UpdateCompanyApprovalStatus(
     approvalStatus: $approvalStatus
     moderatorMessage: $moderatorMessage
   ) {
+    __typename
     uuid
     approvalStatus
   }

@@ -8,6 +8,7 @@ mutation UpdateOfferApprovalStatus(
     approvalStatus: $approvalStatus
     moderatorMessage: $moderatorMessage
   ) {
+    __typename
     uuid
     title
     description
