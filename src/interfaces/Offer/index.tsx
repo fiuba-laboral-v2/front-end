@@ -3,6 +3,7 @@ import { ISection } from "$interfaces/Section";
 import { ICompany } from "$interfaces/Company";
 import { ApprovalStatus } from "../ApprovalStatus";
 import { ICareer } from "../Career";
+import { Secretary } from "../Secretary";
 
 export interface ICareerInput {
   careerCode: string;
@@ -33,7 +34,7 @@ export interface IEditOffer extends ICreateOffer {
   uuid: string;
 }
 
-export interface IOffer extends ICreateOfferValues {
+export interface IPersistanceOffer extends ICreateOfferValues {
   uuid: string;
   company: ICompany;
   targetApplicantType: ApplicantType;
@@ -43,4 +44,12 @@ export interface IOffer extends ICreateOfferValues {
   studentsExpirationDateTime: string | null;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface IOffer extends IPersistanceOffer {
+  hasExpiredFor: (s: Secretary) => boolean;
+  getExpirationDateFor: (s: Secretary) => string | null;
+  isTargetToStudents: () => boolean;
+  isTargetToGraduates: () => boolean;
+  isTargetToBoth: () => boolean;
 }

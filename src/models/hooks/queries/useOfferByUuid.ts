@@ -5,10 +5,14 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { DocumentNode } from "graphql";
 import { IMyOffer } from "$interfaces/Applicant";
+import { Offer } from "../../Offer";
 
-const useOfferByUuidQuery = <T>({ documentNode, uuid }: IUseOfferByUuidQuery) => {
+const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
+  documentNode,
+  uuid
+}: IUseOfferByUuidQuery) => {
   const history = useHistory();
-  return useAdvancedQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
+  const result = useAdvancedQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
     variables: { uuid },
     errorHandlers: {
       OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
@@ -16,6 +20,11 @@ const useOfferByUuidQuery = <T>({ documentNode, uuid }: IUseOfferByUuidQuery) =>
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
   });
+
+  return {
+    ...result,
+    data: { ...(result.data && { getOfferByUuid: Offer(result.data.getOfferByUuid) }) }
+  };
 };
 
 export const useCompanyOfferByUuid = (uuid?: string) =>
