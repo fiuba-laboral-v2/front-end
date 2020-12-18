@@ -18,11 +18,7 @@ export const useSnackbar = () => {
         action: (
           <>
             {options?.action}
-            <CloseButton
-              onClick={() => {
-                closeSnackbar(key);
-              }}
-            />
+            <CloseButton onClick={() => closeSnackbar(key)} />
           </>
         )
       });
