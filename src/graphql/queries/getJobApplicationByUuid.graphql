@@ -1,18 +1,15 @@
 query getJobApplicationByUuid($uuid: ID!) {
   getJobApplicationByUuid(uuid: $uuid) {
-    __typename
     uuid
     updatedAt
     createdAt
     updatedAt
     approvalStatus
     offer {
-      __typename
       uuid
       title
     }
     applicant {
-      __typename
       uuid
       padron
       user {
