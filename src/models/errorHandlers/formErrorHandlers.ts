@@ -1,10 +1,10 @@
-import { OptionsObject, SnackbarKey, SnackbarMessage } from "notistack";
 import { ErrorHandlers } from "../handleError";
+import { EnqueueSnackbar } from "$hooks";
 import { handleValidationError } from "./handleValidationError";
 import { handleGenericError } from "./handleGenericError";
 
 export interface IFormErrorHandlers {
-  enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
+  enqueueSnackbar: EnqueueSnackbar;
 }
 
 export const formErrorHandlers = ({ enqueueSnackbar }: IFormErrorHandlers) => (

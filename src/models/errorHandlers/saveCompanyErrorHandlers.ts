@@ -1,5 +1,5 @@
 import { FormikErrors } from "formik";
-import { OptionsObject, SnackbarKey, SnackbarMessage } from "notistack";
+import { EnqueueSnackbar } from "$hooks";
 import { formErrorHandlers } from "./formErrorHandlers";
 import { handleValidationError } from "./handleValidationError";
 
@@ -10,7 +10,7 @@ export interface ISaveCompanyErrorHandlersErrors {
 
 export interface ISaveCompanyErrorHandlers<T> {
   setErrors: (error: FormikErrors<T>) => void;
-  enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey;
+  enqueueSnackbar: EnqueueSnackbar;
 }
 
 export const saveCompanyErrorHandlers = ({
