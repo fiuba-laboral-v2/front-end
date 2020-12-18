@@ -2,7 +2,8 @@ import {
   IApplicantAdminTask,
   ICompanyAdminTask,
   IJobApplicationAdminTask,
-  IOfferAdminTask
+  IOfferAdminTask,
+  TAdminTask
 } from "$interfaces/AdminTask";
 
 interface IBaseDetailInfoProps {
@@ -28,9 +29,5 @@ export interface IJobApplicationDetailInfoContainerProps extends IBaseDetailInfo
 }
 
 export interface ITaskDetailProps extends IBaseDetailInfoProps {
-  selectedTask?:
-    | ICompanyAdminTask
-    | IApplicantAdminTask
-    | IOfferAdminTask
-    | IJobApplicationAdminTask;
+  selectedTask?: TAdminTask;
 }

@@ -24,7 +24,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTask.uuid,
-      status: status,
+      status,
       onStatusUpdate,
       setLoadingStatusUpdate,
       moderatorMessage

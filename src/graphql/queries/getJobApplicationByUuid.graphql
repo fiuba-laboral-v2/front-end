@@ -13,6 +13,7 @@ query getJobApplicationByUuid($uuid: ID!) {
       uuid
       padron
       user {
+        uuid
         email
         name
         surname
