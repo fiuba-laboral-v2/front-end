@@ -2,7 +2,7 @@ import { useAdvancedQuery } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
 import { IOfferAttributes } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
-import { Offer } from "../../Offer";
+import { Offer } from "$models/Offer";
 
 export const useMyOffers = () => {
   const result = useAdvancedQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
