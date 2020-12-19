@@ -1,7 +1,8 @@
 import { useAdvancedQuery } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
-import { IOffer } from "$interfaces/Offer";
+import { IOfferAttributes } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
+import { Offer } from "$models/Offer";
 
 export const useMyOffers = () => {
   const result = useAdvancedQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
@@ -20,9 +21,18 @@ export const useMyOffers = () => {
     });
   };
 
-  return { ...result, fetchMore };
+  return {
+    ...result,
+    data: result.data && {
+      getMyOffers: {
+        results: result.data?.getMyOffers.results.map(offer => Offer(offer)),
+        shouldFetchMore: result.data?.getMyOffers.shouldFetchMore
+      }
+    },
+    fetchMore
+  };
 };
 
 interface IUseMyOffers {
-  getMyOffers: IPaginatedResult<IOffer>;
+  getMyOffers: IPaginatedResult<IOfferAttributes>;
 }
