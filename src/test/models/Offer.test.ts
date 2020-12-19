@@ -1,11 +1,19 @@
 import { ApplicantType } from "$interfaces/Applicant";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { IPersistanceMyOffer, IPersistanceOffer } from "$interfaces/Offer";
+import { IMyOfferAttributes, IOfferAttributes } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import { Offer } from "$models/Offer";
+import moment from "moment";
 
 describe("CurrentUser", () => {
-  const offerAttributes = {
+  const tomorrow = moment().endOf("day").add(1, "days").format("YYYY-MM-DD HH:mm:ss").toString();
+  const yesterday = moment()
+    .startOf("day")
+    .subtract(1, "day")
+    .format("YYYY-MM-DD HH:mm:ss")
+    .toString();
+
+  const offerAttributes: IOfferAttributes = {
     uuid: "d3208f27-7404-4396-b8a1-88037d493989",
     company: {
       companyName: "Devartis",
@@ -15,14 +23,14 @@ describe("CurrentUser", () => {
       businessName: "businessName",
       createdAt: "createdAt",
       updatedAt: "updatedAt",
-      approvalStatus: "approvalStatus",
+      approvalStatus: ApprovalStatus.approved,
       users: []
     },
     targetApplicantType: ApplicantType.both,
     graduadosApprovalStatus: ApprovalStatus.approved,
     extensionApprovalStatus: ApprovalStatus.approved,
-    graduatesExpirationDateTime: "2020-12-04T16:57:07.333Z",
-    studentsExpirationDateTime: "2020-12-04T16:57:07.333Z",
+    graduatesExpirationDateTime: tomorrow,
+    studentsExpirationDateTime: tomorrow,
     createdAt: "2020-12-04T16:57:07.333Z",
     updatedAt: "2020-12-04T16:57:07.333Z",
     careers: [],
@@ -37,60 +45,111 @@ describe("CurrentUser", () => {
   };
 
   it("returns a valid Offer", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+    const offer = Offer(offerAttributes);
 
-    expect(offer.isTargetToBoth()).toBe(true);
-    expect(offer.isTargetToGraduates()).toBe(false);
-    expect(offer.isTargetToStudents()).toBe(false);
+    expect(offer).toMatchObject(offerAttributes);
+    expect(offer.isTargetingBoth()).toBe(true);
+    expect(offer.isTargetingGraduates()).toBe(false);
+    expect(offer.isTargetingStudents()).toBe(false);
   });
 
   it("returns a valid MyOffer", () => {
-    const offer = Offer<IPersistanceMyOffer>({
+    const offer = Offer<IMyOfferAttributes>({
       ...offerAttributes,
       hasApplied: true
-    } as IPersistanceMyOffer);
+    });
 
+    expect(offer).toMatchObject(offerAttributes);
     expect(offer.hasApplied).toBe(true);
   });
 
-  it("adds a method to ask if is target for Students", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+  describe("has a method isTargetingStudents", () => {
+    it("returns false if is not targeting students", () => {
+      const offer = Offer(offerAttributes);
 
-    expect(offer.isTargetToStudents).not.toBeUndefined();
-    expect(offer.isTargetToStudents()).toBe(false);
+      expect(offer.isTargetingStudents()).toBe(false);
+    });
+
+    it("returns true if is targeting students", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.isTargetingStudents()).toBe(true);
+    });
   });
 
-  it("adds a method to ask if is target for Graduates", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+  describe("has a method isTargetingGraduates", () => {
+    it("returns false if is not targeting graduates", () => {
+      const offer = Offer(offerAttributes);
 
-    expect(offer.isTargetToGraduates).not.toBeUndefined();
-    expect(offer.isTargetToGraduates()).toBe(false);
+      expect(offer.isTargetingGraduates()).toBe(false);
+    });
+
+    it("returns true if is targeting graduates", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.isTargetingGraduates()).toBe(true);
+    });
   });
 
-  it("adds a method to ask if is target for Both", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+  describe("has a method isTargetingBoth", () => {
+    it("returns false if is not targeting both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
 
-    expect(offer.isTargetToBoth).not.toBeUndefined();
-    expect(offer.isTargetToBoth()).toBe(true);
+      expect(offer.isTargetingBoth()).toBe(false);
+    });
+
+    it("returns true if is targeting both", () => {
+      const offer = Offer(offerAttributes);
+
+      expect(offer.isTargetingBoth()).toBe(true);
+    });
   });
 
-  it("adds a method to get the expiration date given a secretary", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+  describe("has a method getExpirationDateFor", () => {
+    it("returns studentsExpirationDateTime when you pass the secretary of extension", () => {
+      const offer = Offer(offerAttributes);
 
-    expect(offer.getExpirationDateFor).not.toBeUndefined();
-    expect(offer.getExpirationDateFor(Secretary.extension)).toBe(
-      offerAttributes.studentsExpirationDateTime
-    );
-    expect(offer.getExpirationDateFor(Secretary.graduados)).toBe(
-      offerAttributes.graduatesExpirationDateTime
-    );
+      expect(offer.getExpirationDateFor(Secretary.extension)).toStrictEqual(
+        moment(offerAttributes.studentsExpirationDateTime!)
+      );
+    });
+
+    it("returns graduatesExpirationDateTime when you pass the secretary of graduados", () => {
+      const offer = Offer(offerAttributes);
+
+      expect(offer.getExpirationDateFor(Secretary.graduados)).toStrictEqual(
+        moment(offerAttributes.graduatesExpirationDateTime!)
+      );
+    });
   });
 
-  it("adds a method to know if the offer has expired for a certain secretary", () => {
-    const offer = Offer(offerAttributes as IPersistanceOffer);
+  describe("has a method hasExpiredFor", () => {
+    describe("when you pass the secretary of extension", () => {
+      it("returns true when the studentsExpirationDateTime is in the past", () => {
+        const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
 
-    expect(offer.hasExpiredFor).not.toBeUndefined();
-    expect(offer.hasExpiredFor(Secretary.extension)).toBe(true);
-    expect(offer.hasExpiredFor(Secretary.graduados)).toBe(true);
+        expect(offer.hasExpiredFor(Secretary.extension)).toBe(true);
+      });
+
+      it("returns false when the studentsExpirationDateTime is in the future", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.hasExpiredFor(Secretary.extension)).toBe(false);
+      });
+    });
+
+    describe("when you pass the secretary of graduados", () => {
+      it("returns true when the graduatesExpirationDateTime is in the past", () => {
+        const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: yesterday });
+
+        expect(offer.hasExpiredFor(Secretary.graduados)).toBe(true);
+      });
+
+      it("returns false when the graduatesExpirationDateTime is in the future", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.hasExpiredFor(Secretary.graduados)).toBe(false);
+      });
+    });
   });
 });

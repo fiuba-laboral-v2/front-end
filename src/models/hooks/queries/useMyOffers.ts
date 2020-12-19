@@ -1,6 +1,6 @@
 import { useAdvancedQuery } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
-import { IPersistanceOffer } from "$interfaces/Offer";
+import { IOfferAttributes } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
 import { Offer } from "../../Offer";
 
@@ -34,5 +34,5 @@ export const useMyOffers = () => {
 };
 
 interface IUseMyOffers {
-  getMyOffers: IPaginatedResult<IPersistanceOffer>;
+  getMyOffers: IPaginatedResult<IOfferAttributes>;
 }

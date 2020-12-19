@@ -1,11 +1,11 @@
 import { useAdvancedQuery } from "$hooks";
 import { GET_OFFER_BY_UUID, GET_OFFER_FOR_APPLICANT } from "$queries";
-import { IOffer, IPersistanceMyOffer } from "$interfaces/Offer";
+import { IOffer, IMyOfferAttributes } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { DocumentNode } from "graphql";
 import { IMyOffer } from "$interfaces/Applicant";
-import { Offer } from "../../Offer";
+import { Offer } from "$models/Offer";
 
 const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
   documentNode,
@@ -51,7 +51,7 @@ export const useOfferForApplicant = (uuid?: string) => {
   });
   return {
     ...result,
-    data: result.data && { getOfferByUuid: Offer<IPersistanceMyOffer>(result.data.getOfferByUuid) }
+    data: result.data && { getOfferByUuid: Offer<IMyOfferAttributes>(result.data.getOfferByUuid) }
   };
 };
 

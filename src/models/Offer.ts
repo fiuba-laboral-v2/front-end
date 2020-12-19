@@ -1,27 +1,31 @@
 import { ApplicantType } from "$interfaces/Applicant";
-import { IPersistanceMyOffer, IPersistanceOffer } from "$interfaces/Offer";
+import { IMyOfferAttributes, IOfferAttributes } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import moment from "moment";
 
-export const Offer = <T extends IPersistanceOffer | IPersistanceMyOffer = IPersistanceOffer>(
-  persistanceOffer: T
+export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAttributes>(
+  offerAttributes: T
 ) => {
   const offer = {
-    ...persistanceOffer,
+    ...offerAttributes,
     hasExpiredFor: (secretary: Secretary) => {
       const expirationDate = offer.getExpirationDateFor(secretary);
       if (!expirationDate) return false;
-      return moment(expirationDate).format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
+      return expirationDate.format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
     },
     getExpirationDateFor: (secretary: Secretary) => {
       return {
-        [Secretary.graduados]: offer.graduatesExpirationDateTime,
-        [Secretary.extension]: offer.studentsExpirationDateTime
+        [Secretary.graduados]: !!offer.graduatesExpirationDateTime
+          ? moment(offer.graduatesExpirationDateTime)
+          : null,
+        [Secretary.extension]: !!offer.studentsExpirationDateTime
+          ? moment(offer.studentsExpirationDateTime)
+          : null
       }[secretary];
     },
-    isTargetToStudents: () => offer.targetApplicantType === ApplicantType.student,
-    isTargetToGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
-    isTargetToBoth: () => offer.targetApplicantType === ApplicantType.both
+    isTargetingStudents: () => offer.targetApplicantType === ApplicantType.student,
+    isTargetingGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
+    isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both
   };
   return offer;
 };
