@@ -44,6 +44,11 @@ export interface IPersistanceOffer extends ICreateOfferValues {
   studentsExpirationDateTime: string | null;
   createdAt: string;
   updatedAt: string;
+  hasApplied?: boolean;
+}
+
+export interface IPersistanceMyOffer extends IPersistanceOffer {
+  hasApplied: boolean;
 }
 
 export interface IOffer extends IPersistanceOffer {

@@ -14,8 +14,8 @@ export const useOffers = () => {
   return {
     ...result,
     data: result.data && {
-      getMyOffers: {
-        results: result.data?.getMyOffers.results.map(offer => Offer(offer)),
+      getOffers: {
+        results: result.data?.getOffers.results.map(offer => Offer(offer)),
         shouldFetchMore: result.data?.getMyOffers.shouldFetchMore
       }
     }

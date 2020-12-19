@@ -1,6 +1,6 @@
 import { useAdvancedQuery } from "$hooks";
 import { GET_OFFER_BY_UUID, GET_OFFER_FOR_APPLICANT } from "$queries";
-import { IOffer } from "$interfaces/Offer";
+import { IOffer, IPersistanceMyOffer } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { DocumentNode } from "graphql";
@@ -12,7 +12,7 @@ const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
   uuid
 }: IUseOfferByUuidQuery) => {
   const history = useHistory();
-  const result = useAdvancedQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
+  return useAdvancedQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
     variables: { uuid },
     errorHandlers: {
       OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
@@ -20,30 +20,40 @@ const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
   });
+};
+
+export const useCompanyOfferByUuid = (uuid?: string) => {
+  const result = useOfferByUuidQuery<IOffer>({
+    documentNode: GET_OFFER_BY_UUID,
+    uuid
+  });
 
   return {
     ...result,
-    data: { ...(result.data && { getOfferByUuid: Offer(result.data.getOfferByUuid) }) }
+    data: result.data && { getOfferByUuid: Offer(result.data.getOfferByUuid) }
+  };
+};
+export const useOfferByUuid = (uuid?: string) => {
+  const result = useOfferByUuidQuery<IOffer>({
+    documentNode: GET_OFFER_BY_UUID,
+    uuid
+  });
+  return {
+    ...result,
+    data: result.data && { getOfferByUuid: Offer(result.data.getOfferByUuid) }
   };
 };
 
-export const useCompanyOfferByUuid = (uuid?: string) =>
-  useOfferByUuidQuery<IOffer>({
-    documentNode: GET_OFFER_BY_UUID,
-    uuid
-  });
-
-export const useOfferByUuid = (uuid?: string) =>
-  useOfferByUuidQuery<IOffer>({
-    documentNode: GET_OFFER_BY_UUID,
-    uuid
-  });
-
-export const useOfferForApplicant = (uuid?: string) =>
-  useOfferByUuidQuery<IMyOffer>({
+export const useOfferForApplicant = (uuid?: string) => {
+  const result = useOfferByUuidQuery<IMyOffer>({
     documentNode: GET_OFFER_FOR_APPLICANT,
     uuid
   });
+  return {
+    ...result,
+    data: result.data && { getOfferByUuid: Offer<IPersistanceMyOffer>(result.data.getOfferByUuid) }
+  };
+};
 
 interface IGetOfferByUuid<T> {
   getOfferByUuid: T;

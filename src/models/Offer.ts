@@ -1,9 +1,11 @@
 import { ApplicantType } from "$interfaces/Applicant";
-import { IPersistanceOffer } from "$interfaces/Offer";
+import { IPersistanceMyOffer, IPersistanceOffer } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import moment from "moment";
 
-export const Offer = (persistanceOffer: IPersistanceOffer) => {
+export const Offer = <T extends IPersistanceOffer | IPersistanceMyOffer = IPersistanceOffer>(
+  persistanceOffer: T
+) => {
   const offer = {
     ...persistanceOffer,
     hasExpiredFor: (secretary: Secretary) => {
