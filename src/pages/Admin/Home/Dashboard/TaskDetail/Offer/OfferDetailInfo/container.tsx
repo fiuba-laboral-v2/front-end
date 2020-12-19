@@ -25,7 +25,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTask.uuid,
-      status: status,
+      status,
       onStatusUpdate,
       setLoadingStatusUpdate,
       moderatorMessage

@@ -16,7 +16,9 @@ export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
       action: () => history.push(actionRoute),
       message: "Tenés notificaciones",
       actionMessage: "Ver",
-      skip: !hasUnreadNotifications || lastUnreadValue
+      skip: !hasUnreadNotifications || lastUnreadValue,
+      persist: true,
+      preventDuplicate: true
     });
     setLastUnreadValue(!!hasUnreadNotifications);
   }, [lastUnreadValue, hasUnreadNotifications, infoSnackbar, history, actionRoute]);
