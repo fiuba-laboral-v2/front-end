@@ -36,7 +36,9 @@ export const RoutesBuilder = {
 
     jobApplications: () => adminRoute(APPLICATIONS),
 
-    notifications: () => adminRoute(NOTIFICATIONS)
+    notifications: () => adminRoute(NOTIFICATIONS),
+
+    signUp: () => adminRoute(SIGN_UP)
   },
 
   applicant: {

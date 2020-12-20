@@ -8,6 +8,7 @@ export interface ITranslations {
 
 export interface IContainer {
   className?: string;
+  withoutPadron?: boolean;
 }
 
 export interface IComponent extends IContainer {

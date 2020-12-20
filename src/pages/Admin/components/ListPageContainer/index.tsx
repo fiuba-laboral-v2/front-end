@@ -4,6 +4,7 @@ import { MainTitle } from "./MainTitle";
 import { MainContainer } from "./MainContainer";
 import { List } from "./List";
 import { Listable, ListableReactNodes } from "./interfaces";
+import styles from "./style.module.scss";
 
 export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   titleTranslationPath,
@@ -14,11 +15,15 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   rowClassName,
   fetchMore,
   shouldFetchMore,
-  loading
+  loading,
+  children
 }) => (
   <Window loading={!items} width="fullWidth" desktopOnly>
     <MainContainer>
-      <MainTitle translationPath={titleTranslationPath} />
+      <div className={styles.titleContainer}>
+        <MainTitle className={styles.title} translationPath={titleTranslationPath} />
+        <div className={styles.children}>{children}</div>
+      </div>
       <List
         headerClassName={listHeaderClassName}
         rowClassName={rowClassName}
