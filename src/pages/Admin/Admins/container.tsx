@@ -51,7 +51,7 @@ export const Admins: FunctionComponent = () => {
         }}
       >
         <SaveAdminForm
-          refetch={response.refetch}
+          refetchGetAdmins={response.refetch}
           onSubmit={() => setConfirmDialogIsOpen(false)}
           formName={formName}
         />
