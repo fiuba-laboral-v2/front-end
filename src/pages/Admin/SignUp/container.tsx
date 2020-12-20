@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from "react";
+import { useHistory } from "react-router-dom";
+import { useSaveAdmin, useTranslations, useShowError } from "$hooks";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
 import { SignUp } from "./component";
 import { Window } from "$components/Window";
-import { useSaveAdmin, useTranslations, useShowError } from "$hooks";
 import { FormikHelpers } from "formik/dist/types";
 import { Secretary } from "$interfaces/Secretary";
 import { ITranslations, ISaveAdminForm } from "./interfaces";
 
 export const SignUpContainer: FunctionComponent = () => {
+  const history = useHistory();
   const translations = useTranslations<ITranslations>("adminSignUp");
   const { saveAdmin } = useSaveAdmin();
   const showError = useShowError();
@@ -25,6 +29,7 @@ export const SignUpContainer: FunctionComponent = () => {
 
     if (result.error) return;
     setSubmitting(false);
+    history.push(RoutesBuilder.admin.admins());
   };
 
   const initialValues = {
