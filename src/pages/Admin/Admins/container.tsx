@@ -50,7 +50,11 @@ export const Admins: FunctionComponent = () => {
           confirmDialogConfirm: translations?.submit || ""
         }}
       >
-        <SaveAdminForm onSubmit={() => setConfirmDialogIsOpen(false)} formName={formName} />
+        <SaveAdminForm
+          refetch={response.refetch}
+          onSubmit={() => setConfirmDialogIsOpen(false)}
+          formName={formName}
+        />
       </FormConfirmDialog>
     </ListPageContainer>
   );

@@ -7,6 +7,7 @@ interface ICommonProps {
 
 export interface IContainerProps extends ICommonProps {
   onSubmit: () => void;
+  refetch?: (newVariables: any) => void;
 }
 
 export interface IComponentProps extends ICommonProps {

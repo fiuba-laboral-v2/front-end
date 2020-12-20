@@ -7,7 +7,8 @@ import { Secretary } from "$interfaces/Secretary";
 
 export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
   formName,
-  onSubmit
+  onSubmit,
+  refetch
 }) => {
   const translations = useTranslations<ITranslations>("saveAdminForm");
   const { saveAdmin } = useSaveAdmin();
@@ -26,6 +27,7 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
     });
 
     if (result.error) return;
+    if (refetch) await refetch({});
     onSubmit();
     setSubmitting(false);
   };
