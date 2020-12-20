@@ -40,6 +40,7 @@ export const Admins: FunctionComponent = () => {
       <FormConfirmDialog
         formName={formName}
         isOpen={confirmDialogIsOpen}
+        confirmButtonType="submit"
         onConfirm={() => undefined}
         onClose={() => setConfirmDialogIsOpen(false)}
         translations={{
