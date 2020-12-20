@@ -1,0 +1,11 @@
+.titleContainer {
+  display: flex;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.children {
+  flex-shrink: 0;
+}
