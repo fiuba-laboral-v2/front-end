@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { IAdmin } from "$interfaces/Admin";
-import { useAdmins } from "$hooks";
+import { useAdmins, useTranslations } from "$hooks";
 
 import { ListPageContainer } from "../components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
@@ -14,6 +14,7 @@ import styles from "./styles.module.scss";
 export const Admins: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const response = useAdmins();
+  const translations = useTranslations<ITranslations>("admins");
   const admins = response?.data?.getAdmins.results;
   const formName = "saveAdmin";
 
@@ -34,7 +35,7 @@ export const Admins: FunctionComponent = () => {
         onClick={() => setConfirmDialogIsOpen(true)}
         kind="primary"
       >
-        Agregar
+        {translations?.addAdminButtonLabel || ""}
       </Button>
       <FormConfirmDialog
         formName={formName}
@@ -42,10 +43,10 @@ export const Admins: FunctionComponent = () => {
         onConfirm={() => undefined}
         onClose={() => setConfirmDialogIsOpen(false)}
         translations={{
-          confirmDialogTitle: "AGREGAR ADMIN",
+          confirmDialogTitle: translations?.title || "",
           confirmDialogDescription: "",
-          confirmDialogCancel: "CANCELAR",
-          confirmDialogConfirm: "GUARDAR"
+          confirmDialogCancel: translations?.cancel || "",
+          confirmDialogConfirm: translations?.submit || ""
         }}
       >
         <SaveAdminForm onSubmit={() => setConfirmDialogIsOpen(false)} formName={formName} />
@@ -53,3 +54,10 @@ export const Admins: FunctionComponent = () => {
     </ListPageContainer>
   );
 };
+
+interface ITranslations {
+  addAdminButtonLabel: string;
+  title: string;
+  cancel: string;
+  submit: string;
+}
