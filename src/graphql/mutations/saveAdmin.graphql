@@ -1,0 +1,13 @@
+mutation SaveAdmin($user: UserInput!, $secretary: Secretary!) {
+  saveAdmin(user: $user, secretary: $secretary) {
+    uuid
+    user {
+      uuid
+      email
+      dni
+      name
+      surname
+    }
+    secretary
+  }
+}

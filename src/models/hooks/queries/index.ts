@@ -5,6 +5,7 @@ export * from "./useCompanies";
 export * from "./useOfferByUuid";
 export * from "./useOffers";
 export * from "./useAdminTasks";
+export * from "./useAdmins";
 export * from "./useCurrentUser";
 export * from "./useTranslations";
 export * from "./useMyApplicantProfile";
