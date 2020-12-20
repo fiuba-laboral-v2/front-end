@@ -3,8 +3,8 @@ import React, { FunctionComponent } from "react";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
 import { SecretarySelector } from "$components/SecretarySelector";
-import { FiubaCredentialsFormSection } from "../../../Applicant/SignUp/FiubaCredentialsFormSection";
-import { PersonalInformationFormSection } from "../../../Applicant/SignUp/PersonalInformationFormSection";
+import { FiubaCredentialsFormSection } from "$components/FiubaCredentialsFormSection";
+import { PersonalInformationFormSection } from "$components/PersonalInformationFormSection";
 
 import { IComponentProps } from "./interfaces";
 

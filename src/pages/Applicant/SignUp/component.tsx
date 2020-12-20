@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { FormikErrors } from "formik";
 import { CareersSelectorFormSection } from "$components/CareersSelectorFormSection";
-import { FiubaCredentialsFormSection } from "./FiubaCredentialsFormSection";
-import { PersonalInformationFormSection } from "./PersonalInformationFormSection";
+import { FiubaCredentialsFormSection } from "$components/FiubaCredentialsFormSection";
+import { PersonalInformationFormSection } from "$components/PersonalInformationFormSection";
 import { FormFooter } from "$components/FormFooter";
 import { Form } from "$components/Form";
 import { Formik } from "$components/Formik";
