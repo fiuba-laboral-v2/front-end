@@ -14,11 +14,13 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   rowClassName,
   fetchMore,
   shouldFetchMore,
-  loading
+  loading,
+  children
 }) => (
   <Window loading={!items} width="fullWidth" desktopOnly>
     <MainContainer>
       <MainTitle translationPath={titleTranslationPath} />
+      {children}
       <List
         headerClassName={listHeaderClassName}
         rowClassName={rowClassName}
