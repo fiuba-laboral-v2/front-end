@@ -17,9 +17,7 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
     variables: ISaveAdminInput,
     { setSubmitting }: FormikHelpers<ISaveAdminInput>
   ) => {
-    setSubmitting(false);
-    onSubmit();
-    await saveAdmin({
+    const result = await saveAdmin({
       variables,
       errorHandlers: {
         BadCredentialsError: () =>
@@ -28,6 +26,10 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
           enqueueSnackbar(translations?.adminAlreadyExistsError, { variant: "error" })
       }
     });
+
+    if (result.error) return;
+    onSubmit();
+    setSubmitting(false);
   };
 
   const initialValues = {
