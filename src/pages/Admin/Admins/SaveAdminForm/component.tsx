@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
+import { SecretarySelector } from "$components/SecretarySelector";
 import { FiubaCredentialsFormSection } from "../../../Applicant/SignUp/FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "../../../Applicant/SignUp/PersonalInformationFormSection";
 
@@ -19,6 +20,7 @@ export const SaveAdminForm: FunctionComponent<IComponentProps> = ({
       <FormikForm id={formName}>
         <FiubaCredentialsFormSection className={styles.formSection} />
         <PersonalInformationFormSection withoutPadron className={styles.formSection} />
+        <SecretarySelector mandatory />
       </FormikForm>
     )}
   </Formik>
