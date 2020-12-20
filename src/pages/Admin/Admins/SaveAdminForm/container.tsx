@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { SaveAdminForm } from "./component";
 import { IContainerProps } from "./interfaces";
-import { useSaveAdmin, useSnackbar, ISaveAdminInput, useTranslations } from "$hooks";
+import { useSaveAdmin, ISaveAdminInput, useTranslations, useShowError } from "$hooks";
 import { FormikHelpers } from "formik/dist/types";
 import { Secretary } from "$interfaces/Secretary";
 
@@ -11,7 +11,7 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   const translations = useTranslations<ITranslations>("saveAdminForm");
   const { saveAdmin } = useSaveAdmin();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
 
   const onSubmitAdmin = async (
     variables: ISaveAdminInput,
@@ -20,10 +20,8 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
     const result = await saveAdmin({
       variables,
       errorHandlers: {
-        BadCredentialsError: () =>
-          enqueueSnackbar(translations?.badCredentialsError, { variant: "error" }),
-        AdminAlreadyExistsError: () =>
-          enqueueSnackbar(translations?.adminAlreadyExistsError, { variant: "error" })
+        BadCredentialsError: () => showError({ message: translations?.badCredentialsError }),
+        AdminAlreadyExistsError: () => showError({ message: translations?.adminAlreadyExistsError })
       }
     });
 
