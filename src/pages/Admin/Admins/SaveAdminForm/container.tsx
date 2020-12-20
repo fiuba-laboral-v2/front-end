@@ -34,8 +34,7 @@ export const SaveAdminFormContainer: FunctionComponent<IContainerProps> = ({
       email: "",
       dni: "",
       password: ""
-    },
-    _form: ""
+    }
   };
 
   return (
