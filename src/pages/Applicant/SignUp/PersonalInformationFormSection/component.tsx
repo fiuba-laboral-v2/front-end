@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { EmailField, NameField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
 import { IComponent } from "./interfaces";
@@ -7,6 +8,7 @@ import styles from "./styles.module.scss";
 
 export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
   className,
+  withoutPadron,
   translations
 }) => (
   <FormSection className={className} title={translations.title}>
@@ -28,19 +30,21 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
     </div>
     <div className={styles.secondRow}>
       <EmailField
-        className={styles.email}
+        className={classNames(styles.email, { [styles.emailWithoutMargin]: withoutPadron })}
         mandatory
         name="user.email"
         label={translations.email}
         withoutMargin
       />
-      <PositiveNumberField
-        className={styles.padron}
-        mandatory
-        name="padron"
-        label={translations.padron}
-        withoutMargin
-      />
+      {!withoutPadron && (
+        <PositiveNumberField
+          className={styles.padron}
+          mandatory
+          name="padron"
+          label={translations.padron}
+          withoutMargin
+        />
+      )}
     </div>
   </FormSection>
 );

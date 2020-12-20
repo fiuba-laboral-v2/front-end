@@ -18,7 +18,7 @@ export const SaveAdminForm: FunctionComponent<IComponentProps> = ({
     {() => (
       <FormikForm id={formName}>
         <FiubaCredentialsFormSection className={styles.formSection} />
-        <PersonalInformationFormSection className={styles.formSection} />
+        <PersonalInformationFormSection withoutPadron className={styles.formSection} />
       </FormikForm>
     )}
   </Formik>
