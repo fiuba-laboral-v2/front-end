@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 
+import { Form } from "$components/Form";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
 import { SecretarySelector } from "$components/SecretarySelector";
@@ -15,18 +16,20 @@ export const SignUp: FunctionComponent<IComponentProps> = ({
   onSubmit,
   translations
 }) => (
-  <Formik initialValues={initialValues} onSubmit={onSubmit}>
-    {({ isSubmitting, errors }) => (
-      <FormikForm>
-        <FiubaCredentialsFormSection className={styles.formSection} />
-        <PersonalInformationFormSection withoutPadron className={styles.formSection} />
-        <SecretarySelector mandatory />
-        <FormFooter
-          isSubmitting={isSubmitting}
-          submitButtonText={translations?.submit}
-          errors={errors}
-        />
-      </FormikForm>
-    )}
-  </Formik>
+  <Form title={translations?.title}>
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      {({ isSubmitting, errors }) => (
+        <FormikForm>
+          <FiubaCredentialsFormSection className={styles.formSection} />
+          <PersonalInformationFormSection withoutPadron className={styles.formSection} />
+          <SecretarySelector mandatory />
+          <FormFooter
+            isSubmitting={isSubmitting}
+            submitButtonText={translations?.submit}
+            errors={errors}
+          />
+        </FormikForm>
+      )}
+    </Formik>
+  </Form>
 );

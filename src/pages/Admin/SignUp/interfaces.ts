@@ -9,7 +9,6 @@ export interface ITranslations {
   badCredentialsError: string;
   adminAlreadyExistsError: string;
   title: string;
-  cancel: string;
   submit: string;
 }
 

@@ -7,7 +7,7 @@ import { Secretary } from "$interfaces/Secretary";
 import { ITranslations, ISaveAdminForm } from "./interfaces";
 
 export const SignUpContainer: FunctionComponent = () => {
-  const translations = useTranslations<ITranslations>("saveAdminForm");
+  const translations = useTranslations<ITranslations>("adminSignUp");
   const { saveAdmin } = useSaveAdmin();
   const showError = useShowError();
 
