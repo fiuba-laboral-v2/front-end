@@ -5,6 +5,7 @@ import { Admins } from "./Admins";
 import { Offers } from "./Offers";
 import { JobApplications } from "./JobApplications";
 import { Notifications } from "./Notifications";
+import { SignUp } from "./SignUp";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -14,7 +15,8 @@ const {
   home,
   offers,
   jobApplications,
-  notifications
+  notifications,
+  signUp
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -24,5 +26,6 @@ export const AdminRoutes = [
   { path: home(), component: Home },
   { path: offers(), component: Offers },
   { path: jobApplications(), component: JobApplications },
-  { path: notifications(), component: Notifications }
+  { path: notifications(), component: Notifications },
+  { path: signUp(), component: SignUp }
 ];
