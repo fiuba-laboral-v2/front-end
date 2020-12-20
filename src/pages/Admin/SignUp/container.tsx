@@ -23,7 +23,10 @@ export const SignUpContainer: FunctionComponent = () => {
       variables,
       errorHandlers: {
         BadCredentialsError: () => showError({ message: translations?.badCredentialsError }),
-        AdminAlreadyExistsError: () => showError({ message: translations?.adminAlreadyExistsError })
+        AdminAlreadyExistsError: () =>
+          showError({ message: translations?.adminAlreadyExistsError }),
+        UserEmailAlreadyExistsError: () =>
+          showError({ message: translations?.userEmailAlreadyExistsError })
       }
     });
 

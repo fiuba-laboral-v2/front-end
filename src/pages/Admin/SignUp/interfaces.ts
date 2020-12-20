@@ -8,6 +8,7 @@ export interface ISaveAdminForm extends ISaveAdminInput {
 export interface ITranslations {
   badCredentialsError: string;
   adminAlreadyExistsError: string;
+  userEmailAlreadyExistsError: string;
   title: string;
   submit: string;
 }
