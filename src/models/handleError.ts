@@ -4,6 +4,7 @@ type ErrorName =
   | "UserEmailAlreadyExistsError"
   | "CompanyCuitAlreadyExistsError"
   | "BadCredentialsError"
+  | "AdminAlreadyExistsError"
   | "InvalidEmptyPasswordError"
   | "UserNotFoundError"
   | "OfferNotFoundError"
