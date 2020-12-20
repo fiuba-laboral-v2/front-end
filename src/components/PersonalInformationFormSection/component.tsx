@@ -30,7 +30,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
     </div>
     <div className={styles.secondRow}>
       <EmailField
-        className={classNames(styles.email, { [styles.emailWithoutMargin]: withoutPadron })}
+        className={classNames(styles.email, { [styles.withoutMargin]: withoutPadron })}
         mandatory
         name="user.email"
         label={translations.email}
