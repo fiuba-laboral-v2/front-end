@@ -3,10 +3,10 @@ import React, { FunctionComponent } from "react";
 import { Form } from "$components/Form";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
-import { SecretarySelector } from "$components/SecretarySelector";
 import { FiubaCredentialsFormSection } from "$components/FiubaCredentialsFormSection";
 import { PersonalInformationFormSection } from "$components/PersonalInformationFormSection";
 import { FormFooter } from "$components/FormFooter";
+import { AdminFeaturesFormSection } from "./AdminFeaturesFormSection";
 
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
@@ -22,7 +22,7 @@ export const SignUp: FunctionComponent<IComponentProps> = ({
         <FormikForm>
           <FiubaCredentialsFormSection className={styles.formSection} />
           <PersonalInformationFormSection withoutPadron className={styles.formSection} />
-          <SecretarySelector mandatory />
+          <AdminFeaturesFormSection className={styles.formSection} />
           <FormFooter
             isSubmitting={isSubmitting}
             submitButtonText={translations?.submit}
