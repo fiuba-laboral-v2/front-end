@@ -11,6 +11,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer } from "./EditOffer";
 import { Notifications } from "./Notifications";
 import { CompanyUsers } from "./CompanyUsers";
+import { AddCompanyUser } from "./AddCompanyUser";
 
 const {
   signUp,
@@ -24,7 +25,8 @@ const {
   editMyProfile,
   applicantDetail,
   notifications,
-  users
+  users,
+  createUser
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -39,5 +41,6 @@ export const CompanyRoutes = [
   { path: editMyProfile(), component: EditableProfile },
   { path: applicantDetail(":uuid"), component: Applicant },
   { path: notifications(), component: Notifications },
-  { path: users(), component: CompanyUsers }
+  { path: users(), component: CompanyUsers },
+  { path: createUser(), component: AddCompanyUser }
 ];

@@ -7,8 +7,3 @@
   grid-template-areas: "name email secretary createdAt";
   grid-template-columns: 2fr 2fr 1fr 1fr;
 }
-
-.addAdmin {
-  align-self: flex-end;
-  margin-bottom: $spacing-m;
-}

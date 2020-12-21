@@ -87,7 +87,9 @@ export const RoutesBuilder = {
 
     notifications: () => companyRoute(NOTIFICATIONS),
 
-    users: () => companyRoute(USERS)
+    users: () => companyRoute(USERS),
+
+    createUser: () => companyRoute(USERS, CREATE)
   },
 
   public: {

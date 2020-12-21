@@ -12,3 +12,4 @@ export * from "./useUpdateAdminTaskStatusMutation";
 export * from "./useUpdateAdminTaskStatus";
 export * from "./useExpireOffer";
 export * from "./useSaveAdmin";
+export * from "./useSaveCompanyUser";
