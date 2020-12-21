@@ -19,6 +19,7 @@ describe("NavBarLinks", () => {
     companies: "companies",
     applicants: "applicants",
     admins: "admins",
+    users: "usuarios",
     jobOffers: "jobOffers",
     jobApplications: "jobApplications",
     createOffer: "createOffer",
@@ -79,6 +80,12 @@ describe("NavBarLinks", () => {
           title: translations.notifications,
           tooltipMessage: translations.pendingProfile,
           icon: CompanyNotificationsIcon
+        },
+        {
+          path: RoutesBuilder.company.users(),
+          title: translations.users,
+          tooltipMessage: translations.pendingProfile,
+          icon: SupervisedUserCircleIcon
         }
       ]);
     });
@@ -114,6 +121,12 @@ describe("NavBarLinks", () => {
           title: translations.notifications,
           tooltipMessage: translations.rejectedProfile,
           icon: CompanyNotificationsIcon
+        },
+        {
+          path: RoutesBuilder.company.users(),
+          title: translations.users,
+          tooltipMessage: translations.rejectedProfile,
+          icon: SupervisedUserCircleIcon
         }
       ]);
     });
@@ -145,6 +158,11 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.company.notifications(),
           title: translations.notifications,
           icon: CompanyNotificationsIcon
+        },
+        {
+          path: RoutesBuilder.company.users(),
+          title: translations.users,
+          icon: SupervisedUserCircleIcon
         }
       ]);
     });
