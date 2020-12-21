@@ -4,7 +4,7 @@ import { IAdmin } from "$interfaces/Admin";
 import { useAdmins, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { ListPageContainer } from "../components/ListPageContainer";
+import { ListPageContainer } from "$components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
 import { ListContentItem } from "./ListContentItem";
 import { Button } from "$components/Button";

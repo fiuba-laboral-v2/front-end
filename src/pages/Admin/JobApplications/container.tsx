@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ListPageContainer } from "../components/ListPageContainer";
+import { ListPageContainer } from "$components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
 import { ListContentItem } from "./ListContentItem";
 import { IJobApplication } from "$interfaces/JobApplication";
