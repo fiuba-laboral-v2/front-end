@@ -10,6 +10,7 @@ import { Applicant } from "./Applicant";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer } from "./EditOffer";
 import { Notifications } from "./Notifications";
+import { CompanyUsers } from "./CompanyUsers";
 
 const {
   signUp,
@@ -22,7 +23,8 @@ const {
   myProfile,
   editMyProfile,
   applicantDetail,
-  notifications
+  notifications,
+  users
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -36,5 +38,6 @@ export const CompanyRoutes = [
   { path: myProfile(), component: Profile },
   { path: editMyProfile(), component: EditableProfile },
   { path: applicantDetail(":uuid"), component: Applicant },
-  { path: notifications(), component: Notifications }
+  { path: notifications(), component: Notifications },
+  { path: users(), component: CompanyUsers }
 ];
