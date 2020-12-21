@@ -17,7 +17,7 @@ export const AddCompanyUserContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { saveCompanyUser } = useSaveCompanyUser();
 
-  const translations = useTranslations<ITranslations>("companySignUp");
+  const translations = useTranslations<ITranslations>("addCompanyUser");
 
   const onSubmit = async (
     { user: { passwordConfirm, ...userAttributes } }: ICompanyUserFormValues,
