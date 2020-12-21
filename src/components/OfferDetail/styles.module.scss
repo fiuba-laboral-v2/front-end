@@ -8,6 +8,10 @@
   @include card;
 }
 
+.sectionDetail {
+  margin-top: $spacing-l;
+}
+
 .header {
   display: flex;
   margin-bottom: $spacing-l;
