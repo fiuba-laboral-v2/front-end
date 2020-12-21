@@ -16,7 +16,7 @@ export const useOffers = () => {
     data: result.data && {
       getOffers: {
         results: result.data?.getOffers.results.map(offer => Offer(offer)),
-        shouldFetchMore: result.data?.getMyOffers.shouldFetchMore
+        shouldFetchMore: result.data?.getOffers.shouldFetchMore
       }
     }
   };
