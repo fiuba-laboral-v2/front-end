@@ -23,11 +23,11 @@ export const AddCompanyUserContainer: FunctionComponent = () => {
     { user: { passwordConfirm, ...userAttributes } }: ICompanyUserFormValues,
     { setErrors, setSubmitting }: FormikHelpers<ICompanyUserFormValues>
   ) => {
-    const createCompanyResult = await saveCompanyUser({
+    const result = await saveCompanyUser({
       variables: { user: userAttributes },
       errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
     });
-    if (createCompanyResult.error) return;
+    if (result.error) return;
     setSubmitting(false);
     history.push(RoutesBuilder.company.users());
   };
