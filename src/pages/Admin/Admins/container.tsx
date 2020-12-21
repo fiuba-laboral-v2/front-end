@@ -29,11 +29,7 @@ export const Admins: FunctionComponent = () => {
       shouldFetchMore={response.data?.getAdmins.shouldFetchMore}
       loading={response.loading}
     >
-      <Button
-        className={styles.addAdmin}
-        onClick={() => history.push(RoutesBuilder.admin.signUp())}
-        kind="primary"
-      >
+      <Button onClick={() => history.push(RoutesBuilder.admin.signUp())} kind="primary">
         {translations?.addAdminButtonLabel || ""}
       </Button>
     </ListPageContainer>
