@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_tableList";
+
+.tableDisplay {
+  @include tableDisplay;
+
+  grid-template-areas: "name email createdAt";
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+}

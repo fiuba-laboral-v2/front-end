@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { TimeFormatter } from "$models/TimeFormatter";
-import { IUser } from "$interfaces/User";
+import { IAdmin } from "$interfaces/Admin";
 import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IComponentProps> = ({
-  companyUser: { name, surname, email }
+  admin: {
+    user: { name, surname, email }
+  }
 }) => (
   <>
     <p className={styles.text}>{`${name} ${surname}`}</p>
@@ -14,5 +16,5 @@ export const ListContentItem: FunctionComponent<IComponentProps> = ({
 );
 
 interface IComponentProps {
-  companyUser: IUser;
+  admin: IAdmin;
 }
