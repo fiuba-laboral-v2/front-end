@@ -7,9 +7,17 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import BusinessIcon from "@material-ui/icons/Business";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
+import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
 
-const { jobApplications, createOffer, myOffers, myProfile, notifications } = RoutesBuilder.company;
+const {
+  jobApplications,
+  createOffer,
+  myOffers,
+  myProfile,
+  notifications,
+  users
+} = RoutesBuilder.company;
 
 export const CompanyNavBarLinks = {
   create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] => [
@@ -42,6 +50,12 @@ export const CompanyNavBarLinks = {
       title: translations.notifications,
       tooltipMessage: getTooltipMessage(currentUser, translations, notifications()),
       icon: CompanyNotificationsIcon
+    },
+    {
+      path: users(),
+      title: translations.users,
+      tooltipMessage: getTooltipMessage(currentUser, translations, users()),
+      icon: SupervisedUserCircleIcon
     }
   ]
 };

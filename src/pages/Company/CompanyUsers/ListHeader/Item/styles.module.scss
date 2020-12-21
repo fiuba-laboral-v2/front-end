@@ -1,0 +1,21 @@
+@import "$styles/mixins/_tableList";
+
+.item {
+  @include headerItem;
+
+  &.name {
+    grid-area: name;
+  }
+
+  &.surname {
+    grid-area: surname;
+  }
+
+  &.email {
+    grid-area: email;
+  }
+
+  &.createdAt {
+    grid-area: createdAt;
+  }
+}

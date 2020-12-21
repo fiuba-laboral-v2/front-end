@@ -4,7 +4,7 @@ import { IAdmin } from "$interfaces/Admin";
 import { useAdmins, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
-import { ListPageContainer } from "../components/ListPageContainer";
+import { ListPageContainer } from "$components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
 import { ListContentItem } from "./ListContentItem";
 import { Button } from "$components/Button";
@@ -29,11 +29,7 @@ export const Admins: FunctionComponent = () => {
       shouldFetchMore={response.data?.getAdmins.shouldFetchMore}
       loading={response.loading}
     >
-      <Button
-        className={styles.addAdmin}
-        onClick={() => history.push(RoutesBuilder.admin.signUp())}
-        kind="primary"
-      >
+      <Button onClick={() => history.push(RoutesBuilder.admin.signUp())} kind="primary">
         {translations?.addAdminButtonLabel || ""}
       </Button>
     </ListPageContainer>

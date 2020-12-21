@@ -1,0 +1,18 @@
+query GetCompanyUsers($updatedBeforeThan: PaginatedInput) {
+  getCompanyUsers(updatedBeforeThan: $updatedBeforeThan) {
+    results {
+      uuid
+      companyUuid
+      userUuid
+      createdAt
+      updatedAt
+      user {
+        uuid
+        name
+        surname
+        email
+      }
+    }
+    shouldFetchMore
+  }
+}

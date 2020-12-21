@@ -1,0 +1,14 @@
+mutation SaveCompanyUser($user: UserInput!) {
+  saveCompanyUser(user: $user) {
+    uuid
+    companyUuid
+    userUuid
+    user {
+      uuid
+      email
+      dni
+      name
+      surname
+    }
+  }
+}

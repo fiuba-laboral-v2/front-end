@@ -1,3 +1,4 @@
+const USERS = "usuarios";
 const APPLICANTS = "postulantes";
 const COMPANIES = "empresas";
 const ADMINS = "administradores";
@@ -84,7 +85,11 @@ export const RoutesBuilder = {
 
     login: () => companyRoute(LOGIN),
 
-    notifications: () => companyRoute(NOTIFICATIONS)
+    notifications: () => companyRoute(NOTIFICATIONS),
+
+    users: () => companyRoute(USERS),
+
+    createUser: () => companyRoute(USERS, CREATE)
   },
 
   public: {
