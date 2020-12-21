@@ -8,9 +8,10 @@ import classNames from "classnames";
 export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = ({
   applicant,
   offer,
-  className
+  className,
+  hidden
 }) => (
-  <div className={classNames(styles.detailContent, className)}>
+  <div className={classNames(styles.detailContent, className)} {...{ hidden }}>
     <ApplicantDetail className={styles.applicantDetail} mobileLayout applicant={applicant} />
     <OfferDetail className={styles.offerDetail} mobileLayout offer={offer} />
   </div>

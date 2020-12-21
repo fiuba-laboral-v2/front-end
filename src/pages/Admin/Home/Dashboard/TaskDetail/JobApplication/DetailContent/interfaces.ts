@@ -12,4 +12,5 @@ export interface IComponentProps {
   applicant?: IApplicant;
   offer?: IOffer;
   className?: string;
+  hidden: boolean;
 }
