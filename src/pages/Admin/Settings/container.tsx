@@ -3,28 +3,28 @@ import { Settings } from "./component";
 import { Window } from "$components/Window";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
-import { IAdminSettingsValues, ISettingsTranslations } from "./interfaces";
-import { useTranslations } from "$hooks";
+import { ISettingsTranslations } from "./interfaces";
+import { useAdminSettings, useTranslations } from "$hooks";
+import { IAdminSettings } from "$interfaces/AdminSettings";
 
 export const SettingsContainer: FunctionComponent = () => {
-  const settings = undefined;
+  const settings = useAdminSettings();
   const translations = useTranslations<ISettingsTranslations>("adminSettings");
 
   const modelToValues = useCallback(
-    (model?: IAdminSettingsValues) => ({
+    (model?: IAdminSettings) => ({
       offerDurationInDays: model?.offerDurationInDays || NaN,
-      email: model?.email || "",
-      _form: ""
+      email: model?.email || ""
     }),
     []
   );
 
-  const onSubmit = useCallback(async (values: IAdminSettingsValues) => {
+  const onSubmit = useCallback(async (values: IAdminSettings) => {
     alert(JSON.stringify(values));
   }, []);
 
   return (
-    <Window>
+    <Window loading={!settings || !translations}>
       <Formik initialValues={modelToValues()} {...{ onSubmit }}>
         {formikProps => (
           <FormikForm initialValuesModel={settings} {...{ modelToValues, formikProps }}>

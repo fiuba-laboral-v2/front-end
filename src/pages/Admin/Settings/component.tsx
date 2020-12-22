@@ -2,8 +2,9 @@ import React, { FunctionComponent } from "react";
 import { FormFooter } from "$components/FormFooter";
 import { FormikProps } from "formik";
 import { Form } from "$components/Form";
-import { IAdminSettingsValues, ISettingsTranslations } from "./interfaces";
+import { ISettingsTranslations } from "./interfaces";
 import { SecretarySettingsFormSection } from "./SecretarySettingsFormSection";
+import { IAdminSettings } from "$interfaces/AdminSettings";
 
 export const Settings: FunctionComponent<ISettingsProps> = ({
   translations,
@@ -11,11 +12,15 @@ export const Settings: FunctionComponent<ISettingsProps> = ({
 }) => (
   <Form title={translations?.title}>
     {translations && <SecretarySettingsFormSection {...{ translations }} />}
-    <FormFooter {...{ isSubmitting, errors }} submitButtonText={translations?.submit} />
+    <FormFooter
+      isSubmitting={isSubmitting}
+      errors={{ _form: undefined, ...errors }}
+      submitButtonText={translations?.submit}
+    />
   </Form>
 );
 
 interface ISettingsProps {
-  formikProps: FormikProps<IAdminSettingsValues>;
+  formikProps: FormikProps<IAdminSettings>;
   translations?: ISettingsTranslations;
 }
