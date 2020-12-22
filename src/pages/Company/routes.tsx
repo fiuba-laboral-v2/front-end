@@ -12,6 +12,7 @@ import { EditOffer } from "./EditOffer";
 import { Notifications } from "./Notifications";
 import { CompanyUsers } from "./CompanyUsers";
 import { AddCompanyUser } from "./AddCompanyUser";
+import { EditPassword } from "./EditPassword";
 
 const {
   signUp,
@@ -26,7 +27,8 @@ const {
   applicantDetail,
   notifications,
   users,
-  createUser
+  createUser,
+  editPassword
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -42,5 +44,6 @@ export const CompanyRoutes = [
   { path: applicantDetail(":uuid"), component: Applicant },
   { path: notifications(), component: Notifications },
   { path: users(), component: CompanyUsers },
-  { path: createUser(), component: AddCompanyUser }
+  { path: createUser(), component: AddCompanyUser },
+  { path: editPassword(), component: EditPassword }
 ];
