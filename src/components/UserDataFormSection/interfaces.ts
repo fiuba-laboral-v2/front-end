@@ -1,6 +1,7 @@
 export interface ITranslations {
   title: string;
   email: string;
+  position: string;
   emailClarification: string;
   name: string;
   surname: string;

@@ -1,7 +1,7 @@
 import { ISaveCompanyUserInput } from "$hooks";
-import { IUserInput } from "$interfaces/User";
+import { ICompanyUserInput } from "$interfaces/User";
 
-export interface IUserFormInput extends IUserInput {
+export interface IUserFormInput extends ICompanyUserInput {
   passwordConfirm: string;
 }
 

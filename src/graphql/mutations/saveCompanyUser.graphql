@@ -1,4 +1,4 @@
-mutation SaveCompanyUser($user: UserInput!) {
+mutation SaveCompanyUser($user: CompanyUserCreateInput!) {
   saveCompanyUser(user: $user) {
     uuid
     companyUuid

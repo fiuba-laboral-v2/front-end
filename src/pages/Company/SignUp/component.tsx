@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { FormikErrors } from "formik";
 import { FormikHelpers } from "formik/dist/types";
 import { FormFooter } from "$components/FormFooter";
-import { UserDataFormSection } from "./UserDataFormSection";
+import { UserDataFormSection } from "$components/UserDataFormSection";
 import { CompanyDataFormSection } from "./CompanyDataFormSection";
 import { ContactInformationFormSection } from "$components/ContactInformationFormSection";
 import { Form } from "$components/Form";

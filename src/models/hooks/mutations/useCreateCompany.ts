@@ -1,7 +1,7 @@
 import { CREATE_COMPANY } from "$mutations";
 import { useMutation } from "$hooks";
 import { ICompany } from "$interfaces/Company";
-import { IUserInput } from "$interfaces/User";
+import { ICompanyUserInput } from "$interfaces/User";
 
 export const useCreateCompany = () => {
   const { mutation, ...result } = useMutation<ICreateCompany, { createCompany: ICompany }>(
@@ -12,7 +12,7 @@ export const useCreateCompany = () => {
 };
 
 export interface ICreateCompany {
-  user: IUserInput;
+  user: ICompanyUserInput;
   cuit: string;
   companyName: string;
   businessName: string;

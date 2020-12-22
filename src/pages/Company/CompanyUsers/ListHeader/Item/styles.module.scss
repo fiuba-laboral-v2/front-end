@@ -15,6 +15,10 @@
     grid-area: email;
   }
 
+  &.position {
+    grid-area: position;
+  }
+
   &.createdAt {
     grid-area: createdAt;
   }

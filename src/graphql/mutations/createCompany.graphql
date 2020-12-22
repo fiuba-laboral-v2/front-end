@@ -1,5 +1,5 @@
 mutation createCompany(
-  $user: UserInput!
+  $user: CompanyUserCreateInput!
   $cuit: String!
   $companyName: String!
   $businessName: String!

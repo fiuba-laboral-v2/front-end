@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { NameField, PasswordField, EmailField } from "$components/Fields";
+import { NameField, PasswordField, EmailField, TextField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
 
 import { IComponentProps } from "./interfaces";
@@ -38,7 +38,6 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
       />
       <PasswordField
         mandatory
-        className={styles.passwordConfirm}
         name="user.passwordConfirm"
         label={translations.passwordConfirm}
         validate
@@ -46,13 +45,16 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         withoutMargin
       />
     </div>
-    <EmailField
-      mandatory
-      className={styles.email}
-      name="user.email"
-      label={translations.email}
-      helperText={translations.emailClarification}
-      withoutMargin
-    />
+    <div className={styles.thirdRow}>
+      <EmailField
+        mandatory
+        className={styles.email}
+        name="user.email"
+        label={translations.email}
+        helperText={translations.emailClarification}
+        withoutMargin
+      />
+      <TextField mandatory name="user.position" label={translations.position} withoutMargin />
+    </div>
   </FormSection>
 );
