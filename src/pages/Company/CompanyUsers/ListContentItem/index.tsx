@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IComponentProps> = ({
   companyUser: {
+    role,
     user: { name, surname, email },
     createdAt
   }
@@ -12,6 +13,7 @@ export const ListContentItem: FunctionComponent<IComponentProps> = ({
   <>
     <p className={styles.text}>{`${name} ${surname}`}</p>
     <p className={styles.text}>{email}</p>
+    <p className={styles.text}>{role}</p>
     <div className={styles.text}>{TimeFormatter.dateTime(createdAt)}</div>
   </>
 );
