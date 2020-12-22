@@ -6,6 +6,7 @@ query GetCompanyUsers($updatedBeforeThan: PaginatedInput) {
       userUuid
       createdAt
       updatedAt
+      role
       user {
         uuid
         name
