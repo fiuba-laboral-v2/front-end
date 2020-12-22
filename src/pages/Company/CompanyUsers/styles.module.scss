@@ -4,6 +4,6 @@
 .tableDisplay {
   @include tableDisplay;
 
-  grid-template-areas: "name email role createdAt";
+  grid-template-areas: "name email position createdAt";
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

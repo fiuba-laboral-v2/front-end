@@ -57,7 +57,7 @@ export const SignUpContainer: FunctionComponent = () => {
             passwordConfirm: "",
             name: "",
             surname: "",
-            role: ""
+            position: ""
           },
           companyName: "",
           businessName: "",

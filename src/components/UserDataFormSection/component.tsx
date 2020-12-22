@@ -57,9 +57,9 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
       />
       <TextField
         mandatory
-        className={styles.role}
-        name="user.role"
-        label={translations.role}
+        className={styles.position}
+        name="user.position"
+        label={translations.position}
         withoutMargin
       />
     </div>

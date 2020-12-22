@@ -4,7 +4,7 @@ export interface ICompanyUser {
   uuid: string;
   companyUuid: string;
   userUuid: string;
-  role: string;
+  position: string;
   user: IUser;
   updatedAt: string;
   createdAt: string;

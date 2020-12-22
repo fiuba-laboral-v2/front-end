@@ -20,7 +20,7 @@ export interface IUserInput {
 }
 
 export interface ICompanyUserInput extends IUserInput {
-  role: string;
+  position: string;
 }
 
 export interface IFiubaUserInput extends IUserInput {
