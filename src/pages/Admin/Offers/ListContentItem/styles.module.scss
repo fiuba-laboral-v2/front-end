@@ -5,6 +5,10 @@
   @include bodyItem;
 }
 
+.internshipLabel {
+  margin: $spacing-xs auto 0;
+}
+
 .careersContainer {
   @include bodyItem;
 
