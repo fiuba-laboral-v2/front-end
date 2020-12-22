@@ -1,5 +1,6 @@
 import { loader } from "graphql.macro";
 
+const UPDATE_COMPANY_USER_PASSWORD = loader("./updatePassword.graphql");
 const SAVE_COMPANY_USER = loader("./saveCompanyUser.graphql");
 const SAVE_ADMIN = loader("./saveAdmin.graphql");
 const SAVE_APPLICANT = loader("./saveApplicant.graphql");
@@ -21,6 +22,7 @@ const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
 const EXPIRE_OFFER = loader("./expireOffer.graphql");
 
 export {
+  UPDATE_COMPANY_USER_PASSWORD,
   SAVE_COMPANY_USER,
   SAVE_ADMIN,
   FIUBA_LOGIN,
