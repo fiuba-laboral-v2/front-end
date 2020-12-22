@@ -8,7 +8,7 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
 }) => (
   <FormSection
     title={translations.secretarySettingsTitle}
-    subtitle={translations.secretarySettingsSubtitle}
+    subtitle={translations.secretaryName}
     className={styles.formSection}
   >
     <PositiveIntegerField
@@ -33,8 +33,8 @@ interface ISecretarySettingsFormSection {
 
 export interface ISecretarySettingsFormSectionTranslations {
   secretarySettingsTitle: string;
-  secretarySettingsSubtitle: string;
   offerDurationInDays: string;
   email: string;
   emailHelper: string;
+  secretaryName: string;
 }

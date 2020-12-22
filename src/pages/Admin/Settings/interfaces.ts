@@ -3,4 +3,5 @@ import { ISecretarySettingsFormSectionTranslations } from "./SecretarySettingsFo
 export interface ISettingsTranslations extends ISecretarySettingsFormSectionTranslations {
   title: string;
   submit: string;
+  updateSuccess: string;
 }
