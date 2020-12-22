@@ -6,6 +6,7 @@ import { TimeFormatter } from "$models/TimeFormatter";
 import styles from "./styles.module.scss";
 import { isNil } from "lodash";
 import { NumberFormatter } from "$models/NumberFormatter";
+import { InternshipLabel } from "$components/InternshipLabel";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   offer: {
@@ -20,13 +21,17 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     studentsExpirationDateTime,
     graduatesExpirationDateTime,
     company: { companyName },
-    careers
+    careers,
+    isInternship
   }
 }) => (
   <>
     <p className={styles.text}>{companyName}</p>
     <div className={styles.container}>
-      <p className={styles.text}>{title}</p>
+      <p className={styles.text}>
+        {title}
+        {isInternship && <InternshipLabel className={styles.internshipLabel} />}
+      </p>
     </div>
     <div className={styles.careersContainer}>
       {careers ? <CareerList className={styles.careers} careers={careers} shorten={true} /> : <p />}

@@ -66,7 +66,12 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         <div className={styles.leftBodyContainer}>
           <p className={styles.description}>{offer?.description}</p>
           {sections.map(({ displayOrder, title, text }) => (
-            <SectionDetail key={displayOrder} title={title} text={text} />
+            <SectionDetail
+              className={styles.sectionDetail}
+              key={displayOrder}
+              title={title}
+              text={text}
+            />
           ))}
         </div>
         <div className={styles.rightBodyContainer}>
