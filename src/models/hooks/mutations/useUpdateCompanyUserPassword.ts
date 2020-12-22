@@ -13,7 +13,7 @@ interface IResponse {
   updatePassword: ICompanyUser;
 }
 
-interface IUpdateCompanyUserPasswordVariables {
+export interface IUpdateCompanyUserPasswordVariables {
   oldPassword: string;
   newPassword: string;
 }
