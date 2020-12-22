@@ -32,35 +32,37 @@ export const EditPassword: FunctionComponent<IComponentProps> = ({
     >
       {({ isSubmitting, errors }) => (
         <FormikForm id="editPasswordForm" hidden={hidden}>
-          <FormSection className={styles.formSection}>
-            <PasswordField
-              mandatory
-              className={styles.password}
-              name="oldPassword"
-              label={translations?.password || ""}
-              validate
-              autoComplete="current-password"
-            />
-            <div className={styles.confirmPasswordRow}>
-              <PasswordField
-                className={styles.newPassword}
-                mandatory
-                name="newPassword"
-                label={translations?.newPassword || ""}
-                validate
-                autoComplete="new-password"
-                withoutMargin
-              />
+          {translations && (
+            <FormSection className={styles.formSection}>
               <PasswordField
                 mandatory
-                name="newPasswordConfirm"
-                label={translations?.newPasswordConfirm || ""}
+                className={styles.password}
+                name="oldPassword"
+                label={translations.password}
                 validate
-                autoComplete="new-password"
-                withoutMargin
+                autoComplete="current-password"
               />
-            </div>
-          </FormSection>
+              <div className={styles.confirmPasswordRow}>
+                <PasswordField
+                  className={styles.newPassword}
+                  mandatory
+                  name="newPassword"
+                  label={translations.newPassword}
+                  validate
+                  autoComplete="new-password"
+                  withoutMargin
+                />
+                <PasswordField
+                  mandatory
+                  name="newPasswordConfirm"
+                  label={translations.newPasswordConfirm}
+                  validate
+                  autoComplete="new-password"
+                  withoutMargin
+                />
+              </div>
+            </FormSection>
+          )}
           <FormFooter
             isSubmitting={isSubmitting}
             submitButtonText={translations?.submit}
