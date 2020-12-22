@@ -19,6 +19,10 @@ export interface IUserInput {
   surname: string;
 }
 
+export interface ICompanyUserInput extends IUserInput {
+  role: string;
+}
+
 export interface IFiubaUserInput extends IUserInput {
   dni: string;
 }

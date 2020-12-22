@@ -1,7 +1,7 @@
 import { SAVE_COMPANY_USER } from "$mutations";
 import { useMutation } from "$hooks";
 import { ICompanyUser } from "$interfaces/CompanyUser";
-import { IUserInput } from "$interfaces/User";
+import { ICompanyUserInput } from "$interfaces/User";
 
 export const useSaveCompanyUser = () => {
   const { mutation, ...result } = useMutation<ISaveCompanyUserInput, IResponseProps>(
@@ -15,5 +15,5 @@ interface IResponseProps {
 }
 
 export interface ISaveCompanyUserInput {
-  user: IUserInput;
+  user: ICompanyUserInput;
 }

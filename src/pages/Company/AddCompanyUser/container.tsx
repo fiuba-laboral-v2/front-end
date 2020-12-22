@@ -45,7 +45,8 @@ export const AddCompanyUserContainer: FunctionComponent = () => {
             password: "",
             passwordConfirm: "",
             name: "",
-            surname: ""
+            surname: "",
+            role: ""
           },
           _form: ""
         }}

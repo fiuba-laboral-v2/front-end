@@ -1,24 +1,30 @@
 @import "$styles/_variables";
 
 .firstRow,
-.secondRow {
+.secondRow,
+.thirdRow {
   display: flex;
   margin-bottom: $spacing-m;
 }
 
 div.name,
-div.password {
+div.password,
+div.email,
+div.role {
   margin: 0 $spacing-xxl 0 0;
 }
 
 @media (max-width: $laptopWidth) {
   .firstRow,
-  .secondRow {
+  .secondRow,
+  .thirdRow {
     flex-direction: column;
   }
 
   div.name,
-  div.password {
+  div.password,
+  div.email,
+  div.role {
     margin-bottom: $spacing-m;
   }
 }
