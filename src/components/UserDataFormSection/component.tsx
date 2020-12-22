@@ -38,7 +38,6 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
       />
       <PasswordField
         mandatory
-        className={styles.passwordConfirm}
         name="user.passwordConfirm"
         label={translations.passwordConfirm}
         validate
@@ -55,13 +54,7 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         helperText={translations.emailClarification}
         withoutMargin
       />
-      <TextField
-        mandatory
-        className={styles.position}
-        name="user.position"
-        label={translations.position}
-        withoutMargin
-      />
+      <TextField mandatory name="user.position" label={translations.position} withoutMargin />
     </div>
   </FormSection>
 );

@@ -9,8 +9,7 @@
 
 div.name,
 div.password,
-div.email,
-div.position {
+div.email {
   margin: 0 $spacing-xxl 0 0;
 }
 
@@ -23,8 +22,7 @@ div.position {
 
   div.name,
   div.password,
-  div.email,
-  div.position {
+  div.email {
     margin-bottom: $spacing-m;
   }
 }
