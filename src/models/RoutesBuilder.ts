@@ -6,6 +6,7 @@ const APPLICATIONS = "postulaciones";
 const OFFERS = "ofertas";
 const PROFILE = "perfil";
 const SIGN_UP = "registro";
+const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
 const EDIT = "editar";
 const CREATE = "crear";
@@ -39,7 +40,9 @@ export const RoutesBuilder = {
 
     notifications: () => adminRoute(NOTIFICATIONS),
 
-    signUp: () => adminRoute(SIGN_UP)
+    signUp: () => adminRoute(SIGN_UP),
+
+    settings: () => adminRoute(SETTINGS)
   },
 
   applicant: {

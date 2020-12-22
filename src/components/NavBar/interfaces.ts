@@ -10,6 +10,7 @@ export interface INavBarTranslations {
   jobApplications: string;
   createOffer: string;
   notifications: string;
+  settings: string;
   tasks: string;
   signUp: string;
   logOut: string;

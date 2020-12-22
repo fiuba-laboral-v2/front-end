@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { EmailField, NameField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
 import { IComponent } from "./interfaces";
-import { PositiveNumberField } from "$components/Fields";
+import { PositiveIntegerField } from "$components/Fields";
 import styles from "./styles.module.scss";
 
 export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
@@ -37,7 +37,7 @@ export const PersonalInformationFormSection: FunctionComponent<IComponent> = ({
         withoutMargin
       />
       {!withoutPadron && (
-        <PositiveNumberField
+        <PositiveIntegerField
           className={styles.padron}
           mandatory
           name="padron"

@@ -8,4 +8,4 @@ export { SalaryField } from "./SalaryField";
 export { TextField } from "./TextField";
 export { SelectField } from "./SelectField";
 export { NumberField } from "./NumberField";
-export { PositiveNumberField } from "./NumberField/PositiveNumberField";
+export { PositiveIntegerField } from "./NumberField/PositiveIntegerField";
