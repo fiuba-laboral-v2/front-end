@@ -11,6 +11,18 @@
   margin-bottom: 25px;
 }
 
+.sectionTitle {
+  font-size: $fontSize-xl;
+}
+
+.sectionContainer {
+  margin-top: $spacing-xxl;
+}
+
+.sectionDetail {
+  margin-top: $spacing-m;
+}
+
 .headline {
   display: flex;
   flex-direction: column;

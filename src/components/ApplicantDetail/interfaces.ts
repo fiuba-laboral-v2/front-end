@@ -4,6 +4,8 @@ import { ReactElement } from "react";
 export interface ITranslations {
   padron: string;
   capabilities: string;
+  experienceSectionsTitle: string;
+  knowledgeSectionsTitle: string;
 }
 
 export interface IApplicantDetailContainerProps {
