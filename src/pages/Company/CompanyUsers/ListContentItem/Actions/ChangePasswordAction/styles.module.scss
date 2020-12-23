@@ -1,0 +1,11 @@
+@import "$styles/_variables";
+
+.button {
+  background-color: $mainBlue;
+  border: 1px solid $mainBlue;
+  border-radius: $borderRadius-s;
+}
+
+.icon {
+  color: $white;
+}

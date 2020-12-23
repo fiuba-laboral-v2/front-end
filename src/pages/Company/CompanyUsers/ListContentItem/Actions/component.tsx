@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import Tooltip from "@material-ui/core/Tooltip";
+import { ChangePasswordAction } from "./ChangePasswordAction";
 import { IComponentProps } from "./interfaces";
 
 export const Actions: FunctionComponent<IComponentProps> = ({
@@ -11,9 +10,10 @@ export const Actions: FunctionComponent<IComponentProps> = ({
 }) => (
   <div className={className}>
     {!hideChangePasswordIcon() && (
-      <Tooltip title={translations.passwordTooltipMessage}>
-        <VpnKeyIcon fontSize="small" onClick={onClickChangePasswordIcon} />
-      </Tooltip>
+      <ChangePasswordAction
+        onClickChangePasswordIcon={onClickChangePasswordIcon}
+        tooltipMessage={translations.passwordTooltipMessage}
+      />
     )}
   </div>
 );
