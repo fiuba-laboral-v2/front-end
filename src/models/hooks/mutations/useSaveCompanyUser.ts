@@ -21,10 +21,11 @@ export const useSaveCompanyUser = () => {
         cache.modify({
           fields: {
             getCompanyUsers: (existingCompanyUsers: IPaginatedResult<ICompanyUser>) => {
-              const newTodoRef = cache.writeQuery({
+              if (!data) return;
+              const newRef = cache.writeQuery({
                 data: {
                   getCompanyUsers: {
-                    results: data?.saveCompanyUser,
+                    results: data.saveCompanyUser,
                     shouldFetchMore: true
                   }
                 },
@@ -33,7 +34,7 @@ export const useSaveCompanyUser = () => {
               return {
                 ...existingCompanyUsers,
                 results: {
-                  newTodoRef,
+                  newRef,
                   ...existingCompanyUsers.results
                 }
               };
