@@ -1,13 +1,14 @@
 mutation SaveAdmin($user: UserInput!, $secretary: Secretary!) {
   saveAdmin(user: $user, secretary: $secretary) {
     uuid
+    updatedAt
+    createdAt
+    secretary
     user {
       uuid
       email
-      dni
       name
       surname
     }
-    secretary
   }
 }

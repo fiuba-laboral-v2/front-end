@@ -3,6 +3,9 @@ mutation SaveCompanyUser($user: CompanyUserCreateInput!) {
     uuid
     companyUuid
     userUuid
+    createdAt
+    updatedAt
+    position
     user {
       uuid
       email
