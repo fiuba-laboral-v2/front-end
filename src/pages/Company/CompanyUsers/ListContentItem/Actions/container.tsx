@@ -13,7 +13,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ companyUs
   if (!translations) return <Fragment />;
 
   const hideChangePasswordIcon = () =>
-    currentUserResponse.data?.getCurrentUser?.uuid !== companyUser.userUuid;
+    currentUserResponse.data.getCurrentUser?.uuid !== companyUser.userUuid;
 
   const onClickChangePasswordIcon = () => history.push(RoutesBuilder.company.editPassword());
 
