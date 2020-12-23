@@ -92,7 +92,7 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
-    editPassword: () => companyRoute(USERS, EDIT, PASSWORD)
+    editPassword: () => companyRoute(PASSWORD, EDIT)
   },
 
   public: {
