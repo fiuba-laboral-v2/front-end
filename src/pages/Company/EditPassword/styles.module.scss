@@ -1,0 +1,24 @@
+@import "$styles/_variables";
+
+.formSection {
+  margin-bottom: $spacing-xl;
+}
+
+.confirmPasswordRow {
+  display: flex;
+  margin-bottom: $spacing-m;
+}
+
+div.newPassword {
+  margin: 0 $spacing-xxl 0 0;
+}
+
+@media (max-width: $laptopWidth) {
+  .confirmPasswordRow {
+    flex-direction: column;
+  }
+
+  div.newPassword {
+    margin-bottom: $spacing-m;
+  }
+}

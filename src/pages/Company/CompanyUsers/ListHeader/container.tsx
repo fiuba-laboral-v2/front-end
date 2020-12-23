@@ -12,4 +12,5 @@ export interface ITranslations {
   email: string;
   position: string;
   createdAt: string;
+  actions: string;
 }

@@ -13,6 +13,7 @@ const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
+const PASSWORD = "contraseña";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -89,7 +90,9 @@ export const RoutesBuilder = {
 
     users: () => companyRoute(USERS),
 
-    createUser: () => companyRoute(USERS, CREATE)
+    createUser: () => companyRoute(USERS, CREATE),
+
+    editPassword: () => companyRoute(PASSWORD, EDIT)
   },
 
   public: {
