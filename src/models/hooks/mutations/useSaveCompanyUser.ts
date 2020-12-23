@@ -20,24 +20,17 @@ export const useSaveCompanyUser = () => {
       update: (cache, { data }) => {
         cache.modify({
           fields: {
-            getCompanyUsers: (existingCompanyUsers: IPaginatedResult<ICompanyUser>) => {
-              if (!data) return;
-              const newRef = cache.writeQuery({
+            getCompanyUsers: async (existingCompanyUsers: IPaginatedResult<ICompanyUser>) => {
+              await cache.writeQuery({
                 data: {
                   getCompanyUsers: {
-                    results: data.saveCompanyUser,
+                    results: [data?.saveCompanyUser],
                     shouldFetchMore: true
                   }
                 },
                 query: GET_COMPANY_USERS
               });
-              return {
-                ...existingCompanyUsers,
-                results: {
-                  newRef,
-                  ...existingCompanyUsers.results
-                }
-              };
+              return existingCompanyUsers;
             }
           }
         });

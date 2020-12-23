@@ -19,24 +19,17 @@ export const useSaveAdmin = () => {
       update: (cache, { data }) => {
         cache.modify({
           fields: {
-            getAdmins: (existingAdmins: IPaginatedResult<IAdmin>) => {
-              if (!data) return;
-              const newAdminRef = cache.writeQuery({
+            getAdmins: async (existingAdmins: IPaginatedResult<IAdmin>) => {
+              await cache.writeQuery({
                 data: {
                   getAdmins: {
-                    results: data.saveAdmin,
-                    shouldFetchMore: true
+                    shouldFetchMore: true,
+                    results: [data?.saveAdmin]
                   }
                 },
                 query: GET_ADMINS
               });
-              return {
-                ...existingAdmins,
-                results: {
-                  newAdminRef,
-                  ...existingAdmins.results
-                }
-              };
+              return existingAdmins;
             }
           }
         });
