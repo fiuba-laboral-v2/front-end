@@ -1,6 +1,6 @@
 import { UPDATE_COMPANY_USER_PASSWORD } from "$mutations";
 import { useMutation } from "$hooks";
-import { ICompanyUser } from "../../../interfaces/CompanyUser";
+import { ICompanyUser } from "$interfaces/CompanyUser";
 
 export const useUpdateCompanyUserPassword = () => {
   const { mutation, ...result } = useMutation<IUpdateCompanyUserPasswordVariables, IResponse>(
