@@ -5,12 +5,14 @@ import { Form } from "$components/Form";
 import { ISettingsTranslations } from "./interfaces";
 import { SecretarySettingsFormSection } from "./SecretarySettingsFormSection";
 import { IAdminSettings } from "$interfaces/AdminSettings";
+import { InfoMessage } from "$components/InfoMessage";
 
 export const Settings: FunctionComponent<ISettingsProps> = ({
   translations,
   formikProps: { isSubmitting, errors }
 }) => (
   <Form title={translations?.title}>
+    <InfoMessage message={translations?.infoMessage} />
     {translations && <SecretarySettingsFormSection {...{ translations }} />}
     <FormFooter
       isSubmitting={isSubmitting}

@@ -4,4 +4,5 @@ export interface ISettingsTranslations extends ISecretarySettingsFormSectionTran
   title: string;
   submit: string;
   updateSuccess: string;
+  infoMessage: string;
 }
