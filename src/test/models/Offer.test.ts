@@ -63,6 +63,114 @@ describe("CurrentUser", () => {
     expect(offer.hasApplied).toBe(true);
   });
 
+  describe("has a method isApprovedFor", () => {
+    describe("when the secretary of graduados is pass", () => {
+      it("returns true if graduadosApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(true);
+      });
+
+      it("returns false if graduadosApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns false if graduadosApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(false);
+      });
+    });
+
+    describe("when the secretary of extension is pass", () => {
+      it("returns true if extensionApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(true);
+      });
+
+      it("returns false if extensionApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns false if extensionApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(false);
+      });
+    });
+  });
+
+  describe("has a method isRejectedFor", () => {
+    describe("when the secretary of graduados is pass", () => {
+      it("returns false if graduadosApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns false if graduadosApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns true if graduadosApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(true);
+      });
+    });
+
+    describe("when the secretary of extension is pass", () => {
+      it("returns false if extensionApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns false if extensionApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns true if extensionApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(true);
+      });
+    });
+  });
+
   describe("has a method isTargetingStudents", () => {
     it("returns false if is not targeting students", () => {
       const offer = Offer(offerAttributes);

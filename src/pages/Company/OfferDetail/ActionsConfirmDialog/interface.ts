@@ -1,4 +1,5 @@
 import { IOffer } from "$interfaces/Offer";
+import { ReactNode } from "react";
 
 interface IActionsConfirmDialogBaseProps {
   confirmRepublishIsOpen: boolean;
@@ -15,6 +16,8 @@ export interface IActionsConfirmDialogContainerProps extends IActionsConfirmDial
 export interface IActionsConfirmDialogProps extends IActionsConfirmDialogBaseProps {
   onSubmitRepublish: () => void;
   onSubmitExpireOffer: () => void;
+  republishConfirmDialogDescription: ReactNode;
+  expireConfirmDialogDescription: ReactNode;
   translations: ITranslations;
 }
 export interface ITranslations {

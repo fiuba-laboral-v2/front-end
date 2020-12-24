@@ -10,6 +10,8 @@ export const ActionsConfirmDialog: FunctionComponent<IActionsConfirmDialogProps>
   onSubmitExpireOffer,
   closeRepublishDialog,
   closeExpireOfferDialog,
+  republishConfirmDialogDescription,
+  expireConfirmDialogDescription,
   translations
 }) => (
   <>
@@ -20,7 +22,7 @@ export const ActionsConfirmDialog: FunctionComponent<IActionsConfirmDialogProps>
       translations={{
         confirmDialogTitle: translations.confirmRepublishTitle,
         confirmDialogConfirm: translations.confirmRepublishConfirm,
-        confirmDialogDescription: translations.confirmRepublishDescription,
+        confirmDialogDescription: republishConfirmDialogDescription,
         confirmDialogCancel: translations.confirmRepublishCancel
       }}
     />
@@ -31,7 +33,7 @@ export const ActionsConfirmDialog: FunctionComponent<IActionsConfirmDialogProps>
       translations={{
         confirmDialogTitle: translations.confirmExpireTitle,
         confirmDialogConfirm: translations.confirmExpireConfirm,
-        confirmDialogDescription: translations.confirmExpireDescription,
+        confirmDialogDescription: expireConfirmDialogDescription,
         confirmDialogCancel: translations.confirmExpireCancel
       }}
     />

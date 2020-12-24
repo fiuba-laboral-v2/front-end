@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@material-ui/core";
 import { Button, ButtonKind, ButtonType } from "$components/Button";
 import { DialogTitle } from "../DialogTitle";
@@ -45,7 +45,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
 
 export interface IConfirmDialogTranslations {
   confirmDialogTitle: string;
-  confirmDialogDescription: string;
+  confirmDialogDescription: string | ReactNode;
   confirmDialogCancel: string;
   confirmDialogConfirm: string;
 }

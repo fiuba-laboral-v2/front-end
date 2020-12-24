@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { useExtensionOfferDuration, useGraduadosOfferDuration, useTranslations } from "$hooks";
+import { useTranslations } from "$hooks";
 
 import { IActionsContainerProps, ITranslations } from "./interface";
 import { Actions } from "./component";
@@ -8,7 +8,8 @@ import { Secretary } from "$interfaces/Secretary";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { ReactElement } from "react";
-import { TimeFormatter } from "$models/TimeFormatter";
+import { OfferFutureState } from "../OfferFutureState";
+import { OfferFutureStateMessage } from "../OfferFutureState/interface";
 
 export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({
   offer,
@@ -17,8 +18,6 @@ export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({
 }) => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("offerDetailActions");
-  const studentsOfferDuration = useExtensionOfferDuration();
-  const graduatesOfferDuration = useGraduadosOfferDuration();
 
   const targetStudents = offer.isTargetingStudents() || offer.isTargetingBoth();
   const targetGraduates = offer.isTargetingGraduates() || offer.isTargetingBoth();
@@ -43,49 +42,24 @@ export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({
   const handleEdit = () => offer && history.push(RoutesBuilder.company.editOffer(offer.uuid));
 
   const republishTooltipMessage = (() => {
-    const message = [];
     if (!showRepublishButton) return "";
-    if (canRepublishForStudents() && studentsOfferDuration) {
-      message.push(
-        `${translations?.tooltipRepublishStudents} ${TimeFormatter.daysFromNowInDate(
-          studentsOfferDuration
-        )}`
-      );
-    }
-    if (canRepublishForGraduates() && graduatesOfferDuration) {
-      message.push(
-        `${translations?.tooltipRepublishGraduates} ${TimeFormatter.daysFromNowInDate(
-          graduatesOfferDuration
-        )}`
-      );
-    }
+
     return (
-      <div>
-        {message[0]}
-        {message.length === 2 && (
-          <>
-            <br />
-            {message[1]}
-          </>
-        )}
-      </div>
+      <OfferFutureState
+        canForGraduates={canRepublishForGraduates()}
+        canForStudents={canRepublishForStudents()}
+        offerFutureMessage={OfferFutureStateMessage.republish}
+      />
     );
   })() as ReactElement<string>;
   const expireTooltipMessage = (() => {
-    const message = [];
     if (!showExpireButton) return "";
-    if (canExpireForStudents()) message.push(`${translations?.tooltipExpireStudents}`);
-    if (canExpireForGraduates()) message.push(`${translations?.tooltipExpireGraduates}`);
     return (
-      <div>
-        {message[0]}
-        {message.length === 2 && (
-          <>
-            <br />
-            {message[1]}
-          </>
-        )}
-      </div>
+      <OfferFutureState
+        canForGraduates={canExpireForGraduates()}
+        canForStudents={canExpireForStudents()}
+        offerFutureMessage={OfferFutureStateMessage.expire}
+      />
     );
   })() as ReactElement<string>;
 
