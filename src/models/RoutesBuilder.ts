@@ -8,6 +8,7 @@ const PROFILE = "perfil";
 const SIGN_UP = "registro";
 const LOGIN = "iniciar-sesion";
 const EDIT = "editar";
+const RECOVER = "recuperar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
@@ -92,7 +93,9 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
-    editPassword: () => companyRoute(PASSWORD, EDIT)
+    editPassword: () => companyRoute(PASSWORD, EDIT),
+
+    editMyForgottenPassword: (token: string) => companyRoute(PASSWORD, RECOVER, token)
   },
 
   public: {

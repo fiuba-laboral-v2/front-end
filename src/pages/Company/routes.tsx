@@ -13,6 +13,7 @@ import { Notifications } from "./Notifications";
 import { CompanyUsers } from "./CompanyUsers";
 import { AddCompanyUser } from "./AddCompanyUser";
 import { EditPassword } from "./EditPassword";
+import { EditMyForgottenPassword } from "./EditMyForgottenPassword";
 
 const {
   signUp,
@@ -28,7 +29,8 @@ const {
   notifications,
   users,
   createUser,
-  editPassword
+  editPassword,
+  editMyForgottenPassword
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -45,5 +47,6 @@ export const CompanyRoutes = [
   { path: notifications(), component: Notifications },
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
-  { path: editPassword(), component: EditPassword }
+  { path: editPassword(), component: EditPassword },
+  { path: editMyForgottenPassword(":token"), component: EditMyForgottenPassword }
 ];
