@@ -13,6 +13,7 @@
     "scss/dollar-variable-pattern": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$",
     "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
     "max-nesting-depth": 3,
-    "string-quotes": "double"
+    "string-quotes": "double",
+    "function-name-case": null
   }
 }
