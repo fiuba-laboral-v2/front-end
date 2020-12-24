@@ -14,7 +14,7 @@ const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
-const PASSWORD = "contraseña";
+const PASSWORD = "contrasena";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
