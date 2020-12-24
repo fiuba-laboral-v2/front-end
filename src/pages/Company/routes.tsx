@@ -1,3 +1,4 @@
+import React from "react";
 import { Profile } from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { SignUp } from "./SignUp";
@@ -48,5 +49,11 @@ export const CompanyRoutes = [
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
   { path: editPassword(), component: EditPassword },
-  { path: editMyForgottenPassword(":token"), component: EditMyForgottenPassword, public: true }
+  {
+    path: editMyForgottenPassword(),
+    component: (props: { location: Location }) => (
+      <EditMyForgottenPassword searchQuery={props.location.search} />
+    ),
+    public: true
+  }
 ];

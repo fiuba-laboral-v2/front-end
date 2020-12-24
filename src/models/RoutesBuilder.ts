@@ -95,7 +95,8 @@ export const RoutesBuilder = {
 
     editPassword: () => companyRoute(PASSWORD, EDIT),
 
-    editMyForgottenPassword: (token: string) => companyRoute(PASSWORD, RECOVER, token)
+    editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
+      `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`
   },
 
   public: {

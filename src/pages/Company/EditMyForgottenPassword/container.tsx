@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useTranslations, useUpdateMyForgottenPassword } from "$hooks";
 
@@ -8,10 +9,11 @@ import { Window } from "$components/Window";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 import { IFormValues, ITranslations } from "./interfaces";
-import { RoutesBuilder } from "$models/RoutesBuilder";
 
-export const EditMyForgottenPasswordContainer: FunctionComponent = () => {
-  const { token } = useParams<{ token: string }>();
+export const EditMyForgottenPasswordContainer: FunctionComponent<IContainerProps> = ({
+  searchQuery
+}) => {
+  const token = new URLSearchParams(searchQuery).get("token") as string;
   const history = useHistory();
   const { updateMyForgottenPassword } = useUpdateMyForgottenPassword();
   const translations = useTranslations<ITranslations>("editMyForgottenPassword");
@@ -49,3 +51,7 @@ export const EditMyForgottenPasswordContainer: FunctionComponent = () => {
     </Window>
   );
 };
+
+interface IContainerProps {
+  searchQuery: string;
+}
