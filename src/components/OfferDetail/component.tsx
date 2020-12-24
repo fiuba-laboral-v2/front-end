@@ -43,7 +43,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         <div className={styles.rightHeader}>
           <div className={styles.titleContainer}>
             <Title className={styles.title}>{offer?.title}</Title>
-            <div>{actions}</div>
+            {actions}
           </div>
           <Subtitle className={styles.companyName}>
             {goToCompany && <Link to={goToCompany}>{offer?.company.companyName}</Link>}

@@ -54,6 +54,7 @@ export interface IMyOfferAttributes extends IOfferAttributes {
 export interface IOffer extends IOfferAttributes {
   hasExpiredFor: (secretary: Secretary) => boolean;
   getExpirationDateFor: (secretary: Secretary) => Moment | null;
+  isRejectedFor: (secretary: Secretary) => boolean;
   isTargetingStudents: () => boolean;
   isTargetingGraduates: () => boolean;
   isTargetingBoth: () => boolean;

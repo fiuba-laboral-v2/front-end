@@ -1,0 +1,56 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_customMedia";
+@import "$styles/mixins/_mobileClass";
+
+.actionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 32%;
+}
+
+@mixin defaultActionsDisplay {
+  .secondActionRowContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .editButton {
+    width: 100%;
+  }
+
+  .expirationButton {
+    width: 48%;
+  }
+
+  .republishButton {
+    margin-right: $spacing-s;
+    white-space: pre-line;
+    width: 48%;
+  }
+}
+
+@include defaultActionsDisplay;
+
+@include customMedia {
+  .secondActionRowContainer {
+    flex-direction: column;
+  }
+
+  .republishButton {
+    margin-top: $spacing-s;
+    white-space: pre-line;
+    width: 100%;
+  }
+
+  .expirationButton {
+    margin-top: $spacing-s;
+    width: 100%;
+  }
+}
+
+@include mobileClass {
+  @include defaultActionsDisplay;
+}
