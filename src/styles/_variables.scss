@@ -9,12 +9,12 @@ $spacing-m: 14px;
 $spacing-s: 8px;
 $spacing-xs: 4px;
 
-$fontSize-xxxl: 36px;
-$fontSize-xxl: 30px;
-$fontSize-xl: 24px;
-$fontSize-l: 20px;
-$fontSize-m: 16px;
-$fontSize-s: 14px;
+$fontSize-xxxl: MIN(36px, 8vw);
+$fontSize-xxl: MIN(30px, 7.5vw);
+$fontSize-xl: MIN(24px, 6.5vw);
+$fontSize-l: MIN(20px, 6vw);
+$fontSize-m: MIN(16px, 6vw);
+$fontSize-s: MIN(14px, 6vw);
 
 $fontWeight-r: 400;
 $fontWeight-b: 600;
