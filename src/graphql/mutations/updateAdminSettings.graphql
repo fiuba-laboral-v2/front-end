@@ -1,0 +1,6 @@
+mutation updateAdminSettings($offerDurationInDays: Int!, $email: String!) {
+  updateAdminSettings(offerDurationInDays: $offerDurationInDays, email: $email) {
+    email
+    offerDurationInDays
+  }
+}

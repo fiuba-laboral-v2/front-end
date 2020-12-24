@@ -1,1 +1,1 @@
-export { InfoMessageContainer as InfoMessage } from "./container";
+export { InfoMessage } from "./component";

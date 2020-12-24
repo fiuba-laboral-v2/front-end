@@ -1,0 +1,6 @@
+query getAdminSettings {
+  getAdminSettings {
+    email
+    offerDurationInDays
+  }
+}

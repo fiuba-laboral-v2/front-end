@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Form } from "$components/Form";
-import { InfoMessage } from "$components/InfoMessage";
+import { OfferInfoMessage } from "$components/OfferInfoMessage";
 import { MainInformationFormSection } from "./MainInformationFormSection";
 import { DescriptionFormSection } from "./DescriptionFormSection";
 import { RecipientsFormSection } from "./RecipientsFormSection";
@@ -28,7 +28,7 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
       {formikProps => (
         <Form title={title} acceptanceCriteria={acceptanceCriteria}>
           <FormikForm initialValuesModel={offer} {...{ modelToValues, formikProps }}>
-            <InfoMessage translationGroupName={infoMessageTranslationGroup} />
+            <OfferInfoMessage translationGroupName={infoMessageTranslationGroup} />
             <MainInformationFormSection
               values={formikProps.values}
               className={styles.formSection}

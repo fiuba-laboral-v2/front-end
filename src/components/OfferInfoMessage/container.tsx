@@ -2,11 +2,11 @@ import React, { FunctionComponent } from "react";
 
 import { useExtensionOfferDuration, useGraduadosOfferDuration, useTranslations } from "$hooks";
 
-import { InfoMessage } from "./component";
-import { IInfoMessageContainerProps, ITranslations } from "./interfaces";
+import { InfoMessage } from "../InfoMessage/component";
+import { IInfoMessageContainerProps, ITranslations } from "../InfoMessage/interfaces";
 import { interpolateValues } from "$models/interpolateValues";
 
-export const InfoMessageContainer: FunctionComponent<IInfoMessageContainerProps> = ({
+export const OfferInfoMessageContainer: FunctionComponent<IInfoMessageContainerProps> = ({
   className,
   translationGroupName
 }) => {

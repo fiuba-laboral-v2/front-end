@@ -7,6 +7,7 @@ import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import { AdminNotificationIcon } from "$components/AdminNotificationIcon";
+import SettingsIcon from "@material-ui/icons/Settings";
 import HomeIcon from "@material-ui/icons/Home";
 
 const {
@@ -16,7 +17,8 @@ const {
   admins,
   offers,
   jobApplications,
-  notifications
+  notifications,
+  settings
 } = RoutesBuilder.admin;
 
 export const AdminNavBarLinks = {
@@ -55,6 +57,11 @@ export const AdminNavBarLinks = {
       path: notifications(),
       title: translations.notifications,
       icon: AdminNotificationIcon
+    },
+    {
+      path: settings(),
+      title: translations.settings,
+      icon: SettingsIcon
     }
   ]
 };
