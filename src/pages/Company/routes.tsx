@@ -48,5 +48,5 @@ export const CompanyRoutes = [
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
   { path: editPassword(), component: EditPassword },
-  { path: editMyForgottenPassword(":token"), component: EditMyForgottenPassword }
+  { path: editMyForgottenPassword(":token"), component: EditMyForgottenPassword, public: true }
 ];
