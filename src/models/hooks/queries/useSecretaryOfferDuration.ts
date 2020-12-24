@@ -7,7 +7,7 @@ import { Secretary } from "$interfaces/Secretary";
 export const useSecretaryOfferDuration = (secretary: Secretary) => {
   const history = useHistory();
 
-  const data = useQuery<{}, { getSecretaryOfferDuration: { offerDurationInDays: number } }>({
+  const data = useQuery<{}, { getSecretaryOfferDuration: number }>({
     query: GET_SECRETARY_OFFER_DURATION,
     variables: { secretary },
     errorHandlers: {
@@ -15,5 +15,5 @@ export const useSecretaryOfferDuration = (secretary: Secretary) => {
     }
   });
 
-  return data?.getSecretaryOfferDuration.offerDurationInDays;
+  return data?.getSecretaryOfferDuration;
 };

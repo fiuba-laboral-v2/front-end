@@ -11,7 +11,7 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     ...offerAttributes,
     hasExpiredFor: (secretary: Secretary) => {
       const expirationDate = offer.getExpirationDateFor(secretary);
-      if (!expirationDate || offer.isRejectedFor(secretary)) return false;
+      if (!expirationDate || !offer.isApprovedFor(secretary)) return false;
       return expirationDate.format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
     },
     getExpirationDateFor: (secretary: Secretary) => {
@@ -31,6 +31,10 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     isRejectedFor: (secretary: Secretary) => {
       const status = offer.getStatusFor(secretary);
       return status === ApprovalStatus.rejected;
+    },
+    isApprovedFor: (secretary: Secretary) => {
+      const status = offer.getStatusFor(secretary);
+      return status === ApprovalStatus.approved;
     },
     isTargetingStudents: () => offer.targetApplicantType === ApplicantType.student,
     isTargetingGraduates: () => offer.targetApplicantType === ApplicantType.graduate,

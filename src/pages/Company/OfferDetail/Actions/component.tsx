@@ -21,28 +21,18 @@ export const Actions: FunctionComponent<IActionsProps> = ({
     </Button>
     <div className={styles.secondActionRowContainer}>
       {showRepublishButton && (
-        <Tooltip
-          /*classes={{ tooltip: styles.tooltip }}*/ title={republishTooltipMessage}
-          placement="right"
-        >
-          <Button
-            className={styles.republishButton}
-            kind="secondary"
-            onClick={handleRepublishOffer}
-          >
-            {translations?.republish}
-          </Button>
-        </Tooltip>
+        <Button className={styles.republishButton} kind="secondary" onClick={handleRepublishOffer}>
+          <Tooltip title={republishTooltipMessage} placement="right">
+            <span>{translations?.republish}</span>
+          </Tooltip>
+        </Button>
       )}
       {showExpireButton && (
-        <Tooltip
-          /*classes={{ tooltip: styles.tooltip }}*/ title={expireTooltipMessage}
-          placement="right"
-        >
-          <Button className={styles.expirationButton} kind="danger" onClick={handleExpireOffer}>
-            {translations?.expire}
-          </Button>
-        </Tooltip>
+        <Button className={styles.expirationButton} kind="danger" onClick={handleExpireOffer}>
+          <Tooltip title={expireTooltipMessage} placement="right">
+            <span>{translations?.expire}</span>
+          </Tooltip>
+        </Button>
       )}
     </div>
   </div>
