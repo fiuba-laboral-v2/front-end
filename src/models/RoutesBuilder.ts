@@ -9,12 +9,13 @@ const SIGN_UP = "registro";
 const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
 const EDIT = "editar";
+const RECOVER = "recuperar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
-const PASSWORD = "contraseña";
+const PASSWORD = "contrasena";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -95,7 +96,10 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
-    editPassword: () => companyRoute(PASSWORD, EDIT)
+    editPassword: () => companyRoute(PASSWORD, EDIT),
+
+    editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
+      `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`
   },
 
   public: {
