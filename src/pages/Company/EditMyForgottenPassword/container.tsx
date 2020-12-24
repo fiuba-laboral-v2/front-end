@@ -35,7 +35,7 @@ export const EditMyForgottenPasswordContainer: FunctionComponent<IContainerProps
   };
 
   return (
-    <Window withoutNavBar alwaysHideNavbar>
+    <Window alwaysHideNavbar>
       {!translations && <LoadingSpinner />}
       <EditMyForgottenPassword
         hidden={!translations}
