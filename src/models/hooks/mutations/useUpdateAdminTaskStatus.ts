@@ -45,7 +45,7 @@ export const useUpdateAdminTaskStatus = ({
     setLoadingStatusUpdate,
     moderatorMessage
   }: IUpdateAdminTask) => {
-    setLoadingStatusUpdate(true);
+    if (setLoadingStatusUpdate) setLoadingStatusUpdate(true);
     const response = await mutation({
       variables: {
         uuid: uuid,
@@ -60,12 +60,12 @@ export const useUpdateAdminTaskStatus = ({
           }
         })
     });
-    setLoadingStatusUpdate(false);
+    if (setLoadingStatusUpdate) setLoadingStatusUpdate(false);
 
     if (response.error) return showError({ reloadPrompt: true });
 
     showSuccess({ message: successMessage(status, translations) });
-    onStatusUpdate();
+    if (onStatusUpdate) onStatusUpdate();
   };
 
   return { updateAdminTaskStatus, ...result };
@@ -75,13 +75,13 @@ interface IUseUpdateAdminTask {
   type: TAdminTaskType;
   documentNode: DocumentNode;
   approvalStatusAttribute: "graduadosApprovalStatus" | "extensionApprovalStatus" | "approvalStatus";
-  refetchAdminTasks: () => void;
+  refetchAdminTasks?: () => void;
 }
 
 interface IUpdateAdminTask {
   uuid: string;
   moderatorMessage?: string;
   status: ApprovalStatus;
-  onStatusUpdate: () => void;
-  setLoadingStatusUpdate: (loading: boolean) => void;
+  onStatusUpdate?: () => void;
+  setLoadingStatusUpdate?: (loading: boolean) => void;
 }

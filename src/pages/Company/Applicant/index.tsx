@@ -5,7 +5,7 @@ import { Window } from "$components/Window";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 
 export const Applicant: FunctionComponent = () => {
-  const { uuid } = useParams();
+  const { uuid } = useParams<{ uuid: string }>();
   const applicant = useApplicantByUuid(uuid);
 
   return (

@@ -7,9 +7,9 @@ import {
 } from "$interfaces/AdminTask";
 
 interface IBaseDetailInfoProps {
-  onStatusUpdate: () => void;
-  refetchAdminTasks: () => void;
-  setLoadingStatusUpdate: (loading: boolean) => void;
+  onStatusUpdate?: () => void;
+  refetchAdminTasks?: () => void;
+  setLoadingStatusUpdate?: (loading: boolean) => void;
 }
 
 export interface ICompanyDetailInfoContainerProps extends IBaseDetailInfoProps {
