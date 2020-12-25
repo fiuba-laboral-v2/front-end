@@ -3,8 +3,7 @@ import { Window } from "$models/Window";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-import { ApplicantDetailInfo } from "../components/Applicant/ApplicantDetailInfo";
-import { ApplicantDetailContent } from "../components/Applicant/ApplicantDetailContent";
+import { ApplicantDetailInfo, ApplicantDetailContent } from "../components/Applicant";
 import { Window as WindowComponent } from "$components/Window";
 
 export const ApplicantDetail: FunctionComponent = () => {
