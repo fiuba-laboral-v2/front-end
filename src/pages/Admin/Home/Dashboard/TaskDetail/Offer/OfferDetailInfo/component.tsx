@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { DetailInfo } from "../../DetailInfo";
+import { DetailInfo } from "../../../../../components/DetailInfo";
 import { OfferDetails } from "./OfferDetails";
 import { MainTitle } from "./MainTitle";
 import { IOffer } from "$interfaces/Offer";

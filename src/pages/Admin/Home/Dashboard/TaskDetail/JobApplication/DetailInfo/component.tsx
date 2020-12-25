@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IJobApplication } from "$interfaces/JobApplication";
-import { DetailInfo } from "../../DetailInfo";
+import { DetailInfo } from "../../../../../components/DetailInfo";
 import { UserDetails } from "../../Applicant/ApplicantDetailInfo/UserDetails";
 import { MainTitle } from "./MainTitle";
 
