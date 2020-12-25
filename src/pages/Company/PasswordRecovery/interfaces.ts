@@ -8,4 +8,5 @@ export interface ITranslations {
   title: string;
   submit: string;
   email: string;
+  emailHelperText: string;
 }

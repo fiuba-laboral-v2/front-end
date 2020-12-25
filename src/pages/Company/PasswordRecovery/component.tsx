@@ -23,7 +23,13 @@ export const PasswordRecovery: FunctionComponent<IComponentProps> = ({
         <FormikForm id="passwordRecovery" hidden={hidden}>
           {translations && (
             <FormSection className={styles.formSection}>
-              <EmailField mandatory name="email" label={translations.email} withoutMargin />
+              <EmailField
+                mandatory
+                name="email"
+                label={translations.email}
+                withoutMargin
+                helperText={translations.emailHelperText}
+              />
             </FormSection>
           )}
           <FormFooter
