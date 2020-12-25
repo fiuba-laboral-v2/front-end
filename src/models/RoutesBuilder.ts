@@ -16,6 +16,7 @@ const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
 const PASSWORD = "contrasena";
+const REQUEST = "solicitar";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -101,7 +102,9 @@ export const RoutesBuilder = {
     editPassword: () => companyRoute(PASSWORD, EDIT),
 
     editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
-      `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`
+      `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`,
+
+    passwordRecovery: () => companyRoute(PASSWORD, RECOVER, REQUEST)
   },
 
   public: {

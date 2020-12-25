@@ -15,6 +15,7 @@ import { CompanyUsers } from "./CompanyUsers";
 import { AddCompanyUser } from "./AddCompanyUser";
 import { EditPassword } from "./EditPassword";
 import { EditMyForgottenPassword } from "./EditMyForgottenPassword";
+import { PasswordRecovery } from "./PasswordRecovery";
 
 const {
   signUp,
@@ -31,7 +32,8 @@ const {
   users,
   createUser,
   editPassword,
-  editMyForgottenPassword
+  editMyForgottenPassword,
+  passwordRecovery
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -49,6 +51,7 @@ export const CompanyRoutes = [
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
   { path: editPassword(), component: EditPassword },
+  { path: passwordRecovery(), component: PasswordRecovery, public: true },
   {
     path: editMyForgottenPassword(),
     component: (props: { location: Location }) => (
