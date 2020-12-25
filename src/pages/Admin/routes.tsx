@@ -7,6 +7,7 @@ import { JobApplications } from "./JobApplications";
 import { Notifications } from "./Notifications";
 import { SignUp } from "./SignUp";
 import { Settings } from "./Settings";
+import { ApplicantDetail } from "./ApplicantDetail";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -18,7 +19,8 @@ const {
   jobApplications,
   notifications,
   signUp,
-  settings
+  settings,
+  applicantDetail
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -30,5 +32,6 @@ export const AdminRoutes = [
   { path: jobApplications(), component: JobApplications },
   { path: notifications(), component: Notifications },
   { path: signUp(), component: SignUp },
-  { path: settings(), component: Settings }
+  { path: settings(), component: Settings },
+  { path: applicantDetail(":uuid"), component: ApplicantDetail }
 ];
