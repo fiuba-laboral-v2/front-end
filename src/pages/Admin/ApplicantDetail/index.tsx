@@ -3,6 +3,7 @@ import { useApplicantByUuid } from "$hooks";
 import { Window } from "$models/Window";
 import { useParams } from "react-router-dom";
 import { APPLICANT } from "$typenames";
+import styles from "./styles.module.scss";
 
 import { ApplicantDetailInfo } from "../Home/Dashboard/TaskDetail/Applicant/ApplicantDetailInfo";
 import { ApplicantDetailContent } from "../Home/Dashboard/TaskDetail/Applicant/ApplicantDetailContent";
@@ -19,7 +20,7 @@ export const ApplicantDetail: FunctionComponent = () => {
           onStatusUpdate={Window.reload}
         />
       )}
-      <ApplicantDetailContent applicantUuid={uuid} />
+      <ApplicantDetailContent className={styles.content} applicantUuid={uuid} />
     </WindowComponent>
   );
 };
