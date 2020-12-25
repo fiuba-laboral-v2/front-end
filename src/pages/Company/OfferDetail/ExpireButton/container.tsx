@@ -6,7 +6,7 @@ import { IExpireButtonContainerProps } from "./interface";
 import { ActionButton } from "../ActionButton";
 import { IActionButtonTranslations } from "../ActionButton/interface";
 import { ExpireStateDescription } from "./ExpireStateDescription";
-import { formErrorHandlers } from "$errorhandlers/formErrorHandlers";
+import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 
 export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProps> = ({
   offer,
