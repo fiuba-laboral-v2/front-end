@@ -36,9 +36,23 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
       const status = offer.getStatusFor(secretary);
       return status === ApprovalStatus.approved;
     },
-    isTargetingStudents: () => offer.targetApplicantType === ApplicantType.student,
-    isTargetingGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
-    isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both
+    isTargetingOnlyStudents: () => offer.targetApplicantType === ApplicantType.student,
+    isTargetingOnlyGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
+    isTargetingStudents: () => offer.isTargetingOnlyStudents() || offer.isTargetingBoth(),
+    isTargetingGraduates: () => offer.isTargetingOnlyGraduates() || offer.isTargetingBoth(),
+    isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both,
+    canExpireForStudents: () =>
+      offer.isTargetingStudents() &&
+      !offer.isRejectedFor(Secretary.extension) &&
+      !offer.hasExpiredFor(Secretary.extension),
+    canExpireForGraduates: () =>
+      offer.isTargetingGraduates() &&
+      !offer.hasExpiredFor(Secretary.graduados) &&
+      !offer.isRejectedFor(Secretary.graduados),
+    canRepublishForStudents: () =>
+      offer.isTargetingStudents() && offer.hasExpiredFor(Secretary.extension),
+    canRepublishForGraduates: () =>
+      offer.isTargetingGraduates() && offer.hasExpiredFor(Secretary.graduados)
   };
   return offer;
 };

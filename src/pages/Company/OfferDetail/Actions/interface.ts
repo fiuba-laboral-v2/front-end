@@ -1,22 +1,13 @@
 import { IOffer } from "$interfaces/Offer";
-import { ReactElement } from "react";
 
-interface IActionsBaseProps {
-  handleRepublishOffer: () => void;
-  handleExpireOffer: () => void;
-}
-
-export interface IActionsContainerProps extends IActionsBaseProps {
+export interface IActionsContainerProps {
   offer: IOffer;
+  refetch: () => void;
 }
 
-export interface IActionsProps extends IActionsBaseProps {
+export interface IActionsProps extends IActionsContainerProps {
   translations: ITranslations;
   handleEdit: () => void;
-  showRepublishButton: boolean;
-  showExpireButton: boolean;
-  republishTooltipMessage: ReactElement<string>;
-  expireTooltipMessage: ReactElement<string>;
 }
 
 export interface ITranslations {

@@ -49,8 +49,8 @@ describe("CurrentUser", () => {
 
     expect(offer).toMatchObject(offerAttributes);
     expect(offer.isTargetingBoth()).toBe(true);
-    expect(offer.isTargetingGraduates()).toBe(false);
-    expect(offer.isTargetingStudents()).toBe(false);
+    expect(offer.isTargetingOnlyGraduates()).toBe(false);
+    expect(offer.isTargetingOnlyStudents()).toBe(false);
   });
 
   it("returns a valid MyOffer", () => {
@@ -172,30 +172,42 @@ describe("CurrentUser", () => {
   });
 
   describe("has a method isTargetingStudents", () => {
-    it("returns false if is not targeting students", () => {
-      const offer = Offer(offerAttributes);
+    it("returns true if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
-      expect(offer.isTargetingStudents()).toBe(false);
+      expect(offer.isTargetingStudents()).toBe(true);
     });
 
-    it("returns true if is targeting students", () => {
+    it("returns true if targetApplicantType is student", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
 
       expect(offer.isTargetingStudents()).toBe(true);
     });
+
+    it("returns false if targetApplicantType is graduate", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.isTargetingStudents()).toBe(false);
+    });
   });
 
   describe("has a method isTargetingGraduates", () => {
-    it("returns false if is not targeting graduates", () => {
-      const offer = Offer(offerAttributes);
+    it("returns true if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
-      expect(offer.isTargetingGraduates()).toBe(false);
+      expect(offer.isTargetingGraduates()).toBe(true);
     });
 
-    it("returns true if is targeting graduates", () => {
+    it("returns true if targetApplicantType is graduate", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
 
       expect(offer.isTargetingGraduates()).toBe(true);
+    });
+
+    it("returns false if targetApplicantType is student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.isTargetingGraduates()).toBe(false);
     });
   });
 

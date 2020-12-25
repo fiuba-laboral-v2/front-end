@@ -56,7 +56,13 @@ export interface IOffer extends IOfferAttributes {
   getExpirationDateFor: (secretary: Secretary) => Moment | null;
   isRejectedFor: (secretary: Secretary) => boolean;
   isApprovedFor: (secretary: Secretary) => boolean;
+  isTargetingOnlyStudents: () => boolean;
+  isTargetingOnlyGraduates: () => boolean;
   isTargetingStudents: () => boolean;
   isTargetingGraduates: () => boolean;
   isTargetingBoth: () => boolean;
+  canExpireForStudents: () => boolean;
+  canExpireForGraduates: () => boolean;
+  canRepublishForStudents: () => boolean;
+  canRepublishForGraduates: () => boolean;
 }
