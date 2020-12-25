@@ -12,10 +12,4 @@ export interface IActionsProps extends IActionsContainerProps {
 
 export interface ITranslations {
   edit: string;
-  expire: string;
-  republish: string;
-  tooltipRepublishStudents: string;
-  tooltipRepublishGraduates: string;
-  tooltipExpireStudents: string;
-  tooltipExpireGraduates: string;
 }

@@ -8,7 +8,7 @@ import { Actions } from "./component";
 
 export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({ offer, refetch }) => {
   const history = useHistory();
-  const translations = useTranslations<ITranslations>("offerDetailActions");
+  const translations = useTranslations<ITranslations>("offerDetailEdit");
 
   const handleEdit = () => offer && history.push(RoutesBuilder.company.editOffer(offer.uuid));
 
