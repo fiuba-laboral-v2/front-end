@@ -47,7 +47,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       }
       recoverPasswordLink={
         translations && (
-          <Link to={RoutesBuilder.company.login()}>{translations.recoverPassword}</Link>
+          <Link to={RoutesBuilder.company.passwordRecovery()}>{translations.recoverPassword}</Link>
         )
       }
       switchLoginFormLink={

@@ -15,3 +15,4 @@ export * from "./useSaveAdmin";
 export * from "./useSaveCompanyUser";
 export * from "./useUpdateCompanyUserPassword";
 export * from "./useUpdateMyForgottenPassword";
+export * from "./useSendPasswordRecoveryEmail";

@@ -1,5 +1,6 @@
 import { loader } from "graphql.macro";
 
+const SEND_PASSWORD_RECOVERY_EMAIL = loader("./sendPasswordRecoveryEmail.graphql");
 const UPDATE_MY_FORGOTTEN_PASSWORD = loader("./updateMyForgottenPassword.graphql");
 const UPDATE_COMPANY_USER_PASSWORD = loader("./updatePassword.graphql");
 const SAVE_COMPANY_USER = loader("./saveCompanyUser.graphql");
@@ -24,6 +25,7 @@ const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
 const EXPIRE_OFFER = loader("./expireOffer.graphql");
 
 export {
+  SEND_PASSWORD_RECOVERY_EMAIL,
   UPDATE_MY_FORGOTTEN_PASSWORD,
   UPDATE_COMPANY_USER_PASSWORD,
   SAVE_COMPANY_USER,
