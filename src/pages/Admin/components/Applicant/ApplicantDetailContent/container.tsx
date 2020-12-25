@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 import { useApplicantByUuid } from "$hooks/queries";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContentContainerProps> = ({
   applicantUuid,

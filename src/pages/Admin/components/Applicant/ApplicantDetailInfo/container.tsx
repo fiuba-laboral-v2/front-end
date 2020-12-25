@@ -5,7 +5,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 import { APPLICANT } from "$typenames";
-import { IApplicantDetailInfoContainerProps } from "../../interfaces";
+import { IApplicantDetailInfoContainerProps } from "../../../Home/Dashboard/TaskDetail/interfaces";
 
 export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInfoContainerProps> = ({
   refetchAdminTasks,
