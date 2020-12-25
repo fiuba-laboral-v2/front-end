@@ -26,27 +26,28 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
 
   let children = <EmptyDetail />;
   if (selectedTask) {
+    const selectedTaskUuid = selectedTask.uuid;
     children = (
       <>
         <div className={styles.info}>
           {selectedTask.__typename === COMPANY && (
             <CompanyDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === APPLICANT && (
             <ApplicantDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === OFFER && (
             <OfferDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
         </div>

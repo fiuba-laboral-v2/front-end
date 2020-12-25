@@ -1,10 +1,4 @@
-import {
-  IApplicantAdminTask,
-  ICompanyAdminTask,
-  IJobApplicationAdminTask,
-  IOfferAdminTask,
-  TAdminTask
-} from "$interfaces/AdminTask";
+import { TAdminTask } from "$interfaces/AdminTask";
 
 interface IBaseDetailInfoProps {
   onStatusUpdate?: () => void;
@@ -13,19 +7,19 @@ interface IBaseDetailInfoProps {
 }
 
 export interface ICompanyDetailInfoContainerProps extends IBaseDetailInfoProps {
-  selectedTask: ICompanyAdminTask;
+  selectedTaskUuid: string;
 }
 
 export interface IApplicantDetailInfoContainerProps extends IBaseDetailInfoProps {
-  selectedTask: IApplicantAdminTask;
+  selectedTaskUuid: string;
 }
 
 export interface IOfferDetailInfoContainerProps extends IBaseDetailInfoProps {
-  selectedTask: IOfferAdminTask;
+  selectedTaskUuid: string;
 }
 
 export interface IJobApplicationDetailInfoContainerProps extends IBaseDetailInfoProps {
-  selectedTask: IJobApplicationAdminTask;
+  selectedTaskUuid: string;
 }
 
 export interface ITaskDetailProps extends IBaseDetailInfoProps {

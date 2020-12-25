@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { useApplicantByUuid } from "$hooks";
 import { Window } from "$models/Window";
 import { useParams } from "react-router-dom";
-import { APPLICANT } from "$typenames";
 import styles from "./styles.module.scss";
 
 import { ApplicantDetailInfo } from "../Home/Dashboard/TaskDetail/Applicant/ApplicantDetailInfo";
@@ -11,15 +9,9 @@ import { Window as WindowComponent } from "$components/Window";
 
 export const ApplicantDetail: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
-  const applicant = useApplicantByUuid(uuid);
   return (
     <WindowComponent>
-      {applicant && (
-        <ApplicantDetailInfo
-          selectedTask={{ __typename: APPLICANT, ...applicant }}
-          onStatusUpdate={Window.reload}
-        />
-      )}
+      <ApplicantDetailInfo selectedTaskUuid={uuid} onStatusUpdate={Window.reload} />
       <ApplicantDetailContent className={styles.content} applicantUuid={uuid} />
     </WindowComponent>
   );
