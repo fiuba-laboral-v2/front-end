@@ -51,7 +51,7 @@ export const CompanyRoutes = [
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
   { path: editPassword(), component: EditPassword },
-  { path: passwordRecovery(), component: PasswordRecovery },
+  { path: passwordRecovery(), component: PasswordRecovery, public: true },
   {
     path: editMyForgottenPassword(),
     component: (props: { location: Location }) => (
