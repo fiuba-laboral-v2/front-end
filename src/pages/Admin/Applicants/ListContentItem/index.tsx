@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { IApplicant } from "$interfaces/Applicant";
 import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
+import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
 
@@ -28,6 +29,9 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <p className={styles.text}>{NumberFormatter.formatNumber(dni)}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
+    </div>
+    <div className={styles.statusContainer}>
+      <OpenInNewIcon fontSize="small" />
     </div>
   </>
 );

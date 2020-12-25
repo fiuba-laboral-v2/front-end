@@ -3,6 +3,6 @@
 .tableDisplay {
   @include tableDisplay;
 
-  grid-template-areas: "names studies padron dni state";
-  grid-template-columns: 3fr 3fr 1fr 1fr 1fr;
+  grid-template-areas: "names studies padron dni state actions";
+  grid-template-columns: 3fr 3fr 1fr 1fr 1fr 1fr;
 }
