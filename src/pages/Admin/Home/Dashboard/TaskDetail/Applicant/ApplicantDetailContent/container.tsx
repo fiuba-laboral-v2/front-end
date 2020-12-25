@@ -9,7 +9,7 @@ const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContent
   className
 }) => {
   const applicant = useApplicantByUuid(applicantUuid);
-  scrollToTop();
+  if (scrollToTop) scrollToTop();
   return (
     <>
       {!applicant && <LoadingSpinner />}
@@ -20,7 +20,7 @@ const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContent
 
 interface IApplicantDetailContentContainerProps {
   applicantUuid: string;
-  scrollToTop: () => void;
+  scrollToTop?: () => void;
   className?: string;
 }
 
