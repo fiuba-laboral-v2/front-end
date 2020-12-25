@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { TaskHeaderInfo } from "../../../TaskHeaderInfo";
+import { TaskHeaderInfo } from "../../../../../../components/TaskHeaderInfo";
 import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
 
