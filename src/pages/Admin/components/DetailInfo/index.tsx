@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { Actions } from "../../Home/Dashboard/TaskDetail/Actions";
+import { Actions } from "../Actions";
 
 import styles from "./styles.module.scss";
 
