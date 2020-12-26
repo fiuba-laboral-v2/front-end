@@ -1,4 +1,4 @@
-import { useQuery } from "$hooks";
+import { useAdvancedQuery } from "$hooks";
 import { GET_COMPANY_BY_UUID } from "$queries";
 import { GET_COMPANY_BY_UUID_WITH_USERS } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -11,8 +11,8 @@ export const useCompanyByUuid = <T extends IUser | undefined = undefined>({
   withUsers = false
 }: IUseCompanyByUuid) => {
   const history = useHistory();
+  const node = withUsers ? GET_COMPANY_BY_UUID_WITH_USERS : GET_COMPANY_BY_UUID;
   const options = {
-    query: withUsers ? GET_COMPANY_BY_UUID_WITH_USERS : GET_COMPANY_BY_UUID,
     variables: { uuid },
     errorHandlers: {
       CompanyNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
@@ -20,7 +20,8 @@ export const useCompanyByUuid = <T extends IUser | undefined = undefined>({
     }
   };
 
-  return useQuery<{}, { getCompanyByUuid: ICompany<T> }>(options)?.getCompanyByUuid;
+  return useAdvancedQuery<{}, { getCompanyByUuid: ICompany<T> }>(node, options).data
+    ?.getCompanyByUuid;
 };
 
 interface IUseCompanyByUuid {
