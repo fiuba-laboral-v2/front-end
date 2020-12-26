@@ -16,11 +16,13 @@ export const UpdatedCompanyProfileAdminNotificationContainer: FunctionComponent<
 }) => {
   const translations = useTranslations<{ title: string }>("updatedCompanyProfileAdminNotification");
 
+  const company = notification.company;
+
   return (
     <Notification className={className} notification={notification} icon={<CompanyIcon />}>
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <NotificationBody>
-        <Link to={RoutesBuilder.admin.companies()}>{notification.company.companyName}</Link>
+        <Link to={RoutesBuilder.admin.companyDetail(company.uuid)}>{company.companyName}</Link>
       </NotificationBody>
     </Notification>
   );
