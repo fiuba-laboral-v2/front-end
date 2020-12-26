@@ -6,14 +6,15 @@ import { useCompanyByUuid } from "$hooks/queries";
 const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentContainerProps> = ({
   companyUuid,
   scrollToTop,
-  className
+  className,
+  children
 }) => {
   const company = useCompanyByUuid({ uuid: companyUuid });
   if (scrollToTop) scrollToTop();
   return (
     <>
       {!company && <LoadingSpinner />}
-      <CompanyDetailContent {...{ company, className }} />
+      <CompanyDetailContent {...{ company, className }}>{children}</CompanyDetailContent>
     </>
   );
 };

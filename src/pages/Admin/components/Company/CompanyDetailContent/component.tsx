@@ -4,8 +4,13 @@ import { CompanyDetail } from "$components/CompanyDetail";
 
 export const CompanyDetailContent: FunctionComponent<ICompanyDetailContentProps> = ({
   company,
-  className
-}) => <CompanyDetail company={company} className={className} />;
+  className,
+  children
+}) => (
+  <CompanyDetail company={company} className={className}>
+    {children}
+  </CompanyDetail>
+);
 
 export interface ICompanyDetailContentProps {
   company?: ICompany;

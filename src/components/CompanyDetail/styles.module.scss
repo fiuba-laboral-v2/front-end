@@ -33,7 +33,8 @@
 }
 
 @media (max-width: $laptopWidth) {
-  .editButton {
+  .editButton,
+  .children {
     margin-top: $spacing-m;
   }
 
