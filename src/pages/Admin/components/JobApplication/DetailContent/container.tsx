@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { JobApplicationDetailContent } from "./component";
 import { useJobApplicationByUuid } from "$hooks";
 import { IContainerProps } from "./interfaces";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const JobApplicationDetailContentContainer: FunctionComponent<IContainerProps> = ({
   jobApplicationUuid,

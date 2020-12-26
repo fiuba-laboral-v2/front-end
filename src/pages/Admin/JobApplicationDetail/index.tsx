@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import {
   JobApplicationDetailInfo,
   JobApplicationDetailContent
-} from "../Home/Dashboard/TaskDetail/JobApplication";
+} from "../components/JobApplication";
 import { Window } from "$components/Window";
 
 import styles from "./styles.module.scss";
