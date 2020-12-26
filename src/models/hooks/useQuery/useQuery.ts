@@ -9,8 +9,12 @@ interface IQueryDataOptions<TData, TVariables> extends QueryOptions<TVariables, 
 }
 
 /**
- * Use this hook unless you need to use fetchMode, use refetch, or access the
- * error object outside of an errorHandler. In that case, consider useAdvancedQuery.
+ * Use this hook unless you need to:
+ *    * use fetchMore
+ *    * use refetch
+ *    * access the error object outside of an errorHandler
+ *    * rerender when data is updated in the cache
+ * If you need that, consider useAdvancedQuery
  */
 export const useQuery = <TVariables = {}, TData = {}>(
   options: IQueryDataOptions<TData, TVariables>
