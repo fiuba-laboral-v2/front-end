@@ -26,4 +26,8 @@
   &.actions {
     grid-area: actions;
   }
+
+  &.actions .withoutActions {
+    grid-area: unset;
+  }
 }

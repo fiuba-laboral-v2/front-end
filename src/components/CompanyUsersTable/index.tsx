@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { ICompanyUser } from "$interfaces/CompanyUser";
 
 import { ListPageContainer } from "$components/ListPageContainer";
@@ -12,15 +13,20 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
   shouldFetchMore,
   loading,
   fetchMore,
-  children
+  children,
+  withoutActions
 }) => {
   return (
     <ListPageContainer
       titleTranslationPath={"companyUsersListMainTitle"}
-      listHeader={<ListHeader />}
-      listContentItem={(companyUser: ICompanyUser) => <ListContentItem companyUser={companyUser} />}
-      listHeaderClassName={styles.tableDisplay}
-      rowClassName={styles.tableDisplay}
+      listHeader={<ListHeader withoutActions={withoutActions} />}
+      listContentItem={(companyUser: ICompanyUser) => (
+        <ListContentItem withoutActions={withoutActions} companyUser={companyUser} />
+      )}
+      listHeaderClassName={classNames(styles.tableDisplay, {
+        [styles.withoutActions]: withoutActions
+      })}
+      rowClassName={classNames(styles.tableDisplay, { [styles.withoutActions]: withoutActions })}
       items={companyUsers}
       fetchMore={fetchMore}
       shouldFetchMore={shouldFetchMore}
@@ -36,4 +42,5 @@ interface IContainer {
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
+  withoutActions?: boolean;
 }

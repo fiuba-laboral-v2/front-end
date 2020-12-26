@@ -10,6 +10,7 @@ export const CompanyUsersContainer: FunctionComponent = () => {
 
   return (
     <CompanyUsersTable
+      withoutActions
       companyUsers={response?.data?.getCompanyUsersByCompany.results}
       fetchMore={response.fetchMore}
       loading={response.loading}

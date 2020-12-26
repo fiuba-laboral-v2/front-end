@@ -1,16 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { ListHeader } from "./component";
+import { IContainerProps, ITranslations } from "./interfaces";
 
-export const ListHeaderContainer: FunctionComponent = () => {
+export const ListHeaderContainer: FunctionComponent<IContainerProps> = props => {
   const translations = useTranslations<ITranslations>("companyUserListHeader");
-  return <>{translations && <ListHeader translations={translations} />}</>;
+  return <>{translations && <ListHeader translations={translations} {...props} />}</>;
 };
-
-export interface ITranslations {
-  name: string;
-  email: string;
-  position: string;
-  createdAt: string;
-  actions: string;
-}
