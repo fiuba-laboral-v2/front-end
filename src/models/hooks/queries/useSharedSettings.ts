@@ -1,19 +1,19 @@
 import { useQuery } from "$hooks";
-import { GET_ADMIN_SETTINGS_TRANSLATIONS } from "$queries";
+import { GET_SHARED_SETTINGS } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 
-export const useAdminSettingsTranslations = () => {
+export const useSharedSettings = () => {
   const history = useHistory();
-  return useQuery<{}, { getAdminSettingsTranslations: IAdminSettingsTranslations }>({
-    query: GET_ADMIN_SETTINGS_TRANSLATIONS,
+  return useQuery<{}, { getSharedSettings: ISharedSettings }>({
+    query: GET_SHARED_SETTINGS,
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  })?.getAdminSettingsTranslations;
+  })?.getSharedSettings;
 };
 
-interface IAdminSettingsTranslations {
+interface ISharedSettings {
   companySignUpAcceptanceCriteria: string;
   companyEditableAcceptanceCriteria: string;
   editOfferAcceptanceCriteria: string;

@@ -5,13 +5,13 @@ import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
 import { isNil } from "lodash";
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { ApplicantType } from "$interfaces/Applicant";
-import { useAdminSettingsTranslations } from "$hooks";
+import { useSharedSettings } from "$hooks";
 
 export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = ({
   loading,
   ...props
 }) => {
-  const acceptanceCriteria = useAdminSettingsTranslations()?.editOfferAcceptanceCriteria;
+  const acceptanceCriteria = useSharedSettings()?.editOfferAcceptanceCriteria;
 
   const modelToValues = useCallback((model?: IOffer) => {
     const values: ICreateOfferValues = {

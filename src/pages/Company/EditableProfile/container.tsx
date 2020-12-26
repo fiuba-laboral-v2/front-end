@@ -5,7 +5,7 @@ import {
   useMyCompanyProfile,
   useTranslations,
   useUpdateCurrentCompany,
-  useAdminSettingsTranslations
+  useSharedSettings
 } from "$hooks";
 import { EditableProfile } from "./component";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
@@ -23,7 +23,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const { updateCurrentCompany } = useUpdateCurrentCompany();
   const company = useMyCompanyProfile();
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
-  const acceptanceCriteria = useAdminSettingsTranslations()?.companyEditableAcceptanceCriteria;
+  const acceptanceCriteria = useSharedSettings()?.companyEditableAcceptanceCriteria;
 
   const modelToValues = useCallback((model?: ICompany) => {
     const values: IEditableProfileFormValues = {

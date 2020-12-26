@@ -1,5 +1,5 @@
-query getAdminSettingsTranslations {
-  getAdminSettingsTranslations {
+query getSharedSettings {
+  getSharedSettings {
     companySignUpAcceptanceCriteria
     companyEditableAcceptanceCriteria
     editOfferAcceptanceCriteria

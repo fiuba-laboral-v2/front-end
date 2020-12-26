@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useCreateCompany, useTranslations, useAdminSettingsTranslations } from "$hooks";
+import { useCreateCompany, useTranslations, useSharedSettings } from "$hooks";
 import { useCompanyLogin } from "$models/hooks";
 import { SignUp } from "./component";
 import { ISignUpFormValues, ISignUpTranslations } from "./interfaces";
@@ -18,7 +18,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const { login } = useCompanyLogin();
 
   const translations = useTranslations<ISignUpTranslations>("companySignUp");
-  const acceptanceCriteria = useAdminSettingsTranslations()?.companySignUpAcceptanceCriteria;
+  const acceptanceCriteria = useSharedSettings()?.companySignUpAcceptanceCriteria;
 
   const onSubmit = async (
     { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,

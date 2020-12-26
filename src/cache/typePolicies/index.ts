@@ -22,7 +22,7 @@ export const typePolicies = {
   AdminSettings: {
     keyFields: []
   },
-  AdminSettingsTranslations: {
+  SharedSettings: {
     keyFields: []
   }
 };
