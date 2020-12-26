@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ICompany } from "$interfaces/Company";
 import { TimeFormatter } from "$models/TimeFormatter";
 import { NumberFormatter } from "$models/NumberFormatter";
-import { RoutesBuilder } from "../../../../models/RoutesBuilder";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
 import { OpenDetailIcon } from "$components/OpenDetailIcon";
