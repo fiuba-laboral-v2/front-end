@@ -1,0 +1,7 @@
+query getAdminSettingsTranslations {
+  getAdminSettingsTranslations {
+    companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria
+  }
+}

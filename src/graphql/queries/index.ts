@@ -7,6 +7,7 @@ const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_ADMINS = loader("./getAdmins.graphql");
 const GET_ADMIN_SETTINGS = loader("./getAdminSettings.graphql");
+const GET_ADMIN_SETTINGS_TRANSLATIONS = loader("./getAdminSettingsTranslations.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
 const GET_CAREERS = loader("./getCareers.graphql");
 const GET_COMPANIES = loader("./getCompanies.graphql");
@@ -55,6 +56,7 @@ export {
   GET_JOB_APPLICATION_BY_UUID,
   GET_ADMINS,
   GET_ADMIN_SETTINGS,
+  GET_ADMIN_SETTINGS_TRANSLATIONS,
   GET_JOB_APPLICATIONS,
   GET_SECRETARY_OFFER_DURATION,
   GET_COMPANY_NOTIFICATIONS,

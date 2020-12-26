@@ -1,17 +1,17 @@
 import React, { FunctionComponent, useCallback } from "react";
 import { IEditOfferContainerProps } from "./interfaces";
 import { EditOffer } from "./component";
-import { useTranslations } from "$hooks/queries";
 import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
 import { isNil } from "lodash";
 import { validateSalaryRange } from "validations-fiuba-laboral-v2";
 import { ApplicantType } from "$interfaces/Applicant";
+import { useAdminSettingsTranslations } from "$hooks";
 
 export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = ({
   loading,
   ...props
 }) => {
-  const acceptanceCriteria = useTranslations<{ text: string }>("editOfferAcceptanceCriteria");
+  const acceptanceCriteria = useAdminSettingsTranslations()?.editOfferAcceptanceCriteria;
 
   const modelToValues = useCallback((model?: IOffer) => {
     const values: ICreateOfferValues = {
@@ -44,10 +44,10 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
 
   return (
     <EditOffer
-      acceptanceCriteria={acceptanceCriteria?.text}
+      acceptanceCriteria={acceptanceCriteria}
       {...{ modelToValues, validateForm }}
       {...props}
-      loading={loading || !acceptanceCriteria?.text}
+      loading={loading || !acceptanceCriteria}
     />
   );
 };
