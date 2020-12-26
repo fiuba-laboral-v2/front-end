@@ -14,10 +14,12 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
   loading,
   fetchMore,
   children,
-  withoutActions
+  withoutActions,
+  title
 }) => {
   return (
     <ListPageContainer
+      title={title}
       titleTranslationPath={"companyUsersListMainTitle"}
       listHeader={<ListHeader withoutActions={withoutActions} />}
       listContentItem={(companyUser: ICompanyUser) => (
@@ -38,6 +40,7 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
 };
 
 interface IContainer {
+  title?: string;
   companyUsers?: ICompanyUser[];
   fetchMore?: () => void;
   shouldFetchMore?: boolean;

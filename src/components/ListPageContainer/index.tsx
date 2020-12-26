@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { Window } from "$components/Window";
+import { Header } from "$components/Header";
 import { MainTitle } from "./MainTitle";
 import { MainContainer } from "./MainContainer";
 import { List } from "./List";
@@ -7,6 +8,7 @@ import { Listable, ListableReactNodes } from "./interfaces";
 import styles from "./style.module.scss";
 
 export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
+  title,
   titleTranslationPath,
   listHeader,
   listContentItem,
@@ -21,7 +23,8 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   <Window loading={!items} width="fullWidth" desktopOnly>
     <MainContainer>
       <div className={styles.titleContainer}>
-        <MainTitle className={styles.title} translationPath={titleTranslationPath} />
+        {!title && <MainTitle className={styles.title} translationPath={titleTranslationPath} />}
+        {title && <Header className={styles.title} title={title || ""} />}
         <div className={styles.children}>{children}</div>
       </div>
       <List
@@ -39,6 +42,7 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
 );
 
 interface IListPageContainer {
+  title?: string;
   titleTranslationPath: string;
   listHeader: ReactNode;
   listContentItem: ListableReactNodes;
