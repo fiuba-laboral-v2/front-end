@@ -19,5 +19,6 @@ export const queries = {
   getCompanyUsers: paginatedQuery,
   getCompanyNotifications: paginatedQuery,
   getApplicantNotifications: paginatedQuery,
-  getAdminNotifications: paginatedQuery
+  getAdminNotifications: paginatedQuery,
+  getCompanyUsersByCompany: paginatedQuery
 };

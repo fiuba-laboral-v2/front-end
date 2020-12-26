@@ -1,12 +1,16 @@
 import React, { FunctionComponent } from "react";
 import { ICompany } from "$interfaces/Company";
 import { TimeFormatter } from "$models/TimeFormatter";
-import { SharedStatusLabel } from "$components/SharedStatusLabel";
-import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
+import { SharedStatusLabel } from "$components/SharedStatusLabel";
+import { OpenDetailIcon } from "$components/OpenDetailIcon";
+
+import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
-  company: { companyName, businessName, cuit, updatedAt, approvalStatus }
+  company: { uuid, companyName, businessName, cuit, updatedAt, approvalStatus }
 }) => (
   <>
     <p className={styles.text}>{companyName}</p>
@@ -15,6 +19,9 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
+    </div>
+    <div className={styles.seeDetailButton}>
+      <OpenDetailIcon detailRoute={RoutesBuilder.admin.companyDetail(uuid)} />
     </div>
   </>
 );

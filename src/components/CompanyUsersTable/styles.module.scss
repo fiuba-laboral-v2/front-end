@@ -1,9 +1,17 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_tableList";
 
-.tableDisplay {
+.tableDisplay,
+.withoutActions {
   @include tableDisplay;
+}
 
+.tableDisplay {
   grid-template-areas: "name email position createdAt actions";
   grid-template-columns: 3fr 3fr 3fr 2fr 1fr;
+}
+
+.withoutActions {
+  grid-template-areas: "name email position createdAt";
+  grid-template-columns: 3fr 3fr 3fr 2fr;
 }

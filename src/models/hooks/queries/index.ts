@@ -29,3 +29,4 @@ export * from "./useHasUnreadApplicantNotifications";
 export * from "./useAdminNotifications";
 export * from "./useHasUnreadAdminNotifications";
 export * from "./useCompanyUsers";
+export * from "./useCompanyUsersByCompany";

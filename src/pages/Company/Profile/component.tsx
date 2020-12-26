@@ -9,15 +9,11 @@ import { IProfileTranslations } from "./interfaces";
 export const Profile: FunctionComponent<IProfile> = ({ company, onClickEdit, translations }) => (
   <Window loading={!company || !translations}>
     <Title />
-    <CompanyDetail
-      company={company}
-      editButton={
-        <Button kind="primary" onClick={onClickEdit}>
-          {translations?.edit}
-        </Button>
-      }
-      withStatusLabel
-    />
+    <CompanyDetail company={company} withStatusLabel>
+      <Button kind="primary" onClick={onClickEdit}>
+        {translations?.edit}
+      </Button>
+    </CompanyDetail>
   </Window>
 );
 

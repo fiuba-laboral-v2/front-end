@@ -11,9 +11,9 @@ import { ICompany } from "$interfaces/Company";
 
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
   className,
-  editButton,
   withStatusLabel,
-  company
+  company,
+  children
 }) => (
   <Card largePadding className={className} hidden={!company}>
     <div className={styles.header}>
@@ -32,7 +32,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
         <Subtitle className={styles.companySlogan}>{company?.slogan}</Subtitle>
         <DetailContactMe email={company?.email} website={company?.website} />
       </div>
-      <div className={styles.editButton}>{editButton}</div>
+      <div className={styles.children}>{children}</div>
     </div>
     <Description>{company?.description}</Description>
     <section className={styles.photos}>
@@ -45,7 +45,6 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
 
 interface ICompanyDetailProps {
   company?: ICompany;
-  editButton?: React.ReactElement;
   withStatusLabel?: boolean;
   className?: string;
 }
