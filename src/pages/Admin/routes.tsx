@@ -9,6 +9,7 @@ import { SignUp } from "./SignUp";
 import { Settings } from "./Settings";
 import { ApplicantDetail } from "./ApplicantDetail";
 import { CompanyDetail } from "./CompanyDetail";
+import { CompanyUsers } from "./CompanyUsers";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -22,7 +23,8 @@ const {
   signUp,
   settings,
   applicantDetail,
-  companyDetail
+  companyDetail,
+  companyUsers
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -36,5 +38,6 @@ export const AdminRoutes = [
   { path: signUp(), component: SignUp },
   { path: settings(), component: Settings },
   { path: applicantDetail(":uuid"), component: ApplicantDetail },
-  { path: companyDetail(":uuid"), component: CompanyDetail }
+  { path: companyDetail(":uuid"), component: CompanyDetail },
+  { path: companyUsers(":companyUuid"), component: CompanyUsers }
 ];
