@@ -20,7 +20,7 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
   return (
     <ListPageContainer
       title={title}
-      titleTranslationPath={"companyUsersListMainTitle"}
+      titleTranslationPath="companyUsersListMainTitle"
       listHeader={<ListHeader withoutActions={withoutActions} />}
       listContentItem={(companyUser: ICompanyUser) => (
         <ListContentItem withoutActions={withoutActions} companyUser={companyUser} />
