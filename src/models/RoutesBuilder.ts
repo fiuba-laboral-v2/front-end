@@ -47,7 +47,9 @@ export const RoutesBuilder = {
 
     settings: () => adminRoute(SETTINGS),
 
-    applicantDetail: (uuid: string) => adminRoute(APPLICANTS, uuid)
+    applicantDetail: (uuid: string) => adminRoute(APPLICANTS, uuid),
+
+    companyDetail: (uuid: string) => adminRoute(COMPANIES, uuid)
   },
 
   applicant: {

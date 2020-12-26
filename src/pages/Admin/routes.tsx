@@ -8,6 +8,7 @@ import { Notifications } from "./Notifications";
 import { SignUp } from "./SignUp";
 import { Settings } from "./Settings";
 import { ApplicantDetail } from "./ApplicantDetail";
+import { CompanyDetail } from "./CompanyDetail";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -20,7 +21,8 @@ const {
   notifications,
   signUp,
   settings,
-  applicantDetail
+  applicantDetail,
+  companyDetail
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -33,5 +35,6 @@ export const AdminRoutes = [
   { path: notifications(), component: Notifications },
   { path: signUp(), component: SignUp },
   { path: settings(), component: Settings },
-  { path: applicantDetail(":uuid"), component: ApplicantDetail }
+  { path: applicantDetail(":uuid"), component: ApplicantDetail },
+  { path: companyDetail(":uuid"), component: CompanyDetail }
 ];
