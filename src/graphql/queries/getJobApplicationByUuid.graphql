@@ -8,16 +8,55 @@ query getJobApplicationByUuid($uuid: ID!) {
     offer {
       uuid
       title
+      company {
+        uuid
+        companyName
+        logo
+        cuit
+      }
     }
     applicant {
       uuid
       padron
+      approvalStatus
+      createdAt
+      updatedAt
+      description
       user {
         uuid
         email
         name
         surname
         dni
+      }
+      capabilities {
+        uuid
+        description
+      }
+      careers {
+        career {
+          code
+          description
+        }
+        approvedSubjectCount
+        currentCareerYear
+        isGraduate
+      }
+      knowledgeSections {
+        uuid
+        title
+        text
+        displayOrder
+      }
+      experienceSections {
+        uuid
+        title
+        text
+        displayOrder
+      }
+      links {
+        name
+        url
       }
     }
   }

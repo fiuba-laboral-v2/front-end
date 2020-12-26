@@ -75,8 +75,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailContent
-              applicantUuid={selectedTask.applicant.uuid}
-              offerUuid={selectedTask.offer.uuid}
+              jobApplicationUuid={selectedTask.uuid}
               scrollToTop={scrollToTop}
               className={styles.content}
             />
