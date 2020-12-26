@@ -1,6 +1,15 @@
-mutation updateAdminSettings($offerDurationInDays: Int!, $email: String!) {
-  updateAdminSettings(offerDurationInDays: $offerDurationInDays, email: $email) {
+mutation updateAdminSettings(
+  $offerDurationInDays: Int!
+  $email: String!
+  $emailSignature: String!
+) {
+  updateAdminSettings(
+    offerDurationInDays: $offerDurationInDays
+    email: $email
+    emailSignature: $emailSignature
+  ) {
     email
+    emailSignature
     offerDurationInDays
   }
 }

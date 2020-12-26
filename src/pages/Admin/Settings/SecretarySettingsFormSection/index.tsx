@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { FormSection } from "$components/FormSection";
-import { EmailField, PositiveIntegerField } from "$components/Fields";
+import { EmailField, PositiveIntegerField, TextField } from "$components/Fields";
 import styles from "./styles.module.scss";
 
 export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsFormSection> = ({
@@ -24,6 +24,12 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
       label={translations.email}
       helperText={translations.emailHelper}
     />
+    <TextField
+      mandatory
+      name="emailSignature"
+      label={translations.emailSignature}
+      helperText={translations.emailSignatureHelper}
+    />
   </FormSection>
 );
 
@@ -36,5 +42,7 @@ export interface ISecretarySettingsFormSectionTranslations {
   offerDurationInDays: string;
   email: string;
   emailHelper: string;
+  emailSignature: string;
+  emailSignatureHelper: string;
   secretaryName: string;
 }
