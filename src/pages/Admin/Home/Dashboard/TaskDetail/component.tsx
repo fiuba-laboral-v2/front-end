@@ -5,8 +5,8 @@ import {
 } from "../../../components/JobApplication";
 import { CompanyDetailInfo, CompanyDetailContent } from "../../../components/Company";
 import { ApplicantDetailInfo, ApplicantDetailContent } from "../../../components/Applicant";
-import { OfferDetailContent } from "./Offer/OfferDetailContent";
-import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
+import { OfferDetailContent } from "../../../components/Offer/OfferDetailContent";
+import { OfferDetailInfo } from "../../../components/Offer/OfferDetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import { ITaskDetailProps } from "./interfaces";

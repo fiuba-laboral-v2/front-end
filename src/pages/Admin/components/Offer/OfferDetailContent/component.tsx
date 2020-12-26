@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { OfferDetail } from "$components/OfferDetail";
 import { useOfferByUuid } from "$hooks/queries";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = ({
   offerUuid,
