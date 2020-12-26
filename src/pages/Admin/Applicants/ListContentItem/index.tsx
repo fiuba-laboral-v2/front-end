@@ -33,7 +33,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
-    <div className={styles.statusContainer}>
+    <div className={styles.seeDetailButtonContainer}>
       <OpenDetailIcon detailRoute={RoutesBuilder.admin.applicantDetail(uuid)} />
     </div>
   </>
