@@ -3,5 +3,8 @@ query getAdminSettings {
     email
     emailSignature
     offerDurationInDays
+    companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria
   }
 }

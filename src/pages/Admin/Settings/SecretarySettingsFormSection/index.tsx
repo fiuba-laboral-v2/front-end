@@ -3,7 +3,7 @@ import { FormSection } from "$components/FormSection";
 import { EmailField, PositiveIntegerField, TextField } from "$components/Fields";
 import styles from "./styles.module.scss";
 
-export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsFormSection> = ({
+export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsFormSectionProps> = ({
   translations
 }) => (
   <FormSection
@@ -33,7 +33,7 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
   </FormSection>
 );
 
-interface ISecretarySettingsFormSection {
+interface ISecretarySettingsFormSectionProps {
   translations: ISecretarySettingsFormSectionTranslations;
 }
 

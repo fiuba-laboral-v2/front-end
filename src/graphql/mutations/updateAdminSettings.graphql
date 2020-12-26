@@ -2,14 +2,23 @@ mutation updateAdminSettings(
   $offerDurationInDays: Int!
   $email: String!
   $emailSignature: String!
+  $companySignUpAcceptanceCriteria: String!
+  $companyEditableAcceptanceCriteria: String!
+  $editOfferAcceptanceCriteria: String!
 ) {
   updateAdminSettings(
     offerDurationInDays: $offerDurationInDays
     email: $email
     emailSignature: $emailSignature
+    companySignUpAcceptanceCriteria: $companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria: $companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria: $editOfferAcceptanceCriteria
   ) {
     email
     emailSignature
     offerDurationInDays
+    companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria
   }
 }

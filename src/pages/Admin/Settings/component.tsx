@@ -6,6 +6,7 @@ import { ISettingsTranslations } from "./interfaces";
 import { SecretarySettingsFormSection } from "./SecretarySettingsFormSection";
 import { IAdminSettings } from "$interfaces/AdminSettings";
 import { InfoMessage } from "$components/InfoMessage";
+import { SharedSettingsFormSection } from "./SharedSettingsFormSection";
 
 export const Settings: FunctionComponent<ISettingsProps> = ({
   translations,
@@ -14,6 +15,7 @@ export const Settings: FunctionComponent<ISettingsProps> = ({
   <Form title={translations?.title}>
     <InfoMessage message={translations?.infoMessage} />
     {translations && <SecretarySettingsFormSection {...{ translations }} />}
+    {translations && <SharedSettingsFormSection {...{ translations }} />}
     <FormFooter
       isSubmitting={isSubmitting}
       errors={{ _form: undefined, ...errors }}

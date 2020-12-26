@@ -40,7 +40,10 @@ export const SettingsContainer: FunctionComponent = () => {
     (model?: IAdminSettings) => ({
       offerDurationInDays: model?.offerDurationInDays || NaN,
       email: model?.email || "",
-      emailSignature: model?.emailSignature || ""
+      emailSignature: model?.emailSignature || "",
+      companySignUpAcceptanceCriteria: model?.companySignUpAcceptanceCriteria || "",
+      companyEditableAcceptanceCriteria: model?.companyEditableAcceptanceCriteria || "",
+      editOfferAcceptanceCriteria: model?.editOfferAcceptanceCriteria || ""
     }),
     []
   );
