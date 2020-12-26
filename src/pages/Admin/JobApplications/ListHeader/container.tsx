@@ -14,4 +14,5 @@ export interface ITranslations {
   padron: string;
   approvalStatus: string;
   updatedAt: string;
+  actions: string;
 }

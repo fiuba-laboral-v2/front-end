@@ -3,6 +3,6 @@
 .tableDisplay {
   @include tableDisplay;
 
-  grid-template-areas: "companyName cuit applicantName padron approvalStatus updatedAt";
-  grid-template-columns: 3fr 2fr 3fr 2fr 2fr 2fr;
+  grid-template-areas: "companyName cuit applicantName padron approvalStatus updatedAt actions";
+  grid-template-columns: 3fr 2fr 3fr 2fr 2fr 2fr 1fr;
 }

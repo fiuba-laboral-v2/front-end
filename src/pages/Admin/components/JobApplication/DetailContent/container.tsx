@@ -1,18 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { JobApplicationDetailContent } from "./component";
-import { useApplicantByUuid, useCompanyOfferByUuid } from "$hooks/queries";
+import { useJobApplicationByUuid } from "$hooks";
 import { IContainerProps } from "./interfaces";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const JobApplicationDetailContentContainer: FunctionComponent<IContainerProps> = ({
-  applicantUuid,
-  offerUuid,
+  jobApplicationUuid,
   scrollToTop,
   className
 }) => {
-  const applicant = useApplicantByUuid(applicantUuid);
-  const offer = useCompanyOfferByUuid(offerUuid).data?.getOfferByUuid;
-  scrollToTop();
+  const jobApplication = useJobApplicationByUuid(jobApplicationUuid);
+  const applicant = jobApplication?.applicant;
+  const offer = jobApplication?.offer;
+  if (scrollToTop) scrollToTop();
   const loading = !applicant || !offer;
   return (
     <>

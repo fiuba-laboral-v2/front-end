@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import { IJobApplication } from "$interfaces/JobApplication";
 
-import { MainTitle } from "../../../../../../components/MainTitle";
+import { MainTitle } from "../../../MainTitle";
 import { useTranslations } from "$hooks/queries";
 
 export const MainTitleContainer: FunctionComponent<IContainerProps> = ({ jobApplication }) => {

@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useRef } from "react";
-import { CompanyDetailContent } from "../../../components/Company/CompanyDetailContent";
-import { ApplicantDetailContent } from "../../../components/Applicant/ApplicantDetailContent";
+import {
+  JobApplicationDetailInfo,
+  JobApplicationDetailContent
+} from "../../../components/JobApplication";
+import { CompanyDetailInfo, CompanyDetailContent } from "../../../components/Company";
+import { ApplicantDetailInfo, ApplicantDetailContent } from "../../../components/Applicant";
 import { OfferDetailContent } from "./Offer/OfferDetailContent";
-import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
-import { CompanyDetailInfo } from "../../../components/Company/CompanyDetailInfo";
-import { ApplicantDetailInfo } from "../../../components/Applicant/ApplicantDetailInfo";
 import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
-import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import { ITaskDetailProps } from "./interfaces";
@@ -75,8 +75,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailContent
-              applicantUuid={selectedTask.applicant.uuid}
-              offerUuid={selectedTask.offer.uuid}
+              jobApplicationUuid={selectedTask.uuid}
               scrollToTop={scrollToTop}
               className={styles.content}
             />
