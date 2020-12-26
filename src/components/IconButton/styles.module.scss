@@ -4,8 +4,22 @@
   background-color: $mainBlue;
   border: 1px solid $mainBlue;
   border-radius: $borderRadius-s;
+  display: flex;
+  height: auto;
+  padding: $spacing-xs / 2;
+  width: auto;
+}
+
+.iconContainer {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  max-height: 20px;
+  max-width: 20px;
 }
 
 .icon {
+  align-self: center;
   color: $white;
+  width: unset;
 }

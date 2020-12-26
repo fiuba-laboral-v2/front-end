@@ -4,7 +4,9 @@ import styles from "./styles.module.scss";
 
 export const IconButton: FunctionComponent<IComponentProps> = ({ Icon, onClick }) => (
   <button className={styles.button}>
-    <Icon className={styles.icon} fontSize="small" onClick={onClick} />
+    <div className={styles.iconContainer}>
+      <Icon className={styles.icon} fontSize="small" onClick={onClick} />
+    </div>
   </button>
 );
 
