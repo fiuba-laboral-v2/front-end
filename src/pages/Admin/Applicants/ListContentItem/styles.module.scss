@@ -15,10 +15,8 @@
 
 .statusContainer,
 .seeDetailButtonContainer {
+  @include bodyItem;
+
   align-self: center;
   justify-self: center;
-}
-
-.seeDetailButtonContainer {
-  margin: $spacing-xs;
 }
