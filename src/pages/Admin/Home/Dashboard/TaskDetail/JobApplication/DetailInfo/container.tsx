@@ -9,11 +9,11 @@ import { IJobApplicationDetailInfoContainerProps } from "../../interfaces";
 
 export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicationDetailInfoContainerProps> = ({
   refetchAdminTasks,
-  selectedTask,
+  selectedTaskUuid,
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
-  const jobApplication = useJobApplicationByUuid(selectedTask.uuid);
+  const jobApplication = useJobApplicationByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -23,7 +23,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
 
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
-      uuid: selectedTask.uuid,
+      uuid: selectedTaskUuid,
       status: status,
       onStatusUpdate,
       setLoadingStatusUpdate,

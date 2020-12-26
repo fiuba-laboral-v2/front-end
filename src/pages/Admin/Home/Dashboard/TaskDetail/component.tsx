@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useRef } from "react";
 import { CompanyDetailContent } from "./Company/CompanyDetailContent";
-import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
+import { ApplicantDetailContent } from "../../../components/Applicant/ApplicantDetailContent";
 import { OfferDetailContent } from "./Offer/OfferDetailContent";
 import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
 import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
-import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
+import { ApplicantDetailInfo } from "../../../components/Applicant/ApplicantDetailInfo";
 import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
 import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
 import { EmptyDetail } from "./EmptyDetail";
@@ -26,27 +26,28 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
 
   let children = <EmptyDetail />;
   if (selectedTask) {
+    const selectedTaskUuid = selectedTask.uuid;
     children = (
       <>
         <div className={styles.info}>
           {selectedTask.__typename === COMPANY && (
             <CompanyDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === APPLICANT && (
             <ApplicantDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === OFFER && (
             <OfferDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
         </div>

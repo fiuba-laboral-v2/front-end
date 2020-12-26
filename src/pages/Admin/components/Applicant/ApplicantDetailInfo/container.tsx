@@ -5,15 +5,15 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
 import { APPLICANT } from "$typenames";
-import { IApplicantDetailInfoContainerProps } from "../../interfaces";
+import { IApplicantDetailInfoContainerProps } from "../../../Home/Dashboard/TaskDetail/interfaces";
 
 export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInfoContainerProps> = ({
   refetchAdminTasks,
-  selectedTask,
+  selectedTaskUuid,
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
-  const applicant = useApplicantByUuid(selectedTask.uuid);
+  const applicant = useApplicantByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
     refetchAdminTasks,
@@ -23,7 +23,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
 
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
-      uuid: selectedTask.uuid,
+      uuid: selectedTaskUuid,
       status,
       onStatusUpdate,
       setLoadingStatusUpdate,

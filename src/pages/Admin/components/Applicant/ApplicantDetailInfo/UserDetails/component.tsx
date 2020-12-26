@@ -13,6 +13,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({ applicant, t
         Icon={PersonOutlinedIcon}
       />
       <TaskHeaderInfo title={translations.padron} value={applicant.padron.toString()} />
+      <TaskHeaderInfo title={translations.dni} value={applicant.user.dni} />
     </div>
     <TaskHeaderInfo value={applicant.user.email} Icon={EmailOutlinedIcon} />
   </div>

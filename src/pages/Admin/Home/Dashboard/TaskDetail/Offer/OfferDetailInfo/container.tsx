@@ -9,11 +9,11 @@ import { IOfferDetailInfoContainerProps } from "../../interfaces";
 
 export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContainerProps> = ({
   refetchAdminTasks,
-  selectedTask,
+  selectedTaskUuid,
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
-  const offer = useCompanyOfferByUuid(selectedTask.uuid).data?.getOfferByUuid;
+  const offer = useCompanyOfferByUuid(selectedTaskUuid).data?.getOfferByUuid;
   const approvalStatusAttribute = useAdminApprovalStatusAttribute();
   const { updateAdminTaskStatus, loading: loadingUpdateStatus } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_OFFER_APPROVAL_STATUS,
@@ -24,7 +24,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
 
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
-      uuid: selectedTask.uuid,
+      uuid: selectedTaskUuid,
       status,
       onStatusUpdate,
       setLoadingStatusUpdate,

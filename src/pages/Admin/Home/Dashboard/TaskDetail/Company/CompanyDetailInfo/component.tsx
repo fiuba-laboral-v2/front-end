@@ -6,7 +6,7 @@ import { IUser } from "$interfaces/User";
 
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
-import { DetailInfo } from "../../DetailInfo";
+import { DetailInfo } from "../../../../../components/DetailInfo";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   setStatus,

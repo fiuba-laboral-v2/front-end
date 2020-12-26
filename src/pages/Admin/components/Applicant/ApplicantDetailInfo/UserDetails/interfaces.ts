@@ -11,4 +11,5 @@ export interface IUserDetailsProps extends IUserDetailsContainerProps {
 
 export interface IUserDetailsTranslations {
   padron: string;
+  dni: string;
 }

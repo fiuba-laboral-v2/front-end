@@ -17,6 +17,7 @@ query getJobApplicationByUuid($uuid: ID!) {
         email
         name
         surname
+        dni
       }
     }
   }

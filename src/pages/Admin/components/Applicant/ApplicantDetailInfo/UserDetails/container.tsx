@@ -8,6 +8,7 @@ export const UserDetailsContainer: FunctionComponent<IUserDetailsContainerProps>
 }) => {
   const translations = useTranslations<IUserDetailsTranslations>("adminApplicantDetails");
   const padron = translations ? translations.padron : "";
+  const dni = translations ? translations.dni : "";
   if (!applicant) return <Fragment />;
-  return <UserDetails applicant={applicant} translations={{ padron }} />;
+  return <UserDetails applicant={applicant} translations={{ padron, dni }} />;
 };

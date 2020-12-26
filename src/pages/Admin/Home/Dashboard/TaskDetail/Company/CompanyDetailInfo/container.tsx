@@ -9,7 +9,7 @@ import { CompanyDetailInfo } from "./component";
 import { ICompanyDetailInfoContainerProps } from "../../interfaces";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
-  selectedTask,
+  selectedTaskUuid,
   onStatusUpdate,
   refetchAdminTasks,
   setLoadingStatusUpdate
@@ -20,11 +20,11 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     type: COMPANY,
     approvalStatusAttribute: "approvalStatus"
   });
-  const company = useCompanyByUuid<IUser>({ uuid: selectedTask.uuid, withUsers: true });
+  const company = useCompanyByUuid<IUser>({ uuid: selectedTaskUuid, withUsers: true });
 
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
-      uuid: selectedTask.uuid,
+      uuid: selectedTaskUuid,
       status,
       onStatusUpdate,
       setLoadingStatusUpdate,

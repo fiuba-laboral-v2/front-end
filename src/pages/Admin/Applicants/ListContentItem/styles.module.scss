@@ -13,7 +13,12 @@
   font-weight: $fontWeight-r;
 }
 
-.statusContainer {
+.statusContainer,
+.seeDetailButtonContainer {
   align-self: center;
   justify-self: center;
+}
+
+.seeDetailButtonContainer {
+  margin: $spacing-xs;
 }

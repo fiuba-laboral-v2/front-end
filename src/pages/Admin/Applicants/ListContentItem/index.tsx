@@ -1,13 +1,17 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+import { NumberFormatter } from "$models/NumberFormatter";
 import { IApplicant } from "$interfaces/Applicant";
+
 import { CareersDetail } from "$components/CareersSection/CareersDetail";
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
+import { OpenDetailIcon } from "$components/OpenDetailIcon";
 import styles from "./styles.module.scss";
-import { NumberFormatter } from "$models/NumberFormatter";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   applicant: {
+    uuid,
     user: { name, surname, dni },
     padron,
     careers,
@@ -28,6 +32,9 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
     <p className={styles.text}>{NumberFormatter.formatNumber(dni)}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
+    </div>
+    <div className={styles.seeDetailButtonContainer}>
+      <OpenDetailIcon detailRoute={RoutesBuilder.admin.applicantDetail(uuid)} />
     </div>
   </>
 );
