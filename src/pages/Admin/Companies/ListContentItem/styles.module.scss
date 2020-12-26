@@ -4,7 +4,8 @@
   @include bodyItem;
 }
 
-.statusContainer {
+.statusContainer,
+.seeDetailButton {
   @include bodyItem;
 
   align-self: center;

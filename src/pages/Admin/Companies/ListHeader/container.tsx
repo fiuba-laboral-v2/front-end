@@ -13,4 +13,5 @@ export interface ITranslations {
   cuit: string;
   updatedAt: string;
   state: string;
+  actions: string;
 }
