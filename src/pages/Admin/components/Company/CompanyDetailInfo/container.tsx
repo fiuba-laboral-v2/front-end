@@ -6,7 +6,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IUser } from "$interfaces/User";
 import { UPDATE_COMPANY_APPROVAL_STATUS } from "$mutations";
 import { CompanyDetailInfo } from "./component";
-import { ICompanyDetailInfoContainerProps } from "../../interfaces";
+import { ICompanyDetailInfoContainerProps } from "../../../Home/Dashboard/TaskDetail/interfaces";
 
 const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerProps> = ({
   selectedTaskUuid,

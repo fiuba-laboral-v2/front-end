@@ -3,7 +3,7 @@ import { Window } from "$models/Window";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-import { CompanyDetailContent, CompanyDetailInfo } from "../Home/Dashboard/TaskDetail/Company";
+import { CompanyDetailContent, CompanyDetailInfo } from "../components/Company";
 import { Window as WindowComponent } from "$components/Window";
 
 export const CompanyDetail: FunctionComponent = () => {

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 import { CompanyDetailContent } from "./component";
 import { useCompanyByUuid } from "$hooks/queries";
 

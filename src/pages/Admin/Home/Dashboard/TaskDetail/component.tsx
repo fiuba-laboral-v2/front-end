@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useRef } from "react";
-import { CompanyDetailContent } from "./Company/CompanyDetailContent";
+import { CompanyDetailContent } from "../../../components/Company/CompanyDetailContent";
 import { ApplicantDetailContent } from "../../../components/Applicant/ApplicantDetailContent";
 import { OfferDetailContent } from "./Offer/OfferDetailContent";
 import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
-import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
+import { CompanyDetailInfo } from "../../../components/Company/CompanyDetailInfo";
 import { ApplicantDetailInfo } from "../../../components/Applicant/ApplicantDetailInfo";
 import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
 import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
