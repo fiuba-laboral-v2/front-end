@@ -1,12 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { TimeFormatter } from "$models/TimeFormatter";
-import { SharedStatusLabel } from "$components/SharedStatusLabel";
-import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
+import { SharedStatusLabel } from "$components/SharedStatusLabel";
+import { OpenDetailIcon } from "$components/OpenDetailIcon";
+
+import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   jobApplication: {
+    uuid,
     applicant: {
       padron,
       user: { name, surname }
@@ -27,6 +32,9 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
     <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
+    <div className={styles.statusContainer}>
+      <OpenDetailIcon detailRoute={RoutesBuilder.admin.jobApplicationDetail(uuid)} />
+    </div>
   </>
 );
 
