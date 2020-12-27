@@ -8,7 +8,7 @@ import { Window } from "$components/Window";
 export const ApplicantDetail: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
   return (
-    <Window>
+    <Window desktopOnly>
       <ApplicantDetailInfo selectedTaskUuid={uuid} />
       <ApplicantDetailContent className={styles.content} applicantUuid={uuid} />
     </Window>

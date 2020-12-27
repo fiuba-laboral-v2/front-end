@@ -5,7 +5,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { OfferDetailInfo } from "./component";
 import { UPDATE_OFFER_APPROVAL_STATUS } from "$mutations";
 import { OFFER } from "$typenames";
-import { IOfferDetailInfoContainerProps } from "../../interfaces";
+import { IOfferDetailInfoContainerProps } from "../../../Home/Dashboard/TaskDetail/interfaces";
 
 export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContainerProps> = ({
   refetchAdminTasks,
