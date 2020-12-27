@@ -16,6 +16,7 @@ export interface IApplicantDetailInfoContainerProps extends IBaseDetailInfoProps
 
 export interface IOfferDetailInfoContainerProps extends IBaseDetailInfoProps {
   selectedTaskUuid: string;
+  hideActions?: boolean;
 }
 
 export interface IJobApplicationDetailInfoContainerProps extends IBaseDetailInfoProps {

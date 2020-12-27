@@ -11,7 +11,8 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   refetchAdminTasks,
   selectedTaskUuid,
   onStatusUpdate,
-  setLoadingStatusUpdate
+  setLoadingStatusUpdate,
+  hideActions
 }) => {
   const offer = useCompanyOfferByUuid(selectedTaskUuid).data?.getOfferByUuid;
   const approvalStatusAttribute = useAdminApprovalStatusAttribute();
@@ -34,6 +35,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
 
   return (
     <OfferDetailInfo
+      hideActions={hideActions}
       loading={loadingUpdateStatus}
       setStatus={setStatus}
       offer={offer}

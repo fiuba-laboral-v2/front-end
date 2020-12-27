@@ -9,9 +9,11 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
   offer,
   currentStatus,
   setStatus,
-  loading
+  loading,
+  hideActions
 }) => (
   <DetailInfo
+    hideActions={hideActions}
     hidden={!offer}
     loading={loading}
     mainTitle={<MainTitle offer={offer} />}
@@ -27,4 +29,5 @@ export interface IOfferDetailInfoProps {
   offer?: IOffer;
   currentStatus?: ApprovalStatus;
   loading: boolean;
+  hideActions?: boolean;
 }

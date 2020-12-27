@@ -10,13 +10,16 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   loading,
   currentStatus,
   children,
-  hidden
+  hidden,
+  hideActions
 }) => (
   <>
     {mainTitle}
     <div className={styles.details} {...{ hidden }}>
       {children}
-      <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus} />
+      {!hideActions && (
+        <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus} />
+      )}
     </div>
   </>
 );
@@ -27,4 +30,5 @@ export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
   hidden: boolean;
+  hideActions?: boolean;
 }
