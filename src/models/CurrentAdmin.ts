@@ -1,7 +1,7 @@
 import { IUser } from "$interfaces/User";
 import { Secretary } from "$interfaces/Secretary";
 import { IOffer } from "$interfaces/Offer";
-import { ApplicantType } from "$interfaces/Applicant";
+import { ApplicantType, IApplicant } from "$interfaces/Applicant";
 
 export type TCurrentAdminAttributes = {
   user: Pick<IUser, "uuid">;
@@ -25,6 +25,15 @@ export const CurrentAdmin = ({
           [Secretary.extension]: ApplicantType.student
         }[secretary] === offer.targetApplicantType
       );
+    },
+    canModerateApplicant: (applicant: IApplicant) => {
+      const isGraduate = applicant.careers.map(career => career.isGraduate).includes(true);
+      return (
+        {
+          [Secretary.graduados]: true,
+          [Secretary.extension]: false
+        }[secretary] === isGraduate
+      );
     }
   } as TCurrentAdmin;
 };
@@ -33,4 +42,5 @@ export type TCurrentAdmin = TCurrentAdminAttributes & {
   isGraduados: () => boolean;
   isExtension: () => boolean;
   canModerateOffer: (offer: IOffer) => boolean;
+  canModerateApplicant: (applicant: IApplicant) => boolean;
 };

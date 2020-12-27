@@ -2,7 +2,7 @@ import { CurrentAdmin } from "$models/CurrentAdmin";
 import { Offer } from "$models/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { ApplicantType } from "$interfaces/Applicant";
+import { ApplicantType, IApplicant, IApplicantCareer } from "$interfaces/Applicant";
 
 describe("CurrentAdmin", () => {
   const generateAttributes = (secretary: Secretary) => ({
@@ -118,6 +118,88 @@ describe("CurrentAdmin", () => {
       it("returns false if the offer targets students", () => {
         const offer = createOffer(ApplicantType.student);
         expect(currentGraduadosAdmin.canModerateOffer(offer)).toBe(false);
+      });
+    });
+  });
+
+  describe("canModerateApplicant", () => {
+    const createApplicant = (careers: IApplicantCareer[]): IApplicant => ({
+      uuid: "d3208f27-7404-4396-b8a1-88037d493989",
+      user: {
+        uuid: "d3208f27-7404-4396-b8a1-88037d493989",
+        name: "name",
+        surname: "surname",
+        email: "email@gmail.com",
+        dni: "234"
+      },
+      padron: 88888,
+      description: "description",
+      createdAt: "2020-12-04T16:57:07.333Z",
+      updatedAt: "2020-12-04T16:57:07.333Z",
+      approvalStatus: ApprovalStatus.pending,
+      careers,
+      links: [],
+      experienceSections: [],
+      knowledgeSections: [],
+      capabilities: []
+    });
+
+    const applicantCareersWithOneGraduation = [
+      {
+        isGraduate: true,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      },
+      {
+        isGraduate: false,
+        approvedSubjectCount: 44,
+        currentCareerYear: 5,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      }
+    ];
+
+    const applicantCareersWithNoGraduation = [
+      {
+        isGraduate: false,
+        approvedSubjectCount: 44,
+        currentCareerYear: 5,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      }
+    ];
+
+    describe("Extension Admin", () => {
+      const currentExtensionAdmin = CurrentAdmin(generateAttributes(Secretary.extension));
+
+      it("returns false if the applicant has graduated from at least one career", () => {
+        const applicant = createApplicant(applicantCareersWithOneGraduation);
+        expect(currentExtensionAdmin.canModerateApplicant(applicant)).toBe(false);
+      });
+
+      it("returns true if the applicant has not graduated yet", () => {
+        const applicant = createApplicant(applicantCareersWithNoGraduation);
+        expect(currentExtensionAdmin.canModerateApplicant(applicant)).toBe(true);
+      });
+    });
+
+    describe("Graduados Admin", () => {
+      const currentGraduadosAdmin = CurrentAdmin(generateAttributes(Secretary.graduados));
+
+      it("returns true if the applicant has graduated from at least one career", () => {
+        const applicant = createApplicant(applicantCareersWithOneGraduation);
+        expect(currentGraduadosAdmin.canModerateApplicant(applicant)).toBe(true);
+      });
+
+      it("returns true if the applicant has not graduated yet", () => {
+        const applicant = createApplicant(applicantCareersWithNoGraduation);
+        expect(currentGraduadosAdmin.canModerateApplicant(applicant)).toBe(false);
       });
     });
   });
