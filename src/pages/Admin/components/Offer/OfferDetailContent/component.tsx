@@ -9,7 +9,7 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
   className
 }) => {
   const offer = useOfferByUuid(offerUuid).data?.getOfferByUuid;
-  scrollToTop();
+  if (scrollToTop) scrollToTop();
   return (
     <>
       {!offer && <LoadingSpinner />}
@@ -20,6 +20,6 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
 
 interface IOfferDetailContentProps {
   offerUuid: string;
-  scrollToTop: () => void;
+  scrollToTop?: () => void;
   className?: string;
 }
