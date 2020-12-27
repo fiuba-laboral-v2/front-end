@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 export const JobApplicationDetail: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
   return (
-    <Window className={styles.taskDetail}>
+    <Window className={styles.taskDetail} desktopOnly>
       <JobApplicationDetailInfo selectedTaskUuid={uuid} />
       <JobApplicationDetailContent className={styles.content} jobApplicationUuid={uuid} />
     </Window>

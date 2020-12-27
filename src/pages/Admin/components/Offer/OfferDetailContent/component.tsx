@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { OfferDetail } from "$components/OfferDetail";
 import { useOfferByUuid } from "$hooks/queries";
-import { LoadingSpinner } from "../../../../../components/LoadingSpinner";
+import { LoadingSpinner } from "../../LoadingSpinner";
 
 export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = ({
   offerUuid,
@@ -9,7 +9,7 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
   className
 }) => {
   const offer = useOfferByUuid(offerUuid).data?.getOfferByUuid;
-  scrollToTop();
+  if (scrollToTop) scrollToTop();
   return (
     <>
       {!offer && <LoadingSpinner />}
@@ -20,6 +20,6 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
 
 interface IOfferDetailContentProps {
   offerUuid: string;
-  scrollToTop: () => void;
+  scrollToTop?: () => void;
   className?: string;
 }
