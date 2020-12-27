@@ -21,5 +21,8 @@ export const typePolicies = {
   },
   AdminSettings: {
     keyFields: []
+  },
+  SharedSettings: {
+    keyFields: []
   }
 };

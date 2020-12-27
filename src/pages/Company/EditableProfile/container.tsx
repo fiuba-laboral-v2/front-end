@@ -1,7 +1,12 @@
 import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useMyCompanyProfile, useTranslations, useUpdateCurrentCompany } from "$hooks";
+import {
+  useMyCompanyProfile,
+  useTranslations,
+  useUpdateCurrentCompany,
+  useSharedSettings
+} from "$hooks";
 import { EditableProfile } from "./component";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -18,7 +23,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const { updateCurrentCompany } = useUpdateCurrentCompany();
   const company = useMyCompanyProfile();
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
-  const acceptanceCriteria = useTranslations<{ text: string }>("companyEditableAcceptanceCriteria");
+  const acceptanceCriteria = useSharedSettings()?.companyEditableAcceptanceCriteria;
 
   const modelToValues = useCallback((model?: ICompany) => {
     const values: IEditableProfileFormValues = {
@@ -59,7 +64,7 @@ export const EditableProfileContainer: FunctionComponent = () => {
         {formikProps => (
           <FormikForm initialValuesModel={company} {...{ modelToValues, formikProps }}>
             <EditableProfile
-              acceptanceCriteria={acceptanceCriteria?.text}
+              acceptanceCriteria={acceptanceCriteria}
               {...{ translations, formikProps }}
             />
           </FormikForm>
