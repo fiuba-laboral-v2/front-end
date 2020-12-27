@@ -11,6 +11,7 @@ import { ApplicantDetail } from "./ApplicantDetail";
 import { CompanyDetail } from "./CompanyDetail";
 import { CompanyUsers } from "./CompanyUsers";
 import { JobApplicationDetail } from "./JobApplicationDetail";
+import { OfferDetail } from "./OfferDetail";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -26,7 +27,8 @@ const {
   applicantDetail,
   companyDetail,
   companyUsers,
-  jobApplicationDetail
+  jobApplicationDetail,
+  offerDetail
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -42,5 +44,6 @@ export const AdminRoutes = [
   { path: applicantDetail(":uuid"), component: ApplicantDetail },
   { path: companyDetail(":uuid"), component: CompanyDetail },
   { path: companyUsers(":companyUuid"), component: CompanyUsers },
-  { path: jobApplicationDetail(":uuid"), component: JobApplicationDetail }
+  { path: jobApplicationDetail(":uuid"), component: JobApplicationDetail },
+  { path: offerDetail(":uuid"), component: OfferDetail }
 ];
