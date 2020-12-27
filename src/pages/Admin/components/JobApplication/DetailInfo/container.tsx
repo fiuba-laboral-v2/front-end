@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useJobApplicationByUuid } from "$hooks/queries";
-import { useUpdateAdminTaskStatus } from "$hooks";
+import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { JobApplicationDetailInfo } from "./component";
 import { UPDATE_JOB_APPLICATION_APPROVAL_STATUS } from "$mutations";
@@ -13,6 +13,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const currentUser = useCurrentUser();
   const jobApplication = useJobApplicationByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
@@ -31,8 +32,14 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
     });
   };
 
+  const hideActions = () => {
+    if (!jobApplication) return;
+    return !currentUser.data?.getCurrentUser?.admin?.canModerateApplicant(jobApplication.applicant);
+  };
+
   return (
     <JobApplicationDetailInfo
+      hideActions={hideActions()}
       loading={loading}
       setStatus={setStatus}
       currentStatus={jobApplication?.approvalStatus}
