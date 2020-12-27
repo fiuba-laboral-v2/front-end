@@ -8,6 +8,28 @@ query getJobApplicationByUuid($uuid: ID!) {
     offer {
       uuid
       title
+      description
+      targetApplicantType
+      hoursPerDay
+      isInternship
+      minimumSalary
+      maximumSalary
+      extensionApprovalStatus
+      graduadosApprovalStatus
+      studentsExpirationDateTime
+      graduatesExpirationDateTime
+      createdAt
+      updatedAt
+      sections {
+        uuid
+        title
+        text
+        displayOrder
+      }
+      careers {
+        code
+        description
+      }
       company {
         uuid
         companyName
