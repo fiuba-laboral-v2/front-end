@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 export const OfferDetail: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
   return (
-    <Window className={styles.taskDetail}>
+    <Window className={styles.taskDetail} desktopOnly>
       <OfferDetailInfo selectedTaskUuid={uuid} />
       <OfferDetailContent className={styles.content} offerUuid={uuid} />
     </Window>

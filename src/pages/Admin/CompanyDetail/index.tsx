@@ -14,7 +14,7 @@ export const CompanyDetail: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("adminCompanyDetail");
   const { uuid } = useParams<{ uuid: string }>();
   return (
-    <Window>
+    <Window desktopOnly>
       <CompanyDetailInfo selectedTaskUuid={uuid} />
       <CompanyDetailContent className={styles.content} companyUuid={uuid}>
         <Button kind="primary" onClick={() => history.push(RoutesBuilder.admin.companyUsers(uuid))}>
