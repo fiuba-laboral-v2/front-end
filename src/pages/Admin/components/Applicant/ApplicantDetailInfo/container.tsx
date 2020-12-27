@@ -37,5 +37,12 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
     return !currentUser.data?.getCurrentUser?.admin?.canModerateApplicant(applicant);
   };
 
-  return <ApplicantDetailInfo {...{ loading, applicant, setStatus, hideActions: hideActions() }} />;
+  return (
+    <ApplicantDetailInfo
+      loading={loading}
+      applicant={applicant}
+      setStatus={setStatus}
+      hideActions={hideActions()}
+    />
+  );
 };
