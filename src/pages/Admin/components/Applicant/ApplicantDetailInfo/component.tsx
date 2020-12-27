@@ -8,9 +8,11 @@ import { MainTitle } from "./MainTitle";
 export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = ({
   applicant,
   setStatus,
-  loading
+  loading,
+  hideActions
 }) => (
   <DetailInfo
+    hideActions={hideActions}
     hidden={!applicant}
     loading={loading}
     mainTitle={<MainTitle applicant={applicant} />}
@@ -25,4 +27,5 @@ export interface IApplicantDetailInfoProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   applicant?: IApplicant;
   loading: boolean;
+  hideActions?: boolean;
 }

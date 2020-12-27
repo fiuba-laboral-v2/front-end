@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useCompanyOfferByUuid, useAdminApprovalStatusAttribute } from "$hooks/queries";
-import { useUpdateAdminTaskStatus } from "$hooks";
+import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { OfferDetailInfo } from "./component";
 import { UPDATE_OFFER_APPROVAL_STATUS } from "$mutations";
@@ -13,6 +13,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const currentUser = useCurrentUser();
   const offer = useCompanyOfferByUuid(selectedTaskUuid).data?.getOfferByUuid;
   const approvalStatusAttribute = useAdminApprovalStatusAttribute();
   const { updateAdminTaskStatus, loading: loadingUpdateStatus } = useUpdateAdminTaskStatus({
@@ -32,8 +33,14 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
     });
   };
 
+  const hideActions = () => {
+    if (!offer) return;
+    return !currentUser.data?.getCurrentUser?.admin?.canModerateOffer(offer);
+  };
+
   return (
     <OfferDetailInfo
+      hideActions={hideActions()}
       loading={loadingUpdateStatus}
       setStatus={setStatus}
       offer={offer}

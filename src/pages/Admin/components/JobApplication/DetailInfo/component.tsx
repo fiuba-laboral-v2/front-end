@@ -9,9 +9,11 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
   jobApplication,
   setStatus,
   currentStatus,
-  loading
+  loading,
+  hideActions
 }) => (
   <DetailInfo
+    hideActions={hideActions}
     hidden={!jobApplication}
     loading={loading}
     mainTitle={<MainTitle jobApplication={jobApplication} />}
@@ -27,4 +29,5 @@ export interface IComponentProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   jobApplication?: IJobApplication;
   currentStatus?: ApprovalStatus;
+  hideActions?: boolean;
 }

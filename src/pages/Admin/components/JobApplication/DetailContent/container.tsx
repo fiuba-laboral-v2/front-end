@@ -17,7 +17,12 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   return (
     <>
       {loading && <LoadingSpinner />}
-      <JobApplicationDetailContent hidden={loading} {...{ applicant, offer, className }} />
+      <JobApplicationDetailContent
+        className={className}
+        hidden={loading}
+        applicant={applicant}
+        offer={offer}
+      />
     </>
   );
 };

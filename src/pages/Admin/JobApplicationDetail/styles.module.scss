@@ -1,11 +1,9 @@
 @import "$styles/_variables";
 
 .content {
-  margin: $spacing-s $spacing-l $spacing-l;
+  margin: 0 $spacing-l $spacing-l;
 }
 
 .taskDetail {
-  height: 100%;
-  max-width: 1000px;
   width: 100%;
 }
