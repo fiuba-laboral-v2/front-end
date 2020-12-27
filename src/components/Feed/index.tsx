@@ -1,15 +1,15 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import { List } from "$components/List";
-import { Card } from "$components/Card";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 import { Title } from "$components/Title";
+import { Card } from "../Card";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,
   offers,
-  onCardClick,
+  createLink,
   fetchMore,
   shouldFetchMore,
   loading,
@@ -27,11 +27,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
       emptyListComponent={emptyListComponent}
     >
       {offer => (
-        <Card
-          key={offer.uuid}
-          className={styles.cardContainer}
-          onClick={() => onCardClick(offer.uuid)}
-        >
+        <Card key={offer.uuid} className={styles.cardContainer} link={createLink(offer.uuid)}>
           <Offer data={offer} withStatusLabels={withStatusLabels} />
         </Card>
       )}
@@ -43,7 +39,7 @@ interface IFeedProps {
   withStatusLabels: boolean;
   title?: string;
   offers: IOffer[];
-  onCardClick: (uuid: string) => void;
+  createLink: (uuid: string) => string;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;

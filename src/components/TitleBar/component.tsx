@@ -29,7 +29,7 @@ export const TitleBar: FunctionComponent<ITitleBarProps> = ({
       </Link>
     </span>
     <Link to={RoutesBuilder.public.home()} className={styles.logoContainer}>
-      <img src={"images/logo.svg"} alt="Logo de FIUBA" className={styles.logo} />
+      <img src={"images/logo.svg"} alt="Logo de FIUBA" className={styles.logo} draggable={false} />
     </Link>
   </div>
 );

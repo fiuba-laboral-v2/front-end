@@ -1,25 +1,20 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
-import { useHistory } from "react-router-dom";
 import { Link } from "$components/Link";
-import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
-
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IJobApplication } from "$interfaces/JobApplication";
 import styles from "./styles.module.scss";
 import { TimeHumanizer } from "$components/TimeHumanizer";
+import { Card } from "$components/Card";
 
 export const JobApplication: FunctionComponent<IJobApplicationProps> = ({
   className,
   jobApplication: { updatedAt, offer, applicant }
 }) => {
-  const history = useHistory();
+  const link = RoutesBuilder.company.applicantDetail(applicant.uuid);
   return (
-    <Card
-      className={classNames(styles.card, className)}
-      onClick={() => history.push(RoutesBuilder.company.applicantDetail(applicant.uuid))}
-    >
+    <Card className={classNames(styles.card, className)} link={link}>
       <div className={styles.leftContainer}>
         <Subtitle className={styles.applicantName}>
           {`${applicant.user.name} ${applicant.user.surname}`}
