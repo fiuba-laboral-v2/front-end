@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useApplicantByUuid } from "$hooks/queries";
-import { useUpdateAdminTaskStatus } from "$hooks";
+import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
 import { UPDATE_APPLICANT_APPROVAL_STATUS } from "$mutations";
@@ -13,6 +13,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const currentUser = useCurrentUser();
   const applicant = useApplicantByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
     documentNode: UPDATE_APPLICANT_APPROVAL_STATUS,
@@ -31,5 +32,10 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
     });
   };
 
-  return <ApplicantDetailInfo {...{ loading, applicant, setStatus }} />;
+  const hideActions = () => {
+    if (!applicant) return;
+    return !currentUser.data?.getCurrentUser?.admin?.canModerateApplicant(applicant);
+  };
+
+  return <ApplicantDetailInfo {...{ loading, applicant, setStatus, hideActions: hideActions() }} />;
 };
