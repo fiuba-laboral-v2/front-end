@@ -1,5 +1,10 @@
+@import "$styles/_variables";
 @import "$styles/mixins/_tableList";
 
 .text {
   @include bodyItem;
+}
+
+.actionsContainer {
+  padding: $spacing-xs;
 }

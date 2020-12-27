@@ -5,16 +5,16 @@ import { IconButton } from "$components/IconButton";
 
 export const ChangePasswordAction: FunctionComponent<IComponentProps> = ({
   tooltipMessage,
-  onClickChangePasswordIcon
+  link
 }) => (
   <Tooltip title={tooltipMessage}>
     <div>
-      <IconButton Icon={VpnKeyIcon} onClick={onClickChangePasswordIcon} />
+      <IconButton Icon={VpnKeyIcon} link={link} />
     </div>
   </Tooltip>
 );
 
 interface IComponentProps {
   tooltipMessage: string;
-  onClickChangePasswordIcon: () => void;
+  link: string;
 }

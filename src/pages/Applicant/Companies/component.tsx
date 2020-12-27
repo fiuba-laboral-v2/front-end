@@ -8,6 +8,7 @@ import { Window } from "$components/Window";
 import { ICompany } from "$interfaces/Company";
 import styles from "./styles.module.scss";
 import { Card } from "$components/Card";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const Companies: FunctionComponent<ICompaniesProps> = ({
   companies,
@@ -45,9 +46,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
         <EmptyList
           emptyTranslationSource="applicantEmptyCompaniesList"
           buttonKind="secondary"
-          onClick={() => {
-            // sacar los filtros cuando hayan
-          }}
+          link={RoutesBuilder.public.internalServerError()}
         />
       )}
     </Window>

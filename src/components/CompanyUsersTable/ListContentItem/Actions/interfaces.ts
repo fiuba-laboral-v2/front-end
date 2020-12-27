@@ -15,5 +15,5 @@ export interface IContainerProps extends ICommonProps {
 export interface IComponentProps extends ICommonProps {
   translations: ITranslations;
   hideChangePasswordIcon: () => boolean;
-  onClickChangePasswordIcon: () => void;
+  link: string;
 }

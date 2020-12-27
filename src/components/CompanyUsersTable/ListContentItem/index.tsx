@@ -3,6 +3,7 @@ import { TimeFormatter } from "$models/TimeFormatter";
 import { ICompanyUser } from "$interfaces/CompanyUser";
 import { Actions } from "./Actions";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 export const ListContentItem: FunctionComponent<IComponentProps> = ({
   companyUser,
@@ -14,7 +15,7 @@ export const ListContentItem: FunctionComponent<IComponentProps> = ({
     <p className={styles.text}>{companyUser.position}</p>
     <div className={styles.text}>{TimeFormatter.dateTime(companyUser.createdAt)}</div>
     {!withoutActions && (
-      <div className={styles.text}>
+      <div className={classNames(styles.text, styles.actionsContainer)}>
         <Actions companyUser={companyUser} />
       </div>
     )}

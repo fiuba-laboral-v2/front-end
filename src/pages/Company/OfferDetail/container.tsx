@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useCallback } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCompanyOfferByUuid, useExpireOffer, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
@@ -10,7 +10,6 @@ import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const OfferDetailContainer: FunctionComponent = () => {
-  const history = useHistory();
   const { uuid } = useParams<{ uuid: string }>();
   const { data, refetch } = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
@@ -43,10 +42,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
             >
               {translations?.expire}
             </Button>
-            <Button
-              kind={"primary"}
-              onClick={() => offer && history.push(RoutesBuilder.company.editOffer(offer.uuid))}
-            >
+            <Button kind={"primary"} link={offer && RoutesBuilder.company.editOffer(offer.uuid)}>
               {translations?.edit}
             </Button>
           </div>
