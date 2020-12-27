@@ -8,10 +8,9 @@ import styles from "./styles.module.scss";
 
 export const OfferDetail: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
-  const hideActions = true;
   return (
     <Window desktopOnly>
-      <OfferDetailInfo hideActions={hideActions} selectedTaskUuid={uuid} />
+      <OfferDetailInfo selectedTaskUuid={uuid} />
       <OfferDetailContent className={styles.content} offerUuid={uuid} />
     </Window>
   );
