@@ -39,7 +39,11 @@ export const SettingsContainer: FunctionComponent = () => {
   const modelToValues = useCallback(
     (model?: IAdminSettings) => ({
       offerDurationInDays: model?.offerDurationInDays || NaN,
-      email: model?.email || ""
+      email: model?.email || "",
+      emailSignature: model?.emailSignature || "",
+      companySignUpAcceptanceCriteria: model?.companySignUpAcceptanceCriteria || "",
+      companyEditableAcceptanceCriteria: model?.companyEditableAcceptanceCriteria || "",
+      editOfferAcceptanceCriteria: model?.editOfferAcceptanceCriteria || ""
     }),
     []
   );

@@ -1,8 +1,5 @@
-query getAdminSettings {
-  getAdminSettings {
-    email
-    emailSignature
-    offerDurationInDays
+query getSharedSettings {
+  getSharedSettings {
     companySignUpAcceptanceCriteria
     companyEditableAcceptanceCriteria
     editOfferAcceptanceCriteria
