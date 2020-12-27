@@ -7,6 +7,10 @@
 
 .internshipLabel {
   margin: $spacing-xs auto 0;
+
+  span {
+    @include tableItemFontSize;
+  }
 }
 
 .careersContainer {
@@ -14,6 +18,10 @@
 
   display: flex;
   flex-direction: column;
+}
+
+.careers {
+  font-size: inherit;
 }
 
 .container {
@@ -38,7 +46,8 @@
   justify-content: center;
 
   span {
-    font-size: $fontSize-m;
+    @include tableItemFontSize;
+
     font-weight: $fontWeight-r;
   }
 }

@@ -9,12 +9,21 @@ $spacing-m: 14px;
 $spacing-s: 8px;
 $spacing-xs: 4px;
 
-$fontSize-xxxl: MIN(36px, 8vw);
-$fontSize-xxl: MIN(30px, 7.5vw);
-$fontSize-xl: MIN(24px, 6.5vw);
-$fontSize-l: MIN(20px, 6vw);
-$fontSize-m: MIN(16px, 6vw);
-$fontSize-s: MIN(14px, 6vw);
+$fixedFontSize-xxxl: 36px;
+$fixedFontSize-xxl: 30px;
+$fixedFontSize-xl: 24px;
+$fixedFontSize-l: 20px;
+$fixedFontSize-m: 16px;
+$fixedFontSize-s: 14px;
+
+$fontSize-xxxl: MIN(#{$fixedFontSize-xxxl}, 8vw);
+$fontSize-xxl: MIN(#{$fixedFontSize-xxl}, 7.5vw);
+$fontSize-xl: MIN(#{$fixedFontSize-xl}, 6.5vw);
+$fontSize-l: MIN(#{$fixedFontSize-l}, 6vw);
+$fontSize-m: MIN(#{$fixedFontSize-m}, 6vw);
+$fontSize-s: MIN(#{$fixedFontSize-s}, 6vw);
+
+$adminTableFontSize: MIN(#{$fixedFontSize-m}, 1.3vw);
 
 $fontWeight-r: 400;
 $fontWeight-b: 600;
