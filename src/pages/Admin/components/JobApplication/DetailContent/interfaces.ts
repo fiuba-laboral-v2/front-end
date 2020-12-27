@@ -5,7 +5,6 @@ export interface IContainerProps {
   jobApplicationUuid: string;
   scrollToTop?: () => void;
   className?: string;
-  mobileLayout?: boolean;
 }
 
 export interface IComponentProps {
@@ -13,5 +12,4 @@ export interface IComponentProps {
   offer?: IOffer;
   className?: string;
   hidden: boolean;
-  mobileLayout?: boolean;
 }

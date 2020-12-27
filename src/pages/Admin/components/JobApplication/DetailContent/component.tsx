@@ -9,19 +9,10 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
   applicant,
   offer,
   className,
-  hidden,
-  mobileLayout
+  hidden
 }) => (
   <div className={classNames(styles.detailContent, className)} {...{ hidden }}>
-    <ApplicantDetail
-      className={classNames(styles.applicantDetail, { [styles.desktopLayout]: !mobileLayout })}
-      mobileLayout={mobileLayout}
-      applicant={applicant}
-    />
-    <OfferDetail
-      className={classNames(styles.offerDetail, { [styles.desktopLayout]: !mobileLayout })}
-      mobileLayout={mobileLayout}
-      offer={offer}
-    />
+    <ApplicantDetail mobileLayout className={styles.applicantDetail} applicant={applicant} />
+    <OfferDetail mobileLayout className={styles.offerDetail} offer={offer} />
   </div>
 );

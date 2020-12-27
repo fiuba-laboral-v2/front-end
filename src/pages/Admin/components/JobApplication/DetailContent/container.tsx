@@ -7,8 +7,7 @@ import { LoadingSpinner } from "../../LoadingSpinner";
 export const JobApplicationDetailContentContainer: FunctionComponent<IContainerProps> = ({
   jobApplicationUuid,
   scrollToTop,
-  className,
-  mobileLayout
+  className
 }) => {
   const jobApplication = useJobApplicationByUuid(jobApplicationUuid);
   const applicant = jobApplication?.applicant;
@@ -19,7 +18,6 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
     <>
       {loading && <LoadingSpinner />}
       <JobApplicationDetailContent
-        mobileLayout={mobileLayout}
         className={className}
         hidden={loading}
         applicant={applicant}

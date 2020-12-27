@@ -74,7 +74,6 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailContent
-              mobileLayout
               jobApplicationUuid={selectedTask.uuid}
               scrollToTop={scrollToTop}
               className={styles.content}
