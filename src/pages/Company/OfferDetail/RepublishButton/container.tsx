@@ -16,7 +16,7 @@ export const RepublishButtonContainer: FunctionComponent<IRepublishButtonContain
 
   const showActionButton = offer.canRepublishForStudents() || offer.canRepublishForGraduates();
   const onSubmitConfirm = () => undefined;
-  const messageDescription = (isModal: boolean = false) => (
+  const messageDescription = ({ isModal }: { isModal: boolean }) => (
     <RepublishStateDescription
       {...{
         canRepublishForStudents: offer.canRepublishForStudents(),

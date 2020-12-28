@@ -15,7 +15,7 @@ export const Actions: FunctionComponent<IActionsProps> = ({
 }) => {
   const showRepublishButton = offer.canRepublishForStudents() || offer.canRepublishForGraduates();
   const showExpireButton = offer.canExpireForStudents() || offer.canExpireForGraduates();
-  const twoButtons = showRepublishButton && showExpireButton;
+  const showTwoButtons = showRepublishButton && showExpireButton;
   return (
     <div className={styles.actionContainer}>
       <Button className={styles.editButton} kind="primary" onClick={handleEdit}>
@@ -24,7 +24,9 @@ export const Actions: FunctionComponent<IActionsProps> = ({
       <div className={styles.secondActionRowContainer}>
         <RepublishButton
           {...{
-            className: classNames(styles.republishButton, { [styles.twoButtons]: twoButtons }),
+            className: classNames(styles.republishButton, {
+              [styles.showTwoButtons]: showTwoButtons
+            }),
             kind: "secondary",
             offer
           }}

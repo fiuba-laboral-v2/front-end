@@ -17,32 +17,29 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   onSubmitConfirm,
   onCloseConfirmDialog,
   translations
-}) => {
-  const isModal = true;
-  return (
-    <>
-      {showActionButton && (
-        <>
-          <Tooltip title={messageDescription()} placement="bottom-end">
-            <div className={className}>
-              <Button className={styles.button} kind={kind} onClick={handleAction}>
-                <span>{translations?.buttonText}</span>
-              </Button>
-            </div>
-          </Tooltip>
-          <FormConfirmDialog
-            isOpen={confirmDialogIsOpen}
-            onConfirm={onSubmitConfirm}
-            onClose={onCloseConfirmDialog}
-            translations={{
-              confirmDialogTitle: translations.confirmDialogTitle,
-              confirmDialogConfirm: translations.confirmDialogConfirm,
-              confirmDialogDescription: messageDescription(isModal),
-              confirmDialogCancel: translations.confirmDialogCancel
-            }}
-          />
-        </>
-      )}
-    </>
-  );
-};
+}) => (
+  <>
+    {showActionButton && (
+      <>
+        <Tooltip title={messageDescription({ isModal: false })} placement="bottom-end">
+          <div className={className}>
+            <Button className={styles.button} kind={kind} onClick={handleAction}>
+              <span>{translations?.buttonText}</span>
+            </Button>
+          </div>
+        </Tooltip>
+        <FormConfirmDialog
+          isOpen={confirmDialogIsOpen}
+          onConfirm={onSubmitConfirm}
+          onClose={onCloseConfirmDialog}
+          translations={{
+            confirmDialogTitle: translations.confirmDialogTitle,
+            confirmDialogConfirm: translations.confirmDialogConfirm,
+            confirmDialogDescription: messageDescription({ isModal: true }),
+            confirmDialogCancel: translations.confirmDialogCancel
+          }}
+        />
+      </>
+    )}
+  </>
+);

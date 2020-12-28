@@ -13,10 +13,9 @@ export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProp
 }) => (
   <>
     <p>
-      {title} <br />{" "}
+      {title} <br />
     </p>
     <p className={classNames({ [styles.offerStateModal]: isModal })}>
-      {/* {isModal && <br />} */}
       {firstLine}
       {firstLine && secondLine && <br />}
       {secondLine}

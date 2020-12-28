@@ -5,7 +5,7 @@ export interface IActionButtonContainerProps {
   translations: IActionButtonTranslations;
   showActionButton: boolean;
   onSubmitConfirm: () => void;
-  messageDescription: (isModal?: boolean) => ReactElement<string>;
+  messageDescription: ({ isModal }: { isModal: boolean }) => ReactElement<string>;
   className: string;
   kind: ButtonKind;
 }
