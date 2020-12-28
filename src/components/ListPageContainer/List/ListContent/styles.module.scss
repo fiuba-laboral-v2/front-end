@@ -1,7 +1,10 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_scrollOverlay";
+@import "$styles/mixins/_tableList";
 
 .fetchMore {
+  @include tableItemFontSize;
+
   align-self: center;
   display: flex;
   margin: 10px auto;

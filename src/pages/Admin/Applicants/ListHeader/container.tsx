@@ -13,4 +13,5 @@ export interface ITranslations {
   dni: string;
   studies: string;
   state: string;
+  actions: string;
 }

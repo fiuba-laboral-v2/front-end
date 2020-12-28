@@ -1,3 +1,4 @@
+import React from "react";
 import { Profile } from "./Profile";
 import { EditableProfile } from "./EditableProfile";
 import { SignUp } from "./SignUp";
@@ -13,6 +14,8 @@ import { Notifications } from "./Notifications";
 import { CompanyUsers } from "./CompanyUsers";
 import { AddCompanyUser } from "./AddCompanyUser";
 import { EditPassword } from "./EditPassword";
+import { EditMyForgottenPassword } from "./EditMyForgottenPassword";
+import { PasswordRecovery } from "./PasswordRecovery";
 
 const {
   signUp,
@@ -28,7 +31,9 @@ const {
   notifications,
   users,
   createUser,
-  editPassword
+  editPassword,
+  editMyForgottenPassword,
+  passwordRecovery
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -45,5 +50,13 @@ export const CompanyRoutes = [
   { path: notifications(), component: Notifications },
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
-  { path: editPassword(), component: EditPassword }
+  { path: editPassword(), component: EditPassword },
+  { path: passwordRecovery(), component: PasswordRecovery, public: true },
+  {
+    path: editMyForgottenPassword(),
+    component: (props: { location: Location }) => (
+      <EditMyForgottenPassword searchQuery={props.location.search} />
+    ),
+    public: true
+  }
 ];

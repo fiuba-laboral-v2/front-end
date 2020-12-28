@@ -5,9 +5,14 @@
   grid-template-rows: auto;
 }
 
+@mixin tableItemFontSize {
+  font-size: $adminTableFontSize;
+}
+
 @mixin tableItem {
+  @include tableItemFontSize;
+
   align-self: center;
-  font-size: $fontSize-m;
   justify-self: center;
   padding: $spacing-s;
   text-align: center;

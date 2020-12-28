@@ -1,1 +1,1 @@
-export { PositiveNumberField as SalaryField } from "$components/Fields";
+export { PositiveIntegerField as SalaryField } from "$components/Fields";

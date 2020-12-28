@@ -1,9 +1,8 @@
 import React from "react";
 import classNames from "classnames";
-import { Button } from "../Button";
+import { Button } from "$components/Button";
 import { IPaginationButtonProps } from "./interfaces";
-import { LoadingSpinner } from "../LoadingSpinner";
-
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import styles from "./styles.module.scss";
 
 export const PaginationButton = ({

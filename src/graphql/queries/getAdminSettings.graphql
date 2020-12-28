@@ -1,0 +1,10 @@
+query getAdminSettings {
+  getAdminSettings {
+    email
+    emailSignature
+    offerDurationInDays
+    companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria
+  }
+}

@@ -25,6 +25,7 @@ export const ListBody: FunctionComponent<IListBodyProps> = ({
   >
     {adminTask => (
       <Card
+        hoverable
         key={adminTask.uuid}
         className={styles.card}
         onClick={() => onSelectTask(adminTask)}

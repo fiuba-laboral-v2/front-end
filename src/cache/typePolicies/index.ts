@@ -18,5 +18,11 @@ export const typePolicies = {
     fields: {
       sections: { merge: discardExistingResults }
     }
+  },
+  AdminSettings: {
+    keyFields: []
+  },
+  SharedSettings: {
+    keyFields: []
   }
 };

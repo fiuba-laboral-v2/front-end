@@ -6,14 +6,17 @@ const APPLICATIONS = "postulaciones";
 const OFFERS = "ofertas";
 const PROFILE = "perfil";
 const SIGN_UP = "registro";
+const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
 const EDIT = "editar";
+const RECOVER = "recuperar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
-const PASSWORD = "contraseña";
+const PASSWORD = "contrasena";
+const REQUEST = "solicitar";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -40,7 +43,19 @@ export const RoutesBuilder = {
 
     notifications: () => adminRoute(NOTIFICATIONS),
 
-    signUp: () => adminRoute(SIGN_UP)
+    signUp: () => adminRoute(SIGN_UP),
+
+    settings: () => adminRoute(SETTINGS),
+
+    applicantDetail: (uuid: string) => adminRoute(APPLICANTS, uuid),
+
+    companyDetail: (uuid: string) => adminRoute(COMPANIES, uuid),
+
+    companyUsers: (companyUuid: string) => adminRoute(COMPANIES, companyUuid, USERS),
+
+    jobApplicationDetail: (uuid: string) => adminRoute(APPLICATIONS, uuid),
+
+    offerDetail: (uuid: string) => adminRoute(OFFERS, uuid)
   },
 
   applicant: {
@@ -92,7 +107,12 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
-    editPassword: () => companyRoute(PASSWORD, EDIT)
+    editPassword: () => companyRoute(PASSWORD, EDIT),
+
+    editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
+      `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`,
+
+    passwordRecovery: () => companyRoute(PASSWORD, RECOVER, REQUEST)
   },
 
   public: {

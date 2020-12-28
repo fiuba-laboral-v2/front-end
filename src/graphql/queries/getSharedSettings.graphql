@@ -1,0 +1,7 @@
+query getSharedSettings {
+  getSharedSettings {
+    companySignUpAcceptanceCriteria
+    companyEditableAcceptanceCriteria
+    editOfferAcceptanceCriteria
+  }
+}

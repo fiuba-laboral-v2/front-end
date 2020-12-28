@@ -6,6 +6,8 @@ const GET_COMPANY_BY_UUID_WITH_USERS = loader("./getCompanyByUuidWithUsers.graph
 const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_ADMINS = loader("./getAdmins.graphql");
+const GET_ADMIN_SETTINGS = loader("./getAdminSettings.graphql");
+const GET_SHARED_SETTINGS = loader("./getSharedSettings.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
 const GET_CAREERS = loader("./getCareers.graphql");
 const GET_COMPANIES = loader("./getCompanies.graphql");
@@ -30,6 +32,7 @@ const HAS_UNREAD_APPLICANT_NOTIFICATIONS = loader("./hasUnreadApplicantNotificat
 const GET_ADMIN_NOTIFICATIONS = loader("./getAdminNotifications.graphql");
 const HAS_UNREAD_ADMIN_NOTIFICATIONS = loader("./hasUnreadAdminNotifications.graphql");
 const GET_COMPANY_USERS = loader("./getCompanyUsers.graphql");
+const GET_COMPANY_USERS_BY_COMPANY = loader("./getCompanyUsersByCompany.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -53,6 +56,8 @@ export {
   GET_ADMIN_TASKS,
   GET_JOB_APPLICATION_BY_UUID,
   GET_ADMINS,
+  GET_ADMIN_SETTINGS,
+  GET_SHARED_SETTINGS,
   GET_JOB_APPLICATIONS,
   GET_SECRETARY_OFFER_DURATION,
   GET_COMPANY_NOTIFICATIONS,
@@ -61,5 +66,6 @@ export {
   HAS_UNREAD_APPLICANT_NOTIFICATIONS,
   GET_ADMIN_NOTIFICATIONS,
   HAS_UNREAD_ADMIN_NOTIFICATIONS,
-  GET_COMPANY_USERS
+  GET_COMPANY_USERS,
+  GET_COMPANY_USERS_BY_COMPANY
 };

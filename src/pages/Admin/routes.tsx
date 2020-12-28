@@ -6,6 +6,12 @@ import { Offers } from "./Offers";
 import { JobApplications } from "./JobApplications";
 import { Notifications } from "./Notifications";
 import { SignUp } from "./SignUp";
+import { Settings } from "./Settings";
+import { ApplicantDetail } from "./ApplicantDetail";
+import { CompanyDetail } from "./CompanyDetail";
+import { CompanyUsers } from "./CompanyUsers";
+import { JobApplicationDetail } from "./JobApplicationDetail";
+import { OfferDetail } from "./OfferDetail";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -16,7 +22,13 @@ const {
   offers,
   jobApplications,
   notifications,
-  signUp
+  signUp,
+  settings,
+  applicantDetail,
+  companyDetail,
+  companyUsers,
+  jobApplicationDetail,
+  offerDetail
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -27,5 +39,11 @@ export const AdminRoutes = [
   { path: offers(), component: Offers },
   { path: jobApplications(), component: JobApplications },
   { path: notifications(), component: Notifications },
-  { path: signUp(), component: SignUp }
+  { path: signUp(), component: SignUp },
+  { path: settings(), component: Settings },
+  { path: applicantDetail(":uuid"), component: ApplicantDetail },
+  { path: companyDetail(":uuid"), component: CompanyDetail },
+  { path: companyUsers(":companyUuid"), component: CompanyUsers },
+  { path: jobApplicationDetail(":uuid"), component: JobApplicationDetail },
+  { path: offerDetail(":uuid"), component: OfferDetail }
 ];

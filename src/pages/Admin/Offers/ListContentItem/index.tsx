@@ -1,15 +1,20 @@
 import React, { FunctionComponent } from "react";
 import { IOffer } from "$interfaces/Offer";
-import { CareerList } from "$components/CareerList";
-import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 import { TimeFormatter } from "$models/TimeFormatter";
-import styles from "./styles.module.scss";
 import { isNil } from "lodash";
 import { NumberFormatter } from "$models/NumberFormatter";
+import { RoutesBuilder } from "$models/RoutesBuilder";
+
 import { InternshipLabel } from "$components/InternshipLabel";
+import { OpenDetailIcon } from "$components/OpenDetailIcon";
+import { CareerList } from "$components/CareerList";
+import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
+
+import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   offer: {
+    uuid,
     title,
     hoursPerDay,
     targetApplicantType,
@@ -28,10 +33,10 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   <>
     <p className={styles.text}>{companyName}</p>
     <div className={styles.container}>
-      <p className={styles.text}>
+      <div className={styles.text}>
         {title}
         {isInternship && <InternshipLabel className={styles.internshipLabel} />}
-      </p>
+      </div>
     </div>
     <div className={styles.careersContainer}>
       {careers ? <CareerList className={styles.careers} careers={careers} shorten={true} /> : <p />}
@@ -65,6 +70,9 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       />
     </div>
     <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
+    <div className={styles.container}>
+      <OpenDetailIcon detailRoute={RoutesBuilder.admin.offerDetail(uuid)} />
+    </div>
   </>
 );
 

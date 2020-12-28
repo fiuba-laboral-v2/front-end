@@ -15,4 +15,5 @@ export interface ITranslations {
   careers: string;
   approvalStatus: string;
   updatedAt: string;
+  actions: string;
 }

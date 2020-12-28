@@ -1,10 +1,15 @@
+@import "$styles/_variables";
 @import "$styles/mixins/_tableList";
 
 .text {
   @include bodyItem;
 }
 
-.statusContainer {
+.statusContainer,
+.seeDetailButton {
+  @include bodyItem;
+
   align-self: center;
   justify-self: center;
+  padding: $spacing-xs;
 }

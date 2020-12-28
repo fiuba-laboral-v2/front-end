@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { Card } from "$components/Card";
 import { Subtitle } from "$components/Subtitle";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ListTitle } from "$components/ListTitle";
@@ -8,10 +7,12 @@ import { EmptyList } from "$components/EmptyList";
 import { Window } from "$components/Window";
 import { ICompany } from "$interfaces/Company";
 import styles from "./styles.module.scss";
+import { Card } from "$components/Card";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const Companies: FunctionComponent<ICompaniesProps> = ({
   companies,
-  onClickView,
+  createLink,
   loading
 }) => {
   if (loading) {
@@ -28,7 +29,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
       <ListTitle titleTranslationPath={"companiesList"} />
       {companies.length > 0 &&
         companies.map(company => (
-          <Card key={company.uuid} className={styles.row} onClick={() => onClickView(company.uuid)}>
+          <Card key={company.uuid} className={styles.row} link={createLink(company.uuid)}>
             <div className={styles.childrenContainer}>
               <CompanyLogo
                 className={styles.companyLogo}
@@ -45,9 +46,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
         <EmptyList
           emptyTranslationSource="applicantEmptyCompaniesList"
           buttonKind="secondary"
-          onClick={() => {
-            // sacar los filtros cuando hayan
-          }}
+          link={RoutesBuilder.public.internalServerError()}
         />
       )}
     </Window>
@@ -56,6 +55,6 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
 
 interface ICompaniesProps {
   companies: ICompany[];
-  onClickView: (uuid: string) => void;
+  createLink: (uuid: string) => string;
   loading: boolean;
 }

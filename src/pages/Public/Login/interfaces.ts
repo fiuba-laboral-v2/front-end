@@ -5,7 +5,7 @@ export interface ITranslations {
 }
 
 export interface IComponentProps {
-  loginAsFiubaUser: () => void;
-  loginAsCompanyUser: () => void;
+  loginAsFiubaUserLink: string;
+  loginAsCompanyUserLink: string;
   translations?: ITranslations;
 }

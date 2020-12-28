@@ -33,6 +33,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
         <Button
           form={formName}
           {...(confirmButtonType !== "submit" && { onClick: onConfirmClick })}
+          {...(confirmButtonType === "submit" && { onClick: onClose })}
           kind={confirmButtonKind}
           type={confirmButtonType}
         >

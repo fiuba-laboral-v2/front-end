@@ -1,12 +1,11 @@
 import React, { FunctionComponent, useRef } from "react";
-import { CompanyDetailContent } from "./Company/CompanyDetailContent";
-import { ApplicantDetailContent } from "./Applicant/ApplicantDetailContent";
-import { OfferDetailContent } from "./Offer/OfferDetailContent";
-import { JobApplicationDetailContent } from "./JobApplication/DetailContent";
-import { CompanyDetailInfo } from "./Company/CompanyDetailInfo";
-import { ApplicantDetailInfo } from "./Applicant/ApplicantDetailInfo";
-import { OfferDetailInfo } from "./Offer/OfferDetailInfo";
-import { JobApplicationDetailInfo } from "./JobApplication/DetailInfo";
+import {
+  JobApplicationDetailInfo,
+  JobApplicationDetailContent
+} from "../../../components/JobApplication";
+import { CompanyDetailInfo, CompanyDetailContent } from "../../../components/Company";
+import { ApplicantDetailInfo, ApplicantDetailContent } from "../../../components/Applicant";
+import { OfferDetailContent, OfferDetailInfo } from "../../../components/Offer";
 import { EmptyDetail } from "./EmptyDetail";
 import { APPLICANT, COMPANY, OFFER, JOB_APPLICATION } from "$typenames";
 import { ITaskDetailProps } from "./interfaces";
@@ -26,27 +25,28 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
 
   let children = <EmptyDetail />;
   if (selectedTask) {
+    const selectedTaskUuid = selectedTask.uuid;
     children = (
       <>
         <div className={styles.info}>
           {selectedTask.__typename === COMPANY && (
             <CompanyDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === APPLICANT && (
             <ApplicantDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === OFFER && (
             <OfferDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailInfo
-              {...{ selectedTask, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
             />
           )}
         </div>
@@ -74,8 +74,7 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailContent
-              applicantUuid={selectedTask.applicant.uuid}
-              offerUuid={selectedTask.offer.uuid}
+              jobApplicationUuid={selectedTask.uuid}
               scrollToTop={scrollToTop}
               className={styles.content}
             />
