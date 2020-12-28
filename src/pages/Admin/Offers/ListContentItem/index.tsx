@@ -33,10 +33,10 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   <>
     <p className={styles.text}>{companyName}</p>
     <div className={styles.container}>
-      <p className={styles.text}>
+      <div className={styles.text}>
         {title}
         {isInternship && <InternshipLabel className={styles.internshipLabel} />}
-      </p>
+      </div>
     </div>
     <div className={styles.careersContainer}>
       {careers ? <CareerList className={styles.careers} careers={careers} shorten={true} /> : <p />}
