@@ -64,7 +64,7 @@ describe("CurrentUser", () => {
   });
 
   describe("isApprovedFor", () => {
-    describe("when the secretary of graduados is pass", () => {
+    describe("when the secretary of graduados is pass as parameter", () => {
       it("returns true if graduadosApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -90,7 +90,7 @@ describe("CurrentUser", () => {
       });
     });
 
-    describe("when the secretary of extension is pass", () => {
+    describe("when the secretary of extension is pass as parameter", () => {
       it("returns true if extensionApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -117,8 +117,8 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isRejectedFor", () => {
-    describe("when the secretary of graduados is pass", () => {
+  describe("isRejectedFor", () => {
+    describe("when the secretary of graduados is pass as parameter", () => {
       it("returns false if graduadosApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -144,7 +144,7 @@ describe("CurrentUser", () => {
       });
     });
 
-    describe("when the secretary of extension is pass", () => {
+    describe("when the secretary of extension is pass as parameter", () => {
       it("returns false if extensionApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -171,7 +171,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isTargetingOnlyStudents", () => {
+  describe("isTargetingOnlyStudents", () => {
     it("returns false if targetApplicantType is both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
@@ -191,7 +191,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isTargetingStudents", () => {
+  describe("isTargetingStudents", () => {
     it("returns true if targetApplicantType is both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
@@ -211,7 +211,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isTargetingOnlyGraduates", () => {
+  describe("isTargetingOnlyGraduates", () => {
     it("returns false if targetApplicantType is both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
@@ -231,7 +231,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isTargetingGraduates", () => {
+  describe("isTargetingGraduates", () => {
     it("returns true if targetApplicantType is both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
@@ -251,7 +251,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method isTargetingBoth", () => {
+  describe("isTargetingBoth", () => {
     it("returns false if is not targeting both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
 
@@ -265,7 +265,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method getExpirationDateFor", () => {
+  describe("getExpirationDateFor", () => {
     it("returns studentsExpirationDateTime when you pass the secretary of extension", () => {
       const offer = Offer(offerAttributes);
 
@@ -283,7 +283,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method hasExpiredFor", () => {
+  describe("hasExpiredFor", () => {
     describe("when you pass the secretary of extension", () => {
       it("returns true when the studentsExpirationDateTime is in the past", () => {
         const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
@@ -313,7 +313,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method canExpireForStudents", () => {
+  describe("canExpireForStudents", () => {
     it("returns true if isTargetingStudents, is not rejected and didn't expired for students", () => {
       const offer = Offer(offerAttributes);
 
@@ -339,7 +339,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method canExpireForGraduates", () => {
+  describe("canExpireForGraduates", () => {
     it("returns true if isTargetingGraduates, is not rejected and didn't expired for graduates", () => {
       const offer = Offer(offerAttributes);
 
@@ -365,7 +365,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method canRepublishForGraduates", () => {
+  describe("canRepublishForGraduates", () => {
     it("returns true if isTargetingGraduates, is not rejected and it did expired for graduates", () => {
       const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: yesterday });
 
@@ -391,7 +391,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method canRepublishForStudents", () => {
+  describe("canRepublishForStudents", () => {
     it("returns true if isTargetingStudents, is not rejected and it did expired for students", () => {
       const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
 
