@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTranslations } from "$hooks";
 
 import { CompanyDetailContent, CompanyDetailInfo } from "../components/Company";
@@ -10,14 +10,13 @@ import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const CompanyDetail: FunctionComponent = () => {
-  const history = useHistory();
   const translations = useTranslations<ITranslations>("adminCompanyDetail");
   const { uuid } = useParams<{ uuid: string }>();
   return (
     <Window desktopOnly>
       <CompanyDetailInfo selectedTaskUuid={uuid} />
       <CompanyDetailContent className={styles.content} companyUuid={uuid}>
-        <Button kind="primary" onClick={() => history.push(RoutesBuilder.admin.companyUsers(uuid))}>
+        <Button kind="primary" link={RoutesBuilder.admin.companyUsers(uuid)}>
           {translations?.seeUsersButton}
         </Button>
       </CompanyDetailContent>

@@ -1,1 +1,1 @@
-export { Card } from "./component";
+export * from "./component";

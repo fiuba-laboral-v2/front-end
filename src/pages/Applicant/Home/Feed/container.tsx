@@ -36,7 +36,7 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
         className={styles.offers}
         loading={offers.loading}
         offers={offers.data?.getApprovedOffers.results || []}
-        onCardClick={(uuid: string) => history.push(RoutesBuilder.applicant.offerDetail(uuid))}
+        createLink={(uuid: string) => RoutesBuilder.applicant.offerDetail(uuid)}
         fetchMore={offers.fetchMore}
         shouldFetchMore={offers.data?.getApprovedOffers.shouldFetchMore}
         withStatusLabels={false}

@@ -20,7 +20,7 @@ export const CompanyLogo: FunctionComponent<ICompanyLogoProps> = ({
     })}
     onClick={onClick}
   >
-    {logo && <img className={styles.logo} src={logo} alt="" />}
+    {logo && <img className={styles.logo} src={logo} alt="" draggable={false} />}
     {useDefaultIcon && !logo && (
       <CompanyIcon classes={companyIconStyles()} className={styles.defaultIcon} />
     )}

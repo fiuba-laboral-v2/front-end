@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 
 export const EmptyList: FunctionComponent<IEmptyListProps> = ({
-  onClick,
+  link,
   buttonKind,
   className,
   translations: { text, button }
@@ -17,7 +17,7 @@ export const EmptyList: FunctionComponent<IEmptyListProps> = ({
     <div className={classNames(className, styles.container)}>
       <SearchIcon fontSize="large" />
       <p className={styles.text}>{text}</p>
-      <Button kind={buttonKind} onClick={onClick}>
+      <Button kind={buttonKind} link={link}>
         {button}
       </Button>
     </div>

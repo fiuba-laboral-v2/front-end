@@ -1,13 +1,14 @@
 @import "$styles/_variables";
 @import "$styles/mixins/_card";
-@import "$styles/mixins/_customMedia";
 
 .card {
   @include card;
 
   box-sizing: border-box;
+  color: $darkGrey;
   padding: $spacing-m;
   position: relative;
+  text-decoration: none;
 }
 
 .largePadding {
@@ -20,9 +21,6 @@
 
 .hoverable {
   cursor: pointer;
-  position: relative;
-  transition: box-shadow ease-out;
-  user-select: none;
 
   &::after {
     border-radius: $borderRadius-l;
@@ -41,15 +39,5 @@
   &:hover::after,
   &.selected::after {
     opacity: 1;
-  }
-}
-
-@include customMedia {
-  .hoverable {
-    transition: transform 0.3s ease-in-out;
-
-    &.touched {
-      transform: scale(0.95);
-    }
   }
 }

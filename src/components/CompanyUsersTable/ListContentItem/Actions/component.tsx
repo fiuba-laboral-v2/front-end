@@ -5,15 +5,12 @@ import { IComponentProps } from "./interfaces";
 export const Actions: FunctionComponent<IComponentProps> = ({
   className,
   hideChangePasswordIcon,
-  onClickChangePasswordIcon,
+  link,
   translations
 }) => (
   <div className={className}>
     {!hideChangePasswordIcon() && (
-      <ChangePasswordAction
-        onClickChangePasswordIcon={onClickChangePasswordIcon}
-        tooltipMessage={translations.passwordTooltipMessage}
-      />
+      <ChangePasswordAction link={link} tooltipMessage={translations.passwordTooltipMessage} />
     )}
   </div>
 );

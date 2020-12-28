@@ -23,7 +23,7 @@ export const MyOffersContainer: FunctionComponent = () => {
         loading={response.loading}
         title={translations?.title}
         offers={response.data?.getMyOffers.results || []}
-        onCardClick={(uuid: string) => history.push(RoutesBuilder.company.offer(uuid))}
+        createLink={(uuid: string) => RoutesBuilder.company.offer(uuid)}
         fetchMore={response.fetchMore}
         shouldFetchMore={response.data?.getMyOffers.shouldFetchMore}
         withStatusLabels

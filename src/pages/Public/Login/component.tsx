@@ -12,8 +12,8 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const Login: FunctionComponent<IComponentProps> = (
   {
-    loginAsFiubaUser,
-    loginAsCompanyUser,
+    loginAsFiubaUserLink,
+    loginAsCompanyUserLink,
     translations
   }
 ) => (
@@ -26,13 +26,13 @@ export const Login: FunctionComponent<IComponentProps> = (
             <EnterButton
               className={styles.applicantCard}
               Icon={SchoolIcon}
-              onClick={loginAsFiubaUser}
+              link={loginAsFiubaUserLink}
               label={translations.fiubaLogin}
             />
             <EnterButton
               className={styles.companyCard}
               Icon={BusinessIcon}
-              onClick={loginAsCompanyUser}
+              link={loginAsCompanyUserLink}
               label={translations.companyLogin}
             />
           </>

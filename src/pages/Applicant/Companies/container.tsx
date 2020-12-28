@@ -20,7 +20,7 @@ const CompaniesContainer: FunctionComponent = () => {
     <Companies
       loading={!data}
       companies={data?.getCompanies.results || []}
-      onClickView={uuid => history.push(RoutesBuilder.applicant.companyProfile(uuid))}
+      createLink={uuid => RoutesBuilder.applicant.companyProfile(uuid)}
     />
   );
 };

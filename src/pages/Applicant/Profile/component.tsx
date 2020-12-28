@@ -7,14 +7,14 @@ import { IProfileParams } from "./interfaces";
 export const Profile: FunctionComponent<IProfileParams> = ({
   applicant,
   translations,
-  onClickEdit
+  editLink
 }) => (
   <>
     <Title />
     <ApplicantDetail
       applicant={applicant}
       editButton={
-        <Button kind="primary" onClick={onClickEdit}>
+        <Button kind="primary" link={editLink}>
           {translations?.edit}
         </Button>
       }
