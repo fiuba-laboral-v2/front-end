@@ -44,12 +44,10 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     canExpireForStudents: () =>
       offer.isTargetingStudents() &&
       offer.isApprovedFor(Secretary.extension) &&
-      !offer.hasExpiredFor(Secretary.extension) &&
       !offer.hasExpiredFor(Secretary.extension),
     canExpireForGraduates: () =>
       offer.isTargetingGraduates() &&
       offer.isApprovedFor(Secretary.graduados) &&
-      !offer.isRejectedFor(Secretary.graduados) &&
       !offer.hasExpiredFor(Secretary.graduados),
     canRepublishForStudents: () =>
       offer.isTargetingStudents() &&
