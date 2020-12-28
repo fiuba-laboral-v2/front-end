@@ -28,7 +28,8 @@ export const Actions: FunctionComponent<IActionsProps> = ({
               [styles.showTwoButtons]: showTwoButtons
             }),
             kind: "secondary",
-            offer
+            offer,
+            refetch
           }}
         />
         <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer, refetch }} />

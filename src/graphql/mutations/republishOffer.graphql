@@ -1,0 +1,17 @@
+mutation RepublishOffer($uuid: ID!) {
+  republishOffer(uuid: $uuid) {
+    uuid
+    title
+    description
+    hoursPerDay
+    isInternship
+    minimumSalary
+    maximumSalary
+    extensionApprovalStatus
+    graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
+    createdAt
+    updatedAt
+  }
+}
