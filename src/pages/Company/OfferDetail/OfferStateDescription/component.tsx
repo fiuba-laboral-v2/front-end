@@ -12,9 +12,11 @@ export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProp
   isModal
 }) => (
   <>
-    <p>
-      {title} <br />
-    </p>
+    {!isModal && (
+      <p>
+        {title} <br />
+      </p>
+    )}
     <p className={classNames({ [styles.offerStateModal]: isModal })}>
       {firstLine}
       {firstLine && secondLine && <br />}

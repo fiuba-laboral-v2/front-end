@@ -19,6 +19,7 @@ export interface IActionButtonProps extends IActionButtonContainerProps {
 export interface IActionButtonTranslations {
   buttonText: string;
   confirmDialogTitle: string;
+  confirmDialogDescription: string;
   confirmDialogConfirm: string;
   confirmDialogCancel: string;
 }

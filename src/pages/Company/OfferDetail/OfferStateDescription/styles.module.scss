@@ -1,5 +1,8 @@
 @import "$styles/_variables";
 
 .offerStateModal {
-  margin-top: $spacing-s;
+  color: $grey;
+  font-size: $fixedFontSize-m;
+  font-weight: $fontWeight-r;
+  line-height: $lineHeight-m;
 }

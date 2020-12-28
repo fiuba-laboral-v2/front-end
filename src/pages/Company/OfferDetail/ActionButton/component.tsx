@@ -16,7 +16,13 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   confirmDialogIsOpen,
   onSubmitConfirm,
   onCloseConfirmDialog,
-  translations
+  translations: {
+    confirmDialogTitle,
+    confirmDialogConfirm,
+    confirmDialogDescription,
+    confirmDialogCancel,
+    buttonText
+  }
 }) => (
   <>
     {showActionButton && (
@@ -24,7 +30,7 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
         <Tooltip title={messageDescription({ isModal: false })} placement="bottom-end">
           <div className={className}>
             <Button className={styles.button} kind={kind} onClick={handleAction}>
-              <span>{translations?.buttonText}</span>
+              <span>{buttonText}</span>
             </Button>
           </div>
         </Tooltip>
@@ -33,12 +39,14 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
           onConfirm={onSubmitConfirm}
           onClose={onCloseConfirmDialog}
           translations={{
-            confirmDialogTitle: translations.confirmDialogTitle,
-            confirmDialogConfirm: translations.confirmDialogConfirm,
-            confirmDialogDescription: messageDescription({ isModal: true }),
-            confirmDialogCancel: translations.confirmDialogCancel
+            confirmDialogTitle,
+            confirmDialogConfirm,
+            confirmDialogDescription,
+            confirmDialogCancel
           }}
-        />
+        >
+          {messageDescription({ isModal: true })}
+        </FormConfirmDialog>
       </>
     )}
   </>
