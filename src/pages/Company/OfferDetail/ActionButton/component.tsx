@@ -17,13 +17,7 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   confirmDialogIsOpen,
   onSubmitConfirm,
   onCloseConfirmDialog,
-  translations: {
-    confirmDialogTitle,
-    confirmDialogConfirm,
-    confirmDialogDescription,
-    confirmDialogCancel,
-    buttonText
-  }
+  translations: { buttonText, ...dialogTranslations }
 }) => (
   <>
     {showActionButton && (
@@ -45,12 +39,7 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
           isOpen={confirmDialogIsOpen}
           onConfirm={onSubmitConfirm}
           onClose={onCloseConfirmDialog}
-          translations={{
-            confirmDialogTitle,
-            confirmDialogConfirm,
-            confirmDialogDescription,
-            confirmDialogCancel
-          }}
+          translations={dialogTranslations}
         >
           {messageDescription({ isModal: true })}
         </FormConfirmDialog>
