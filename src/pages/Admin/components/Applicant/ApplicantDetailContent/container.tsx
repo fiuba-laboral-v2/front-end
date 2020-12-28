@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { ApplicantDetail } from "$components/ApplicantDetail";
 import { useApplicantByUuid } from "$hooks/queries";
 import { LoadingSpinner } from "../../LoadingSpinner";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContentContainerProps> = ({
   applicantUuid,
@@ -13,7 +14,10 @@ const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContent
   return (
     <>
       {!applicant && <LoadingSpinner />}
-      <ApplicantDetail {...{ applicant, className }} />
+      <ApplicantDetail
+        titleLink={applicant && RoutesBuilder.admin.applicantDetail(applicant.uuid)}
+        {...{ applicant, className }}
+      />
     </>
   );
 };
