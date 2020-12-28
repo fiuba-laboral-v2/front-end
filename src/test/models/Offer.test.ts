@@ -64,7 +64,7 @@ describe("CurrentUser", () => {
   });
 
   describe("isApprovedFor", () => {
-    describe("when the secretary of graduados is pass as parameter", () => {
+    describe("when the secretary of graduados is passed as parameter", () => {
       it("returns true if graduadosApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -90,7 +90,7 @@ describe("CurrentUser", () => {
       });
     });
 
-    describe("when the secretary of extension is pass as parameter", () => {
+    describe("when the secretary of extension is passed as parameter", () => {
       it("returns true if extensionApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -118,7 +118,7 @@ describe("CurrentUser", () => {
   });
 
   describe("isRejectedFor", () => {
-    describe("when the secretary of graduados is pass as parameter", () => {
+    describe("when the secretary of graduados is passed as parameter", () => {
       it("returns false if graduadosApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
@@ -144,7 +144,7 @@ describe("CurrentUser", () => {
       });
     });
 
-    describe("when the secretary of extension is pass as parameter", () => {
+    describe("when the secretary of extension is passed as parameter", () => {
       it("returns false if extensionApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);
 
