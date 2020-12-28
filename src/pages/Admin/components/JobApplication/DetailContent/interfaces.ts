@@ -1,5 +1,4 @@
-import { IApplicant } from "$interfaces/Applicant";
-import { IOffer } from "$interfaces/Offer";
+import { IJobApplication } from "$interfaces/JobApplication";
 
 export interface IContainerProps {
   jobApplicationUuid: string;
@@ -8,8 +7,7 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps {
-  applicant?: IApplicant;
-  offer?: IOffer;
+  jobApplication?: IJobApplication;
   className?: string;
   hidden: boolean;
 }

@@ -14,6 +14,7 @@ export interface IApplicantDetailContainerProps {
   applicant?: IApplicant;
   editButton?: ReactElement;
   withStatusLabel?: boolean;
+  titleLink?: string;
 }
 
 export interface IApplicantDetailProps extends IApplicantDetailContainerProps {

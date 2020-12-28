@@ -9,7 +9,8 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
   className,
   applicant,
   editButton,
-  withStatusLabel
+  withStatusLabel,
+  titleLink
 }) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
   const knowledgeSections = useMemo(() => sortSections(applicant?.knowledgeSections), [applicant]);
@@ -19,7 +20,7 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
 
   return (
     <ApplicantDetail
-      {...{ mobileLayout, className, translations, editButton, withStatusLabel }}
+      {...{ mobileLayout, className, translations, editButton, withStatusLabel, titleLink }}
       applicant={applicant && { ...applicant, knowledgeSections, experienceSections }}
     />
   );

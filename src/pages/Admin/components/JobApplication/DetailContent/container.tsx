@@ -10,19 +10,12 @@ export const JobApplicationDetailContentContainer: FunctionComponent<IContainerP
   className
 }) => {
   const jobApplication = useJobApplicationByUuid(jobApplicationUuid);
-  const applicant = jobApplication?.applicant;
-  const offer = jobApplication?.offer;
   if (scrollToTop) scrollToTop();
-  const loading = !applicant || !offer;
+  const loading = !jobApplication;
   return (
     <>
       {loading && <LoadingSpinner />}
-      <JobApplicationDetailContent
-        className={className}
-        hidden={loading}
-        applicant={applicant}
-        offer={offer}
-      />
+      <JobApplicationDetailContent {...{ className, jobApplication }} hidden={loading} />
     </>
   );
 };

@@ -8,10 +8,13 @@ import styles from "./styles.module.scss";
 export const StatusTitle: FunctionComponent<IComponentProps> = ({
   className,
   detailTitle,
-  approvalStatus
+  approvalStatus,
+  link
 }) => (
   <div className={classNames(styles.statusTitle, className)}>
-    <Title className={styles.title}>{detailTitle}</Title>
+    <Title className={styles.title} link={link}>
+      {detailTitle}
+    </Title>
     <SharedStatusLabel
       className={styles.desktopStatus}
       status={approvalStatus}
@@ -26,4 +29,5 @@ interface IComponentProps {
   className?: string;
   detailTitle?: string;
   approvalStatus?: ApprovalStatus;
+  link?: string;
 }
