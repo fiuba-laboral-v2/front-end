@@ -4,7 +4,7 @@ import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 import { Title } from "$components/Title";
-import { Card } from "../Card";
+import { Card } from "$components/Card";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,

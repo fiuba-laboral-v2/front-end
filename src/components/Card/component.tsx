@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { Link } from "../Link";
+import { Link } from "$components/Link";
 
 export const Card: FunctionComponent<IClickableCardProps> = ({
   children,

@@ -1,4 +1,4 @@
-import { IButtonProps } from "../Button";
+import { IButtonProps } from "$components/Button";
 
 export interface IEmptyListCommonProps {
   onClick?: () => void;
