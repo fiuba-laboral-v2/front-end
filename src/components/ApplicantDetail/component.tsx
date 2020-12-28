@@ -19,7 +19,8 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   applicant,
   translations,
   editButton,
-  withStatusLabel
+  withStatusLabel,
+  titleLink
 }) => {
   const experienceSections = applicant?.experienceSections || [];
   const knowledgeSections = applicant?.knowledgeSections || [];
@@ -32,6 +33,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
       <div className={styles.headline}>
         <div className={styles.header}>
           <StatusTitle
+            link={titleLink}
             className={styles.title}
             detailTitle={`${applicant?.user.name} ${applicant?.user.surname}`}
             approvalStatus={withStatusLabel ? applicant?.approvalStatus : undefined}

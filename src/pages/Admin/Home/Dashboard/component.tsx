@@ -38,8 +38,8 @@ export const Dashboard: FunctionComponent<IDashboardProps> = ({
           shouldFetchMore={shouldFetchMore}
         />
         <TaskDetail
-          {...{ setLoadingStatusUpdate }}
-          {...(!loadingStatusUpdate && { selectedTask })}
+          setLoadingStatusUpdate={setLoadingStatusUpdate}
+          selectedTask={loadingStatusUpdate ? undefined : selectedTask}
           refetchAdminTasks={() => refetchGetAdminTasks && refetchGetAdminTasks(filter)}
           onStatusUpdate={() => setSelectedTask(undefined)}
         />

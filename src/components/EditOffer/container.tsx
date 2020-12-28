@@ -45,9 +45,10 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
   return (
     <EditOffer
       acceptanceCriteria={acceptanceCriteria}
-      {...{ modelToValues, validateForm }}
-      {...props}
+      modelToValues={modelToValues}
+      validateForm={validateForm}
       loading={loading || !acceptanceCriteria}
+      {...props}
     />
   );
 };

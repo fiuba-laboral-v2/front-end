@@ -60,12 +60,17 @@ export const EditableProfileContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!translations || !company || !acceptanceCriteria || !company}>
-      <Formik initialValues={modelToValues()} {...{ onSubmit }}>
+      <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
         {formikProps => (
-          <FormikForm initialValuesModel={company} {...{ modelToValues, formikProps }}>
+          <FormikForm
+            initialValuesModel={company}
+            modelToValues={modelToValues}
+            formikProps={formikProps}
+          >
             <EditableProfile
               acceptanceCriteria={acceptanceCriteria}
-              {...{ translations, formikProps }}
+              translations={translations}
+              formikProps={formikProps}
             />
           </FormikForm>
         )}

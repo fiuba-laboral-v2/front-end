@@ -13,7 +13,8 @@ export const ProfileContainer: FunctionComponent = () => {
   return (
     <Window loading={loading}>
       <Profile
-        {...{ applicant, translations }}
+        applicant={applicant}
+        translations={translations}
         editLink={RoutesBuilder.applicant.editMyProfile()}
       />
     </Window>

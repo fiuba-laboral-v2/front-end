@@ -16,7 +16,11 @@ export const FormikForm = <Model, Values>({
       setValues(modelToValues(initialValuesModel), false);
     }
   }, [setValues, modelToValues, initialValuesModel]);
-  return <Form {...{ id, className, hidden }}>{children}</Form>;
+  return (
+    <Form id={id} className={className} hidden={hidden}>
+      {children}
+    </Form>
+  );
 };
 
 interface IFormProps<Model, Values> {

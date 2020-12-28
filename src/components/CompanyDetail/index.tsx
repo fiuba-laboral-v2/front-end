@@ -13,7 +13,8 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
   className,
   withStatusLabel,
   company,
-  children
+  children,
+  link
 }) => (
   <Card largePadding className={className} hidden={!company}>
     <div className={styles.header}>
@@ -25,6 +26,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
       />
       <div className={styles.mainInfo}>
         <StatusTitle
+          link={link}
           detailTitle={company?.companyName}
           approvalStatus={withStatusLabel ? company?.approvalStatus : undefined}
         />
@@ -47,4 +49,5 @@ interface ICompanyDetailProps {
   company?: ICompany;
   withStatusLabel?: boolean;
   className?: string;
+  link?: string;
 }

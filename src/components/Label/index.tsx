@@ -27,7 +27,7 @@ export const Label: FunctionComponent<ILabelProps> = ({
         [styles.large]: type === "large" || type === "no-background",
         [styles.withText]: !!text
       })}
-      {...{ hidden }}
+      hidden={hidden}
     >
       {text && (
         <span

@@ -10,7 +10,7 @@ export const CompanyProfile: FunctionComponent = () => {
 
   return (
     <Window>
-      <CompanyDetail {...{ company }} />
+      <CompanyDetail company={company} />
     </Window>
   );
 };

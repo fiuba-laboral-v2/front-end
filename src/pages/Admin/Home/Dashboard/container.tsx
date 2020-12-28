@@ -22,7 +22,13 @@ export const DashboardContainer: FunctionComponent = () => {
 
   return (
     <Dashboard
-      {...{ loading, setSelectedTask, filter, setFilter, fetchMore, adminTasks, shouldFetchMore }}
+      loading={loading}
+      setSelectedTask={setSelectedTask}
+      filter={filter}
+      setFilter={setFilter}
+      fetchMore={fetchMore}
+      adminTasks={adminTasks}
+      shouldFetchMore={shouldFetchMore}
       refetchGetAdminTasks={refetch}
       selectedTask={find(adminTasks, ["uuid", selectedTask?.uuid])}
     />

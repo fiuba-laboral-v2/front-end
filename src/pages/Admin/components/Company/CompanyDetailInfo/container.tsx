@@ -32,7 +32,7 @@ const CompanyDetailInfoContainer: FunctionComponent<ICompanyDetailInfoContainerP
     });
   };
 
-  return <CompanyDetailInfo {...{ loading, setStatus, company }} />;
+  return <CompanyDetailInfo loading={loading} setStatus={setStatus} company={company} />;
 };
 
 export { CompanyDetailInfoContainer };

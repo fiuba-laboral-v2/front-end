@@ -16,7 +16,11 @@ export const LinksFormSection: FunctionComponent<IComponent> = ({
       values={links}
       defaultValue={{ url: "", name: "" }}
       fields={(_, index, autofocusInputRef) => (
-        <LinkFormSection {...{ index, translations, autofocusInputRef }} />
+        <LinkFormSection
+          index={index}
+          translations={translations}
+          autofocusInputRef={autofocusInputRef}
+        />
       )}
     />
   </Card>

@@ -10,7 +10,7 @@ export const Applicant: FunctionComponent = () => {
 
   return (
     <Window loading={!applicant}>
-      <ApplicantDetail {...{ applicant }} />
+      <ApplicantDetail applicant={applicant} />
     </Window>
   );
 };

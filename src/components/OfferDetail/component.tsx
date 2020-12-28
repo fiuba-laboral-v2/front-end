@@ -22,7 +22,8 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
   actions,
   offer,
   goToCompany,
-  withStatusLabel
+  withStatusLabel,
+  titleLink
 }) => {
   const sections = useMemo(() => sortSections(offer?.sections), [offer]);
 
@@ -42,7 +43,9 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
         />
         <div className={styles.rightHeader}>
           <div className={styles.titleContainer}>
-            <Title className={styles.title}>{offer?.title}</Title>
+            <Title className={styles.title} link={titleLink}>
+              {offer?.title}
+            </Title>
             {actions}
           </div>
           <Subtitle className={styles.companyName}>
@@ -91,4 +94,5 @@ interface IOfferDetailProps {
   offer?: IMyOffer | IOffer;
   goToCompany?: string;
   withStatusLabel?: boolean;
+  titleLink?: string;
 }
