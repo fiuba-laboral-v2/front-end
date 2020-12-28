@@ -22,7 +22,12 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
         displayOrder: arrayMaxOrZero(sections.map(({ displayOrder }) => displayOrder)) + 1
       }}
       fields={(_, index, autofocusInputRef) => (
-        <SectionFormSection {...{ name, index, translations, autofocusInputRef }} />
+        <SectionFormSection
+          name={name}
+          index={index}
+          translations={translations}
+          autofocusInputRef={autofocusInputRef}
+        />
       )}
     />
   </Card>

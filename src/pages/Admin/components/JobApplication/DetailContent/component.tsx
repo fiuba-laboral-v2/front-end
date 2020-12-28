@@ -11,7 +11,7 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
   className,
   hidden
 }) => (
-  <div className={classNames(styles.detailContent, className)} {...{ hidden }}>
+  <div className={classNames(styles.detailContent, className)} hidden={hidden}>
     <ApplicantDetail
       mobileLayout
       className={styles.applicantDetail}

@@ -58,10 +58,14 @@ export const SettingsContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!settings || !translations}>
-      <Formik initialValues={modelToValues()} {...{ onSubmit }}>
+      <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
         {formikProps => (
-          <FormikForm initialValuesModel={settings} {...{ modelToValues, formikProps }}>
-            <Settings {...{ formikProps, translations }} />
+          <FormikForm
+            initialValuesModel={settings}
+            modelToValues={modelToValues}
+            formikProps={formikProps}
+          >
+            <Settings formikProps={formikProps} translations={translations} />
           </FormikForm>
         )}
       </Formik>

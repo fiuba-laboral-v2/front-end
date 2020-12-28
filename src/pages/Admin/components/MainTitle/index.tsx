@@ -9,7 +9,7 @@ export const MainTitle: FunctionComponent<IMainTitleProps> = ({
   hidden,
   link
 }) => (
-  <div className={styles.header} {...{ hidden }}>
+  <div className={styles.header} hidden={hidden}>
     <div className={styles.main}>
       {!link && <p className={styles.title}>{title}</p>}
       {link && (

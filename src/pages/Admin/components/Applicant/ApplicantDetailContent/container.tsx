@@ -16,7 +16,8 @@ const ApplicantDetailContentContainer: FunctionComponent<IApplicantDetailContent
       {!applicant && <LoadingSpinner />}
       <ApplicantDetail
         titleLink={applicant && RoutesBuilder.admin.applicantDetail(applicant.uuid)}
-        {...{ applicant, className }}
+        applicant={applicant}
+        className={className}
       />
     </>
   );

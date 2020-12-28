@@ -32,5 +32,5 @@ export const OfferDetailContainer: FunctionComponent = () => {
     if (!error && translations) showSuccess({ message: translations.applySuccess });
   };
 
-  return <OfferDetail {...{ offer, apply, translations }} />;
+  return <OfferDetail offer={offer} apply={apply} translations={translations} />;
 };

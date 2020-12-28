@@ -14,7 +14,9 @@ const CompanyDetailContentContainer: FunctionComponent<ICompanyDetailContentCont
   return (
     <>
       {!company && <LoadingSpinner />}
-      <CompanyDetailContent {...{ company, className }}>{children}</CompanyDetailContent>
+      <CompanyDetailContent company={company} className={className}>
+        {children}
+      </CompanyDetailContent>
     </>
   );
 };

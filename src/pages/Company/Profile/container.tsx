@@ -8,6 +8,10 @@ export const ProfileContainer: FunctionComponent = () => {
   const company = useMyCompanyProfile();
   const translations = useTranslations<IProfileTranslations>("editableCompanyProfile");
   return (
-    <Profile editLink={RoutesBuilder.company.editMyProfile()} {...{ company, translations }} />
+    <Profile
+      editLink={RoutesBuilder.company.editMyProfile()}
+      company={company}
+      translations={translations}
+    />
   );
 };

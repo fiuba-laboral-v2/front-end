@@ -15,7 +15,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
 }) => (
   <>
     {mainTitle}
-    <div className={styles.details} {...{ hidden }}>
+    <div className={styles.details} hidden={hidden}>
       {children}
       {!hideActions && (
         <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus} />

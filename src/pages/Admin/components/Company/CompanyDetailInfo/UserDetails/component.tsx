@@ -15,7 +15,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
   translations,
   hidden
 }) => (
-  <div className={styles.userDetails} {...{ hidden }}>
+  <div className={styles.userDetails} hidden={hidden}>
     <div className={styles.firstRow}>
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
       <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />

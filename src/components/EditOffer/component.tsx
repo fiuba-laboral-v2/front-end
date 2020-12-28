@@ -23,11 +23,15 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
   infoMessageTranslationGroup,
   loading
 }) => (
-  <Window {...{ loading }}>
-    <Formik initialValues={modelToValues()} {...{ validate, onSubmit }}>
+  <Window loading={loading}>
+    <Formik initialValues={modelToValues()} validate={validate} onSubmit={onSubmit}>
       {formikProps => (
         <Form title={title} acceptanceCriteria={acceptanceCriteria}>
-          <FormikForm initialValuesModel={offer} {...{ modelToValues, formikProps }}>
+          <FormikForm
+            initialValuesModel={offer}
+            modelToValues={modelToValues}
+            formikProps={formikProps}
+          >
             <OfferInfoMessage translationGroupName={infoMessageTranslationGroup} />
             <MainInformationFormSection
               values={formikProps.values}

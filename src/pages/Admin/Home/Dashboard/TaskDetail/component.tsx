@@ -31,22 +31,34 @@ export const TaskDetail: FunctionComponent<ITaskDetailProps> = ({
         <div className={styles.info}>
           {selectedTask.__typename === COMPANY && (
             <CompanyDetailInfo
-              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              selectedTaskUuid={selectedTaskUuid}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
+              setLoadingStatusUpdate={setLoadingStatusUpdate}
             />
           )}
           {selectedTask.__typename === APPLICANT && (
             <ApplicantDetailInfo
-              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              selectedTaskUuid={selectedTaskUuid}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
+              setLoadingStatusUpdate={setLoadingStatusUpdate}
             />
           )}
           {selectedTask.__typename === OFFER && (
             <OfferDetailInfo
-              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              selectedTaskUuid={selectedTaskUuid}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
+              setLoadingStatusUpdate={setLoadingStatusUpdate}
             />
           )}
           {selectedTask.__typename === JOB_APPLICATION && (
             <JobApplicationDetailInfo
-              {...{ selectedTaskUuid, onStatusUpdate, refetchAdminTasks, setLoadingStatusUpdate }}
+              selectedTaskUuid={selectedTaskUuid}
+              onStatusUpdate={onStatusUpdate}
+              refetchAdminTasks={refetchAdminTasks}
+              setLoadingStatusUpdate={setLoadingStatusUpdate}
             />
           )}
         </div>

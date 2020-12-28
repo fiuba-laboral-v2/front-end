@@ -14,8 +14,8 @@ export const Settings: FunctionComponent<ISettingsProps> = ({
 }) => (
   <Form title={translations?.title}>
     <InfoMessage message={translations?.infoMessage} />
-    {translations && <SecretarySettingsFormSection {...{ translations }} />}
-    {translations && <SharedSettingsFormSection {...{ translations }} />}
+    {translations && <SecretarySettingsFormSection translations={translations} />}
+    {translations && <SharedSettingsFormSection translations={translations} />}
     <FormFooter
       isSubmitting={isSubmitting}
       errors={{ _form: undefined, ...errors }}
