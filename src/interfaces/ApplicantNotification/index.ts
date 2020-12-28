@@ -11,7 +11,8 @@ export type TApplicantNotification =
   | IApprovedJobApplicationApplicantNotification
   | IRejectedJobApplicationApplicantNotification
   | IApprovedProfileApplicantNotification
-  | IRejectedProfileApplicantNotification;
+  | IRejectedProfileApplicantNotification
+  | IPendingJobApplicationApplicantNotification;
 
 interface ICommonAttributes {
   __typename: string;
