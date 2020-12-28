@@ -49,8 +49,8 @@ describe("CurrentUser", () => {
 
     expect(offer).toMatchObject(offerAttributes);
     expect(offer.isTargetingBoth()).toBe(true);
-    expect(offer.isTargetingGraduates()).toBe(false);
-    expect(offer.isTargetingStudents()).toBe(false);
+    expect(offer.isTargetingOnlyGraduates()).toBe(false);
+    expect(offer.isTargetingOnlyStudents()).toBe(false);
   });
 
   it("returns a valid MyOffer", () => {
@@ -63,35 +63,195 @@ describe("CurrentUser", () => {
     expect(offer.hasApplied).toBe(true);
   });
 
-  describe("has a method isTargetingStudents", () => {
-    it("returns false if is not targeting students", () => {
-      const offer = Offer(offerAttributes);
+  describe("isApprovedFor", () => {
+    describe("when the secretary of graduados is passed as parameter", () => {
+      it("returns true if graduadosApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
 
-      expect(offer.isTargetingStudents()).toBe(false);
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(true);
+      });
+
+      it("returns false if graduadosApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns false if graduadosApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isApprovedFor(Secretary.graduados)).toBe(false);
+      });
     });
 
-    it("returns true if is targeting students", () => {
+    describe("when the secretary of extension is passed as parameter", () => {
+      it("returns true if extensionApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(true);
+      });
+
+      it("returns false if extensionApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns false if extensionApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isApprovedFor(Secretary.extension)).toBe(false);
+      });
+    });
+  });
+
+  describe("isRejectedFor", () => {
+    describe("when the secretary of graduados is passed as parameter", () => {
+      it("returns false if graduadosApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns false if graduadosApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(false);
+      });
+
+      it("returns true if graduadosApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          graduadosApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isRejectedFor(Secretary.graduados)).toBe(true);
+      });
+    });
+
+    describe("when the secretary of extension is passed as parameter", () => {
+      it("returns false if extensionApprovalStatus is approved", () => {
+        const offer = Offer(offerAttributes);
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns false if extensionApprovalStatus is pending", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.pending
+        });
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(false);
+      });
+
+      it("returns true if extensionApprovalStatus is rejected", () => {
+        const offer = Offer({
+          ...offerAttributes,
+          extensionApprovalStatus: ApprovalStatus.rejected
+        });
+
+        expect(offer.isRejectedFor(Secretary.extension)).toBe(true);
+      });
+    });
+  });
+
+  describe("isTargetingOnlyStudents", () => {
+    it("returns false if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
+
+      expect(offer.isTargetingOnlyStudents()).toBe(false);
+    });
+
+    it("returns true if targetApplicantType is student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.isTargetingOnlyStudents()).toBe(true);
+    });
+
+    it("returns false if targetApplicantType is graduate", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.isTargetingOnlyStudents()).toBe(false);
+    });
+  });
+
+  describe("isTargetingStudents", () => {
+    it("returns true if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
+
+      expect(offer.isTargetingStudents()).toBe(true);
+    });
+
+    it("returns true if targetApplicantType is student", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
 
       expect(offer.isTargetingStudents()).toBe(true);
     });
+
+    it("returns false if targetApplicantType is graduate", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.isTargetingStudents()).toBe(false);
+    });
   });
 
-  describe("has a method isTargetingGraduates", () => {
-    it("returns false if is not targeting graduates", () => {
-      const offer = Offer(offerAttributes);
+  describe("isTargetingOnlyGraduates", () => {
+    it("returns false if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
 
-      expect(offer.isTargetingGraduates()).toBe(false);
+      expect(offer.isTargetingOnlyGraduates()).toBe(false);
     });
 
-    it("returns true if is targeting graduates", () => {
+    it("returns true if targetApplicantType is graduate", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.isTargetingOnlyGraduates()).toBe(true);
+    });
+
+    it("returns false if targetApplicantType is student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.isTargetingOnlyGraduates()).toBe(false);
+    });
+  });
+
+  describe("isTargetingGraduates", () => {
+    it("returns true if targetApplicantType is both", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.both });
+
+      expect(offer.isTargetingGraduates()).toBe(true);
+    });
+
+    it("returns true if targetApplicantType is graduate", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
 
       expect(offer.isTargetingGraduates()).toBe(true);
     });
+
+    it("returns false if targetApplicantType is student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.isTargetingGraduates()).toBe(false);
+    });
   });
 
-  describe("has a method isTargetingBoth", () => {
+  describe("isTargetingBoth", () => {
     it("returns false if is not targeting both", () => {
       const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
 
@@ -105,7 +265,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method getExpirationDateFor", () => {
+  describe("getExpirationDateFor", () => {
     it("returns studentsExpirationDateTime when you pass the secretary of extension", () => {
       const offer = Offer(offerAttributes);
 
@@ -123,7 +283,7 @@ describe("CurrentUser", () => {
     });
   });
 
-  describe("has a method hasExpiredFor", () => {
+  describe("hasExpiredFor", () => {
     describe("when you pass the secretary of extension", () => {
       it("returns true when the studentsExpirationDateTime is in the past", () => {
         const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
@@ -150,6 +310,110 @@ describe("CurrentUser", () => {
 
         expect(offer.hasExpiredFor(Secretary.graduados)).toBe(false);
       });
+    });
+  });
+
+  describe("canExpireForStudents", () => {
+    it("returns true if isTargetingStudents, is not rejected and didn't expired for students", () => {
+      const offer = Offer(offerAttributes);
+
+      expect(offer.canExpireForStudents()).toBe(true);
+    });
+
+    it("returns false if is targeting graduates", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.canExpireForStudents()).toBe(false);
+    });
+
+    it("returns false if extensionApprovalStatus is rejected", () => {
+      const offer = Offer({ ...offerAttributes, extensionApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canExpireForStudents()).toBe(false);
+    });
+
+    it("returns false if it's already expired", () => {
+      const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
+
+      expect(offer.canExpireForStudents()).toBe(false);
+    });
+  });
+
+  describe("canExpireForGraduates", () => {
+    it("returns true if isTargetingGraduates, is not rejected and didn't expired for graduates", () => {
+      const offer = Offer(offerAttributes);
+
+      expect(offer.canExpireForGraduates()).toBe(true);
+    });
+
+    it("returns false if is targeting student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.canExpireForGraduates()).toBe(false);
+    });
+
+    it("returns false if graduadosApprovalStatus is rejected", () => {
+      const offer = Offer({ ...offerAttributes, graduadosApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canExpireForGraduates()).toBe(false);
+    });
+
+    it("returns false if it's already expired", () => {
+      const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: yesterday });
+
+      expect(offer.canExpireForGraduates()).toBe(false);
+    });
+  });
+
+  describe("canRepublishForGraduates", () => {
+    it("returns true if isTargetingGraduates, is not rejected and it did expired for graduates", () => {
+      const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: yesterday });
+
+      expect(offer.canRepublishForGraduates()).toBe(true);
+    });
+
+    it("returns false if is targeting student", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.student });
+
+      expect(offer.canRepublishForGraduates()).toBe(false);
+    });
+
+    it("returns false if graduadosApprovalStatus is rejected", () => {
+      const offer = Offer({ ...offerAttributes, graduadosApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canRepublishForGraduates()).toBe(false);
+    });
+
+    it("returns false if it didn't expire", () => {
+      const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: tomorrow });
+
+      expect(offer.canRepublishForGraduates()).toBe(false);
+    });
+  });
+
+  describe("canRepublishForStudents", () => {
+    it("returns true if isTargetingStudents, is not rejected and it did expired for students", () => {
+      const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
+
+      expect(offer.canRepublishForStudents()).toBe(true);
+    });
+
+    it("returns false if is targeting graduate", () => {
+      const offer = Offer({ ...offerAttributes, targetApplicantType: ApplicantType.graduate });
+
+      expect(offer.canRepublishForStudents()).toBe(false);
+    });
+
+    it("returns false if extensionApprovalStatus is rejected", () => {
+      const offer = Offer({ ...offerAttributes, extensionApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canRepublishForStudents()).toBe(false);
+    });
+
+    it("returns false if it didn't expire", () => {
+      const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: tomorrow });
+
+      expect(offer.canRepublishForStudents()).toBe(false);
     });
   });
 });

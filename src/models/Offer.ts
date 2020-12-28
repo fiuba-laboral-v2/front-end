@@ -1,4 +1,5 @@
 import { ApplicantType } from "$interfaces/Applicant";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { IMyOfferAttributes, IOfferAttributes } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import moment from "moment";
@@ -10,7 +11,7 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     ...offerAttributes,
     hasExpiredFor: (secretary: Secretary) => {
       const expirationDate = offer.getExpirationDateFor(secretary);
-      if (!expirationDate) return false;
+      if (!expirationDate || !offer.isApprovedFor(secretary)) return false;
       return expirationDate.format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
     },
     getExpirationDateFor: (secretary: Secretary) => {
@@ -23,9 +24,39 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
           : null
       }[secretary];
     },
-    isTargetingStudents: () => offer.targetApplicantType === ApplicantType.student,
-    isTargetingGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
-    isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both
+    getStatusFor: (secretary: Secretary) => {
+      if (secretary === Secretary.extension) return offer.extensionApprovalStatus;
+      if (secretary === Secretary.graduados) return offer.graduadosApprovalStatus;
+    },
+    isRejectedFor: (secretary: Secretary) => {
+      const status = offer.getStatusFor(secretary);
+      return status === ApprovalStatus.rejected;
+    },
+    isApprovedFor: (secretary: Secretary) => {
+      const status = offer.getStatusFor(secretary);
+      return status === ApprovalStatus.approved;
+    },
+    isTargetingOnlyStudents: () => offer.targetApplicantType === ApplicantType.student,
+    isTargetingOnlyGraduates: () => offer.targetApplicantType === ApplicantType.graduate,
+    isTargetingStudents: () => offer.isTargetingOnlyStudents() || offer.isTargetingBoth(),
+    isTargetingGraduates: () => offer.isTargetingOnlyGraduates() || offer.isTargetingBoth(),
+    isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both,
+    canExpireForStudents: () =>
+      offer.isTargetingStudents() &&
+      !offer.isRejectedFor(Secretary.extension) &&
+      !offer.hasExpiredFor(Secretary.extension),
+    canExpireForGraduates: () =>
+      offer.isTargetingGraduates() &&
+      !offer.hasExpiredFor(Secretary.graduados) &&
+      !offer.isRejectedFor(Secretary.graduados),
+    canRepublishForStudents: () =>
+      offer.isTargetingStudents() &&
+      !offer.isRejectedFor(Secretary.extension) &&
+      offer.hasExpiredFor(Secretary.extension),
+    canRepublishForGraduates: () =>
+      offer.isTargetingGraduates() &&
+      !offer.isRejectedFor(Secretary.graduados) &&
+      offer.hasExpiredFor(Secretary.graduados)
   };
   return offer;
 };
