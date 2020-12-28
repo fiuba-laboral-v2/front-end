@@ -63,7 +63,7 @@ describe("CurrentUser", () => {
     expect(offer.hasApplied).toBe(true);
   });
 
-  describe("has a method isApprovedFor", () => {
+  describe("isApprovedFor", () => {
     describe("when the secretary of graduados is pass", () => {
       it("returns true if graduadosApprovalStatus is approved", () => {
         const offer = Offer(offerAttributes);

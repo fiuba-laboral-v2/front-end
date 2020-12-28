@@ -5,6 +5,8 @@ import React, { FunctionComponent } from "react";
 
 import { IActionButtonProps } from "./interface";
 
+import styles from "./styles.module.scss";
+
 export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   className,
   kind,
@@ -15,27 +17,32 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   onSubmitConfirm,
   onCloseConfirmDialog,
   translations
-}) => (
-  <>
-    {showActionButton && (
-      <>
-        <Button className={className} kind={kind} onClick={handleAction}>
-          <Tooltip title={messageDescription} placement="right">
-            <span>{translations?.buttonText}</span>
+}) => {
+  const isModal = true;
+  return (
+    <>
+      {showActionButton && (
+        <>
+          <Tooltip title={messageDescription()} placement="bottom-end">
+            <div className={className}>
+              <Button className={styles.button} kind={kind} onClick={handleAction}>
+                <span>{translations?.buttonText}</span>
+              </Button>
+            </div>
           </Tooltip>
-        </Button>
-        <FormConfirmDialog
-          isOpen={confirmDialogIsOpen}
-          onConfirm={onSubmitConfirm}
-          onClose={onCloseConfirmDialog}
-          translations={{
-            confirmDialogTitle: translations.confirmDialogTitle,
-            confirmDialogConfirm: translations.confirmDialogConfirm,
-            confirmDialogDescription: messageDescription,
-            confirmDialogCancel: translations.confirmDialogCancel
-          }}
-        />
-      </>
-    )}
-  </>
-);
+          <FormConfirmDialog
+            isOpen={confirmDialogIsOpen}
+            onConfirm={onSubmitConfirm}
+            onClose={onCloseConfirmDialog}
+            translations={{
+              confirmDialogTitle: translations.confirmDialogTitle,
+              confirmDialogConfirm: translations.confirmDialogConfirm,
+              confirmDialogDescription: messageDescription(isModal),
+              confirmDialogCancel: translations.confirmDialogCancel
+            }}
+          />
+        </>
+      )}
+    </>
+  );
+};

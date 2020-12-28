@@ -7,25 +7,29 @@ import { OfferStateDescription } from "../../OfferStateDescription";
 import { TimeFormatter } from "$models/TimeFormatter";
 
 export const RepublishStateDescriptionContainer: FunctionComponent<IRepublishStateDescriptionContainerProps> = ({
-  canForStudents,
-  canForGraduates
+  canRepublishForStudents,
+  canRepublishForGraduates,
+  isModal
 }) => {
   const translations = useTranslations<ITranslations>("offerRepublishFutureStateMessage");
   const studentsOfferDuration = useExtensionOfferDuration();
   const graduatesOfferDuration = useGraduadosOfferDuration();
+  let firstLine;
+  let secondLine;
 
-  const message = [];
-  if (canForStudents && studentsOfferDuration && translations) {
-    message.push(
-      `${translations?.forStudents} ${TimeFormatter.daysFromNowInDate(studentsOfferDuration)}`
-    );
+  if (canRepublishForStudents && studentsOfferDuration && translations) {
+    secondLine = `${translations?.forStudents} ${TimeFormatter.daysFromNowInDate(
+      studentsOfferDuration
+    )}`;
   }
 
-  if (canForGraduates && graduatesOfferDuration && translations) {
-    message.push(
-      `${translations?.forGraduates} ${TimeFormatter.daysFromNowInDate(graduatesOfferDuration)}`
-    );
+  if (canRepublishForGraduates && graduatesOfferDuration && translations) {
+    firstLine = `${translations?.forGraduates} ${TimeFormatter.daysFromNowInDate(
+      graduatesOfferDuration
+    )}`;
   }
 
-  return <OfferStateDescription {...{ message }} />;
+  const title = translations?.title;
+
+  return <OfferStateDescription {...{ title, firstLine, secondLine, isModal }} />;
 };

@@ -6,19 +6,23 @@ import { IExpireStateDescriptionContainerProps, ITranslations } from "./interfac
 import { OfferStateDescription } from "../../OfferStateDescription";
 
 export const ExpireStateDescriptionContainer: FunctionComponent<IExpireStateDescriptionContainerProps> = ({
-  canForStudents,
-  canForGraduates
+  canExpireForStudents,
+  canExpireForGraduates,
+  isModal
 }) => {
   const translations = useTranslations<ITranslations>("offerExpireFutureStateMessage");
+  let firstLine;
+  let secondLine;
 
-  const message = [];
-  if (canForStudents && translations) {
-    message.push(translations.forStudents);
+  if (canExpireForStudents && translations) {
+    firstLine = translations.forStudents;
   }
 
-  if (canForGraduates && translations) {
-    message.push(translations?.forGraduates);
+  if (canExpireForGraduates && translations) {
+    secondLine = translations?.forGraduates;
   }
 
-  return <OfferStateDescription {...{ message }} />;
+  const title = translations?.title;
+
+  return <OfferStateDescription {...{ title, firstLine, secondLine, isModal }} />;
 };

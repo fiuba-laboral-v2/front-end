@@ -1,9 +1,11 @@
 export interface IExpireStateDescriptionContainerProps {
-  canForStudents: boolean;
-  canForGraduates: boolean;
+  canExpireForStudents: boolean;
+  canExpireForGraduates: boolean;
+  isModal: boolean;
 }
 
 export interface ITranslations {
+  title: string;
   forStudents: string;
   forGraduates: string;
 }

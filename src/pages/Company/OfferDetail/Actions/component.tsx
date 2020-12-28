@@ -1,5 +1,6 @@
 import { Button } from "$components/Button";
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 
 import { IActionsProps } from "./interface";
 import styles from "./styles.module.scss";
@@ -11,14 +12,25 @@ export const Actions: FunctionComponent<IActionsProps> = ({
   offer,
   refetch,
   translations
-}) => (
-  <div className={styles.actionContainer}>
-    <Button className={styles.editButton} kind="primary" onClick={handleEdit}>
-      {translations?.edit}
-    </Button>
-    <div className={styles.secondActionRowContainer}>
-      <RepublishButton {...{ className: styles.republishButton, kind: "secondary", offer }} />
-      <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer, refetch }} />
+}) => {
+  const showRepublishButton = offer.canRepublishForStudents() || offer.canRepublishForGraduates();
+  const showExpireButton = offer.canExpireForStudents() || offer.canExpireForGraduates();
+  const twoButtons = showRepublishButton && showExpireButton;
+  return (
+    <div className={styles.actionContainer}>
+      <Button className={styles.editButton} kind="primary" onClick={handleEdit}>
+        {translations?.edit}
+      </Button>
+      <div className={styles.secondActionRowContainer}>
+        <RepublishButton
+          {...{
+            className: classNames(styles.republishButton, { [styles.twoButtons]: twoButtons }),
+            kind: "secondary",
+            offer
+          }}
+        />
+        <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer, refetch }} />
+      </div>
     </div>
-  </div>
-);
+  );
+};

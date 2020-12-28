@@ -1,3 +1,6 @@
 export interface IOfferStateDescriptionProps {
-  message: string[];
+  title?: string;
+  firstLine?: string;
+  secondLine?: string;
+  isModal: boolean;
 }

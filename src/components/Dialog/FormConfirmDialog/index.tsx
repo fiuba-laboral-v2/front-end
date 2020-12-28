@@ -45,7 +45,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
 
 export interface IConfirmDialogTranslations {
   confirmDialogTitle: string;
-  confirmDialogDescription: string | ReactNode;
+  confirmDialogDescription: ReactNode;
   confirmDialogCancel: string;
   confirmDialogConfirm: string;
 }

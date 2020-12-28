@@ -22,13 +22,17 @@
   }
 
   .expireButton {
-    width: 48%;
+    flex-grow: 1;
+    min-width: 48%;
   }
 
   .republishButton {
-    margin-right: $spacing-s;
+    flex-grow: 1;
     white-space: pre-line;
-    width: 48%;
+  }
+
+  .twoButtons {
+    margin-right: $spacing-s;
   }
 }
 

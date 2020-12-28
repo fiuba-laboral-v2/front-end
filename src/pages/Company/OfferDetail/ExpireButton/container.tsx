@@ -32,11 +32,12 @@ export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProp
     refetch();
   }, [offer, expireOffer, enqueueSnackbar, refetch]);
 
-  const messageDescription = (
+  const messageDescription = (isModal: boolean = false) => (
     <ExpireStateDescription
       {...{
-        canForStudents: offer.canExpireForStudents(),
-        canForGraduates: offer.canExpireForGraduates()
+        canExpireForStudents: offer.canExpireForStudents(),
+        canExpireForGraduates: offer.canExpireForGraduates(),
+        isModal
       }}
     />
   );

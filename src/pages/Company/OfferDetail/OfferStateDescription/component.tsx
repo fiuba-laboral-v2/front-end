@@ -1,17 +1,25 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 
 import { IOfferStateDescriptionProps } from "./interface";
 
+import styles from "./styles.module.scss";
+
 export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProps> = ({
-  message
+  title,
+  firstLine,
+  secondLine,
+  isModal
 }) => (
-  <p>
-    {message[0]}
-    {message.length === 2 && (
-      <>
-        <br />
-        {message[1]}
-      </>
-    )}
-  </p>
+  <>
+    <p>
+      {title} <br />{" "}
+    </p>
+    <p className={classNames({ [styles.offerStateModal]: isModal })}>
+      {/* {isModal && <br />} */}
+      {firstLine}
+      {firstLine && secondLine && <br />}
+      {secondLine}
+    </p>
+  </>
 );
