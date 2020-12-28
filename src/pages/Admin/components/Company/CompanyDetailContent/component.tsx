@@ -11,7 +11,7 @@ export const CompanyDetailContent: FunctionComponent<ICompanyDetailContentProps>
   <CompanyDetail
     company={company}
     className={className}
-    link={company && RoutesBuilder.admin.companyDetail(company?.uuid)}
+    link={company && RoutesBuilder.admin.companyDetail(company.uuid)}
   >
     {children}
   </CompanyDetail>

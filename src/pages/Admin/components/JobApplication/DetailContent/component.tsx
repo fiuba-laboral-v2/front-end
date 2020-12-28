@@ -17,7 +17,7 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
       className={styles.applicantDetail}
       applicant={jobApplication?.applicant}
       titleLink={
-        jobApplication && RoutesBuilder.admin.applicantDetail(jobApplication?.applicant.uuid)
+        jobApplication && RoutesBuilder.admin.applicantDetail(jobApplication.applicant.uuid)
       }
     />
     <OfferDetail

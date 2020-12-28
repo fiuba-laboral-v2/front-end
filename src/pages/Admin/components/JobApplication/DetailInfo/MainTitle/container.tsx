@@ -14,7 +14,7 @@ export const MainTitleContainer: FunctionComponent<IContainerProps> = ({ jobAppl
       hidden={!jobApplication}
       title={title}
       updatedAt={jobApplication?.updatedAt}
-      link={jobApplication && RoutesBuilder.admin.jobApplicationDetail(jobApplication?.uuid)}
+      link={jobApplication && RoutesBuilder.admin.jobApplicationDetail(jobApplication.uuid)}
     />
   );
 };

@@ -17,7 +17,7 @@ export const OfferDetailContent: FunctionComponent<IOfferDetailContentProps> = (
       <OfferDetail
         {...{ offer, className }}
         titleLink={offer && RoutesBuilder.admin.offerDetail(offer.uuid)}
-        goToCompany={offer && RoutesBuilder.admin.companyDetail(offer?.company.uuid)}
+        goToCompany={offer && RoutesBuilder.admin.companyDetail(offer.company.uuid)}
       />
     </>
   );
