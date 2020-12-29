@@ -4,6 +4,7 @@ import { useTranslations } from "./queries";
 import { ApplicantType } from "$interfaces/Applicant";
 import { TimeFormatter } from "$models/TimeFormatter";
 import moment from "moment";
+import { IOffer } from "$interfaces/Offer";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,
@@ -20,38 +21,28 @@ const hasExpirationDate = ({
   graduatesExpirationDateTime
 }: IExpirationDateTime) => studentsExpirationDateTime || graduatesExpirationDateTime;
 
-const buildLabel = ({
-  secretary,
-  status,
-  expirationDateTime,
-  translations,
-  withStatusText
-}: IBuildLabel) => {
+const buildLabel = ({ secretary, offer, translations, withStatusText }: IBuildLabel) => {
   if (!translations) return "";
 
   const applicantType = getApplicantType(translations)[secretary];
-  const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
-  const expirationDate =
-    hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
+  const expirationDate = offer.getExpirationDateFor(secretary);
+  // const expirationDate =
+  //   hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
 
   const approvedOfferText = () => {
     const initialText = `${applicantType}: `;
-    if (hasExpired(secretaryExpirationDate)) {
+    if (offer.hasExpiredFor(secretary)) {
       return withStatusText ? `${initialText} ${translations.expired}` : initialText;
     }
     return withStatusText
       ? `${applicantType}: ${translations.approved} ${expirationDate}`
       : `${applicantType}:`;
   };
-  return {
-    [ApprovalStatus.approved]: approvedOfferText(),
-    [ApprovalStatus.rejected]: withStatusText
-      ? `${applicantType}: ${translations.rejected}`
-      : `${applicantType}:`,
-    [ApprovalStatus.pending]: withStatusText
-      ? `${applicantType}: ${translations.pending}`
-      : `${applicantType}:`
-  }[status];
+  if (offer.isApprovedFor(secretary)) return approvedOfferText();
+  if (offer.isRejectedFor(secretary)) {
+    return withStatusText ? `${applicantType}: ${translations.rejected}` : `${applicantType}:`;
+  }
+  return withStatusText ? `${applicantType}: ${translations.pending}` : `${applicantType}:`;
 };
 
 const hasExpired = (expirationDateTime?: string | null) => {
@@ -61,12 +52,12 @@ const hasExpired = (expirationDateTime?: string | null) => {
 
 const getTooltipLabel = (
   secretary: Secretary,
-  expirationDateTime: IExpirationDateTime,
+  offer: IOffer,
   withStatusText: boolean,
   translations?: ITranslations
 ) => {
   const isEmptyOrRedundant =
-    !translations || (withStatusText && hasExpirationDate(expirationDateTime));
+    !translations || (withStatusText && offer.getExpirationDateFor(secretary));
   if (isEmptyOrRedundant) return "";
   const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
   const expirationDate =
@@ -85,23 +76,13 @@ const getTooltipLabel = (
 };
 
 export const useSeparatedStatusTranslations = ({
-  extensionApprovalStatus,
-  graduadosApprovalStatus,
-  studentsExpirationDateTime,
-  graduatesExpirationDateTime,
-  targetApplicantType,
+  offer,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
   const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
 
-  if (
-    !extensionApprovalStatus ||
-    !graduadosApprovalStatus ||
-    !targetApplicantType ||
-    !labelTranslations ||
-    !institutionsTranslations
-  ) {
+  if (!offer || !labelTranslations || !institutionsTranslations) {
     return { graduados: undefined, extension: undefined };
   }
 
@@ -123,9 +104,8 @@ export const useSeparatedStatusTranslations = ({
     ...(targetsGraduates && {
       graduados: {
         text: buildLabel({
-          status: graduadosApprovalStatus,
+          offer,
           secretary: Secretary.graduados,
-          expirationDateTime,
           translations,
           withStatusText
         }),
@@ -135,8 +115,8 @@ export const useSeparatedStatusTranslations = ({
           withStatusText,
           translations
         ),
-        status: graduadosApprovalStatus,
-        hasExpired: hasExpired(graduatesExpirationDateTime)
+        status: offer.graduadosApprovalStatus,
+        hasExpired: offer.hasExpiredFor(Secretary.graduados)
       }
     }),
     ...(targetsStudents && {
@@ -169,17 +149,12 @@ interface IExpirationDateTime {
 interface IBuildLabel {
   translations?: ITranslations;
   secretary: Secretary;
-  status: ApprovalStatus;
-  expirationDateTime: IExpirationDateTime;
+  offer: IOffer;
   withStatusText: boolean;
 }
 
 interface IUseSeparatedStatus {
-  extensionApprovalStatus?: ApprovalStatus;
-  graduadosApprovalStatus?: ApprovalStatus;
-  studentsExpirationDateTime?: string | null;
-  graduatesExpirationDateTime?: string | null;
-  targetApplicantType?: ApplicantType;
+  offer: IOffer;
   withStatusText: boolean;
 }
 
