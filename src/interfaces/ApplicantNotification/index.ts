@@ -1,4 +1,5 @@
 import {
+  PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE,
   APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE,
   REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE,
   APPROVED_PROFILE_APPLICANT_NOTIFICATION_TYPE,
@@ -10,7 +11,8 @@ export type TApplicantNotification =
   | IApprovedJobApplicationApplicantNotification
   | IRejectedJobApplicationApplicantNotification
   | IApprovedProfileApplicantNotification
-  | IRejectedProfileApplicantNotification;
+  | IRejectedProfileApplicantNotification
+  | IPendingJobApplicationApplicantNotification;
 
 interface ICommonAttributes {
   __typename: string;
@@ -18,6 +20,11 @@ interface ICommonAttributes {
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
+}
+
+export interface IPendingJobApplicationApplicantNotification extends ICommonAttributes {
+  __typename: PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE;
+  jobApplication: IJobApplication;
 }
 
 export interface IApprovedJobApplicationApplicantNotification extends ICommonAttributes {

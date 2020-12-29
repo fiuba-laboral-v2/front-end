@@ -1,3 +1,6 @@
+export const PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION =
+  "PendingJobApplicationApplicantNotification";
+export type PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE = "PendingJobApplicationApplicantNotification";
 export const APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION =
   "ApprovedJobApplicationApplicantNotification";
 export type APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE = "ApprovedJobApplicationApplicantNotification";
