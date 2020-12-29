@@ -54,15 +54,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
           </Subtitle>
           <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
           <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
-          {withStatusLabel && (
-            <StatusLabels
-              targetApplicantType={offer?.targetApplicantType}
-              graduadosApprovalStatus={offer?.graduadosApprovalStatus}
-              extensionApprovalStatus={offer?.extensionApprovalStatus}
-              graduatesExpirationDateTime={offer?.graduatesExpirationDateTime}
-              studentsExpirationDateTime={offer?.studentsExpirationDateTime}
-            />
-          )}
+          {withStatusLabel && offer && <StatusLabels offer={offer} />}
         </div>
       </div>
       <div className={styles.body}>
