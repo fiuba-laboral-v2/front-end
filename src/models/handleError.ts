@@ -14,6 +14,7 @@ type ErrorName =
   | "UnauthorizedError"
   | "CompanyUserNotFoundError"
   | "ValidationError"
+  | "OfferNotVisibleByCurrentUserError"
   | "JobApplicationAlreadyExistsError"
   | "FiubaUsersServiceFetchError"
   | "JobApplicationNotFoundError"
