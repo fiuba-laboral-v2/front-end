@@ -17,6 +17,7 @@ const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
     errorHandlers: {
       OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
       UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden()),
+      OfferNotVisibleByCurrentUserError: () => history.push(RoutesBuilder.public.forbidden()),
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
   });
