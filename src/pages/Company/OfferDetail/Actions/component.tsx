@@ -7,12 +7,7 @@ import styles from "./styles.module.scss";
 import { RepublishButton } from "../RepublishButton";
 import { ExpireButton } from "../ExpireButton";
 
-export const Actions: FunctionComponent<IActionsProps> = ({
-  handleEdit,
-  offer,
-  refetch,
-  translations
-}) => {
+export const Actions: FunctionComponent<IActionsProps> = ({ handleEdit, offer, translations }) => {
   const showRepublishButton = offer.canRepublishForStudents() || offer.canRepublishForGraduates();
   const showExpireButton = offer.canExpireForStudents() || offer.canExpireForGraduates();
   const showTwoButtons = showRepublishButton && showExpireButton;
@@ -31,7 +26,7 @@ export const Actions: FunctionComponent<IActionsProps> = ({
             offer
           }}
         />
-        <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer, refetch }} />
+        <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer }} />
       </div>
     </div>
   );

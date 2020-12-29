@@ -8,14 +8,14 @@ import { Actions } from "./Actions";
 
 export const OfferDetailContainer: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
-  const { data, refetch } = useCompanyOfferByUuid(uuid);
+  const { data } = useCompanyOfferByUuid(uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
   const offer = data?.getOfferByUuid;
 
   return (
     <Window loading={!translations || !offer}>
       <OfferDetail
-        actions={offer && <Actions {...{ offer, refetch }} />}
+        actions={offer && <Actions {...{ offer }} />}
         goToCompany={RoutesBuilder.company.myProfile()}
         offer={offer}
         withStatusLabel

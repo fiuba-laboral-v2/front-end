@@ -10,7 +10,6 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 
 export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProps> = ({
   offer,
-  refetch,
   className,
   kind
 }) => {
@@ -29,8 +28,7 @@ export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProp
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
     if (response.error) return;
-    refetch();
-  }, [offer, expireOffer, enqueueSnackbar, refetch]);
+  }, [offer, expireOffer, enqueueSnackbar]);
 
   const messageDescription = ({ isModal }: { isModal: boolean }) => (
     <ExpireStateDescription
