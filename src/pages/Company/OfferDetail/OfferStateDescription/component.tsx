@@ -24,9 +24,7 @@ export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProp
     )}
     {isModal && (
       <DialogContentText>
-        <>
-          {firstLine} <br /> {secondLine}
-        </>
+        {firstLine} <br /> {secondLine}
       </DialogContentText>
     )}
   </>
