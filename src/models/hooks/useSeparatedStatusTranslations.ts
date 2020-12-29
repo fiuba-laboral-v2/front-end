@@ -49,9 +49,47 @@ const getTooltipLabel = (
     : `${translations!.tooltipPrefix} ${secretaryTranslation}`;
 };
 
+const showGraduates = ({
+  offer,
+  currentUserApplicantType
+}: {
+  offer: IOffer;
+  currentUserApplicantType?: ApplicantType;
+}) => {
+  if (currentUserApplicantType && !offer.isApprovedFor(Secretary.graduados)) return false;
+
+  const isCurrentUserTargetingGraduates =
+    currentUserApplicantType === ApplicantType.graduate ||
+    currentUserApplicantType === ApplicantType.both;
+
+  return (
+    offer.isTargetingGraduates() &&
+    (currentUserApplicantType === undefined || isCurrentUserTargetingGraduates)
+  );
+};
+
+const showStudents = ({
+  offer,
+  currentUserApplicantType
+}: {
+  offer: IOffer;
+  currentUserApplicantType?: ApplicantType;
+}) => {
+  if (currentUserApplicantType && !offer.isApprovedFor(Secretary.extension)) return false;
+
+  const isCurrentUserTargetingStudents =
+    currentUserApplicantType === ApplicantType.student ||
+    currentUserApplicantType === ApplicantType.both;
+
+  return (
+    offer.isTargetingStudents() &&
+    (currentUserApplicantType === undefined || isCurrentUserTargetingStudents)
+  );
+};
+
 export const useSeparatedStatusTranslations = ({
   offer,
-  targetApplicantType,
+  currentUserApplicantType,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
@@ -67,15 +105,8 @@ export const useSeparatedStatusTranslations = ({
       ...institutionsTranslations
     };
 
-  const showGraduates =
-    offer.isTargetingGraduates() &&
-    (targetApplicantType === undefined || targetApplicantType === ApplicantType.graduate);
-  const showStudents =
-    offer.isTargetingStudents() &&
-    (targetApplicantType === undefined || targetApplicantType === ApplicantType.student);
-
   return {
-    ...(showGraduates && {
+    ...(showGraduates({ offer, currentUserApplicantType }) && {
       graduados: {
         text: buildLabel({
           offer,
@@ -88,7 +119,7 @@ export const useSeparatedStatusTranslations = ({
         hasExpired: offer.hasExpiredFor(Secretary.graduados)
       }
     }),
-    ...(showStudents && {
+    ...(showStudents({ offer, currentUserApplicantType }) && {
       extension: {
         text: buildLabel({
           offer,
@@ -113,7 +144,7 @@ interface IBuildLabel {
 
 interface IUseSeparatedStatus {
   offer: IOffer;
-  targetApplicantType?: ApplicantType;
+  currentUserApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 

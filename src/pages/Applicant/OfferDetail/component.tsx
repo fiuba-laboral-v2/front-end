@@ -11,14 +11,14 @@ export const OfferDetail: FunctionComponent<IOfferDetail> = ({
   offer,
   apply,
   translations,
-  labelTargetApplicantType
+  currentUserApplicantType
 }) => (
   <Window loading={!offer || !translations}>
     <Detail
       goToCompany={offer && RoutesBuilder.applicant.companyProfile(offer.company.uuid)}
       offer={offer}
       withStatusLabel
-      labelTargetApplicantType={labelTargetApplicantType}
+      currentUserApplicantType={currentUserApplicantType}
       applyButton={
         <div className={styles.applyButton}>
           <Button
@@ -41,5 +41,5 @@ interface IOfferDetail {
   offer?: IMyOffer;
   apply: (uuid: string) => void;
   translations?: IOfferDetailTranslations;
-  labelTargetApplicantType?: ApplicantType;
+  currentUserApplicantType?: ApplicantType;
 }

@@ -10,13 +10,13 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
   styles,
   type,
   offer,
-  targetApplicantType,
+  currentUserApplicantType,
   withStatusText = true,
   className
 }) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
     offer,
-    targetApplicantType,
+    currentUserApplicantType,
     withStatusText
   });
 
@@ -54,7 +54,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
 
 export interface ISeparatedStatusLabelProps {
   offer: IOffer;
-  targetApplicantType?: ApplicantType;
+  currentUserApplicantType?: ApplicantType;
   className?: string;
 }
 

@@ -4,14 +4,14 @@ import styles from "./styles.module.scss";
 
 export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = ({
   offer,
-  targetApplicantType
+  currentUserApplicantType
 }) => {
   return (
     <SeparatedStatusLabel
       styles={styles}
       type="large"
       offer={offer}
-      targetApplicantType={targetApplicantType}
+      currentUserApplicantType={currentUserApplicantType}
     />
   );
 };

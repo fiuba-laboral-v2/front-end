@@ -23,7 +23,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
   offer,
   goToCompany,
   withStatusLabel,
-  labelTargetApplicantType,
+  currentUserApplicantType,
   titleLink
 }) => {
   const sections = useMemo(() => sortSections(offer?.sections), [offer]);
@@ -56,7 +56,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
           <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
           <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
           {withStatusLabel && offer && (
-            <StatusLabels offer={offer} targetApplicantType={labelTargetApplicantType} />
+            <StatusLabels offer={offer} currentUserApplicantType={currentUserApplicantType} />
           )}
         </div>
       </div>
@@ -90,5 +90,5 @@ interface IOfferDetailProps {
   goToCompany?: string;
   withStatusLabel?: boolean;
   titleLink?: string;
-  labelTargetApplicantType?: ApplicantType;
+  currentUserApplicantType?: ApplicantType;
 }

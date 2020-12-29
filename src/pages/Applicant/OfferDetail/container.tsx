@@ -4,7 +4,7 @@ import {
   useOfferForApplicant,
   useMutation,
   useTranslations,
-  useCurrentApplicantType
+  useCurrentUserApplicantType
 } from "$hooks";
 import { SAVE_JOB_APPLICATION } from "$mutations";
 import { OfferDetail } from "./component";
@@ -19,7 +19,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const { mutation: saveJobApplication } = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const offer = useOfferForApplicant(uuid).data?.getOfferByUuid;
-  const currentApplicantType = useCurrentApplicantType();
+  const currentUserApplicantType = useCurrentUserApplicantType();
 
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
@@ -41,7 +41,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   return (
     <OfferDetail
       offer={offer}
-      labelTargetApplicantType={currentApplicantType}
+      currentUserApplicantType={currentUserApplicantType}
       apply={apply}
       translations={translations}
     />
