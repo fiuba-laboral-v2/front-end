@@ -2,6 +2,7 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
 import { IOffer } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,
@@ -54,6 +55,7 @@ const getTooltipLabel = (
 
 export const useSeparatedStatusTranslations = ({
   offer,
+  targetApplicantType,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
@@ -69,8 +71,15 @@ export const useSeparatedStatusTranslations = ({
       ...institutionsTranslations
     };
 
+  const showGraduates =
+    offer.isTargetingGraduates() &&
+    (targetApplicantType === undefined || targetApplicantType === ApplicantType.graduate);
+  const showStudents =
+    offer.isTargetingStudents() &&
+    (targetApplicantType === undefined || targetApplicantType === ApplicantType.student);
+
   return {
-    ...(offer.isTargetingGraduates() && {
+    ...(showGraduates && {
       graduados: {
         text: buildLabel({
           offer,
@@ -83,7 +92,7 @@ export const useSeparatedStatusTranslations = ({
         hasExpired: offer.hasExpiredFor(Secretary.graduados)
       }
     }),
-    ...(offer.isTargetingStudents() && {
+    ...(showStudents && {
       extension: {
         text: buildLabel({
           offer,
@@ -108,6 +117,7 @@ interface IBuildLabel {
 
 interface IUseSeparatedStatus {
   offer: IOffer;
+  targetApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 

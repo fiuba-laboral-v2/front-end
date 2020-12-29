@@ -4,16 +4,19 @@ import { StatusLabel } from "$components/StatusLabel";
 import { LabelType } from "$components/Label";
 import classNames from "classnames";
 import { IOffer } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
   styles,
   type,
   offer,
+  targetApplicantType,
   withStatusText = true,
   className
 }) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
     offer,
+    targetApplicantType,
     withStatusText
   });
 
@@ -51,6 +54,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
 
 export interface ISeparatedStatusLabelProps {
   offer: IOffer;
+  targetApplicantType?: ApplicantType;
   className?: string;
 }
 
