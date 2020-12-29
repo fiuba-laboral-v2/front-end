@@ -14,20 +14,16 @@ const buildLabel = ({ secretary, offer, translations, withStatusText }: IBuildLa
   const applicantType = getApplicantType(translations)[secretary];
   const expirationDate = offer.getExpirationDateFor(secretary)?.format("DD/MM");
 
-  const approvedOfferText = () => {
-    const initialText = `${applicantType}: `;
-    if (offer.hasExpiredFor(secretary)) {
-      return withStatusText ? `${initialText} ${translations.expired}` : initialText;
-    }
-    return withStatusText
-      ? `${applicantType}: ${translations.approved} ${expirationDate}`
-      : `${applicantType}:`;
+  const buildLabelText = (translation: string) => {
+    return withStatusText ? `${applicantType}: ${translation}` : `${applicantType}:`;
   };
-  if (offer.isApprovedFor(secretary)) return approvedOfferText();
-  if (offer.isRejectedFor(secretary)) {
-    return withStatusText ? `${applicantType}: ${translations.rejected}` : `${applicantType}:`;
+
+  if (offer.hasExpiredFor(secretary)) return buildLabelText(translations.expired);
+  if (offer.isApprovedFor(secretary)) {
+    return buildLabelText(`${translations.approved} ${expirationDate}`);
   }
-  return withStatusText ? `${applicantType}: ${translations.pending}` : `${applicantType}:`;
+  if (offer.isRejectedFor(secretary)) return buildLabelText(translations.rejected);
+  return buildLabelText(translations.pending);
 };
 
 const getTooltipLabel = (
