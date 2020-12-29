@@ -56,7 +56,19 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     canRepublishForGraduates: () =>
       offer.isTargetingGraduates() &&
       offer.isApprovedFor(Secretary.graduados) &&
-      offer.hasExpiredFor(Secretary.graduados)
+      offer.hasExpiredFor(Secretary.graduados),
+    isStudentExpirationGreaterOrEqualThanGraduates: () => {
+      if (!offer.studentsExpirationDateTime && !offer.graduatesExpirationDateTime) return false;
+      if (!offer.studentsExpirationDateTime && offer.graduatesExpirationDateTime) return false;
+      if (offer.studentsExpirationDateTime && !offer.graduatesExpirationDateTime) return true;
+      if (
+        offer.getExpirationDateFor(Secretary.graduados)! >
+        offer.getExpirationDateFor(Secretary.extension)!
+      ) {
+        return false;
+      }
+      return true;
+    }
   };
   return offer;
 };

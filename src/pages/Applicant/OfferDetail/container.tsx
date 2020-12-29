@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
-import { useOfferForApplicant, useMutation, useTranslations } from "$hooks";
+import {
+  useOfferForApplicant,
+  useMutation,
+  useTranslations,
+  useCurrentUserApplicantType
+} from "$hooks";
 import { SAVE_JOB_APPLICATION } from "$mutations";
 import { OfferDetail } from "./component";
 import { IOfferDetailTranslations } from "./interfaces";
@@ -14,6 +19,7 @@ export const OfferDetailContainer: FunctionComponent = () => {
   const { mutation: saveJobApplication } = useMutation(SAVE_JOB_APPLICATION);
   const translations = useTranslations<IOfferDetailTranslations>("offerDetail");
   const offer = useOfferForApplicant(uuid).data?.getOfferByUuid;
+  const currentUserApplicantType = useCurrentUserApplicantType();
 
   const apply = async (offerUuid: string) => {
     const { error } = await saveJobApplication({
@@ -32,5 +38,12 @@ export const OfferDetailContainer: FunctionComponent = () => {
     if (!error && translations) showSuccess({ message: translations.applySuccess });
   };
 
-  return <OfferDetail offer={offer} apply={apply} translations={translations} />;
+  return (
+    <OfferDetail
+      offer={offer}
+      currentUserApplicantType={currentUserApplicantType}
+      apply={apply}
+      translations={translations}
+    />
+  );
 };

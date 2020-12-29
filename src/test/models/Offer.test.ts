@@ -440,4 +440,60 @@ describe("CurrentUser", () => {
       expect(offer.canRepublishForStudents()).toBe(false);
     });
   });
+
+  describe("isStudentExpirationGreaterOrEqualThanGraduates", () => {
+    it("returns false if both expirationDates are null", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: null,
+        graduatesExpirationDateTime: null
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(false);
+    });
+
+    it("returns false if only studentsExpirationDateTime is null", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: null,
+        graduatesExpirationDateTime: tomorrow
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(false);
+    });
+
+    it("returns true if only graduatesExpirationDateTime is null", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: tomorrow,
+        graduatesExpirationDateTime: null
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(true);
+    });
+
+    it("returns false if graduatesExpirationDateTime is greater than studentsExpirationDateTime", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: yesterday,
+        graduatesExpirationDateTime: tomorrow
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(false);
+    });
+
+    it("returns true if studentsExpirationDateTime is greater than graduatesExpirationDateTime ", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: tomorrow,
+        graduatesExpirationDateTime: yesterday
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(true);
+    });
+
+    it("returns true if studentsExpirationDateTime is equal to graduatesExpirationDateTime ", () => {
+      const offer = Offer({
+        ...offerAttributes,
+        studentsExpirationDateTime: tomorrow,
+        graduatesExpirationDateTime: tomorrow
+      });
+      expect(offer.isStudentExpirationGreaterOrEqualThanGraduates()).toBe(true);
+    });
+  });
 });

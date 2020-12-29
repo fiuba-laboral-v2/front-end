@@ -9,7 +9,7 @@ import { Title } from "$components/Title";
 import { SectionDetail } from "$components/SectionDetail";
 import { OfferInfo } from "$components/OfferInfo";
 import { IOffer } from "$interfaces/Offer";
-import { IMyOffer } from "$interfaces/Applicant";
+import { ApplicantType, IMyOffer } from "$interfaces/Applicant";
 import styles from "./styles.module.scss";
 import { PublishedSince } from "../PublishedSince";
 import { sortSections } from "../../models/sortSections";
@@ -23,6 +23,7 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
   offer,
   goToCompany,
   withStatusLabel,
+  currentUserApplicantType,
   titleLink
 }) => {
   const sections = useMemo(() => sortSections(offer?.sections), [offer]);
@@ -54,7 +55,9 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
           </Subtitle>
           <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
           <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
-          {withStatusLabel && offer && <StatusLabels offer={offer} />}
+          {withStatusLabel && offer && (
+            <StatusLabels offer={offer} currentUserApplicantType={currentUserApplicantType} />
+          )}
         </div>
       </div>
       <div className={styles.body}>
@@ -87,4 +90,5 @@ interface IOfferDetailProps {
   goToCompany?: string;
   withStatusLabel?: boolean;
   titleLink?: string;
+  currentUserApplicantType?: ApplicantType;
 }

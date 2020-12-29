@@ -2,19 +2,21 @@ import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
 import { IOffer } from "$interfaces/Offer";
+import { ApplicantType } from "$interfaces/Applicant";
 
 const getApplicantType = (translations: ITranslations) => ({
   [Secretary.graduados]: translations.graduate,
   [Secretary.extension]: translations.student
 });
 
-const buildLabel = ({ secretary, offer, translations, withStatusText }: IBuildLabel) => {
+const buildLabel = ({ secretary, offer, translations, withStatusText, onlyInfo }: IBuildLabel) => {
   if (!translations) return "";
 
   const applicantType = getApplicantType(translations)[secretary];
   const expirationDate = offer.getExpirationDateFor(secretary)?.format("DD/MM");
 
   const buildLabelText = (translation: string) => {
+    if (onlyInfo) return translation;
     return withStatusText ? `${applicantType}: ${translation}` : `${applicantType}:`;
   };
 
@@ -48,8 +50,54 @@ const getTooltipLabel = (
     : `${translations!.tooltipPrefix} ${secretaryTranslation}`;
 };
 
+const showGraduates = ({
+  offer,
+  currentUserApplicantType
+}: {
+  offer: IOffer;
+  currentUserApplicantType?: ApplicantType;
+}) => {
+  if (currentUserApplicantType && !offer.isApprovedFor(Secretary.graduados)) return false;
+  if (
+    currentUserApplicantType === ApplicantType.both &&
+    !offer.isStudentExpirationGreaterOrEqualThanGraduates()
+  ) {
+    return true;
+  }
+
+  const isCurrentUserTargetingGraduates = currentUserApplicantType === ApplicantType.graduate;
+
+  return (
+    offer.isTargetingGraduates() &&
+    (currentUserApplicantType === undefined || isCurrentUserTargetingGraduates)
+  );
+};
+
+const showStudents = ({
+  offer,
+  currentUserApplicantType
+}: {
+  offer: IOffer;
+  currentUserApplicantType?: ApplicantType;
+}) => {
+  if (currentUserApplicantType && !offer.isApprovedFor(Secretary.extension)) return false;
+  if (
+    currentUserApplicantType === ApplicantType.both &&
+    offer.isStudentExpirationGreaterOrEqualThanGraduates()
+  ) {
+    return true;
+  }
+  const isCurrentUserTargetingStudents = currentUserApplicantType === ApplicantType.student;
+
+  return (
+    offer.isTargetingStudents() &&
+    (currentUserApplicantType === undefined || isCurrentUserTargetingStudents)
+  );
+};
+
 export const useSeparatedStatusTranslations = ({
   offer,
+  currentUserApplicantType,
   withStatusText
 }: IUseSeparatedStatus): IUseSeparatedStatusResponse => {
   const labelTranslations = useTranslations<ILabelTranslations>("separatedStatusLabel");
@@ -66,26 +114,28 @@ export const useSeparatedStatusTranslations = ({
     };
 
   return {
-    ...(offer.isTargetingGraduates() && {
+    ...(showGraduates({ offer, currentUserApplicantType }) && {
       graduados: {
         text: buildLabel({
           offer,
           secretary: Secretary.graduados,
           translations,
-          withStatusText
+          withStatusText,
+          onlyInfo: !!currentUserApplicantType
         }),
         tooltipText: getTooltipLabel(Secretary.graduados, offer, withStatusText, translations),
         status: offer.graduadosApprovalStatus,
         hasExpired: offer.hasExpiredFor(Secretary.graduados)
       }
     }),
-    ...(offer.isTargetingStudents() && {
+    ...(showStudents({ offer, currentUserApplicantType }) && {
       extension: {
         text: buildLabel({
           offer,
           secretary: Secretary.extension,
           translations,
-          withStatusText
+          withStatusText,
+          onlyInfo: !!currentUserApplicantType
         }),
         tooltipText: getTooltipLabel(Secretary.extension, offer, withStatusText, translations),
         status: offer.extensionApprovalStatus,
@@ -100,10 +150,12 @@ interface IBuildLabel {
   secretary: Secretary;
   offer: IOffer;
   withStatusText: boolean;
+  onlyInfo: boolean;
 }
 
 interface IUseSeparatedStatus {
   offer: IOffer;
+  currentUserApplicantType?: ApplicantType;
   withStatusText: boolean;
 }
 
