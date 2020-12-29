@@ -13,7 +13,7 @@ export const ApprovedLabel: FunctionComponent<ILabelContainerProps> = ({
   return (
     <>
       {hasExpired ? (
-        <Label Icon={icon} color="Grey" {...props} />
+        <Label Icon={AccessTimeIcon} color="Grey" {...props} />
       ) : (
         <Label Icon={icon} color="Green" {...props} />
       )}
