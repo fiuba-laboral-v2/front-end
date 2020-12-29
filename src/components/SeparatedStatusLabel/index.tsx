@@ -1,28 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { useSeparatedStatusTranslations } from "$hooks";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { ApplicantType } from "$interfaces/Applicant";
 import { StatusLabel } from "$components/StatusLabel";
 import { LabelType } from "$components/Label";
 import classNames from "classnames";
+import { IOffer } from "$interfaces/Offer";
 
 export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
   styles,
   type,
-  extensionApprovalStatus,
-  graduadosApprovalStatus,
-  studentsExpirationDateTime,
-  graduatesExpirationDateTime,
-  targetApplicantType,
+  offer,
   withStatusText = true,
   className
 }) => {
   const { graduados, extension } = useSeparatedStatusTranslations({
-    targetApplicantType,
-    graduadosApprovalStatus,
-    extensionApprovalStatus,
-    studentsExpirationDateTime,
-    graduatesExpirationDateTime,
+    offer,
     withStatusText
   });
 
@@ -59,11 +50,7 @@ export const SeparatedStatusLabel: FunctionComponent<IComponentProps> = ({
 };
 
 export interface ISeparatedStatusLabelProps {
-  extensionApprovalStatus?: ApprovalStatus;
-  graduadosApprovalStatus?: ApprovalStatus;
-  studentsExpirationDateTime?: string | null;
-  graduatesExpirationDateTime?: string | null;
-  targetApplicantType?: ApplicantType;
+  offer: IOffer;
   className?: string;
 }
 

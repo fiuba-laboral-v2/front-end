@@ -12,43 +12,30 @@ import { SeparatedStatusLabel } from "$components/SeparatedStatusLabel";
 
 import styles from "./styles.module.scss";
 
-export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
-  offer: {
-    uuid,
-    title,
-    hoursPerDay,
-    targetApplicantType,
-    minimumSalary,
-    maximumSalary,
-    updatedAt,
-    graduadosApprovalStatus,
-    extensionApprovalStatus,
-    studentsExpirationDateTime,
-    graduatesExpirationDateTime,
-    company: { companyName },
-    careers,
-    isInternship
-  }
-}) => (
+export const ListContentItem: FunctionComponent<IListContentItemProps> = ({ offer }) => (
   <>
-    <p className={styles.text}>{companyName}</p>
+    <p className={styles.text}>{offer.company.companyName}</p>
     <div className={styles.container}>
       <div className={styles.text}>
-        {title}
-        {isInternship && <InternshipLabel className={styles.internshipLabel} />}
+        {offer.title}
+        {offer.isInternship && <InternshipLabel className={styles.internshipLabel} />}
       </div>
     </div>
     <div className={styles.careersContainer}>
-      {careers ? <CareerList className={styles.careers} careers={careers} shorten={true} /> : <p />}
+      {offer.careers ? (
+        <CareerList className={styles.careers} careers={offer.careers} shorten={true} />
+      ) : (
+        <p />
+      )}
     </div>
-    <p className={styles.text}>{hoursPerDay}</p>
+    <p className={styles.text}>{offer.hoursPerDay}</p>
     <div className={styles.salary}>
-      {isNil(maximumSalary) ? (
-        <span>{NumberFormatter.formatMoney(minimumSalary)}</span>
+      {isNil(offer.maximumSalary) ? (
+        <span>{NumberFormatter.formatMoney(offer.minimumSalary)}</span>
       ) : (
         [
-          ["Min: ", minimumSalary],
-          ["Max: ", maximumSalary]
+          ["Min: ", offer.minimumSalary],
+          ["Max: ", offer.maximumSalary]
         ].map(([label, salary]) => (
           <p key={label}>
             <i>{label}</i>
@@ -62,16 +49,12 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
         styles={styles}
         type="no-background"
         withStatusText={false}
-        targetApplicantType={targetApplicantType}
-        graduadosApprovalStatus={graduadosApprovalStatus}
-        extensionApprovalStatus={extensionApprovalStatus}
-        studentsExpirationDateTime={studentsExpirationDateTime}
-        graduatesExpirationDateTime={graduatesExpirationDateTime}
+        offer={offer}
       />
     </div>
-    <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
+    <div className={styles.text}>{TimeFormatter.dateTime(offer.updatedAt)}</div>
     <div className={styles.container}>
-      <OpenDetailIcon detailRoute={RoutesBuilder.admin.offerDetail(uuid)} />
+      <OpenDetailIcon detailRoute={RoutesBuilder.admin.offerDetail(offer.uuid)} />
     </div>
   </>
 );

@@ -17,7 +17,7 @@ export const Offer: FunctionComponent<IOfferProps> = ({
       size="extraLarge"
       useDefaultIcon
     />
-    <Info data={{ company, ...props }} withStatusLabels={withStatusLabels} />
+    <Info offer={{ company, ...props }} withStatusLabels={withStatusLabels} />
   </div>
 );
 

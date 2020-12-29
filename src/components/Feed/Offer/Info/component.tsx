@@ -10,36 +10,20 @@ import { StatusLabels } from "./StatusLabels";
 import styles from "./styles.module.scss";
 import { InternshipLabel } from "$components/InternshipLabel";
 
-export const Info: FunctionComponent<IOfferProps> = ({
-  data: {
-    company,
-    title,
-    minimumSalary,
-    maximumSalary,
-    hoursPerDay,
-    updatedAt,
-    extensionApprovalStatus,
-    graduadosApprovalStatus,
-    graduatesExpirationDateTime,
-    studentsExpirationDateTime,
-    targetApplicantType,
-    isInternship
-  },
-  withStatusLabels
-}) => (
+export const Info: FunctionComponent<IOfferProps> = ({ offer, withStatusLabels }) => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
       <CompanyLogo
         className={styles.mobileLogo}
-        companyName={company.companyName}
-        logo={company.logo}
+        companyName={offer.company.companyName}
+        logo={offer.company.logo}
         size="large"
         useDefaultIcon
       />
       <div className={styles.subtitleContainer}>
-        <Subtitle className={styles.jobDescription}>{title}</Subtitle>
+        <Subtitle className={styles.jobDescription}>{offer.title}</Subtitle>
         <hr className={styles.separator} />
-        <PublishedSince date={updatedAt} className={styles.mobileTime} />
+        <PublishedSince date={offer.updatedAt} className={styles.mobileTime} />
       </div>
     </div>
     <div
@@ -49,32 +33,23 @@ export const Info: FunctionComponent<IOfferProps> = ({
     >
       <div className={styles.firstColumn}>
         {!withStatusLabels && (
-          <Subtitle className={styles.companyName}>{company.companyName}</Subtitle>
+          <Subtitle className={styles.companyName}>{offer.company.companyName}</Subtitle>
         )}
-        {withStatusLabels && (
-          <StatusLabels
-            className={styles.statusLabels}
-            extensionApprovalStatus={extensionApprovalStatus}
-            graduadosApprovalStatus={graduadosApprovalStatus}
-            targetApplicantType={targetApplicantType}
-            graduatesExpirationDateTime={graduatesExpirationDateTime}
-            studentsExpirationDateTime={studentsExpirationDateTime}
-          />
-        )}
+        {withStatusLabels && <StatusLabels className={styles.statusLabels} offer={offer} />}
         <InternshipLabel
-          hidden={!isInternship}
+          hidden={!offer.isInternship}
           className={classNames(styles.internshipLabel, {
             [styles.underCompanyName]: !withStatusLabels
           })}
         />
         <PublishedSince
           className={classNames(styles.time, { [styles.alignLeft]: withStatusLabels })}
-          date={updatedAt}
+          date={offer.updatedAt}
         />
       </div>
       <JobSpecs
-        salary={{ minimumSalary, maximumSalary }}
-        workload={hoursPerDay}
+        salary={{ minimumSalary: offer.minimumSalary, maximumSalary: offer.maximumSalary }}
+        workload={offer.hoursPerDay}
         className={styles.secondColumn}
       />
     </div>
@@ -82,6 +57,6 @@ export const Info: FunctionComponent<IOfferProps> = ({
 );
 
 interface IOfferProps {
-  data: IOffer;
+  offer: IOffer;
   withStatusLabels: boolean;
 }

@@ -1,9 +1,6 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
 import { useTranslations } from "./queries";
-import { ApplicantType } from "$interfaces/Applicant";
-import { TimeFormatter } from "$models/TimeFormatter";
-import moment from "moment";
 import { IOffer } from "$interfaces/Offer";
 
 const getApplicantType = (translations: ITranslations) => ({
@@ -11,23 +8,11 @@ const getApplicantType = (translations: ITranslations) => ({
   [Secretary.extension]: translations.student
 });
 
-const getExpirationDate = (expirationDateTime: IExpirationDateTime) => ({
-  [Secretary.graduados]: expirationDateTime.graduatesExpirationDateTime,
-  [Secretary.extension]: expirationDateTime.studentsExpirationDateTime
-});
-
-const hasExpirationDate = ({
-  studentsExpirationDateTime,
-  graduatesExpirationDateTime
-}: IExpirationDateTime) => studentsExpirationDateTime || graduatesExpirationDateTime;
-
 const buildLabel = ({ secretary, offer, translations, withStatusText }: IBuildLabel) => {
   if (!translations) return "";
 
   const applicantType = getApplicantType(translations)[secretary];
-  const expirationDate = offer.getExpirationDateFor(secretary);
-  // const expirationDate =
-  //   hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
+  const expirationDate = offer.getExpirationDateFor(secretary)?.format("DD/MM");
 
   const approvedOfferText = () => {
     const initialText = `${applicantType}: `;
@@ -45,26 +30,18 @@ const buildLabel = ({ secretary, offer, translations, withStatusText }: IBuildLa
   return withStatusText ? `${applicantType}: ${translations.pending}` : `${applicantType}:`;
 };
 
-const hasExpired = (expirationDateTime?: string | null) => {
-  if (!expirationDateTime) return false;
-  return moment(expirationDateTime).format("YYYY-MM-DD") < moment(Date.now()).format("YYYY-MM-DD");
-};
-
 const getTooltipLabel = (
   secretary: Secretary,
   offer: IOffer,
   withStatusText: boolean,
   translations?: ITranslations
 ) => {
-  const isEmptyOrRedundant =
-    !translations || (withStatusText && offer.getExpirationDateFor(secretary));
+  const expirationDate = offer.getExpirationDateFor(secretary)?.format("DD/MM");
+  const isEmptyOrRedundant = !translations || (withStatusText && expirationDate);
   if (isEmptyOrRedundant) return "";
-  const secretaryExpirationDate = getExpirationDate(expirationDateTime)[secretary]!;
-  const expirationDate =
-    hasExpirationDate(expirationDateTime) && TimeFormatter.date(secretaryExpirationDate);
 
   const approvedOfferText = () =>
-    hasExpired(secretaryExpirationDate)
+    offer.hasExpiredFor(secretary)
       ? `${translations!.expired}`
       : `${translations!.approved} ${expirationDate}`;
 
@@ -86,22 +63,14 @@ export const useSeparatedStatusTranslations = ({
     return { graduados: undefined, extension: undefined };
   }
 
-  const targetsBoth = targetApplicantType === ApplicantType.both;
-  const targetsStudents = targetsBoth || targetApplicantType === ApplicantType.student;
-  const targetsGraduates = targetsBoth || targetApplicantType === ApplicantType.graduate;
   const translations = labelTranslations &&
     institutionsTranslations && {
       ...labelTranslations,
       ...institutionsTranslations
     };
 
-  const expirationDateTime = {
-    studentsExpirationDateTime,
-    graduatesExpirationDateTime
-  };
-
   return {
-    ...(targetsGraduates && {
+    ...(offer.isTargetingGraduates() && {
       graduados: {
         text: buildLabel({
           offer,
@@ -109,42 +78,26 @@ export const useSeparatedStatusTranslations = ({
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(
-          Secretary.graduados,
-          expirationDateTime,
-          withStatusText,
-          translations
-        ),
+        tooltipText: getTooltipLabel(Secretary.graduados, offer, withStatusText, translations),
         status: offer.graduadosApprovalStatus,
         hasExpired: offer.hasExpiredFor(Secretary.graduados)
       }
     }),
-    ...(targetsStudents && {
+    ...(offer.isTargetingStudents() && {
       extension: {
         text: buildLabel({
-          status: extensionApprovalStatus,
+          offer,
           secretary: Secretary.extension,
-          expirationDateTime,
           translations,
           withStatusText
         }),
-        tooltipText: getTooltipLabel(
-          Secretary.extension,
-          expirationDateTime,
-          withStatusText,
-          translations
-        ),
-        status: extensionApprovalStatus,
-        hasExpired: hasExpired(studentsExpirationDateTime)
+        tooltipText: getTooltipLabel(Secretary.extension, offer, withStatusText, translations),
+        status: offer.extensionApprovalStatus,
+        hasExpired: offer.hasExpiredFor(Secretary.extension)
       }
     })
   };
 };
-
-interface IExpirationDateTime {
-  studentsExpirationDateTime?: string | null;
-  graduatesExpirationDateTime?: string | null;
-}
 
 interface IBuildLabel {
   translations?: ITranslations;

@@ -3,11 +3,7 @@ import { SeparatedStatusLabel, ISeparatedStatusLabelProps } from "$components/Se
 import styles from "./styles.module.scss";
 
 export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = ({
-  extensionApprovalStatus,
-  graduadosApprovalStatus,
-  graduatesExpirationDateTime,
-  studentsExpirationDateTime,
-  targetApplicantType,
+  offer,
   className
 }) => {
   return (
@@ -15,11 +11,7 @@ export const StatusLabels: FunctionComponent<ISeparatedStatusLabelProps> = ({
       className={className}
       styles={styles}
       type="no-background"
-      targetApplicantType={targetApplicantType}
-      graduadosApprovalStatus={graduadosApprovalStatus}
-      extensionApprovalStatus={extensionApprovalStatus}
-      graduatesExpirationDateTime={graduatesExpirationDateTime}
-      studentsExpirationDateTime={studentsExpirationDateTime}
+      offer={offer}
     />
   );
 };
