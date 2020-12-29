@@ -43,19 +43,19 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
     isTargetingBoth: () => offer.targetApplicantType === ApplicantType.both,
     canExpireForStudents: () =>
       offer.isTargetingStudents() &&
-      !offer.isRejectedFor(Secretary.extension) &&
+      offer.isApprovedFor(Secretary.extension) &&
       !offer.hasExpiredFor(Secretary.extension),
     canExpireForGraduates: () =>
       offer.isTargetingGraduates() &&
-      !offer.hasExpiredFor(Secretary.graduados) &&
-      !offer.isRejectedFor(Secretary.graduados),
+      offer.isApprovedFor(Secretary.graduados) &&
+      !offer.hasExpiredFor(Secretary.graduados),
     canRepublishForStudents: () =>
       offer.isTargetingStudents() &&
-      !offer.isRejectedFor(Secretary.extension) &&
+      offer.isApprovedFor(Secretary.extension) &&
       offer.hasExpiredFor(Secretary.extension),
     canRepublishForGraduates: () =>
       offer.isTargetingGraduates() &&
-      !offer.isRejectedFor(Secretary.graduados) &&
+      offer.isApprovedFor(Secretary.graduados) &&
       offer.hasExpiredFor(Secretary.graduados)
   };
   return offer;

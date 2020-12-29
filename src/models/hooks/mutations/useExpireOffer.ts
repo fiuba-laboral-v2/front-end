@@ -1,9 +1,13 @@
 import { EXPIRE_OFFER } from "$mutations";
-import { useMutation } from "$hooks";
+import { useMutation, useShowSuccess } from "$hooks";
 import { IOffer } from "$interfaces/Offer";
 
 export const useExpireOffer = () => {
-  const { mutation, ...result } = useMutation<{ uuid: string }, IExpireOfferResponse>(EXPIRE_OFFER);
+  const showSuccess = useShowSuccess();
+  const { mutation, ...result } = useMutation<{ uuid: string }, IExpireOfferResponse>(
+    EXPIRE_OFFER,
+    { onCompleted: () => showSuccess({ message: "Expirada" }) }
+  );
   return { expireOffer: mutation, ...result };
 };
 

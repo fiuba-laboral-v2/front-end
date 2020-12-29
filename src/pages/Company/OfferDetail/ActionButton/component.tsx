@@ -1,6 +1,7 @@
 import { Button } from "$components/Button";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import Tooltip from "@material-ui/core/Tooltip";
+import Fade from "@material-ui/core/Fade";
 import React, { FunctionComponent } from "react";
 
 import { IActionButtonProps } from "./interface";
@@ -16,15 +17,21 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
   confirmDialogIsOpen,
   onSubmitConfirm,
   onCloseConfirmDialog,
-  translations
+  translations: { buttonText, ...dialogTranslations }
 }) => (
   <>
     {showActionButton && (
       <>
-        <Tooltip title={messageDescription({ isModal: false })} placement="bottom-end">
+        <Tooltip
+          title={messageDescription({ isModal: false })}
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 0 }}
+          placement="bottom-end"
+          leaveDelay={0}
+        >
           <div className={className}>
             <Button className={styles.button} kind={kind} onClick={handleAction}>
-              <span>{translations?.buttonText}</span>
+              <span>{buttonText}</span>
             </Button>
           </div>
         </Tooltip>
@@ -32,13 +39,10 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
           isOpen={confirmDialogIsOpen}
           onConfirm={onSubmitConfirm}
           onClose={onCloseConfirmDialog}
-          translations={{
-            confirmDialogTitle: translations.confirmDialogTitle,
-            confirmDialogConfirm: translations.confirmDialogConfirm,
-            confirmDialogDescription: messageDescription({ isModal: true }),
-            confirmDialogCancel: translations.confirmDialogCancel
-          }}
-        />
+          translations={dialogTranslations}
+        >
+          {messageDescription({ isModal: true })}
+        </FormConfirmDialog>
       </>
     )}
   </>

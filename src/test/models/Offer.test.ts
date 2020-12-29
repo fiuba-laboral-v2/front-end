@@ -314,7 +314,7 @@ describe("CurrentUser", () => {
   });
 
   describe("canExpireForStudents", () => {
-    it("returns true if isTargetingStudents, is not rejected and didn't expired for students", () => {
+    it("returns true if isTargetingStudents, is approved and didn't expired for students", () => {
       const offer = Offer(offerAttributes);
 
       expect(offer.canExpireForStudents()).toBe(true);
@@ -332,6 +332,12 @@ describe("CurrentUser", () => {
       expect(offer.canExpireForStudents()).toBe(false);
     });
 
+    it("returns false if extensionApprovalStatus is pending", () => {
+      const offer = Offer({ ...offerAttributes, extensionApprovalStatus: ApprovalStatus.pending });
+
+      expect(offer.canExpireForStudents()).toBe(false);
+    });
+
     it("returns false if it's already expired", () => {
       const offer = Offer({ ...offerAttributes, studentsExpirationDateTime: yesterday });
 
@@ -340,7 +346,7 @@ describe("CurrentUser", () => {
   });
 
   describe("canExpireForGraduates", () => {
-    it("returns true if isTargetingGraduates, is not rejected and didn't expired for graduates", () => {
+    it("returns true if isTargetingGraduates, is approved and didn't expired for graduates", () => {
       const offer = Offer(offerAttributes);
 
       expect(offer.canExpireForGraduates()).toBe(true);
@@ -354,6 +360,12 @@ describe("CurrentUser", () => {
 
     it("returns false if graduadosApprovalStatus is rejected", () => {
       const offer = Offer({ ...offerAttributes, graduadosApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canExpireForGraduates()).toBe(false);
+    });
+
+    it("returns false if graduadosApprovalStatus is pending", () => {
+      const offer = Offer({ ...offerAttributes, graduadosApprovalStatus: ApprovalStatus.pending });
 
       expect(offer.canExpireForGraduates()).toBe(false);
     });
@@ -384,6 +396,12 @@ describe("CurrentUser", () => {
       expect(offer.canRepublishForGraduates()).toBe(false);
     });
 
+    it("returns false if graduadosApprovalStatus is pending", () => {
+      const offer = Offer({ ...offerAttributes, graduadosApprovalStatus: ApprovalStatus.pending });
+
+      expect(offer.canRepublishForGraduates()).toBe(false);
+    });
+
     it("returns false if it didn't expire", () => {
       const offer = Offer({ ...offerAttributes, graduatesExpirationDateTime: tomorrow });
 
@@ -406,6 +424,12 @@ describe("CurrentUser", () => {
 
     it("returns false if extensionApprovalStatus is rejected", () => {
       const offer = Offer({ ...offerAttributes, extensionApprovalStatus: ApprovalStatus.rejected });
+
+      expect(offer.canRepublishForStudents()).toBe(false);
+    });
+
+    it("returns false if extensionApprovalStatus is pending", () => {
+      const offer = Offer({ ...offerAttributes, extensionApprovalStatus: ApprovalStatus.pending });
 
       expect(offer.canRepublishForStudents()).toBe(false);
     });

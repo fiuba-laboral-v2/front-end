@@ -1,9 +1,7 @@
+import DialogContentText from "@material-ui/core/DialogContentText";
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 
 import { IOfferStateDescriptionProps } from "./interface";
-
-import styles from "./styles.module.scss";
 
 export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProps> = ({
   title,
@@ -12,13 +10,22 @@ export const OfferStateDescription: FunctionComponent<IOfferStateDescriptionProp
   isModal
 }) => (
   <>
-    <p>
-      {title} <br />
-    </p>
-    <p className={classNames({ [styles.offerStateModal]: isModal })}>
-      {firstLine}
-      {firstLine && secondLine && <br />}
-      {secondLine}
-    </p>
+    {!isModal && (
+      <>
+        <p>
+          {title} <br />
+        </p>
+        <p>
+          {firstLine}
+          {firstLine && secondLine && <br />}
+          {secondLine}
+        </p>
+      </>
+    )}
+    {isModal && (
+      <DialogContentText>
+        {firstLine} <br /> {secondLine}
+      </DialogContentText>
+    )}
   </>
 );
