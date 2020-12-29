@@ -6,7 +6,6 @@ export interface IExpireButtonContainerProps {
   offer: IOffer;
   className: string;
   kind: ButtonKind;
-  refetch: () => void;
 }
 
 export interface IExpireButtonProps extends IExpireButtonContainerProps {
