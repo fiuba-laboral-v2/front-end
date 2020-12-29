@@ -37,7 +37,6 @@ export const RejectedJobApplicationApplicantNotificationContainer: FunctionCompo
         applicant={applicant}
         offer={offer}
         applicantLink={RoutesBuilder.applicant.myProfile()}
-        offerLink={RoutesBuilder.applicant.offerDetail}
       >
         <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
       </JobApplicationNotificationBody>

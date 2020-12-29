@@ -4,7 +4,6 @@ import { IActionButtonTranslations } from "../ActionButton/interface";
 
 export interface IRepublishButtonContainerProps {
   offer: IOffer;
-  refetch: () => void;
   className: string;
   kind: ButtonKind;
 }

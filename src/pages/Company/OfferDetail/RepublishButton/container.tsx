@@ -10,7 +10,6 @@ import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 
 export const RepublishButtonContainer: FunctionComponent<IRepublishButtonContainerProps> = ({
   offer,
-  refetch,
   className,
   kind
 }) => {
@@ -29,8 +28,7 @@ export const RepublishButtonContainer: FunctionComponent<IRepublishButtonContain
       errorHandlers: formErrorHandlers({ enqueueSnackbar })()
     });
     if (response.error) return;
-    refetch();
-  }, [offer, republishOffer, enqueueSnackbar, refetch]);
+  }, [offer, republishOffer, enqueueSnackbar]);
 
   const messageDescription = ({ isModal }: { isModal: boolean }) => (
     <RepublishStateDescription

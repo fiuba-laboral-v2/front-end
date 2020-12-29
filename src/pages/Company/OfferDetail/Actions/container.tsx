@@ -6,7 +6,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IActionsContainerProps, ITranslations } from "./interface";
 import { Actions } from "./component";
 
-export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({ offer, refetch }) => {
+export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({ offer }) => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("offerDetailEdit");
 
@@ -19,7 +19,6 @@ export const ActionsContainer: FunctionComponent<IActionsContainerProps> = ({ of
           {...{
             handleEdit,
             offer,
-            refetch,
             translations
           }}
         />
