@@ -4,10 +4,16 @@ import { RejectedLabel } from "./RejectedLabel";
 import { PendingLabel } from "./PendingLabel";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ILabelLayoutProps, ILabelTextProps } from "$components/Label";
+import { ExpiredLabel } from "./ExpiredLabel";
 
-export const StatusLabel: FunctionComponent<IStatusLabelProps> = ({ status, ...props }) => (
+export const StatusLabel: FunctionComponent<IStatusLabelProps> = ({
+  status,
+  hasExpired,
+  ...props
+}) => (
   <>
-    {status === ApprovalStatus.approved && <ApprovedLabel {...props} />}
+    {hasExpired && <ExpiredLabel {...props} />}
+    {!hasExpired && status === ApprovalStatus.approved && <ApprovedLabel {...props} />}
     {status === ApprovalStatus.rejected && <RejectedLabel {...props} />}
     {status === ApprovalStatus.pending && <PendingLabel {...props} />}
   </>
