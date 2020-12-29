@@ -1,6 +1,34 @@
 query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
   getApplicantNotifications(updatedBeforeThan: $updatedBeforeThan) {
     results {
+      ... on PendingJobApplicationApplicantNotification {
+        __typename
+        uuid
+        adminEmail
+        isNew
+        createdAt
+        jobApplication {
+          __typename
+          uuid
+          approvalStatus
+          offer {
+            uuid
+            title
+            company {
+              uuid
+              companyName
+            }
+          }
+          applicant {
+            uuid
+            user {
+              uuid
+              name
+              surname
+            }
+          }
+        }
+      }
       ... on ApprovedJobApplicationApplicantNotification {
         __typename
         uuid
