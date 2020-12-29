@@ -1,20 +1,37 @@
+import {
+  COMPANY,
+  APPLICANT,
+  OFFER,
+  JOB_APPLICATION,
+  NEW_JOB_APPLICATION_COMPANY_NOTIFICATION,
+  APPROVED_OFFER_COMPANY_NOTIFICATION,
+  REJECTED_OFFER_COMPANY_NOTIFICATION,
+  APPROVED_PROFILE_COMPANY_NOTIFICATION,
+  REJECTED_PROFILE_COMPANY_NOTIFICATION,
+  PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+  APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+  REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+  APPROVED_PROFILE_APPLICANT_NOTIFICATION,
+  REJECTED_PROFILE_APPLICANT_NOTIFICATION,
+  UPDATED_COMPANY_PROFILE_ADMIN_NOTIFICATION
+} from "$typenames";
 import { PossibleTypesMap } from "@apollo/client";
 
 export const possibleTypes: PossibleTypesMap = {
-  AdminTask: ["Company", "Applicant", "Offer", "JobApplication"],
+  AdminTask: [COMPANY, APPLICANT, OFFER, JOB_APPLICATION],
   CompanyNotification: [
-    "NewJobApplicationCompanyNotification",
-    "ApprovedOfferCompanyNotification",
-    "RejectedOfferCompanyNotification",
-    "ApprovedProfileCompanyNotification",
-    "RejectedProfileCompanyNotification"
+    NEW_JOB_APPLICATION_COMPANY_NOTIFICATION,
+    APPROVED_OFFER_COMPANY_NOTIFICATION,
+    REJECTED_OFFER_COMPANY_NOTIFICATION,
+    APPROVED_PROFILE_COMPANY_NOTIFICATION,
+    REJECTED_PROFILE_COMPANY_NOTIFICATION
   ],
   ApplicantNotification: [
-    "PendingJobApplicationApplicantNotification",
-    "ApprovedJobApplicationApplicantNotification",
-    "RejectedJobApplicationApplicantNotification",
-    "ApprovedProfileApplicantNotification",
-    "RejectedProfileApplicantNotification"
+    PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+    APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+    REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION,
+    APPROVED_PROFILE_APPLICANT_NOTIFICATION,
+    REJECTED_PROFILE_APPLICANT_NOTIFICATION
   ],
-  AdminNotification: ["UpdatedCompanyProfileAdminNotification"]
+  AdminNotification: [UPDATED_COMPANY_PROFILE_ADMIN_NOTIFICATION]
 };
