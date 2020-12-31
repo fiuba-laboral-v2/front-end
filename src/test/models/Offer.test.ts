@@ -5,7 +5,7 @@ import { Secretary } from "$interfaces/Secretary";
 import { Offer } from "$models/Offer";
 import moment from "moment";
 
-describe("CurrentUser", () => {
+describe("Offer", () => {
   const tomorrow = moment().endOf("day").add(1, "days").format("YYYY-MM-DD HH:mm:ss").toString();
   const yesterday = moment()
     .startOf("day")
@@ -64,7 +64,7 @@ describe("CurrentUser", () => {
   });
 
   describe("isFromApprovedCompany", () => {
-    it("returns false if the company is approved", () => {
+    it("returns true if the company is approved", () => {
       const offer = Offer(offerAttributes);
       offer.company.approvalStatus = ApprovalStatus.approved;
       expect(offer.isFromApprovedCompany()).toBe(true);
