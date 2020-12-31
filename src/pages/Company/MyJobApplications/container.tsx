@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useHistory } from "react-router-dom";
 import { MyJobApplications } from "./component";
 import { Redirect } from "$components/Redirect";
 import { EmptyList } from "$components/EmptyList";
@@ -7,6 +8,7 @@ import { useMyJobApplications } from "$hooks/queries/useMyJobApplications";
 import { useTranslations } from "$hooks";
 
 export const MyJobApplicationsContainer: FunctionComponent = () => {
+  const history = useHistory();
   const response = useMyJobApplications();
   const translations = useTranslations<ITranslation>("companyJobApplicationsListTitle");
   if (response.error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
@@ -22,7 +24,7 @@ export const MyJobApplicationsContainer: FunctionComponent = () => {
         <EmptyList
           emptyTranslationSource="jobApplicationEmptyOfferList"
           buttonKind="primary"
-          link={RoutesBuilder.company.createOffer()}
+          onClick={() => history.push(RoutesBuilder.company.createOffer())}
         />
       }
     />
