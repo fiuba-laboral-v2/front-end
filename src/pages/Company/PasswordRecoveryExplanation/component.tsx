@@ -6,6 +6,6 @@ import styles from "./styles.module.scss";
 export const PasswordRecoveryExplanation: FunctionComponent<IComponents> = ({ translations }) => (
   <>
     <h1 className={styles.title}>{translations?.title}</h1>
-    <Card>{translations?.explanation}</Card>
+    <Card className={styles.explanation}>{translations?.explanation}</Card>
   </>
 );
