@@ -15,17 +15,8 @@ export interface IJobApplicationAttributes extends ICommonAttributes {
   offer: IOfferAttributes;
 }
 
-export interface IJobApplicationModel extends ICommonAttributes {
+export interface IJobApplication extends ICommonAttributes {
   offer: () => IOffer;
   hasAnApprovedApplicant: () => boolean;
   hasAnApprovedOffer: (secretary: Secretary) => boolean;
-}
-
-export interface IJobApplication extends ICommonAttributes {
-  uuid: string;
-  updatedAt: string;
-  createdAt: string;
-  approvalStatus: ApprovalStatus;
-  applicant: IApplicant;
-  offer: IOffer;
 }

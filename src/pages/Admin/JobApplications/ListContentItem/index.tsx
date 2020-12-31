@@ -16,16 +16,14 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
       padron,
       user: { name, surname }
     },
-    offer: {
-      company: { companyName, cuit }
-    },
+    offer,
     updatedAt,
     approvalStatus
   }
 }) => (
   <>
-    <p className={styles.text}>{companyName}</p>
-    <p className={styles.text}>{NumberFormatter.formatCuit(cuit)}</p>
+    <p className={styles.text}>{offer().company.companyName}</p>
+    <p className={styles.text}>{NumberFormatter.formatCuit(offer().company.cuit)}</p>
     <p className={styles.text}>{`${name} ${surname}`}</p>
     <p className={styles.text}>{padron}</p>
     <div className={styles.statusContainer}>
