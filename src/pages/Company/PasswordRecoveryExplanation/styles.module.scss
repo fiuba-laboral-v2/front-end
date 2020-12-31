@@ -10,5 +10,10 @@
 .explanation {
   font-size: $fontSize-m;
   font-weight: normal;
+  margin-bottom: $spacing-xl;
   white-space: pre-wrap;
+}
+
+.retry {
+  align-self: flex-end;
 }
