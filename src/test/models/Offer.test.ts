@@ -63,6 +63,26 @@ describe("CurrentUser", () => {
     expect(offer.hasApplied).toBe(true);
   });
 
+  describe("isFromApprovedCompany", () => {
+    it("returns false if the company is approved", () => {
+      const offer = Offer(offerAttributes);
+      offer.company.approvalStatus = ApprovalStatus.approved;
+      expect(offer.isFromApprovedCompany()).toBe(true);
+    });
+
+    it("returns false if the company is rejected", () => {
+      const offer = Offer(offerAttributes);
+      offer.company.approvalStatus = ApprovalStatus.rejected;
+      expect(offer.isFromApprovedCompany()).toBe(false);
+    });
+
+    it("returns false if the company is pending", () => {
+      const offer = Offer(offerAttributes);
+      offer.company.approvalStatus = ApprovalStatus.pending;
+      expect(offer.isFromApprovedCompany()).toBe(false);
+    });
+  });
+
   describe("isApprovedFor", () => {
     describe("when the secretary of graduados is passed as parameter", () => {
       it("returns true if graduadosApprovalStatus is approved", () => {
