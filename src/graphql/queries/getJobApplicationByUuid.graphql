@@ -35,6 +35,7 @@ query getJobApplicationByUuid($uuid: ID!) {
         companyName
         logo
         cuit
+        approvalStatus
       }
     }
     applicant {
