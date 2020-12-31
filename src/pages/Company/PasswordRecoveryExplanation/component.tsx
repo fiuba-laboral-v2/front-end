@@ -1,4 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "$components/Card";
+import { IComponents } from "./interfaces";
+import styles from "./styles.module.scss";
 
-export const PasswordRecoveryExplanation: FunctionComponent = () => <Card>EXPLICACION</Card>;
+export const PasswordRecoveryExplanation: FunctionComponent<IComponents> = ({ translations }) => (
+  <>
+    <h1 className={styles.title}>{translations?.title}</h1>
+    <Card>{translations?.explanation}</Card>
+  </>
+);
