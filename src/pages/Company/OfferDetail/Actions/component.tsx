@@ -28,6 +28,7 @@ export const Actions: FunctionComponent<IActionsProps> = ({ handleEdit, offer, t
         />
         <ExpireButton {...{ className: styles.expireButton, kind: "danger", offer }} />
       </div>
+      <div className={styles.separator} />
     </div>
   );
 };

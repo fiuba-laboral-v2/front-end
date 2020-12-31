@@ -18,6 +18,7 @@
   }
 
   .editButton {
+    margin-bottom: $spacing-s;
     width: 100%;
   }
 
@@ -33,6 +34,10 @@
 
   .showTwoButtons {
     margin-right: $spacing-s;
+  }
+
+  .separator {
+    flex-grow: 1;
   }
 }
 
