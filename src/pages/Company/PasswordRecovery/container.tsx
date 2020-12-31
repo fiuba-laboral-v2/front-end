@@ -28,6 +28,7 @@ export const PasswordRecoveryContainer: FunctionComponent = () => {
     });
     if (result.error) return;
     setSubmitting(false);
+    history.push(RoutesBuilder.company.passwordRecoveryExplanation());
   };
 
   return (
