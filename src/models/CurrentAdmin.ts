@@ -19,12 +19,13 @@ export const CurrentAdmin = ({
     isExtension: () => secretary === Secretary.extension,
     canModerateOffer: (offer: IOffer) => {
       if (offer.isTargetingBoth()) return true;
-      return (
+      const targetMatches =
         {
           [Secretary.graduados]: ApplicantType.graduate,
           [Secretary.extension]: ApplicantType.student
-        }[secretary] === offer.targetApplicantType
-      );
+        }[secretary] === offer.targetApplicantType;
+
+      return targetMatches && offer.isFromApprovedCompany();
     },
     canModerateApplicant: (applicant: IApplicant) => {
       const isGraduate = applicant.careers.map(career => career.isGraduate).includes(true);

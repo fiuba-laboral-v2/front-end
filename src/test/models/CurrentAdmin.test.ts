@@ -3,6 +3,7 @@ import { Offer } from "$models/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantType, IApplicant, IApplicantCareer } from "$interfaces/Applicant";
+import { IOfferAttributes } from "../../interfaces/Offer";
 
 describe("CurrentAdmin", () => {
   const generateAttributes = (secretary: Secretary) => ({
@@ -81,7 +82,7 @@ describe("CurrentAdmin", () => {
         minimumSalary: 10000,
         maximumSalary: 10000,
         _form: []
-      });
+      } as IOfferAttributes);
 
     describe("Extension Admin", () => {
       const currentExtensionAdmin = CurrentAdmin(generateAttributes(Secretary.extension));
@@ -98,6 +99,18 @@ describe("CurrentAdmin", () => {
 
       it("returns false if the offer targets graduates", () => {
         const offer = createOffer(ApplicantType.graduate);
+        expect(currentExtensionAdmin.canModerateOffer(offer)).toBe(false);
+      });
+
+      it("returns false if the offer is from a rejected company", () => {
+        const offer = createOffer(ApplicantType.graduate);
+        offer.company.approvalStatus = ApprovalStatus.rejected;
+        expect(currentExtensionAdmin.canModerateOffer(offer)).toBe(false);
+      });
+
+      it("returns false if the offer is from a pending company", () => {
+        const offer = createOffer(ApplicantType.graduate);
+        offer.company.approvalStatus = ApprovalStatus.pending;
         expect(currentExtensionAdmin.canModerateOffer(offer)).toBe(false);
       });
     });
@@ -117,6 +130,18 @@ describe("CurrentAdmin", () => {
 
       it("returns false if the offer targets students", () => {
         const offer = createOffer(ApplicantType.student);
+        expect(currentGraduadosAdmin.canModerateOffer(offer)).toBe(false);
+      });
+
+      it("returns false if the offer is from a rejected company", () => {
+        const offer = createOffer(ApplicantType.graduate);
+        offer.company.approvalStatus = ApprovalStatus.rejected;
+        expect(currentGraduadosAdmin.canModerateOffer(offer)).toBe(false);
+      });
+
+      it("returns false if the offer is from a pending company", () => {
+        const offer = createOffer(ApplicantType.graduate);
+        offer.company.approvalStatus = ApprovalStatus.pending;
         expect(currentGraduadosAdmin.canModerateOffer(offer)).toBe(false);
       });
     });
