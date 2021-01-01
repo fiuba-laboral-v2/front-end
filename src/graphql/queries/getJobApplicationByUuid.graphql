@@ -1,9 +1,8 @@
-query getJobApplicationByUuid($uuid: ID!) {
+query GetJobApplicationByUuid($uuid: ID!) {
   getJobApplicationByUuid(uuid: $uuid) {
     uuid
     updatedAt
     createdAt
-    updatedAt
     approvalStatus
     offer {
       uuid
