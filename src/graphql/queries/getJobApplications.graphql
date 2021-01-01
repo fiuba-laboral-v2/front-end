@@ -10,6 +10,7 @@ query getJobApplications($updatedBeforeThan: PaginatedInput) {
         uuid
         title
         company {
+          uuid
           companyName
           cuit
         }
@@ -18,6 +19,7 @@ query getJobApplications($updatedBeforeThan: PaginatedInput) {
         uuid
         padron
         user {
+          uuid
           name
           surname
         }
