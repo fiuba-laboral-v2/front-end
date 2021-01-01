@@ -109,6 +109,37 @@ describe("CurrentAdmin", () => {
     const createOffer = (targetApplicantType: ApplicantType) =>
       Offer(offerAttributes(targetApplicantType));
 
+    const applicantCareersWithOneGraduation = [
+      {
+        isGraduate: true,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      },
+      {
+        isGraduate: false,
+        approvedSubjectCount: 44,
+        currentCareerYear: 5,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      }
+    ];
+
+    const applicantCareersWithNoGraduation = [
+      {
+        isGraduate: false,
+        approvedSubjectCount: 44,
+        currentCareerYear: 5,
+        career: {
+          code: "code1",
+          description: "description"
+        }
+      }
+    ];
+
     describe("canModerateOffer", () => {
       describe("Extension Admin", () => {
         const currentExtensionAdmin = CurrentAdmin(generateAttributes(Secretary.extension));
@@ -174,40 +205,41 @@ describe("CurrentAdmin", () => {
     });
 
     describe("canModerateJobApplication", () => {
-      const jobApplicationAttributes = (): IJobApplicationAttributes => ({
+      const student = createApplicant(applicantCareersWithNoGraduation);
+      const graduate = createApplicant(applicantCareersWithOneGraduation);
+
+      const jobApplicationAttributes = (applicant?: IApplicant): IJobApplicationAttributes => ({
         uuid: "d3208f27-7404-4396-b8a1-88037d493989",
         createdAt: "2020-12-04T16:57:07.333Z",
         updatedAt: "2020-12-04T16:57:07.333Z",
         approvalStatus: ApprovalStatus.approved,
-        applicant: createApplicant([]),
+        applicant: applicant || createApplicant([]),
         offer: offerAttributes(ApplicantType.both)
       });
 
       describe("Extension Admin", () => {
         const currentExtensionAdmin = CurrentAdmin(generateAttributes(Secretary.extension));
 
-        it("returns true if the applicant, the offer and its company are approved", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
+        it("returns true if the applicant is approved", () => {
+          const attributes = jobApplicationAttributes(student);
+          const jobApplication = JobApplication(attributes);
           expect(currentExtensionAdmin.canModerateJobApplication(jobApplication)).toBe(true);
         });
 
-        it("returns false if the applicant is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
+        it("returns false if the student is rejected", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(student));
           jobApplication.applicant.approvalStatus = ApprovalStatus.rejected;
           expect(currentExtensionAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
 
-        it("returns false if the company is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
-          jobApplication.offer().company.approvalStatus = ApprovalStatus.rejected;
+        it("returns false if the student is pending", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(student));
+          jobApplication.applicant.approvalStatus = ApprovalStatus.pending;
           expect(currentExtensionAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
 
-        it("returns false if the offer is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
-          const offer = Offer(offerAttributes(ApplicantType.both));
-          jest.spyOn(jobApplication, "offer").mockImplementation(() => offer);
-          offer.extensionApprovalStatus = ApprovalStatus.rejected;
+        it("returns false if the applicant has graduated", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(graduate));
           expect(currentExtensionAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
       });
@@ -215,65 +247,32 @@ describe("CurrentAdmin", () => {
       describe("Graduados Admin", () => {
         const currentGraduadosAdmin = CurrentAdmin(generateAttributes(Secretary.graduados));
 
-        it("returns true if the applicant, the offer and its company are approved", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
+        it("returns true if the applicant is approved", () => {
+          const attributes = jobApplicationAttributes(graduate);
+          const jobApplication = JobApplication(attributes);
           expect(currentGraduadosAdmin.canModerateJobApplication(jobApplication)).toBe(true);
         });
 
-        it("returns false if the applicant is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
+        it("returns false if the student is rejected", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(graduate));
           jobApplication.applicant.approvalStatus = ApprovalStatus.rejected;
           expect(currentGraduadosAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
 
-        it("returns false if the company is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
-          jobApplication.offer().company.approvalStatus = ApprovalStatus.rejected;
+        it("returns false if the student is pending", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(graduate));
+          jobApplication.applicant.approvalStatus = ApprovalStatus.pending;
           expect(currentGraduadosAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
 
-        it("returns false if the offer is rejected", () => {
-          const jobApplication = JobApplication(jobApplicationAttributes());
-          const offer = Offer(offerAttributes(ApplicantType.both));
-          jest.spyOn(jobApplication, "offer").mockImplementation(() => offer);
-          offer.graduadosApprovalStatus = ApprovalStatus.rejected;
+        it("returns false if the applicant has not graduated", () => {
+          const jobApplication = JobApplication(jobApplicationAttributes(student));
           expect(currentGraduadosAdmin.canModerateJobApplication(jobApplication)).toBe(false);
         });
       });
     });
 
     describe("canModerateApplicant", () => {
-      const applicantCareersWithOneGraduation = [
-        {
-          isGraduate: true,
-          career: {
-            code: "code1",
-            description: "description"
-          }
-        },
-        {
-          isGraduate: false,
-          approvedSubjectCount: 44,
-          currentCareerYear: 5,
-          career: {
-            code: "code1",
-            description: "description"
-          }
-        }
-      ];
-
-      const applicantCareersWithNoGraduation = [
-        {
-          isGraduate: false,
-          approvedSubjectCount: 44,
-          currentCareerYear: 5,
-          career: {
-            code: "code1",
-            description: "description"
-          }
-        }
-      ];
-
       describe("Extension Admin", () => {
         const currentExtensionAdmin = CurrentAdmin(generateAttributes(Secretary.extension));
 

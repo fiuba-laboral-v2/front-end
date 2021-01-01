@@ -36,9 +36,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
     const currentAdmin = currentUser.data?.getCurrentUser?.admin;
     if (!jobApplication) return;
     if (!currentAdmin) return;
-    const canModerateApplicant = currentAdmin.canModerateApplicant(jobApplication.applicant);
-    const canModerateJobApplication = currentAdmin.canModerateJobApplication(jobApplication);
-    return !(canModerateApplicant && canModerateJobApplication);
+    return !currentAdmin.canModerateJobApplication(jobApplication);
   };
 
   return (

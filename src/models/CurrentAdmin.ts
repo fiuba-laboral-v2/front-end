@@ -3,7 +3,6 @@ import { Secretary } from "$interfaces/Secretary";
 import { IOffer } from "$interfaces/Offer";
 import { ApplicantType, IApplicant } from "$interfaces/Applicant";
 import { IJobApplication } from "$interfaces/JobApplication";
-import { ApprovalStatus } from "../interfaces/ApprovalStatus";
 
 export type TCurrentAdminAttributes = {
   user: Pick<IUser, "uuid">;
@@ -14,7 +13,7 @@ export const CurrentAdmin = ({
   secretary,
   ...attributes
 }: TCurrentAdminAttributes): TCurrentAdmin => {
-  return {
+  const currentAdmin = {
     ...attributes,
     secretary,
     isGraduados: () => secretary === Secretary.graduados,
@@ -30,11 +29,10 @@ export const CurrentAdmin = ({
       return targetMatches && offer.isFromApprovedCompany();
     },
     canModerateJobApplication: (jobApplication: IJobApplication) => {
-      const hasAnApprovedApplicant =
-        jobApplication.applicant.approvalStatus === ApprovalStatus.approved;
-      const isFromApprovedCompany = jobApplication.offer().isFromApprovedCompany();
-      const hasAnApprovedOffer = jobApplication.offer().isApprovedFor(secretary);
-      return hasAnApprovedApplicant && isFromApprovedCompany && hasAnApprovedOffer;
+      return (
+        currentAdmin.canModerateApplicant(jobApplication.applicant) &&
+        jobApplication.hasAnApprovedApplicant()
+      );
     },
     canModerateApplicant: (applicant: IApplicant) => {
       const isGraduate = applicant.careers.map(career => career.isGraduate).includes(true);
@@ -46,6 +44,8 @@ export const CurrentAdmin = ({
       );
     }
   } as TCurrentAdmin;
+
+  return currentAdmin;
 };
 
 export type TCurrentAdmin = TCurrentAdminAttributes & {
