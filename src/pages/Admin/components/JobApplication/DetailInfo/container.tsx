@@ -25,7 +25,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   const setStatus = async (status: ApprovalStatus, moderatorMessage?: string) => {
     await updateAdminTaskStatus({
       uuid: selectedTaskUuid,
-      status: status,
+      status,
       onStatusUpdate,
       setLoadingStatusUpdate,
       moderatorMessage
@@ -40,7 +40,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   return (
     <JobApplicationDetailInfo
       hideActions={hideActions()}
-      loading={loading}
+      loading={loading || !currentUser || !jobApplication}
       setStatus={setStatus}
       currentStatus={jobApplication?.approvalStatus}
       jobApplication={jobApplication}
