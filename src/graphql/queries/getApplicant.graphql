@@ -2,8 +2,8 @@ query GetApplicant($uuid: ID!) {
   getApplicant(uuid: $uuid) {
     uuid
     user {
-      email
       uuid
+      email
       name
       surname
       dni
