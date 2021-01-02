@@ -86,7 +86,6 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.users(),
           title: translations.users,
-          tooltipMessage: translations.pendingProfile,
           icon: SupervisedUserCircleIcon
         }
       ]);
@@ -127,7 +126,6 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.users(),
           title: translations.users,
-          tooltipMessage: translations.rejectedProfile,
           icon: SupervisedUserCircleIcon
         }
       ]);
