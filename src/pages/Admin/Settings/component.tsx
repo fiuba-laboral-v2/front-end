@@ -10,11 +10,11 @@ import { SharedSettingsFormSection } from "./SharedSettingsFormSection";
 
 export const Settings: FunctionComponent<ISettingsProps> = ({
   translations,
-  formikProps: { isSubmitting, errors }
+  formikProps: { isSubmitting, errors, values }
 }) => (
   <Form title={translations?.title}>
     <InfoMessage message={translations?.infoMessage} />
-    {translations && <SecretarySettingsFormSection translations={translations} />}
+    {translations && <SecretarySettingsFormSection values={values} translations={translations} />}
     {translations && <SharedSettingsFormSection translations={translations} />}
     <FormFooter
       isSubmitting={isSubmitting}

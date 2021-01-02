@@ -3,6 +3,7 @@ query getAdminSettings {
     email
     emailSignature
     offerDurationInDays
+    automaticJobApplicationApproval
     companySignUpAcceptanceCriteria
     companyEditableAcceptanceCriteria
     editOfferAcceptanceCriteria
