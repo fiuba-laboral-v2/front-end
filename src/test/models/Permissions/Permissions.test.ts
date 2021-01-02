@@ -32,7 +32,8 @@ describe("Permissions", () => {
       offer,
       myOffers,
       jobApplications,
-      applicantDetail
+      applicantDetail,
+      users
     } = RoutesBuilder.company;
     const createCurrentCompanyUser = (status: ApprovalStatus) =>
       CurrentUser({
@@ -52,6 +53,11 @@ describe("Permissions", () => {
       it("does not throw error if status is pending for editMyProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
         expect(() => Permissions.check(currentCompany, editMyProfile())).not.toThrow();
+      });
+
+      it("does not throw error if status is pending for users route", () => {
+        const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
+        expect(() => Permissions.check(currentCompany, users())).not.toThrow();
       });
 
       it("throws error if status is pending for some specific routes", () => {
@@ -74,6 +80,11 @@ describe("Permissions", () => {
       it("does not throw error if status is rejected for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
         expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
+      });
+
+      it("does not throw error if status is rejected for users route", () => {
+        const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
+        expect(() => Permissions.check(currentCompany, users())).not.toThrow();
       });
 
       it("throws error if status is rejected for some specific routes", () => {

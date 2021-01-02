@@ -4,10 +4,14 @@ import { RejectedCompanyError, PendingCompanyError } from "$models/Errors";
 
 const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
   RoutesBuilder.company.editMyProfile(),
-  RoutesBuilder.company.myProfile()
+  RoutesBuilder.company.myProfile(),
+  RoutesBuilder.company.users()
 ];
 
-const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [RoutesBuilder.company.myProfile()];
+const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [
+  RoutesBuilder.company.myProfile(),
+  RoutesBuilder.company.users()
+];
 
 export const CompanyPermissions = {
   check: (currentCompany: ICurrentCompany, route: string) => {
