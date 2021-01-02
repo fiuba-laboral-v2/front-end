@@ -26,14 +26,15 @@
 .headline {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .header {
   display: flex;
+  margin-bottom: $spacing-xxl;
 }
 
 .title {
-  flex-grow: 1;
   margin: 0 $spacing-l 0 0;
 }
 

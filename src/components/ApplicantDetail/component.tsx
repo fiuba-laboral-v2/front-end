@@ -18,9 +18,9 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   className,
   applicant,
   translations,
-  children,
   withStatusLabel,
-  titleLink
+  titleLink,
+  children
 }) => {
   const experienceSections = applicant?.experienceSections || [];
   const knowledgeSections = applicant?.knowledgeSections || [];
@@ -30,26 +30,26 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
       hidden={!applicant}
       className={classNames(className, { [styles.mobile]: mobileLayout })}
     >
-      <div className={styles.headline}>
-        <div className={styles.header}>
+      <div className={styles.header}>
+        <div className={styles.headline}>
           <StatusTitle
             link={titleLink}
             className={styles.title}
             detailTitle={`${applicant?.user.name} ${applicant?.user.surname}`}
             approvalStatus={withStatusLabel ? applicant?.approvalStatus : undefined}
           />
-          <div>{children}</div>
+          {applicant?.user.email && applicant?.links && (
+            <>
+              <EmailLink
+                className={styles.link}
+                name={applicant.user.email}
+                email={applicant.user.email}
+              />
+              <Links className={styles.link} links={applicant.links} />
+            </>
+          )}
         </div>
-        {applicant?.user.email && applicant?.links && (
-          <>
-            <EmailLink
-              className={styles.link}
-              name={applicant.user.email}
-              email={applicant.user.email}
-            />
-            <Links className={styles.link} links={applicant.links} />
-          </>
-        )}
+        {children}
       </div>
       <div className={styles.capabilitiesAndCareersContainer}>
         <CapabilitiesDetail
