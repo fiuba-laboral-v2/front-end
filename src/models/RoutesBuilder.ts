@@ -17,6 +17,7 @@ const FORBIDDEN = "permiso-faltante";
 const NOTIFICATIONS = "notificaciones";
 const PASSWORD = "contrasena";
 const REQUEST = "solicitar";
+const EXPLANATION = "explicacion";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -112,7 +113,9 @@ export const RoutesBuilder = {
     editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
       `${companyRoute(PASSWORD, RECOVER)}${queryParams(token)}`,
 
-    passwordRecovery: () => companyRoute(PASSWORD, RECOVER, REQUEST)
+    passwordRecovery: () => companyRoute(PASSWORD, RECOVER, REQUEST),
+
+    passwordRecoveryExplanation: () => companyRoute(PASSWORD, RECOVER, EXPLANATION)
   },
 
   public: {
