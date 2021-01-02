@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import { useTranslations, useUpdatePadron, useMyApplicantProfile } from "$hooks";
@@ -6,15 +6,20 @@ import { useTranslations, useUpdatePadron, useMyApplicantProfile } from "$hooks"
 import { EditPadron } from "./component";
 import { Window } from "$components/Window";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog";
 
 import { IFormValues, ITranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 export const EditPadronContainer: FunctionComponent = () => {
   const history = useHistory();
+  const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const applicant = useMyApplicantProfile();
   const { updatePadron } = useUpdatePadron();
   const translations = useTranslations<ITranslations>("editPadron");
+  const confirmDialogTranslations = useTranslations<IConfirmDialogTranslations>(
+    "editPadronConfirmDialog"
+  );
 
   const onSubmit = async (
     { padron }: IFormValues,
@@ -30,8 +35,11 @@ export const EditPadronContainer: FunctionComponent = () => {
     <Window>
       {!translations && <LoadingSpinner />}
       <EditPadron
+        confirmDialogIsOpen={confirmDialogIsOpen}
+        setConfirmDialogIsOpen={setConfirmDialogIsOpen}
         hidden={!translations}
         translations={translations}
+        confirmDialogTranslations={confirmDialogTranslations}
         onSubmit={onSubmit}
         initialValues={{
           padron: applicant?.padron || NaN,

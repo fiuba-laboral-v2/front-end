@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { FormikHelpers } from "formik/dist/types";
 import { IFormValues, ITranslations } from "./interfaces";
+import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog";
 
+import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { FormFooter } from "$components/FormFooter";
 import { FormSection } from "$components/FormSection";
 import { Form } from "$components/Form";
@@ -15,11 +17,14 @@ export const EditPadron: FunctionComponent<IComponentProps> = ({
   initialValues,
   onSubmit,
   translations,
-  hidden
+  confirmDialogTranslations,
+  hidden,
+  setConfirmDialogIsOpen,
+  confirmDialogIsOpen
 }) => (
   <Form title={translations?.title}>
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      {({ isSubmitting, errors }) => (
+      {({ isSubmitting, errors, submitForm }) => (
         <FormikForm id="editPadron" hidden={hidden}>
           {translations && (
             <FormSection className={styles.formSection}>
@@ -30,6 +35,13 @@ export const EditPadron: FunctionComponent<IComponentProps> = ({
             isSubmitting={isSubmitting}
             submitButtonText={translations?.submit}
             errors={errors}
+            onSubmit={() => setConfirmDialogIsOpen(true)}
+          />
+          <FormConfirmDialog
+            isOpen={confirmDialogIsOpen}
+            onConfirm={submitForm}
+            onClose={() => setConfirmDialogIsOpen(false)}
+            translations={confirmDialogTranslations}
           />
         </FormikForm>
       )}
@@ -39,7 +51,10 @@ export const EditPadron: FunctionComponent<IComponentProps> = ({
 
 interface IComponentProps {
   hidden: boolean;
+  confirmDialogIsOpen: boolean;
+  setConfirmDialogIsOpen: (confirmDialogIsOpen: boolean) => void;
   initialValues: IFormValues;
   translations?: ITranslations;
+  confirmDialogTranslations?: IConfirmDialogTranslations;
   onSubmit: (values: IFormValues, formikHelpers: FormikHelpers<IFormValues>) => void | Promise<any>;
 }
