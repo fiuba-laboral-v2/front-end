@@ -12,11 +12,13 @@ query getJobApplications($updatedBeforeThan: PaginatedInput) {
         company {
           companyName
           cuit
+          approvalStatus
         }
       }
       applicant {
         uuid
         padron
+        approvalStatus
         user {
           name
           surname
