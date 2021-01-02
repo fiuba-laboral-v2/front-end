@@ -28,7 +28,7 @@ export const EditPadronContainer: FunctionComponent = () => {
       setSubmitting(false);
       history.push(RoutesBuilder.applicant.myProfile());
     },
-    []
+    [history, updatePadron]
   );
 
   const modelToValues = useCallback(
