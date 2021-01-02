@@ -5,12 +5,8 @@ import { IApplicantDetailContainerProps, ITranslations } from "./interfaces";
 import { sortSections } from "../../models/sortSections";
 
 export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContainerProps> = ({
-  mobileLayout,
-  className,
   applicant,
-  editButton,
-  withStatusLabel,
-  titleLink
+  ...props
 }) => {
   const translations = useTranslations<ITranslations>("applicantProfileDetail");
   const knowledgeSections = useMemo(() => sortSections(applicant?.knowledgeSections), [applicant]);
@@ -20,12 +16,8 @@ export const ApplicantDetailContainer: FunctionComponent<IApplicantDetailContain
 
   return (
     <ApplicantDetail
-      mobileLayout={mobileLayout}
-      className={className}
+      {...props}
       translations={translations}
-      editButton={editButton}
-      withStatusLabel={withStatusLabel}
-      titleLink={titleLink}
       applicant={applicant && { ...applicant, knowledgeSections, experienceSections }}
     />
   );

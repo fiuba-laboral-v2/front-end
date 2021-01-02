@@ -6,7 +6,6 @@
   margin-top: $spacing-s;
 }
 
-.headline,
 .firstContainerInfo {
   margin-bottom: 25px;
 }
@@ -26,14 +25,15 @@
 .headline {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .header {
   display: flex;
+  margin-bottom: $spacing-s;
 }
 
 .title {
-  flex-grow: 1;
   margin: 0 $spacing-l 0 0;
 }
 
@@ -52,6 +52,10 @@
 }
 
 @include customMedia {
+  .headline {
+    margin-bottom: $spacing-m;
+  }
+
   .capabilitiesAndCareersContainer {
     flex-direction: column;
 
@@ -67,6 +71,10 @@
 }
 
 @include mobileClass {
+  .headline {
+    margin-bottom: $spacing-m;
+  }
+
   .header {
     flex-direction: column;
   }

@@ -1,6 +1,5 @@
 mutation updateCurrentApplicant(
   $user: UserUpdateInput
-  $padron: Int
   $description: String
   $careers: [ApplicantCareerInput]
   $capabilities: [String]
@@ -9,7 +8,6 @@ mutation updateCurrentApplicant(
   $links: [LinkInput]
 ) {
   updateCurrentApplicant(
-    padron: $padron
     user: $user
     description: $description
     careers: $careers

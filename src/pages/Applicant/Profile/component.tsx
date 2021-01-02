@@ -1,24 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { Title } from "./Title";
 import { ApplicantDetail } from "$components/ApplicantDetail";
-import { Button } from "$components/Button";
+import { Actions } from "./Actions";
 import { IProfileParams } from "./interfaces";
 
-export const Profile: FunctionComponent<IProfileParams> = ({
-  applicant,
-  translations,
-  editLink
-}) => (
+export const Profile: FunctionComponent<IProfileParams> = ({ applicant }) => (
   <>
     <Title />
-    <ApplicantDetail
-      applicant={applicant}
-      editButton={
-        <Button kind="primary" link={editLink}>
-          {translations?.edit}
-        </Button>
-      }
-      withStatusLabel
-    />
+    <ApplicantDetail applicant={applicant} withStatusLabel>
+      <Actions />
+    </ApplicantDetail>
   </>
 );

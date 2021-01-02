@@ -1,0 +1,7 @@
+mutation updatePadron($padron: Int!) {
+  updatePadron(padron: $padron) {
+    uuid
+    padron
+    approvalStatus
+  }
+}

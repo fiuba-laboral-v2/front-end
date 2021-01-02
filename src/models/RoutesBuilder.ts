@@ -5,6 +5,7 @@ const ADMINS = "administradores";
 const APPLICATIONS = "postulaciones";
 const OFFERS = "ofertas";
 const PROFILE = "perfil";
+const PADRON = "padron";
 const SIGN_UP = "registro";
 const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
@@ -78,7 +79,9 @@ export const RoutesBuilder = {
 
     notifications: () => applicantRoute(NOTIFICATIONS),
 
-    companyProfile: (uuid: string) => applicantRoute(COMPANIES, uuid)
+    companyProfile: (uuid: string) => applicantRoute(COMPANIES, uuid),
+
+    editPadron: () => applicantRoute(PADRON, EDIT)
   },
 
   company: {

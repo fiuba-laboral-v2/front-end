@@ -7,6 +7,7 @@ import { OfferDetail } from "./OfferDetail";
 import { CompanyProfile } from "./Company";
 import { Companies } from "./Companies";
 import { Notifications } from "./Notifications";
+import { EditPadron } from "./EditPadron";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import React from "react";
 
@@ -19,7 +20,8 @@ const {
   offerDetail,
   companyProfile,
   companies,
-  notifications
+  notifications,
+  editPadron
 } = RoutesBuilder.applicant;
 
 export const ApplicantRoutes = [
@@ -38,5 +40,6 @@ export const ApplicantRoutes = [
   { path: offerDetail(":uuid"), component: OfferDetail },
   { path: companyProfile(":uuid"), component: CompanyProfile },
   { path: companies(), component: Companies },
-  { path: notifications(), component: Notifications }
+  { path: notifications(), component: Notifications },
+  { path: editPadron(), component: EditPadron }
 ];
