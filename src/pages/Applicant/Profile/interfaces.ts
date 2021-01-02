@@ -7,6 +7,4 @@ export interface ITranslations {
 
 export interface IProfileParams {
   applicant?: IApplicant;
-  translations?: ITranslations;
-  editLink: string;
 }

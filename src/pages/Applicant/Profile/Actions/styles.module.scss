@@ -1,0 +1,19 @@
+@import "$styles/_variables";
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit {
+  margin-bottom: $spacing-s;
+}
+
+.edit,
+.editPadron {
+  width: unset;
+}
+
+.separator {
+  flex-grow: 1;
+}
