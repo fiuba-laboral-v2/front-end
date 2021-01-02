@@ -17,4 +17,5 @@ export * from "./useSaveCompanyUser";
 export * from "./useUpdateCompanyUserPassword";
 export * from "./useUpdateMyForgottenPassword";
 export * from "./useSendPasswordRecoveryEmail";
+export * from "./useUpdateAdminSettings";
 export * from "./useUpdatePadron";
