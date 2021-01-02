@@ -29,7 +29,6 @@ interface IUseUpdateCurrentApplicantOptions extends IUseUpdateCurrentApplicantBa
 interface IUpdateCurrentApplicantBaseVariables {
   user: IEditableUser;
   description: string;
-  padron: number;
   links: ILink[];
   careers: IApplicantCareerInput[];
   knowledgeSections: ISection[];

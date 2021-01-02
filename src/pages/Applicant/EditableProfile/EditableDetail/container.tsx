@@ -27,7 +27,6 @@ export const EditableDetailContainer: FunctionComponent = () => {
         name: model?.user.name || "",
         surname: model?.user.surname || ""
       },
-      padron: model?.padron || NaN,
       description: model?.description || "",
       links: model?.links || [],
       careers: model?.careers.map(applicantCareer => ({
