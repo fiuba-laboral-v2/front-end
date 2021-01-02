@@ -19,10 +19,6 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
     "approvedJobApplicationApplicantNotification"
   );
 
-  const {
-    jobApplication: { applicant, offer }
-  } = notification;
-
   return (
     <Notification
       className={className}
@@ -31,8 +27,8 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
-        applicant={applicant}
-        offer={offer}
+        applicant={notification.jobApplication.applicant}
+        offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
         offerLink={RoutesBuilder.applicant.offerDetail}
       />

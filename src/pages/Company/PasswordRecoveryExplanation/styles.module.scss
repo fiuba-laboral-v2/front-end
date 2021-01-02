@@ -1,0 +1,19 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_title";
+
+.title {
+  @include title;
+
+  margin-bottom: $spacing-xl;
+}
+
+.explanation {
+  font-size: $fontSize-m;
+  font-weight: normal;
+  margin-bottom: $spacing-xl;
+  white-space: pre-wrap;
+}
+
+.retry {
+  align-self: flex-start;
+}

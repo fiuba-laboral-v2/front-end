@@ -20,11 +20,7 @@ export const RejectedJobApplicationApplicantNotificationContainer: FunctionCompo
     "rejectedJobApplicationApplicantNotification"
   );
 
-  const {
-    jobApplication: { applicant, offer },
-    moderatorMessage,
-    adminEmail
-  } = notification;
+  const { moderatorMessage, adminEmail } = notification;
 
   return (
     <Notification
@@ -34,8 +30,8 @@ export const RejectedJobApplicationApplicantNotificationContainer: FunctionCompo
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
-        applicant={applicant}
-        offer={offer}
+        applicant={notification.jobApplication.applicant}
+        offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
       >
         <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />

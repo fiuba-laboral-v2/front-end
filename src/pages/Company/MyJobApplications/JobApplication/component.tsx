@@ -21,7 +21,7 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = ({
         </Subtitle>
         <hr className={styles.separator} />
         <Subtitle className={styles.offerTitle}>
-          <Link to={RoutesBuilder.company.offer(offer.uuid)}>{offer.title}</Link>
+          <Link to={RoutesBuilder.company.offer(offer().uuid)}>{offer().title}</Link>
         </Subtitle>
       </div>
       <TimeHumanizer className={styles.updatedAt} since={updatedAt} />

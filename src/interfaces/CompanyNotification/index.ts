@@ -5,9 +5,16 @@ import {
   APPROVED_PROFILE_COMPANY_NOTIFICATION_TYPE,
   REJECTED_PROFILE_COMPANY_NOTIFICATION_TYPE
 } from "$typenames";
-import { IJobApplication } from "$interfaces/JobApplication";
+import { IJobApplication, IJobApplicationAttributes } from "$interfaces/JobApplication";
 import { IOffer } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
+
+export type TCompanyNotificationAttributes =
+  | INewJobApplicationCompanyAttributesNotification
+  | IApprovedOfferCompanyNotification
+  | IRejectedOfferCompanyNotification
+  | IApprovedProfileCompanyNotification
+  | IRejectedProfileCompanyNotification;
 
 export type TCompanyNotification =
   | INewJobApplicationCompanyNotification
@@ -23,6 +30,11 @@ interface ICommonAttributes {
   createdAt: string;
   adminEmail: string;
   moderatorSecretary: Secretary;
+}
+
+export interface INewJobApplicationCompanyAttributesNotification extends ICommonAttributes {
+  __typename: NEW_JOB_APPLICATION_COMPANY_NOTIFICATION_TYPE;
+  jobApplication: IJobApplicationAttributes;
 }
 
 export interface INewJobApplicationCompanyNotification extends ICommonAttributes {

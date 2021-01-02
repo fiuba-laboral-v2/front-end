@@ -9,6 +9,7 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
 ) => {
   const offer = {
     ...offerAttributes,
+    isFromApprovedCompany: () => offerAttributes.company.approvalStatus === ApprovalStatus.approved,
     hasExpiredFor: (secretary: Secretary) => {
       const expirationDate = offer.getExpirationDateFor(secretary);
       if (!expirationDate || !offer.isApprovedFor(secretary)) return false;
@@ -61,13 +62,10 @@ export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAt
       if (!offer.studentsExpirationDateTime && !offer.graduatesExpirationDateTime) return false;
       if (!offer.studentsExpirationDateTime && offer.graduatesExpirationDateTime) return false;
       if (offer.studentsExpirationDateTime && !offer.graduatesExpirationDateTime) return true;
-      if (
-        offer.getExpirationDateFor(Secretary.graduados)! >
+      return (
+        offer.getExpirationDateFor(Secretary.graduados)! <=
         offer.getExpirationDateFor(Secretary.extension)!
-      ) {
-        return false;
-      }
-      return true;
+      );
     }
   };
   return offer;

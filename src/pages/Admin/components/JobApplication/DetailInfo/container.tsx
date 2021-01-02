@@ -33,8 +33,10 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   };
 
   const hideActions = () => {
+    const currentAdmin = currentUser.data?.getCurrentUser?.admin;
     if (!jobApplication) return;
-    return !currentUser.data?.getCurrentUser?.admin?.canModerateApplicant(jobApplication.applicant);
+    if (!currentAdmin) return;
+    return !currentAdmin.canModerateJobApplication(jobApplication);
   };
 
   return (

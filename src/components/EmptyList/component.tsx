@@ -9,6 +9,7 @@ import classNames from "classnames";
 
 export const EmptyList: FunctionComponent<IEmptyListProps> = ({
   link,
+  onClick,
   buttonKind,
   className,
   translations: { text, button }
@@ -17,7 +18,7 @@ export const EmptyList: FunctionComponent<IEmptyListProps> = ({
     <div className={classNames(className, styles.container)}>
       <SearchIcon fontSize="large" />
       <p className={styles.text}>{text}</p>
-      <Button kind={buttonKind} link={link}>
+      <Button kind={buttonKind} link={link} onClick={onClick}>
         {button}
       </Button>
     </div>
