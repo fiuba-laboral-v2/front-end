@@ -3,7 +3,7 @@ import { useMutation } from "$hooks";
 
 export const useUpdatePadron = () => {
   const { mutation, ...result } = useMutation<IUseUpdatePadron>(UPDATE_PADRON);
-  return { useUpdatePadron: mutation, ...result };
+  return { updatePadron: mutation, ...result };
 };
 
 export interface IUseUpdatePadron {
