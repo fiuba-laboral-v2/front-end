@@ -14,7 +14,7 @@ export const EditPadronContainer: FunctionComponent = () => {
   const history = useHistory();
   const applicant = useMyApplicantProfile();
   const { updatePadron } = useUpdatePadron();
-  const translations = useTranslations<ITranslations>("editCompanyUserPassword");
+  const translations = useTranslations<ITranslations>("editPadron");
 
   const onSubmit = async (
     { padron }: IFormValues,
