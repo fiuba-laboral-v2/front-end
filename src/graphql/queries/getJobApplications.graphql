@@ -10,6 +10,7 @@ query getJobApplications($updatedBeforeThan: PaginatedInput) {
         uuid
         title
         company {
+          uuid
           companyName
           cuit
           approvalStatus
@@ -20,6 +21,7 @@ query getJobApplications($updatedBeforeThan: PaginatedInput) {
         padron
         approvalStatus
         user {
+          uuid
           name
           surname
         }
