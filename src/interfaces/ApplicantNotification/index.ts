@@ -5,7 +5,14 @@ import {
   APPROVED_PROFILE_APPLICANT_NOTIFICATION_TYPE,
   REJECTED_PROFILE_APPLICANT_NOTIFICATION_TYPE
 } from "$typenames";
-import { IJobApplication } from "$interfaces/JobApplication";
+import { IJobApplication, IJobApplicationAttributes } from "$interfaces/JobApplication";
+
+export type TApplicantNotificationAttributes =
+  | IPendingJobApplicationAttributesApplicantNotification
+  | IApprovedJobApplicationAttributesApplicantNotification
+  | IRejectedJobApplicationAttributesApplicantNotification
+  | IApprovedProfileApplicantNotification
+  | IRejectedProfileApplicantNotification;
 
 export type TApplicantNotification =
   | IApprovedJobApplicationApplicantNotification
@@ -20,6 +27,22 @@ interface ICommonAttributes {
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
+}
+
+export interface IPendingJobApplicationAttributesApplicantNotification extends ICommonAttributes {
+  __typename: PENDING_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE;
+  jobApplication: IJobApplicationAttributes;
+}
+
+export interface IApprovedJobApplicationAttributesApplicantNotification extends ICommonAttributes {
+  __typename: APPROVED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE;
+  jobApplication: IJobApplicationAttributes;
+}
+
+export interface IRejectedJobApplicationAttributesApplicantNotification extends ICommonAttributes {
+  __typename: REJECTED_JOB_APPLICATION_APPLICANT_NOTIFICATION_TYPE;
+  moderatorMessage: string;
+  jobApplication: IJobApplicationAttributes;
 }
 
 export interface IPendingJobApplicationApplicantNotification extends ICommonAttributes {

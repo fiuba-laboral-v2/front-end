@@ -24,7 +24,7 @@ export const NewJobApplicationCompanyNotificationContainer: FunctionComponent<IC
       <NotificationTitle>{translations?.title || " "}</NotificationTitle>
       <JobApplicationNotificationBody
         applicant={applicant}
-        offer={offer}
+        offer={offer()}
         applicantLink={RoutesBuilder.company.applicantDetail(applicant.uuid)}
         offerLink={RoutesBuilder.company.offer}
       />

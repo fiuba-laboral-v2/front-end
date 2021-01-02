@@ -66,4 +66,5 @@ export interface IOffer extends IOfferAttributes {
   canRepublishForStudents: () => boolean;
   canRepublishForGraduates: () => boolean;
   isStudentExpirationGreaterOrEqualThanGraduates: () => boolean;
+  isFromApprovedCompany: () => boolean;
 }

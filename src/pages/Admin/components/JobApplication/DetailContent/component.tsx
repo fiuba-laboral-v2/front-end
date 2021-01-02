@@ -23,10 +23,10 @@ export const JobApplicationDetailContent: FunctionComponent<IComponentProps> = (
     <OfferDetail
       mobileLayout
       className={styles.offerDetail}
-      offer={jobApplication?.offer}
-      titleLink={jobApplication && RoutesBuilder.admin.offerDetail(jobApplication.offer.uuid)}
+      offer={jobApplication?.offer()}
+      titleLink={jobApplication && RoutesBuilder.admin.offerDetail(jobApplication.offer().uuid)}
       goToCompany={
-        jobApplication && RoutesBuilder.admin.companyDetail(jobApplication.offer.company.uuid)
+        jobApplication && RoutesBuilder.admin.companyDetail(jobApplication.offer().company.uuid)
       }
     />
   </div>
