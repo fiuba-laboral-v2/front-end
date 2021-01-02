@@ -18,7 +18,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
   className,
   applicant,
   translations,
-  editButton,
+  children,
   withStatusLabel,
   titleLink
 }) => {
@@ -38,7 +38,7 @@ export const ApplicantDetail: FunctionComponent<IApplicantDetailProps> = ({
             detailTitle={`${applicant?.user.name} ${applicant?.user.surname}`}
             approvalStatus={withStatusLabel ? applicant?.approvalStatus : undefined}
           />
-          <div>{editButton}</div>
+          <div>{children}</div>
         </div>
         {applicant?.user.email && applicant?.links && (
           <>

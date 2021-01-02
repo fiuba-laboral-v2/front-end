@@ -11,14 +11,10 @@ export const Profile: FunctionComponent<IProfileParams> = ({
 }) => (
   <>
     <Title />
-    <ApplicantDetail
-      applicant={applicant}
-      editButton={
-        <Button kind="primary" link={editLink}>
-          {translations?.edit}
-        </Button>
-      }
-      withStatusLabel
-    />
+    <ApplicantDetail applicant={applicant} withStatusLabel>
+      <Button kind="primary" link={editLink}>
+        {translations?.edit}
+      </Button>
+    </ApplicantDetail>
   </>
 );
