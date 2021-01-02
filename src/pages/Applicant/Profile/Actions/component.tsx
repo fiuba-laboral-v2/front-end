@@ -14,7 +14,7 @@ export const Actions: FunctionComponent<IComponentProps> = ({
     <Button className={styles.edit} kind="primary" link={editLink}>
       {translations?.edit}
     </Button>
-    <Button className={styles.editPadron} kind="primary" link={editPadronLink}>
+    <Button className={styles.editPadron} kind="secondary" link={editPadronLink}>
       {translations?.editPadron}
     </Button>
     <div className={styles.separator} />
