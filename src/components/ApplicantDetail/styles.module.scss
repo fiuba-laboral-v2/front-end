@@ -6,7 +6,6 @@
   margin-top: $spacing-s;
 }
 
-.headline,
 .firstContainerInfo {
   margin-bottom: 25px;
 }
@@ -31,7 +30,7 @@
 
 .header {
   display: flex;
-  margin-bottom: $spacing-xxl;
+  margin-bottom: $spacing-s;
 }
 
 .title {
@@ -68,6 +67,10 @@
 }
 
 @include mobileClass {
+  .headline {
+    margin-bottom: $spacing-m;
+  }
+
   .header {
     flex-direction: column;
   }
