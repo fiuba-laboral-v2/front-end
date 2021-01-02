@@ -31,6 +31,7 @@ export const ApplicantCareerSelector: FunctionComponent<IComponentProps> = ({
         />
         <CheckboxInput
           label={translations.isGraduate}
+          labelPosition="left"
           checked={value.isGraduate}
           name={`careers.${index}.isGraduate`}
           className={styles.isGraduate}

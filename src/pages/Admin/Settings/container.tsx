@@ -7,12 +7,11 @@ import { ISettingsTranslations } from "./interfaces";
 import {
   useAdminSettings,
   useCurrentUser,
-  useMutation,
+  useUpdateAdminSettings,
   useShowSuccess,
   useTranslations
 } from "$hooks";
 import { IAdminSettings } from "$interfaces/AdminSettings";
-import { UPDATE_ADMIN_SETTINGS } from "$mutations";
 import { IInstitutionsTranslations } from "$components/SecretarySelector/interfaces";
 
 export const SettingsContainer: FunctionComponent = () => {
@@ -20,10 +19,7 @@ export const SettingsContainer: FunctionComponent = () => {
   const settings = useAdminSettings();
   const settingsTranslations = useTranslations<ISettingsTranslations>("adminSettings");
   const institutionsTranslations = useTranslations<IInstitutionsTranslations>("institutions");
-  const { mutation: updateAdminSettings } = useMutation<
-    IAdminSettings,
-    { updateAdminSettings: IAdminSettings }
-  >(UPDATE_ADMIN_SETTINGS);
+  const { updateAdminSettings } = useUpdateAdminSettings();
   const isExtension = useCurrentUser().data.getCurrentUser?.admin?.isExtension();
 
   let translations: ISettingsTranslations | undefined;
@@ -41,6 +37,7 @@ export const SettingsContainer: FunctionComponent = () => {
       offerDurationInDays: model?.offerDurationInDays || NaN,
       email: model?.email || "",
       emailSignature: model?.emailSignature || "",
+      automaticJobApplicationApproval: model?.automaticJobApplicationApproval || false,
       companySignUpAcceptanceCriteria: model?.companySignUpAcceptanceCriteria || "",
       companyEditableAcceptanceCriteria: model?.companyEditableAcceptanceCriteria || "",
       editOfferAcceptanceCriteria: model?.editOfferAcceptanceCriteria || ""
