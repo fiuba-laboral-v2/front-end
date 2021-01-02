@@ -10,8 +10,6 @@ import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog
 import { IFormValues, ITranslations } from "./interfaces";
 import { IApplicant } from "$interfaces/Applicant";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { Formik } from "../../../components/Formik";
-import { FormikForm } from "../../../components/FormikForm";
 
 export const EditPadronContainer: FunctionComponent = () => {
   const history = useHistory();
@@ -30,7 +28,7 @@ export const EditPadronContainer: FunctionComponent = () => {
       setSubmitting(false);
       history.push(RoutesBuilder.applicant.myProfile());
     },
-    [history, updatePadron]
+    []
   );
 
   const modelToValues = useCallback(
@@ -42,23 +40,15 @@ export const EditPadronContainer: FunctionComponent = () => {
 
   return (
     <Window loading={loading}>
-      <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
-        {formikProps => (
-          <FormikForm
-            initialValuesModel={applicant}
-            modelToValues={modelToValues}
-            formikProps={formikProps}
-          >
-            <EditPadron
-              confirmDialogIsOpen={confirmDialogIsOpen}
-              setConfirmDialogIsOpen={setConfirmDialogIsOpen}
-              translations={translations}
-              confirmDialogTranslations={confirmDialogTranslations}
-              formikProps={formikProps}
-            />
-          </FormikForm>
-        )}
-      </Formik>
+      <EditPadron
+        confirmDialogIsOpen={confirmDialogIsOpen}
+        setConfirmDialogIsOpen={setConfirmDialogIsOpen}
+        translations={translations}
+        confirmDialogTranslations={confirmDialogTranslations}
+        onSubmit={onSubmit}
+        modelToValues={modelToValues}
+        initialValuesModel={applicant}
+      />
     </Window>
   );
 };
