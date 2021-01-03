@@ -5,12 +5,11 @@ import { useHistory } from "react-router-dom";
 
 export const useSharedSettings = () => {
   const history = useHistory();
-  return useQuery<{}, { getSharedSettings: ISharedSettings }>({
-    query: GET_SHARED_SETTINGS,
+  return useQuery<{}, { getSharedSettings: ISharedSettings }>(GET_SHARED_SETTINGS, {
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  })?.getSharedSettings;
+  }).data?.getSharedSettings;
 };
 
 interface ISharedSettings {

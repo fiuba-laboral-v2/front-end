@@ -11,7 +11,8 @@ export const typePolicies = {
   Applicant: {
     fields: {
       knowledgeSections: { merge: discardExistingResults },
-      experienceSections: { merge: discardExistingResults }
+      experienceSections: { merge: discardExistingResults },
+      careers: { merge: discardExistingResults }
     }
   },
   Offer: {

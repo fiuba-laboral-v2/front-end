@@ -1,16 +1,12 @@
 import React, { FunctionComponent } from "react";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import EditIcon from "@material-ui/icons/Edit";
 import Tooltip from "@material-ui/core/Tooltip";
 import { IconButton } from "$components/IconButton";
 
-export const ChangePasswordAction: FunctionComponent<IComponentProps> = ({
-  className,
-  tooltipMessage,
-  link
-}) => (
+export const EditUserAction: FunctionComponent<IComponentProps> = ({ tooltipMessage, link }) => (
   <Tooltip title={tooltipMessage}>
-    <div className={className}>
-      <IconButton Icon={VpnKeyIcon} link={link} />
+    <div>
+      <IconButton Icon={EditIcon} link={link} />
     </div>
   </Tooltip>
 );
@@ -18,5 +14,4 @@ export const ChangePasswordAction: FunctionComponent<IComponentProps> = ({
 interface IComponentProps {
   tooltipMessage: string;
   link: string;
-  className?: string;
 }

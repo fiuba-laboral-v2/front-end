@@ -14,6 +14,7 @@ export const LinksFormSection: FunctionComponent<IComponent> = ({
       title={translations.links}
       name="links"
       values={links}
+      getValueKey={link => link.uuid}
       defaultValue={{ url: "", name: "" }}
       fields={(_, index, autofocusInputRef) => (
         <LinkFormSection

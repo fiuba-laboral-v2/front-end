@@ -6,10 +6,9 @@ import { useHistory } from "react-router-dom";
 
 export const useMyApplicantProfile = () => {
   const history = useHistory();
-  return useQuery<{}, { getCurrentUser: { applicant: IApplicant } }>({
-    query: GET_MY_APPLICANT_PROFILE,
+  return useQuery<{}, { getCurrentUser: { applicant: IApplicant } }>(GET_MY_APPLICANT_PROFILE, {
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  })?.getCurrentUser.applicant;
+  }).data?.getCurrentUser.applicant;
 };

@@ -15,6 +15,7 @@ export const CareersSelectorFormSection: FunctionComponent<IComponent> = ({
       title={translations?.title}
       name={"careers"}
       values={careers}
+      getValueKey={career => career.careerCode}
       defaultValue={defaultValue}
       fields={(value, index, autofocusInputRef) => (
         <ApplicantCareerSelector

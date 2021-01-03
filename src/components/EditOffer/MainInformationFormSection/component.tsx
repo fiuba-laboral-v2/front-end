@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { FormSection } from "$components/FormSection";
-import { SalaryField, TextField, PositiveIntegerField } from "$components/Fields";
+import { SalaryField, TextField, HoursPerDayField } from "$components/Fields";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 import { CheckboxInput } from "../../CheckboxInput";
@@ -25,7 +25,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
       )}
     </div>
     <div className={styles.row}>
-      <PositiveIntegerField name="hoursPerDay" label={translations.hoursPerDay} mandatory />
+      <HoursPerDayField name="hoursPerDay" label={translations.hoursPerDay} mandatory />
       <CheckboxInput
         checked={values.isInternship}
         className={classNames(styles.isInternship, styles.rightField)}

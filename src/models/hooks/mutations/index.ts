@@ -20,3 +20,4 @@ export * from "./useSendPasswordRecoveryEmail";
 export * from "./useUpdateAdminSettings";
 export * from "./useUpdatePadron";
 export * from "./useUpdateCuitAndBusinessName";
+export * from "./useUpdateCompanyUser";
