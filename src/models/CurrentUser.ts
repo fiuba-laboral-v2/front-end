@@ -18,9 +18,8 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
       } catch (e) {
         let currentRole: RoleName = RoleName.Company;
         if (currentUser.company) currentRole = RoleName.Company;
-        if (currentUser.admin) currentRole = RoleName.Admin;
         if (currentUser.applicant) currentRole = RoleName.Applicant;
-        if (currentUser.admin && currentUser.applicant) currentRole = RoleName.Admin;
+        if (currentUser.admin) currentRole = RoleName.Admin;
         const role = new Role(currentRole);
         SessionStorageRepository.saveCurrentRole(role);
         return role;
