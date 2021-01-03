@@ -8,14 +8,14 @@ export class Role {
   }
 
   public isCompanyRole() {
-    return this.role === CurrentRole.company;
+    return this.role === CurrentRole.Company;
   }
 
   public isApplicantRole() {
-    return this.role === CurrentRole.applicant;
+    return this.role === CurrentRole.Applicant;
   }
 
   public isAdminRole() {
-    return this.role === CurrentRole.admin;
+    return this.role === CurrentRole.Admin;
   }
 }

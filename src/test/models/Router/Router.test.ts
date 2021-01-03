@@ -15,7 +15,7 @@ describe("Router", () => {
 
   describe("Company", () => {
     const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.company);
+      const role = new Role(CurrentRole.Company);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -44,7 +44,7 @@ describe("Router", () => {
 
   describe("Applicant", () => {
     const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.applicant);
+      const role = new Role(CurrentRole.Applicant);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -73,7 +73,7 @@ describe("Router", () => {
 
   describe("Admin", () => {
     const createCurrentAdmin = () => {
-      const role = new Role(CurrentRole.admin);
+      const role = new Role(CurrentRole.Admin);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,

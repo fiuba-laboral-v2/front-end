@@ -17,8 +17,8 @@ export const ChangeCurrentRoleButtonContainer: FunctionComponent<IContainerProps
   if (!(currentUser?.admin && currentUser?.applicant)) return <Fragment />;
 
   const getNewRole = () => {
-    if (currentRole.isApplicantRole()) return CurrentRole.admin;
-    if (currentRole.isAdminRole()) return CurrentRole.applicant;
+    if (currentRole.isApplicantRole()) return CurrentRole.Admin;
+    if (currentRole.isAdminRole()) return CurrentRole.Applicant;
     throw new Error("The company current role cannot be changed");
   };
 

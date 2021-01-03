@@ -71,7 +71,7 @@ describe("calculateCurrentRole", () => {
   });
 
   it("does not update the currentRole if there is already one", () => {
-    const applicantRole = new Role(CurrentRole.applicant);
+    const applicantRole = new Role(CurrentRole.Applicant);
     SessionStorageRepository.saveCurrentRole(applicantRole);
     const currentUser = CurrentUser({
       ...commonAttributes,

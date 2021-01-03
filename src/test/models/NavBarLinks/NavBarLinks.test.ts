@@ -45,7 +45,7 @@ describe("NavBarLinks", () => {
 
   describe("Company", () => {
     const createCurrentCompanyUser = (status: ApprovalStatus) => {
-      const role = new Role(CurrentRole.company);
+      const role = new Role(CurrentRole.Company);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -175,7 +175,7 @@ describe("NavBarLinks", () => {
 
   describe("Applicant", () => {
     const createCurrentApplicant = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.applicant);
+      const role = new Role(CurrentRole.Applicant);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -273,7 +273,7 @@ describe("NavBarLinks", () => {
 
   describe("Admin", () => {
     const createCurrentAdmin = () => {
-      const role = new Role(CurrentRole.admin);
+      const role = new Role(CurrentRole.Admin);
       SessionStorageRepository.saveCurrentRole(role);
 
       return CurrentUser({
