@@ -4,7 +4,7 @@ import { TCurrentUserAttributes } from "./hooks/queries";
 import { CurrentApplicant, TCurrentApplicant } from "./CurrentApplicant";
 import { CurrentAdmin, TCurrentAdmin } from "./CurrentAdmin";
 import { Role } from "./Role";
-import { RoleName } from "./Repositories";
+import { RoleName, SessionStorageRepository } from "./Repositories";
 
 export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser => {
   const currentUser = {
@@ -13,12 +13,18 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
     company: attributes.company && CurrentCompany(attributes.company),
     applicant: attributes.applicant && CurrentApplicant(attributes.applicant),
     getCurrentRole: () => {
-      let currentRole: RoleName = RoleName.Company;
-      if (currentUser.company) currentRole = RoleName.Company;
-      if (currentUser.admin) currentRole = RoleName.Admin;
-      if (currentUser.applicant) currentRole = RoleName.Applicant;
-      if (currentUser.admin && currentUser.applicant) currentRole = RoleName.Admin;
-      return new Role(currentRole);
+      try {
+        return SessionStorageRepository.getCurrentRole();
+      } catch (e) {
+        let currentRole: RoleName = RoleName.Company;
+        if (currentUser.company) currentRole = RoleName.Company;
+        if (currentUser.admin) currentRole = RoleName.Admin;
+        if (currentUser.applicant) currentRole = RoleName.Applicant;
+        if (currentUser.admin && currentUser.applicant) currentRole = RoleName.Admin;
+        const role = new Role(currentRole);
+        SessionStorageRepository.saveCurrentRole(role);
+        return role;
+      }
     }
   };
   return currentUser;

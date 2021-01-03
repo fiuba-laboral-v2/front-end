@@ -10,11 +10,11 @@ import { IContainerProps, ITranslations } from "./interfaces";
 export const ChangeCurrentRoleButtonContainer: FunctionComponent<IContainerProps> = props => {
   const history = useHistory();
   const currentUser = useCurrentUser().data.getCurrentUser;
-  const currentRole = SessionStorageRepository.getCurrentRole();
   const translations = useTranslations<ITranslations>("changeCurrentRoleButton");
   if (!currentUser) return <Fragment />;
   if (currentUser?.company) return <Fragment />;
   if (!(currentUser?.admin && currentUser?.applicant)) return <Fragment />;
+  const currentRole = currentUser.getCurrentRole();
 
   const getNewRoleName = () => {
     if (currentRole.isApplicantRole()) return RoleName.Admin;
