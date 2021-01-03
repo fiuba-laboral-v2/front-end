@@ -17,6 +17,8 @@ import { EditPassword } from "./EditPassword";
 import { EditMyForgottenPassword } from "./EditMyForgottenPassword";
 import { PasswordRecovery } from "./PasswordRecovery";
 import { PasswordRecoveryExplanation } from "./PasswordRecoveryExplanation";
+import { EditCuitAndBusinessName } from "./EditCuitAndBusinessName";
+import { EditCompanyUser } from "./EditCompanyUser";
 
 const {
   signUp,
@@ -35,7 +37,9 @@ const {
   editPassword,
   editMyForgottenPassword,
   passwordRecovery,
-  passwordRecoveryExplanation
+  passwordRecoveryExplanation,
+  editUser,
+  editCuitAndBusinessName
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -52,7 +56,9 @@ export const CompanyRoutes = [
   { path: notifications(), component: Notifications },
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
+  { path: editUser(), component: EditCompanyUser },
   { path: editPassword(), component: EditPassword },
+  { path: editCuitAndBusinessName(), component: EditCuitAndBusinessName },
   { path: passwordRecovery(), component: PasswordRecovery, public: true },
   { path: passwordRecoveryExplanation(), component: PasswordRecoveryExplanation, public: true },
   {

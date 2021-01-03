@@ -6,10 +6,9 @@ import { ICapability } from "$interfaces/Capability";
 
 export const useCapabilities = () => {
   const history = useHistory();
-  return useQuery<{}, { getCapabilities: ICapability[] }>({
-    query: GET_CAPABILITIES,
+  return useQuery<{}, { getCapabilities: ICapability[] }>(GET_CAPABILITIES, {
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  })?.getCapabilities;
+  }).data?.getCapabilities;
 };

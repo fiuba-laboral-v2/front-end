@@ -6,10 +6,9 @@ import { IAdminSettings } from "$interfaces/AdminSettings";
 
 export const useAdminSettings = () => {
   const history = useHistory();
-  return useQuery<{}, { getAdminSettings: IAdminSettings }>({
-    query: GET_ADMIN_SETTINGS,
+  return useQuery<{}, { getAdminSettings: IAdminSettings }>(GET_ADMIN_SETTINGS, {
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  })?.getAdminSettings;
+  }).data?.getAdminSettings;
 };

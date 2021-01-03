@@ -12,8 +12,7 @@ interface ITranslationResponse<T> {
 export const useTranslations = <T>(translationGroup: string) => {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
-  const data = useQuery<{ translationGroup: string }, ITranslationResponse<T>>({
-    query: GET_TRANSLATIONS,
+  return useQuery<{ translationGroup: string }, ITranslationResponse<T>>(GET_TRANSLATIONS, {
     variables: { translationGroup },
     errorHandlers: {
       MissingTranslationError: handleGenericError({ enqueueSnackbar }),
@@ -22,6 +21,5 @@ export const useTranslations = <T>(translationGroup: string) => {
         history.push(RoutesBuilder.public.internalServerError());
       }
     }
-  });
-  return data?.getTranslations;
+  }).data?.getTranslations;
 };

@@ -16,6 +16,7 @@ export const SectionsFormSection: FunctionComponent<IComponentProps> = ({
       title={translations.title}
       name={name}
       values={sections}
+      getValueKey={section => section.uuid}
       defaultValue={{
         title: "",
         text: "",

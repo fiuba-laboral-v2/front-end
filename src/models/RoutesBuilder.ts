@@ -5,6 +5,7 @@ const ADMINS = "administradores";
 const APPLICATIONS = "postulaciones";
 const OFFERS = "ofertas";
 const PROFILE = "perfil";
+const SENSITIVE_FIELDS = "campos-sensibles";
 const PADRON = "padron";
 const SIGN_UP = "registro";
 const SETTINGS = "configuracion";
@@ -111,6 +112,8 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
+    editUser: () => companyRoute(USERS, EDIT),
+
     editPassword: () => companyRoute(PASSWORD, EDIT),
 
     editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
@@ -118,7 +121,9 @@ export const RoutesBuilder = {
 
     passwordRecovery: () => companyRoute(PASSWORD, RECOVER, REQUEST),
 
-    passwordRecoveryExplanation: () => companyRoute(PASSWORD, RECOVER, EXPLANATION)
+    passwordRecoveryExplanation: () => companyRoute(PASSWORD, RECOVER, EXPLANATION),
+
+    editCuitAndBusinessName: () => companyRoute(PROFILE, SENSITIVE_FIELDS, EDIT)
   },
 
   public: {

@@ -32,3 +32,4 @@ export * from "./useHasUnreadAdminNotifications";
 export * from "./useCompanyUsers";
 export * from "./useCompanyUsersByCompany";
 export * from "./useCurrentUserApplicantType";
+export * from "./useMyCompanyUser";

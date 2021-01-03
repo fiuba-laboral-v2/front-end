@@ -8,8 +8,8 @@
     "Manuel Llauró <llauromanuel@gmail.com>"
   ],
   "dependencies": {
-    "@apollo/client": "3.2.9",
-    "@babel/core": "^7.1.2",
+    "@apollo/client": "3.3.6",
+    "@babel/core": "7.12.9",
     "@material-ui/core": "4.11.1",
     "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "4.0.0-alpha.46",
@@ -41,7 +41,7 @@
     "node-sass": "4.14.1",
     "normalize.css": "8.0.1",
     "notistack": "0.9.16",
-    "prop-types": "^15.5.4",
+    "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-images-uploading": "2.1.1",
