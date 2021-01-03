@@ -111,6 +111,8 @@ export const RoutesBuilder = {
 
     createUser: () => companyRoute(USERS, CREATE),
 
+    editUser: () => companyRoute(USERS, EDIT),
+
     editPassword: () => companyRoute(PASSWORD, EDIT),
 
     editMyForgottenPassword: ({ token }: { token?: string } = {}) =>
