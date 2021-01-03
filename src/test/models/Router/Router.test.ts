@@ -1,4 +1,6 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { Role } from "$models/Role";
+import { CurrentRole, SessionStorageRepository } from "$repositories";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -12,14 +14,17 @@ describe("Router", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) =>
-      CurrentUser({
+    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => {
+      const role = new Role(CurrentRole.company);
+      SessionStorageRepository.saveCurrentRole(role);
+      return CurrentUser({
         ...userAttributes,
         company: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
+    };
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
@@ -38,14 +43,17 @@ describe("Router", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) =>
-      CurrentUser({
+    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => {
+      const role = new Role(CurrentRole.applicant);
+      SessionStorageRepository.saveCurrentRole(role);
+      return CurrentUser({
         ...userAttributes,
         applicant: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
+    };
 
     it("returns offerList route if status is approved", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
@@ -64,8 +72,10 @@ describe("Router", () => {
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () =>
-      CurrentUser({
+    const createCurrentAdmin = () => {
+      const role = new Role(CurrentRole.admin);
+      SessionStorageRepository.saveCurrentRole(role);
+      return CurrentUser({
         ...userAttributes,
         admin: {
           user: {
@@ -74,6 +84,7 @@ describe("Router", () => {
           secretary: Secretary.graduados
         }
       });
+    };
 
     it("returns home route", () => {
       const currentAdmin = createCurrentAdmin();
