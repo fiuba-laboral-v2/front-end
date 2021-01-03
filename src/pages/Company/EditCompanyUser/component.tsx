@@ -20,19 +20,20 @@ export const EditCompanyUser: FunctionComponent<IComponentProps> = ({
   hidden
 }) => (
   <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
-    {({ isSubmitting, errors }) => (
+    {formikProps => (
       <Form title={translations?.title}>
         <FormikForm
           id={formName}
           hidden={hidden}
           initialValuesModel={initialValuesModel}
           modelToValues={modelToValues}
+          formikProps={formikProps}
         >
           <UserDataFormSection className={styles.formSection} withoutPassword />
           <FormFooter
-            isSubmitting={isSubmitting}
+            isSubmitting={formikProps.isSubmitting}
             submitButtonText={translations?.submit}
-            errors={errors}
+            errors={formikProps.errors}
           />
         </FormikForm>
       </Form>
