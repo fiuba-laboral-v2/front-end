@@ -34,7 +34,7 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
       setSubmitting(false);
       history.push(RoutesBuilder.company.users());
     },
-    []
+    [enqueueSnackbar, history, updateCompanyUser]
   );
 
   const modelToValues = useCallback(
