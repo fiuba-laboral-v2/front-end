@@ -39,7 +39,7 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
       });
       if (result.error) return;
       setSubmitting(false);
-      history.push(RoutesBuilder.applicant.myProfile());
+      history.push(RoutesBuilder.company.myProfile());
     },
     [history, updateCuitAndBusinessName]
   );
