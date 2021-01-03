@@ -16,10 +16,9 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
       try {
         return SessionStorageRepository.getCurrentRole();
       } catch (e) {
-        let currentRole: RoleName = RoleName.Company;
-        if (currentUser.company) currentRole = RoleName.Company;
-        if (currentUser.applicant) currentRole = RoleName.Applicant;
+        let currentRole: RoleName = RoleName.Applicant;
         if (currentUser.admin) currentRole = RoleName.Admin;
+        if (currentUser.company) currentRole = RoleName.Company;
         const role = new Role(currentRole);
         SessionStorageRepository.saveCurrentRole(role);
         return role;
