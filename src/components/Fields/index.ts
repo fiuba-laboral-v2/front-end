@@ -9,3 +9,4 @@ export { TextField } from "./TextField";
 export { SelectField } from "./SelectField";
 export { NumberField } from "./NumberField";
 export { PositiveIntegerField } from "./NumberField/PositiveIntegerField";
+export { HoursPerDayField } from "./NumberField/HoursPerDayField";
