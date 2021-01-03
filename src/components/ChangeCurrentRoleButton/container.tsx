@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, Fragment } from "react";
 import { useHistory } from "react-router-dom";
-import { useTranslations } from "$hooks";
+import { useTranslations, useCurrentUser } from "$hooks";
 import { ChangeCurrentRoleButton } from "./component";
 import { CurrentRole, SessionStorageRepository } from "$repositories";
 import { Role } from "$models/Role";
@@ -9,8 +9,12 @@ import { IContainerProps, ITranslations } from "./interfaces";
 
 export const ChangeCurrentRoleButtonContainer: FunctionComponent<IContainerProps> = props => {
   const history = useHistory();
+  const currentUser = useCurrentUser().data.getCurrentUser;
   const currentRole = SessionStorageRepository.getCurrentRole();
   const translations = useTranslations<ITranslations>("changeCurrentRoleButton");
+  if (!currentUser) return <Fragment />;
+  if (currentUser?.company) return <Fragment />;
+  if (!(currentUser?.admin && currentUser?.applicant)) return <Fragment />;
 
   const getNewRole = () => {
     if (currentRole.isApplicantRole()) return CurrentRole.admin;
