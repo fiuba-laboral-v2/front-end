@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+
+.actions {
+  display: flex;
+}
+
+.changePasswordAction {
+  margin-right: $spacing-s;
+}

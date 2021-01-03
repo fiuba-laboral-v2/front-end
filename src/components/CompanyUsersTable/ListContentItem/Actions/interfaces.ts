@@ -2,6 +2,7 @@ import { ICompanyUser } from "$interfaces/CompanyUser";
 
 export interface ITranslations {
   passwordTooltipMessage: string;
+  editUserTooltipMessage: string;
 }
 
 interface ICommonProps {
@@ -15,5 +16,6 @@ export interface IContainerProps extends ICommonProps {
 export interface IComponentProps extends ICommonProps {
   translations: ITranslations;
   hideChangePasswordIcon: () => boolean;
-  link: string;
+  changePasswordLink: string;
+  editUserLink: string;
 }

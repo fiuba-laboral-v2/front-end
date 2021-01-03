@@ -18,7 +18,8 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ companyUs
       {...props}
       translations={translations}
       hideChangePasswordIcon={hideChangePasswordIcon}
-      link={RoutesBuilder.company.editPassword()}
+      changePasswordLink={RoutesBuilder.company.editPassword()}
+      editUserLink={RoutesBuilder.company.editUser()}
     />
   );
 };
