@@ -1,0 +1,13 @@
+query GetMyCompanyUser {
+  getMyCompanyUser {
+    uuid
+    companyUuid
+    position
+    user {
+      uuid
+      name
+      surname
+      email
+    }
+  }
+}

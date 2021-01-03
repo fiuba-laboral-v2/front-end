@@ -20,6 +20,7 @@ const UPDATE_COMPANY_APPROVAL_STATUS = loader("./updateCompanyApprovalStatus.gra
 const UPDATE_APPLICANT_APPROVAL_STATUS = loader("./updateApplicantApprovalStatus.graphql");
 const UPDATE_OFFER_APPROVAL_STATUS = loader("./updateOfferApprovalStatus.graphql");
 const UPDATE_PADRON = loader("./updatePadron.graphql");
+const UPDATE_COMPANY_USER = loader("./updateCompanyUser.graphql");
 const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
   "./updateJobApplicationApprovalStatus.graphql"
 );
@@ -49,5 +50,6 @@ export {
   UPDATE_OFFER_APPROVAL_STATUS,
   UPDATE_JOB_APPLICATION_APPROVAL_STATUS,
   REPUBLISH_OFFER,
-  UPDATE_PADRON
+  UPDATE_PADRON,
+  UPDATE_COMPANY_USER
 };

@@ -11,6 +11,7 @@ export interface ITranslations {
 
 export interface IContainerProps {
   className?: string;
+  withoutPassword?: boolean;
 }
 
 export interface IComponentProps extends IContainerProps {

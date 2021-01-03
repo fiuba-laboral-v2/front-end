@@ -19,3 +19,4 @@ export * from "./useUpdateMyForgottenPassword";
 export * from "./useSendPasswordRecoveryEmail";
 export * from "./useUpdateAdminSettings";
 export * from "./useUpdatePadron";
+export * from "./useUpdateCompanyUser";
