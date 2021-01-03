@@ -19,7 +19,7 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
   const companyUser = useMyCompanyUser();
   const { updateCompanyUser } = useUpdateCompanyUser();
 
-  const translations = useTranslations<ITranslations>("addCompanyUser");
+  const translations = useTranslations<ITranslations>("editCompanyUser");
 
   const onSubmit = useCallback(
     async (
