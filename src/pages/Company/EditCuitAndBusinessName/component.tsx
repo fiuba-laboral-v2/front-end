@@ -34,7 +34,7 @@ export const EditCuitAndBusinessName: FunctionComponent<IComponentProps> = ({
           {translations && (
             <FormSection className={styles.formSection}>
               <TextField name="businessName" label={translations.businessName} mandatory />
-              <CuitField mandatory name="cuit" label={translations.cuit} />
+              <CuitField mandatory name="cuit" label={translations.cuit} withoutMargin />
             </FormSection>
           )}
         </FormikForm>
