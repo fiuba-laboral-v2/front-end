@@ -5,7 +5,7 @@ describe("Role", () => {
   describe("CompanyRole", () => {
     it("creates a company role", () => {
       const role = new Role(CurrentRole.Company);
-      expect(role.role).toEqual(CurrentRole.Company);
+      expect(role.name).toEqual(CurrentRole.Company);
     });
 
     it("returns true for the isCompanyRole method", () => {
@@ -27,7 +27,7 @@ describe("Role", () => {
   describe("ApplicantRole", () => {
     it("creates an applicant role", () => {
       const role = new Role(CurrentRole.Applicant);
-      expect(role.role).toEqual(CurrentRole.Applicant);
+      expect(role.name).toEqual(CurrentRole.Applicant);
     });
 
     it("returns true for the isApplicantRole method", () => {
@@ -49,7 +49,7 @@ describe("Role", () => {
   describe("AdminRole", () => {
     it("creates an admin role", () => {
       const role = new Role(CurrentRole.Admin);
-      expect(role.role).toEqual(CurrentRole.Admin);
+      expect(role.name).toEqual(CurrentRole.Admin);
     });
 
     it("returns true for the isAdminRole method", () => {
