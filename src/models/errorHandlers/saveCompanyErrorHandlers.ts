@@ -20,5 +20,8 @@ export const saveCompanyErrorHandlers = ({
   formErrorHandlers({ enqueueSnackbar })({
     CompanyCuitAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
       setErrors({ cuit: "Este cuit ya existe" })
+    ),
+    BusinessNameAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+      setErrors({ cuit: "Esta razón social ya existe" })
     )
   });
