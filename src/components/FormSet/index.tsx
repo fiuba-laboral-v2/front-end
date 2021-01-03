@@ -9,6 +9,7 @@ export const FormSet = <Value,>({
   title,
   name,
   values,
+  getValueKey,
   defaultValue,
   fields
 }: IFormSetProps<Value>) => {
@@ -31,7 +32,7 @@ export const FormSet = <Value,>({
           </div>
           {values.map((value, index) => (
             <FieldSet
-              key={index}
+              key={`${getValueKey(value) || ""}_${index}`}
               onRemove={() => {
                 arrayHelpers.remove(index);
                 setShouldFocus(false);
@@ -54,6 +55,7 @@ interface IFormSetProps<Value> {
   title?: string;
   name: string;
   values: Value[];
+  getValueKey: (value: Value) => string | undefined;
   defaultValue: Value;
   fields: (
     value: Value,
