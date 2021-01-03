@@ -7,6 +7,7 @@ import { NavBar } from "./component";
 import { INavBarContainerProps, INavBarTranslations } from "./interfaces";
 import { NavBarLinks } from "$models/NavBarLinks";
 import { some } from "lodash";
+import { SessionStorageRepository } from "$repositories";
 
 export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
   const history = useHistory();
@@ -40,6 +41,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const onLogOut = async () => {
     await client.clearStore();
     await logout();
+    SessionStorageRepository.clear();
     history.push(RoutesBuilder.public.login());
   };
 

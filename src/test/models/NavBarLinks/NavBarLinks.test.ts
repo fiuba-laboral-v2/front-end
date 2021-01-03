@@ -1,5 +1,7 @@
 import { NavBarLinks } from "$models/NavBarLinks";
 import { CurrentUser } from "$models/CurrentUser";
+import { Role } from "$models/Role";
+import { RoleName, SessionStorageRepository } from "$repositories";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Secretary } from "$interfaces/Secretary";
@@ -42,14 +44,17 @@ describe("NavBarLinks", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (status: ApprovalStatus) =>
-      CurrentUser({
+    const createCurrentCompanyUser = (status: ApprovalStatus) => {
+      const role = new Role(RoleName.Company);
+      SessionStorageRepository.saveCurrentRole(role);
+      return CurrentUser({
         ...userAttributes,
         company: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus: status
         }
       });
+    };
 
     it("returns a list of company links in the navBar in pending status", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
@@ -169,14 +174,17 @@ describe("NavBarLinks", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicant = (approvalStatus: ApprovalStatus) =>
-      CurrentUser({
+    const createCurrentApplicant = (approvalStatus: ApprovalStatus) => {
+      const role = new Role(RoleName.Applicant);
+      SessionStorageRepository.saveCurrentRole(role);
+      return CurrentUser({
         ...userAttributes,
         applicant: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
+    };
 
     it("returns a list of applicant links in the navBar in approved status", () => {
       const currentApplicant = createCurrentApplicant(ApprovalStatus.approved);
@@ -264,8 +272,11 @@ describe("NavBarLinks", () => {
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () =>
-      CurrentUser({
+    const createCurrentAdmin = () => {
+      const role = new Role(RoleName.Admin);
+      SessionStorageRepository.saveCurrentRole(role);
+
+      return CurrentUser({
         ...userAttributes,
         admin: {
           user: {
@@ -274,6 +285,7 @@ describe("NavBarLinks", () => {
           secretary: Secretary.graduados
         }
       });
+    };
 
     it("returns a list of admin links in the navBar", () => {
       const currentAdmin = createCurrentAdmin();

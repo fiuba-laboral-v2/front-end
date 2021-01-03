@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+
+@media (max-width: $laptopWidth) {
+  .button {
+    padding: 0;
+    width: 40%;
+  }
+}

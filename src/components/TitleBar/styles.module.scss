@@ -28,12 +28,21 @@
 }
 
 .logoContainer {
+  display: flex;
   flex-shrink: 0;
   height: 50px;
 }
 
 .logo {
   height: 100%;
+}
+
+.changeCurrentRoleButton {
+  margin-right: $spacing-m;
+}
+
+.logoLink {
+  display: flex;
 }
 
 svg.icon {
@@ -73,6 +82,7 @@ button.button.alwaysShow {
   }
 
   .logoContainer {
+    flex-shrink: unset;
     height: 35px;
   }
 }
