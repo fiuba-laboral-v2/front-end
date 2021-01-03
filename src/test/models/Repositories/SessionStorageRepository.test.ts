@@ -1,4 +1,4 @@
-import { SessionStorageRepository, CurrentRole } from "$models/Repositories";
+import { SessionStorageRepository, CurrentRole } from "$repositories";
 
 describe("SessionStorageRepository", () => {
   it("saves the admin as the currentRole in the session storage", () => {

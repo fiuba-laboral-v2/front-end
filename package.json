@@ -118,6 +118,7 @@
     "$test": "src/test",
     "$src": "src",
     "$models": "src/models",
+    "$repositories": "src/models/Repositories",
     "$config": "src/config",
     "$hooks": "src/models/hooks",
     "$errorHandlers": "src/models/errorHandlers"
