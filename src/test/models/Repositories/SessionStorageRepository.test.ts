@@ -1,21 +1,21 @@
-import { SessionStorageRepository, CurrentRole } from "$repositories";
+import { SessionStorageRepository, RoleName } from "$repositories";
 import { Role } from "$models/Role";
 
 describe("SessionStorageRepository", () => {
   it("saves the admin as the currentRole in the session storage", () => {
-    const currentRole = new Role(CurrentRole.Admin);
+    const currentRole = new Role(RoleName.Admin);
     SessionStorageRepository.saveCurrentRole(currentRole);
     expect(SessionStorageRepository.getCurrentRole()).toEqual(currentRole);
   });
 
   it("saves the company as the currentRole in the session storage", () => {
-    const currentRole = new Role(CurrentRole.Company);
+    const currentRole = new Role(RoleName.Company);
     SessionStorageRepository.saveCurrentRole(currentRole);
     expect(SessionStorageRepository.getCurrentRole()).toEqual(currentRole);
   });
 
   it("saves the applicant as the currentRole in the session storage", () => {
-    const currentRole = new Role(CurrentRole.Applicant);
+    const currentRole = new Role(RoleName.Applicant);
     SessionStorageRepository.saveCurrentRole(currentRole);
     expect(SessionStorageRepository.getCurrentRole()).toEqual(currentRole);
   });

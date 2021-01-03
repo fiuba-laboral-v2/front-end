@@ -1,7 +1,7 @@
 import { NavBarLinks } from "$models/NavBarLinks";
 import { CurrentUser } from "$models/CurrentUser";
 import { Role } from "$models/Role";
-import { CurrentRole, SessionStorageRepository } from "$repositories";
+import { RoleName, SessionStorageRepository } from "$repositories";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Secretary } from "$interfaces/Secretary";
@@ -45,7 +45,7 @@ describe("NavBarLinks", () => {
 
   describe("Company", () => {
     const createCurrentCompanyUser = (status: ApprovalStatus) => {
-      const role = new Role(CurrentRole.Company);
+      const role = new Role(RoleName.Company);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -175,7 +175,7 @@ describe("NavBarLinks", () => {
 
   describe("Applicant", () => {
     const createCurrentApplicant = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.Applicant);
+      const role = new Role(RoleName.Applicant);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -273,7 +273,7 @@ describe("NavBarLinks", () => {
 
   describe("Admin", () => {
     const createCurrentAdmin = () => {
-      const role = new Role(CurrentRole.Admin);
+      const role = new Role(RoleName.Admin);
       SessionStorageRepository.saveCurrentRole(role);
 
       return CurrentUser({

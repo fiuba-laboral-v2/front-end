@@ -2,7 +2,7 @@ import React, { FunctionComponent, Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslations, useCurrentUser } from "$hooks";
 import { ChangeCurrentRoleButton } from "./component";
-import { CurrentRole, SessionStorageRepository } from "$repositories";
+import { RoleName, SessionStorageRepository } from "$repositories";
 import { Role } from "$models/Role";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IContainerProps, ITranslations } from "./interfaces";
@@ -17,8 +17,8 @@ export const ChangeCurrentRoleButtonContainer: FunctionComponent<IContainerProps
   if (!(currentUser?.admin && currentUser?.applicant)) return <Fragment />;
 
   const getNewRole = () => {
-    if (currentRole.isApplicantRole()) return CurrentRole.Admin;
-    if (currentRole.isAdminRole()) return CurrentRole.Applicant;
+    if (currentRole.isApplicantRole()) return RoleName.Admin;
+    if (currentRole.isAdminRole()) return RoleName.Applicant;
     throw new Error("The company current role cannot be changed");
   };
 

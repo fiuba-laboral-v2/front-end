@@ -1,6 +1,6 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Role } from "$models/Role";
-import { CurrentRole, SessionStorageRepository } from "$repositories";
+import { RoleName, SessionStorageRepository } from "$repositories";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -15,7 +15,7 @@ describe("Router", () => {
 
   describe("Company", () => {
     const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.Company);
+      const role = new Role(RoleName.Company);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -44,7 +44,7 @@ describe("Router", () => {
 
   describe("Applicant", () => {
     const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(CurrentRole.Applicant);
+      const role = new Role(RoleName.Applicant);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,
@@ -73,7 +73,7 @@ describe("Router", () => {
 
   describe("Admin", () => {
     const createCurrentAdmin = () => {
-      const role = new Role(CurrentRole.Admin);
+      const role = new Role(RoleName.Admin);
       SessionStorageRepository.saveCurrentRole(role);
       return CurrentUser({
         ...userAttributes,

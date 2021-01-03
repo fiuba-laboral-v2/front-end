@@ -3,7 +3,7 @@ import { Role } from "$models/Role";
 import { calculateCurrentRole } from "$models/calculateCurrentRole";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
-import { CurrentRole, SessionStorageRepository } from "$repositories";
+import { RoleName, SessionStorageRepository } from "$repositories";
 
 describe("calculateCurrentRole", () => {
   const commonAttributes = {
@@ -71,7 +71,7 @@ describe("calculateCurrentRole", () => {
   });
 
   it("does not update the currentRole if there is already one", () => {
-    const applicantRole = new Role(CurrentRole.Applicant);
+    const applicantRole = new Role(RoleName.Applicant);
     SessionStorageRepository.saveCurrentRole(applicantRole);
     const currentUser = CurrentUser({
       ...commonAttributes,

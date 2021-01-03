@@ -1,21 +1,21 @@
-import { CurrentRole } from "./Repositories";
+import { RoleName } from "./Repositories";
 
 export class Role {
-  public name: CurrentRole;
+  public name: RoleName;
 
-  constructor(name: CurrentRole) {
+  constructor(name: RoleName) {
     this.name = name;
   }
 
   public isCompanyRole() {
-    return this.name === CurrentRole.Company;
+    return this.name === RoleName.Company;
   }
 
   public isApplicantRole() {
-    return this.name === CurrentRole.Applicant;
+    return this.name === RoleName.Applicant;
   }
 
   public isAdminRole() {
-    return this.name === CurrentRole.Admin;
+    return this.name === RoleName.Admin;
   }
 }
