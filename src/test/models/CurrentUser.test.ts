@@ -1,9 +1,6 @@
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
-import { RoleName, SessionStorageRepository } from "../../models/Repositories";
-import { calculateCurrentRole } from "../../models/calculateCurrentRole";
-import { Role } from "../../models/Role";
 
 describe("CurrentUser", () => {
   it("returns a valid current applicant user", () => {
@@ -61,8 +58,6 @@ describe("CurrentUser", () => {
       surname: "Clapton"
     };
 
-    beforeEach(() => SessionStorageRepository.clear());
-
     it("saves applicant as the current role", () => {
       const currentUser = CurrentUser({
         ...commonAttributes,
@@ -71,9 +66,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      calculateCurrentRole(currentUser);
-      const role = SessionStorageRepository.getCurrentRole();
-      expect(role.isApplicantRole()).toBe(true);
+      expect(currentUser.getCurrentRole().isApplicantRole()).toBe(true);
     });
 
     it("saves company as the current role", () => {
@@ -84,9 +77,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      calculateCurrentRole(currentUser);
-      const role = SessionStorageRepository.getCurrentRole();
-      expect(role.isCompanyRole()).toBe(true);
+      expect(currentUser.getCurrentRole().isCompanyRole()).toBe(true);
     });
 
     it("saves admin as the current role", () => {
@@ -97,9 +88,7 @@ describe("CurrentUser", () => {
           secretary: Secretary.extension
         }
       });
-      calculateCurrentRole(currentUser);
-      const role = SessionStorageRepository.getCurrentRole();
-      expect(role.isAdminRole()).toBe(true);
+      expect(currentUser.getCurrentRole().isAdminRole()).toBe(true);
     });
 
     it("saves admin as the current role if the current usr is admin and applicant", () => {
@@ -114,28 +103,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      calculateCurrentRole(currentUser);
-      const role = SessionStorageRepository.getCurrentRole();
-      expect(role.isAdminRole()).toBe(true);
-    });
-
-    it("does not update the currentRole if there is already one", () => {
-      const applicantRole = new Role(RoleName.Applicant);
-      SessionStorageRepository.saveCurrentRole(applicantRole);
-      const currentUser = CurrentUser({
-        ...commonAttributes,
-        admin: {
-          user: { uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da" },
-          secretary: Secretary.extension
-        },
-        applicant: {
-          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
-          approvalStatus: ApprovalStatus.pending
-        }
-      });
-      calculateCurrentRole(currentUser);
-      const role = SessionStorageRepository.getCurrentRole();
-      expect(role).toEqual(applicantRole);
+      expect(currentUser.getCurrentRole().isAdminRole()).toBe(true);
     });
   });
 });
