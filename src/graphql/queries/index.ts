@@ -33,6 +33,7 @@ const GET_ADMIN_NOTIFICATIONS = loader("./getAdminNotifications.graphql");
 const HAS_UNREAD_ADMIN_NOTIFICATIONS = loader("./hasUnreadAdminNotifications.graphql");
 const GET_COMPANY_USERS = loader("./getCompanyUsers.graphql");
 const GET_COMPANY_USERS_BY_COMPANY = loader("./getCompanyUsersByCompany.graphql");
+const GET_MY_COMPANY_USER = loader("./getMyCompanyUser.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -67,5 +68,6 @@ export {
   GET_ADMIN_NOTIFICATIONS,
   HAS_UNREAD_ADMIN_NOTIFICATIONS,
   GET_COMPANY_USERS,
-  GET_COMPANY_USERS_BY_COMPANY
+  GET_COMPANY_USERS_BY_COMPANY,
+  GET_MY_COMPANY_USER
 };
