@@ -1,4 +1,4 @@
-import { useAdvancedQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_CURRENT_USER } from "$queries";
 import { CurrentUser, TGenericCurrentUser } from "$models/CurrentUser";
 import { ICurrentCompanyAttributes } from "$models/CurrentCompany";
@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 export const useCurrentUser = () => {
   const history = useHistory();
-  const response = useAdvancedQuery<{}, IUseCurrentUser>(GET_CURRENT_USER, {
+  const response = useQuery<{}, IUseCurrentUser>(GET_CURRENT_USER, {
     errorHandlers: {
       UserNotFoundError: () => history.push(RoutesBuilder.public.login()),
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
