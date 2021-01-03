@@ -6,13 +6,13 @@ import styles from "./styles.module.scss";
 
 export const Actions: FunctionComponent<IComponentProps> = ({
   className,
-  hideChangePasswordIcon,
+  hideActions,
   changePasswordLink,
   editUserLink,
   translations
 }) => (
   <div className={className}>
-    {!hideChangePasswordIcon() && (
+    {!hideActions() && (
       <div className={styles.actions}>
         <ChangePasswordAction
           className={styles.changePasswordAction}
