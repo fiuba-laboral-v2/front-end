@@ -1,7 +1,12 @@
 import React, { FunctionComponent, useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useTranslations, useUpdateCuitAndBusinessName, useMyCompanyProfile } from "$hooks";
+import {
+  useTranslations,
+  useUpdateCuitAndBusinessName,
+  useMyCompanyProfile,
+  useSnackbar
+} from "$hooks";
 
 import { EditCuitAndBusinessName } from "./component";
 import { Window } from "$components/Window";
@@ -10,9 +15,11 @@ import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog
 import { IFormValues, ITranslations } from "./interfaces";
 import { ICompany } from "$interfaces/Company";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { createCompanyErrorHandlers } from "$models/errorHandlers";
 
 export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const company = useMyCompanyProfile();
   const { updateCuitAndBusinessName } = useUpdateCuitAndBusinessName();
@@ -22,8 +29,14 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
   );
 
   const onSubmit = useCallback(
-    async ({ cuit, businessName }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
-      const result = await updateCuitAndBusinessName({ variables: { cuit, businessName } });
+    async (
+      { cuit, businessName }: IFormValues,
+      { setSubmitting, setErrors }: FormikHelpers<IFormValues>
+    ) => {
+      const result = await updateCuitAndBusinessName({
+        variables: { cuit, businessName },
+        errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+      });
       if (result.error) return;
       setSubmitting(false);
       history.push(RoutesBuilder.applicant.myProfile());

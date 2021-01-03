@@ -18,6 +18,7 @@ type ErrorName =
   | "JobApplicationAlreadyExistsError"
   | "FiubaUsersServiceFetchError"
   | "JobApplicationNotFoundError"
+  | "BusinessNameAlreadyExistsError"
   | "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";
