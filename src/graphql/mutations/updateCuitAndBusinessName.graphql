@@ -1,0 +1,7 @@
+mutation updateCuitAndBusinessName($cuit: String!, $businessName: String!) {
+  updateCuitAndBusinessName(cuit: $cuit, businessName: $businessName) {
+    uuid
+    cuit
+    businessName
+  }
+}
