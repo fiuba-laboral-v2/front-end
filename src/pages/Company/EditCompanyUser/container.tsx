@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useUpdateCompanyUser, useTranslations } from "$hooks";
+import { useUpdateCompanyUser, useTranslations, useMyCompanyUser } from "$hooks";
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 
 import { EditCompanyUser } from "./component";
@@ -16,6 +16,7 @@ import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHan
 export const EditCompanyUserContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
+  const companyUser = useMyCompanyUser();
   const { updateCompanyUser } = useUpdateCompanyUser();
 
   const translations = useTranslations<ITranslations>("addCompanyUser");
@@ -58,6 +59,7 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
         translations={translations}
         onSubmit={onSubmit}
         modelToValues={modelToValues}
+        initialValuesModel={companyUser}
       />
     </Window>
   );
