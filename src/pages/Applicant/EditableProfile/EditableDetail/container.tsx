@@ -84,7 +84,7 @@ export const EditableDetailContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!applicant || !translations || !applicant}>
-      <Formik initialValues={modelToValues()} validateForm={validateForm} onSubmit={onSubmit}>
+      <Formik initialValues={modelToValues()} validate={validateForm} onSubmit={onSubmit}>
         {formikProps => (
           <FormikForm
             initialValuesModel={applicant}
