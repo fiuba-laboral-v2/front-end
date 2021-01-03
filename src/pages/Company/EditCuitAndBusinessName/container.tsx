@@ -41,7 +41,7 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
       setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
-    [history, updateCuitAndBusinessName]
+    [history, updateCuitAndBusinessName, enqueueSnackbar]
   );
 
   const modelToValues = useCallback(
