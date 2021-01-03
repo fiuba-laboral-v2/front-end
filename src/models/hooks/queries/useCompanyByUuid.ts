@@ -1,4 +1,4 @@
-import { useAdvancedQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_COMPANY_BY_UUID } from "$queries";
 import { GET_COMPANY_BY_UUID_WITH_USERS } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -20,8 +20,7 @@ export const useCompanyByUuid = <T extends IUser | undefined = undefined>({
     }
   };
 
-  return useAdvancedQuery<{}, { getCompanyByUuid: ICompany<T> }>(node, options).data
-    ?.getCompanyByUuid;
+  return useQuery<{}, { getCompanyByUuid: ICompany<T> }>(node, options).data?.getCompanyByUuid;
 };
 
 interface IUseCompanyByUuid {

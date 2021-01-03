@@ -1,11 +1,11 @@
-import { useAdvancedQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
 import { IOfferAttributes } from "$interfaces/Offer";
 import { IPaginatedResult } from "./interfaces";
 import { Offer } from "$models/Offer";
 
 export const useMyOffers = () => {
-  const result = useAdvancedQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
+  const result = useQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
 
   const fetchMore = () => {
     const offers = result.data?.getMyOffers.results;

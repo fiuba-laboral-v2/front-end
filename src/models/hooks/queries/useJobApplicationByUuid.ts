@@ -1,4 +1,4 @@
-import { useAdvancedQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_JOB_APPLICATION_BY_UUID } from "$queries";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { JobApplication } from "$models/JobApplication";
@@ -7,7 +7,7 @@ import { IJobApplicationAttributes } from "$interfaces/JobApplication";
 
 export const useJobApplicationByUuid = (uuid: string) => {
   const history = useHistory();
-  const result = useAdvancedQuery<{}, { getJobApplicationByUuid: IJobApplicationAttributes }>(
+  const result = useQuery<{}, { getJobApplicationByUuid: IJobApplicationAttributes }>(
     GET_JOB_APPLICATION_BY_UUID,
     {
       variables: { uuid },

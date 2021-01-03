@@ -1,4 +1,4 @@
-import { useAdvancedQuery } from "$hooks";
+import { useQuery } from "$hooks";
 import { GET_OFFER_BY_UUID, GET_OFFER_FOR_APPLICANT } from "$queries";
 import { IOffer, IMyOfferAttributes } from "$interfaces/Offer";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -12,7 +12,7 @@ const useOfferByUuidQuery = <T extends IOffer | IMyOffer>({
   uuid
 }: IUseOfferByUuidQuery) => {
   const history = useHistory();
-  return useAdvancedQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
+  return useQuery<{ uuid?: string }, IGetOfferByUuid<T>>(documentNode, {
     variables: { uuid },
     errorHandlers: {
       OfferNotFoundError: () => history.push(RoutesBuilder.public.notFound()),

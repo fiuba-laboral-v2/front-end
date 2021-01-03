@@ -9,17 +9,16 @@ import { IPaginatedResult } from "$hooks/queries/interfaces";
 
 const CompaniesContainer: FunctionComponent = () => {
   const history = useHistory();
-  const data = useQuery<{}, { getCompanies: IPaginatedResult<ICompany> }>({
-    query: GET_COMPANIES,
+  const companies = useQuery<{}, { getCompanies: IPaginatedResult<ICompany> }>(GET_COMPANIES, {
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  });
+  }).data?.getCompanies;
 
   return (
     <Companies
-      loading={!data}
-      companies={data?.getCompanies.results || []}
+      loading={!companies}
+      companies={companies?.results || []}
       createLink={uuid => RoutesBuilder.applicant.companyProfile(uuid)}
     />
   );

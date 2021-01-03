@@ -7,13 +7,10 @@ import { Secretary } from "$interfaces/Secretary";
 export const useSecretaryOfferDuration = (secretary: Secretary) => {
   const history = useHistory();
 
-  const data = useQuery<{}, { getSecretaryOfferDuration: number }>({
-    query: GET_SECRETARY_OFFER_DURATION,
+  return useQuery<{}, { getSecretaryOfferDuration: number }>(GET_SECRETARY_OFFER_DURATION, {
     variables: { secretary },
     errorHandlers: {
       defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
     }
-  });
-
-  return data?.getSecretaryOfferDuration;
+  }).data?.getSecretaryOfferDuration;
 };
