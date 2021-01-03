@@ -16,14 +16,14 @@ export const ChangeCurrentRoleButtonContainer: FunctionComponent<IContainerProps
   if (currentUser?.company) return <Fragment />;
   if (!(currentUser?.admin && currentUser?.applicant)) return <Fragment />;
 
-  const getNewRole = () => {
+  const getNewRoleName = () => {
     if (currentRole.isApplicantRole()) return RoleName.Admin;
     if (currentRole.isAdminRole()) return RoleName.Applicant;
     throw new Error("The company current role cannot be changed");
   };
 
   const changeCurrentRole = () => {
-    const role = new Role(getNewRole());
+    const role = new Role(getNewRoleName());
     SessionStorageRepository.saveCurrentRole(role);
     history.push(RoutesBuilder.public.home());
   };
