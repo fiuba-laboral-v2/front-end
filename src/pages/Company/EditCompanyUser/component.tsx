@@ -28,7 +28,7 @@ export const EditCompanyUser: FunctionComponent<IComponentProps> = ({
           initialValuesModel={initialValuesModel}
           modelToValues={modelToValues}
         >
-          <UserDataFormSection className={styles.formSection} />
+          <UserDataFormSection className={styles.formSection} withoutPassword />
           <FormFooter
             isSubmitting={isSubmitting}
             submitButtonText={translations?.submit}

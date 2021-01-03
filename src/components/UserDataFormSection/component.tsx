@@ -8,7 +8,8 @@ import styles from "./styles.module.scss";
 
 export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
   className,
-  translations
+  translations,
+  withoutPassword
 }) => (
   <FormSection className={className} title={translations.title}>
     <div className={styles.firstRow}>
@@ -27,24 +28,26 @@ export const UserDataFormSection: FunctionComponent<IComponentProps> = ({
         withoutMargin
       />
     </div>
-    <div className={styles.secondRow}>
-      <PasswordField
-        mandatory
-        className={styles.password}
-        name="user.password"
-        label={translations.password}
-        validate
-        autoComplete="new-password"
-      />
-      <PasswordField
-        mandatory
-        name="user.passwordConfirm"
-        label={translations.passwordConfirm}
-        validate
-        autoComplete="new-password"
-        withoutMargin
-      />
-    </div>
+    {!withoutPassword && (
+      <div className={styles.secondRow}>
+        <PasswordField
+          mandatory
+          className={styles.password}
+          name="user.password"
+          label={translations.password}
+          validate
+          autoComplete="new-password"
+        />
+        <PasswordField
+          mandatory
+          name="user.passwordConfirm"
+          label={translations.passwordConfirm}
+          validate
+          autoComplete="new-password"
+          withoutMargin
+        />
+      </div>
+    )}
     <div className={styles.thirdRow}>
       <EmailField
         mandatory
