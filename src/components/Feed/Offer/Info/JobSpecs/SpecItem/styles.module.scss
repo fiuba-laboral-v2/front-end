@@ -5,6 +5,7 @@
 .content {
   align-items: flex-end;
   display: flex;
+  text-align: left;
 
   &:not(:last-child) {
     margin-bottom: $spacing-m;
