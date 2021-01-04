@@ -97,13 +97,11 @@
   .firstColumn {
     display: flex;
     margin: 0;
-    width: unset;
   }
 
   .secondColumn {
     align-self: center;
     margin: 0;
-    width: unset;
   }
 
   .companyName {
@@ -138,7 +136,7 @@
   }
 }
 
-@media (max-width: $largeMobileWidth) {
+@media (max-width: $tabletWidth) {
   .detailsContainer {
     flex-direction: column;
     justify-content: unset;
