@@ -17,6 +17,10 @@
   pointer-events: none;
 }
 
+.formHelperText {
+  white-space: pre-wrap;
+}
+
 .uploadIcon {
   color: $white;
   left: 50%;
