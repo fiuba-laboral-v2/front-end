@@ -1,0 +1,118 @@
+import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantType } from "$interfaces/Applicant";
+
+describe("ApplicantsFilter", () => {
+  describe("getCareerCodes", () => {
+    it("gets career codes from url search params", () => {
+      const applicantsFilter = new ApplicantsFilter("carreras=1-2-3");
+      expect(applicantsFilter.getCareerCodes()).toEqual(["1", "2", "3"]);
+    });
+
+    it("returns an empty array when no career is set", () => {
+      const applicantsFilter = new ApplicantsFilter("carreras=&asd=qwe");
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+    });
+
+    it("returns an empty array when careers are not in search params", () => {
+      const applicantsFilter = new ApplicantsFilter("asd=qwe");
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+    });
+
+    it("returns an empty array when search params are empty", () => {
+      const applicantsFilter = new ApplicantsFilter("");
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+    });
+
+    it("returns an empty array when career has only dashes", () => {
+      const applicantsFilter = new ApplicantsFilter("carreras=--");
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+    });
+  });
+
+  describe("getName", () => {
+    it("returns name from url search params", () => {
+      const applicantsFilter = new ApplicantsFilter("nombre=eric-clapton");
+      expect(applicantsFilter.getName()).toEqual("eric-clapton");
+    });
+
+    it("returns an empty string when no name is set", () => {
+      const applicantsFilter = new ApplicantsFilter("nombre=&asd=qwe");
+      expect(applicantsFilter.getName()).toEqual("");
+    });
+
+    it("returns null if the name is not in search params", () => {
+      const applicantsFilter = new ApplicantsFilter("asd=qwe");
+      expect(applicantsFilter.getName()).toBeNull();
+    });
+
+    it("returns null when search params are empty", () => {
+      const applicantsFilter = new ApplicantsFilter("");
+      expect(applicantsFilter.getName()).toBeNull();
+    });
+  });
+
+  describe("getApplicantType", () => {
+    it("returns student applicantType from url search params", () => {
+      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=student");
+      expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.student);
+    });
+
+    it("returns graduate applicantType from url search params", () => {
+      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=graduate");
+      expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
+    });
+
+    it("returns null empty when no name is set", () => {
+      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=&asd=qwe");
+      expect(applicantsFilter.getApplicantType()).toBeNull();
+    });
+
+    it("returns null if the name is not in search params", () => {
+      const applicantsFilter = new ApplicantsFilter("asd=qwe");
+      expect(applicantsFilter.getApplicantType()).toBeNull();
+    });
+
+    it("returns null when search params are empty", () => {
+      const applicantsFilter = new ApplicantsFilter("");
+      expect(applicantsFilter.getApplicantType()).toBeNull();
+    });
+  });
+
+  describe("setFilter", () => {
+    it("sets careerCodes, name and applicantType", () => {
+      const applicantsFilter = new ApplicantsFilter();
+      applicantsFilter.setFilter({
+        name: "name",
+        careerCodes: ["1"],
+        applicantType: ApplicantType.student
+      });
+      expect(applicantsFilter.getCareerCodes()).toEqual(["1"]);
+      expect(applicantsFilter.getName()).toEqual("name");
+      expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.student);
+    });
+
+    it("sets careerCodes", () => {
+      const applicantsFilter = new ApplicantsFilter();
+      applicantsFilter.setFilter({ careerCodes: ["1"] });
+      expect(applicantsFilter.getCareerCodes()).toEqual(["1"]);
+      expect(applicantsFilter.getName()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toBeNull();
+    });
+
+    it("sets name", () => {
+      const applicantsFilter = new ApplicantsFilter();
+      applicantsFilter.setFilter({ name: "name" });
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getName()).toEqual("name");
+      expect(applicantsFilter.getApplicantType()).toBeNull();
+    });
+
+    it("sets applicantType", () => {
+      const applicantsFilter = new ApplicantsFilter();
+      applicantsFilter.setFilter({ applicantType: ApplicantType.graduate });
+      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getName()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
+    });
+  });
+});
