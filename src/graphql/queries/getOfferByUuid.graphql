@@ -29,6 +29,7 @@ query getOfferByUuid($uuid: ID!) {
       companyName
       logo
       cuit
+      approvalStatus
     }
   }
 }
