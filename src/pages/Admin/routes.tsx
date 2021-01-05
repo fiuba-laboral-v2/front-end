@@ -1,3 +1,4 @@
+import React from "react";
 import { Home } from "./Home";
 import { Applicants } from "./Applicants";
 import { Companies } from "./Companies";
@@ -33,7 +34,10 @@ const {
 
 export const AdminRoutes = [
   { path: admins(), component: Admins },
-  { path: applicants(), component: Applicants },
+  {
+    path: applicants(),
+    component: (props: { location: Location }) => <Applicants searchQuery={props.location.search} />
+  },
   { path: companies(), component: Companies },
   { path: home(), component: Home },
   { path: offers(), component: Offers },

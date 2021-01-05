@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
+import { IApplicant } from "$interfaces/Applicant";
+import { useApplicants } from "$hooks";
+
 import { ListPageContainer } from "$components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
 import { ListContentItem } from "./ListContentItem";
-import { IApplicant } from "$interfaces/Applicant";
-import { useApplicants } from "$hooks";
+
 import styles from "./styles.module.scss";
 
-export const Applicants: FunctionComponent = () => {
+export const Applicants: FunctionComponent<IContainerProps> = () => {
   const response = useApplicants();
   const applicants = response?.data?.getApplicants.results;
 
@@ -24,3 +26,7 @@ export const Applicants: FunctionComponent = () => {
     />
   );
 };
+
+interface IContainerProps {
+  searchQuery: string;
+}

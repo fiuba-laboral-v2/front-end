@@ -3,10 +3,10 @@ import { FormikHelpers } from "formik";
 
 import { Filter } from "./component";
 
-import { IFormValues } from "./interfaces";
+import { IFormValues, IContainerProps } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
-export const FilterContainer: FunctionComponent = () => {
+export const FilterContainer: FunctionComponent<IContainerProps> = () => {
   const onSubmit = useCallback(
     async (_: IFormValues, __: FormikHelpers<IFormValues>) => undefined,
     []
