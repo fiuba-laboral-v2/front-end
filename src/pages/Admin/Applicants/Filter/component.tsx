@@ -20,10 +20,9 @@ export const Filter: FunctionComponent<IComponentProps> = ({ initialValues, onSu
           <div className={styles.fields}>
             <NameField className={styles.field} name="name" label={"NAME"} withoutMargin />
             <CareerSelector className={styles.field} name="careerCodes" />
-            <TargetApplicantTypeSelector className={styles.field} mandatory name="applicantType" />
+            <TargetApplicantTypeSelector className={styles.field} name="applicantType" />
           </div>
           <FormFooter
-            className={styles.formFooter}
             isSubmitting={formikProps.isSubmitting}
             submitButtonText={"APLICAR"}
             errors={formikProps.errors}

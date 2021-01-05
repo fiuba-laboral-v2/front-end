@@ -1,5 +1,5 @@
 export interface IContainerProps {
-  mandatory: boolean;
+  mandatory?: boolean;
   name?: string;
   className?: string;
 }
