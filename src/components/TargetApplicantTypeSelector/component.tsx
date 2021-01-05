@@ -3,15 +3,16 @@ import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
-const name = "targetApplicantType";
+const DEFAULT_NAME = "targetApplicantType";
 
 export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
   translations,
-  mandatory
+  mandatory,
+  name
 }) => (
   <SelectField
     mandatory={mandatory}
-    fieldName={name}
+    fieldName={name || DEFAULT_NAME}
     options={targetApplicantTypeEnumValues.map(option => ({
       label: translations[option],
       value: option

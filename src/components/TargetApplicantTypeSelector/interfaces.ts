@@ -1,5 +1,6 @@
 export interface IContainerProps {
   mandatory: boolean;
+  name?: string;
 }
 
 export interface ITranslations {
