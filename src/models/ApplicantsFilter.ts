@@ -9,7 +9,7 @@ const APPLICANT_TYPE = "tipo_de_postulante";
 const VALID_APPLICANT_TYPES = [ApplicantType.student, ApplicantType.graduate];
 
 export class ApplicantsFilter extends URLSearchParams {
-  public setFilter(values: IUseApplicantsFilter) {
+  public setValues(values: IUseApplicantsFilter) {
     this.setCareerCodes(values.careerCodes);
     this.setName(values.name);
     this.setApplicantType(values.applicantType);
@@ -20,13 +20,15 @@ export class ApplicantsFilter extends URLSearchParams {
   }
 
   public getName() {
-    return this.get(NAME);
+    const name = this.get(NAME);
+    if (name === null) return undefined;
+    return name;
   }
 
   public getApplicantType() {
     const applicantType = this.get(APPLICANT_TYPE);
-    if (!VALID_APPLICANT_TYPES.includes(applicantType as ApplicantType)) return null;
-    return applicantType as ApplicantType | null;
+    if (!VALID_APPLICANT_TYPES.includes(applicantType as ApplicantType)) return undefined;
+    return applicantType as ApplicantType | undefined;
   }
 
   private setCareerCodes(codes?: string[]) {

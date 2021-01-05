@@ -42,12 +42,12 @@ describe("ApplicantsFilter", () => {
 
     it("returns null if the name is not in search params", () => {
       const applicantsFilter = new ApplicantsFilter("asd=qwe");
-      expect(applicantsFilter.getName()).toBeNull();
+      expect(applicantsFilter.getName()).toBeUndefined();
     });
 
     it("returns null when search params are empty", () => {
       const applicantsFilter = new ApplicantsFilter("");
-      expect(applicantsFilter.getName()).toBeNull();
+      expect(applicantsFilter.getName()).toBeUndefined();
     });
   });
 
@@ -64,24 +64,24 @@ describe("ApplicantsFilter", () => {
 
     it("returns null empty when no name is set", () => {
       const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=&asd=qwe");
-      expect(applicantsFilter.getApplicantType()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
 
     it("returns null if the name is not in search params", () => {
       const applicantsFilter = new ApplicantsFilter("asd=qwe");
-      expect(applicantsFilter.getApplicantType()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
 
     it("returns null when search params are empty", () => {
       const applicantsFilter = new ApplicantsFilter("");
-      expect(applicantsFilter.getApplicantType()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
   });
 
   describe("setFilter", () => {
     it("sets careerCodes, name and applicantType", () => {
       const applicantsFilter = new ApplicantsFilter();
-      applicantsFilter.setFilter({
+      applicantsFilter.setValues({
         name: "name",
         careerCodes: ["1"],
         applicantType: ApplicantType.student
@@ -93,25 +93,25 @@ describe("ApplicantsFilter", () => {
 
     it("sets careerCodes", () => {
       const applicantsFilter = new ApplicantsFilter();
-      applicantsFilter.setFilter({ careerCodes: ["1"] });
+      applicantsFilter.setValues({ careerCodes: ["1"] });
       expect(applicantsFilter.getCareerCodes()).toEqual(["1"]);
-      expect(applicantsFilter.getName()).toBeNull();
-      expect(applicantsFilter.getApplicantType()).toBeNull();
+      expect(applicantsFilter.getName()).toBeUndefined();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
 
     it("sets name", () => {
       const applicantsFilter = new ApplicantsFilter();
-      applicantsFilter.setFilter({ name: "name" });
+      applicantsFilter.setValues({ name: "name" });
       expect(applicantsFilter.getCareerCodes()).toEqual([]);
       expect(applicantsFilter.getName()).toEqual("name");
-      expect(applicantsFilter.getApplicantType()).toBeNull();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
 
     it("sets applicantType", () => {
       const applicantsFilter = new ApplicantsFilter();
-      applicantsFilter.setFilter({ applicantType: ApplicantType.graduate });
+      applicantsFilter.setValues({ applicantType: ApplicantType.graduate });
       expect(applicantsFilter.getCareerCodes()).toEqual([]);
-      expect(applicantsFilter.getName()).toBeNull();
+      expect(applicantsFilter.getName()).toBeUndefined();
       expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
     });
   });
