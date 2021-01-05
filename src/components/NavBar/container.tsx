@@ -8,6 +8,7 @@ import { INavBarContainerProps, INavBarTranslations } from "./interfaces";
 import { NavBarLinks } from "$models/NavBarLinks";
 import { some } from "lodash";
 import { SessionStorageRepository } from "$repositories";
+import { useSnackbar } from "notistack";
 
 export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
   const history = useHistory();
@@ -16,6 +17,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const translations = useTranslations<INavBarTranslations>("navBar");
   const currentUserResponse = useCurrentUser();
   const { logout } = useLogout();
+  const { closeSnackbar } = useSnackbar();
   const bottomEl = useRef<HTMLDivElement>(null);
   const navBarEl = useRef<HTMLDivElement>(null);
   const iconEl = useRef<SVGSVGElement>(null);
@@ -39,6 +41,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
   const links = currentUser ? NavBarLinks.create(currentUser, translations) : [];
 
   const onLogOut = async () => {
+    closeSnackbar();
     await client.clearStore();
     await logout();
     SessionStorageRepository.clear();
