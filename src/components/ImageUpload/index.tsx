@@ -1,13 +1,19 @@
 import React, { FunctionComponent } from "react";
 import ImageUploading from "react-images-uploading";
 
-const MAX_MB_FILE_SIZE = 5;
+//  Before changing this setting take into account that:
+//
+//      ImageUploading passes the file size through Math.round before comparing with maxFileSize
+//
+//      In App.ts, there's a specified limit to json size. You may need to change that setting too,
+//      otherwise you may get "PayloadTooLargeError: request entity too large" on large images
+//
+const MAX_MB_FILE_SIZE = 0.5;
 
 export const ImageUpload: FunctionComponent<IImageUploadProps> = ({
   defaultValue,
   onChange,
   maxNumber,
-  maxFileSize = MAX_MB_FILE_SIZE,
   multiple,
   acceptType,
   children
@@ -16,7 +22,7 @@ export const ImageUpload: FunctionComponent<IImageUploadProps> = ({
     defaultValue={defaultValue}
     onChange={onChange}
     maxNumber={maxNumber}
-    maxFileSize={maxFileSize}
+    maxFileSize={MAX_MB_FILE_SIZE}
     acceptType={acceptType}
     multiple={multiple}
   >
@@ -52,7 +58,6 @@ interface IImageUploadProps {
   onChange?: (images: IImage[]) => void;
   defaultValue?: IImage[];
   maxNumber?: number;
-  maxFileSize?: number;
   multiple?: boolean;
   acceptType?: AcceptType[];
 }
