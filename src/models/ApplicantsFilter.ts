@@ -15,8 +15,18 @@ export class ApplicantsFilter extends URLSearchParams {
     this.setApplicantType(values.applicantType);
   }
 
+  public getValues() {
+    return {
+      careerCodes: this.getCareerCodes(),
+      name: this.getName(),
+      applicantType: this.getApplicantType()
+    };
+  }
+
   public getCareerCodes() {
-    return difference(this.get(CAREER_CODES)?.split(SEPARATOR), [""]);
+    const careerCodes = difference(this.get(CAREER_CODES)?.split(SEPARATOR), [""]);
+    if (careerCodes.length === 0) return undefined;
+    return careerCodes;
   }
 
   public getName() {

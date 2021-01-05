@@ -33,6 +33,8 @@ export const MultipleSearchSelector = <Option, Value>({
   return (
     <Field name={name} validate={FormikValidator({ mandatory })}>
       {({ meta, form }: FieldProps<Value[]>) => {
+        const values = meta.value || [];
+
         const addValue = (value: string) => {
           const selectedOption = options.find(
             option =>
@@ -44,12 +46,12 @@ export const MultipleSearchSelector = <Option, Value>({
           if (!selectedOptionExists(selectedValue) && allowOnlySelectableOptions) {
             return setInputValue("");
           }
-          form.setFieldValue(name, unionBy(meta.value, [selectedValue], compareValuesBy));
+          form.setFieldValue(name, unionBy(values, [selectedValue], compareValuesBy));
           setInputValue("");
         };
 
         let helperText;
-        if (meta.value.length === 0) helperText = EMPTY_SPACE;
+        if (values.length === 0) helperText = EMPTY_SPACE;
         if (!allowOnlySelectableOptions) helperText = originalHelperText;
 
         return (
@@ -77,8 +79,7 @@ export const MultipleSearchSelector = <Option, Value>({
               inputValue={valueToString(stringToValue(inputValue))}
               errorMessage={meta.touched ? meta.error : undefined}
               options={options.filter(
-                option =>
-                  !meta.value.map(valueToString).includes(valueToString(getOptionValue(option)))
+                option => !values.map(valueToString).includes(valueToString(getOptionValue(option)))
               )}
               getOptionValue={getOptionValue}
               getOptionLabel={(option: Option | string) =>
@@ -96,11 +97,11 @@ export const MultipleSearchSelector = <Option, Value>({
               }}
             />
             <TagSet
-              tags={new Set(meta.value.map(value => valueToString(value)))}
+              tags={new Set(values.map(value => valueToString(value)))}
               onRemove={stringValue =>
                 form.setFieldValue(
                   name,
-                  differenceBy(meta.value, [stringToValue(stringValue)], compareValuesBy)
+                  differenceBy(values, [stringToValue(stringValue)], compareValuesBy)
                 )
               }
             />

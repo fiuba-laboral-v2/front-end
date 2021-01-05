@@ -1,9 +1,13 @@
 @import "$styles/_variables";
 
-.formSection {
-  margin-bottom: $spacing-xl;
+.fields {
+  display: flex;
 }
 
-.field {
-  margin-bottom: $spacing-s;
+div.field {
+  width: 33%;
+}
+
+.formFooter {
+  margin-top: $spacing-xl;
 }

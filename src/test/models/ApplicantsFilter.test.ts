@@ -8,24 +8,24 @@ describe("ApplicantsFilter", () => {
       expect(applicantsFilter.getCareerCodes()).toEqual(["1", "2", "3"]);
     });
 
-    it("returns an empty array when no career is set", () => {
+    it("returns undefined when no career is set", () => {
       const applicantsFilter = new ApplicantsFilter("carreras=&asd=qwe");
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
     });
 
-    it("returns an empty array when careers are not in search params", () => {
+    it("returns undefined when careers are not in search params", () => {
       const applicantsFilter = new ApplicantsFilter("asd=qwe");
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
     });
 
-    it("returns an empty array when search params are empty", () => {
+    it("returns undefined when search params are empty", () => {
       const applicantsFilter = new ApplicantsFilter("");
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
     });
 
-    it("returns an empty array when career has only dashes", () => {
+    it("returns undefined when career has only dashes", () => {
       const applicantsFilter = new ApplicantsFilter("carreras=--");
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
     });
   });
 
@@ -102,7 +102,7 @@ describe("ApplicantsFilter", () => {
     it("sets name", () => {
       const applicantsFilter = new ApplicantsFilter();
       applicantsFilter.setValues({ name: "name" });
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
       expect(applicantsFilter.getName()).toEqual("name");
       expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
@@ -110,7 +110,7 @@ describe("ApplicantsFilter", () => {
     it("sets applicantType", () => {
       const applicantsFilter = new ApplicantsFilter();
       applicantsFilter.setValues({ applicantType: ApplicantType.graduate });
-      expect(applicantsFilter.getCareerCodes()).toEqual([]);
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
       expect(applicantsFilter.getName()).toBeUndefined();
       expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
     });

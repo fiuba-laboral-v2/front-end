@@ -1,3 +1,5 @@
+@import "$styles/_variables";
+
 .titleContainer {
   display: flex;
 }
@@ -8,4 +10,17 @@
 
 .children {
   flex-shrink: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  height: fit-content;
+}
+
+.filter {
+  margin-bottom: $spacing-xl;
 }

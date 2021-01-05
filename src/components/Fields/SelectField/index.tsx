@@ -24,7 +24,7 @@ export const SelectField = <Value extends IBaseValue>({
     >
       {({ meta, form }: FastFieldProps<Value>) => {
         const error = meta.touched && meta.error;
-        const stringValue = valueToString(meta.value);
+        const stringValue = valueToString(meta.value || "");
         return (
           <>
             <FormControl className={classNames(styles.container, className)} error={!!error}>

@@ -6,7 +6,6 @@ import { FormFooter } from "$components/FormFooter";
 import { Formik } from "$components/Formik";
 import { FormikForm } from "$components/FormikForm";
 import { FormSection } from "$components/FormSection";
-import { Form } from "$components/Form";
 import { NameField } from "$components/Fields";
 import { CareerSelector } from "$components/CareerSelector";
 import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSelector";
@@ -16,20 +15,21 @@ import styles from "./styles.module.scss";
 export const Filter: FunctionComponent<IComponentProps> = ({ initialValues, onSubmit }) => (
   <Formik initialValues={initialValues} onSubmit={onSubmit}>
     {formikProps => (
-      <Form>
-        <FormikForm>
-          <FormSection className={styles.formSection}>
-            <NameField className={styles.field} name="name" label={"NAME"} />
-            <CareerSelector className={styles.field} mandatory name="careerCodes" />
-            <TargetApplicantTypeSelector mandatory name="applicantType" />
-          </FormSection>
+      <FormikForm formikProps={formikProps} id="applicantFilter">
+        <FormSection>
+          <div className={styles.fields}>
+            <NameField className={styles.field} name="name" label={"NAME"} withoutMargin />
+            <CareerSelector className={styles.field} name="careerCodes" />
+            <TargetApplicantTypeSelector className={styles.field} mandatory name="applicantType" />
+          </div>
           <FormFooter
+            className={styles.formFooter}
             isSubmitting={formikProps.isSubmitting}
             submitButtonText={"APLICAR"}
             errors={formikProps.errors}
           />
-        </FormikForm>
-      </Form>
+        </FormSection>
+      </FormikForm>
     )}
   </Formik>
 );

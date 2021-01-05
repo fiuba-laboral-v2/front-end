@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 export const Form: FunctionComponent<IFormProps> = ({ title, acceptanceCriteria, children }) => (
   <>
-    <h1 className={styles.title}>{title}</h1>
+    {title && <h1 className={styles.title}>{title}</h1>}
     {acceptanceCriteria && (
       <div className={styles.middleContainer}>
         <div className={styles.formContainer}>{children}</div>
