@@ -33,3 +33,4 @@ export * from "./useCompanyUsers";
 export * from "./useCompanyUsersByCompany";
 export * from "./useCurrentUserApplicantType";
 export * from "./useMyCompanyUser";
+export * from "./useLazyApplicantEmails";
