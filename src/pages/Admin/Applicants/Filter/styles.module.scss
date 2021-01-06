@@ -4,6 +4,13 @@
   display: flex;
 }
 
-div.field {
+div.name,
+div.careers,
+div.applicantType, {
   width: 33%;
+}
+
+div.name,
+div.careers, {
+  margin-right: $spacing-m;
 }

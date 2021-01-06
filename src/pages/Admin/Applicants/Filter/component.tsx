@@ -28,9 +28,9 @@ export const Filter: FunctionComponent<IComponentProps> = ({
       >
         <FormSection>
           <div className={styles.fields}>
-            <NameField className={styles.field} name="name" label={"NAME"} withoutMargin />
-            <CareerSelector className={styles.field} name="careers" />
-            <TargetApplicantTypeSelector className={styles.field} name="applicantType" />
+            <NameField className={styles.name} name="name" label={"NAME"} withoutMargin />
+            <CareerSelector className={styles.careers} name="careers" />
+            <TargetApplicantTypeSelector className={styles.applicantType} name="applicantType" />
           </div>
           <FormFooter
             isSubmitting={formikProps.isSubmitting}
