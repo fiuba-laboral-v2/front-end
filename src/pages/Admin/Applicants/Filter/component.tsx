@@ -9,7 +9,7 @@ import { FormikForm } from "$components/FormikForm";
 import { FormSection } from "$components/FormSection";
 import { NameField } from "$components/Fields";
 import { CareerSelector } from "$components/CareerSelector";
-import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSelector";
+import { ApplicantTypeSelector } from "$components/ApplicantTypeSelector";
 
 import styles from "./styles.module.scss";
 
@@ -40,7 +40,7 @@ export const Filter: FunctionComponent<IComponentProps> = ({
               />
             )}
             <CareerSelector className={styles.careers} name="careers" />
-            <TargetApplicantTypeSelector
+            <ApplicantTypeSelector
               className={styles.applicantType}
               name="applicantType"
               excludedOptions={[ApplicantType.both]}

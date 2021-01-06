@@ -4,7 +4,7 @@ import { SelectField } from "$components/Fields";
 
 const DEFAULT_NAME = "targetApplicantType";
 
-export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
+export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
   className,
   translations,
   mandatory,

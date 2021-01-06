@@ -1,11 +1,11 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
-import { TargetApplicantTypeSelector } from "./component";
+import { ApplicantTypeSelector } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
 import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { difference } from "lodash";
 
-export const TargetApplicantTypeSelectorContainer: FunctionComponent<IContainerProps> = ({
+export const ApplicantTypeSelectorContainer: FunctionComponent<IContainerProps> = ({
   excludedOptions,
   ...props
 }) => {
@@ -16,5 +16,5 @@ export const TargetApplicantTypeSelectorContainer: FunctionComponent<IContainerP
     label: translations[option],
     value: option
   }));
-  return <TargetApplicantTypeSelector translations={translations} {...props} options={options} />;
+  return <ApplicantTypeSelector translations={translations} {...props} options={options} />;
 };
