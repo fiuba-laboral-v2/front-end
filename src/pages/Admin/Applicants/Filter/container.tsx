@@ -1,19 +1,20 @@
 import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { useCareers } from "$hooks";
+import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ApplicantsFilter } from "$models/ApplicantsFilter";
 import { FormikHelpers } from "formik";
 
 import { Filter } from "./component";
 
-import { IContainerProps, IFormValues } from "./interfaces";
+import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
 export const FilterContainer: FunctionComponent<IContainerProps> = ({
   filter,
   refetchApplicants
 }) => {
+  const translations = useTranslations<ITranslations>("applicantsFilter");
   const history = useHistory();
   const careers = useCareers();
 
@@ -25,7 +26,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
       if (refetchApplicants) refetchApplicants(filter.getValues());
     },
-    [filter, history]
+    [filter, history, refetchApplicants]
   );
 
   const modelToValues = useCallback(
@@ -51,5 +52,12 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
     [careers]
   );
 
-  return <Filter onSubmit={onSubmit} modelToValues={modelToValues} initialValuesModel={filter} />;
+  return (
+    <Filter
+      translations={translations}
+      onSubmit={onSubmit}
+      modelToValues={modelToValues}
+      initialValuesModel={filter}
+    />
+  );
 };
