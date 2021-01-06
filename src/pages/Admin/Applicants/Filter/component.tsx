@@ -45,12 +45,13 @@ export const Filter: FunctionComponent<IComponentProps> = ({
               name="applicantType"
               excludedOptions={[ApplicantType.both]}
             />
+            <FormFooter
+              className={styles.formFooter}
+              isSubmitting={formikProps.isSubmitting}
+              submitButtonText={translations?.submit}
+              errors={formikProps.errors}
+            />
           </div>
-          <FormFooter
-            isSubmitting={formikProps.isSubmitting}
-            submitButtonText={translations?.submit}
-            errors={formikProps.errors}
-          />
         </FormSection>
       </FormikForm>
     )}

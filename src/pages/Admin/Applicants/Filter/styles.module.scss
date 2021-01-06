@@ -20,10 +20,11 @@
 div.name,
 div.careers,
 div.applicantType, {
+  margin-right: $spacing-m;
   width: 33%;
 }
 
-div.name,
-div.careers, {
-  margin-right: $spacing-m;
+.formFooter {
+  align-self: center;
+  height: fit-content;
 }
