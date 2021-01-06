@@ -22,6 +22,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({
 
   return (
     <Actions
+      filter={filter}
       isExportEmailDialogOpen={isExportEmailDialogOpen}
       setIsExportEmailDialogOpen={setIsExportEmailDialogOpen}
       translations={translations}

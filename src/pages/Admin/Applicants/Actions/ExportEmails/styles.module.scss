@@ -1,0 +1,8 @@
+@import "$styles/_variables";
+
+.emailsContainer {
+  background-color: $lighterGrey;
+  border-radius: $borderRadius-s;
+  padding: $spacing-m;
+  white-space: pre-wrap;
+}

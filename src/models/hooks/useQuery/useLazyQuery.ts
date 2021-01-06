@@ -62,4 +62,5 @@ type QueryTuple<TData, TVariables> = [QueryFunction<TData, TVariables>, QueryRes
 interface ILazyQueryHookResponse<TData, TVariables> {
   query: QueryFunctionResult<TData, TVariables>;
   loading: boolean;
+  data?: TData;
 }

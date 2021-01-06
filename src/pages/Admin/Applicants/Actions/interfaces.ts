@@ -7,10 +7,10 @@ export interface ITranslations {
 
 interface ICommonProps {
   showFilter: boolean;
+  filter: ApplicantsFilter;
 }
 
 export interface IContainerProps extends ICommonProps {
-  filter: ApplicantsFilter;
   setShowFilter: (showFilter: boolean) => void;
 }
 

@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { IComponentProps } from "./interfaces";
+import styles from "./styles.module.scss";
 
 export const ExportEmails: FunctionComponent<IComponentProps> = ({
   exportEmailsTranslation,
@@ -10,15 +12,22 @@ export const ExportEmails: FunctionComponent<IComponentProps> = ({
   onConfirm,
   exportEmails,
   setExportEmails,
-  emails
+  emails,
+  loading
 }) => (
   <FormConfirmDialog
     isOpen={isOpen}
     onClose={() => setIsOpen(false)}
     translations={exportEmails ? exportedEmailsTranslation : exportEmailsTranslation}
-    {...(exportEmails && { onConfirmAndClose: onConfirm })}
-    {...(!exportEmails && { onConfirm: () => setExportEmails(true) })}
+    {...(exportEmails && { onConfirmAndClose: () => undefined })}
+    {...(!exportEmails && {
+      onConfirm: () => {
+        setExportEmails(true);
+        onConfirm();
+      }
+    })}
   >
-    {exportEmails && <div>{emails}</div>}
+    {loading && <LoadingSpinner />}
+    {!loading && exportEmails && <div className={styles.emailsContainer}>{emails}</div>}
   </FormConfirmDialog>
 );
