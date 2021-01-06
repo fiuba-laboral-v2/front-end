@@ -13,6 +13,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
   confirmButtonKind = "primary",
   confirmButtonType,
   formName,
+  hideConfirmButton,
   children
 }) => {
   const onConfirmClick = () => {
@@ -31,15 +32,17 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
         <Button onClick={onClose} kind="secondary">
           {translations?.confirmDialogCancel}
         </Button>
-        <Button
-          form={formName}
-          {...(onConfirmAndClose && { onClick: onConfirmClick })}
-          {...(onConfirm && { onClick: onConfirm })}
-          kind={confirmButtonKind}
-          type={confirmButtonType}
-        >
-          {translations?.confirmDialogConfirm}
-        </Button>
+        {!hideConfirmButton && (
+          <Button
+            form={formName}
+            {...(onConfirmAndClose && { onClick: onConfirmClick })}
+            {...(onConfirm && { onClick: onConfirm })}
+            kind={confirmButtonKind}
+            type={confirmButtonType}
+          >
+            {translations?.confirmDialogConfirm}
+          </Button>
+        )}
       </DialogActions>
     </Dialog>
   );
@@ -61,4 +64,5 @@ interface IConfirmDialogProps {
   confirmButtonKind?: ButtonKind;
   confirmButtonType?: ButtonType;
   formName?: string;
+  hideConfirmButton?: boolean;
 }

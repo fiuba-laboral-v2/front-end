@@ -19,6 +19,7 @@ export const ExportEmails: FunctionComponent<IComponentProps> = ({
     isOpen={isOpen}
     onClose={() => setIsOpen(false)}
     translations={exportEmails ? exportedEmailsTranslation : exportEmailsTranslation}
+    {...(exportEmails && { hideConfirmButton: true })}
     {...(exportEmails && { onConfirmAndClose: () => undefined })}
     {...(!exportEmails && {
       onConfirm: () => {
