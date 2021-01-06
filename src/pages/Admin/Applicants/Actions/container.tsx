@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -10,6 +10,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({
   showFilter,
   setShowFilter
 }) => {
+  const [isExportEmailDialogOpen, setIsExportEmailDialogOpen] = useState(false);
   const history = useHistory();
   const translations = useTranslations<ITranslations>("adminApplicantsActions");
 
@@ -21,10 +22,12 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({
 
   return (
     <Actions
+      isExportEmailDialogOpen={isExportEmailDialogOpen}
+      setIsExportEmailDialogOpen={setIsExportEmailDialogOpen}
       translations={translations}
       showFilter={showFilter}
       onClickFilter={onClickFilter}
-      onClickExportEmails={() => undefined}
+      onClickExportEmails={() => setIsExportEmailDialogOpen(true)}
     />
   );
 };

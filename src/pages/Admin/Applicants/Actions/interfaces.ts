@@ -15,6 +15,8 @@ export interface IContainerProps extends ICommonProps {
 }
 
 export interface IComponentProps extends ICommonProps {
+  isExportEmailDialogOpen: boolean;
+  setIsExportEmailDialogOpen: (isExportEmailDialogOpen: boolean) => void;
   onClickFilter: () => void;
   onClickExportEmails: () => void;
   translations?: ITranslations;
