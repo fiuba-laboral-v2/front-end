@@ -11,6 +11,7 @@ import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
 export const FilterContainer: FunctionComponent<IContainerProps> = ({
+  showFilter,
   filter,
   refetchApplicants
 }) => {
@@ -54,6 +55,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
 
   return (
     <Filter
+      showFilter={showFilter}
       translations={translations}
       onSubmit={onSubmit}
       modelToValues={modelToValues}

@@ -41,6 +41,12 @@ export class ApplicantsFilter extends URLSearchParams {
     return applicantType as ApplicantType | undefined;
   }
 
+  public clear() {
+    this.setCareerCodes(undefined);
+    this.setName(undefined);
+    this.setApplicantType(undefined);
+  }
+
   private setCareerCodes(codes?: string[]) {
     if (codes === undefined || codes === null) return;
     this.set(CAREER_CODES, codes.join(SEPARATOR));

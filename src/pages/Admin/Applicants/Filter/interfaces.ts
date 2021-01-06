@@ -9,7 +9,11 @@ export interface ITranslations {
   submit: string;
 }
 
-export interface IContainerProps {
+interface ICommonProps {
+  showFilter: boolean;
+}
+
+export interface IContainerProps extends ICommonProps {
   filter: ApplicantsFilter;
   refetchApplicants?: (filter: IUseApplicantsFilter) => void;
 }
@@ -21,7 +25,7 @@ export interface IFormValues {
   _form: string;
 }
 
-export interface IComponentProps {
+export interface IComponentProps extends ICommonProps {
   translations?: ITranslations;
   initialValuesModel: ApplicantsFilter;
   modelToValues: (filter?: ApplicantsFilter) => IFormValues;

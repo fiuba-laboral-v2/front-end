@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import { IComponentProps } from "./interfaces";
 
 import { FormFooter } from "$components/FormFooter";
@@ -15,17 +16,19 @@ export const Filter: FunctionComponent<IComponentProps> = ({
   translations,
   initialValuesModel,
   modelToValues,
-  onSubmit
+  onSubmit,
+  showFilter
 }) => (
   <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
     {formikProps => (
       <FormikForm
+        className={classNames(styles.formSection, { [styles.hidden]: !showFilter })}
         formikProps={formikProps}
         id="applicantFilter"
         initialValuesModel={initialValuesModel}
         modelToValues={modelToValues}
       >
-        <FormSection>
+        <FormSection className={classNames(styles.formSection, { [styles.hidden]: !showFilter })}>
           <div className={styles.fields}>
             {translations && (
               <NameField
