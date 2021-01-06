@@ -1,9 +1,9 @@
 import { Secretary } from "../Secretary";
-import { IUser } from "../User";
+import { IFiubaUser } from "../User";
 
 export interface IAdmin {
   uuid: string;
-  user: IUser;
+  user: IFiubaUser;
   secretary: Secretary;
   updatedAt: string;
   createdAt: string;
