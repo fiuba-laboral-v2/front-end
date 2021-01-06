@@ -1,6 +1,8 @@
 import React, { FunctionComponent, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { IApplicant } from "$interfaces/Applicant";
 import { useApplicants } from "$hooks";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ApplicantsFilter } from "$models/ApplicantsFilter";
 
 import { ListPageContainer } from "$components/ListPageContainer";
@@ -12,6 +14,7 @@ import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 
 export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
+  const history = useHistory();
   const [showFilter, setShowFilter] = useState(false);
   const filter = new ApplicantsFilter(searchQuery);
   const response = useApplicants(filter);
@@ -32,7 +35,14 @@ export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) 
       shouldFetchMore={response.data?.getApplicants.shouldFetchMore}
       loading={response.loading}
     >
-      <Button kind="secondary" onClick={() => setShowFilter(!showFilter)}>
+      <Button
+        kind="secondary"
+        onClick={() => {
+          setShowFilter(!showFilter);
+          filter.clear();
+          history.push(RoutesBuilder.admin.applicants({ searchParams: filter.toString() }));
+        }}
+      >
         {showFilter ? "Limpiar filtros" : "Filtros"}
       </Button>
     </ListPageContainer>
