@@ -115,4 +115,19 @@ describe("ApplicantsFilter", () => {
       expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
     });
   });
+
+  describe("clear", () => {
+    it("clears all filters", () => {
+      const applicantsFilter = new ApplicantsFilter();
+      applicantsFilter.setValues({
+        name: "name",
+        careerCodes: ["1"],
+        applicantType: ApplicantType.student
+      });
+      applicantsFilter.clear();
+      expect(applicantsFilter.getCareerCodes()).toBeUndefined();
+      expect(applicantsFilter.getName()).toBeUndefined();
+      expect(applicantsFilter.getApplicantType()).toBeUndefined();
+    });
+  });
 });
