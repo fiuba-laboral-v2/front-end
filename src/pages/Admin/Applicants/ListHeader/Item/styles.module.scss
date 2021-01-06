@@ -3,20 +3,24 @@
 .item {
   @include headerItem;
 
-  &.padron {
-    grid-area: padron;
-  }
-
   &.names {
     grid-area: names;
   }
 
-  &.dni {
-    grid-area: dni;
-  }
-
   &.studies {
     grid-area: studies;
+  }
+
+  &.email {
+    grid-area: email;
+  }
+
+  &.padron {
+    grid-area: padron;
+  }
+
+  &.dni {
+    grid-area: dni;
   }
 
   &.state {
