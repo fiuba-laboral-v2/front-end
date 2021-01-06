@@ -17,6 +17,7 @@ query GetApplicants(
         uuid
         name
         surname
+        email
         dni
       }
       approvalStatus

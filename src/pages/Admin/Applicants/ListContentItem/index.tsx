@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { NumberFormatter } from "$models/NumberFormatter";
 import { IApplicant } from "$interfaces/Applicant";
@@ -12,14 +11,15 @@ import styles from "./styles.module.scss";
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   applicant: {
     uuid,
-    user: { name, surname, dni },
+    user: { name, surname, email, dni },
     padron,
     careers,
     approvalStatus
   }
 }) => (
   <>
-    <p className={classNames(styles.text, styles.names)}>{`${name} ${surname}`}</p>
+    <p className={styles.text}>{`${name} ${surname}`}</p>
+    <p className={styles.text}>{email}</p>
     <div className={styles.careersContainer}>
       <CareersDetail
         className={styles.careers}
