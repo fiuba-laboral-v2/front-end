@@ -44,8 +44,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
         if (!careerCodes) return [];
         return careerCodes.map(careerCode => {
           const career = careers.find(({ code }) => code === careerCode);
-          if (!career) throw new Error(`No career for code: ${careerCode}`);
-          return { code: career.code, description: career.description };
+          return { code: careerCode, description: career?.description || "" };
         });
       };
 
