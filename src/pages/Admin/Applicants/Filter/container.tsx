@@ -8,7 +8,6 @@ import { FormikHelpers } from "formik";
 import { Filter } from "./component";
 
 import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
-import { ApplicantType } from "$interfaces/Applicant";
 
 export const FilterContainer: FunctionComponent<IContainerProps> = ({
   showFilter,
@@ -20,9 +19,16 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   const careers = useCareers();
 
   const onSubmit = useCallback(
-    async ({ _form, ...values }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
+    async (
+      { _form, applicantType, ...values }: IFormValues,
+      { setSubmitting }: FormikHelpers<IFormValues>
+    ) => {
       setSubmitting(false);
-      filter.setValues({ ...values, careerCodes: values.careers.map(({ code }) => code) });
+      filter.setValues({
+        ...values,
+        careerCodes: values.careers.map(({ code }) => code),
+        applicantType: applicantType === "" ? undefined : applicantType
+      });
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
       if (refetchApplicants) refetchApplicants(filter.getValues());
@@ -31,7 +37,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   );
 
   const modelToValues = useCallback(
-    (model?: ApplicantsFilter) => {
+    (model?: ApplicantsFilter): IFormValues => {
       const getCareers = () => {
         const careerCodes = model?.getCareerCodes();
         if (!careers) return [];
@@ -46,7 +52,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       return {
         careers: getCareers(),
         name: model?.getName() || "",
-        applicantType: model?.getApplicantType() || ApplicantType.graduate,
+        applicantType: model?.getApplicantType() || "",
         _form: ""
       };
     },

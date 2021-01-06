@@ -21,7 +21,7 @@ export interface IContainerProps extends ICommonProps {
 export interface IFormValues {
   name: string;
   careers: ICareer[];
-  applicantType: ApplicantType;
+  applicantType: ApplicantType | "";
   _form: string;
 }
 
