@@ -28,6 +28,10 @@ export const ExportEmails: FunctionComponent<IComponentProps> = ({
     })}
   >
     {loading && <LoadingSpinner />}
-    {!loading && exportEmails && <div className={styles.emailsContainer}>{emails}</div>}
+    {!loading && exportEmails && (
+      <span aria-readonly className={styles.emailsContainer}>
+        {emails}
+      </span>
+    )}
   </FormConfirmDialog>
 );
