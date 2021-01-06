@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IApplicant } from "$interfaces/Applicant";
-import { useApplicants } from "$hooks";
+import { useApplicants, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ApplicantsFilter } from "$models/ApplicantsFilter";
 
@@ -15,6 +15,7 @@ import styles from "./styles.module.scss";
 
 export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
   const history = useHistory();
+  const translations = useTranslations<ITranslations>("adminApplicants");
   const [showFilter, setShowFilter] = useState(false);
   const filter = new ApplicantsFilter(searchQuery);
   const response = useApplicants(filter);
@@ -43,7 +44,7 @@ export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) 
           history.push(RoutesBuilder.admin.applicants({ searchParams: filter.toString() }));
         }}
       >
-        {showFilter ? "Limpiar filtros" : "Filtros"}
+        {showFilter ? translations?.cleanFilters : translations?.filters}
       </Button>
     </ListPageContainer>
   );
@@ -51,4 +52,9 @@ export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) 
 
 interface IContainerProps {
   searchQuery: string;
+}
+
+interface ITranslations {
+  cleanFilters: string;
+  filters: string;
 }
