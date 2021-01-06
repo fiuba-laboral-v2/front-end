@@ -37,7 +37,7 @@ export const ActionButton: FunctionComponent<IActionButtonProps> = ({
         </Tooltip>
         <FormConfirmDialog
           isOpen={confirmDialogIsOpen}
-          onConfirmAndClose={onSubmitConfirm}
+          onConfirm={onSubmitConfirm}
           onClose={onCloseConfirmDialog}
           translations={dialogTranslations}
         >

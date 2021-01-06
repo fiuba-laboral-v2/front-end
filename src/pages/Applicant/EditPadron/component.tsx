@@ -45,7 +45,7 @@ export const EditPadron: FunctionComponent<IComponentProps> = ({
         />
         <FormConfirmDialog
           isOpen={confirmDialogIsOpen}
-          onConfirmAndClose={formikProps.submitForm}
+          onConfirm={formikProps.submitForm}
           onClose={() => setConfirmDialogIsOpen(false)}
           translations={confirmDialogTranslations}
         />

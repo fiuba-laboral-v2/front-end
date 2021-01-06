@@ -45,7 +45,8 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
       <FormConfirmDialog
         formName={formName}
         isOpen={confirmDialogIsOpen}
-        {...(!isRejected() && { onConfirmAndClose: () => setStatus(status) })}
+        {...(!isRejected() && { onConfirm: () => setStatus(status) })}
+        closeOnConfirm={!isRejected()}
         onClose={() => setConfirmDialogIsOpen(false)}
         confirmButtonKind={props.kind}
         confirmButtonType="submit"
