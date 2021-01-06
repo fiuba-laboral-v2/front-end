@@ -7,8 +7,8 @@ export interface IContainerProps {
 }
 
 export interface IFormValues {
-  name?: string;
-  careers?: ICareer[];
-  applicantType?: ApplicantType;
+  name: string;
+  careers: ICareer[];
+  applicantType: ApplicantType;
   _form: string;
 }

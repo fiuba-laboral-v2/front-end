@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IFormValues } from "./interfaces";
+import { ApplicantsFilter } from "$models/ApplicantsFilter";
 import { FormikHelpers } from "formik";
 
 import { FormFooter } from "$components/FormFooter";
@@ -12,14 +13,23 @@ import { TargetApplicantTypeSelector } from "$components/TargetApplicantTypeSele
 
 import styles from "./styles.module.scss";
 
-export const Filter: FunctionComponent<IComponentProps> = ({ initialValues, onSubmit }) => (
-  <Formik initialValues={initialValues} onSubmit={onSubmit}>
+export const Filter: FunctionComponent<IComponentProps> = ({
+  initialValuesModel,
+  modelToValues,
+  onSubmit
+}) => (
+  <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
     {formikProps => (
-      <FormikForm formikProps={formikProps} id="applicantFilter">
+      <FormikForm
+        formikProps={formikProps}
+        id="applicantFilter"
+        initialValuesModel={initialValuesModel}
+        modelToValues={modelToValues}
+      >
         <FormSection>
           <div className={styles.fields}>
             <NameField className={styles.field} name="name" label={"NAME"} withoutMargin />
-            <CareerSelector className={styles.field} name="careerCodes" />
+            <CareerSelector className={styles.field} name="careers" />
             <TargetApplicantTypeSelector className={styles.field} name="applicantType" />
           </div>
           <FormFooter
@@ -34,6 +44,7 @@ export const Filter: FunctionComponent<IComponentProps> = ({ initialValues, onSu
 );
 
 interface IComponentProps {
-  initialValues: IFormValues;
+  initialValuesModel: ApplicantsFilter;
+  modelToValues: (filter?: ApplicantsFilter) => IFormValues;
   onSubmit: (values: IFormValues, formikHelpers: FormikHelpers<IFormValues>) => Promise<any>;
 }
