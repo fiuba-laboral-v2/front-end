@@ -10,7 +10,10 @@ import { Filter } from "./component";
 import { IContainerProps, IFormValues } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
-export const FilterContainer: FunctionComponent<IContainerProps> = ({ filter }) => {
+export const FilterContainer: FunctionComponent<IContainerProps> = ({
+  filter,
+  refetchApplicants
+}) => {
   const history = useHistory();
   const careers = useCareers();
 
@@ -19,7 +22,8 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({ filter }) 
       setSubmitting(false);
       filter.setValues({ ...values, careerCodes: values.careers.map(({ code }) => code) });
       const searchParams = filter.toString();
-      return history.push(RoutesBuilder.admin.applicants({ searchParams }));
+      history.push(RoutesBuilder.admin.applicants({ searchParams }));
+      if (refetchApplicants) refetchApplicants(filter.getValues());
     },
     [filter, history]
   );

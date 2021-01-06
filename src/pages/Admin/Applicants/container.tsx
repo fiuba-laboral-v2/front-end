@@ -12,14 +12,14 @@ import styles from "./styles.module.scss";
 
 export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
   const filter = new ApplicantsFilter(searchQuery);
-  const response = useApplicants(filter.getValues());
+  const response = useApplicants(filter);
   const applicants = response?.data?.getApplicants.results;
 
   return (
     <ListPageContainer
       titleTranslationPath={"adminApplicantListMainTitle"}
       listHeader={<ListHeader />}
-      filter={<Filter filter={filter} />}
+      filter={<Filter filter={filter} refetchApplicants={response.refetch} />}
       listContentItem={(applicant: IApplicant) => <ListContentItem applicant={applicant} />}
       listHeaderClassName={styles.tableDisplay}
       rowClassName={styles.tableDisplay}
