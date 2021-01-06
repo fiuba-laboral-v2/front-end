@@ -11,7 +11,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({
   setShowFilter
 }) => {
   const history = useHistory();
-  const translations = useTranslations<ITranslations>("adminApplicants");
+  const translations = useTranslations<ITranslations>("adminApplicantsActions");
 
   const onClickFilter = () => {
     setShowFilter(!showFilter);
