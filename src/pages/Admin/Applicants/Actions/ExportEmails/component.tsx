@@ -3,14 +3,22 @@ import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { IComponentProps } from "./interfaces";
 
 export const ExportEmails: FunctionComponent<IComponentProps> = ({
-  translations,
+  exportEmailsTranslation,
+  exportedEmailsTranslation,
   isOpen,
-  setIsOpen
+  setIsOpen,
+  onConfirm,
+  exportEmails,
+  setExportEmails,
+  emails
 }) => (
   <FormConfirmDialog
     isOpen={isOpen}
-    onConfirm={() => undefined}
     onClose={() => setIsOpen(false)}
-    translations={translations}
-  />
+    translations={exportEmails ? exportedEmailsTranslation : exportEmailsTranslation}
+    {...(exportEmails && { onConfirmAndClose: onConfirm })}
+    {...(!exportEmails && { onConfirm: () => setExportEmails(true) })}
+  >
+    {exportEmails && <div>{emails}</div>}
+  </FormConfirmDialog>
 );

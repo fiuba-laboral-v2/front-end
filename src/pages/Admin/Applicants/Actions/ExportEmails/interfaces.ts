@@ -6,5 +6,10 @@ export interface IContainerProps {
 }
 
 export interface IComponentProps extends IContainerProps {
-  translations?: IConfirmDialogTranslations;
+  exportEmailsTranslation?: IConfirmDialogTranslations;
+  exportedEmailsTranslation?: IConfirmDialogTranslations;
+  onConfirm: () => void;
+  exportEmails: boolean;
+  setExportEmails: (isOpen: boolean) => void;
+  emails: string;
 }

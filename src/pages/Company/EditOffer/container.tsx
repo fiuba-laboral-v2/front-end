@@ -61,7 +61,7 @@ export const EditOfferContainer: FunctionComponent = () => {
           />
           <FormConfirmDialog
             isOpen={confirmDialogIsOpen}
-            onConfirm={submitForm}
+            onConfirmAndClose={submitForm}
             onClose={() => setConfirmDialogIsOpen(false)}
             translations={translations}
           />
