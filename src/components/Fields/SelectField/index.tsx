@@ -67,7 +67,7 @@ interface ISelectFieldProps<Value> {
   title: string;
 }
 
-interface ISelectFieldOption<Value> {
+export interface ISelectFieldOption<Value> {
   label: string;
   value: Value;
 }

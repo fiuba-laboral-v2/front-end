@@ -1,7 +1,14 @@
-export interface IContainerProps {
+import { ApplicantType } from "$interfaces/Applicant";
+import { ISelectFieldOption } from "$components/Fields/SelectField";
+
+interface ICommonProps {
   mandatory?: boolean;
   name?: string;
   className?: string;
+}
+
+export interface IContainerProps extends ICommonProps {
+  excludedOptions?: ApplicantType[];
 }
 
 export interface ITranslations {
@@ -11,6 +18,7 @@ export interface ITranslations {
   both: string;
 }
 
-export interface IComponentProps extends IContainerProps {
+export interface IComponentProps extends ICommonProps {
   translations: ITranslations;
+  options: Array<ISelectFieldOption<ApplicantType>>;
 }

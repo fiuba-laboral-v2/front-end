@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
@@ -9,16 +8,14 @@ export const TargetApplicantTypeSelector: FunctionComponent<IComponentProps> = (
   className,
   translations,
   mandatory,
-  name
+  name,
+  options
 }) => (
   <SelectField
     className={className}
     mandatory={mandatory}
     fieldName={name || DEFAULT_NAME}
-    options={targetApplicantTypeEnumValues.map(option => ({
-      label: translations[option],
-      value: option
-    }))}
+    options={options}
     title={translations.title}
   />
 );

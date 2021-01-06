@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
+import { ApplicantType } from "$interfaces/Applicant";
 import { IComponentProps } from "./interfaces";
 
 import { FormFooter } from "$components/FormFooter";
@@ -39,7 +40,11 @@ export const Filter: FunctionComponent<IComponentProps> = ({
               />
             )}
             <CareerSelector className={styles.careers} name="careers" />
-            <TargetApplicantTypeSelector className={styles.applicantType} name="applicantType" />
+            <TargetApplicantTypeSelector
+              className={styles.applicantType}
+              name="applicantType"
+              excludedOptions={[ApplicantType.both]}
+            />
           </div>
           <FormFooter
             isSubmitting={formikProps.isSubmitting}
