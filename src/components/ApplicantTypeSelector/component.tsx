@@ -2,8 +2,6 @@ import React, { FunctionComponent } from "react";
 import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
-const DEFAULT_NAME = "targetApplicantType";
-
 export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
   className,
   translations,
@@ -14,7 +12,7 @@ export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
   <SelectField
     className={className}
     mandatory={mandatory}
-    fieldName={name || DEFAULT_NAME}
+    fieldName={name}
     options={options}
     title={translations.title}
   />
