@@ -5,7 +5,7 @@ import { ApplicantType } from "$interfaces/Applicant";
 const SEPARATOR = "-";
 const CAREER_CODES = "carreras";
 const NAME = "nombre";
-const APPLICANT_TYPE = "tipo_de_postulante";
+const APPLICANT_TYPE = "tipo-de-postulante";
 const VALID_APPLICANT_TYPES = [ApplicantType.student, ApplicantType.graduate];
 
 export class ApplicantsFilter extends URLSearchParams {

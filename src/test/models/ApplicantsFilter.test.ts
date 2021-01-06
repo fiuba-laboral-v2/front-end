@@ -53,17 +53,17 @@ describe("ApplicantsFilter", () => {
 
   describe("getApplicantType", () => {
     it("returns student applicantType from url search params", () => {
-      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=student");
+      const applicantsFilter = new ApplicantsFilter("tipo-de-postulante=student");
       expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.student);
     });
 
     it("returns graduate applicantType from url search params", () => {
-      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=graduate");
+      const applicantsFilter = new ApplicantsFilter("tipo-de-postulante=graduate");
       expect(applicantsFilter.getApplicantType()).toEqual(ApplicantType.graduate);
     });
 
     it("returns null empty when no name is set", () => {
-      const applicantsFilter = new ApplicantsFilter("tipo_de_postulante=&asd=qwe");
+      const applicantsFilter = new ApplicantsFilter("tipo-de-postulante=&asd=qwe");
       expect(applicantsFilter.getApplicantType()).toBeUndefined();
     });
 
