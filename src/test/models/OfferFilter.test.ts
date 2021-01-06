@@ -7,7 +7,7 @@ describe("OfferFilter", () => {
       expect(offerFilter.careerCodes()).toEqual(["1", "2", "3"]);
     });
 
-    it("gives an empty array when no carrer is set", () => {
+    it("gives an empty array when no career is set", () => {
       const offerFilter = new OfferFilter("carreras=&asd=qwe");
       expect(offerFilter.careerCodes()).toEqual([]);
     });

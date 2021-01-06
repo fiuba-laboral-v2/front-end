@@ -1,11 +1,20 @@
-import { usePaginatedQuery } from "$hooks";
+import { IVariables, usePaginatedQuery } from "$hooks";
+import { ApplicantsFilter } from "$models/ApplicantsFilter";
 import { GET_APPLICANTS } from "$queries";
-import { IApplicant } from "$interfaces/Applicant";
+import { ApplicantType, IApplicant } from "$interfaces/Applicant";
 
-export const useApplicants = () =>
-  usePaginatedQuery<{}, IApplicant>({
+export const useApplicants = (filter: ApplicantsFilter) =>
+  usePaginatedQuery<IApplicantsVariables, IApplicant>({
     documentNode: GET_APPLICANTS,
     queryName: "getApplicants",
-    variables: {},
+    variables: filter.getValues(),
     timestampKey: "updatedAt"
   });
+
+type IApplicantsVariables = IVariables & IUseApplicantsFilter;
+
+export interface IUseApplicantsFilter {
+  name?: string;
+  careerCodes?: string[];
+  applicantType?: ApplicantType;
+}

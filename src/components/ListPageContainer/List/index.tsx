@@ -5,6 +5,7 @@ import { ListContent } from "./ListContent";
 import { ListableReactNodes, Listable } from "../interfaces";
 
 export const List: FunctionComponent<IListProps> = ({
+  className,
   headerClassName,
   listHeader,
   listContentItem,
@@ -14,7 +15,7 @@ export const List: FunctionComponent<IListProps> = ({
   shouldFetchMore,
   loading
 }) => (
-  <ListContainer>
+  <ListContainer className={className}>
     <ListHeader className={headerClassName}>{listHeader}</ListHeader>
     <ListContent
       items={items}
@@ -32,6 +33,7 @@ interface IListProps {
   listHeader: ReactNode;
   listContentItem: ListableReactNodes;
   items: Listable[];
+  className?: string;
   headerClassName: string;
   rowClassName: string;
   fetchMore?: () => void;

@@ -18,7 +18,8 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
   fetchMore,
   shouldFetchMore,
   loading,
-  children
+  children,
+  filter
 }) => (
   <Window loading={!items} width="fullWidth" desktopOnly>
     <MainContainer>
@@ -27,16 +28,34 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
         {title && <Header className={styles.title} title={title || ""} />}
         <div className={styles.children}>{children}</div>
       </div>
-      <List
-        headerClassName={listHeaderClassName}
-        rowClassName={rowClassName}
-        listHeader={listHeader}
-        listContentItem={listContentItem}
-        items={items || []}
-        fetchMore={fetchMore}
-        shouldFetchMore={shouldFetchMore}
-        loading={loading}
-      />
+      {filter && (
+        <div className={styles.container}>
+          <div className={styles.filter}>{filter}</div>
+          <List
+            className={styles.list}
+            headerClassName={listHeaderClassName}
+            rowClassName={rowClassName}
+            listHeader={listHeader}
+            listContentItem={listContentItem}
+            items={items || []}
+            fetchMore={fetchMore}
+            shouldFetchMore={shouldFetchMore}
+            loading={loading}
+          />
+        </div>
+      )}
+      {!filter && (
+        <List
+          headerClassName={listHeaderClassName}
+          rowClassName={rowClassName}
+          listHeader={listHeader}
+          listContentItem={listContentItem}
+          items={items || []}
+          fetchMore={fetchMore}
+          shouldFetchMore={shouldFetchMore}
+          loading={loading}
+        />
+      )}
     </MainContainer>
   </Window>
 );
@@ -44,6 +63,7 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
 interface IListPageContainer {
   title?: string;
   titleTranslationPath: string;
+  filter?: ReactNode;
   listHeader: ReactNode;
   listContentItem: ListableReactNodes;
   items?: Listable[];

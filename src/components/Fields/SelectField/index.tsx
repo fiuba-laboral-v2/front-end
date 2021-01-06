@@ -61,13 +61,13 @@ export const SelectField = <Value extends IBaseValue>({
 interface ISelectFieldProps<Value> {
   className?: string;
   helperText?: string;
-  mandatory: boolean;
+  mandatory?: boolean;
   fieldName: string;
   options: Array<ISelectFieldOption<Value>>;
   title: string;
 }
 
-interface ISelectFieldOption<Value> {
+export interface ISelectFieldOption<Value> {
   label: string;
   value: Value;
 }
