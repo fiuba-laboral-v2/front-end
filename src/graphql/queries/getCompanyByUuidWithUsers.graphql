@@ -4,6 +4,7 @@ query getCompanyByUuidWithUsers($uuid: ID!) {
     cuit
     companyName
     businessName
+    businessSector
     slogan
     description
     logo
