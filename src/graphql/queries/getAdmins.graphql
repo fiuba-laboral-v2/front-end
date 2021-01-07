@@ -11,6 +11,7 @@ query getAdmins($updatedBeforeThan: PaginatedInput) {
         email
         name
         surname
+        dni
       }
     }
   }
