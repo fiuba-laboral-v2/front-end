@@ -1,0 +1,9 @@
+@import "$styles/_variables";
+
+.actions {
+  display: flex;
+}
+
+.exportEmails {
+  margin-right: $spacing-s;
+}

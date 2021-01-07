@@ -1,0 +1,3 @@
+query GetApplicantEmails($careerCodes: [String], $applicantType: ApplicantType, $name: String) {
+  getApplicantEmails(careerCodes: $careerCodes, applicantType: $applicantType, name: $name)
+}
