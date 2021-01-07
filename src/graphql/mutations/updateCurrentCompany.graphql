@@ -1,5 +1,6 @@
 mutation(
-  $companyName: String
+  $companyName: String!
+  $businessSector: String!
   $slogan: String
   $description: String
   $logo: String
@@ -10,6 +11,7 @@ mutation(
 ) {
   updateCurrentCompany(
     companyName: $companyName
+    businessSector: $businessSector
     slogan: $slogan
     description: $description
     logo: $logo
@@ -21,6 +23,7 @@ mutation(
     uuid
     cuit
     companyName
+    businessSector
     slogan
     description
     logo

@@ -2,6 +2,7 @@ export interface ITranslations {
   companyName: string;
   slogan: string;
   description: string;
+  businessSector: string;
 }
 
 export interface IContainerProps {

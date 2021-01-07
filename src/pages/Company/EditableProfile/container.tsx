@@ -28,7 +28,8 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const modelToValues = useCallback((model?: ICompany) => {
     const values: IEditableProfileFormValues = {
       uuid: model?.uuid || "",
-      companyName: model?.companyName,
+      companyName: model?.companyName || "",
+      businessSector: model?.businessSector || "",
       slogan: model?.slogan,
       description: model?.description,
       logo: model?.logo,
