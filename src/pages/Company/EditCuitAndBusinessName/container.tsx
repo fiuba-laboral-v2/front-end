@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import {
   useTranslations,
-  useUpdateCuitAndBusinessName,
+  useUpdateCompanyCriticalAttributes,
   useMyCompanyProfile,
   useSnackbar
 } from "$hooks";
@@ -22,7 +22,7 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const company = useMyCompanyProfile();
-  const { updateCuitAndBusinessName } = useUpdateCuitAndBusinessName();
+  const { updateCompanyCriticalAttributes } = useUpdateCompanyCriticalAttributes();
   const translations = useTranslations<ITranslations>("editCuitAndBusinessName");
   const confirmDialogTranslations = useTranslations<IConfirmDialogTranslations>(
     "editCuitAndBusinessNameConfirmDialog"
@@ -30,24 +30,25 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
 
   const onSubmit = useCallback(
     async (
-      { cuit, businessName }: IFormValues,
+      { _form, ...variables }: IFormValues,
       { setSubmitting, setErrors }: FormikHelpers<IFormValues>
     ) => {
-      const result = await updateCuitAndBusinessName({
-        variables: { cuit, businessName },
+      const result = await updateCompanyCriticalAttributes({
+        variables,
         errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
       });
       if (result.error) return;
       setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
-    [history, updateCuitAndBusinessName, enqueueSnackbar]
+    [history, updateCompanyCriticalAttributes, enqueueSnackbar]
   );
 
   const modelToValues = useCallback(
     (model?: ICompany) => ({
       cuit: model?.cuit || "NaN",
       businessName: model?.businessName || "",
+      hasAnInternshipAgreement: model?.hasAnInternshipAgreement || false,
       _form: ""
     }),
     []

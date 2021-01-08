@@ -9,4 +9,5 @@ export interface ITranslations {
   submit: string;
   cuit: string;
   businessName: string;
+  hasAnInternshipAgreement: string;
 }
