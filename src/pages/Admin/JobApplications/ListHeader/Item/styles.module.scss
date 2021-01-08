@@ -7,16 +7,12 @@
     grid-area: companyName;
   }
 
-  &.cuit {
-    grid-area: cuit;
+  &.offerTitle {
+    grid-area: offerTitle;
   }
 
   &.applicantName {
     grid-area: applicantName;
-  }
-
-  &.padron {
-    grid-area: padron;
   }
 
   &.approvalStatus {

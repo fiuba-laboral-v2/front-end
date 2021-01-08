@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IJobApplication } from "$interfaces/JobApplication";
 import { TimeFormatter } from "$models/TimeFormatter";
-import { NumberFormatter } from "$models/NumberFormatter";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { SharedStatusLabel } from "$components/SharedStatusLabel";
@@ -13,7 +12,6 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
   jobApplication: {
     uuid,
     applicant: {
-      padron,
       user: { name, surname }
     },
     offer,
@@ -23,9 +21,8 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
 }) => (
   <>
     <p className={styles.text}>{offer().company.companyName}</p>
-    <p className={styles.text}>{NumberFormatter.formatCuit(offer().company.cuit)}</p>
+    <p className={styles.text}>{offer().title}</p>
     <p className={styles.text}>{`${name} ${surname}`}</p>
-    <p className={styles.text}>{padron}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
     </div>
