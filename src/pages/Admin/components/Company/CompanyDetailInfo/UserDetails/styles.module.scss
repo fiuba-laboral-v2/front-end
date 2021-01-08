@@ -6,7 +6,26 @@
 
 .firstRow {
   display: flex;
-  justify-content: space-between;
+}
+
+.firstRowItem,
+.businessSector {
+  flex-shrink: 0;
+}
+
+.businessSectorValue {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+}
+
+.email {
+  margin-bottom: $spacing-s;
+}
+
+.withoutMarginBottom {
+  margin-bottom: 0;
 }
 
 @media (max-width: $largeLaptopWidth) {

@@ -13,8 +13,9 @@ import { Form } from "$components/Form";
 import { CuitField, TextField } from "$components/Fields";
 
 import styles from "./styles.module.scss";
+import { CheckboxInput } from "../../../components/CheckboxInput";
 
-export const EditCuitAndBusinessName: FunctionComponent<IComponentProps> = ({
+export const EditCriticalAttributes: FunctionComponent<IComponentProps> = ({
   modelToValues,
   onSubmit,
   initialValuesModel,
@@ -35,6 +36,13 @@ export const EditCuitAndBusinessName: FunctionComponent<IComponentProps> = ({
             <FormSection className={styles.formSection}>
               <TextField name="businessName" label={translations.businessName} mandatory />
               <CuitField mandatory name="cuit" label={translations.cuit} withoutMargin />
+              <CheckboxInput
+                label={translations.hasAnInternshipAgreement}
+                labelPosition="right"
+                checked={formikProps.values.hasAnInternshipAgreement}
+                name="hasAnInternshipAgreement"
+                withoutLeftPadding
+              />
             </FormSection>
           )}
         </FormikForm>

@@ -1,0 +1,16 @@
+mutation UpdateCompanyCriticalAttributes(
+  $cuit: String!
+  $businessName: String!
+  $hasAnInternshipAgreement: Boolean!
+) {
+  updateCompanyCriticalAttributes(
+    cuit: $cuit
+    businessName: $businessName
+    hasAnInternshipAgreement: $hasAnInternshipAgreement
+  ) {
+    uuid
+    cuit
+    businessName
+    hasAnInternshipAgreement
+  }
+}

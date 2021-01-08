@@ -124,7 +124,7 @@ export const RoutesBuilder = {
 
     passwordRecoveryExplanation: () => companyRoute(PASSWORD, RECOVER, EXPLANATION),
 
-    editCuitAndBusinessName: () => companyRoute(PROFILE, SENSITIVE_FIELDS, EDIT)
+    editCriticalAttributes: () => companyRoute(PROFILE, SENSITIVE_FIELDS, EDIT)
   },
 
   public: {

@@ -7,6 +7,7 @@ export interface ICompany<T extends IUser | undefined = undefined> {
   companyName: string;
   businessName: string;
   businessSector: string;
+  hasAnInternshipAgreement: boolean;
   slogan?: string;
   description?: string;
   logo?: string;

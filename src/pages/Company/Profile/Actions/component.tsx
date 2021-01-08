@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 export const Actions: FunctionComponent<IComponentProps> = ({
   translations,
   editLink,
-  editCuitAndBusinessNameLink,
+  editCriticalAttributesLink,
   className
 }) => (
   <div className={classNames(styles.actionsContainer, className)}>
@@ -15,11 +15,11 @@ export const Actions: FunctionComponent<IComponentProps> = ({
       {translations?.edit}
     </Button>
     <Button
-      className={styles.editCuitAndBusinessNameLink}
+      className={styles.editCriticalAttributesLink}
       kind="secondary"
-      link={editCuitAndBusinessNameLink}
+      link={editCriticalAttributesLink}
     >
-      {translations?.editCuitAndBusinessName}
+      {translations?.editCriticalAttributes}
     </Button>
     <div className={styles.separator} />
   </div>

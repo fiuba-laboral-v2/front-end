@@ -11,12 +11,20 @@
     grid-area: businessName;
   }
 
+  &.businessSector {
+    grid-area: businessSector;
+  }
+
   &.cuit {
     grid-area: cuit;
   }
 
   &.updatedAt {
     grid-area: updatedAt;
+  }
+
+  &.hasAnInternshipAgreement {
+    grid-area: hasAnInternshipAgreement;
   }
 
   &.state {

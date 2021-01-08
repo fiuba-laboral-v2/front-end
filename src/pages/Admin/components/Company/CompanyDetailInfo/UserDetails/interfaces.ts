@@ -12,4 +12,6 @@ export interface IUserDetailsProps extends IUserDetailsContainerProps {
 
 export interface IAdminCompanyDetails {
   cuit: string;
+  hasAnInternshipAgreement: string;
+  businessSector: string;
 }
