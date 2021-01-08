@@ -9,6 +9,7 @@ mutation SaveAdmin($user: UserInput!, $secretary: Secretary!) {
       email
       name
       surname
+      dni
     }
   }
 }
