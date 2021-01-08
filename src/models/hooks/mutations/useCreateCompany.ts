@@ -17,6 +17,7 @@ export interface ICreateCompany {
   companyName: string;
   businessName: string;
   businessSector: string;
+  hasAnInternshipAgreement: boolean;
   slogan?: string;
   description?: string;
   logo?: string;

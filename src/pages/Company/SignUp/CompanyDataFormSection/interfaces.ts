@@ -5,11 +5,13 @@ export interface ITranslations {
   description: string;
   businessName: string;
   businessSector: string;
+  hasAnInternshipAgreement: string;
   cuit: string;
 }
 
 export interface IContainerProps {
   className?: string;
+  hasAnInternshipAgreementValue: boolean;
 }
 
 export interface IComponentProps extends IContainerProps {

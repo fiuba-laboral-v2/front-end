@@ -62,6 +62,7 @@ export const SignUpContainer: FunctionComponent = () => {
           companyName: "",
           businessName: "",
           businessSector: "",
+          hasAnInternshipAgreement: false,
           cuit: "",
           email: "",
           slogan: "",

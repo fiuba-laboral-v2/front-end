@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
 import { NameField, CuitField, TextField } from "$components/Fields";
 import { FormSection } from "$components/FormSection";
+import { CheckboxInput } from "$components/CheckboxInput";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
   className,
-  translations
+  translations,
+  hasAnInternshipAgreementValue
 }) => (
   <FormSection className={className} title={translations.title}>
     <NameField
@@ -33,5 +35,12 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
         withoutMargin
       />
     </div>
+    <CheckboxInput
+      label={translations.hasAnInternshipAgreement}
+      labelPosition="right"
+      checked={hasAnInternshipAgreementValue}
+      name="hasAnInternshipAgreement"
+      withoutLeftPadding
+    />
   </FormSection>
 );

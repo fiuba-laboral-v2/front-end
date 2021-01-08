@@ -32,10 +32,13 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
       }}
       onSubmit={onSubmit}
     >
-      {({ isSubmitting, errors }) => (
+      {({ isSubmitting, errors, values: { hasAnInternshipAgreement } }) => (
         <FormikForm id={formName} hidden={hidden}>
           <UserDataFormSection className={styles.formSection} />
-          <CompanyDataFormSection className={styles.formSection} />
+          <CompanyDataFormSection
+            hasAnInternshipAgreementValue={hasAnInternshipAgreement}
+            className={styles.formSection}
+          />
           <ContactInformationFormSection className={styles.formSection} />
           <FormFooter
             isSubmitting={isSubmitting}

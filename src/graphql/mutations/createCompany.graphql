@@ -4,6 +4,7 @@ mutation createCompany(
   $companyName: String!
   $businessName: String!
   $businessSector: String!
+  $hasAnInternshipAgreement: Boolean!
   $slogan: String
   $description: String
   $logo: String
@@ -18,6 +19,7 @@ mutation createCompany(
     companyName: $companyName
     businessName: $businessName
     businessSector: $businessSector
+    hasAnInternshipAgreement: $hasAnInternshipAgreement
     slogan: $slogan
     description: $description
     logo: $logo
@@ -29,6 +31,9 @@ mutation createCompany(
     uuid
     cuit
     companyName
+    businessName
+    businessSector
+    hasAnInternshipAgreement
     slogan
     description
     logo
