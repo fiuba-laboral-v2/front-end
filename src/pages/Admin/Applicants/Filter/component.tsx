@@ -45,6 +45,7 @@ export const Filter: FunctionComponent<IComponentProps> = ({
           />
           <FormFooter
             className={styles.formFooter}
+            submitButtonClassName={styles.submitButton}
             isSubmitting={formikProps.isSubmitting}
             submitButtonText={translations?.submit}
             errors={formikProps.errors}
