@@ -19,9 +19,21 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
 }) => (
   <div className={styles.userDetails} hidden={hidden}>
     <div className={styles.firstRow}>
-      <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
-      <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
-      <TaskHeaderInfo title={translations?.businessSector} value={businessSector} />
+      <TaskHeaderInfo
+        className={styles.firstRowItem}
+        value={`${name} ${surname}`}
+        Icon={PersonOutlinedIcon}
+      />
+      <TaskHeaderInfo
+        className={styles.firstRowItem}
+        title={translations?.cuit}
+        value={NumberFormatter.formatCuit(cuit)}
+      />
+      <TaskHeaderInfo
+        className={styles.firstRowItem}
+        title={translations?.businessSector}
+        value={businessSector}
+      />
     </div>
     <TaskHeaderInfo
       className={classNames(styles.email, {

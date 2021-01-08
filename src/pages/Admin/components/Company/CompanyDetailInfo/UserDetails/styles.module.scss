@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.firstRowItem {
+  flex-shrink: 0;
+}
+
 .email {
   margin-bottom: $spacing-s;
 }
