@@ -5,7 +5,7 @@ import { useShowSuccess, useSnackbar, useTranslations } from "$hooks";
 import { IApplyButtonContainerProps, ITranslations } from "./interface";
 import { ApplyButton } from "./component";
 import { useSaveJobApplication } from "$hooks/mutations/useSaveJobApplication";
-import { saveJobApplicationErrorHandlers } from "$errorhandlers";
+import { saveJobApplicationErrorHandlers } from "$errorHandlers/saveJobApplicationErrorHandlers";
 
 export const ApplyButtonContainer: FunctionComponent<IApplyButtonContainerProps> = ({ offer }) => {
   const showSuccess = useShowSuccess();
