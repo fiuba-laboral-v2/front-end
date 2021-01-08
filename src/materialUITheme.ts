@@ -48,6 +48,11 @@ export const MaterialUITheme = createMuiTheme({
         color: "#767676"
       }
     },
+    MuiSelect: {
+      root: {
+        marginTop: "-0.5px"
+      }
+    },
     MuiInput: {
       input: {
         "min-height": "22px"

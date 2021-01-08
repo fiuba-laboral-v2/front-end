@@ -1,15 +1,15 @@
 @import "$styles/_variables";
 
+.titleAndFilterContainer {
+  margin-bottom: $spacing-m;
+}
+
 .titleContainer {
   display: flex;
 }
 
-.titleAndFilterContainer {
-  background-color: $lighterGrey;
-  border-radius: $borderRadius-m;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
-  margin: -#{$spacing-m} -#{$spacing-m} $spacing-m;
-  padding: $spacing-m;
+.filterContainer {
+  margin: $spacing-m 0 0;
 }
 
 .title {

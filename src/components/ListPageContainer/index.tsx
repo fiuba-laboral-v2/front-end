@@ -29,7 +29,7 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
           {title && <Header className={styles.title} title={title || ""} />}
           <div className={styles.children}>{children}</div>
         </div>
-        <div>{filter}</div>
+        <div className={styles.filterContainer}>{filter}</div>
       </div>
       {filter && (
         <div className={styles.container}>
