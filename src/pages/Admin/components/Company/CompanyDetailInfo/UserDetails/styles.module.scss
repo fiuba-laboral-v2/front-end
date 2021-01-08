@@ -6,7 +6,6 @@
 
 .firstRow {
   display: flex;
-  max-width: 100%;
 }
 
 .firstRowItem,
@@ -18,7 +17,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 400px;
+  width: 300px;
 }
 
 .email {
