@@ -5,6 +5,7 @@ query getCompanyByUuidWithUsers($uuid: ID!) {
     companyName
     businessName
     businessSector
+    hasAnInternshipAgreement
     slogan
     description
     logo
