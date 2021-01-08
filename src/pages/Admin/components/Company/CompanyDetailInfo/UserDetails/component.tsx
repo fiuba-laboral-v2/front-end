@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import classNames from "classnames";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { TaskHeaderInfo } from "../../../TaskHeaderInfo";
@@ -8,8 +9,9 @@ import styles from "./styles.module.scss";
 import { NumberFormatter } from "$models/NumberFormatter";
 
 export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
-  company: { cuit, users: [{ email, name, surname }] } = {
+  company: { cuit, businessSector, hasAnInternshipAgreement, users: [{ email, name, surname }] } = {
     cuit: "",
+    businessSector: "",
     users: [{ email: "", name: "", surname: "" }]
   },
   translations,
@@ -19,7 +21,17 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
     <div className={styles.firstRow}>
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
       <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
+      <TaskHeaderInfo title={translations?.businessSector} value={businessSector} />
     </div>
-    <TaskHeaderInfo value={email} Icon={EmailOutlinedIcon} />
+    <TaskHeaderInfo
+      className={classNames(styles.email, {
+        [styles.withoutMarginBottom]: !hasAnInternshipAgreement
+      })}
+      value={email}
+      Icon={EmailOutlinedIcon}
+    />
+    {hasAnInternshipAgreement && (
+      <TaskHeaderInfo value={translations?.hasAnInternshipAgreement || ""} />
+    )}
   </div>
 );

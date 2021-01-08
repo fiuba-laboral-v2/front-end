@@ -9,6 +9,14 @@
   justify-content: space-between;
 }
 
+.email {
+  margin-bottom: $spacing-s;
+}
+
+.withoutMarginBottom {
+  margin-bottom: 0;
+}
+
 @media (max-width: $largeLaptopWidth) {
   .firstRow {
     flex-direction: column;
