@@ -21,6 +21,7 @@ export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
 }) => (
   <>
     <p className={styles.text}>{offer().company.companyName}</p>
+    <p className={styles.text}>{offer().title}</p>
     <p className={styles.text}>{`${name} ${surname}`}</p>
     <div className={styles.statusContainer}>
       <SharedStatusLabel status={approvalStatus} withTooltip type="large" />
