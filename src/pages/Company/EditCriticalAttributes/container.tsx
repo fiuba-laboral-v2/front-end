@@ -8,7 +8,7 @@ import {
   useSnackbar
 } from "$hooks";
 
-import { EditCuitAndBusinessName } from "./component";
+import { EditCriticalAttributes } from "./component";
 import { Window } from "$components/Window";
 import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog";
 
@@ -17,7 +17,7 @@ import { ICompany } from "$interfaces/Company";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$models/errorHandlers";
 
-export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
+export const EditCriticalAttributesContainer: FunctionComponent = () => {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -58,7 +58,7 @@ export const EditCuitAndBusinessNameContainer: FunctionComponent = () => {
 
   return (
     <Window loading={loading}>
-      <EditCuitAndBusinessName
+      <EditCriticalAttributes
         confirmDialogIsOpen={confirmDialogIsOpen}
         setConfirmDialogIsOpen={setConfirmDialogIsOpen}
         translations={translations}

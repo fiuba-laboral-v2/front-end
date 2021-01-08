@@ -15,7 +15,7 @@ import { CuitField, TextField } from "$components/Fields";
 import styles from "./styles.module.scss";
 import { CheckboxInput } from "../../../components/CheckboxInput";
 
-export const EditCuitAndBusinessName: FunctionComponent<IComponentProps> = ({
+export const EditCriticalAttributes: FunctionComponent<IComponentProps> = ({
   modelToValues,
   onSubmit,
   initialValuesModel,
