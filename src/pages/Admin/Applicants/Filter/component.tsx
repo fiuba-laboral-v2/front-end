@@ -6,7 +6,6 @@ import { IComponentProps } from "./interfaces";
 import { FormFooter } from "$components/FormFooter";
 import { Formik } from "$components/Formik";
 import { FormikForm } from "$components/FormikForm";
-import { FormSection } from "$components/FormSection";
 import { NameField } from "$components/Fields";
 import { CareerSelector } from "$components/CareerSelector";
 import { ApplicantTypeSelector } from "$components/ApplicantTypeSelector";
@@ -23,36 +22,34 @@ export const Filter: FunctionComponent<IComponentProps> = ({
   <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
     {formikProps => (
       <FormikForm
-        className={classNames(styles.formSection, { [styles.hidden]: !showFilter })}
+        className={classNames({ [styles.hidden]: !showFilter })}
         formikProps={formikProps}
         id="applicantFilter"
         initialValuesModel={initialValuesModel}
         modelToValues={modelToValues}
       >
-        <FormSection className={classNames(styles.formSection, { [styles.hidden]: !showFilter })}>
-          <div className={styles.fields}>
-            {translations && (
-              <NameField
-                className={styles.name}
-                name="name"
-                label={translations.name}
-                withoutMargin
-              />
-            )}
-            <CareerSelector className={styles.careers} name="careers" />
-            <ApplicantTypeSelector
-              className={styles.applicantType}
-              name="applicantType"
-              excludedOptions={[ApplicantType.both]}
+        <div className={classNames(styles.fields, { [styles.hidden]: !showFilter })}>
+          {translations && (
+            <NameField
+              className={styles.name}
+              name="name"
+              label={translations.name}
+              withoutMargin
             />
-            <FormFooter
-              className={styles.formFooter}
-              isSubmitting={formikProps.isSubmitting}
-              submitButtonText={translations?.submit}
-              errors={formikProps.errors}
-            />
-          </div>
-        </FormSection>
+          )}
+          <CareerSelector className={styles.careers} name="careers" />
+          <ApplicantTypeSelector
+            className={styles.applicantType}
+            name="applicantType"
+            excludedOptions={[ApplicantType.both]}
+          />
+          <FormFooter
+            className={styles.formFooter}
+            isSubmitting={formikProps.isSubmitting}
+            submitButtonText={translations?.submit}
+            errors={formikProps.errors}
+          />
+        </div>
       </FormikForm>
     )}
   </Formik>

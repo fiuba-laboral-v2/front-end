@@ -4,6 +4,14 @@
   display: flex;
 }
 
+.titleAndFilterContainer {
+  background-color: $lighterGrey;
+  border-radius: $borderRadius-m;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+  margin: -#{$spacing-m} -#{$spacing-m} $spacing-m;
+  padding: $spacing-m;
+}
+
 .title {
   flex-grow: 1;
 }
@@ -19,8 +27,4 @@
 
 .list {
   height: fit-content;
-}
-
-.filter {
-  margin-bottom: $spacing-xl;
 }
