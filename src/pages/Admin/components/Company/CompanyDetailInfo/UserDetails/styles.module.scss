@@ -6,11 +6,19 @@
 
 .firstRow {
   display: flex;
-  justify-content: space-between;
+  max-width: 100%;
 }
 
-.firstRowItem {
+.firstRowItem,
+.businessSector {
   flex-shrink: 0;
+}
+
+.businessSectorValue {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 400px;
 }
 
 .email {

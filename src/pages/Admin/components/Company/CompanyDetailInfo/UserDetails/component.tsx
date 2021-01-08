@@ -30,7 +30,8 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
         value={NumberFormatter.formatCuit(cuit)}
       />
       <TaskHeaderInfo
-        className={styles.firstRowItem}
+        valueClassName={styles.businessSectorValue}
+        className={styles.businessSector}
         title={translations?.businessSector}
         value={businessSector}
       />
