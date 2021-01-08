@@ -10,7 +10,8 @@ export const useUpdateCurrentCompany = () => {
 
 export interface IUpdateCurrentCompanyVariables {
   uuid: string;
-  companyName?: string;
+  companyName: string;
+  businessSector: string;
   slogan?: string;
   description?: string;
   logo?: string;

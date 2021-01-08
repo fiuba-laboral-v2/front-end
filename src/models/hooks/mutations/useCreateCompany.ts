@@ -16,6 +16,7 @@ export interface ICreateCompany {
   cuit: string;
   companyName: string;
   businessName: string;
+  businessSector: string;
   slogan?: string;
   description?: string;
   logo?: string;

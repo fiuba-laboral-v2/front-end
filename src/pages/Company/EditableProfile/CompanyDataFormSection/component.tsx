@@ -20,5 +20,6 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
     <NameField mandatory name="companyName" label={translations.companyName} withoutMargin />
     <TextField name="slogan" label={translations.slogan} />
     <TextField withoutMargin name="description" label={translations.description} />
+    <TextField withoutMargin name="businessSector" label={translations.businessSector} />
   </FormSection>
 );

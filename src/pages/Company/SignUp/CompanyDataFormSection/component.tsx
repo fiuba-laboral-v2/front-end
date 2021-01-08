@@ -15,8 +15,9 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       name="companyName"
       label={translations.companyName}
     />
-    <TextField className={styles.slogan} name="slogan" label={translations.slogan} />
-    <TextField className={styles.description} name="description" label={translations.description} />
+    <TextField name="slogan" label={translations.slogan} />
+    <TextField name="description" label={translations.description} />
+    <TextField name="businessSector" label={translations.businessSector} />
     <div className={styles.lastRow}>
       <TextField
         className={styles.businessName}

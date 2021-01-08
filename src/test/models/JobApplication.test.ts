@@ -17,6 +17,7 @@ describe("JobApplication", () => {
       logo: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD",
       uuid: "2005b62f-359b-4218-a673-e325fb4a06ef",
       businessName: "businessName",
+      businessSector: "businessSector",
       createdAt: "createdAt",
       updatedAt: "updatedAt",
       approvalStatus: ApprovalStatus.approved,

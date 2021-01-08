@@ -4,6 +4,7 @@ export interface ITranslations {
   slogan: string;
   description: string;
   businessName: string;
+  businessSector: string;
   cuit: string;
 }
 

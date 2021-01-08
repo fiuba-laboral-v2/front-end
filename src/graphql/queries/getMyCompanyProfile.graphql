@@ -7,6 +7,7 @@ query getMyCompanyProfile {
       approvalStatus
       companyName
       businessName
+      businessSector
       slogan
       description
       logo
