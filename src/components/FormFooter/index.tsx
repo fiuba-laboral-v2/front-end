@@ -11,7 +11,6 @@ export const FormFooter = <Values extends { _form?: string | string[] }>({
   isSubmitting,
   submitButtonText,
   className,
-  submitButtonClassName,
   errors
 }: IFormFooterProps<Values>) => {
   const formErrors = (errors?._form as string | string[]) || [];
@@ -23,7 +22,6 @@ export const FormFooter = <Values extends { _form?: string | string[] }>({
         </span>
       ))}
       <SubmitButton
-        className={submitButtonClassName}
         kind="primary"
         disabled={!isEmpty(errors) || isSubmitting}
         errors={errors}
@@ -41,6 +39,5 @@ interface IFormFooterProps<Values> {
   isSubmitting: boolean;
   submitButtonText?: string;
   className?: string;
-  submitButtonClassName?: string;
   errors: FormikErrors<Values>;
 }

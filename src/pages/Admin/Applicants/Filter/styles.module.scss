@@ -16,10 +16,7 @@ div.applicantType, {
 }
 
 .formFooter {
-  align-self: center;
+  align-self: start;
   height: fit-content;
-}
-
-.submitButton {
-  margin-bottom: $spacing-m;
+  margin-top: 10px;
 }
