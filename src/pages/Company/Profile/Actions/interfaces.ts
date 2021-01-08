@@ -1,6 +1,6 @@
 export interface ITranslations {
   edit: string;
-  editCuitAndBusinessName: string;
+  editCriticalAttributes: string;
 }
 
 export interface IContainerProps {

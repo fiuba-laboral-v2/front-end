@@ -19,7 +19,7 @@ export const Actions: FunctionComponent<IComponentProps> = ({
       kind="secondary"
       link={editCriticalAttributesLink}
     >
-      {translations?.editCuitAndBusinessName}
+      {translations?.editCriticalAttributes}
     </Button>
     <div className={styles.separator} />
   </div>
