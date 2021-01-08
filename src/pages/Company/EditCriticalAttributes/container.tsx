@@ -23,7 +23,7 @@ export const EditCriticalAttributesContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const company = useMyCompanyProfile();
   const { updateCompanyCriticalAttributes } = useUpdateCompanyCriticalAttributes();
-  const translations = useTranslations<ITranslations>("editCuitAndBusinessName");
+  const translations = useTranslations<ITranslations>("editCompanyCriticalAttributes");
   const confirmDialogTranslations = useTranslations<IConfirmDialogTranslations>(
     "editCuitAndBusinessNameConfirmDialog"
   );
