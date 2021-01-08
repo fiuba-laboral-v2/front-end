@@ -10,5 +10,5 @@ export interface IContainerProps {
 export interface IComponentProps extends IContainerProps {
   translations?: ITranslations;
   editLink: string;
-  editCuitAndBusinessNameLink: string;
+  editCriticalAttributesLink: string;
 }

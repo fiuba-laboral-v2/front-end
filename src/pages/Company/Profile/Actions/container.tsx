@@ -11,7 +11,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = props => {
       {...props}
       translations={translations}
       editLink={RoutesBuilder.company.editMyProfile()}
-      editCuitAndBusinessNameLink={RoutesBuilder.company.editCriticalAttributes()}
+      editCriticalAttributesLink={RoutesBuilder.company.editCriticalAttributes()}
     />
   );
 };
