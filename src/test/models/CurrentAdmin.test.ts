@@ -84,6 +84,7 @@ describe("CurrentAdmin", () => {
         uuid: "2005b62f-359b-4218-a673-e325fb4a06ef",
         businessName: "businessName",
         businessSector: "businessSector",
+        hasAnInternshipAgreement: false,
         createdAt: "createdAt",
         updatedAt: "updatedAt",
         approvalStatus: ApprovalStatus.approved,
