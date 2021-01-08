@@ -14,5 +14,6 @@ export interface ITranslations {
   cuit: string;
   updatedAt: string;
   state: string;
+  hasAnInternshipAgreement: string;
   actions: string;
 }

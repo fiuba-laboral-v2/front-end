@@ -23,6 +23,10 @@
     grid-area: updatedAt;
   }
 
+  &.hasAnInternshipAgreement {
+    grid-area: hasAnInternshipAgreement;
+  }
+
   &.state {
     grid-area: state;
   }

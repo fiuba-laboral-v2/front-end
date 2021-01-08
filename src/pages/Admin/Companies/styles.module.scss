@@ -3,6 +3,6 @@
 .tableDisplay {
   @include tableDisplay;
 
-  grid-template-areas: "companyName businessName businessSector cuit updatedAt state actions";
-  grid-template-columns: 6fr 6fr 6fr 4fr 4fr 2fr 1fr;
+  grid-template-areas: "companyName businessName businessSector cuit updatedAt hasAnInternshipAgreement state actions";
+  grid-template-columns: 6fr 4fr 4fr 4fr 4fr 4fr 2fr 1fr;
 }
