@@ -10,11 +10,12 @@ import { OpenDetailIcon } from "$components/OpenDetailIcon";
 import styles from "./styles.module.scss";
 
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({
-  company: { uuid, companyName, businessName, cuit, updatedAt, approvalStatus }
+  company: { uuid, companyName, businessSector, businessName, cuit, updatedAt, approvalStatus }
 }) => (
   <>
     <p className={styles.text}>{companyName}</p>
     <p className={styles.text}>{businessName}</p>
+    <p className={styles.text}>{businessSector}</p>
     <p className={styles.text}>{NumberFormatter.formatCuit(cuit)}</p>
     <div className={styles.text}>{TimeFormatter.dateTime(updatedAt)}</div>
     <div className={styles.statusContainer}>

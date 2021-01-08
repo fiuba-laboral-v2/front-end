@@ -11,6 +11,10 @@
     grid-area: businessName;
   }
 
+  &.businessSector {
+    grid-area: businessSector;
+  }
+
   &.cuit {
     grid-area: cuit;
   }

@@ -10,6 +10,7 @@ export const ListHeaderContainer: FunctionComponent = () => {
 export interface ITranslations {
   companyName: string;
   businessName: string;
+  businessSector: string;
   cuit: string;
   updatedAt: string;
   state: string;
