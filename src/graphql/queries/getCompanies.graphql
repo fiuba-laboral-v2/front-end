@@ -6,6 +6,8 @@ query getCompanies($updatedBeforeThan: PaginatedInput) {
       cuit
       companyName
       businessName
+      businessSector
+      hasAnInternshipAgreement
       logo
       approvalStatus
       updatedAt
