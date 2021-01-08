@@ -3,8 +3,6 @@
 @import "$styles/mixins/_tableList";
 
 .fetchMore {
-  @include tableItemFontSize;
-
   align-self: center;
   display: flex;
   margin: 10px auto;
