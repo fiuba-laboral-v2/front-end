@@ -1,10 +1,5 @@
 import { ApplicantsFilter } from "$models/ApplicantsFilter";
 
-export interface ITranslations {
-  cleanFilters: string;
-  filters: string;
-}
-
 interface ICommonProps {
   showFilter: boolean;
   filter: ApplicantsFilter;
@@ -19,5 +14,4 @@ export interface IComponentProps extends ICommonProps {
   setIsExportEmailDialogOpen: (isExportEmailDialogOpen: boolean) => void;
   onClickFilter: () => void;
   onClickExportEmails: () => void;
-  translations?: ITranslations;
 }
