@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Form, FormikProps } from "formik";
 
 export const FormikForm = <Model, Values>({
@@ -10,12 +10,16 @@ export const FormikForm = <Model, Values>({
   modelToValues,
   hidden
 }: IFormProps<Model, Values>) => {
+  const [valuesWereSet, setValuesWereSet] = useState(false);
   const setValues = formikProps?.setValues;
   useEffect(() => {
-    if (setValues && modelToValues && initialValuesModel) {
-      setValues(modelToValues(initialValuesModel), false);
-    }
-  }, [setValues, modelToValues, initialValuesModel]);
+    if (valuesWereSet) return;
+    if (!setValues) return;
+    if (!modelToValues) return;
+    if (!initialValuesModel) return;
+    setValues(modelToValues(initialValuesModel), false);
+    setValuesWereSet(true);
+  }, [valuesWereSet, setValues, modelToValues, initialValuesModel]);
   return (
     <Form id={id} className={className} hidden={hidden}>
       {children}

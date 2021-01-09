@@ -3,3 +3,7 @@
 div.selector {
   @include textInput;
 }
+
+div.textField > div {
+  margin-top: 10px;
+}

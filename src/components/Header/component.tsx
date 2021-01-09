@@ -5,7 +5,7 @@ import { IHeaderProps } from "./interfaces";
 import classNames from "classnames";
 
 export const Header: FunctionComponent<IHeaderProps> = ({ className, title, subtitle }) => (
-  <div className={classNames(className, styles.container)}>
+  <div className={className}>
     <h1 className={classNames(styles.title, { [styles.noMargin]: !subtitle })}>{title}</h1>
     <Subtitle>{subtitle}</Subtitle>
   </div>

@@ -30,6 +30,7 @@ export const BaseSearchSelector = <Option, Value>({
         <TextField
           {...inputProps}
           multiline
+          className={styles.textField}
           inputRef={autofocusInputRef}
           InputLabelProps={{ required: mandatory }}
           label={label}
