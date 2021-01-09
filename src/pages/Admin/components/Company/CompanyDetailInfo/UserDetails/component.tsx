@@ -23,12 +23,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
       <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
       <Tooltip title={businessSector} placement="top-start">
-        <TaskHeaderInfo
-          valueClassName={styles.businessSectorValue}
-          className={styles.businessSector}
-          title={translations?.businessSector}
-          value={businessSector}
-        />
+        <TaskHeaderInfo title={translations?.businessSector} value={businessSector} />
       </Tooltip>
     </div>
     <TaskHeaderInfo

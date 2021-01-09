@@ -5,16 +5,6 @@
   overflow-wrap: anywhere;
 }
 
-.businessSector {
-  flex-shrink: 0;
-}
-
-.businessSectorValue {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .withoutMarginBottom {
   margin-bottom: 0;
 }

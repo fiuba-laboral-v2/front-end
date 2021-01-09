@@ -4,7 +4,6 @@ import styles from "./styles.module.scss";
 
 export const TaskHeaderInfo: FunctionComponent<IUserDetailsProps> = ({
   className,
-  valueClassName,
   Icon,
   title,
   value
@@ -12,11 +11,7 @@ export const TaskHeaderInfo: FunctionComponent<IUserDetailsProps> = ({
   <div className={classNames(className, styles.taskHeaderInfo)}>
     {Icon && <Icon className={styles.iconLabel} />}
     {title && <span className={styles.label}>{title}</span>}
-    <span
-      className={classNames(styles.infoText, valueClassName, { [styles.withoutMargin]: !title })}
-    >
-      {value}
-    </span>
+    <span className={classNames(styles.infoText, { [styles.withoutMargin]: !title })}>{value}</span>
   </div>
 );
 
@@ -24,6 +19,5 @@ interface IUserDetailsProps {
   className?: string;
   title?: string;
   value: string;
-  valueClassName?: string;
   Icon?: FunctionComponent<{ className: string }>;
 }
