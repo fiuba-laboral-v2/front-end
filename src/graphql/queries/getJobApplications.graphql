@@ -1,5 +1,15 @@
-query getJobApplications($updatedBeforeThan: PaginatedInput) {
-  getJobApplications(updatedBeforeThan: $updatedBeforeThan) {
+query getJobApplications(
+  $updatedBeforeThan: PaginatedInput
+  $companyName: String
+  $applicantName: String
+  $offerTitle: String
+) {
+  getJobApplications(
+    updatedBeforeThan: $updatedBeforeThan
+    companyName: $companyName
+    applicantName: $applicantName
+    offerTitle: $offerTitle
+  ) {
     shouldFetchMore
     results {
       uuid
