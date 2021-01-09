@@ -1,7 +1,15 @@
 @import "$styles/_variables";
 
+.titleAndFilterContainer {
+  margin-bottom: $spacing-m;
+}
+
 .titleContainer {
   display: flex;
+}
+
+.filterContainer {
+  margin: $spacing-m 0 0;
 }
 
 .title {
@@ -19,8 +27,4 @@
 
 .list {
   height: fit-content;
-}
-
-.filter {
-  margin-bottom: $spacing-xl;
 }

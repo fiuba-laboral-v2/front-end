@@ -1,16 +1,7 @@
 @import "$styles/_variables";
 
-.formSection {
-  opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
-  visibility: visible;
-}
-
 .hidden {
-  height: 0;
-  opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
-  visibility: hidden;
+  display: none;
 }
 
 .fields {
@@ -25,6 +16,7 @@ div.applicantType, {
 }
 
 .formFooter {
-  align-self: center;
+  align-self: start;
   height: fit-content;
+  margin-top: 10px;
 }

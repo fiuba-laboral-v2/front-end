@@ -23,14 +23,16 @@ export const ListPageContainer: FunctionComponent<IListPageContainer> = ({
 }) => (
   <Window loading={!items} width="fullWidth" desktopOnly>
     <MainContainer>
-      <div className={styles.titleContainer}>
-        {!title && <MainTitle className={styles.title} translationPath={titleTranslationPath} />}
-        {title && <Header className={styles.title} title={title || ""} />}
-        <div className={styles.children}>{children}</div>
+      <div className={styles.titleAndFilterContainer}>
+        <div className={styles.titleContainer}>
+          {!title && <MainTitle className={styles.title} translationPath={titleTranslationPath} />}
+          {title && <Header className={styles.title} title={title || ""} />}
+          <div className={styles.children}>{children}</div>
+        </div>
+        <div className={styles.filterContainer}>{filter}</div>
       </div>
       {filter && (
         <div className={styles.container}>
-          <div className={styles.filter}>{filter}</div>
           <List
             className={styles.list}
             headerClassName={listHeaderClassName}
