@@ -11,7 +11,7 @@ import { ApplicantType } from "$interfaces/Applicant";
 import { NameField } from "$components/Fields/NameField";
 import { CareerSelector } from "$components/CareerSelector";
 import { ApplicantTypeSelector } from "$components/ApplicantTypeSelector";
-import { Filter as GenericFilter } from "../../components/Filter";
+import { Filter } from "../../components/Filter";
 
 import styles from "./styles.module.scss";
 
@@ -65,29 +65,21 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   );
 
   return (
-    <GenericFilter
+    <Filter
       showFilter={showFilter}
       initialValuesModel={filter}
       modelToValues={modelToValues as any}
       onSubmit={onSubmit}
-      children={
-        <>
-          {translations && (
-            <NameField
-              className={styles.name}
-              name="name"
-              label={translations.name}
-              withoutMargin
-            />
-          )}
-          <CareerSelector className={styles.careers} name="careers" />
-          <ApplicantTypeSelector
-            className={styles.applicantType}
-            name="applicantType"
-            excludedOptions={[ApplicantType.both]}
-          />
-        </>
-      }
-    />
+    >
+      {translations && (
+        <NameField className={styles.name} name="name" label={translations.name} withoutMargin />
+      )}
+      <CareerSelector className={styles.careers} name="careers" />
+      <ApplicantTypeSelector
+        className={styles.applicantType}
+        name="applicantType"
+        excludedOptions={[ApplicantType.both]}
+      />
+    </Filter>
   );
 };

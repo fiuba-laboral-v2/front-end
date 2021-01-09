@@ -47,32 +47,29 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       initialValuesModel={filter}
       modelToValues={modelToValues as any}
       onSubmit={onSubmit}
-      children={
+    >
+      {translations && (
         <>
-          {translations && (
-            <>
-              <NameField
-                className={styles.name}
-                name="companyName"
-                label={translations.companyName}
-                withoutMargin
-              />
-              <NameField
-                className={styles.name}
-                name="applicantName"
-                label={translations.applicantName}
-                withoutMargin
-              />
-              <NameField
-                className={styles.name}
-                name="offerTitle"
-                label={translations.offerTitle}
-                withoutMargin
-              />
-            </>
-          )}
+          <NameField
+            className={styles.name}
+            name="companyName"
+            label={translations.companyName}
+            withoutMargin
+          />
+          <NameField
+            className={styles.name}
+            name="applicantName"
+            label={translations.applicantName}
+            withoutMargin
+          />
+          <NameField
+            className={styles.name}
+            name="offerTitle"
+            label={translations.offerTitle}
+            withoutMargin
+          />
         </>
-      }
-    />
+      )}
+    </Filter>
   );
 };
