@@ -37,11 +37,11 @@ export const EditCriticalAttributes: FunctionComponent<IComponentProps> = ({
               <TextField name="businessName" label={translations.businessName} mandatory />
               <CuitField mandatory name="cuit" label={translations.cuit} withoutMargin />
               <CheckboxInput
+                className={styles.hasAnInternshipAgreement}
                 label={translations.hasAnInternshipAgreement}
-                labelPosition="right"
+                labelPosition="end"
                 checked={formikProps.values.hasAnInternshipAgreement}
                 name="hasAnInternshipAgreement"
-                withoutLeftPadding
               />
             </FormSection>
           )}

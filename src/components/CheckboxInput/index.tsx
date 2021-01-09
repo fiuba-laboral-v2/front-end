@@ -2,36 +2,37 @@ import React, { FunctionComponent } from "react";
 import { Field, FieldProps } from "formik";
 import { Checkbox } from "formik-material-ui";
 import styles from "./styles.module.scss";
-import { checkboxStyles } from "./styles";
 import CheckboxIcon from "@material-ui/icons/CheckBox";
 import classNames from "classnames";
+import { FormControlLabel } from "@material-ui/core";
 
-export const CheckboxInput: FunctionComponent<ICheckboxInputProps> = props => {
-  const children = (fieldProps: FieldProps<boolean>) => (
-    <Checkbox
-      type="checkbox"
-      {...fieldProps}
-      size="small"
-      color="default"
-      {...(props.withoutLeftPadding && { classes: checkboxStyles() })}
-      checkedIcon={<CheckboxIcon fontSize="small" className={styles.color} />}
+export const CheckboxInput: FunctionComponent<ICheckboxInputProps> = props => (
+  <div className={classNames(styles.input, props.className)}>
+    <FormControlLabel
+      className={styles.formControlLabel}
+      label={props.label}
+      labelPlacement={props.labelPosition}
+      control={
+        <Field className={styles.color} type="checkbox" {...props}>
+          {(fieldProps: FieldProps<boolean>) => (
+            <Checkbox
+              type="checkbox"
+              size="small"
+              color="default"
+              checkedIcon={<CheckboxIcon fontSize="small" className={styles.color} />}
+              {...fieldProps}
+            />
+          )}
+        </Field>
+      }
     />
-  );
-
-  return (
-    <div className={classNames(styles.input, props.className)}>
-      {props.labelPosition === "left" && <p className={styles.label}>{props.label}</p>}
-      <Field className={styles.color} type="checkbox" children={children} {...props} />
-      {props.labelPosition === "right" && <p className={styles.label}>{props.label}</p>}
-    </div>
-  );
-};
+  </div>
+);
 
 interface ICheckboxInputProps {
   label: string;
-  labelPosition: "left" | "right";
+  labelPosition: "end" | "start" | "top" | "bottom";
   checked: boolean;
   name: string;
   className?: string;
-  withoutLeftPadding?: boolean;
 }

@@ -8,6 +8,10 @@ div.businessName {
   display: flex;
 }
 
+.hasAnInternshipAgreement {
+  margin-bottom: $spacing-s;
+}
+
 @media (max-width: $laptopWidth) {
   .lastRow {
     flex-direction: column;
