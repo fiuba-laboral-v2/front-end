@@ -1,4 +1,4 @@
-import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 
 interface ICommonProps {
   showFilter: boolean;

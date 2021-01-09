@@ -8,7 +8,7 @@ import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
 import { Filters } from "./Filters";
 import { IOfferListTranslations } from "./interfaces";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 
 import styles from "./styles.module.scss";
 

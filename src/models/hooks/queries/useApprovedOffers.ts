@@ -1,6 +1,6 @@
 import { GET_APPROVED_OFFERS } from "$queries";
 import { IVariables, usePaginatedQuery } from "$hooks";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 import { IOffer } from "$interfaces/Offer";
 
 export const useApprovedOffers = ({ filter, skip }: IUseApprovedOffers) => {

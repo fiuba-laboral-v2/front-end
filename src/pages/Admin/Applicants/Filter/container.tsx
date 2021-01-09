@@ -2,7 +2,7 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { FormikHelpers } from "formik";
 
 import { Filter } from "./component";

@@ -1,5 +1,5 @@
 import { ICareer } from "$interfaces/Career";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 import { IOfferListTranslations } from "../interfaces";
 
 export interface IFiltersContainerProps {

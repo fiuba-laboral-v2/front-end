@@ -1,5 +1,5 @@
 import { IConfirmDialogTranslations } from "$components/Dialog/FormConfirmDialog";
-import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 
 interface ICommonProps {
   isOpen: boolean;

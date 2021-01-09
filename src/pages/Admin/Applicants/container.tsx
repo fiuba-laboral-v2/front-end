@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { IApplicant } from "$interfaces/Applicant";
 import { useApplicants } from "$hooks";
-import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 
 import { ListPageContainer } from "$components/ListPageContainer";
 import { ListHeader } from "./ListHeader";
