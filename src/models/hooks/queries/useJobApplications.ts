@@ -1,13 +1,13 @@
-import { usePaginatedQuery } from "$hooks";
+import { usePaginatedQuery, IVariables } from "$hooks";
 import { GET_JOB_APPLICATIONS } from "$queries";
 import { IJobApplicationAttributes } from "$interfaces/JobApplication";
 import { JobApplication } from "$models/JobApplication";
 
-export const useJobApplications = () => {
-  const result = usePaginatedQuery<{}, IJobApplicationAttributes>({
+export const useJobApplications = (filter: IUseJobApplicationsFilter = {}) => {
+  const result = usePaginatedQuery<Variables, IJobApplicationAttributes>({
     documentNode: GET_JOB_APPLICATIONS,
     queryName: "getJobApplications",
-    variables: {},
+    variables: filter,
     timestampKey: "updatedAt"
   });
 
@@ -23,3 +23,11 @@ export const useJobApplications = () => {
     }
   };
 };
+
+type Variables = IUseJobApplicationsFilter & IVariables;
+
+export interface IUseJobApplicationsFilter {
+  companyName?: string;
+  applicantName?: string;
+  offerTitle?: string;
+}
