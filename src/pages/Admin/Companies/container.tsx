@@ -7,7 +7,7 @@ import { useCompanies } from "$hooks/queries";
 
 import styles from "./styles.module.scss";
 
-export const Companies: FunctionComponent = () => {
+export const Companies: FunctionComponent<IContainerProps> = () => {
   const response = useCompanies();
   const companies = response?.data?.getCompanies.results;
 
@@ -25,3 +25,7 @@ export const Companies: FunctionComponent = () => {
     />
   );
 };
+
+interface IContainerProps {
+  searchQuery: string;
+}
