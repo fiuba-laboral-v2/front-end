@@ -35,10 +35,10 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
     />
     <CheckboxInput
       label={translations.automaticJobApplicationApproval}
-      labelPosition="right"
+      labelPosition="end"
       checked={values.automaticJobApplicationApproval}
       name="automaticJobApplicationApproval"
-      withoutLeftPadding
+      className={styles.automaticJobApplicationApproval}
     />
   </FormSection>
 );

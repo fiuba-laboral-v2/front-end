@@ -48,6 +48,11 @@ export const MaterialUITheme = createMuiTheme({
         color: "#767676"
       }
     },
+    MuiFormControlLabel: {
+      labelPlacementStart: {
+        marginLeft: 0
+      }
+    },
     MuiSelect: {
       root: {
         marginTop: "-0.5px"
