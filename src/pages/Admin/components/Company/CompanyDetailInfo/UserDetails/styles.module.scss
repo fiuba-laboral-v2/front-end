@@ -2,13 +2,9 @@
 
 .userDetails {
   font-size: $fontSize-l;
+  overflow-wrap: anywhere;
 }
 
-.firstRow {
-  display: flex;
-}
-
-.firstRowItem,
 .businessSector {
   flex-shrink: 0;
 }
@@ -18,10 +14,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 300px;
-}
-
-.email {
-  margin-bottom: $spacing-s;
 }
 
 .withoutMarginBottom {

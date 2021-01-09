@@ -10,7 +10,7 @@ export const TaskHeaderInfo: FunctionComponent<IUserDetailsProps> = ({
   value
 }) => (
   <div className={classNames(className, styles.taskHeaderInfo)}>
-    {Icon && <Icon className={styles.label} />}
+    {Icon && <Icon className={styles.iconLabel} />}
     {title && <span className={styles.label}>{title}</span>}
     <span
       className={classNames(styles.infoText, valueClassName, { [styles.withoutMargin]: !title })}

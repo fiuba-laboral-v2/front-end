@@ -20,31 +20,19 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
 }) => (
   <div className={styles.userDetails} hidden={hidden}>
     <div className={styles.firstRow}>
-      <TaskHeaderInfo
-        className={styles.firstRowItem}
-        value={`${name} ${surname}`}
-        Icon={PersonOutlinedIcon}
-      />
-      <TaskHeaderInfo
-        className={styles.firstRowItem}
-        title={translations?.cuit}
-        value={NumberFormatter.formatCuit(cuit)}
-      />
+      <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
+      <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
       <Tooltip title={businessSector} placement="top-start">
-        <div>
-          <TaskHeaderInfo
-            valueClassName={styles.businessSectorValue}
-            className={styles.businessSector}
-            title={translations?.businessSector}
-            value={businessSector}
-          />
-        </div>
+        <TaskHeaderInfo
+          valueClassName={styles.businessSectorValue}
+          className={styles.businessSector}
+          title={translations?.businessSector}
+          value={businessSector}
+        />
       </Tooltip>
     </div>
     <TaskHeaderInfo
-      className={classNames(styles.email, {
-        [styles.withoutMarginBottom]: !hasAnInternshipAgreement
-      })}
+      className={classNames({ [styles.withoutMarginBottom]: !hasAnInternshipAgreement })}
       value={email}
       Icon={EmailOutlinedIcon}
     />
