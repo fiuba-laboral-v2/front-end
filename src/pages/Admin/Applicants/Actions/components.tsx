@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Button } from "$components/Button";
 import { ExportEmails } from "./ExportEmails";
+import { FiltersButton } from "../../components/FiltersButton";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
 export const Actions: FunctionComponent<IComponentProps> = ({
   filter,
-  translations,
   onClickExportEmails,
   onClickFilter,
   showFilter,
@@ -17,9 +17,7 @@ export const Actions: FunctionComponent<IComponentProps> = ({
     <Button className={styles.exportEmails} kind="secondary" onClick={onClickExportEmails}>
       Exportar emails
     </Button>
-    <Button kind="primary" onClick={onClickFilter}>
-      {showFilter ? translations?.cleanFilters : translations?.filters}
-    </Button>
+    <FiltersButton onClick={onClickFilter} showFilter={showFilter} />
     <ExportEmails
       filter={filter}
       isOpen={isExportEmailDialogOpen}

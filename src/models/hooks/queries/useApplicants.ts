@@ -1,5 +1,5 @@
 import { IVariables, usePaginatedQuery } from "$hooks";
-import { ApplicantsFilter } from "$models/ApplicantsFilter";
+import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { GET_APPLICANTS } from "$queries";
 import { ApplicantType, IApplicant } from "$interfaces/Applicant";
 

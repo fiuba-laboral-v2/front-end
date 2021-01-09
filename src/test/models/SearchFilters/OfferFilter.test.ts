@@ -1,4 +1,4 @@
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 
 describe("OfferFilter", () => {
   describe("careerCodes", () => {
