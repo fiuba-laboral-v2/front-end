@@ -12,7 +12,7 @@ import { Actions } from "./Actions";
 import styles from "./styles.module.scss";
 
 export const Applicants: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(!!searchQuery);
   const filter = new ApplicantsFilter(searchQuery);
   const response = useApplicants(filter);
   const applicants = response?.data?.getApplicants.results;

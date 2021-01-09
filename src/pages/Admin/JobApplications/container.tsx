@@ -14,7 +14,7 @@ import { useJobApplications } from "$hooks/queries";
 import styles from "./styles.module.scss";
 
 export const JobApplications: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(!!searchQuery);
   const filter = new JobApplicationsFilter(searchQuery);
   const response = useJobApplications(filter);
   const jobApplications = response?.data?.getJobApplications.results;
