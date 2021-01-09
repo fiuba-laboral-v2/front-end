@@ -2,19 +2,25 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+
 import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { FormikHelpers } from "formik";
+import { IContainerProps, IFormValues } from "./interfaces";
+import { ApplicantType } from "$interfaces/Applicant";
 
-import { Filter } from "./component";
+import { NameField } from "$components/Fields/NameField";
+import { CareerSelector } from "$components/CareerSelector";
+import { ApplicantTypeSelector } from "$components/ApplicantTypeSelector";
+import { Filter as GenericFilter } from "../../components/Filter";
 
-import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
+import styles from "./styles.module.scss";
 
 export const FilterContainer: FunctionComponent<IContainerProps> = ({
   showFilter,
   filter,
   refetchApplicants
 }) => {
-  const translations = useTranslations<ITranslations>("applicantsFilter");
+  const translations = useTranslations<{ name: string }>("applicantsFilter");
   const history = useHistory();
   const careers = useCareers();
 
@@ -59,12 +65,29 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   );
 
   return (
-    <Filter
+    <GenericFilter
       showFilter={showFilter}
-      translations={translations}
-      onSubmit={onSubmit}
-      modelToValues={modelToValues}
       initialValuesModel={filter}
+      modelToValues={modelToValues as any}
+      onSubmit={onSubmit}
+      children={
+        <>
+          {translations && (
+            <NameField
+              className={styles.name}
+              name="name"
+              label={translations.name}
+              withoutMargin
+            />
+          )}
+          <CareerSelector className={styles.careers} name="careers" />
+          <ApplicantTypeSelector
+            className={styles.applicantType}
+            name="applicantType"
+            excludedOptions={[ApplicantType.both]}
+          />
+        </>
+      }
     />
   );
 };

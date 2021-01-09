@@ -1,22 +1,8 @@
 @import "$styles/_variables";
 
-.hidden {
-  display: none;
-}
-
-.fields {
-  display: flex;
-}
-
 div.name,
 div.careers,
 div.applicantType, {
   margin-right: $spacing-m;
   width: 33%;
-}
-
-.formFooter {
-  align-self: start;
-  height: fit-content;
-  margin-top: 10px;
 }
