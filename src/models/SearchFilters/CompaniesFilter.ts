@@ -33,8 +33,8 @@ export class CompaniesFilter extends URLSearchParams {
     return this.setName(COMPANY_NAME, companyName);
   }
 
-  private setBusinessSector(applicantName?: string) {
-    return this.setName(BUSINESS_SECTOR, applicantName);
+  private setBusinessSector(businessSector?: string) {
+    return this.setName(BUSINESS_SECTOR, businessSector);
   }
 
   private setName(key: string, name?: string) {

@@ -57,7 +57,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
           />
           <NameField
             className={styles.name}
-            name="applicantName"
+            name="businessSector"
             label={translations.businessSector}
             withoutMargin
           />
