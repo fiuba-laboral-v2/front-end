@@ -7,6 +7,10 @@
     grid-area: companyName;
   }
 
+  &.businessSector {
+    grid-area: businessSector;
+  }
+
   &.title {
     grid-area: title;
   }

@@ -15,6 +15,7 @@ import styles from "./styles.module.scss";
 export const ListContentItem: FunctionComponent<IListContentItemProps> = ({ offer }) => (
   <>
     <p className={styles.text}>{offer.company.companyName}</p>
+    <p className={styles.text}>{offer.company.businessSector}</p>
     <div className={styles.container}>
       <div className={styles.text}>
         {offer.title}
