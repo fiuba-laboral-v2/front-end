@@ -2,13 +2,21 @@
 
 .taskHeaderInfo {
   align-items: center;
-  display: flex;
+  display: inline-block;
   font-size: $fontSize-l;
   margin-right: $spacing-m;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.label {
+.label,
+.iconLabel {
   color: $darkerGrey;
+}
+
+.iconLabel {
+  margin-right: $spacing-xs;
+  vertical-align: bottom;
 }
 
 .infoText {
