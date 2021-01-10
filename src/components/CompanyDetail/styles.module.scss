@@ -32,9 +32,16 @@
   }
 }
 
+.children {
+  margin-left: $spacing-s;
+  width: 150px;
+}
+
 @media (max-width: $laptopWidth) {
   .children {
+    margin-left: 0;
     margin-top: $spacing-m;
+    width: unset;
   }
 
   .header {

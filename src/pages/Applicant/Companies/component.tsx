@@ -26,7 +26,7 @@ export const Companies: FunctionComponent<ICompaniesProps> = ({
 
   return (
     <Window>
-      <ListTitle titleTranslationPath={"companiesList"} />
+      <ListTitle titleTranslationPath={"companiesList"} className={styles.title} />
       {companies.length > 0 &&
         companies.map(company => (
           <Card key={company.uuid} className={styles.row} link={createLink(company.uuid)}>

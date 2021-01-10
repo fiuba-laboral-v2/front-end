@@ -58,8 +58,20 @@
     margin-top: $spacing-s;
     width: 100%;
   }
+
+  .editButton {
+    margin-bottom: 0;
+  }
 }
 
 @include mobileClass {
   @include defaultActionsDisplay;
+
+  .editButton {
+    margin-bottom: 0;
+  }
+
+  .actionContainer {
+    margin-bottom: $spacing-s;
+  }
 }
