@@ -28,7 +28,7 @@ query GetOffers(
       company {
         uuid
         companyName
-        businessName
+        businessSector
         logo
       }
       careers {
