@@ -2,26 +2,7 @@
 
 .userDetails {
   font-size: $fontSize-l;
-}
-
-.firstRow {
-  display: flex;
-}
-
-.firstRowItem,
-.businessSector {
-  flex-shrink: 0;
-}
-
-.businessSectorValue {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 300px;
-}
-
-.email {
-  margin-bottom: $spacing-s;
+  overflow-wrap: anywhere;
 }
 
 .withoutMarginBottom {
