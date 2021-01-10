@@ -18,3 +18,18 @@
 .separator {
   flex-grow: 1;
 }
+
+@media (max-width: $laptopWidth) {
+  .actionsContainer {
+    flex-direction: row;
+  }
+
+  .edit {
+    margin: 0 $spacing-s 0 0;
+  }
+
+  .edit,
+  .editCriticalAttributesLink {
+    width: 50%;
+  }
+}

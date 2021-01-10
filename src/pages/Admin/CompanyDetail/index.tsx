@@ -16,7 +16,11 @@ export const CompanyDetail: FunctionComponent = () => {
     <Window desktopOnly>
       <CompanyDetailInfo selectedTaskUuid={uuid} />
       <CompanyDetailContent className={styles.content} companyUuid={uuid}>
-        <Button kind="primary" link={RoutesBuilder.admin.companyUsers(uuid)}>
+        <Button
+          kind="primary"
+          link={RoutesBuilder.admin.companyUsers(uuid)}
+          className={styles.seeUsersButton}
+        >
           {translations?.seeUsersButton}
         </Button>
       </CompanyDetailContent>
