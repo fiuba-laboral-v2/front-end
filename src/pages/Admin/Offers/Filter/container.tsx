@@ -2,7 +2,6 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 import { OffersFilter } from "$models/SearchFilters/OffersFilter";
 import { FormikHelpers } from "formik";
@@ -11,6 +10,7 @@ import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { NameField } from "$components/Fields/NameField";
 import { Filter } from "../../components/Filter";
 import { CareerSelector } from "$components/CareerSelector";
+import { ApprovalStatusSelector } from "$components/ApprovalStatusSelector";
 
 import styles from "./styles.module.scss";
 
@@ -26,7 +26,11 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   const onSubmit = useCallback(
     async ({ _form, ...values }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
       setSubmitting(false);
-      filter.setValues({ ...values, careerCodes: values.careers.map(({ code }) => code) });
+      filter.setValues({
+        ...values,
+        approvalStatus: values.approvalStatus === "" ? undefined : values.approvalStatus,
+        careerCodes: values.careers.map(({ code }) => code)
+      });
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.offers({ searchParams }));
       if (refetchOffers) refetchOffers(filter.getValues());
@@ -34,25 +38,28 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
     [filter, history, refetchOffers]
   );
 
-  const modelToValues = useCallback((model?: OffersFilter): IFormValues => {
-    const getCareers = () => {
-      const careerCodes = model?.getCareerCodes();
-      if (!careers) return [];
-      if (!careerCodes) return [];
-      return careerCodes.map(careerCode => {
-        const career = careers.find(({ code }) => code === careerCode);
-        return { code: careerCode, description: career?.description || "" };
-      });
-    };
-    return {
-      careers: getCareers(),
-      companyName: model?.getCompanyName() || "",
-      businessSector: model?.getBusinessSector() || "",
-      title: model?.getTitle() || "",
-      approvalStatus: model?.getApprovalStatus() || ApprovalStatus.pending,
-      _form: ""
-    };
-  }, []);
+  const modelToValues = useCallback(
+    (model?: OffersFilter): IFormValues => {
+      const getCareers = () => {
+        const careerCodes = model?.getCareerCodes();
+        if (!careers) return [];
+        if (!careerCodes) return [];
+        return careerCodes.map(careerCode => {
+          const career = careers.find(({ code }) => code === careerCode);
+          return { code: careerCode, description: career?.description || "" };
+        });
+      };
+      return {
+        careers: getCareers(),
+        companyName: model?.getCompanyName() || "",
+        businessSector: model?.getBusinessSector() || "",
+        title: model?.getTitle() || "",
+        approvalStatus: model?.getApprovalStatus() || "",
+        _form: ""
+      };
+    },
+    [careers]
+  );
 
   return (
     <Filter
@@ -82,6 +89,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
             withoutMargin
           />
           <CareerSelector className={styles.careers} name="careers" />
+          <ApprovalStatusSelector className={styles.approvalStatus} name="approvalStatus" />
         </>
       )}
     </Filter>

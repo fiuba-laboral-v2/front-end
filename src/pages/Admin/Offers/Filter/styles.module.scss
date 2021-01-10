@@ -1,7 +1,8 @@
 @import "$styles/_variables";
 
 div.name,
-div.careers {
+div.careers,
+div.approvalStatus {
   margin-right: $spacing-m;
-  width: 25%;
+  width: 20%;
 }
