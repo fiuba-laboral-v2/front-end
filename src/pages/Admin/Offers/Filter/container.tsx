@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback } from "react";
+import React, { Fragment, FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -39,29 +39,23 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
     [filter, history, refetchOffers]
   );
 
-  const modelToValues = useCallback(
-    (model?: OffersFilter): IFormValues => {
-      const getCareers = () => {
-        const careerCodes = model?.getCareerCodes();
-        if (!careers) return [];
-        if (!careerCodes) return [];
-        return careerCodes.map(careerCode => {
-          const career = careers.find(({ code }) => code === careerCode);
-          return { code: careerCode, description: career?.description || "" };
-        });
-      };
-      return {
-        careers: getCareers(),
-        companyName: model?.getCompanyName() || "",
-        businessSector: model?.getBusinessSector() || "",
-        title: model?.getTitle() || "",
-        studentsStatus: model?.getStudentsStatus() || "",
-        graduatesStatus: model?.getGraduatesStatus() || "",
-        _form: ""
-      };
-    },
-    [careers]
-  );
+  if (!careers) return <Fragment />;
+
+  const modelToValues = (model?: OffersFilter): IFormValues => {
+    const careerCodes = model?.getCareerCodes();
+    return {
+      careers: (careerCodes || []).map(careerCode => {
+        const career = (careers || []).find(({ code }) => code === careerCode);
+        return { code: careerCode, description: career?.description || "" };
+      }),
+      companyName: model?.getCompanyName() || "",
+      businessSector: model?.getBusinessSector() || "",
+      title: model?.getTitle() || "",
+      studentsStatus: model?.getStudentsStatus() || "",
+      graduatesStatus: model?.getGraduatesStatus() || "",
+      _form: ""
+    };
+  };
 
   return (
     <Filter
