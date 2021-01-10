@@ -69,31 +69,46 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       initialValuesModel={filter}
       modelToValues={modelToValues as any}
       onSubmit={onSubmit}
+      formFooterClassName={styles.formFooter}
     >
       {translations && (
-        <>
-          <NameField
-            className={styles.name}
-            name="companyName"
-            label={translations.companyName}
-            withoutMargin
-          />
-          <NameField
-            className={styles.name}
-            name="businessSector"
-            label={translations.businessSector}
-            withoutMargin
-          />
-          <NameField
-            className={styles.name}
-            name="title"
-            label={translations.title}
-            withoutMargin
-          />
-          <CareerSelector className={styles.careers} name="careers" />
-          <OfferStatusSelector className={styles.status} name="graduatesStatus" withEmptyOption />
-          <OfferStatusSelector className={styles.status} name="studentsStatus" withEmptyOption />
-        </>
+        <div className={styles.filterContainer}>
+          <div className={styles.firstRow}>
+            <NameField
+              className={styles.name}
+              name="companyName"
+              label={translations.companyName}
+              withoutMargin
+            />
+            <NameField
+              className={styles.name}
+              name="businessSector"
+              label={translations.businessSector}
+              withoutMargin
+            />
+            <NameField
+              className={styles.name}
+              name="title"
+              label={translations.title}
+              withoutMargin
+            />
+          </div>
+          <div className={styles.secondRow}>
+            <CareerSelector className={styles.careers} name="careers" />
+            <OfferStatusSelector
+              className={styles.status}
+              name="graduatesStatus"
+              target="graduates"
+              withEmptyOption
+            />
+            <OfferStatusSelector
+              className={styles.status}
+              name="studentsStatus"
+              target="students"
+              withEmptyOption
+            />
+          </div>
+        </div>
       )}
     </Filter>
   );

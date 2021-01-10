@@ -4,7 +4,7 @@ import { SelectField } from "$components/Fields";
 
 export const OfferStatusSelector: FunctionComponent<IComponentProps> = ({
   className,
-  translations,
+  title,
   mandatory,
   name,
   options
@@ -14,6 +14,6 @@ export const OfferStatusSelector: FunctionComponent<IComponentProps> = ({
     mandatory={mandatory}
     fieldName={name}
     options={options}
-    title={translations.title}
+    title={title}
   />
 );

@@ -14,6 +14,7 @@ export const Filter = <FormVariables,>({
   modelToValues,
   onSubmit,
   showFilter,
+  formFooterClassName,
   children
 }: IComponentProps<FormVariables>) => (
   <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
@@ -28,7 +29,7 @@ export const Filter = <FormVariables,>({
         <div className={classNames(styles.fields, { [styles.hidden]: !showFilter })}>
           {children}
           <FormFooter
-            className={styles.formFooter}
+            className={classNames(formFooterClassName, styles.formFooter)}
             isSubmitting={formikProps.isSubmitting}
             submitButtonText={translations?.submit}
             errors={formikProps.errors}

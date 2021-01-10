@@ -9,10 +9,12 @@ interface ICommonProps {
 
 export interface IContainerProps extends ICommonProps {
   withEmptyOption?: boolean;
+  target: "students" | "graduates";
 }
 
 export interface ITranslations {
-  title: string;
+  studentsTitle: string;
+  graduatesTitle: string;
   approved: string;
   rejected: string;
   pending: string;
@@ -20,6 +22,6 @@ export interface ITranslations {
 }
 
 export interface IComponentProps extends ICommonProps {
-  translations: ITranslations;
+  title: string;
   options: Array<ISelectFieldOption<OfferStatus>>;
 }

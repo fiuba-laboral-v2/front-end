@@ -5,16 +5,18 @@ import { IContainerProps, ITranslations } from "./interfaces";
 import { OfferStatus, offerStatusEnumValues } from "$interfaces/Offer";
 
 export const OfferStatusSelectorContainer: FunctionComponent<IContainerProps> = ({
+  target,
   withEmptyOption,
   ...props
 }) => {
   const translations = useTranslations<ITranslations>("offerStatusSelector");
-  if (!translations) return <Fragment />;
+  const title = target === "students" ? translations?.studentsTitle : translations?.graduatesTitle;
+  if (!translations || !title) return <Fragment />;
   let visibleOptions = offerStatusEnumValues;
   if (withEmptyOption) visibleOptions = [...visibleOptions, "" as OfferStatus];
   const options = visibleOptions.map(option => ({
     label: translations[option],
     value: option
   }));
-  return <OfferStatusSelector translations={translations} {...props} options={options} />;
+  return <OfferStatusSelector title={title} {...props} options={options} />;
 };
