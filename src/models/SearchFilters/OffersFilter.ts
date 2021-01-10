@@ -1,5 +1,5 @@
 import { IUseOffersFilter } from "$hooks";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { OfferStatus } from "$interfaces/Offer";
 import { difference } from "lodash";
 
 const SEPARATOR = "-";
@@ -7,11 +7,13 @@ const CAREER_CODES = "carreras";
 const COMPANY_NAME = "nombre-de-empresa";
 const BUSINESS_SECTOR = "rubro";
 const TITLE = "nombre-del-puesto";
-const APPROVAL_STATUS = "estado-de-aprobacion";
-const VALID_APPROVAL_STATUSES = [
-  ApprovalStatus.approved,
-  ApprovalStatus.rejected,
-  ApprovalStatus.pending
+const STUDENTS_STATUS = "estado-de-aprobacion-de-alumnos";
+const GRADUATES_STATUS = "estado-de-aprobacion-de-graduados";
+const VALID_STATUSES = [
+  OfferStatus.approved,
+  OfferStatus.rejected,
+  OfferStatus.pending,
+  OfferStatus.expired
 ];
 
 export class OffersFilter extends URLSearchParams {
@@ -19,7 +21,8 @@ export class OffersFilter extends URLSearchParams {
     this.setCompanyName(values.companyName);
     this.setBusinessSector(values.businessSector);
     this.setTitle(values.title);
-    this.setApprovalStatus(values.approvalStatus);
+    this.setStudentsStatus(values.studentsStatus);
+    this.setGraduatesStatus(values.graduatesStatus);
     this.setCareerCodes(values.careerCodes);
   }
 
@@ -28,7 +31,8 @@ export class OffersFilter extends URLSearchParams {
       companyName: this.getCompanyName(),
       businessSector: this.getBusinessSector(),
       title: this.getTitle(),
-      approvalStatus: this.getApprovalStatus(),
+      studentsStatus: this.getStudentsStatus(),
+      graduatesStatus: this.getGraduatesStatus(),
       careerCodes: this.getCareerCodes()
     };
   }
@@ -37,7 +41,8 @@ export class OffersFilter extends URLSearchParams {
     this.delete(COMPANY_NAME);
     this.delete(BUSINESS_SECTOR);
     this.delete(TITLE);
-    this.delete(APPROVAL_STATUS);
+    this.delete(STUDENTS_STATUS);
+    this.delete(GRADUATES_STATUS);
     this.delete(CAREER_CODES);
   }
 
@@ -53,10 +58,16 @@ export class OffersFilter extends URLSearchParams {
     return this.getName(TITLE);
   }
 
-  public getApprovalStatus() {
-    const status = this.get(APPROVAL_STATUS);
-    if (!VALID_APPROVAL_STATUSES.includes(status as ApprovalStatus)) return undefined;
-    return status as ApprovalStatus | undefined;
+  public getStudentsStatus() {
+    const status = this.get(STUDENTS_STATUS);
+    if (!VALID_STATUSES.includes(status as OfferStatus)) return undefined;
+    return status as OfferStatus | undefined;
+  }
+
+  public getGraduatesStatus() {
+    const status = this.get(GRADUATES_STATUS);
+    if (!VALID_STATUSES.includes(status as OfferStatus)) return undefined;
+    return status as OfferStatus | undefined;
   }
 
   public getCareerCodes() {
@@ -77,9 +88,14 @@ export class OffersFilter extends URLSearchParams {
     return this.setName(TITLE, title);
   }
 
-  private setApprovalStatus(status?: ApprovalStatus) {
+  private setStudentsStatus(status?: OfferStatus) {
     if (status === undefined || status === null) return;
-    this.set(APPROVAL_STATUS, status);
+    this.set(STUDENTS_STATUS, status);
+  }
+
+  private setGraduatesStatus(status?: OfferStatus) {
+    if (status === undefined || status === null) return;
+    this.set(GRADUATES_STATUS, status);
   }
 
   private setCareerCodes(codes?: string[]) {

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
-export const ApprovalStatusSelector: FunctionComponent<IComponentProps> = ({
+export const OfferStatusSelector: FunctionComponent<IComponentProps> = ({
   className,
   translations,
   mandatory,

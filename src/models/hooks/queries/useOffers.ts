@@ -1,9 +1,8 @@
 import { GET_OFFERS } from "$queries";
 import { OffersFilter } from "$models/SearchFilters/OffersFilter";
 import { usePaginatedQuery, IVariables } from "$hooks";
-import { IOffer } from "$interfaces/Offer";
+import { IOffer, OfferStatus } from "$interfaces/Offer";
 import { Offer } from "$models/Offer";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const useOffers = (filter: OffersFilter) => {
   const result = usePaginatedQuery<Variables, IOffer>({
@@ -30,6 +29,7 @@ export interface IUseOffersFilter {
   companyName?: string;
   businessSector?: string;
   title?: string;
-  approvalStatus?: ApprovalStatus;
+  studentsStatus?: OfferStatus;
+  graduatesStatus?: OfferStatus;
   careerCodes?: string[];
 }

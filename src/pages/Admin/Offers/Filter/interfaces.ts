@@ -1,7 +1,7 @@
 import { IUseOffersFilter } from "$hooks";
 import { OffersFilter } from "$models/SearchFilters/OffersFilter";
 import { ICareer } from "$interfaces/Career";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { OfferStatus } from "$interfaces/Offer";
 
 export interface ITranslations {
   companyName: string;
@@ -22,6 +22,7 @@ export interface IFormValues {
   companyName: string;
   businessSector: string;
   title: string;
-  approvalStatus: ApprovalStatus | "";
+  studentsStatus: OfferStatus | "";
+  graduatesStatus: OfferStatus | "";
   _form: string;
 }

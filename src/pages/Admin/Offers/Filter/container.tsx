@@ -10,7 +10,7 @@ import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { NameField } from "$components/Fields/NameField";
 import { Filter } from "../../components/Filter";
 import { CareerSelector } from "$components/CareerSelector";
-import { ApprovalStatusSelector } from "$components/ApprovalStatusSelector";
+import { OfferStatusSelector } from "$components/OfferStatusSelector";
 
 import styles from "./styles.module.scss";
 
@@ -28,7 +28,8 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       setSubmitting(false);
       filter.setValues({
         ...values,
-        approvalStatus: values.approvalStatus === "" ? undefined : values.approvalStatus,
+        studentsStatus: values.studentsStatus === "" ? undefined : values.studentsStatus,
+        graduatesStatus: values.graduatesStatus === "" ? undefined : values.graduatesStatus,
         careerCodes: values.careers.map(({ code }) => code)
       });
       const searchParams = filter.toString();
@@ -54,7 +55,8 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
         companyName: model?.getCompanyName() || "",
         businessSector: model?.getBusinessSector() || "",
         title: model?.getTitle() || "",
-        approvalStatus: model?.getApprovalStatus() || "",
+        studentsStatus: model?.getStudentsStatus() || "",
+        graduatesStatus: model?.getGraduatesStatus() || "",
         _form: ""
       };
     },
@@ -89,7 +91,8 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
             withoutMargin
           />
           <CareerSelector className={styles.careers} name="careers" />
-          <ApprovalStatusSelector className={styles.status} name="approvalStatus" withEmptyOption />
+          <OfferStatusSelector className={styles.status} name="graduatesStatus" withEmptyOption />
+          <OfferStatusSelector className={styles.status} name="studentsStatus" withEmptyOption />
         </>
       )}
     </Filter>

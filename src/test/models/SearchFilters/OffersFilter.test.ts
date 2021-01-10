@@ -1,5 +1,5 @@
 import { OffersFilter } from "$models/SearchFilters/OffersFilter";
-import { ApprovalStatus } from "$interfaces/ApprovalStatus";
+import { OfferStatus } from "../../../interfaces/Offer";
 
 describe("OffersFilter", () => {
   describe("Getters", () => {
@@ -96,35 +96,77 @@ describe("OffersFilter", () => {
       });
     });
 
-    describe("getApprovalStatus", () => {
+    describe("setStudentsStatus", () => {
       it("returns an approved status from url search params", () => {
-        const filter = new OffersFilter("estado-de-aprobacion=approved");
-        expect(filter.getApprovalStatus()).toEqual(ApprovalStatus.approved);
+        const filter = new OffersFilter("estado-de-aprobacion-de-alumnos=approved");
+        expect(filter.getStudentsStatus()).toEqual(OfferStatus.approved);
       });
 
       it("returns a pending status from url search params", () => {
-        const filter = new OffersFilter("estado-de-aprobacion=pending");
-        expect(filter.getApprovalStatus()).toEqual(ApprovalStatus.pending);
+        const filter = new OffersFilter("estado-de-aprobacion-de-alumnos=pending");
+        expect(filter.getStudentsStatus()).toEqual(OfferStatus.pending);
       });
 
       it("returns a rejected status from url search params", () => {
-        const filter = new OffersFilter("estado-de-aprobacion=rejected");
-        expect(filter.getApprovalStatus()).toEqual(ApprovalStatus.rejected);
+        const filter = new OffersFilter("estado-de-aprobacion-de-alumnos=rejected");
+        expect(filter.getStudentsStatus()).toEqual(OfferStatus.rejected);
       });
 
-      it("returns undefined if no approvalStatus is set", () => {
+      it("returns an expired status from url search params", () => {
+        const filter = new OffersFilter("estado-de-aprobacion-de-alumnos=expired");
+        expect(filter.getStudentsStatus()).toEqual(OfferStatus.expired);
+      });
+
+      it("returns undefined if no status is set", () => {
         const filter = new OffersFilter("nombre-del-puesto&asd=qwe");
-        expect(filter.getApprovalStatus()).toBeUndefined();
+        expect(filter.getStudentsStatus()).toBeUndefined();
       });
 
-      it("returns null if the approvalStatus is not in search params", () => {
+      it("returns null if the status is not in search params", () => {
         const filter = new OffersFilter("asd=qwe");
-        expect(filter.getApprovalStatus()).toBeUndefined();
+        expect(filter.getStudentsStatus()).toBeUndefined();
       });
 
       it("returns null when search params are empty", () => {
         const filter = new OffersFilter("");
-        expect(filter.getApprovalStatus()).toBeUndefined();
+        expect(filter.getStudentsStatus()).toBeUndefined();
+      });
+    });
+
+    describe("getGraduatesStatus", () => {
+      it("returns an approved status from url search params", () => {
+        const filter = new OffersFilter("estado-de-aprobacion-de-graduados=approved");
+        expect(filter.getGraduatesStatus()).toEqual(OfferStatus.approved);
+      });
+
+      it("returns a pending status from url search params", () => {
+        const filter = new OffersFilter("estado-de-aprobacion-de-graduados=pending");
+        expect(filter.getGraduatesStatus()).toEqual(OfferStatus.pending);
+      });
+
+      it("returns a rejected status from url search params", () => {
+        const filter = new OffersFilter("estado-de-aprobacion-de-graduados=rejected");
+        expect(filter.getGraduatesStatus()).toEqual(OfferStatus.rejected);
+      });
+
+      it("returns an expired status from url search params", () => {
+        const filter = new OffersFilter("estado-de-aprobacion-de-graduados=expired");
+        expect(filter.getGraduatesStatus()).toEqual(OfferStatus.expired);
+      });
+
+      it("returns undefined if no status is set", () => {
+        const filter = new OffersFilter("nombre-del-puesto&asd=qwe");
+        expect(filter.getGraduatesStatus()).toBeUndefined();
+      });
+
+      it("returns null if the status is not in search params", () => {
+        const filter = new OffersFilter("asd=qwe");
+        expect(filter.getGraduatesStatus()).toBeUndefined();
+      });
+
+      it("returns null when search params are empty", () => {
+        const filter = new OffersFilter("");
+        expect(filter.getGraduatesStatus()).toBeUndefined();
       });
     });
   });
@@ -136,7 +178,8 @@ describe("OffersFilter", () => {
         companyName: "Devartis",
         businessSector: "Servicios",
         title: "Ruby Junior",
-        approvalStatus: ApprovalStatus.approved,
+        studentsStatus: OfferStatus.approved,
+        graduatesStatus: OfferStatus.expired,
         careerCodes: ["1", "23"]
       };
       filter.setValues(attributes);
@@ -164,9 +207,16 @@ describe("OffersFilter", () => {
       expect(filter.getValues()).toEqual(attributes);
     });
 
-    it("sets approvalStatus", () => {
+    it("sets studentsStatus", () => {
       const filter = new OffersFilter();
-      const attributes = { approvalStatus: ApprovalStatus.pending };
+      const attributes = { studentsStatus: OfferStatus.pending };
+      filter.setValues(attributes);
+      expect(filter.getValues()).toEqual(attributes);
+    });
+
+    it("sets graduatesStatus", () => {
+      const filter = new OffersFilter();
+      const attributes = { graduatesStatus: OfferStatus.rejected };
       filter.setValues(attributes);
       expect(filter.getValues()).toEqual(attributes);
     });
@@ -186,7 +236,8 @@ describe("OffersFilter", () => {
         companyName: "Devartis",
         businessSector: "Servicios",
         title: "Ruby Junior",
-        approvalStatus: ApprovalStatus.approved,
+        studentsStatus: OfferStatus.expired,
+        graduatesStatus: OfferStatus.approved,
         careerCodes: ["1", "23"]
       });
       filter.clear();
