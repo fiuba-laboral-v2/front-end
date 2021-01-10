@@ -2,14 +2,16 @@ query GetOffers(
   $updatedBeforeThan: PaginatedInput
   $companyName: String
   $businessSector: String
-  $approvalStatus: ApprovalStatus
+  $studentsStatus: OfferStatus
+  $graduatesStatus: OfferStatus
   $title: String
 ) {
   getOffers(
     updatedBeforeThan: $updatedBeforeThan
     companyName: $companyName
     businessSector: $businessSector
-    approvalStatus: $approvalStatus
+    studentsStatus: $studentsStatus
+    graduatesStatus: $graduatesStatus
     title: $title
   ) {
     results {
