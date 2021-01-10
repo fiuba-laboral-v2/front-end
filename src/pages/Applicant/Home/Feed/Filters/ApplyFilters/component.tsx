@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ApplyCareerFilters } from "./ApplyCareerFilters";
 import { ICareer } from "$interfaces/Career";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 import { IOfferListTranslations } from "../../interfaces";
 import { ApplyFiltersTitle } from "../ApplyFiltersTitle";
 

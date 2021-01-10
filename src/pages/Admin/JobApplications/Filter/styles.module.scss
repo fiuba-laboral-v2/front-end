@@ -1,8 +1,6 @@
 @import "$styles/_variables";
 
-div.name,
-div.careers,
-div.applicantType, {
+div.name {
   margin-right: $spacing-m;
   width: 33%;
 }

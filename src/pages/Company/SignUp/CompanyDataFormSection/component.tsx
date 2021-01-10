@@ -36,11 +36,11 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
       />
     </div>
     <CheckboxInput
+      className={styles.hasAnInternshipAgreement}
       label={translations.hasAnInternshipAgreement}
-      labelPosition="right"
+      labelPosition="end"
       checked={hasAnInternshipAgreementValue}
       name="hasAnInternshipAgreement"
-      withoutLeftPadding
     />
   </FormSection>
 );

@@ -29,6 +29,10 @@ div.currentCareerYear {
   width: unset;
 }
 
+.isGraduate {
+  margin-right: $spacing-s;
+}
+
 @media (max-width: $laptopWidth) {
   .fieldsContainer {
     flex-direction: column;

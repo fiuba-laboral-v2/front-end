@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 import { ICareer } from "$interfaces/Career";
 import { FilterLabels } from "$components/FilterLabels";
 import { useHistory } from "react-router-dom";

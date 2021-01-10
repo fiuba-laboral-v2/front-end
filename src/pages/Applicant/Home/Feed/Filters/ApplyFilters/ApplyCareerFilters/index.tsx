@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { FilterLabels } from "$components/FilterLabels";
-import { OfferFilter } from "$models/OfferFilter";
+import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 import { ICareer } from "$interfaces/Career";
 import { IOfferListTranslations } from "../../../interfaces";
 import { useHistory } from "react-router-dom";

@@ -1,5 +1,13 @@
-query getCompanies($updatedBeforeThan: PaginatedInput) {
-  getCompanies(updatedBeforeThan: $updatedBeforeThan) {
+query getCompanies(
+  $updatedBeforeThan: PaginatedInput
+  $companyName: String
+  $businessSector: String
+) {
+  getCompanies(
+    updatedBeforeThan: $updatedBeforeThan
+    companyName: $companyName
+    businessSector: $businessSector
+  ) {
     shouldFetchMore
     results {
       uuid

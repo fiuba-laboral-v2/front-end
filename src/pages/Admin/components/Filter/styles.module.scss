@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.hidden {
+  display: none;
+}
+
+.fields {
+  display: flex;
+}
+
+.formFooter {
+  align-self: start;
+  height: fit-content;
+  margin-top: 10px;
+}

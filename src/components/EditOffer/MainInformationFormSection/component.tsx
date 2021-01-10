@@ -31,7 +31,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
         className={classNames(styles.isInternship, styles.rightField)}
         label={translations.isInternship}
         name="isInternship"
-        labelPosition="left"
+        labelPosition="start"
       />
     </div>
     <TextField name="description" label={translations.description} mandatory withoutMargin />
