@@ -89,13 +89,11 @@ export class OffersFilter extends URLSearchParams {
   }
 
   private setStudentsStatus(status?: OfferStatus) {
-    if (status === undefined || status === null) return;
-    this.set(STUDENTS_STATUS, status);
+    this.set(STUDENTS_STATUS, status as OfferStatus);
   }
 
   private setGraduatesStatus(status?: OfferStatus) {
-    if (status === undefined || status === null) return;
-    this.set(GRADUATES_STATUS, status);
+    this.set(GRADUATES_STATUS, status as OfferStatus);
   }
 
   private setCareerCodes(codes?: string[]) {

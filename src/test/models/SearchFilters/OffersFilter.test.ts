@@ -214,11 +214,23 @@ describe("OffersFilter", () => {
       expect(filter.getValues()).toEqual(attributes);
     });
 
+    it("sets an undefined studentsStatus", () => {
+      const filter = new OffersFilter();
+      filter.setValues({ studentsStatus: undefined });
+      expect(filter.getValues().studentsStatus).toBeUndefined();
+    });
+
     it("sets graduatesStatus", () => {
       const filter = new OffersFilter();
       const attributes = { graduatesStatus: OfferStatus.rejected };
       filter.setValues(attributes);
       expect(filter.getValues()).toEqual(attributes);
+    });
+
+    it("sets an undefined graduatesStatus", () => {
+      const filter = new OffersFilter();
+      filter.setValues({ graduatesStatus: undefined });
+      expect(filter.getValues().graduatesStatus).toBeUndefined();
     });
 
     it("sets careerCodes", () => {

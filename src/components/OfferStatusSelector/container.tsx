@@ -10,8 +10,8 @@ export const OfferStatusSelectorContainer: FunctionComponent<IContainerProps> = 
 }) => {
   const translations = useTranslations<ITranslations>("offerStatusSelector");
   if (!translations) return <Fragment />;
-  const visibleOptions = offerStatusEnumValues;
-  if (withEmptyOption) visibleOptions.push("" as OfferStatus);
+  let visibleOptions = offerStatusEnumValues;
+  if (withEmptyOption) visibleOptions = [...visibleOptions, "" as OfferStatus];
   const options = visibleOptions.map(option => ({
     label: translations[option],
     value: option
