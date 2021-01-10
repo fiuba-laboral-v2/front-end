@@ -4,6 +4,7 @@ import { ISelectFieldOption } from "$components/Fields/SelectField";
 interface ICommonProps {
   mandatory?: boolean;
   name: string;
+  label?: string;
   className?: string;
 }
 

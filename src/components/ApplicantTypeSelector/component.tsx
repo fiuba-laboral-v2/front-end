@@ -3,6 +3,7 @@ import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
 export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
+  label,
   className,
   translations,
   mandatory,
@@ -14,6 +15,6 @@ export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
     mandatory={mandatory}
     fieldName={name}
     options={options}
-    title={translations.title}
+    title={label || translations.title}
   />
 );

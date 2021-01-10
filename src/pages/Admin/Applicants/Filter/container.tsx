@@ -5,7 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { FormikHelpers } from "formik";
-import { IContainerProps, IFormValues } from "./interfaces";
+import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
 import { NameField } from "$components/Fields/NameField";
@@ -20,7 +20,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   filter,
   refetchApplicants
 }) => {
-  const translations = useTranslations<{ name: string }>("applicantsFilter");
+  const translations = useTranslations<ITranslations>("applicantsFilter");
   const history = useHistory();
   const careers = useCareers();
 
@@ -70,6 +70,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       <CareerSelector className={styles.careers} name="careers" />
       <ApplicantTypeSelector
         className={styles.applicantType}
+        label={translations?.applicantType}
         name="applicantType"
         excludedOptions={[ApplicantType.both]}
       />
