@@ -63,6 +63,14 @@
   }
 }
 
+.rightHeaderAndStatusContainer {
+  display: flex;
+}
+
+.rightContainer {
+  flex-grow: 1;
+}
+
 .description {
   white-space: pre-wrap;
 }
@@ -107,5 +115,9 @@
 
   .title {
     margin: $spacing-l 0 $spacing-s 0;
+  }
+
+  .rightHeaderAndStatusContainer {
+    flex-direction: column;
   }
 }

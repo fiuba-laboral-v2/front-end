@@ -33,31 +33,37 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
       hidden={!offer}
       className={classNames(styles.mainContainer, className, { [styles.mobile]: mobileLayout })}
     >
-      <div className={styles.header}>
-        <CompanyLogo
-          mobileLayout={mobileLayout}
-          className={styles.companyLogo}
-          size="extraLarge"
-          companyName={offer?.company.companyName}
-          logo={offer?.company.logo}
-          useDefaultIcon
-        />
-        <div className={styles.rightHeader}>
-          <div className={styles.titleContainer}>
-            <Title className={styles.title} link={titleLink}>
-              {offer?.title}
-            </Title>
-            {actions}
+      <div>
+        <div className={styles.header}>
+          <CompanyLogo
+            mobileLayout={mobileLayout}
+            className={styles.companyLogo}
+            size="extraLarge"
+            companyName={offer?.company.companyName}
+            logo={offer?.company.logo}
+            useDefaultIcon
+          />
+          <div className={styles.rightContainer}>
+            <div className={styles.rightHeaderAndStatusContainer}>
+              <div className={styles.rightHeader}>
+                <div className={styles.titleContainer}>
+                  <Title className={styles.title} link={titleLink}>
+                    {offer?.title}
+                  </Title>
+                </div>
+                <Subtitle className={styles.companyName}>
+                  {goToCompany && <Link to={goToCompany}>{offer?.company.companyName}</Link>}
+                  {!goToCompany && <p>{offer?.company.companyName}</p>}
+                </Subtitle>
+                <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
+                <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
+              </div>
+              {actions}
+            </div>
+            {withStatusLabel && offer && (
+              <StatusLabels offer={offer} currentUserApplicantType={currentUserApplicantType} />
+            )}
           </div>
-          <Subtitle className={styles.companyName}>
-            {goToCompany && <Link to={goToCompany}>{offer?.company.companyName}</Link>}
-            {!goToCompany && <p>{offer?.company.companyName}</p>}
-          </Subtitle>
-          <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
-          <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
-          {withStatusLabel && offer && (
-            <StatusLabels offer={offer} currentUserApplicantType={currentUserApplicantType} />
-          )}
         </div>
       </div>
       <div className={styles.body}>
