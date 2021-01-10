@@ -89,7 +89,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
             withoutMargin
           />
           <CareerSelector className={styles.careers} name="careers" />
-          <ApprovalStatusSelector className={styles.approvalStatus} name="approvalStatus" />
+          <ApprovalStatusSelector className={styles.status} name="approvalStatus" withEmptyOption />
         </>
       )}
     </Filter>

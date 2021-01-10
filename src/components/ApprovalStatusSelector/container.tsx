@@ -2,16 +2,16 @@ import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { ApprovalStatusSelector } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
-import { approvalStatusEnumValues } from "$interfaces/ApprovalStatus";
-import { difference } from "lodash";
+import { ApprovalStatus, approvalStatusEnumValues } from "$interfaces/ApprovalStatus";
 
 export const ApprovalStatusSelectorContainer: FunctionComponent<IContainerProps> = ({
-  excludedOptions,
+  withEmptyOption,
   ...props
 }) => {
   const translations = useTranslations<ITranslations>("approvalStatusSelector");
   if (!translations) return <Fragment />;
-  const visibleOptions = difference(approvalStatusEnumValues, excludedOptions || []);
+  const visibleOptions = approvalStatusEnumValues;
+  if (withEmptyOption) visibleOptions.push("" as ApprovalStatus);
   const options = visibleOptions.map(option => ({
     label: translations[option],
     value: option

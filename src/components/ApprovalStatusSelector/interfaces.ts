@@ -8,7 +8,7 @@ interface ICommonProps {
 }
 
 export interface IContainerProps extends ICommonProps {
-  excludedOptions?: ApprovalStatus[];
+  withEmptyOption?: boolean;
 }
 
 export interface ITranslations {
