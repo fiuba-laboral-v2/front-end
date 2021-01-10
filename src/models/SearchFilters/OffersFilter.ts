@@ -89,10 +89,12 @@ export class OffersFilter extends URLSearchParams {
   }
 
   private setStudentsStatus(status?: OfferStatus) {
-    this.set(STUDENTS_STATUS, status as OfferStatus);
+    if (!status) return this.delete(STUDENTS_STATUS);
+    this.set(STUDENTS_STATUS, status);
   }
 
   private setGraduatesStatus(status?: OfferStatus) {
+    if (!status) return this.delete(GRADUATES_STATUS);
     this.set(GRADUATES_STATUS, status as OfferStatus);
   }
 
