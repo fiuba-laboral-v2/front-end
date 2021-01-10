@@ -44,7 +44,10 @@ export const AdminRoutes = [
       <JobApplications searchQuery={props.location.search} />
     )
   },
-  { path: companies(), component: Companies },
+  {
+    path: companies(),
+    component: (props: { location: Location }) => <Companies searchQuery={props.location.search} />
+  },
   { path: home(), component: Home },
   { path: offers(), component: Offers },
   { path: notifications(), component: Notifications },

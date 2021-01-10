@@ -37,7 +37,8 @@ export const RoutesBuilder = {
     applicants: ({ searchParams }: { searchParams?: string } = {}) =>
       `${adminRoute(APPLICANTS)}${queryParams(searchParams)}`,
 
-    companies: () => adminRoute(COMPANIES),
+    companies: ({ searchParams }: { searchParams?: string } = {}) =>
+      `${adminRoute(COMPANIES)}${queryParams(searchParams)}`,
 
     admins: () => adminRoute(ADMINS),
 
