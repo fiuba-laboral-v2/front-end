@@ -8,8 +8,11 @@ interface ICommonProps {
   className?: string;
 }
 
+export type AdditionalOptions = "indeterminate";
+
 export interface IContainerProps extends ICommonProps {
   excludedOptions?: ApplicantType[];
+  additionalOptions?: AdditionalOptions[];
 }
 
 export interface ITranslations {
@@ -17,9 +20,10 @@ export interface ITranslations {
   graduate: string;
   student: string;
   both: string;
+  indeterminate: string;
 }
 
 export interface IComponentProps extends ICommonProps {
   translations: ITranslations;
-  options: Array<ISelectFieldOption<ApplicantType>>;
+  options: Array<ISelectFieldOption<ApplicantType | AdditionalOptions>>;
 }

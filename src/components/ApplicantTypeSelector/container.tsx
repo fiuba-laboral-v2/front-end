@@ -1,17 +1,20 @@
 import React, { Fragment, FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
 import { ApplicantTypeSelector } from "./component";
-import { IContainerProps, ITranslations } from "./interfaces";
-import { targetApplicantTypeEnumValues } from "$interfaces/Applicant";
+import { AdditionalOptions, IContainerProps, ITranslations } from "./interfaces";
+import { ApplicantType, targetApplicantTypeEnumValues } from "$interfaces/Applicant";
 import { difference } from "lodash";
 
 export const ApplicantTypeSelectorContainer: FunctionComponent<IContainerProps> = ({
-  excludedOptions,
+  excludedOptions = [],
+  additionalOptions = [],
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("targetApplicantTypeSelector");
+  const translations = useTranslations<ITranslations>("applicantTypeSelector");
   if (!translations) return <Fragment />;
-  const visibleOptions = difference(targetApplicantTypeEnumValues, excludedOptions || []);
+  let visibleOptions: Array<ApplicantType | AdditionalOptions> = [];
+  visibleOptions = difference(targetApplicantTypeEnumValues, excludedOptions);
+  visibleOptions = [...visibleOptions, ...additionalOptions];
   const options = visibleOptions.map(option => ({
     label: translations[option],
     value: option

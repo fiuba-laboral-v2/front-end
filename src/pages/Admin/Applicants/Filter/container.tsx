@@ -33,7 +33,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       filter.setValues({
         ...values,
         careerCodes: values.careers.map(({ code }) => code),
-        applicantType: applicantType === "" ? undefined : applicantType
+        applicantType: applicantType === "indeterminate" ? undefined : applicantType
       });
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
@@ -52,7 +52,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
         return { code: careerCode, description: career?.description || "" };
       }),
       name: model?.getName() || "",
-      applicantType: model?.getApplicantType() || "",
+      applicantType: model?.getApplicantType() || "indeterminate",
       _form: ""
     };
   };
@@ -69,6 +69,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       )}
       <CareerSelector className={styles.careers} name="careers" />
       <ApplicantTypeSelector
+        additionalOptions={["indeterminate"]}
         className={styles.applicantType}
         label={translations?.applicantType}
         name="applicantType"

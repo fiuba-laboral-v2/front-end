@@ -17,6 +17,6 @@ export interface IContainerProps {
 export interface IFormValues {
   name: string;
   careers: ICareer[];
-  applicantType: ApplicantType | "";
+  applicantType: ApplicantType | "indeterminate";
   _form: string;
 }
