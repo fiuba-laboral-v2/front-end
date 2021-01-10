@@ -1,13 +1,14 @@
 import { GET_OFFERS } from "$queries";
-import { usePaginatedQuery } from "$hooks";
-import { IOffer } from "$interfaces/Offer";
+import { OffersFilter } from "$models/SearchFilters/OffersFilter";
+import { usePaginatedQuery, IVariables } from "$hooks";
+import { IOffer, OfferStatus } from "$interfaces/Offer";
 import { Offer } from "$models/Offer";
 
-export const useOffers = () => {
-  const result = usePaginatedQuery<{}, IOffer>({
+export const useOffers = (filter: OffersFilter) => {
+  const result = usePaginatedQuery<Variables, IOffer>({
     documentNode: GET_OFFERS,
     queryName: "getOffers",
-    variables: {},
+    variables: filter.getValues(),
     timestampKey: "updatedAt"
   });
 
@@ -21,3 +22,14 @@ export const useOffers = () => {
     }
   };
 };
+
+type Variables = IVariables & IUseOffersFilter;
+
+export interface IUseOffersFilter {
+  companyName?: string;
+  businessSector?: string;
+  title?: string;
+  studentsStatus?: OfferStatus;
+  graduatesStatus?: OfferStatus;
+  careerCodes?: string[];
+}

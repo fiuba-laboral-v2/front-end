@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback } from "react";
+import React, { Fragment, FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -42,27 +42,20 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
     [filter, history, refetchApplicants]
   );
 
-  const modelToValues = useCallback(
-    (model?: ApplicantsFilter): IFormValues => {
-      const getCareers = () => {
-        const careerCodes = model?.getCareerCodes();
-        if (!careers) return [];
-        if (!careerCodes) return [];
-        return careerCodes.map(careerCode => {
-          const career = careers.find(({ code }) => code === careerCode);
-          return { code: careerCode, description: career?.description || "" };
-        });
-      };
+  if (!careers) return <Fragment />;
 
-      return {
-        careers: getCareers(),
-        name: model?.getName() || "",
-        applicantType: model?.getApplicantType() || "",
-        _form: ""
-      };
-    },
-    [careers]
-  );
+  const modelToValues = (model?: ApplicantsFilter): IFormValues => {
+    const careerCodes = model?.getCareerCodes();
+    return {
+      careers: (careerCodes || []).map(careerCode => {
+        const career = (careers || []).find(({ code }) => code === careerCode);
+        return { code: careerCode, description: career?.description || "" };
+      }),
+      name: model?.getName() || "",
+      applicantType: model?.getApplicantType() || "",
+      _form: ""
+    };
+  };
 
   return (
     <Filter

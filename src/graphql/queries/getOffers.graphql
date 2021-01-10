@@ -1,5 +1,19 @@
-query GetOffers($updatedBeforeThan: PaginatedInput) {
-  getOffers(updatedBeforeThan: $updatedBeforeThan) {
+query GetOffers(
+  $updatedBeforeThan: PaginatedInput
+  $companyName: String
+  $businessSector: String
+  $studentsStatus: OfferStatus
+  $graduatesStatus: OfferStatus
+  $title: String
+) {
+  getOffers(
+    updatedBeforeThan: $updatedBeforeThan
+    companyName: $companyName
+    businessSector: $businessSector
+    studentsStatus: $studentsStatus
+    graduatesStatus: $graduatesStatus
+    title: $title
+  ) {
     results {
       uuid
       title
@@ -16,6 +30,7 @@ query GetOffers($updatedBeforeThan: PaginatedInput) {
       company {
         uuid
         companyName
+        businessSector
         logo
       }
       careers {

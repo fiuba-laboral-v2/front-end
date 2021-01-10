@@ -68,3 +68,17 @@ export interface IOffer extends IOfferAttributes {
   isStudentExpirationGreaterOrEqualThanGraduates: () => boolean;
   isFromApprovedCompany: () => boolean;
 }
+
+export enum OfferStatus {
+  expired = "expired",
+  pending = "pending",
+  approved = "approved",
+  rejected = "rejected"
+}
+
+export const offerStatusEnumValues = [
+  OfferStatus.approved,
+  OfferStatus.pending,
+  OfferStatus.rejected,
+  OfferStatus.expired
+];
