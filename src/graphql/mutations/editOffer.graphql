@@ -29,6 +29,10 @@ mutation editOffer(
     isInternship
     minimumSalary
     maximumSalary
+    extensionApprovalStatus
+    graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
     createdAt
     updatedAt
     sections {
