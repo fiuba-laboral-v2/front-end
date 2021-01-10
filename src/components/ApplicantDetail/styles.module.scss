@@ -51,6 +51,12 @@
   }
 }
 
+@media (max-width: $laptopWidth) {
+  .header {
+    flex-direction: column;
+  }
+}
+
 @include customMedia {
   .headline {
     margin-bottom: $spacing-m;
@@ -73,10 +79,6 @@
 @include mobileClass {
   .headline {
     margin-bottom: $spacing-m;
-  }
-
-  .header {
-    flex-direction: column;
   }
 
   .title {
