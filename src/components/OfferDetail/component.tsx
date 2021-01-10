@@ -56,10 +56,10 @@ export const OfferDetail: FunctionComponent<IOfferDetailProps> = ({
                   {!goToCompany && <p>{offer?.company.companyName}</p>}
                 </Subtitle>
                 <PublishedSince className={styles.updatedAt} date={offer?.updatedAt} />
-                <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
               </div>
               {actions}
             </div>
+            <InternshipLabel className={styles.internshipLabel} hidden={!offer?.isInternship} />
             {withStatusLabel && offer && (
               <StatusLabels offer={offer} currentUserApplicantType={currentUserApplicantType} />
             )}
