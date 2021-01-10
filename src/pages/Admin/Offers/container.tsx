@@ -7,7 +7,7 @@ import { useOffers } from "$hooks/queries";
 
 import styles from "./styles.module.scss";
 
-export const Offers: FunctionComponent = () => {
+export const Offers: FunctionComponent<IContainerProps> = () => {
   const response = useOffers();
   const offers = response?.data?.getOffers.results;
 
@@ -25,3 +25,7 @@ export const Offers: FunctionComponent = () => {
     />
   );
 };
+
+interface IContainerProps {
+  searchQuery: string;
+}
