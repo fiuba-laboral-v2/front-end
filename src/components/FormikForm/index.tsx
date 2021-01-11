@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { Form, FormikProps } from "formik";
+import { isEqual } from "lodash";
 
 export const FormikForm = <Model, Values>({
   id,
@@ -11,15 +12,24 @@ export const FormikForm = <Model, Values>({
   hidden
 }: IFormProps<Model, Values>) => {
   const [valuesWereSet, setValuesWereSet] = useState(false);
+  const [lastValues, setLastValues] = useState<Values | undefined>(undefined);
   const setValues = formikProps?.setValues;
   useEffect(() => {
-    if (valuesWereSet) return;
     if (!setValues) return;
     if (!modelToValues) return;
     if (!initialValuesModel) return;
-    setValues(modelToValues(initialValuesModel), false);
+    const values = modelToValues(initialValuesModel);
+    if (!isEqual(values, lastValues) && lastValues) {
+      setValues(values, false);
+      setValuesWereSet(true);
+      setLastValues(values);
+      return;
+    }
+    if (valuesWereSet) return;
+    setValues(values, false);
     setValuesWereSet(true);
-  }, [valuesWereSet, setValues, modelToValues, initialValuesModel]);
+    setLastValues(values);
+  }, [valuesWereSet, setValues, modelToValues, initialValuesModel, lastValues]);
   return (
     <Form id={id} className={className} hidden={hidden}>
       {children}
