@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
-import { IsNewLabel } from "./component";
+import { CardTag } from "$components/CardTag";
 
 export const IsNewLabelContainer: FunctionComponent = () => {
   const translations = useTranslations<{ isNew: string }>("isNewLabel");
 
-  return <IsNewLabel label={translations?.isNew || ""} />;
+  return <CardTag label={translations?.isNew || ""} color="blue" />;
 };
