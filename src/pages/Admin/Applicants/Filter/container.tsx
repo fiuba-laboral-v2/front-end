@@ -5,7 +5,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { FormikHelpers } from "formik";
-import { IContainerProps, IFormValues } from "./interfaces";
+import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
 import { NameField } from "$components/Fields/NameField";
@@ -20,7 +20,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   filter,
   refetchApplicants
 }) => {
-  const translations = useTranslations<{ name: string }>("applicantsFilter");
+  const translations = useTranslations<ITranslations>("applicantsFilter");
   const history = useHistory();
   const careers = useCareers();
 
@@ -33,7 +33,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       filter.setValues({
         ...values,
         careerCodes: values.careers.map(({ code }) => code),
-        applicantType: applicantType === "" ? undefined : applicantType
+        applicantType: applicantType === "indeterminate" ? undefined : applicantType
       });
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
@@ -52,7 +52,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
         return { code: careerCode, description: career?.description || "" };
       }),
       name: model?.getName() || "",
-      applicantType: model?.getApplicantType() || "",
+      applicantType: model?.getApplicantType() || "indeterminate",
       _form: ""
     };
   };
@@ -69,7 +69,9 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       )}
       <CareerSelector className={styles.careers} name="careers" />
       <ApplicantTypeSelector
+        additionalOptions={["indeterminate"]}
         className={styles.applicantType}
+        label={translations?.applicantType}
         name="applicantType"
         excludedOptions={[ApplicantType.both]}
       />
