@@ -1,13 +1,17 @@
 import React, { FunctionComponent, ReactNode } from "react";
+import classNames from "classnames";
 import { List } from "$components/List";
 import { Offer } from "./Offer";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 import { Title } from "$components/Title";
 import { Card } from "$components/Card";
+import { AppliedTag } from "$components/AppliedTag";
+import { IMyOffer } from "$interfaces/Applicant";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,
+  withAppliedTag = () => false,
   offers,
   createLink,
   fetchMore,
@@ -26,17 +30,26 @@ export const Feed: FunctionComponent<IFeedProps> = ({
       loading={loading}
       emptyListComponent={emptyListComponent}
     >
-      {offer => (
-        <Card key={offer.uuid} className={styles.cardContainer} link={createLink(offer.uuid)}>
-          <Offer data={offer} withStatusLabels={withStatusLabels} />
-        </Card>
-      )}
+      {offer => {
+        const hasApplied = withAppliedTag(offer as IMyOffer);
+        return (
+          <Card
+            key={offer.uuid}
+            className={classNames(styles.cardContainer, { [styles.withAppliedTag]: hasApplied })}
+            link={createLink(offer.uuid)}
+          >
+            {hasApplied && <AppliedTag />}
+            <Offer data={offer} withStatusLabels={withStatusLabels} />
+          </Card>
+        );
+      }}
     </List>
   </div>
 );
 
 interface IFeedProps {
   withStatusLabels: boolean;
+  withAppliedTag?: (offer: IMyOffer) => boolean;
   title?: string;
   offers: IOffer[];
   createLink: (uuid: string) => string;

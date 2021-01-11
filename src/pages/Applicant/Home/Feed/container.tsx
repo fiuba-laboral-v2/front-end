@@ -33,6 +33,7 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
     <Window width="fullWidth" className={styles.container}>
       <Filters className={styles.filters} translations={translations} filter={filter} />
       <Feed
+        withAppliedTag={offer => offer.hasApplied}
         className={styles.offers}
         loading={offers.loading}
         offers={offers.data?.getApprovedOffers.results || []}

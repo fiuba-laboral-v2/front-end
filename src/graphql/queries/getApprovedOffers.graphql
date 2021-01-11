@@ -8,6 +8,7 @@ query($updatedBeforeThan: PaginatedInput, $careerCodes: [ID!]) {
       minimumSalary
       maximumSalary
       updatedAt
+      hasApplied
       company {
         uuid
         companyName
