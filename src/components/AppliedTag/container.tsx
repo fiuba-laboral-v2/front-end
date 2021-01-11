@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { useTranslations } from "$hooks";
-import { AppliedTag } from "./component";
+import { CardTag } from "$components/CardTag";
 
 export const AppliedTagContainer: FunctionComponent = () => {
   const translations = useTranslations<{ label: string }>("appliedTag");
 
-  return <AppliedTag label={translations?.label || ""} />;
+  return <CardTag label={translations?.label || ""} color="green" />;
 };
