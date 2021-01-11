@@ -18,12 +18,7 @@ export const FormikForm = <Model, Values>({
     if (!modelToValues) return;
     if (!initialValuesModel) return;
     const initialValues = modelToValues(initialValuesModel);
-    if (!isEqual(initialValues, lastInitialValues) && lastInitialValues) {
-      setValues(initialValues, false);
-      setLastInitialValues(initialValues);
-      return;
-    }
-    if (lastInitialValues !== undefined) return;
+    if (isEqual(initialValues, lastInitialValues)) return;
     setValues(initialValues, false);
     setLastInitialValues(initialValues);
   }, [setValues, modelToValues, initialValuesModel, lastInitialValues]);
