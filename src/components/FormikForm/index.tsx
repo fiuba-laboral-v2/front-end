@@ -11,25 +11,22 @@ export const FormikForm = <Model, Values>({
   modelToValues,
   hidden
 }: IFormProps<Model, Values>) => {
-  const [valuesWereSet, setValuesWereSet] = useState(false);
-  const [lastValues, setLastValues] = useState<Values | undefined>(undefined);
+  const [lastInitialValues, setLastInitialValues] = useState<Values | undefined>(undefined);
   const setValues = formikProps?.setValues;
   useEffect(() => {
     if (!setValues) return;
     if (!modelToValues) return;
     if (!initialValuesModel) return;
-    const values = modelToValues(initialValuesModel);
-    if (!isEqual(values, lastValues) && lastValues) {
-      setValues(values, false);
-      setValuesWereSet(true);
-      setLastValues(values);
+    const initialValues = modelToValues(initialValuesModel);
+    if (!isEqual(initialValues, lastInitialValues) && lastInitialValues) {
+      setValues(initialValues, false);
+      setLastInitialValues(initialValues);
       return;
     }
-    if (valuesWereSet) return;
-    setValues(values, false);
-    setValuesWereSet(true);
-    setLastValues(values);
-  }, [valuesWereSet, setValues, modelToValues, initialValuesModel, lastValues]);
+    if (lastInitialValues !== undefined) return;
+    setValues(initialValues, false);
+    setLastInitialValues(initialValues);
+  }, [setValues, modelToValues, initialValuesModel, lastInitialValues]);
   return (
     <Form id={id} className={className} hidden={hidden}>
       {children}
