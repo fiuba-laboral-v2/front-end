@@ -2,6 +2,7 @@ export interface ITranslations {
   title: string;
   subtitle: string;
   email: string;
+  emailHelperText: string;
   website: string;
 }
 
