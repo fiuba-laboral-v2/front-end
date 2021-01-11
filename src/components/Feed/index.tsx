@@ -7,7 +7,6 @@ import styles from "./styles.module.scss";
 import { Title } from "$components/Title";
 import { Card } from "$components/Card";
 import { AppliedTag } from "$components/AppliedTag";
-import { IMyOffer } from "$interfaces/Applicant";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,
@@ -31,7 +30,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
       emptyListComponent={emptyListComponent}
     >
       {offer => {
-        const hasApplied = withAppliedTag(offer as IMyOffer);
+        const hasApplied = withAppliedTag(offer);
         return (
           <Card
             key={offer.uuid}
@@ -49,7 +48,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
 
 interface IFeedProps {
   withStatusLabels: boolean;
-  withAppliedTag?: (offer: IMyOffer) => boolean;
+  withAppliedTag?: (offer: IOffer) => boolean;
   title?: string;
   offers: IOffer[];
   createLink: (uuid: string) => string;
