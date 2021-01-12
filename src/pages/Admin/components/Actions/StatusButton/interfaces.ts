@@ -7,7 +7,7 @@ interface ICommonProps extends IButtonProps {
   Icon: FunctionComponent<SvgIconProps>;
 }
 
-export enum DetailTarget {
+export enum NotificationRecipient {
   APPLICANT = "applicant",
   COMPANY = "company",
   BOTH = "both"
@@ -16,7 +16,7 @@ export enum DetailTarget {
 export interface IContainer extends ICommonProps {
   loading: boolean;
   status: ApprovalStatus;
-  detailTarget: DetailTarget;
+  notificationRecipient: NotificationRecipient;
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
 }
 

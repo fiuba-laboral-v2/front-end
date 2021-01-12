@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Actions } from "../Actions";
-import { DetailTarget } from "../Actions/StatusButton/interfaces";
+import { NotificationRecipient } from "../Actions/StatusButton/interfaces";
 
 import styles from "./styles.module.scss";
 
@@ -9,7 +9,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   mainTitle,
   setStatus,
   loading,
-  detailTarget,
+  notificationRecipient,
   currentStatus,
   children,
   hidden,
@@ -23,7 +23,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
         <Actions
           loading={loading}
           setStatus={setStatus}
-          detailTarget={detailTarget}
+          notificationRecipient={notificationRecipient}
           currentStatus={currentStatus}
         />
       )}
@@ -37,6 +37,6 @@ export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
   hidden: boolean;
-  detailTarget: DetailTarget;
+  notificationRecipient: NotificationRecipient;
   hideActions?: boolean;
 }

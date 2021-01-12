@@ -3,27 +3,27 @@ import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApproveButton } from "./ApproveButton";
 import { RejectButton } from "./RejectButton";
-import { DetailTarget } from "./StatusButton/interfaces";
+import { NotificationRecipient } from "./StatusButton/interfaces";
 
 import styles from "./styles.module.scss";
 
 export const Actions: FunctionComponent<IActionsProps> = ({
   currentStatus,
   setStatus,
-  detailTarget,
+  notificationRecipient,
   loading
 }) => (
   <div className={styles.actions}>
     <RejectButton
       hidden={currentStatus === ApprovalStatus.rejected}
       loading={loading}
-      detailTarget={detailTarget}
+      notificationRecipient={notificationRecipient}
       setStatus={setStatus}
     />
     <ApproveButton
       hidden={currentStatus === ApprovalStatus.approved}
       loading={loading}
-      detailTarget={detailTarget}
+      notificationRecipient={notificationRecipient}
       setStatus={setStatus}
     />
   </div>
@@ -32,6 +32,6 @@ export const Actions: FunctionComponent<IActionsProps> = ({
 export interface IActionsProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   currentStatus?: ApprovalStatus;
-  detailTarget: DetailTarget;
+  notificationRecipient: NotificationRecipient;
   loading: boolean;
 }

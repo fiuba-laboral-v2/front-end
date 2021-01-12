@@ -5,7 +5,7 @@ import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "../../Applicant/ApplicantDetailInfo/UserDetails";
 import { MainTitle } from "./MainTitle";
 import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
-import { DetailTarget } from "../../Actions/StatusButton/interfaces";
+import { NotificationRecipient } from "../../Actions/StatusButton/interfaces";
 
 export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
   jobApplication,
@@ -19,7 +19,7 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
     hideActions={hideActions}
     hidden={!jobApplication}
     loading={loading}
-    detailTarget={DetailTarget.BOTH}
+    notificationRecipient={NotificationRecipient.BOTH}
     mainTitle={
       <MainTitle useRejectionMessage={useRejectionMessage} jobApplication={jobApplication} />
     }

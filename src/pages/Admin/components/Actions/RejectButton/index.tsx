@@ -3,7 +3,7 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { StatusButton } from "../StatusButton";
-import { DetailTarget } from "../StatusButton/interfaces";
+import { NotificationRecipient } from "../StatusButton/interfaces";
 
 export const RejectButton: FunctionComponent<IComponent> = props => (
   <StatusButton {...props} kind="danger" status={ApprovalStatus.rejected} Icon={HighlightOffIcon} />
@@ -12,6 +12,6 @@ export const RejectButton: FunctionComponent<IComponent> = props => (
 interface IComponent {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
-  detailTarget: DetailTarget;
+  notificationRecipient: NotificationRecipient;
   hidden?: boolean;
 }
