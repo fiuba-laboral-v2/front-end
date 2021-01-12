@@ -9,6 +9,7 @@ type ErrorName =
   | "UserNotFoundError"
   | "OfferNotFoundError"
   | "ApplicantNotFound"
+  | "ApplicantNotificationNotFoundError"
   | "CompanyNotFoundError"
   | "AuthenticationError"
   | "UnauthorizedError"

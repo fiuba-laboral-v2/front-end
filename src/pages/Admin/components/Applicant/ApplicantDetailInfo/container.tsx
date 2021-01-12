@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useApplicantByUuid } from "$hooks/queries";
+import { useApplicantByUuid, useLazyRejectedApplicantProfileMessageByUuid } from "$hooks";
 import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { ApplicantDetailInfo } from "./component";
@@ -13,6 +13,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const useRejectionMessage = useLazyRejectedApplicantProfileMessageByUuid();
   const currentUser = useCurrentUser();
   const applicant = useApplicantByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
@@ -39,6 +40,7 @@ export const ApplicantDetailInfoContainer: FunctionComponent<IApplicantDetailInf
 
   return (
     <ApplicantDetailInfo
+      useRejectionMessage={useRejectionMessage}
       loading={loading}
       applicant={applicant}
       setStatus={setStatus}
