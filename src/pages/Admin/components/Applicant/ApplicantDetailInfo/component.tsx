@@ -5,6 +5,7 @@ import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { NotificationRecipient } from "../../Actions/StatusButton/interfaces";
 
 export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = ({
   applicant,
@@ -17,6 +18,7 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
     hideActions={hideActions}
     hidden={!applicant}
     loading={loading}
+    notificationRecipient={NotificationRecipient.APPLICANT}
     mainTitle={<MainTitle useRejectionMessage={useRejectionMessage} applicant={applicant} />}
     currentStatus={applicant?.approvalStatus}
     setStatus={setStatus}
