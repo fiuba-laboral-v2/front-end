@@ -18,6 +18,7 @@ export const MainTitleContainer: FunctionComponent<IMainTitleContainerProps> = (
   return (
     <MainTitle
       {...(isRejected && { useRejectionMessage })}
+      adminTaskUuid={company?.uuid}
       hidden={!company || !translations}
       title={title}
       updatedAt={company?.updatedAt}
