@@ -1,0 +1,3 @@
+query GetRejectedApplicantProfileMessageByUuid($notifiedApplicantUuid: ID!) {
+  getRejectedApplicantProfileMessageByUuid(notifiedApplicantUuid: $notifiedApplicantUuid)
+}
