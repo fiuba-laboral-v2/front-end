@@ -9,15 +9,15 @@ export const useLazyRejectedJobApplicationMessageByUuid = () => {
     GET_REJECTED_JOB_APPLICATION_MESSAGE_BY_UUID
   );
 
-  const getRejectedJobApplicationMessageByUuid = async (variables: IVariables) => {
+  const getRejectedJobApplicationMessageByUuid = async (jobApplicationUuid: string) => {
     const response = await query({
-      variables,
+      variables: { jobApplicationUuid },
       errorHandlers: {
         ApplicantNotificationNotFoundError: () => history.push(RoutesBuilder.public.notFound()),
         defaultHandler: () => history.push(RoutesBuilder.public.internalServerError())
       }
     });
-    return response.data?.getRejectedJobApplicationMessageByUuid;
+    return response?.data?.getRejectedJobApplicationMessageByUuid;
   };
 
   return { getRejectedJobApplicationMessageByUuid, ...result };
