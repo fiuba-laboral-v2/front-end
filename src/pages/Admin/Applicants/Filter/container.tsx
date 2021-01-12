@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useCallback } from "react";
+import React, { Fragment, FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useCareers, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { ApplicantsFilter } from "$models/SearchFilters/ApplicantsFilter";
 import { FormikHelpers } from "formik";
-import { IContainerProps, IFormValues } from "./interfaces";
+import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 import { ApplicantType } from "$interfaces/Applicant";
 
 import { NameField } from "$components/Fields/NameField";
@@ -20,7 +20,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   filter,
   refetchApplicants
 }) => {
-  const translations = useTranslations<{ name: string }>("applicantsFilter");
+  const translations = useTranslations<ITranslations>("applicantsFilter");
   const history = useHistory();
   const careers = useCareers();
 
@@ -33,7 +33,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       filter.setValues({
         ...values,
         careerCodes: values.careers.map(({ code }) => code),
-        applicantType: applicantType === "" ? undefined : applicantType
+        applicantType: applicantType === "indeterminate" ? undefined : applicantType
       });
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
@@ -42,27 +42,20 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
     [filter, history, refetchApplicants]
   );
 
-  const modelToValues = useCallback(
-    (model?: ApplicantsFilter): IFormValues => {
-      const getCareers = () => {
-        const careerCodes = model?.getCareerCodes();
-        if (!careers) return [];
-        if (!careerCodes) return [];
-        return careerCodes.map(careerCode => {
-          const career = careers.find(({ code }) => code === careerCode);
-          return { code: careerCode, description: career?.description || "" };
-        });
-      };
+  if (!careers) return <Fragment />;
 
-      return {
-        careers: getCareers(),
-        name: model?.getName() || "",
-        applicantType: model?.getApplicantType() || "",
-        _form: ""
-      };
-    },
-    [careers]
-  );
+  const modelToValues = (model?: ApplicantsFilter): IFormValues => {
+    const careerCodes = model?.getCareerCodes();
+    return {
+      careers: (careerCodes || []).map(careerCode => {
+        const career = (careers || []).find(({ code }) => code === careerCode);
+        return { code: careerCode, description: career?.description || "" };
+      }),
+      name: model?.getName() || "",
+      applicantType: model?.getApplicantType() || "indeterminate",
+      _form: ""
+    };
+  };
 
   return (
     <Filter
@@ -76,7 +69,9 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       )}
       <CareerSelector className={styles.careers} name="careers" />
       <ApplicantTypeSelector
+        additionalOptions={["indeterminate"]}
         className={styles.applicantType}
+        label={translations?.applicantType}
         name="applicantType"
         excludedOptions={[ApplicantType.both]}
       />

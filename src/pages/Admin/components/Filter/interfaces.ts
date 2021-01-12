@@ -14,6 +14,7 @@ export interface IContainerProps<FormVariables> {
   ) => Promise<any>;
   showFilter: boolean;
   children: ReactNode;
+  formFooterClassName?: string;
 }
 
 export type IFormValues<FormVariables> = FormVariables & {

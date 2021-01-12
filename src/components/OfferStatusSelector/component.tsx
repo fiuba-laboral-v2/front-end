@@ -2,10 +2,9 @@ import React, { FunctionComponent } from "react";
 import { IComponentProps } from "./interfaces";
 import { SelectField } from "$components/Fields";
 
-export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
-  label,
+export const OfferStatusSelector: FunctionComponent<IComponentProps> = ({
   className,
-  translations,
+  title,
   mandatory,
   name,
   options
@@ -15,6 +14,6 @@ export const ApplicantTypeSelector: FunctionComponent<IComponentProps> = ({
     mandatory={mandatory}
     fieldName={name}
     options={options}
-    title={label || translations.title}
+    title={title}
   />
 );

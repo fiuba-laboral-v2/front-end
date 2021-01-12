@@ -2,10 +2,10 @@
 
 .userDetails {
   font-size: $fontSize-l;
+  overflow-wrap: anywhere;
 }
 
 .firstRow {
-  display: flex;
   justify-content: space-between;
 }
 

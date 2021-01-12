@@ -3,6 +3,9 @@
 .actionsContainer {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  margin-left: $spacing-s;
+  width: 150px;
 }
 
 .edit {
@@ -17,4 +20,21 @@
 
 .separator {
   flex-grow: 1;
+}
+
+@media (max-width: $laptopWidth) {
+  .actionsContainer {
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+  }
+
+  .edit {
+    margin: 0 $spacing-s 0 0;
+  }
+
+  .edit,
+  .editPadron {
+    width: 50%;
+  }
 }

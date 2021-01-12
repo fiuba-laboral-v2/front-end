@@ -1,7 +1,6 @@
 @import "$styles/_variables";
 
-.isNew {
-  background-color: #0288d1;
+.tag {
   border-bottom-left-radius: $borderRadius-s;
   border-top-right-radius: $borderRadius-l;
   color: $white;
@@ -9,4 +8,12 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.green {
+  background-color: $green;
+}
+
+.blue {
+  background-color: #0288d1;
 }
