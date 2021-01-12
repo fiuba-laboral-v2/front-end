@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useJobApplicationByUuid } from "$hooks/queries";
+import { useJobApplicationByUuid } from "$hooks";
 import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { JobApplicationDetailInfo } from "./component";
