@@ -7,6 +7,9 @@ export interface ITranslations {
   password: string;
   logIn: string;
   badCredentialsMessage: string;
+  creditsTitle: string;
+  seeCredits: string;
+  questionsTitle: string;
 }
 
 export interface IContainerProps<IVariables> {

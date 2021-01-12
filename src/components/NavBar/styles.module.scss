@@ -19,7 +19,7 @@
   }
 
   .bottom {
-    margin: $spacing-l 0 3vh 0;
+    margin: $spacing-l 0 calc(3vh - 10px) 0;
   }
 
   .username {
@@ -27,6 +27,15 @@
     padding: 0 $spacing-l;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .credits {
+    font-size: $fontSize-s;
+  }
+
+  .username,
+  .credits {
+    padding: 0 $spacing-l;
   }
 
   &.inDrawer {

@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { noop } from "lodash";
+import { Link } from "../Link";
 
 export const NavBar: FunctionComponent<INavBarProps> = ({
   className,
@@ -46,6 +47,9 @@ export const NavBar: FunctionComponent<INavBarProps> = ({
           inDrawer={inDrawer}
           text={translations.logOut}
         />
+        <Link className={styles.credits} to={"#"}>
+          {translations.credits}
+        </Link>
       </div>
     </div>
     <ExpandMoreIcon
