@@ -35,3 +35,4 @@ export * from "./useCurrentUserApplicantType";
 export * from "./useMyCompanyUser";
 export * from "./useLazyApplicantEmails";
 export * from "./useLazyRejectedJobApplicationMessageByUuid";
+export * from "./useLazyRejectedApplicantProfileMessageByUuid";
