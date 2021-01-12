@@ -7,16 +7,18 @@ import { IUser } from "$interfaces/User";
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 import { DetailInfo } from "../../DetailInfo";
+import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   setStatus,
   company,
-  loading
+  loading,
+  useRejectionMessage
 }) => (
   <DetailInfo
     hidden={!company}
     loading={loading}
-    mainTitle={<MainTitle company={company} />}
+    mainTitle={<MainTitle useRejectionMessage={useRejectionMessage} company={company} />}
     setStatus={setStatus}
     currentStatus={company?.approvalStatus}
   >
@@ -28,4 +30,5 @@ export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   company?: ICompany<IUser>;
   loading: boolean;
+  useRejectionMessage: IUseRejectionMessage;
 }

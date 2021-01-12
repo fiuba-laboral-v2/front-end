@@ -1,0 +1,3 @@
+query GetRejectedOfferMessageByUuid($offerUuid: ID!) {
+  getRejectedOfferMessageByUuid(offerUuid: $offerUuid)
+}
