@@ -9,6 +9,7 @@ export interface ITranslations {
 export interface IContainerProps {
   getRejectionMessage: (uuid: string) => Promise<string | undefined>;
   adminTaskUuid: string;
+  loading?: boolean;
 }
 
 export interface IComponentProps {
@@ -17,4 +18,5 @@ export interface IComponentProps {
   showMessage: boolean;
   setShowMessage: (showMessage: boolean) => void;
   onClick: () => void;
+  loading?: boolean;
 }

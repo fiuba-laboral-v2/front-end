@@ -5,7 +5,8 @@ import { IContainerProps, ITranslations } from "./interfaces";
 
 export const RejectionMessageButtonContainer: FunctionComponent<IContainerProps> = ({
   getRejectionMessage,
-  adminTaskUuid
+  adminTaskUuid,
+  loading
 }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
@@ -18,6 +19,7 @@ export const RejectionMessageButtonContainer: FunctionComponent<IContainerProps>
 
   return (
     <RejectionMessageButton
+      loading={loading}
       translations={translations}
       onClick={onClick}
       message={message}

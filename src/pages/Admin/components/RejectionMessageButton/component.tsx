@@ -2,12 +2,14 @@ import React, { FunctionComponent } from "react";
 import { Button } from "$components/Button";
 import { IComponentProps } from "./interfaces";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
   message,
   setShowMessage,
   showMessage,
-  translations
+  translations,
+  loading
 }) => (
   <>
     <Button kind="primary">{translations?.label}</Button>
@@ -17,7 +19,8 @@ export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
       translations={translations}
       closeOnConfirm
     >
-      <span>{message}</span>
+      {loading && <LoadingSpinner />}
+      {!loading && <span>{message}</span>}
     </FormConfirmDialog>
   </>
 );
