@@ -35,6 +35,9 @@ const GET_COMPANY_USERS = loader("./getCompanyUsers.graphql");
 const GET_COMPANY_USERS_BY_COMPANY = loader("./getCompanyUsersByCompany.graphql");
 const GET_MY_COMPANY_USER = loader("./getMyCompanyUser.graphql");
 const GET_APPLICANT_EMAILS = loader("./getApplicantEmails.graphql");
+const GET_REJECTED_JOB_APPLICATION_MESSAGE_BY_UUID = loader(
+  "./getRejectedJobApplicationMessageByUuid.graphql"
+);
 
 export {
   GET_CURRENT_USER,
@@ -71,5 +74,6 @@ export {
   GET_COMPANY_USERS,
   GET_COMPANY_USERS_BY_COMPANY,
   GET_MY_COMPANY_USER,
-  GET_APPLICANT_EMAILS
+  GET_APPLICANT_EMAILS,
+  GET_REJECTED_JOB_APPLICATION_MESSAGE_BY_UUID
 };
