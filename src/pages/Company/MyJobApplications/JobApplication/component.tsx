@@ -12,12 +12,13 @@ export const JobApplication: FunctionComponent<IJobApplicationProps> = ({
   className,
   jobApplication: { updatedAt, offer, applicant }
 }) => {
-  const link = RoutesBuilder.company.applicantDetail(applicant.uuid);
   return (
-    <Card className={classNames(styles.card, className)} link={link}>
+    <Card className={classNames(styles.card, className)}>
       <div className={styles.leftContainer}>
         <Subtitle className={styles.applicantName}>
-          {`${applicant.user.name} ${applicant.user.surname}`}
+          <Link to={RoutesBuilder.company.applicantDetail(applicant.uuid)}>
+            {`${applicant.user.name} ${applicant.user.surname}`}
+          </Link>
         </Subtitle>
         <hr className={styles.separator} />
         <Subtitle className={styles.offerTitle}>
