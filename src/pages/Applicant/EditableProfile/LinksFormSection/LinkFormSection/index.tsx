@@ -19,13 +19,7 @@ export const LinkFormSection: FunctionComponent<ILinkFormSectionProps> = ({
         label={translations.linkTitle}
         inputRef={autofocusInputRef}
       />
-      <UrlField
-        mandatory
-        name={`links.${index}.url`}
-        label={translations.link}
-        type="url"
-        withoutMargin
-      />
+      <UrlField mandatory name={`links.${index}.url`} label={translations.link} withoutMargin />
     </div>
   );
 };

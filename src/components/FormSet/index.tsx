@@ -4,9 +4,11 @@ import { Subtitle } from "$components/Subtitle";
 import { AddButton } from "$components/AddButton";
 import { FieldArray } from "formik";
 import { FieldSet } from "../FieldSet";
+import classNames from "classnames";
 
 export const FormSet = <Value,>({
   title,
+  titleClassName,
   name,
   values,
   getValueKey,
@@ -22,7 +24,7 @@ export const FormSet = <Value,>({
       render={arrayHelpers => (
         <>
           <div className={styles.header}>
-            <Subtitle className={styles.title}>{title}</Subtitle>
+            <Subtitle className={classNames(styles.title, titleClassName)}>{title}</Subtitle>
             <AddButton
               onClick={() => {
                 arrayHelpers.insert(values.length + 1, defaultValue);
@@ -53,6 +55,7 @@ export const FormSet = <Value,>({
 
 interface IFormSetProps<Value> {
   title?: string;
+  titleClassName?: string;
   name: string;
   values: Value[];
   getValueKey: (value: Value) => string | undefined;
