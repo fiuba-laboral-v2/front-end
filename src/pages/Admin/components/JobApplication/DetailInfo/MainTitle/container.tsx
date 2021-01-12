@@ -14,11 +14,11 @@ export const MainTitleContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   const translations = useTranslations<IAdminApplicantMainTitle>("adminJobApplicationMainTitle");
   const title = translations ? translations.title : "";
-  const iseRejected = jobApplication?.approvalStatus === ApprovalStatus.rejected;
+  const isRejected = jobApplication?.approvalStatus === ApprovalStatus.rejected;
   return (
     <MainTitle
       adminTaskUuid={jobApplication?.uuid}
-      useRejectionMessage={iseRejected ? useRejectionMessage : undefined}
+      {...(isRejected && { useRejectionMessage })}
       hidden={!jobApplication}
       title={title}
       updatedAt={jobApplication?.updatedAt}
