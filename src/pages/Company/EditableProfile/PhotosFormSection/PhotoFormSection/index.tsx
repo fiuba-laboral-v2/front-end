@@ -1,19 +1,21 @@
-import React, { FunctionComponent, RefObject, useEffect } from "react";
+import React, { FunctionComponent, RefObject, useEffect, Fragment } from "react";
 import styles from "./styles.module.scss";
 import { UrlField } from "$components/Fields/UrlField";
 
 export const PhotoFormSection: FunctionComponent<IPhotoFormSectionProps> = ({
   index,
-  autofocusInputRef
+  autofocusInputRef,
+  urlFieldTitle
 }) => {
   useEffect(() => autofocusInputRef?.current?.focus(), [autofocusInputRef]);
+  if (!urlFieldTitle) return <Fragment />;
 
   return (
     <div className={styles.link}>
       <UrlField
         mandatory
         name={`photos.${index}`}
-        label={"asdadsadsa"}
+        label={urlFieldTitle}
         inputRef={autofocusInputRef}
         withoutMargin
       />
@@ -24,4 +26,5 @@ export const PhotoFormSection: FunctionComponent<IPhotoFormSectionProps> = ({
 interface IPhotoFormSectionProps {
   index: number;
   autofocusInputRef?: RefObject<HTMLInputElement>;
+  urlFieldTitle?: string;
 }
