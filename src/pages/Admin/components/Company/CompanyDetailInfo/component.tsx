@@ -8,6 +8,7 @@ import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
 import { DetailInfo } from "../../DetailInfo";
 import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { DetailTarget } from "../../Actions/StatusButton/interfaces";
 
 export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   setStatus,
@@ -18,6 +19,7 @@ export const CompanyDetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   <DetailInfo
     hidden={!company}
     loading={loading}
+    detailTarget={DetailTarget.COMPANY}
     mainTitle={<MainTitle useRejectionMessage={useRejectionMessage} company={company} />}
     setStatus={setStatus}
     currentStatus={company?.approvalStatus}

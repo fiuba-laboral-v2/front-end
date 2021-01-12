@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
-import { IContainer, ITranslations } from "./interfaces";
+import { DetailTarget, IContainer, ITranslations } from "./interfaces";
 import { useTranslations } from "$hooks/queries";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { FormikHelpers } from "formik/dist/types";
@@ -13,6 +13,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
   status,
   setStatus,
   loading,
+  detailTarget,
   ...props
 }) => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -21,7 +22,13 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
 
   const isRejected = () => status === ApprovalStatus.rejected;
   const label = isRejected() ? translations.reject : translations.approve;
-  const { confirmDialogDescription, confirmDialogCancel } = translations;
+  const { confirmDialogCancel } = translations;
+
+  const confirmDialogDescription = {
+    [DetailTarget.APPLICANT]: translations.confirmDialogDescriptionForApplicants,
+    [DetailTarget.COMPANY]: translations.confirmDialogDescriptionForCompanies,
+    [DetailTarget.BOTH]: translations.confirmDialogDescriptionForBoth
+  }[detailTarget];
 
   const onSubmit = async (
     { moderatorMessage }: IValues,

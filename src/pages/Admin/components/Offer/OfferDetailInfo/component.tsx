@@ -5,6 +5,7 @@ import { OfferDetails } from "./OfferDetails";
 import { MainTitle } from "./MainTitle";
 import { IOffer } from "$interfaces/Offer";
 import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { DetailTarget } from "../../Actions/StatusButton/interfaces";
 
 export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
   offer,
@@ -18,6 +19,7 @@ export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
     hideActions={hideActions}
     hidden={!offer}
     loading={loading}
+    detailTarget={DetailTarget.COMPANY}
     mainTitle={
       <MainTitle
         currentStatus={currentStatus}

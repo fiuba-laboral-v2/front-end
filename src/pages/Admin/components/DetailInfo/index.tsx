@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Actions } from "../Actions";
+import { DetailTarget } from "../Actions/StatusButton/interfaces";
 
 import styles from "./styles.module.scss";
 
@@ -8,6 +9,7 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
   mainTitle,
   setStatus,
   loading,
+  detailTarget,
   currentStatus,
   children,
   hidden,
@@ -18,7 +20,12 @@ export const DetailInfo: FunctionComponent<ICompanyDetailInfoProps> = ({
     <div className={styles.details} hidden={hidden}>
       {children}
       {!hideActions && (
-        <Actions loading={loading} setStatus={setStatus} currentStatus={currentStatus} />
+        <Actions
+          loading={loading}
+          setStatus={setStatus}
+          detailTarget={detailTarget}
+          currentStatus={currentStatus}
+        />
       )}
     </div>
   </>
@@ -30,5 +37,6 @@ export interface ICompanyDetailInfoProps {
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   loading: boolean;
   hidden: boolean;
+  detailTarget: DetailTarget;
   hideActions?: boolean;
 }
