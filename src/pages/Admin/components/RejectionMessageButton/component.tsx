@@ -14,7 +14,7 @@ export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
   className
 }) => (
   <>
-    <Button className={className} kind="primary" onClick={onClick}>
+    <Button className={className} kind="secondary" onClick={onClick}>
       {translations?.label}
     </Button>
     <FormConfirmDialog

@@ -8,7 +8,7 @@ export const RejectionMessageButtonContainer: FunctionComponent<IContainerProps>
   adminTaskUuid,
   className
 }) => {
-  const { getRejectionMessage, data, loading } = useRejectionMessage();
+  const { getRejectionMessage, data, loading } = useRejectionMessage;
   const [showMessage, setShowMessage] = useState(false);
   const translations = useTranslations<ITranslations>("rejectionMessageButton");
 

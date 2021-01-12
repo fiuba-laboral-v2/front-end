@@ -18,7 +18,7 @@ export interface IUseRejectionMessage {
 }
 
 export interface IContainerProps extends ICommonProps {
-  useRejectionMessage: () => IUseRejectionMessage;
+  useRejectionMessage: IUseRejectionMessage;
   adminTaskUuid: string;
 }
 
