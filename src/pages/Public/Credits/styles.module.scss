@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.title {
+  margin-bottom: $spacing-l;
+}
+
+.innerTitle {
+  color: $darkGrey;
+  font-size: $fontSize-xl;
+  margin-top: $spacing-xxl + $spacing-xs;
+}
+
+.description {
+  font-size: $fontSize-l;
+}

@@ -16,6 +16,7 @@ const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
+const CREDITS = "creditos";
 const NOTIFICATIONS = "notificaciones";
 const PASSWORD = "contrasena";
 const REQUEST = "solicitar";
@@ -139,6 +140,8 @@ export const RoutesBuilder = {
 
     notFound: () => publicRoute(NOT_FOUND),
 
-    forbidden: () => publicRoute(FORBIDDEN)
+    forbidden: () => publicRoute(FORBIDDEN),
+
+    credits: () => publicRoute(CREDITS)
   }
 };

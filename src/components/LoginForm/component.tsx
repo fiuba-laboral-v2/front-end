@@ -9,6 +9,7 @@ import { SeededUsers } from "../SeededUsers";
 import styles from "./styles.module.scss";
 import { FormikForm } from "../FormikForm";
 import { Link } from "../Link";
+import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const formName = "logInForm";
 const questionsEmail = "ayuda@fi.uba.ar";
@@ -71,7 +72,7 @@ export const LoginForm = <TVariables,>({
     {Configuration.show_seeded_users && <SeededUsers>{seededUsersText}</SeededUsers>}
     <div className={styles.creditsContainer}>
       <span className={styles.creditsTitle}>{translations.creditsTitle}</span>
-      <Link className={styles.seeCredits} to={"#"}>
+      <Link className={styles.seeCredits} to={RoutesBuilder.public.credits()}>
         {translations.seeCredits}
       </Link>
     </div>
