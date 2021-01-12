@@ -4,25 +4,26 @@ import { RejectionMessageButton } from "./component";
 import { IContainerProps, ITranslations } from "./interfaces";
 
 export const RejectionMessageButtonContainer: FunctionComponent<IContainerProps> = ({
-  getRejectionMessage,
+  useRejectionMessage,
   adminTaskUuid,
-  loading
+  className
 }) => {
+  const { getRejectionMessage, data, loading } = useRejectionMessage();
   const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState("");
   const translations = useTranslations<ITranslations>("rejectionMessageButton");
 
   const onClick = async () => {
     setShowMessage(!showMessage);
-    getRejectionMessage(adminTaskUuid).then(m => setMessage(m!));
+    await getRejectionMessage(adminTaskUuid);
   };
 
   return (
     <RejectionMessageButton
+      className={className}
       loading={loading}
       translations={translations}
       onClick={onClick}
-      message={message}
+      message={data}
       showMessage={showMessage}
       setShowMessage={setShowMessage}
     />

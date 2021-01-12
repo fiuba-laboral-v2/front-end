@@ -6,15 +6,25 @@ export interface ITranslations {
   confirmDialogConfirm: string;
 }
 
-export interface IContainerProps {
-  getRejectionMessage: (uuid: string) => Promise<string | undefined>;
-  adminTaskUuid: string;
-  loading?: boolean;
+interface ICommonProps {
+  className?: string;
 }
 
-export interface IComponentProps {
+export type GetRejectionMessage = (uuid: string) => Promise<string | undefined>;
+export interface IUseRejectionMessage {
+  getRejectionMessage: GetRejectionMessage;
+  loading?: boolean;
+  data?: string;
+}
+
+export interface IContainerProps extends ICommonProps {
+  useRejectionMessage: () => IUseRejectionMessage;
+  adminTaskUuid: string;
+}
+
+export interface IComponentProps extends ICommonProps {
   translations?: ITranslations;
-  message: string;
+  message?: string;
   showMessage: boolean;
   setShowMessage: (showMessage: boolean) => void;
   onClick: () => void;

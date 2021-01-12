@@ -9,15 +9,20 @@ export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
   setShowMessage,
   showMessage,
   translations,
-  loading
+  loading,
+  onClick,
+  className
 }) => (
   <>
-    <Button kind="primary">{translations?.label}</Button>
+    <Button className={className} kind="primary" onClick={onClick}>
+      {translations?.label}
+    </Button>
     <FormConfirmDialog
       isOpen={showMessage}
       onClose={() => setShowMessage(false)}
       translations={translations}
       closeOnConfirm
+      hideConfirmButton
     >
       {loading && <LoadingSpinner />}
       {!loading && <span>{message}</span>}
