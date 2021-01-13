@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.member {
+  margin-left: $spacing-xl;
+  margin-top: $spacing-l;
+}
+
+.links {
+  font-size: $fontSize-s;
+}
+
+.linksContainer {
+  margin-left: $spacing-m;
+  margin-top: $spacing-xs;
+}

@@ -19,6 +19,7 @@ export interface INavBarTranslations {
   myOffers: string;
   pendingProfile: string;
   rejectedProfile: string;
+  credits: string;
 }
 
 export interface INavBarContainerProps {

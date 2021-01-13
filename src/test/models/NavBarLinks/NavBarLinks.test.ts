@@ -35,7 +35,8 @@ describe("NavBarLinks", () => {
     myOffers: "myOffers",
     pendingProfile: "pendingProfile",
     rejectedProfile: "rejectedProfile",
-    settings: "settings"
+    settings: "settings",
+    credits: "credits"
   };
   const userAttributes = {
     email: "companyUser@company.com",
