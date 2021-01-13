@@ -4,19 +4,29 @@ import { DetailInfo } from "../../DetailInfo";
 import { OfferDetails } from "./OfferDetails";
 import { MainTitle } from "./MainTitle";
 import { IOffer } from "$interfaces/Offer";
+import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { NotificationRecipient } from "../../Actions/StatusButton/interfaces";
 
 export const OfferDetailInfo: FunctionComponent<IOfferDetailInfoProps> = ({
   offer,
   currentStatus,
   setStatus,
   loading,
-  hideActions
+  hideActions,
+  useRejectionMessage
 }) => (
   <DetailInfo
     hideActions={hideActions}
     hidden={!offer}
     loading={loading}
-    mainTitle={<MainTitle offer={offer} />}
+    notificationRecipient={NotificationRecipient.COMPANY}
+    mainTitle={
+      <MainTitle
+        currentStatus={currentStatus}
+        useRejectionMessage={useRejectionMessage}
+        offer={offer}
+      />
+    }
     currentStatus={currentStatus}
     setStatus={setStatus}
   >
@@ -30,4 +40,5 @@ export interface IOfferDetailInfoProps {
   currentStatus?: ApprovalStatus;
   loading: boolean;
   hideActions?: boolean;
+  useRejectionMessage: IUseRejectionMessage;
 }

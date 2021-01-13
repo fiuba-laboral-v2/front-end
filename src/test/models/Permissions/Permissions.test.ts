@@ -161,7 +161,6 @@ describe("Permissions", () => {
       editMyProfile,
       offerList,
       offerDetail,
-      companies,
       companyProfile
     } = RoutesBuilder.applicant;
 
@@ -193,7 +192,6 @@ describe("Permissions", () => {
             () => signUp(),
             () => offerList(),
             () => offerDetail("uuid"),
-            () => companies(),
             () => companyProfile("uuid")
           ],
           PendingApplicantError
@@ -214,7 +212,6 @@ describe("Permissions", () => {
             () => editMyProfile(),
             () => offerList(),
             () => offerDetail("uuid"),
-            () => companies(),
             () => companyProfile("uuid")
           ],
           RejectedApplicantError
@@ -245,11 +242,6 @@ describe("Permissions", () => {
         it("does not throw error if the applicant status is approved for offerDetail route", () => {
           const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
           expect(() => Permissions.check(currentApplicant, offerDetail("uuid"))).not.toThrow();
-        });
-
-        it("does not throw error if the applicant status is approved for companies route", () => {
-          const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
-          expect(() => Permissions.check(currentApplicant, companies())).not.toThrow();
         });
 
         it("does not throw error if applicant status is approved for companyProfile route", () => {

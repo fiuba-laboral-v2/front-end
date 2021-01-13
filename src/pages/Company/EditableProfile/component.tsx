@@ -6,6 +6,8 @@ import { Form } from "$components/Form";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import { FormikProps } from "formik";
 import styles from "./styles.module.scss";
+import { PhotosFormSection } from "./PhotosFormSection";
+import classNames from "classnames";
 
 export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
   translations,
@@ -19,6 +21,10 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
       initialLogo={values.logo}
     />
     <ContactInformationFormSection className={styles.formSection} />
+    <PhotosFormSection
+      photos={values.photos}
+      className={classNames(styles.formSection, styles.photosFormSection)}
+    />
     <FormFooter
       isSubmitting={isSubmitting}
       submitButtonText={translations?.submit}

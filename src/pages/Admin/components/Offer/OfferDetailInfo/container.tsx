@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { useCompanyOfferByUuid, useAdminApprovalStatusAttribute } from "$hooks/queries";
-import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
+import { useCompanyOfferByUuid, useAdminApprovalStatusAttribute } from "$hooks";
+import {
+  useUpdateAdminTaskStatus,
+  useCurrentUser,
+  useLazyRejectedOfferMessageByUuid
+} from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { OfferDetailInfo } from "./component";
 import { UPDATE_OFFER_APPROVAL_STATUS } from "$mutations";
@@ -13,6 +17,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const useRejectionMessage = useLazyRejectedOfferMessageByUuid();
   const currentUser = useCurrentUser();
   const offer = useCompanyOfferByUuid(selectedTaskUuid).data?.getOfferByUuid;
   const approvalStatusAttribute = useAdminApprovalStatusAttribute();
@@ -40,6 +45,7 @@ export const OfferDetailInfoContainer: FunctionComponent<IOfferDetailInfoContain
 
   return (
     <OfferDetailInfo
+      useRejectionMessage={useRejectionMessage}
       hideActions={hideActions()}
       loading={loadingUpdateStatus}
       setStatus={setStatus}

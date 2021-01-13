@@ -201,11 +201,6 @@ describe("NavBarLinks", () => {
           icon: SchoolIcon
         },
         {
-          path: RoutesBuilder.applicant.companies(),
-          title: translations.companies,
-          icon: BusinessIcon
-        },
-        {
           path: RoutesBuilder.applicant.notifications(),
           title: translations.notifications,
           icon: ApplicantNotificationIcon
@@ -226,12 +221,6 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.applicant.myProfile(),
           title: translations.myProfile,
           icon: SchoolIcon
-        },
-        {
-          path: RoutesBuilder.applicant.companies(),
-          title: translations.companies,
-          tooltipMessage: translations.pendingProfile,
-          icon: BusinessIcon
         },
         {
           path: RoutesBuilder.applicant.notifications(),
@@ -255,12 +244,6 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.applicant.myProfile(),
           title: translations.myProfile,
           icon: SchoolIcon
-        },
-        {
-          path: RoutesBuilder.applicant.companies(),
-          title: translations.companies,
-          tooltipMessage: translations.rejectedProfile,
-          icon: BusinessIcon
         },
         {
           path: RoutesBuilder.applicant.notifications(),

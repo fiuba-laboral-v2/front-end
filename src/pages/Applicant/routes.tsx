@@ -5,7 +5,6 @@ import { EditableProfile } from "./EditableProfile";
 import { Home } from "./Home";
 import { OfferDetail } from "./OfferDetail";
 import { CompanyProfile } from "./Company";
-import { Companies } from "./Companies";
 import { Notifications } from "./Notifications";
 import { EditPadron } from "./EditPadron";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -19,7 +18,6 @@ const {
   editMyProfile,
   offerDetail,
   companyProfile,
-  companies,
   notifications,
   editPadron
 } = RoutesBuilder.applicant;
@@ -39,7 +37,6 @@ export const ApplicantRoutes = [
   { path: editMyProfile(), component: EditableProfile },
   { path: offerDetail(":uuid"), component: OfferDetail },
   { path: companyProfile(":uuid"), component: CompanyProfile },
-  { path: companies(), component: Companies },
   { path: notifications(), component: Notifications },
   { path: editPadron(), component: EditPadron }
 ];

@@ -4,18 +4,22 @@ import { IApplicant } from "$interfaces/Applicant";
 import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "./UserDetails";
 import { MainTitle } from "./MainTitle";
+import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { NotificationRecipient } from "../../Actions/StatusButton/interfaces";
 
 export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> = ({
   applicant,
   setStatus,
   loading,
-  hideActions
+  hideActions,
+  useRejectionMessage
 }) => (
   <DetailInfo
     hideActions={hideActions}
     hidden={!applicant}
     loading={loading}
-    mainTitle={<MainTitle applicant={applicant} />}
+    notificationRecipient={NotificationRecipient.APPLICANT}
+    mainTitle={<MainTitle useRejectionMessage={useRejectionMessage} applicant={applicant} />}
     currentStatus={applicant?.approvalStatus}
     setStatus={setStatus}
   >
@@ -24,6 +28,7 @@ export const ApplicantDetailInfo: FunctionComponent<IApplicantDetailInfoProps> =
 );
 
 export interface IApplicantDetailInfoProps {
+  useRejectionMessage: IUseRejectionMessage;
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   applicant?: IApplicant;
   loading: boolean;

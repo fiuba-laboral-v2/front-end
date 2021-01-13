@@ -4,19 +4,25 @@ import { IJobApplication } from "$interfaces/JobApplication";
 import { DetailInfo } from "../../DetailInfo";
 import { UserDetails } from "../../Applicant/ApplicantDetailInfo/UserDetails";
 import { MainTitle } from "./MainTitle";
+import { IUseRejectionMessage } from "../../RejectionMessageButton/interfaces";
+import { NotificationRecipient } from "../../Actions/StatusButton/interfaces";
 
 export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
   jobApplication,
   setStatus,
   currentStatus,
   loading,
-  hideActions
+  hideActions,
+  useRejectionMessage
 }) => (
   <DetailInfo
     hideActions={hideActions}
     hidden={!jobApplication}
     loading={loading}
-    mainTitle={<MainTitle jobApplication={jobApplication} />}
+    notificationRecipient={NotificationRecipient.BOTH}
+    mainTitle={
+      <MainTitle useRejectionMessage={useRejectionMessage} jobApplication={jobApplication} />
+    }
     currentStatus={currentStatus}
     setStatus={setStatus}
   >
@@ -25,6 +31,7 @@ export const JobApplicationDetailInfo: FunctionComponent<IComponentProps> = ({
 );
 
 export interface IComponentProps {
+  useRejectionMessage: IUseRejectionMessage;
   loading: boolean;
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
   jobApplication?: IJobApplication;

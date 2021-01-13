@@ -7,16 +7,25 @@ interface ICommonProps extends IButtonProps {
   Icon: FunctionComponent<SvgIconProps>;
 }
 
+export enum NotificationRecipient {
+  APPLICANT = "applicant",
+  COMPANY = "company",
+  BOTH = "both"
+}
+
 export interface IContainer extends ICommonProps {
   loading: boolean;
   status: ApprovalStatus;
+  notificationRecipient: NotificationRecipient;
   setStatus: (status: ApprovalStatus, moderatorMessage?: string) => Promise<void>;
 }
 
 export interface ITranslations {
   approve: string;
   reject: string;
-  confirmDialogDescription: string;
+  confirmDialogDescriptionForCompanies: string;
+  confirmDialogDescriptionForApplicants: string;
+  confirmDialogDescriptionForBoth: string;
   confirmDialogCancel: string;
   rejectReasonLabel: string;
 }

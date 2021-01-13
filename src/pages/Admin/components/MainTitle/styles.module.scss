@@ -3,17 +3,22 @@
 .header {
   align-items: center;
   color: $darkerGrey;
-  display: block;
+  display: flex;
   margin: $spacing-xl $spacing-l 0;
 }
 
 .main {
   align-items: baseline;
   display: flex;
+  flex-grow: 1;
 }
 
 .title {
   color: $darkerGrey;
   font-size: $fontSize-xxl;
   margin-right: $spacing-m;
+}
+
+.rejectionMessageButton {
+  flex-shrink: 0;
 }

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { useJobApplicationByUuid } from "$hooks/queries";
+import { useJobApplicationByUuid, useLazyRejectedJobApplicationMessageByUuid } from "$hooks";
 import { useUpdateAdminTaskStatus, useCurrentUser } from "$hooks";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { JobApplicationDetailInfo } from "./component";
@@ -13,6 +13,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
   onStatusUpdate,
   setLoadingStatusUpdate
 }) => {
+  const useRejectionMessage = useLazyRejectedJobApplicationMessageByUuid();
   const currentUser = useCurrentUser();
   const jobApplication = useJobApplicationByUuid(selectedTaskUuid);
   const { updateAdminTaskStatus, loading } = useUpdateAdminTaskStatus({
@@ -41,6 +42,7 @@ export const JobApplicationDetailInfoContainer: FunctionComponent<IJobApplicatio
 
   return (
     <JobApplicationDetailInfo
+      useRejectionMessage={useRejectionMessage}
       hideActions={hideActions()}
       loading={loading || !currentUser || !jobApplication}
       setStatus={setStatus}

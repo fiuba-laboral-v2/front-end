@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import classNames from "classnames";
 
 import { Card } from "$components/Card";
@@ -33,6 +33,6 @@ export const FormSection: FunctionComponent<IFormSectionProps> = ({
 interface IFormSectionProps {
   className?: string;
   title?: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   hidden?: boolean;
 }

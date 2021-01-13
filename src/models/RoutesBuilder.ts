@@ -81,8 +81,6 @@ export const RoutesBuilder = {
 
     offerDetail: (uuid: string) => applicantRoute(OFFERS, uuid),
 
-    companies: () => applicantRoute(COMPANIES),
-
     notifications: () => applicantRoute(NOTIFICATIONS),
 
     companyProfile: (uuid: string) => applicantRoute(COMPANIES, uuid),

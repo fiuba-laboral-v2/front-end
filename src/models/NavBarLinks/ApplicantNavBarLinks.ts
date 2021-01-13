@@ -5,10 +5,9 @@ import { INavBarTranslations } from "$components/NavBar/interfaces";
 import { getTooltipMessage } from "./getTooltipMessage";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import SchoolIcon from "@material-ui/icons/School";
-import BusinessIcon from "@material-ui/icons/Business";
 import { ApplicantNotificationIcon } from "$components/ApplicantNotificationIcon";
 
-const { offerList, myProfile, companies, notifications } = RoutesBuilder.applicant;
+const { offerList, myProfile, notifications } = RoutesBuilder.applicant;
 
 export const ApplicantNavBarLinks = {
   create: (currentUser: TCurrentUser, translations: INavBarTranslations): INavBarLink[] => [
@@ -23,12 +22,6 @@ export const ApplicantNavBarLinks = {
       title: translations.myProfile,
       tooltipMessage: getTooltipMessage(currentUser, translations, myProfile()),
       icon: SchoolIcon
-    },
-    {
-      path: companies(),
-      title: translations.companies,
-      tooltipMessage: getTooltipMessage(currentUser, translations, companies()),
-      icon: BusinessIcon
     },
     {
       path: notifications(),
