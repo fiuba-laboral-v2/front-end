@@ -1,13 +1,14 @@
 import { usePaginatedQuery, IVariables } from "$hooks";
+import { CompanyOffersFilter } from "$models/SearchFilters/CompanyOffersFilter";
 import { GET_MY_OFFERS } from "$queries";
 import { IOfferAttributes } from "$interfaces/Offer";
 import { Offer } from "$models/Offer";
 
-export const useMyOffers = () => {
+export const useMyOffers = (filter: CompanyOffersFilter) => {
   const result = usePaginatedQuery<Variables, IOfferAttributes>({
     documentNode: GET_MY_OFFERS,
     queryName: "getMyOffers",
-    variables: { hideRejectedAndExpiredOffers: false },
+    variables: filter.getValues(),
     timestampKey: "updatedAt"
   });
 

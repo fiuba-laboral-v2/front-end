@@ -49,7 +49,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
 interface IFeedProps {
   withStatusLabels: boolean;
   withAppliedTag?: (offer: IOffer) => boolean;
-  title?: string;
+  title?: ReactNode;
   offers: IOffer[];
   createLink: (uuid: string) => string;
   fetchMore?: () => void;
