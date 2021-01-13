@@ -24,6 +24,6 @@ export const useMyOffers = () => {
 
 type Variables = IUseMyOffersFilter & IVariables;
 
-interface IUseMyOffersFilter {
+export interface IUseMyOffersFilter {
   hideRejectedAndExpiredOffers: boolean;
 }

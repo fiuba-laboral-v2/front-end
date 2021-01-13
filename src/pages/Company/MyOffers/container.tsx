@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useTranslations } from "$hooks";
+import { useTranslations, useMyOffers } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Redirect } from "$components/Redirect";
 import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
-import { useMyOffers } from "$hooks/queries/useMyOffers";
 
 export const MyOffersContainer: FunctionComponent = () => {
   const history = useHistory();

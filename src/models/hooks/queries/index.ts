@@ -4,6 +4,7 @@ export * from "./useCompanyByUuid";
 export * from "./useCompanies";
 export * from "./useOfferByUuid";
 export * from "./useOffers";
+export * from "./useMyOffers";
 export * from "./useAdminTasks";
 export * from "./useAdmins";
 export * from "./useAdminSettings";
