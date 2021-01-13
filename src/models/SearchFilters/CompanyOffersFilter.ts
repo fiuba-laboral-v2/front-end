@@ -15,6 +15,8 @@ export class CompanyOffersFilter extends URLSearchParams {
 
   public getHideRejectedAndExpiredOffers() {
     const value = this.get(HIDE_REJECTED_AND_EXPIRED_OFFERS);
+    if (value === null) return true;
+    if (!["false", "true"].includes(value)) return true;
     return value === "true";
   }
 

@@ -13,19 +13,19 @@ describe("CompanyOffersFilter", () => {
         expect(filter.getHideRejectedAndExpiredOffers()).toBe(false);
       });
 
-      it("returns false when if the value it is not set", () => {
+      it("returns true when if the value it is not set", () => {
         const filter = new CompanyOffersFilter("ocultar-ofertar-rechazadas-y-expiradas&asd=qwe");
-        expect(filter.getHideRejectedAndExpiredOffers()).toBe(false);
+        expect(filter.getHideRejectedAndExpiredOffers()).toBe(true);
       });
 
-      it("returns false if the value is not in search params", () => {
+      it("returns true if the value is not in search params", () => {
         const filter = new CompanyOffersFilter("asd=qwe");
-        expect(filter.getHideRejectedAndExpiredOffers()).toBe(false);
+        expect(filter.getHideRejectedAndExpiredOffers()).toBe(true);
       });
 
-      it("returns false when search params are empty", () => {
+      it("returns true when search params are empty", () => {
         const filter = new CompanyOffersFilter("");
-        expect(filter.getHideRejectedAndExpiredOffers()).toBe(false);
+        expect(filter.getHideRejectedAndExpiredOffers()).toBe(true);
       });
     });
   });
