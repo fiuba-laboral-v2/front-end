@@ -14,7 +14,7 @@ export const Configuration = {
   development: {
     sub_domain: "/",
     application_base_url: "http://localhost:5006/graphql",
-    show_seeded_users: false
+    show_seeded_users: true
   },
   test: {
     sub_domain: "/",
