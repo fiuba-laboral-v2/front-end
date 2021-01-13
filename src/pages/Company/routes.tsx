@@ -45,7 +45,10 @@ const {
 export const CompanyRoutes = [
   { path: signUp(), component: SignUp, public: true },
   { path: login(), component: Login, public: true },
-  { path: myOffers(), component: MyOffers },
+  {
+    path: myOffers(),
+    component: (props: { location: Location }) => <MyOffers searchQuery={props.location.search} />
+  },
   { path: createOffer(), component: CreateOffer },
   { path: editOffer(":uuid"), component: EditOffer },
   { path: offer(":uuid"), component: OfferDetail },

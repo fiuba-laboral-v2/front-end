@@ -7,7 +7,7 @@ import { Feed } from "$components/Feed";
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
 
-export const MyOffersContainer: FunctionComponent = () => {
+export const MyOffersContainer: FunctionComponent<IContainerProps> = () => {
   const history = useHistory();
   const response = useMyOffers();
   const translations = useTranslations<ITranslations>("MyOffers");
@@ -40,4 +40,8 @@ export const MyOffersContainer: FunctionComponent = () => {
 
 interface ITranslations {
   title: string;
+}
+
+interface IContainerProps {
+  searchQuery: string;
 }

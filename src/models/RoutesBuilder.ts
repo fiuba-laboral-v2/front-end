@@ -100,7 +100,8 @@ export const RoutesBuilder = {
 
     offer: (uuid: string) => companyRoute(OFFERS, uuid),
 
-    myOffers: () => companyRoute(OFFERS),
+    myOffers: ({ searchParams }: { searchParams?: string } = {}) =>
+      `${companyRoute(OFFERS)}${queryParams(searchParams)}`,
 
     jobApplications: () => companyRoute(APPLICATIONS),
 
