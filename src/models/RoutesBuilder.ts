@@ -10,13 +10,13 @@ const PADRON = "padron";
 const SIGN_UP = "registro";
 const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
+const CREDITS = "creditos";
 const EDIT = "editar";
 const RECOVER = "recuperar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
 const FORBIDDEN = "permiso-faltante";
-const CREDITS = "creditos";
 const NOTIFICATIONS = "notificaciones";
 const PASSWORD = "contrasena";
 const REQUEST = "solicitar";
@@ -134,12 +134,12 @@ export const RoutesBuilder = {
 
     login: () => publicRoute(LOGIN),
 
+    credits: () => publicRoute(CREDITS),
+
     internalServerError: () => publicRoute(ERROR),
 
     notFound: () => publicRoute(NOT_FOUND),
 
-    forbidden: () => publicRoute(FORBIDDEN),
-
-    credits: () => publicRoute(CREDITS)
+    forbidden: () => publicRoute(FORBIDDEN)
   }
 };
