@@ -1,25 +1,15 @@
-import { useQuery } from "$hooks";
+import { usePaginatedQuery, IVariables } from "$hooks";
 import { GET_MY_OFFERS } from "$queries";
 import { IOfferAttributes } from "$interfaces/Offer";
-import { IPaginatedResult } from "./interfaces";
 import { Offer } from "$models/Offer";
 
 export const useMyOffers = () => {
-  const result = useQuery<{}, IUseMyOffers>(GET_MY_OFFERS);
-
-  const fetchMore = () => {
-    const offers = result.data?.getMyOffers.results;
-    if (!offers) return;
-    const lastOffer = offers[offers.length - 1];
-    return result.fetchMore({
-      variables: {
-        updatedBeforeThan: {
-          dateTime: lastOffer.updatedAt,
-          uuid: lastOffer.uuid
-        }
-      }
-    });
-  };
+  const result = usePaginatedQuery<Variables, IOfferAttributes>({
+    documentNode: GET_MY_OFFERS,
+    queryName: "getMyOffers",
+    variables: { hideRejectedAndExpiredOffers: false },
+    timestampKey: "updatedAt"
+  });
 
   return {
     ...result,
@@ -28,11 +18,12 @@ export const useMyOffers = () => {
         results: result.data?.getMyOffers.results.map(offer => Offer(offer)),
         shouldFetchMore: result.data?.getMyOffers.shouldFetchMore
       }
-    },
-    fetchMore
+    }
   };
 };
 
-interface IUseMyOffers {
-  getMyOffers: IPaginatedResult<IOfferAttributes>;
+type Variables = IUseMyOffersFilter & IVariables;
+
+interface IUseMyOffersFilter {
+  hideRejectedAndExpiredOffers: boolean;
 }
