@@ -41,7 +41,7 @@
   width: 32%;
 }
 
-@media (max-width: $laptopWidth), (max-aspect-ratio: 16/9) {
+@media (max-width: $laptopWidth), (max-height: $largeMobileWidth), (max-aspect-ratio: 16/9) {
   .mainContent {
     flex-direction: unset;
   }

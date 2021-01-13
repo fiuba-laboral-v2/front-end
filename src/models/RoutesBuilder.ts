@@ -10,6 +10,7 @@ const PADRON = "padron";
 const SIGN_UP = "registro";
 const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
+const CREDITS = "creditos";
 const EDIT = "editar";
 const RECOVER = "recuperar";
 const CREATE = "crear";
@@ -133,6 +134,8 @@ export const RoutesBuilder = {
     home: () => publicRoute(),
 
     login: () => publicRoute(LOGIN),
+
+    credits: () => publicRoute(CREDITS),
 
     internalServerError: () => publicRoute(ERROR),
 

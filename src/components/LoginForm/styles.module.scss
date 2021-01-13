@@ -8,6 +8,40 @@
   padding: $spacing-xl;
 }
 
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.questionsEmail {
+  font-size: $fontSize-s;
+}
+
+.questionsEmailContainer {
+  margin-top: $spacing-m;
+}
+
+.creditsContainer {
+  border-top: solid 1px $lightGrey;
+  margin-top: $spacing-l;
+  padding-top: $spacing-l;
+}
+
+.questionsTitle {
+  color: $grey;
+}
+
+.questionsTitle,
+.creditsTitle {
+  margin-right: $spacing-xs;
+}
+
+.seeCredits {
+  font-weight: bold;
+}
+
 .links {
   align-self: center;
   display: flex;
