@@ -1,0 +1,29 @@
+@import "$styles/_variables";
+
+.titleContainer {
+  display: flex;
+}
+
+.title {
+  margin-right: $spacing-m;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkboxIcon {
+  color: $mainBlueDark;
+  padding: 0;
+}
+
+.checkbox {
+  align-self: center;
+}
+
+.checkboxDescription {
+  align-self: center;
+  color: $black;
+  font-size: $fixedFontSize-s;
+}
