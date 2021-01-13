@@ -13,7 +13,9 @@ export const Title: FunctionComponent<IComponentProps> = ({ translations, filter
         className={styles.checkbox}
         checkboxClassName={styles.checkboxIcon}
       />
-      <span className={styles.checkboxDescription}>Ocultar expiradas y rechazadas</span>
+      <span className={styles.checkboxDescription}>
+        {translations?.hideRejectedAndExpiredOffers}
+      </span>
     </div>
   </div>
 );
