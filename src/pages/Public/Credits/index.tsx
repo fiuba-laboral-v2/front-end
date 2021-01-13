@@ -10,7 +10,7 @@ export const Credits: FunctionComponent = () => (
     <Title className={styles.title}>Créditos</Title>
     <Card largePadding>
       <div className={styles.description}>
-        Este sitio web es un Trabajo Profesional de Ingeniería en Informática.
+        Este sitio web se desarrolló en el marco de un Trabajo Profesional de Ingeniería en Informática en la Facultad de Ingeniería (UBA)
       </div>
       <div className={styles.innerTitle}>Integrantes del equipo:</div>
       <Member
