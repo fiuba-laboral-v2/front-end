@@ -1,4 +1,5 @@
 import { CompanyOffersFilter } from "$models/SearchFilters/CompanyOffersFilter";
+import { IUseMyOffersFilter } from "$hooks";
 
 export interface ITranslations {
   title: string;
@@ -7,6 +8,7 @@ export interface ITranslations {
 
 export interface IContainerProps {
   filter: CompanyOffersFilter;
+  refetchOffers?: (filter: IUseMyOffersFilter) => void;
 }
 
 export interface IComponentProps extends IContainerProps {

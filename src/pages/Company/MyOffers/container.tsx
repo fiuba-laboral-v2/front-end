@@ -22,7 +22,7 @@ export const MyOffersContainer: FunctionComponent<IContainerProps> = ({ searchQu
     <Window>
       <Feed
         loading={response.loading}
-        title={<Title filter={filter} />}
+        title={<Title filter={filter} refetchOffers={response.refetch} />}
         offers={response.data?.getMyOffers.results || []}
         createLink={(uuid: string) => RoutesBuilder.company.offer(uuid)}
         fetchMore={response.fetchMore}

@@ -5,13 +5,14 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITranslations, IContainerProps } from "./interfaces";
 import { Title } from "./component";
 
-export const TitleContainer: FunctionComponent<IContainerProps> = ({ filter }) => {
+export const TitleContainer: FunctionComponent<IContainerProps> = ({ filter, refetchOffers }) => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("MyOffers");
 
-  const onClick = () => {
+  const onClick = async () => {
     filter.setValues({ hideRejectedAndExpiredOffers: !filter.getHideRejectedAndExpiredOffers() });
     const searchParams = filter.toString();
+    if (refetchOffers) await refetchOffers(filter.getValues());
     history.push(RoutesBuilder.company.myOffers({ searchParams }));
   };
 
