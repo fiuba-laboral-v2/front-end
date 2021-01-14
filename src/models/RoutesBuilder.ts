@@ -53,6 +53,8 @@ export const RoutesBuilder = {
 
     signUp: () => adminRoute(SIGN_UP),
 
+    editAdmin: (uuid: string) => adminRoute(ADMINS, EDIT, uuid),
+
     settings: () => adminRoute(SETTINGS),
 
     applicantDetail: (uuid: string) => adminRoute(APPLICANTS, uuid),
