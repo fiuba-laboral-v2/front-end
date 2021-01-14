@@ -13,6 +13,7 @@ import { CompanyDetail } from "./CompanyDetail";
 import { CompanyUsers } from "./CompanyUsers";
 import { JobApplicationDetail } from "./JobApplicationDetail";
 import { OfferDetail } from "./OfferDetail";
+import { EditAdmin } from "./EditAdmin";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -29,7 +30,8 @@ const {
   companyDetail,
   companyUsers,
   jobApplicationDetail,
-  offerDetail
+  offerDetail,
+  editAdmin
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -60,5 +62,6 @@ export const AdminRoutes = [
   { path: companyDetail(":uuid"), component: CompanyDetail },
   { path: companyUsers(":companyUuid"), component: CompanyUsers },
   { path: jobApplicationDetail(":uuid"), component: JobApplicationDetail },
-  { path: offerDetail(":uuid"), component: OfferDetail }
+  { path: offerDetail(":uuid"), component: OfferDetail },
+  { path: editAdmin(":uuid"), component: EditAdmin }
 ];
