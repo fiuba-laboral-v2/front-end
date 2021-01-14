@@ -1,5 +1,6 @@
 import { loader } from "graphql.macro";
 
+const DEACTIVATE_ADMIN_ACCOUNT = loader("./deactivateAdminAccount.graphql");
 const SEND_PASSWORD_RECOVERY_EMAIL = loader("./sendPasswordRecoveryEmail.graphql");
 const UPDATE_MY_FORGOTTEN_PASSWORD = loader("./updateMyForgottenPassword.graphql");
 const UPDATE_COMPANY_USER_PASSWORD = loader("./updatePassword.graphql");
@@ -55,5 +56,6 @@ export {
   UPDATE_PADRON,
   UPDATE_COMPANY_CRITICAL_ATTRIBUTES,
   UPDATE_COMPANY_USER,
-  UPDATE_ADMIN
+  UPDATE_ADMIN,
+  DEACTIVATE_ADMIN_ACCOUNT
 };
