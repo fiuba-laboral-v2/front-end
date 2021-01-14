@@ -15,6 +15,7 @@ export const Title: FunctionComponent<IComponentProps> = ({
     <TitleComponent className={styles.title}>{translations?.title}</TitleComponent>
     <div className={styles.checkboxContainer} onClick={onClick}>
       <Checkbox
+        color="default"
         checked={filter.getHideRejectedAndExpiredOffers()}
         className={styles.checkbox}
         checkboxClassName={styles.checkboxIcon}

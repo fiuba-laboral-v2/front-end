@@ -16,7 +16,8 @@
 }
 
 .checkboxIcon {
-  color: $mainBlueDark;
+  background-color: transparentize($black, 1);
+  color: #0000008a;
   padding: 0;
 }
 
@@ -26,6 +27,5 @@
 
 .checkboxDescription {
   align-self: center;
-  color: $black;
   font-size: $fixedFontSize-s;
 }

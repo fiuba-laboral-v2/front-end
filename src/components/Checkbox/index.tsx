@@ -6,9 +6,11 @@ export const Checkbox: FunctionComponent<CheckboxProps & { checkboxClassName: st
   className,
   onClick,
   checked,
-  checkboxClassName
+  checkboxClassName,
+  color
 }) => (
   <MaterialCheckbox
+    color={color}
     disabled
     size="small"
     onClick={onClick}
