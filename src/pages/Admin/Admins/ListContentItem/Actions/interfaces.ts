@@ -3,6 +3,7 @@ import { IAdmin } from "$interfaces/Admin";
 export interface ITranslations {
   editAdminTooltipMessage: string;
   deactivateAccountLinkTooltipMessage: string;
+  activateAccountLinkTooltipMessage: string;
 }
 
 interface ICommonProps {
