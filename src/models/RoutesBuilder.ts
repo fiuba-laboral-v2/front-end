@@ -12,6 +12,7 @@ const SETTINGS = "configuracion";
 const LOGIN = "iniciar-sesion";
 const CREDITS = "creditos";
 const EDIT = "editar";
+const DEACTIVATE_ACCOUNT = "desactivar-cuenta";
 const RECOVER = "recuperar";
 const CREATE = "crear";
 const ERROR = "error";
@@ -54,6 +55,8 @@ export const RoutesBuilder = {
     signUp: () => adminRoute(SIGN_UP),
 
     editAdmin: (uuid: string) => adminRoute(ADMINS, EDIT, uuid),
+
+    deactivateAdminAccount: (uuid: string) => adminRoute(ADMINS, DEACTIVATE_ACCOUNT, uuid),
 
     settings: () => adminRoute(SETTINGS),
 
