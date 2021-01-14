@@ -2,8 +2,8 @@ import { Secretary } from "../Secretary";
 import { IFiubaUser } from "../User";
 
 export enum AdminStatus {
-  active = "Active",
-  deactivated = "Deactivated"
+  active = "active",
+  deactivated = "deactivated"
 }
 
 export interface IAdmin {

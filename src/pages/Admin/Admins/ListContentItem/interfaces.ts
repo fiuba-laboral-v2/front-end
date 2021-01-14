@@ -1,8 +1,13 @@
 import { IAdmin } from "$interfaces/Admin";
 
-export interface ITranslations {
+export interface ISecretaryNamesTranslations {
   graduados: string;
   extension: string;
+}
+
+export interface IAdminStatusTranslations {
+  active: string;
+  deactivated: string;
 }
 
 export interface IListContentItemContainer {
@@ -10,5 +15,5 @@ export interface IListContentItemContainer {
 }
 
 export interface IListContentItem extends IListContentItemContainer {
-  translations?: ITranslations;
+  translations?: ISecretaryNamesTranslations & IAdminStatusTranslations;
 }

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { Secretary } from "$interfaces/Secretary";
+import { AdminStatus } from "$interfaces/Admin";
 import { TimeFormatter } from "$models/TimeFormatter";
 
 import { IListContentItem } from "./interfaces";
@@ -17,6 +18,9 @@ export const ListContentItem: FunctionComponent<IListContentItem> = ({ admin, tr
       {admin.secretary === Secretary.graduados ? translations?.graduados : translations?.extension}
     </p>
     <div className={styles.text}>{TimeFormatter.dateTime(admin.createdAt)}</div>
+    <p className={styles.text}>
+      {admin.status === AdminStatus.active ? translations?.active : translations?.deactivated}
+    </p>
     <div className={classNames(styles.text, styles.actionsContainer)}>
       <Actions admin={admin} />
     </div>
