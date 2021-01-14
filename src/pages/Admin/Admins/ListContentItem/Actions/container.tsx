@@ -13,6 +13,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ admin, ..
       {...props}
       translations={translations}
       editUserLink={RoutesBuilder.admin.editAdmin(admin.uuid)}
+      deactivateAccountLink={RoutesBuilder.admin.deactivateAdminAccount(admin.uuid)}
     />
   );
 };

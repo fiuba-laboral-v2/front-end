@@ -1,22 +1,20 @@
 import React, { FunctionComponent } from "react";
-import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import Tooltip from "@material-ui/core/Tooltip";
 import { IconButton } from "$components/IconButton";
 
-export const EditUserAction: FunctionComponent<IComponentProps> = ({
-  className,
+export const DeactivateAccountAction: FunctionComponent<IComponentProps> = ({
   tooltipMessage,
   link
 }) => (
   <Tooltip title={tooltipMessage}>
-    <div className={className}>
-      <IconButton Icon={EditIcon} link={link} />
+    <div>
+      <IconButton Icon={DeleteIcon} link={link} />
     </div>
   </Tooltip>
 );
 
 interface IComponentProps {
-  className?: string;
   tooltipMessage: string;
   link: string;
 }

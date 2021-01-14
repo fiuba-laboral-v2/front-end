@@ -1,0 +1,15 @@
+mutation DeactivateAdminAccount($uuid: ID!) {
+  deactivateAdminAccount(uuid: $uuid) {
+    uuid
+    updatedAt
+    createdAt
+    secretary
+    user {
+      uuid
+      email
+      name
+      surname
+      dni
+    }
+  }
+}
