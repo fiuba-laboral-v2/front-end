@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useTranslations, useActivateAdminAccount, useAdminByUuid } from "$hooks";
+import { useTranslations, useActivateAdminAccount, useDeletedAdminByUuid } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITranslations } from "./interfaces";
 
@@ -12,7 +12,7 @@ export const ActivateAdminAccountContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("activateAdminAccount");
   const { activateAdminAccount } = useActivateAdminAccount();
-  const admin = useAdminByUuid(uuid);
+  const admin = useDeletedAdminByUuid(uuid);
 
   const onSubmit = async () => {
     const result = await activateAdminAccount({ variables: { uuid } });
