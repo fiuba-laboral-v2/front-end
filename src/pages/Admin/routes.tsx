@@ -15,6 +15,7 @@ import { JobApplicationDetail } from "./JobApplicationDetail";
 import { OfferDetail } from "./OfferDetail";
 import { EditAdmin } from "./EditAdmin";
 import { DeactivateAdminAccount } from "./DeactivateAdminAccount";
+import { ActivateAdminAccount } from "./ActivateAdminAccount";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 const {
@@ -33,7 +34,8 @@ const {
   jobApplicationDetail,
   offerDetail,
   editAdmin,
-  deactivateAdminAccount
+  deactivateAdminAccount,
+  activateAdminAccount
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -66,5 +68,6 @@ export const AdminRoutes = [
   { path: jobApplicationDetail(":uuid"), component: JobApplicationDetail },
   { path: offerDetail(":uuid"), component: OfferDetail },
   { path: editAdmin(":uuid"), component: EditAdmin },
-  { path: deactivateAdminAccount(":uuid"), component: DeactivateAdminAccount }
+  { path: deactivateAdminAccount(":uuid"), component: DeactivateAdminAccount },
+  { path: activateAdminAccount(":uuid"), component: ActivateAdminAccount }
 ];
