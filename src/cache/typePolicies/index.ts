@@ -25,5 +25,14 @@ export const typePolicies = {
   },
   SharedSettings: {
     keyFields: []
+  },
+  HasUnreadAdminNotifications: {
+    keyFields: []
+  },
+  HasUnreadApplicantNotifications: {
+    keyFields: []
+  },
+  HasUnreadCompanyNotifications: {
+    keyFields: []
   }
 };

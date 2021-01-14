@@ -7,5 +7,7 @@ export const useAdminNotifications = () =>
     documentNode: GET_ADMIN_NOTIFICATIONS,
     queryName: "getAdminNotifications",
     variables: {},
-    timestampKey: "createdAt"
+    timestampKey: "createdAt",
+    fetchPolicy: "cache-and-network",
+    nextFetchPolicy: "cache-first"
   });
