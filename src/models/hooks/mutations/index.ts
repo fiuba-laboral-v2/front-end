@@ -23,3 +23,4 @@ export * from "./useUpdateCompanyCriticalAttributes";
 export * from "./useUpdateCompanyUser";
 export * from "./useUpdateAdmin";
 export * from "./useDeactivateAdminAccount";
+export * from "./useActivateAdminAccount";
