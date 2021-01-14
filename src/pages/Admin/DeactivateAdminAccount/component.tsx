@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from "react";
 
 import { Form } from "$components/Form";
+import { FormSection } from "$components/FormSection";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
 import { FormFooter } from "$components/FormFooter";
 
 import { IComponentProps } from "./interfaces";
+import styles from "./styles.module.scss";
 
 export const DeactivateAdminAccount: FunctionComponent<IComponentProps> = ({
   admin,
@@ -16,7 +18,7 @@ export const DeactivateAdminAccount: FunctionComponent<IComponentProps> = ({
     <Formik initialValues={{}} onSubmit={onSubmit}>
       {formikProps => (
         <FormikForm>
-          <p>{translations?.description}</p>
+          <FormSection className={styles.formSection}>{translations?.description}</FormSection>
           <FormFooter
             isSubmitting={formikProps.isSubmitting}
             submitButtonText={translations?.submit}
