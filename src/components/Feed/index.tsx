@@ -2,11 +2,10 @@ import React, { FunctionComponent, ReactNode } from "react";
 import classNames from "classnames";
 import { List } from "$components/List";
 import { Offer } from "./Offer";
-import { IOffer } from "$interfaces/Offer";
-import styles from "./styles.module.scss";
-import { Title } from "$components/Title";
 import { Card } from "$components/Card";
 import { AppliedTag } from "$components/AppliedTag";
+import { IOffer } from "$interfaces/Offer";
+import styles from "./styles.module.scss";
 
 export const Feed: FunctionComponent<IFeedProps> = ({
   title,
@@ -17,11 +16,12 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   shouldFetchMore,
   loading,
   className,
+  cardContainerClassName,
   withStatusLabels,
   emptyListComponent
 }) => (
   <div className={className}>
-    {title && <Title className={styles.title}>{title}</Title>}
+    {title}
     <List
       list={offers}
       fetchMore={fetchMore}
@@ -34,7 +34,9 @@ export const Feed: FunctionComponent<IFeedProps> = ({
         return (
           <Card
             key={offer.uuid}
-            className={classNames(styles.cardContainer, { [styles.withAppliedTag]: hasApplied })}
+            className={classNames(cardContainerClassName, styles.cardContainer, {
+              [styles.withAppliedTag]: hasApplied
+            })}
             link={createLink(offer.uuid)}
           >
             {hasApplied && <AppliedTag />}
@@ -49,12 +51,13 @@ export const Feed: FunctionComponent<IFeedProps> = ({
 interface IFeedProps {
   withStatusLabels: boolean;
   withAppliedTag?: (offer: IOffer) => boolean;
-  title?: string;
+  title?: ReactNode;
   offers: IOffer[];
   createLink: (uuid: string) => string;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
   className?: string;
+  cardContainerClassName?: string;
   emptyListComponent: ReactNode;
 }

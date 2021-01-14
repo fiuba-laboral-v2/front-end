@@ -1,5 +1,8 @@
-query getMyOffers($updatedBeforeThan: PaginatedInput) {
-  getMyOffers(updatedBeforeThan: $updatedBeforeThan) {
+query getMyOffers($updatedBeforeThan: PaginatedInput, $hideRejectedAndExpiredOffers: Boolean!) {
+  getMyOffers(
+    updatedBeforeThan: $updatedBeforeThan
+    hideRejectedAndExpiredOffers: $hideRejectedAndExpiredOffers
+  ) {
     shouldFetchMore
     results {
       uuid
