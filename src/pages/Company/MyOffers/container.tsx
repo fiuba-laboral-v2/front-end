@@ -8,6 +8,7 @@ import { Feed } from "$components/Feed";
 import { Title } from "./Title";
 import { Window } from "$components/Window";
 import { EmptyList } from "$components/EmptyList";
+import styles from "./styles.module.scss";
 
 export const MyOffersContainer: FunctionComponent<IContainerProps> = ({ searchQuery }) => {
   const filter = new CompanyOffersFilter(searchQuery);
@@ -21,8 +22,9 @@ export const MyOffersContainer: FunctionComponent<IContainerProps> = ({ searchQu
   return (
     <Window>
       <Feed
+        cardContainerClassName={styles.cardContainer}
         loading={response.loading}
-        title={<Title filter={filter} refetchOffers={response.refetch} />}
+        title={<Title className={styles.title} filter={filter} refetchOffers={response.refetch} />}
         offers={response.data?.getMyOffers.results || []}
         createLink={(uuid: string) => RoutesBuilder.company.offer(uuid)}
         fetchMore={response.fetchMore}

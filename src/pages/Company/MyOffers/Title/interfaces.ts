@@ -6,12 +6,16 @@ export interface ITranslations {
   hideRejectedAndExpiredOffers: string;
 }
 
-export interface IContainerProps {
+interface ICommonProps {
+  className?: string;
   filter: CompanyOffersFilter;
+}
+
+export interface IContainerProps extends ICommonProps {
   refetchOffers?: (filter: IUseMyOffersFilter) => void;
 }
 
-export interface IComponentProps extends IContainerProps {
+export interface IComponentProps extends ICommonProps {
   translations?: ITranslations;
   onClick: () => void;
 }

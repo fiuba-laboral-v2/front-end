@@ -5,12 +5,14 @@
 }
 
 .title {
+  flex-grow: 1;
   margin-right: $spacing-m;
 }
 
 .checkboxContainer {
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
 }
 
 .checkboxIcon {

@@ -5,7 +5,11 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ITranslations, IContainerProps } from "./interfaces";
 import { Title } from "./component";
 
-export const TitleContainer: FunctionComponent<IContainerProps> = ({ filter, refetchOffers }) => {
+export const TitleContainer: FunctionComponent<IContainerProps> = ({
+  className,
+  filter,
+  refetchOffers
+}) => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("MyOffers");
 
@@ -16,5 +20,7 @@ export const TitleContainer: FunctionComponent<IContainerProps> = ({ filter, ref
     history.push(RoutesBuilder.company.myOffers({ searchParams }));
   };
 
-  return <Title translations={translations} filter={filter} onClick={onClick} />;
+  return (
+    <Title className={className} translations={translations} filter={filter} onClick={onClick} />
+  );
 };
