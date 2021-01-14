@@ -29,3 +29,19 @@
   align-self: center;
   font-size: $fixedFontSize-s;
 }
+
+@media (max-width: $tabletWidth) {
+  .titleContainer {
+    flex-direction: column;
+  }
+
+  .title {
+    margin-bottom: $spacing-m;
+    margin-right: 0;
+  }
+
+  span.checkbox {
+    margin-right: $spacing-s;
+    padding: 0;
+  }
+}
