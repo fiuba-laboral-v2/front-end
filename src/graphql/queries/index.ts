@@ -6,6 +6,7 @@ const GET_COMPANY_BY_UUID_WITH_USERS = loader("./getCompanyByUuidWithUsers.graph
 const GET_APPLICANT = loader("./getApplicant.graphql");
 const GET_APPLICANTS = loader("./getApplicants.graphql");
 const GET_ADMINS = loader("./getAdmins.graphql");
+const GET_ADMIN_BY_UUID = loader("./getAdminByUuid.graphql");
 const GET_ADMIN_SETTINGS = loader("./getAdminSettings.graphql");
 const GET_SHARED_SETTINGS = loader("./getSharedSettings.graphql");
 const GET_CAPABILITIES = loader("./getCapabilities.graphql");
@@ -85,5 +86,6 @@ export {
   GET_REJECTED_JOB_APPLICATION_MESSAGE_BY_UUID,
   GET_REJECTED_APPLICANT_PROFILE_MESSAGE_BY_UUID,
   GET_REJECTED_OFFER_MESSAGE_BY_UUID,
-  GET_REJECTED_COMPANY_PROFILE_MESSAGE_BY_UUID
+  GET_REJECTED_COMPANY_PROFILE_MESSAGE_BY_UUID,
+  GET_ADMIN_BY_UUID
 };
