@@ -4,12 +4,11 @@ import { HAS_UNREAD_APPLICANT_NOTIFICATIONS } from "$queries";
 
 export const useHasUnreadApplicantNotifications = () => {
   const response = useQuery<{}, IResponse>(HAS_UNREAD_APPLICANT_NOTIFICATIONS, {
-    fetchPolicy: "no-cache",
     pollInterval: NotificationsConfig.pollInterval
   });
-  return response.data && response.data.hasUnreadApplicantNotifications;
+  return response.data && response.data.hasUnreadApplicantNotifications.hasUnreadNotifications;
 };
 
 interface IResponse {
-  hasUnreadApplicantNotifications: boolean;
+  hasUnreadApplicantNotifications: { hasUnreadNotifications: boolean };
 }

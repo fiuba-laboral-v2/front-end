@@ -1,3 +1,5 @@
 query hasUnreadCompanyNotifications {
-  hasUnreadCompanyNotifications
+  hasUnreadCompanyNotifications {
+    hasUnreadNotifications
+  }
 }

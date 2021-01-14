@@ -103,5 +103,8 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
       }
     }
     shouldFetchMore
+    hasUnreadNotifications {
+      hasUnreadNotifications
+    }
   }
 }
