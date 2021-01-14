@@ -15,6 +15,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
   queryName,
   variables,
   fetchPolicy,
+  nextFetchPolicy,
   skip,
   timestampKey = "updatedAt",
   normalizeVariables = (v: TVariables) => v
@@ -24,6 +25,7 @@ export const usePaginatedQuery = <TVariables extends IVariables, Result extends 
   const result = useQuery<TVariables, IUsePaginatedOffersResponse<Result>>(documentNode, {
     variables: variables && normalizeVariables(variables),
     fetchPolicy,
+    nextFetchPolicy,
     errorHandlers: {
       UnauthorizedError: () => history.push(RoutesBuilder.public.forbidden())
     },
@@ -66,6 +68,7 @@ interface IUsePaginatedOffers<TVariables> {
   queryName: string;
   variables: TVariables;
   fetchPolicy?: WatchQueryFetchPolicy;
+  nextFetchPolicy?: WatchQueryFetchPolicy;
   normalizeVariables?: (variables: TVariables) => TVariables;
   skip?: boolean;
   timestampKey: Timestamp;

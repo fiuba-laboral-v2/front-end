@@ -4,12 +4,11 @@ import { HAS_UNREAD_ADMIN_NOTIFICATIONS } from "$queries";
 
 export const useHasUnreadAdminNotifications = () => {
   const response = useQuery<{}, IResponse>(HAS_UNREAD_ADMIN_NOTIFICATIONS, {
-    fetchPolicy: "no-cache",
     pollInterval: NotificationsConfig.pollInterval
   });
-  return response.data && response.data.hasUnreadAdminNotifications;
+  return response.data && response.data.hasUnreadAdminNotifications.hasUnreadNotifications;
 };
 
 interface IResponse {
-  hasUnreadAdminNotifications: boolean;
+  hasUnreadAdminNotifications: { hasUnreadNotifications: boolean };
 }

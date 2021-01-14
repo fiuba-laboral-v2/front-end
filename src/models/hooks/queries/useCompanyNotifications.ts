@@ -9,7 +9,9 @@ export const useCompanyNotifications = () => {
     documentNode: GET_COMPANY_NOTIFICATIONS,
     queryName: "getCompanyNotifications",
     variables: {},
-    timestampKey: "createdAt"
+    timestampKey: "createdAt",
+    fetchPolicy: "cache-and-network",
+    nextFetchPolicy: "cache-first"
   });
 
   return {
