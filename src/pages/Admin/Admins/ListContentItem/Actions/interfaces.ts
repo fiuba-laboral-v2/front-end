@@ -3,18 +3,17 @@ import { IAdmin } from "$interfaces/Admin";
 export interface ITranslations {
   editAdminTooltipMessage: string;
   deactivateAccountLinkTooltipMessage: string;
+  activateAccountLinkTooltipMessage: string;
 }
 
-interface ICommonProps {
+export interface IContainerProps {
   className?: string;
-}
-
-export interface IContainerProps extends ICommonProps {
   admin: IAdmin;
 }
 
-export interface IComponentProps extends ICommonProps {
+export interface IComponentProps extends IContainerProps {
   translations: ITranslations;
   editUserLink: string;
   deactivateAccountLink: string;
+  activateAccountLink: string;
 }

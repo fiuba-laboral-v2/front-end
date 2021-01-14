@@ -11,9 +11,11 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ admin, ..
   return (
     <Actions
       {...props}
+      admin={admin}
       translations={translations}
       editUserLink={RoutesBuilder.admin.editAdmin(admin.uuid)}
       deactivateAccountLink={RoutesBuilder.admin.deactivateAdminAccount(admin.uuid)}
+      activateAccountLink={RoutesBuilder.admin.activateAdminAccount(admin.uuid)}
     />
   );
 };

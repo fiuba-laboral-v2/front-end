@@ -4,6 +4,7 @@ mutation UpdateAdmin($uuid: ID!, $user: UserUpdateInput!, $secretary: Secretary!
     updatedAt
     createdAt
     secretary
+    status
     user {
       uuid
       email
