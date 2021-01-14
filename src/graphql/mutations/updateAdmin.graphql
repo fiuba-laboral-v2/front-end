@@ -1,0 +1,12 @@
+mutation UpdateAdmin($uuid: ID!, $user: UserUpdateInput!, $secretary: Secretary!) {
+  updateAdmin(uuid: $uuid, user: $user, secretary: $secretary) {
+    uuid
+    user {
+      uuid
+      email
+      name
+      surname
+    }
+    secretary
+  }
+}

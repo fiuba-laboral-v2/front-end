@@ -27,6 +27,7 @@ const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
 );
 const EXPIRE_OFFER = loader("./expireOffer.graphql");
 const REPUBLISH_OFFER = loader("./republishOffer.graphql");
+const UPDATE_ADMIN = loader("./updateAdmin.graphql");
 
 export {
   SEND_PASSWORD_RECOVERY_EMAIL,
@@ -53,5 +54,6 @@ export {
   REPUBLISH_OFFER,
   UPDATE_PADRON,
   UPDATE_COMPANY_CRITICAL_ATTRIBUTES,
-  UPDATE_COMPANY_USER
+  UPDATE_COMPANY_USER,
+  UPDATE_ADMIN
 };
