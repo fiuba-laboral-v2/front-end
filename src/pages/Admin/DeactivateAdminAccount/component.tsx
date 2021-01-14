@@ -14,7 +14,7 @@ export const DeactivateAdminAccount: FunctionComponent<IComponentProps> = ({
   onSubmit,
   translations
 }) => (
-  <Form title={`${translations?.title} ${admin?.user.name} ${admin?.user.surname}`}>
+  <Form title={`${translations?.title}\n${admin?.user.name} ${admin?.user.surname}`}>
     <Formik initialValues={{}} onSubmit={onSubmit}>
       {formikProps => (
         <FormikForm>

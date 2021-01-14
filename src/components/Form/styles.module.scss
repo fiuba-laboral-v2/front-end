@@ -23,6 +23,7 @@
   @include title;
 
   margin-bottom: $spacing-xl;
+  white-space: pre-wrap;
 }
 
 @media (max-width: $laptopWidth) {
