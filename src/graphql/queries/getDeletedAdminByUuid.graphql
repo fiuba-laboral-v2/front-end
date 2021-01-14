@@ -1,0 +1,16 @@
+query GetDeletedAdminByUuid($uuid: ID!) {
+  getDeletedAdminByUuid(uuid: $uuid) {
+    uuid
+    updatedAt
+    createdAt
+    secretary
+    status
+    user {
+      uuid
+      email
+      name
+      surname
+      dni
+    }
+  }
+}
