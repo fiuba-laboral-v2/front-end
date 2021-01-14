@@ -5,22 +5,20 @@ import { TimeFormatter } from "$models/TimeFormatter";
 
 import { IListContentItem } from "./interfaces";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
+import { Actions } from "./Actions";
 
-export const ListContentItem: FunctionComponent<IListContentItem> = ({
-  admin: {
-    user: { name, surname, email, dni },
-    secretary,
-    createdAt
-  },
-  translations
-}) => (
+export const ListContentItem: FunctionComponent<IListContentItem> = ({ admin, translations }) => (
   <>
-    <p className={styles.text}>{`${name} ${surname}`}</p>
-    <p className={styles.text}>{dni}</p>
-    <p className={styles.text}>{email}</p>
+    <p className={styles.text}>{`${admin.user.name} ${admin.user.surname}`}</p>
+    <p className={styles.text}>{admin.user.dni}</p>
+    <p className={styles.text}>{admin.user.email}</p>
     <p className={styles.text}>
-      {secretary === Secretary.graduados ? translations?.graduados : translations?.extension}
+      {admin.secretary === Secretary.graduados ? translations?.graduados : translations?.extension}
     </p>
-    <div className={styles.text}>{TimeFormatter.dateTime(createdAt)}</div>
+    <div className={styles.text}>{TimeFormatter.dateTime(admin.createdAt)}</div>
+    <div className={classNames(styles.text, styles.actionsContainer)}>
+      <Actions admin={admin} />
+    </div>
   </>
 );
