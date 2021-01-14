@@ -1,3 +1,5 @@
 query HasUnreadAdminNotifications {
-  hasUnreadAdminNotifications
+  hasUnreadAdminNotifications {
+    hasUnreadNotifications
+  }
 }

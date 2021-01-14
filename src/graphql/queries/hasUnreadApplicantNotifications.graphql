@@ -1,3 +1,5 @@
 query HasUnreadApplicantNotifications {
-  hasUnreadApplicantNotifications
+  hasUnreadApplicantNotifications {
+    hasUnreadNotifications
+  }
 }

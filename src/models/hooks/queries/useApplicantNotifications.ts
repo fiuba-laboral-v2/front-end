@@ -13,7 +13,9 @@ export const useApplicantNotifications = () => {
     documentNode: GET_APPLICANT_NOTIFICATIONS,
     queryName: "getApplicantNotifications",
     variables: {},
-    timestampKey: "createdAt"
+    timestampKey: "createdAt",
+    fetchPolicy: "cache-and-network",
+    nextFetchPolicy: "cache-first"
   });
 
   return {

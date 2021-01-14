@@ -71,5 +71,8 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
       }
     }
     shouldFetchMore
+    hasUnreadNotifications {
+      hasUnreadNotifications
+    }
   }
 }
