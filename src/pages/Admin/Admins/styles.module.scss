@@ -4,6 +4,6 @@
 .tableDisplay {
   @include tableDisplay;
 
-  grid-template-areas: "name dni email secretary createdAt";
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "name dni email secretary createdAt actions";
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 1fr;
 }

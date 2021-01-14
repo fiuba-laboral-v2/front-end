@@ -1,0 +1,15 @@
+query getAdminByUuid($uuid: ID!) {
+  getAdminByUuid(uuid: $uuid) {
+    uuid
+    updatedAt
+    createdAt
+    secretary
+    user {
+      uuid
+      email
+      name
+      surname
+      dni
+    }
+  }
+}

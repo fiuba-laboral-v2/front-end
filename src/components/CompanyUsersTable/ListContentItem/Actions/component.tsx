@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { ChangePasswordAction } from "./ChangePasswordAction";
-import { EditUserAction } from "./EditUserAction";
+import { ChangePasswordAction } from "$components/ChangePasswordAction";
+import { EditUserAction } from "$components/EditUserAction";
+import { TableActions } from "$components/TableActions";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
@@ -11,16 +12,16 @@ export const Actions: FunctionComponent<IComponentProps> = ({
   editUserLink,
   translations
 }) => (
-  <div className={className}>
+  <TableActions className={className}>
     {!hideActions() && (
-      <div className={styles.actions}>
+      <>
         <ChangePasswordAction
           className={styles.changePasswordAction}
           link={changePasswordLink}
           tooltipMessage={translations.passwordTooltipMessage}
         />
         <EditUserAction link={editUserLink} tooltipMessage={translations.editUserTooltipMessage} />
-      </div>
+      </>
     )}
-  </div>
+  </TableActions>
 );

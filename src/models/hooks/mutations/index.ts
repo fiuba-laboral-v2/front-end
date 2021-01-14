@@ -21,3 +21,4 @@ export * from "./useUpdateAdminSettings";
 export * from "./useUpdatePadron";
 export * from "./useUpdateCompanyCriticalAttributes";
 export * from "./useUpdateCompanyUser";
+export * from "./useUpdateAdmin";

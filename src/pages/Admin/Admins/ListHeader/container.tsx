@@ -13,4 +13,5 @@ export interface ITranslations {
   email: string;
   secretary: string;
   createdAt: string;
+  actions: string;
 }
