@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ChangePasswordAction } from "$components/ChangePasswordAction";
+import { EditUserAction } from "$components/EditUserAction";
 import { TableActions } from "$components/TableActions";
-import { EditUserAction } from "./EditUserAction";
 import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
