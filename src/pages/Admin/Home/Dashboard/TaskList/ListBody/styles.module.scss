@@ -6,10 +6,15 @@
   &:first-child {
     margin-top: $spacing-l;
   }
+
+  &:last-child {
+    margin-bottom: $spacing-l;
+  }
 }
 
 .fetchMore {
   margin-bottom: $spacing-l;
+  margin-top: 0;
 }
 
 .emptyListMessage {
