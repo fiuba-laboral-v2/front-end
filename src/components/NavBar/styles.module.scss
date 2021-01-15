@@ -89,6 +89,10 @@
       .bottom {
         width: 66px;
       }
+
+      .credits {
+        padding: 0 $spacing-s;
+      }
     }
 
     @media (max-width: $laptopWidth) {

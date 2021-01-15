@@ -2,8 +2,9 @@
 
 .cardContainer {
   margin: 0 auto;
+  max-width: $detailContainerWidth;
   padding: $spacing-l;
-  width: 80%;
+  width: 90%;
 
   &:not(:last-child) {
     margin-bottom: $spacing-l;
