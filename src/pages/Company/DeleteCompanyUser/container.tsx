@@ -18,7 +18,7 @@ export const DeleteCompanyUserContainer: FunctionComponent = () => {
     const result = await deleteCompanyUser({
       variables: { uuid },
       errorHandlers: {
-        DeleteOnlyCompanyUserError: () =>
+        DeleteLastCompanyUserError: () =>
           showError({ message: translations?.deleteOnlyCompanyUserError })
       }
     });
