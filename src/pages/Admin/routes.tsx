@@ -58,7 +58,10 @@ export const AdminRoutes = [
     path: offers(),
     component: (props: { location: Location }) => <Offers searchQuery={props.location.search} />
   },
-  { path: home(), component: Home },
+  {
+    path: home(),
+    component: (props: { location: Location }) => <Home searchQuery={props.location.search} />
+  },
   { path: notifications(), component: Notifications },
   { path: signUp(), component: SignUp },
   { path: settings(), component: Settings },
