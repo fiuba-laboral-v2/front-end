@@ -19,6 +19,7 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ companyUs
       hideActions={hideActions}
       changePasswordLink={RoutesBuilder.company.editPassword()}
       editUserLink={RoutesBuilder.company.editUser()}
+      deleteUserLink={RoutesBuilder.company.deleteUser(companyUser.uuid)}
     />
   );
 };
