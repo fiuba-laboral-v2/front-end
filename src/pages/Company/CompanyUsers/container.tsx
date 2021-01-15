@@ -11,6 +11,7 @@ export const CompanyUsers: FunctionComponent = () => {
 
   return (
     <CompanyUsersTable
+      visibleActions={["deleteUser"]}
       companyUsers={response?.data?.getCompanyUsers.results}
       fetchMore={response.fetchMore}
       loading={response.loading}

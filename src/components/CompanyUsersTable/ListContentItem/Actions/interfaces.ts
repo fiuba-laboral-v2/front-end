@@ -1,4 +1,5 @@
 import { ICompanyUser } from "$interfaces/CompanyUser";
+import { VisibleAction } from "../../index";
 
 export interface ITranslations {
   passwordTooltipMessage: string;
@@ -8,6 +9,7 @@ export interface ITranslations {
 
 interface ICommonProps {
   className?: string;
+  visibleActions: VisibleAction[];
 }
 
 export interface IContainerProps extends ICommonProps {
@@ -16,7 +18,7 @@ export interface IContainerProps extends ICommonProps {
 
 export interface IComponentProps extends ICommonProps {
   translations: ITranslations;
-  hideActions: () => boolean;
+  isCurrentUser: () => boolean;
   changePasswordLink: string;
   editUserLink: string;
   deleteUserLink: string;
