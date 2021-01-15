@@ -1,6 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useTranslations, useDeactivateAdminAccount, useAdminByUuid } from "$hooks";
+import {
+  useTranslations,
+  useDeactivateAdminAccount,
+  useAdminByUuid,
+  useCurrentUser,
+  useLogout
+} from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { AccountActivationForm } from "$components/AccountActivationForm";
@@ -12,10 +18,17 @@ export const DeactivateAdminAccountContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("deactivateAdminAccount");
   const { deactivateAdminAccount } = useDeactivateAdminAccount();
   const admin = useAdminByUuid(uuid);
+  const currentUser = useCurrentUser().data?.getCurrentUser;
+  const { logout } = useLogout();
 
   const onSubmit = async () => {
     const result = await deactivateAdminAccount({ variables: { uuid } });
     if (result.error) return;
+    if (currentUser?.uuid === admin?.user.uuid) {
+      await logout();
+      history.push(RoutesBuilder.public.login());
+      return;
+    }
     history.push(RoutesBuilder.admin.admins());
   };
 
