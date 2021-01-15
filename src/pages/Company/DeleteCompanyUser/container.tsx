@@ -1,6 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useTranslations, useDeleteCompanyUser, useCompanyUserByUuid, useShowError } from "$hooks";
+import {
+  useTranslations,
+  useDeleteCompanyUser,
+  useCompanyUserByUuid,
+  useShowError,
+  useCurrentUser,
+  useLogout
+} from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { AccountActivationForm } from "$components/AccountActivationForm";
@@ -12,6 +19,8 @@ export const DeleteCompanyUserContainer: FunctionComponent = () => {
   const showError = useShowError();
   const translations = useTranslations<ITranslations>("deleteCompanyUser");
   const { deleteCompanyUser } = useDeleteCompanyUser();
+  const { logout } = useLogout();
+  const currentUser = useCurrentUser().data?.getCurrentUser;
   const companyUser = useCompanyUserByUuid(uuid);
 
   const onSubmit = async () => {
@@ -23,6 +32,11 @@ export const DeleteCompanyUserContainer: FunctionComponent = () => {
       }
     });
     if (result.error) return;
+    if (currentUser?.uuid === companyUser?.user.uuid) {
+      await logout();
+      history.push(RoutesBuilder.public.login());
+      return;
+    }
     history.push(RoutesBuilder.company.users());
   };
 
