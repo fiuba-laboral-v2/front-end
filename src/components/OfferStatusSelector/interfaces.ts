@@ -7,9 +7,11 @@ interface ICommonProps {
   className?: string;
 }
 
+export type AdditionalOptions = "indeterminate";
+
 export interface IContainerProps extends ICommonProps {
-  withEmptyOption?: boolean;
   target: "students" | "graduates";
+  additionalOptions?: AdditionalOptions[];
 }
 
 export interface ITranslations {
@@ -19,9 +21,10 @@ export interface ITranslations {
   rejected: string;
   pending: string;
   expired: string;
+  indeterminate: string;
 }
 
 export interface IComponentProps extends ICommonProps {
   title: string;
-  options: Array<ISelectFieldOption<OfferStatus>>;
+  options: Array<ISelectFieldOption<OfferStatus | AdditionalOptions>>;
 }

@@ -22,7 +22,7 @@ export interface IFormValues {
   companyName: string;
   businessSector: string;
   title: string;
-  studentsStatus: OfferStatus | "";
-  graduatesStatus: OfferStatus | "";
+  studentsStatus: OfferStatus | "indeterminate";
+  graduatesStatus: OfferStatus | "indeterminate";
   _form: string;
 }
