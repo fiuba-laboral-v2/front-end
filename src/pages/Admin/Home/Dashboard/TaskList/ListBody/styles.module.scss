@@ -6,10 +6,6 @@
   &:first-child {
     margin-top: $spacing-l;
   }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .fetchMore {
