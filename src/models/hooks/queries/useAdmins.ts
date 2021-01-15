@@ -7,5 +7,5 @@ export const useAdmins = () =>
     documentNode: GET_ADMINS,
     queryName: "getAdmins",
     variables: {},
-    timestampKey: "updatedAt"
+    timestampKey: "createdAt"
   });
