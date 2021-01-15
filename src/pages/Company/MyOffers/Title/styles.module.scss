@@ -9,27 +9,6 @@
   margin-right: $spacing-m;
 }
 
-.checkboxContainer {
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-}
-
-.checkboxIcon {
-  background-color: transparentize($black, 1);
-  color: #0000008a;
-  padding: 0;
-}
-
-.checkbox {
-  align-self: center;
-}
-
-.checkboxDescription {
-  align-self: center;
-  font-size: $fixedFontSize-s;
-}
-
 @media (max-width: $tabletWidth) {
   .titleContainer {
     flex-direction: column;
@@ -38,10 +17,5 @@
   .title {
     margin-bottom: $spacing-m;
     margin-right: 0;
-  }
-
-  span.checkbox {
-    margin-right: $spacing-s;
-    padding: 0;
   }
 }
