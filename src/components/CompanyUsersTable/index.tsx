@@ -14,19 +14,21 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
   loading,
   fetchMore,
   children,
-  withoutActions,
+  visibleActions,
   title
 }) => {
+  const withoutActions = visibleActions.length === 0;
+
   return (
     <ListPageContainer
       title={title}
       titleTranslationPath="companyUsersListMainTitle"
       listHeader={<ListHeader withoutActions={withoutActions} />}
       listContentItem={(companyUser: ICompanyUser) => (
-        <ListContentItem withoutActions={withoutActions} companyUser={companyUser} />
+        <ListContentItem visibleActions={visibleActions} companyUser={companyUser} />
       )}
       listHeaderClassName={classNames(styles.tableDisplay, {
-        [styles.withoutActions]: withoutActions
+        [styles.withoutActions]: visibleActions.length === 0
       })}
       rowClassName={classNames(styles.tableDisplay, { [styles.withoutActions]: withoutActions })}
       items={companyUsers}
@@ -39,11 +41,13 @@ export const CompanyUsersTable: FunctionComponent<IContainer> = ({
   );
 };
 
+export type VisibleAction = "deleteUser";
+
 interface IContainer {
   title?: string;
   companyUsers?: ICompanyUser[];
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
   loading: boolean;
-  withoutActions?: boolean;
+  visibleActions: VisibleAction[];
 }

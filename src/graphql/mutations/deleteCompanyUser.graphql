@@ -1,0 +1,3 @@
+mutation DeleteCompanyUser($uuid: ID!) {
+  deleteCompanyUser(uuid: $uuid)
+}

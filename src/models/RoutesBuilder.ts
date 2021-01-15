@@ -15,6 +15,7 @@ const EDIT = "editar";
 const DEACTIVATE_ACCOUNT = "desactivar-cuenta";
 const ACTIVATE_ACCOUNT = "activar-cuenta";
 const RECOVER = "recuperar";
+const DELETE = "eliminar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
@@ -126,6 +127,8 @@ export const RoutesBuilder = {
     createUser: () => companyRoute(USERS, CREATE),
 
     editUser: () => companyRoute(USERS, EDIT),
+
+    deleteUser: (uuid: string) => companyRoute(USERS, DELETE, uuid),
 
     editPassword: () => companyRoute(PASSWORD, EDIT),
 
