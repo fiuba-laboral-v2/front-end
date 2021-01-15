@@ -12,25 +12,23 @@ export const Title: FunctionComponent<IComponentProps> = ({
   disabled,
   checked,
   onChange
-}) => {
-  return (
-    <div className={classNames(className, styles.titleContainer)}>
-      <TitleComponent className={styles.title}>{translations?.title}</TitleComponent>
-      {translations && (
-        <FormControlLabel
-          label={translations.hideRejectedAndExpiredOffers}
-          onChange={onChange}
-          disabled={disabled}
-          checked={checked}
-          control={
-            <Checkbox
-              size="small"
-              color="default"
-              checkedIcon={<CheckboxIcon fontSize="small" className={styles.color} />}
-            />
-          }
-        />
-      )}
-    </div>
-  );
-};
+}) => (
+  <div className={classNames(className, styles.titleContainer)}>
+    <TitleComponent className={styles.title}>{translations?.title}</TitleComponent>
+    {translations && (
+      <FormControlLabel
+        label={translations.hideRejectedAndExpiredOffers}
+        onChange={onChange}
+        disabled={disabled}
+        checked={checked}
+        control={
+          <Checkbox
+            size="small"
+            color="default"
+            checkedIcon={<CheckboxIcon fontSize="small" className={styles.color} />}
+          />
+        }
+      />
+    )}
+  </div>
+);
