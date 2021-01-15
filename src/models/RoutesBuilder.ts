@@ -35,7 +35,8 @@ const queryParams = (params?: string) => (params ? `?${params}` : "");
 
 export const RoutesBuilder = {
   admin: {
-    home: () => adminRoute(""),
+    home: ({ searchParams }: { searchParams?: string } = {}) =>
+      `${adminRoute("")}${queryParams(searchParams)}`,
 
     applicants: ({ searchParams }: { searchParams?: string } = {}) =>
       `${adminRoute(APPLICANTS)}${queryParams(searchParams)}`,
