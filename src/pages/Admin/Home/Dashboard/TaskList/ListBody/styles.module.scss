@@ -8,12 +8,13 @@
   }
 
   &:last-child {
-    margin-bottom: 0;
+    margin-bottom: $spacing-l;
   }
 }
 
 .fetchMore {
   margin-bottom: $spacing-l;
+  margin-top: 0;
 }
 
 .emptyListMessage {
