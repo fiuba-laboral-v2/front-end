@@ -1,0 +1,16 @@
+query GetCompanyUserByUuid($uuid: ID!) {
+  getCompanyUserByUuid(uuid: $uuid) {
+    uuid
+    companyUuid
+    userUuid
+    createdAt
+    updatedAt
+    position
+    user {
+      uuid
+      name
+      surname
+      email
+    }
+  }
+}

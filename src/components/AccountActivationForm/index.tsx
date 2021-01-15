@@ -5,23 +5,22 @@ import { FormSection } from "$components/FormSection";
 import { FormikForm } from "$components/FormikForm";
 import { Formik } from "$components/Formik";
 import { FormFooter } from "$components/FormFooter";
-
-import { IComponentProps } from "./interfaces";
 import styles from "./styles.module.scss";
 
-export const DeactivateAdminAccount: FunctionComponent<IComponentProps> = ({
-  admin,
-  onSubmit,
-  translations
+export const AccountActivationForm: FunctionComponent<IComponentProps> = ({
+  title,
+  description,
+  submit,
+  onSubmit
 }) => (
-  <Form title={`${translations?.title}\n${admin?.user.name} ${admin?.user.surname}`}>
+  <Form title={title}>
     <Formik initialValues={{}} onSubmit={onSubmit}>
       {formikProps => (
         <FormikForm>
-          <FormSection className={styles.formSection}>{translations?.description}</FormSection>
+          <FormSection className={styles.formSection}>{description}</FormSection>
           <FormFooter
             isSubmitting={formikProps.isSubmitting}
-            submitButtonText={translations?.submit}
+            submitButtonText={submit}
             errors={formikProps.errors}
           />
         </FormikForm>
@@ -29,3 +28,10 @@ export const DeactivateAdminAccount: FunctionComponent<IComponentProps> = ({
     </Formik>
   </Form>
 );
+
+export interface IComponentProps {
+  title?: string;
+  description?: string;
+  submit?: string;
+  onSubmit: () => Promise<void>;
+}

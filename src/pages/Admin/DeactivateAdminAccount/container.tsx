@@ -2,9 +2,8 @@ import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useTranslations, useDeactivateAdminAccount, useAdminByUuid } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { ITranslations } from "./interfaces";
 
-import { DeactivateAdminAccount } from "./component";
+import { AccountActivationForm } from "$components/AccountActivationForm";
 import { Window } from "$components/Window";
 
 export const DeactivateAdminAccountContainer: FunctionComponent = () => {
@@ -22,7 +21,18 @@ export const DeactivateAdminAccountContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!translations || !admin}>
-      <DeactivateAdminAccount admin={admin} translations={translations} onSubmit={onSubmit} />
+      <AccountActivationForm
+        title={`${translations?.title}\n${admin?.user.name} ${admin?.user.surname}`}
+        description={translations?.description}
+        submit={translations?.submit}
+        onSubmit={onSubmit}
+      />
     </Window>
   );
 };
+
+interface ITranslations {
+  title: string;
+  description: string;
+  submit: string;
+}

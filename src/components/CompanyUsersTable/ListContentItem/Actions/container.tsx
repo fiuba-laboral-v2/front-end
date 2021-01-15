@@ -10,15 +10,17 @@ export const ActionsContainer: FunctionComponent<IContainerProps> = ({ companyUs
   if (currentUserResponse.loading || currentUserResponse.error) return <Fragment />;
   if (!translations) return <Fragment />;
 
-  const hideActions = () => currentUserResponse.data.getCurrentUser?.uuid !== companyUser.userUuid;
+  const isCurrentUser = () =>
+    currentUserResponse.data.getCurrentUser?.uuid === companyUser.userUuid;
 
   return (
     <Actions
       {...props}
       translations={translations}
-      hideActions={hideActions}
+      isCurrentUser={isCurrentUser}
       changePasswordLink={RoutesBuilder.company.editPassword()}
       editUserLink={RoutesBuilder.company.editUser()}
+      deleteUserLink={RoutesBuilder.company.deleteUser(companyUser.uuid)}
     />
   );
 };
