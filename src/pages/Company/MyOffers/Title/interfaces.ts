@@ -8,14 +8,16 @@ export interface ITranslations {
 
 interface ICommonProps {
   className?: string;
-  filter: CompanyOffersFilter;
 }
 
 export interface IContainerProps extends ICommonProps {
   refetchOffers?: (filter: IUseMyOffersFilter) => void;
+  filter: CompanyOffersFilter;
 }
 
 export interface IComponentProps extends ICommonProps {
   translations?: ITranslations;
-  onClick: () => void;
+  onChange: () => void;
+  disabled: boolean;
+  checked: boolean;
 }
