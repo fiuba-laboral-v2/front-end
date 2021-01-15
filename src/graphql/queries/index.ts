@@ -1,5 +1,6 @@
 import { loader } from "graphql.macro";
 
+const GET_COMPANY_USER_BY_UUID = loader("./getCompanyUserByUuid.graphql");
 const GET_TRANSLATIONS = loader("./getTranslations.graphql");
 const GET_COMPANY_BY_UUID = loader("./getCompanyByUuid.graphql");
 const GET_COMPANY_BY_UUID_WITH_USERS = loader("./getCompanyByUuidWithUsers.graphql");
@@ -89,5 +90,6 @@ export {
   GET_REJECTED_OFFER_MESSAGE_BY_UUID,
   GET_REJECTED_COMPANY_PROFILE_MESSAGE_BY_UUID,
   GET_ADMIN_BY_UUID,
-  GET_DELETED_ADMIN_BY_UUID
+  GET_DELETED_ADMIN_BY_UUID,
+  GET_COMPANY_USER_BY_UUID
 };
