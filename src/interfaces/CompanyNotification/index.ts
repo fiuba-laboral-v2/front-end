@@ -29,7 +29,6 @@ interface ICommonAttributes {
   isNew: boolean;
   createdAt: string;
   adminEmail: string;
-  moderatorSecretary: Secretary;
 }
 
 export interface INewJobApplicationCompanyAttributesNotification extends ICommonAttributes {
@@ -45,12 +44,14 @@ export interface INewJobApplicationCompanyNotification extends ICommonAttributes
 export interface IApprovedOfferCompanyNotification extends ICommonAttributes {
   __typename: APPROVED_OFFER_COMPANY_NOTIFICATION_TYPE;
   offer: IOffer;
+  secretary: Secretary;
 }
 
 export interface IRejectedOfferCompanyNotification extends ICommonAttributes {
   __typename: REJECTED_OFFER_COMPANY_NOTIFICATION_TYPE;
   moderatorMessage: string;
   offer: IOffer;
+  secretary: Secretary;
 }
 
 export interface IApprovedProfileCompanyNotification extends ICommonAttributes {
