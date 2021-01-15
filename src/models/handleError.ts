@@ -16,6 +16,7 @@ type ErrorName =
   | "AuthenticationError"
   | "UnauthorizedError"
   | "CompanyUserNotFoundError"
+  | "DeleteOnlyCompanyUserError"
   | "ValidationError"
   | "OfferNotVisibleByCurrentUserError"
   | "JobApplicationAlreadyExistsError"
