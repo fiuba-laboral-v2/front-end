@@ -7,5 +7,5 @@ export const useCompanyUsersByCompany = (companyUuid: string) =>
     documentNode: GET_COMPANY_USERS_BY_COMPANY,
     queryName: "getCompanyUsersByCompany",
     variables: { companyUuid },
-    timestampKey: "updatedAt"
+    timestampKey: "createdAt"
   });

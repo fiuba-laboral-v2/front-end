@@ -13,5 +13,6 @@ export interface ITranslations {
   email: string;
   secretary: string;
   createdAt: string;
+  status: string;
   actions: string;
 }

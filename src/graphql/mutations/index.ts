@@ -1,6 +1,7 @@
 import { loader } from "graphql.macro";
 
 const DEACTIVATE_ADMIN_ACCOUNT = loader("./deactivateAdminAccount.graphql");
+const ACTIVATE_ADMIN_ACCOUNT = loader("./activateAdminAccount.graphql");
 const SEND_PASSWORD_RECOVERY_EMAIL = loader("./sendPasswordRecoveryEmail.graphql");
 const UPDATE_MY_FORGOTTEN_PASSWORD = loader("./updateMyForgottenPassword.graphql");
 const UPDATE_COMPANY_USER_PASSWORD = loader("./updatePassword.graphql");
@@ -29,6 +30,7 @@ const UPDATE_JOB_APPLICATION_APPROVAL_STATUS = loader(
 const EXPIRE_OFFER = loader("./expireOffer.graphql");
 const REPUBLISH_OFFER = loader("./republishOffer.graphql");
 const UPDATE_ADMIN = loader("./updateAdmin.graphql");
+const DELETE_COMPANY_USER = loader("./deleteCompanyUser.graphql");
 
 export {
   SEND_PASSWORD_RECOVERY_EMAIL,
@@ -57,5 +59,7 @@ export {
   UPDATE_COMPANY_CRITICAL_ATTRIBUTES,
   UPDATE_COMPANY_USER,
   UPDATE_ADMIN,
-  DEACTIVATE_ADMIN_ACCOUNT
+  DEACTIVATE_ADMIN_ACCOUNT,
+  ACTIVATE_ADMIN_ACCOUNT,
+  DELETE_COMPANY_USER
 };

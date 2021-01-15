@@ -19,6 +19,7 @@ import { PasswordRecovery } from "./PasswordRecovery";
 import { PasswordRecoveryExplanation } from "./PasswordRecoveryExplanation";
 import { EditCriticalAttributes } from "./EditCriticalAttributes";
 import { EditCompanyUser } from "./EditCompanyUser";
+import { DeleteCompanyUser } from "./DeleteCompanyUser";
 
 const {
   signUp,
@@ -39,7 +40,8 @@ const {
   passwordRecovery,
   passwordRecoveryExplanation,
   editUser,
-  editCriticalAttributes
+  editCriticalAttributes,
+  deleteUser
 } = RoutesBuilder.company;
 
 export const CompanyRoutes = [
@@ -60,6 +62,7 @@ export const CompanyRoutes = [
   { path: users(), component: CompanyUsers },
   { path: createUser(), component: AddCompanyUser },
   { path: editUser(), component: EditCompanyUser },
+  { path: deleteUser(":uuid"), component: DeleteCompanyUser },
   { path: editPassword(), component: EditPassword },
   { path: editCriticalAttributes(), component: EditCriticalAttributes },
   { path: passwordRecovery(), component: PasswordRecovery, public: true },

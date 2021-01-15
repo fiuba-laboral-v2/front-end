@@ -1,20 +1,20 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useTranslations, useDeactivateAdminAccount, useAdminByUuid } from "$hooks";
+import { useTranslations, useActivateAdminAccount, useDeletedAdminByUuid } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { AccountActivationForm } from "$components/AccountActivationForm";
 import { Window } from "$components/Window";
 
-export const DeactivateAdminAccountContainer: FunctionComponent = () => {
+export const ActivateAdminAccountContainer: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
   const history = useHistory();
-  const translations = useTranslations<ITranslations>("deactivateAdminAccount");
-  const { deactivateAdminAccount } = useDeactivateAdminAccount();
-  const admin = useAdminByUuid(uuid);
+  const translations = useTranslations<ITranslations>("activateAdminAccount");
+  const { activateAdminAccount } = useActivateAdminAccount();
+  const admin = useDeletedAdminByUuid(uuid);
 
   const onSubmit = async () => {
-    const result = await deactivateAdminAccount({ variables: { uuid } });
+    const result = await activateAdminAccount({ variables: { uuid } });
     if (result.error) return;
     history.push(RoutesBuilder.admin.admins());
   };
@@ -31,7 +31,7 @@ export const DeactivateAdminAccountContainer: FunctionComponent = () => {
   );
 };
 
-interface ITranslations {
+export interface ITranslations {
   title: string;
   description: string;
   submit: string;

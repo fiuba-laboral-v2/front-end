@@ -23,6 +23,10 @@
     grid-area: createdAt;
   }
 
+  &.status {
+    grid-area: status;
+  }
+
   &.actions {
     grid-area: actions;
   }

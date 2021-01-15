@@ -13,7 +13,9 @@ const LOGIN = "iniciar-sesion";
 const CREDITS = "creditos";
 const EDIT = "editar";
 const DEACTIVATE_ACCOUNT = "desactivar-cuenta";
+const ACTIVATE_ACCOUNT = "activar-cuenta";
 const RECOVER = "recuperar";
+const DELETE = "eliminar";
 const CREATE = "crear";
 const ERROR = "error";
 const NOT_FOUND = "pagina-inexistente";
@@ -57,6 +59,8 @@ export const RoutesBuilder = {
     editAdmin: (uuid: string) => adminRoute(ADMINS, EDIT, uuid),
 
     deactivateAdminAccount: (uuid: string) => adminRoute(ADMINS, DEACTIVATE_ACCOUNT, uuid),
+
+    activateAdminAccount: (uuid: string) => adminRoute(ADMINS, ACTIVATE_ACCOUNT, uuid),
 
     settings: () => adminRoute(SETTINGS),
 
@@ -122,6 +126,8 @@ export const RoutesBuilder = {
     createUser: () => companyRoute(USERS, CREATE),
 
     editUser: () => companyRoute(USERS, EDIT),
+
+    deleteUser: (uuid: string) => companyRoute(USERS, DELETE, uuid),
 
     editPassword: () => companyRoute(PASSWORD, EDIT),
 

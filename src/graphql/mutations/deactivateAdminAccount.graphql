@@ -4,6 +4,7 @@ mutation DeactivateAdminAccount($uuid: ID!) {
     updatedAt
     createdAt
     secretary
+    status
     user {
       uuid
       email

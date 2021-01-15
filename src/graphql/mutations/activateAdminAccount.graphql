@@ -1,5 +1,5 @@
-mutation SaveAdmin($user: UserInput!, $secretary: Secretary!) {
-  saveAdmin(user: $user, secretary: $secretary) {
+mutation ActivateAdminAccount($uuid: ID!) {
+  activateAdminAccount(uuid: $uuid) {
     uuid
     updatedAt
     createdAt

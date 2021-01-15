@@ -13,7 +13,7 @@ export const CompanyUsersContainer: FunctionComponent = () => {
   return (
     <CompanyUsersTable
       title={`${translations?.title} ${companyName}`}
-      withoutActions
+      visibleActions={[]}
       companyUsers={response?.data?.getCompanyUsersByCompany.results}
       fetchMore={response.fetchMore}
       loading={response.loading}

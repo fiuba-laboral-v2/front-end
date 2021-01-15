@@ -11,11 +11,7 @@ export const useDeactivateAdminAccount = () => {
     variables,
     ...options
   }: IMutationOptions<IResponseProps, IUseDeactivateAdminAccountInput>) =>
-    mutation({
-      variables,
-      ...options,
-      update: cache => cache.evict({ id: `Admin:${variables?.uuid}` })
-    });
+    mutation({ variables, ...options });
 
   return { deactivateAdminAccount, ...result };
 };

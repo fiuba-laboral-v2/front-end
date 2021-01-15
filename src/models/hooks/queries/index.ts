@@ -40,3 +40,5 @@ export * from "./useLazyRejectedApplicantProfileMessageByUuid";
 export * from "./useLazyRejectedOfferMessageByUuid";
 export * from "./useLazyRejectedCompanyProfileMessageByUuid";
 export * from "./useAdminByUuid";
+export * from "./useDeletedAdminByUuid";
+export * from "./useCompanyUserByUuid";
