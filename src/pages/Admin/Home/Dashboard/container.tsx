@@ -28,8 +28,7 @@ export const DashboardContainer: FunctionComponent<IDashboardContainerProps> = (
   useEffect(() => {
     const adminTasksFilter = new AdminTasksFilter(searchQuery);
     const parsedFilter = adminTasksFilter.getFilter();
-    if (!parsedFilter) return;
-    setFilter(parsedFilter);
+    if (parsedFilter) setFilter(parsedFilter);
     // eslint-disable-next-line
   }, []);
   if (error) return <Redirect to={RoutesBuilder.public.internalServerError()} />;
