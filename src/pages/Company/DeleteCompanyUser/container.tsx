@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useTranslations, useDeleteCompanyUser } from "$hooks";
+import { useTranslations, useDeleteCompanyUser, useCompanyUserByUuid } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { AccountActivationForm } from "$components/AccountActivationForm";
@@ -11,6 +11,7 @@ export const DeleteCompanyUserContainer: FunctionComponent = () => {
   const history = useHistory();
   const translations = useTranslations<ITranslations>("deleteCompanyUser");
   const { deleteCompanyUser } = useDeleteCompanyUser();
+  const companyUser = useCompanyUserByUuid(uuid);
 
   const onSubmit = async () => {
     const result = await deleteCompanyUser({ variables: { uuid } });
@@ -19,9 +20,9 @@ export const DeleteCompanyUserContainer: FunctionComponent = () => {
   };
 
   return (
-    <Window loading={!translations}>
+    <Window loading={!translations || !companyUser}>
       <AccountActivationForm
-        title={`${translations?.title}\n${"name"} ${"surname"}`}
+        title={`${translations?.title}\n${companyUser?.user.name} ${companyUser?.user.surname}`}
         description={translations?.description}
         submit={translations?.submit}
         onSubmit={onSubmit}
