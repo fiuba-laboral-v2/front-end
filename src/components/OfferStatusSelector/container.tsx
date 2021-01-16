@@ -21,7 +21,7 @@ export const OfferStatusSelectorContainer: FunctionComponent<IContainerProps> = 
   );
 };
 
-export interface IContainerProps {
+interface IContainerProps {
   mandatory?: boolean;
   name: string;
   className?: string;
@@ -29,7 +29,7 @@ export interface IContainerProps {
   additionalOptions?: AdditionalOptions[];
 }
 
-export interface ITranslations {
+interface ITranslations {
   studentsTitle: string;
   graduatesTitle: string;
   approved: string;
