@@ -7,13 +7,14 @@ export const Selector = <Option,>({
   title,
   mandatory,
   name,
-  options
+  options,
+  label
 }: IComponentProps<Option>) => (
   <SelectField
     className={className}
     mandatory={mandatory}
     fieldName={name}
     options={options}
-    title={title}
+    title={label || title}
   />
 );

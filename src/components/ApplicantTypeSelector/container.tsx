@@ -1,23 +1,33 @@
-import React, { Fragment, FunctionComponent } from "react";
-import { useTranslations } from "$hooks";
-import { ApplicantTypeSelector } from "./component";
-import { AdditionalOptions, IContainerProps, ITranslations } from "./interfaces";
+import React, { FunctionComponent } from "react";
+import { Selector } from "$components/Selector";
+import { AdditionalOptions } from "$components/Selector/interfaces";
 import { ApplicantType, targetApplicantTypeEnumValues } from "$interfaces/Applicant";
-import { difference } from "lodash";
 
 export const ApplicantTypeSelectorContainer: FunctionComponent<IContainerProps> = ({
-  excludedOptions = [],
-  additionalOptions = [],
   ...props
-}) => {
-  const translations = useTranslations<ITranslations>("applicantTypeSelector");
-  if (!translations) return <Fragment />;
-  let visibleOptions: Array<ApplicantType | AdditionalOptions> = [];
-  visibleOptions = difference(targetApplicantTypeEnumValues, excludedOptions);
-  visibleOptions = [...visibleOptions, ...additionalOptions];
-  const options = visibleOptions.map(option => ({
-    label: translations[option],
-    value: option
-  }));
-  return <ApplicantTypeSelector translations={translations} {...props} options={options} />;
-};
+}) => (
+  <Selector<ApplicantType, ITranslations>
+    {...props}
+    options={targetApplicantTypeEnumValues}
+    translationGroup="applicantTypeSelector"
+    getTitle={translations => translations.title}
+    getLabel={(translations, option) => translations[option]}
+  />
+);
+
+interface ITranslations {
+  title: string;
+  graduate: string;
+  student: string;
+  both: string;
+  indeterminate: string;
+}
+
+interface IContainerProps {
+  mandatory?: boolean;
+  name: string;
+  label?: string;
+  className?: string;
+  excludedOptions?: ApplicantType[];
+  additionalOptions?: AdditionalOptions[];
+}

@@ -6,12 +6,13 @@ interface ICommonProps {
   mandatory?: boolean;
   name: string;
   className?: string;
+  label?: string;
 }
 
 export interface IContainerProps<Option, ITranslations> extends ICommonProps {
   options: Option[];
   translationGroup: string;
-  getTitle: () => string;
+  getTitle: (translations: ITranslations) => string;
   getLabel: (translations: ITranslations, option: Option | AdditionalOptions) => string;
   additionalOptions?: AdditionalOptions[];
   excludedOptions?: Option[];

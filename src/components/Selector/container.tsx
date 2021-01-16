@@ -14,8 +14,7 @@ export const SelectorContainer = <Option, ITranslations extends object>({
   ...props
 }: IContainerProps<Option, ITranslations>) => {
   const translations = useTranslations<ITranslations>(translationGroup);
-  const title = getTitle();
-  if (!translations || !title) return <Fragment />;
+  if (!translations) return <Fragment />;
   let visibleOptions: Array<Option | AdditionalOptions> = [];
   visibleOptions = difference(options, excludedOptions);
   visibleOptions = [...visibleOptions, ...additionalOptions];
@@ -23,7 +22,7 @@ export const SelectorContainer = <Option, ITranslations extends object>({
   return (
     <Selector
       {...props}
-      title={title}
+      title={getTitle(translations)}
       options={visibleOptions.map(option => ({
         label: getLabel(translations, option),
         value: option
