@@ -9,7 +9,10 @@ interface ICommonProps {
 
 export type AdditionalOptions = "indeterminate";
 
-export interface IContainerProps extends ICommonProps {
+export interface IContainerProps {
+  mandatory?: boolean;
+  name: string;
+  className?: string;
   target: "students" | "graduates";
   additionalOptions?: AdditionalOptions[];
 }
