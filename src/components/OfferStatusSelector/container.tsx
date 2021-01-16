@@ -5,7 +5,6 @@ import { OfferStatus, offerStatusEnumValues } from "$interfaces/Offer";
 
 export const OfferStatusSelectorContainer: FunctionComponent<IContainerProps> = ({
   target,
-  additionalOptions = [],
   ...props
 }) => {
   return (

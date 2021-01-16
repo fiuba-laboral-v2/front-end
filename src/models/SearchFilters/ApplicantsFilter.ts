@@ -48,17 +48,17 @@ export class ApplicantsFilter extends URLSearchParams {
   }
 
   private setCareerCodes(codes?: string[]) {
-    if (codes === undefined || codes === null) return;
+    if (codes === undefined || codes === null) return this.delete(CAREER_CODES);
     this.set(CAREER_CODES, codes.join(SEPARATOR));
   }
 
   private setName(name?: string) {
-    if (name === undefined || name === null) return;
+    if (name === undefined || name === null) return this.delete(NAME);
     this.set(NAME, name);
   }
 
   private setApplicantType(applicantType?: ApplicantType) {
-    if (applicantType === undefined || applicantType === null) return;
+    if (applicantType === undefined || applicantType === null) return this.delete(APPLICANT_TYPE);
     this.set(APPLICANT_TYPE, applicantType);
   }
 }
