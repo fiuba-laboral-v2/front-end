@@ -1,19 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { IComponentProps } from "./interfaces";
+import React from "react";
 import { SelectField } from "$components/Fields";
+import { IComponentProps } from "./interfaces";
 
-export const OfferStatusSelector: FunctionComponent<IComponentProps> = ({
+export const Selector = <Option,>({
   className,
   title,
   mandatory,
   name,
-  options
-}) => (
+  options,
+  label
+}: IComponentProps<Option>) => (
   <SelectField
     className={className}
     mandatory={mandatory}
     fieldName={name}
     options={options}
-    title={title}
+    title={label || title}
   />
 );

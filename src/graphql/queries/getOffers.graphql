@@ -5,6 +5,7 @@ query GetOffers(
   $studentsStatus: OfferStatus
   $graduatesStatus: OfferStatus
   $title: String
+  $careerCodes: [String]
 ) {
   getOffers(
     updatedBeforeThan: $updatedBeforeThan
@@ -12,6 +13,7 @@ query GetOffers(
     businessSector: $businessSector
     studentsStatus: $studentsStatus
     graduatesStatus: $graduatesStatus
+    careerCodes: $careerCodes
     title: $title
   ) {
     results {

@@ -1,22 +1,39 @@
-import React, { Fragment, FunctionComponent } from "react";
-import { useTranslations } from "$hooks";
-import { OfferStatusSelector } from "./component";
-import { IContainerProps, ITranslations } from "./interfaces";
+import React, { FunctionComponent } from "react";
+import { Selector } from "$components/Selector";
+import { AdditionalOptions } from "$components/Selector/interfaces";
 import { OfferStatus, offerStatusEnumValues } from "$interfaces/Offer";
 
 export const OfferStatusSelectorContainer: FunctionComponent<IContainerProps> = ({
   target,
-  withEmptyOption,
   ...props
 }) => {
-  const translations = useTranslations<ITranslations>("offerStatusSelector");
-  const title = target === "students" ? translations?.studentsTitle : translations?.graduatesTitle;
-  if (!translations || !title) return <Fragment />;
-  let visibleOptions = offerStatusEnumValues;
-  if (withEmptyOption) visibleOptions = [...visibleOptions, "" as OfferStatus];
-  const options = visibleOptions.map(option => ({
-    label: translations[option],
-    value: option
-  }));
-  return <OfferStatusSelector title={title} {...props} options={options} />;
+  return (
+    <Selector<OfferStatus, ITranslations>
+      {...props}
+      options={offerStatusEnumValues}
+      translationGroup="offerStatusSelector"
+      getTitle={translations =>
+        target === "students" ? translations?.studentsTitle : translations?.graduatesTitle
+      }
+      getLabel={(translations, option) => translations[option]}
+    />
+  );
 };
+
+interface IContainerProps {
+  mandatory?: boolean;
+  name: string;
+  className?: string;
+  target: "students" | "graduates";
+  additionalOptions?: AdditionalOptions[];
+}
+
+interface ITranslations {
+  studentsTitle: string;
+  graduatesTitle: string;
+  approved: string;
+  rejected: string;
+  pending: string;
+  expired: string;
+  indeterminate: string;
+}

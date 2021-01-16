@@ -28,8 +28,10 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       setSubmitting(false);
       filter.setValues({
         ...values,
-        studentsStatus: values.studentsStatus === "" ? undefined : values.studentsStatus,
-        graduatesStatus: values.graduatesStatus === "" ? undefined : values.graduatesStatus,
+        studentsStatus:
+          values.studentsStatus === "indeterminate" ? undefined : values.studentsStatus,
+        graduatesStatus:
+          values.graduatesStatus === "indeterminate" ? undefined : values.graduatesStatus,
         careerCodes: values.careers.map(({ code }) => code)
       });
       const searchParams = filter.toString();
@@ -51,8 +53,8 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       companyName: model?.getCompanyName() || "",
       businessSector: model?.getBusinessSector() || "",
       title: model?.getTitle() || "",
-      studentsStatus: model?.getStudentsStatus() || "",
-      graduatesStatus: model?.getGraduatesStatus() || "",
+      studentsStatus: model?.getStudentsStatus() || "indeterminate",
+      graduatesStatus: model?.getGraduatesStatus() || "indeterminate",
       _form: ""
     };
   };
@@ -93,13 +95,13 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
               className={styles.status}
               name="graduatesStatus"
               target="graduates"
-              withEmptyOption
+              additionalOptions={["indeterminate"]}
             />
             <OfferStatusSelector
               className={styles.status}
               name="studentsStatus"
               target="students"
-              withEmptyOption
+              additionalOptions={["indeterminate"]}
             />
           </div>
         </div>
