@@ -46,11 +46,10 @@ export const Filters: FunctionComponent<IFiltersProps> = ({
               <CloseIcon />
             </IconButton>
           </header>
-          <ApplyFilters
-            withTitle={false}
-            className={styles.mobileApplyFilters}
-            {...applyFiltersProps}
-          />
+          <div className={styles.mobileApplyFilters}>
+            <AppliedFilters className={styles.appliedFilters} filter={filter} careers={careers} />
+            <ApplyFilters withTitle={false} {...applyFiltersProps} />
+          </div>
         </Dialog>
       </div>
     </div>
