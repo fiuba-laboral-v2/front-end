@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICompanyLoginVariables, useCompanyLogin, useTranslations } from "$hooks";
