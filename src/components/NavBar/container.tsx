@@ -7,7 +7,6 @@ import { NavBar } from "./component";
 import { INavBarContainerProps, INavBarTranslations } from "./interfaces";
 import { NavBarLinks } from "$models/NavBarLinks";
 import { some } from "lodash";
-import { SessionStorageRepository } from "$repositories";
 import { useSnackbar } from "notistack";
 
 export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props => {
@@ -44,7 +43,6 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
     closeSnackbar();
     await client.clearStore();
     await logout();
-    SessionStorageRepository.clear();
     history.push(RoutesBuilder.public.login());
   };
 
