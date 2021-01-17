@@ -20,6 +20,7 @@ export interface INavBarTranslations {
   pendingProfile: string;
   rejectedProfile: string;
   credits: string;
+  statistics: string;
 }
 
 export interface INavBarContainerProps {

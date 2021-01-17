@@ -17,6 +17,7 @@ import { EditAdmin } from "./EditAdmin";
 import { DeactivateAdminAccount } from "./DeactivateAdminAccount";
 import { ActivateAdminAccount } from "./ActivateAdminAccount";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { Statistics } from "./Statistics";
 
 const {
   admins,
@@ -35,7 +36,8 @@ const {
   offerDetail,
   editAdmin,
   deactivateAdminAccount,
-  activateAdminAccount
+  activateAdminAccount,
+  statistics
 } = RoutesBuilder.admin;
 
 export const AdminRoutes = [
@@ -72,5 +74,6 @@ export const AdminRoutes = [
   { path: offerDetail(":uuid"), component: OfferDetail },
   { path: editAdmin(":uuid"), component: EditAdmin },
   { path: deactivateAdminAccount(":uuid"), component: DeactivateAdminAccount },
-  { path: activateAdminAccount(":uuid"), component: ActivateAdminAccount }
+  { path: activateAdminAccount(":uuid"), component: ActivateAdminAccount },
+  { path: statistics(), component: Statistics }
 ];
