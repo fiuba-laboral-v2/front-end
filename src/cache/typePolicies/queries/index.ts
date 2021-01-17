@@ -26,7 +26,10 @@ export const queries = {
     ...paginatedQuery,
     keyArgs: ["name", "careerCodes", "applicantType"]
   },
-  getCompanies: paginatedQuery,
+  getCompanies: {
+    ...paginatedQuery,
+    keyArgs: ["companyName", "businessSector"]
+  },
   getJobApplications: {
     ...paginatedQuery,
     keyArgs: ["companyName", "applicantName", "offerTitle"]
