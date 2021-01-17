@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
+import { SessionStorageRepository } from "$repositories";
 import { FormikHelpers } from "formik";
 import { useCreateCompany, useTranslations, useSharedSettings } from "$hooks";
 import { useCompanyLogin } from "$models/hooks";
@@ -37,6 +38,7 @@ export const SignUpContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
+    SessionStorageRepository.clear();
     history.push(RoutesBuilder.company.myProfile());
   };
 
