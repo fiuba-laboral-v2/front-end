@@ -12,13 +12,14 @@ export const Notifications = <Notification extends { uuid: string }>({
   shouldFetchMore,
   loading,
   emptyListComponent,
-  Notification
+  Notification,
+  desktopOnly
 }: IComponentProps<Notification>) => {
   const { closeSnackbar } = useSnackbar();
   useEffect(closeSnackbar, []);
 
   return (
-    <Window>
+    <Window desktopOnly={desktopOnly}>
       <Title className={styles.title}>{title}</Title>
       <List
         list={notifications || []}
@@ -46,5 +47,6 @@ interface IComponentProps<Notification> {
   loading: boolean;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;
+  desktopOnly?: boolean;
   title: string;
 }

@@ -11,6 +11,7 @@ export const NotificationsContainer: FunctionComponent = () => {
 
   return (
     <Notifications
+      desktopOnly
       Notification={AdminNotification}
       shouldFetchMore={response.data?.getAdminNotifications.shouldFetchMore}
       fetchMore={response.fetchMore}
