@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-
+import { SessionStorageRepository } from "$repositories";
 import { ErrorHandlers } from "$models/handleError";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { ICompanyLoginVariables, useCompanyLogin, useTranslations } from "$hooks";
@@ -22,6 +22,7 @@ export const LoginContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
+    SessionStorageRepository.clear();
     history.push(RoutesBuilder.public.home());
   };
 
