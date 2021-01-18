@@ -40,7 +40,7 @@ export const Feed = <TOffer extends IOffer>({
             link={createLink(offer.uuid)}
           >
             {hasApplied && <AppliedTag />}
-            <Offer data={offer} withStatusLabels={withStatusLabels} />
+            <Offer offer={offer} withStatusLabels={withStatusLabels} />
           </Card>
         );
       }}

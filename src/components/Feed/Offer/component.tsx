@@ -5,23 +5,20 @@ import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-export const Offer: FunctionComponent<IOfferProps> = ({
-  data: { company, ...props },
-  withStatusLabels
-}) => (
+export const Offer: FunctionComponent<IOfferProps> = ({ offer, withStatusLabels }) => (
   <div className={styles.container}>
     <CompanyLogo
       className={styles.desktopLogo}
-      companyName={company.companyName}
-      logo={company.logo}
+      companyName={offer.company.companyName}
+      logo={offer.company.logo}
       size="extraLarge"
       useDefaultIcon
     />
-    <Info offer={{ company, ...props }} withStatusLabels={withStatusLabels} />
+    <Info offer={offer} withStatusLabels={withStatusLabels} />
   </div>
 );
 
 interface IOfferProps {
-  data: IOffer;
+  offer: IOffer;
   withStatusLabels: boolean;
 }
