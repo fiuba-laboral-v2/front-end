@@ -1,13 +1,13 @@
 import { ApplicantType } from "$interfaces/Applicant";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { IMyOfferAttributes, IOfferAttributes } from "$interfaces/Offer";
+import { IMyOfferAttributes, IOfferAttributes, IOffer } from "$interfaces/Offer";
 import { Secretary } from "$interfaces/Secretary";
 import moment from "moment";
 
 export const Offer = <T extends IOfferAttributes | IMyOfferAttributes = IOfferAttributes>(
   offerAttributes: T
 ) => {
-  const offer = {
+  const offer: IOffer<T> = {
     ...offerAttributes,
     isFromApprovedCompany: () => offerAttributes.company.approvalStatus === ApprovalStatus.approved,
     hasExpiredFor: (secretary: Secretary) => {

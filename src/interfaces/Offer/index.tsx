@@ -51,9 +51,10 @@ export interface IMyOfferAttributes extends IOfferAttributes {
   hasApplied: boolean;
 }
 
-export interface IOffer extends IOfferAttributes {
+export type IOffer<T = IOfferAttributes> = T & {
   hasExpiredFor: (secretary: Secretary) => boolean;
   getExpirationDateFor: (secretary: Secretary) => Moment | null;
+  getStatusFor: (secretary: Secretary) => ApprovalStatus | undefined;
   isRejectedFor: (secretary: Secretary) => boolean;
   isApprovedFor: (secretary: Secretary) => boolean;
   isTargetingOnlyStudents: () => boolean;
@@ -67,7 +68,7 @@ export interface IOffer extends IOfferAttributes {
   canRepublishForGraduates: () => boolean;
   isStudentExpirationGreaterOrEqualThanGraduates: () => boolean;
   isFromApprovedCompany: () => boolean;
-}
+};
 
 export enum OfferStatus {
   expired = "expired",
