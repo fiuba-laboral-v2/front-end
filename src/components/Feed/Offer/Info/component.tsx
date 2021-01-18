@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import classNames from "classnames";
 import { Subtitle } from "$components/Subtitle";
 import { IOffer } from "$interfaces/Offer";
@@ -10,7 +10,10 @@ import { StatusLabels } from "./StatusLabels";
 import styles from "./styles.module.scss";
 import { InternshipLabel } from "$components/InternshipLabel";
 
-export const Info: FunctionComponent<IOfferProps> = ({ offer, withStatusLabels }) => (
+export const Info = <TOffer extends IOffer>({
+  offer,
+  withStatusLabels
+}: IComponentProps<TOffer>) => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
       <CompanyLogo
@@ -56,7 +59,7 @@ export const Info: FunctionComponent<IOfferProps> = ({ offer, withStatusLabels }
   </div>
 );
 
-interface IOfferProps {
-  offer: IOffer;
+interface IComponentProps<TOffer> {
+  offer: TOffer;
   withStatusLabels: boolean;
 }
