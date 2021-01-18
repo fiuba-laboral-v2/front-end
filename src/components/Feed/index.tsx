@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 import { List } from "$components/List";
 import { Offer } from "./Offer";
@@ -7,7 +7,7 @@ import { AppliedTag } from "$components/AppliedTag";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
 
-export const Feed: FunctionComponent<IFeedProps> = ({
+export const Feed = <TOffer extends IOffer>({
   title,
   withAppliedTag = () => false,
   offers,
@@ -19,7 +19,7 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   cardContainerClassName,
   withStatusLabels,
   emptyListComponent
-}) => (
+}: IFeedProps<TOffer>) => (
   <div className={className}>
     {title}
     <List
@@ -48,11 +48,11 @@ export const Feed: FunctionComponent<IFeedProps> = ({
   </div>
 );
 
-interface IFeedProps {
+interface IFeedProps<TOffer> {
   withStatusLabels: boolean;
-  withAppliedTag?: (offer: IOffer) => boolean;
+  withAppliedTag?: (offer: TOffer) => boolean;
   title?: ReactNode;
-  offers: IOffer[];
+  offers: TOffer[];
   createLink: (uuid: string) => string;
   fetchMore?: () => void;
   shouldFetchMore?: boolean;

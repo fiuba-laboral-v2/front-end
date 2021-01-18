@@ -11,7 +11,6 @@ import { IOfferListTranslations } from "./interfaces";
 import { OfferFilter } from "$models/SearchFilters/OfferFilter";
 
 import styles from "./styles.module.scss";
-import { IMyOffer } from "../../../../interfaces/Applicant";
 
 export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQuery }) => {
   const history = useHistory();
@@ -34,7 +33,7 @@ export const FeedContainer: FunctionComponent<IFeedContainerProps> = ({ searchQu
     <Window width="fullWidth" className={styles.container}>
       <Filters className={styles.filters} translations={translations} filter={filter} />
       <Feed
-        withAppliedTag={offer => (offer as IMyOffer).hasApplied}
+        withAppliedTag={offer => offer.hasApplied}
         className={styles.offers}
         loading={offers.loading}
         offers={offers.data?.getApprovedOffers.results || []}
