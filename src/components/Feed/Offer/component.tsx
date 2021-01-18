@@ -1,27 +1,27 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { Info } from "./Info";
 import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-export const Offer: FunctionComponent<IOfferProps> = ({
-  data: { company, ...props },
+export const Offer = <TOffer extends IOffer>({
+  offer,
   withStatusLabels
-}) => (
+}: IComponentProps<TOffer>) => (
   <div className={styles.container}>
     <CompanyLogo
       className={styles.desktopLogo}
-      companyName={company.companyName}
-      logo={company.logo}
+      companyName={offer.company.companyName}
+      logo={offer.company.logo}
       size="extraLarge"
       useDefaultIcon
     />
-    <Info offer={{ company, ...props }} withStatusLabels={withStatusLabels} />
+    <Info offer={offer} withStatusLabels={withStatusLabels} />
   </div>
 );
 
-interface IOfferProps {
-  data: IOffer;
+interface IComponentProps<TOffer> {
+  offer: TOffer;
   withStatusLabels: boolean;
 }
