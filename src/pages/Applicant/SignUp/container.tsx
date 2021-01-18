@@ -9,7 +9,7 @@ import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./inte
 import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
-import { FiubaServiceFetchErrorHandler } from "$models/errorHandlers/FiubaServiceFetchErrorHandler";
+import { FiubaAuthenticationErrorHandler } from "$models/errorHandlers";
 import { saveApplicantArguments } from "$models/MutationArguments";
 import { Window } from "$components/Window";
 
@@ -40,7 +40,7 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
         UserEmailAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
           setErrors({ user: { email: "Este email ya existe" } })
         ),
-        FiubaUsersServiceFetchError: () => FiubaServiceFetchErrorHandler({ enqueueSnackbar })
+        ...FiubaAuthenticationErrorHandler({ enqueueSnackbar })
       })
     });
     if (saveApplicantResult.error) return;
