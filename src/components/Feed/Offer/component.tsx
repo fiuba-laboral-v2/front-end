@@ -5,7 +5,10 @@ import { IOffer } from "$interfaces/Offer";
 
 import styles from "./styles.module.scss";
 
-export const Offer = <TOffer extends IOffer>({ offer, withStatusLabels }: IOfferProps<TOffer>) => (
+export const Offer = <TOffer extends IOffer>({
+  offer,
+  withStatusLabels
+}: IComponentProps<TOffer>) => (
   <div className={styles.container}>
     <CompanyLogo
       className={styles.desktopLogo}
@@ -18,7 +21,7 @@ export const Offer = <TOffer extends IOffer>({ offer, withStatusLabels }: IOffer
   </div>
 );
 
-interface IOfferProps<TOffer> {
+interface IComponentProps<TOffer> {
   offer: TOffer;
   withStatusLabels: boolean;
 }
