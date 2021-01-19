@@ -1,19 +1,15 @@
-import { EnqueueSnackbar } from "$hooks";
-import { OptionsObject } from "notistack";
+import { EnqueueSnackbar, ShowError } from "$hooks";
 import { formErrorHandlers } from "./formErrorHandlers";
 
 export interface IFiubaAuthenticationErrorHandler {
   enqueueSnackbar: EnqueueSnackbar;
 }
 
-export const FiubaAuthenticationErrorHandler = ({
-  enqueueSnackbar
-}: IFiubaAuthenticationErrorHandler) => {
+export const FiubaAuthenticationErrorHandler = (showError: ShowError) => {
   const message = "Error en el servicio de autenticación de FIUBA";
-  const options: OptionsObject = { variant: "error" };
-  return formErrorHandlers({ enqueueSnackbar })({
-    FiubaUsersServiceFetchError: () => enqueueSnackbar(message, options),
-    AuthenticateFaultError: () => enqueueSnackbar(message, options),
-    AuthenticateUnknownError: () => enqueueSnackbar(message, options)
+  return formErrorHandlers(showError)({
+    FiubaUsersServiceFetchError: () => showError({ message }),
+    AuthenticateFaultError: () => showError({ message }),
+    AuthenticateUnknownError: () => showError({ message })
   });
 };

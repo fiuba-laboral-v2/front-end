@@ -19,7 +19,7 @@ export const useShowError = (): ShowError => {
   };
 };
 
-type ShowError = ({ message, reloadPrompt }: IShowErrorArguments) => React.ReactText;
+export type ShowError = ({ message, reloadPrompt }: IShowErrorArguments) => React.ReactText;
 
 interface IShowErrorArguments {
   message?: string;

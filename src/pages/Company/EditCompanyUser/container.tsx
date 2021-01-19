@@ -1,8 +1,7 @@
 import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useUpdateCompanyUser, useTranslations, useMyCompanyUser } from "$hooks";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
+import { useUpdateCompanyUser, useTranslations, useMyCompanyUser, useShowError } from "$hooks";
 
 import { EditCompanyUser } from "./component";
 import { Window } from "$components/Window";
@@ -15,7 +14,7 @@ import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHan
 
 export const EditCompanyUserContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const companyUser = useMyCompanyUser();
   const { updateCompanyUser } = useUpdateCompanyUser();
 
@@ -28,13 +27,13 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
     ) => {
       const result = await updateCompanyUser({
         variables,
-        errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+        errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
       });
       if (result.error) return;
       setSubmitting(false);
       history.push(RoutesBuilder.company.users());
     },
-    [enqueueSnackbar, history, updateCompanyUser]
+    [showError, history, updateCompanyUser]
   );
 
   const modelToValues = useCallback(

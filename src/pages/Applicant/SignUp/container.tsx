@@ -6,7 +6,7 @@ import { useFiubaLogin, useSaveApplicant, useTranslations } from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { IApplicantSignUpFormValues, IApplicantSignUpTranslations } from "./interfaces";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
+import { useShowError } from "$hooks/snackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { FiubaAuthenticationErrorHandler } from "$models/errorHandlers";
@@ -17,7 +17,7 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
   const history = useHistory();
   const { saveApplicant } = useSaveApplicant();
   const { login } = useFiubaLogin();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const translations = useTranslations<IApplicantSignUpTranslations>("applicantSignUp");
 
   const validateForm = (values: IApplicantSignUpFormValues) => {
@@ -36,11 +36,11 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
   ) => {
     const saveApplicantResult = await saveApplicant({
       variables: saveApplicantArguments({ user, ...applicantValues }),
-      errorHandlers: formErrorHandlers({ enqueueSnackbar })({
-        UserEmailAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+      errorHandlers: formErrorHandlers(showError)({
+        UserEmailAlreadyExistsError: handleValidationError(showError, () =>
           setErrors({ user: { email: "Este email ya existe" } })
         ),
-        ...FiubaAuthenticationErrorHandler({ enqueueSnackbar })
+        ...FiubaAuthenticationErrorHandler(showError)
       })
     });
     if (saveApplicantResult.error) return;

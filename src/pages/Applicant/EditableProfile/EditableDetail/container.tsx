@@ -2,12 +2,16 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditableDetail } from "./component";
-import { useMyApplicantProfile, useTranslations, useUpdateCurrentApplicant } from "$hooks";
+import {
+  useMyApplicantProfile,
+  useTranslations,
+  useUpdateCurrentApplicant,
+  useShowError
+} from "$hooks";
 import { hasUniqueValues } from "$models/hasUniqueValues";
 import { IApplicantDetailEditableTranslations, IApplicantEditableFormValues } from "./interfaces";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { updateCurrentApplicantArguments } from "$models/MutationArguments";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
 import { IApplicant } from "$interfaces/Applicant";
 import { FormikForm } from "$components/FormikForm";
@@ -15,7 +19,7 @@ import { Formik } from "$components/Formik";
 
 export const EditableDetailContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { updateCurrentApplicant } = useUpdateCurrentApplicant();
   const translations = useTranslations<IApplicantDetailEditableTranslations>("editableDetail");
   const applicant = useMyApplicantProfile();
@@ -75,11 +79,11 @@ export const EditableDetailContainer: FunctionComponent = () => {
     async ({ _form, ...variables }: IApplicantEditableFormValues) => {
       const result = await updateCurrentApplicant({
         variables: updateCurrentApplicantArguments(variables),
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+        errorHandlers: formErrorHandlers(showError)()
       });
       if (!result.error) history.push(RoutesBuilder.applicant.myProfile());
     },
-    [enqueueSnackbar, history, updateCurrentApplicant]
+    [showError, history, updateCurrentApplicant]
   );
 
   return (

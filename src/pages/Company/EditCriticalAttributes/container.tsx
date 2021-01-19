@@ -5,7 +5,7 @@ import {
   useTranslations,
   useUpdateCompanyCriticalAttributes,
   useMyCompanyProfile,
-  useSnackbar
+  useShowError
 } from "$hooks";
 
 import { EditCriticalAttributes } from "./component";
@@ -19,7 +19,7 @@ import { createCompanyErrorHandlers } from "$models/errorHandlers";
 
 export const EditCriticalAttributesContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const company = useMyCompanyProfile();
   const { updateCompanyCriticalAttributes } = useUpdateCompanyCriticalAttributes();
@@ -35,13 +35,13 @@ export const EditCriticalAttributesContainer: FunctionComponent = () => {
     ) => {
       const result = await updateCompanyCriticalAttributes({
         variables,
-        errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+        errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
       });
       if (result.error) return;
       setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
-    [history, updateCompanyCriticalAttributes, enqueueSnackbar]
+    [history, updateCompanyCriticalAttributes, showError]
   );
 
   const modelToValues = useCallback(

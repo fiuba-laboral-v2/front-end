@@ -1,15 +1,15 @@
 import React, { FunctionComponent, useCallback, useState } from "react";
 
-import { useShowSuccess, useSnackbar, useTranslations } from "$hooks";
+import { useShowSuccess, useShowError, useTranslations } from "$hooks";
 
 import { IApplyButtonContainerProps, ITranslations } from "./interface";
 import { ApplyButton } from "./component";
 import { useSaveJobApplication } from "$hooks/mutations/useSaveJobApplication";
-import { saveJobApplicationErrorHandlers } from "$errorHandlers/saveJobApplicationErrorHandlers";
+import { saveJobApplicationErrorHandlers } from "$errorHandlers";
 
 export const ApplyButtonContainer: FunctionComponent<IApplyButtonContainerProps> = ({ offer }) => {
   const showSuccess = useShowSuccess();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { saveJobApplication } = useSaveJobApplication(offer.uuid);
   const translations = useTranslations<ITranslations>("offerDetail");
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
@@ -17,10 +17,10 @@ export const ApplyButtonContainer: FunctionComponent<IApplyButtonContainerProps>
   const apply = useCallback(async () => {
     const { error } = await saveJobApplication({
       variables: { offerUuid: offer.uuid },
-      errorHandlers: saveJobApplicationErrorHandlers({ enqueueSnackbar })
+      errorHandlers: saveJobApplicationErrorHandlers(showError)
     });
     if (!error) showSuccess({ message: translations?.applySuccess || "" });
-  }, [offer, enqueueSnackbar, saveJobApplication, showSuccess, translations]);
+  }, [offer, showError, saveJobApplication, showSuccess, translations]);
 
   const onApply = useCallback(() => {
     setConfirmDialogIsOpen(true);
