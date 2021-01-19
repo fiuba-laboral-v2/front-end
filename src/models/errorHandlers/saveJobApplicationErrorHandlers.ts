@@ -1,14 +1,7 @@
-import { EnqueueSnackbar } from "$hooks";
+import { ShowError } from "$hooks";
 import { formErrorHandlers } from "./formErrorHandlers";
 
-export interface ISaveJobApplicationErrorHandlers {
-  enqueueSnackbar: EnqueueSnackbar;
-}
-
-export const saveJobApplicationErrorHandlers = ({
-  enqueueSnackbar
-}: ISaveJobApplicationErrorHandlers) =>
-  formErrorHandlers({ enqueueSnackbar })({
-    JobApplicationAlreadyExistsError: () =>
-      enqueueSnackbar("Ya te postulaste", { variant: "error" })
+export const saveJobApplicationErrorHandlers = (showError: ShowError) =>
+  formErrorHandlers(showError)({
+    JobApplicationAlreadyExistsError: () => showError({ message: "Ya te postulaste" })
   });

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useSaveCompanyUser, useTranslations } from "$hooks";
+import { useSaveCompanyUser, useShowError, useTranslations } from "$hooks";
 
 import { AddCompanyUser } from "./component";
 import { Window } from "$components/Window";
@@ -10,11 +10,10 @@ import { LoadingSpinner } from "$components/LoadingSpinner";
 import { ICompanyUserFormValues, ITranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 
 export const AddCompanyUserContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { saveCompanyUser } = useSaveCompanyUser();
 
   const translations = useTranslations<ITranslations>("addCompanyUser");
@@ -25,7 +24,7 @@ export const AddCompanyUserContainer: FunctionComponent = () => {
   ) => {
     const result = await saveCompanyUser({
       variables: { user: userAttributes },
-      errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+      errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
     });
     if (result.error) return;
     setSubmitting(false);

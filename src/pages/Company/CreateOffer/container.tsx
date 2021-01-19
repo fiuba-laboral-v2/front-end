@@ -1,17 +1,16 @@
 import React, { FunctionComponent, useCallback } from "react";
-import { useCreateOffer, useTranslations } from "$hooks";
+import { useCreateOffer, useTranslations, useShowError } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { FormFooter } from "$components/FormFooter";
 import { ICreateOfferValues } from "$interfaces/Offer";
 import { saveOfferArguments } from "$models/MutationArguments";
 
 export const CreateOfferContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { createOffer } = useCreateOffer();
   const translations = useTranslations<IEditOfferTranslations>("editOffer");
 
@@ -22,12 +21,12 @@ export const CreateOfferContainer: FunctionComponent = () => {
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
         }),
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+        errorHandlers: formErrorHandlers(showError)()
       });
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
     },
-    [createOffer, enqueueSnackbar, history]
+    [createOffer, showError, history]
   );
 
   return (

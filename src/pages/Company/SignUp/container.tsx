@@ -1,19 +1,18 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
-import { useCreateCompany, useTranslations, useSharedSettings } from "$hooks";
+import { useCreateCompany, useTranslations, useSharedSettings, useShowError } from "$hooks";
 import { useCompanyLogin } from "$models/hooks";
 import { SignUp } from "./component";
 import { ISignUpFormValues, ISignUpTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { createCompanyErrorHandlers } from "$errorHandlers/createCompanyErrorHandlers";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { Window } from "$components/Window";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 
 export const SignUpContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { createCompany } = useCreateCompany();
   const { login } = useCompanyLogin();
 
@@ -26,7 +25,7 @@ export const SignUpContainer: FunctionComponent = () => {
   ) => {
     const createCompanyResult = await createCompany({
       variables: { user: userAttributes, ...companyValues },
-      errorHandlers: createCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+      errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
     });
     if (createCompanyResult.error) return;
 

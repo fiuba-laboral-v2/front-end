@@ -1,8 +1,7 @@
 import { useHistory } from "react-router-dom";
-import { useQuery } from "$hooks";
+import { useQuery, useShowError } from "$hooks";
 import { GET_TRANSLATIONS } from "$queries";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
-import { handleGenericError } from "$models/errorHandlers/handleGenericError";
+import { handleGenericError } from "$models/errorHandlers";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 interface ITranslationResponse<T> {
@@ -10,14 +9,14 @@ interface ITranslationResponse<T> {
 }
 
 export const useTranslations = <T>(translationGroup: string) => {
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const history = useHistory();
   return useQuery<{ translationGroup: string }, ITranslationResponse<T>>(GET_TRANSLATIONS, {
     variables: { translationGroup },
     errorHandlers: {
-      MissingTranslationError: handleGenericError({ enqueueSnackbar }),
+      MissingTranslationError: handleGenericError(showError),
       defaultHandler: () => {
-        handleGenericError({ enqueueSnackbar })();
+        handleGenericError(showError)();
         history.push(RoutesBuilder.public.internalServerError());
       }
     }

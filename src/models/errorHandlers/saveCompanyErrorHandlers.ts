@@ -1,5 +1,5 @@
 import { FormikErrors } from "formik";
-import { EnqueueSnackbar } from "$hooks";
+import { ShowError } from "$hooks";
 import { formErrorHandlers } from "./formErrorHandlers";
 import { handleValidationError } from "./handleValidationError";
 
@@ -10,18 +10,18 @@ export interface ISaveCompanyErrorHandlersErrors {
 
 export interface ISaveCompanyErrorHandlers<T> {
   setErrors: (error: FormikErrors<T>) => void;
-  enqueueSnackbar: EnqueueSnackbar;
+  showError: ShowError;
 }
 
 export const saveCompanyErrorHandlers = ({
   setErrors,
-  enqueueSnackbar
+  showError
 }: ISaveCompanyErrorHandlers<ISaveCompanyErrorHandlersErrors>) =>
-  formErrorHandlers({ enqueueSnackbar })({
-    CompanyCuitAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+  formErrorHandlers(showError)({
+    CompanyCuitAlreadyExistsError: handleValidationError(showError, () =>
       setErrors({ cuit: "Este cuit ya existe" })
     ),
-    BusinessNameAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+    BusinessNameAlreadyExistsError: handleValidationError(showError, () =>
       setErrors({ cuit: "Esta razón social ya existe" })
     )
   });

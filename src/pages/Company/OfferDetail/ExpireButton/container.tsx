@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useCallback } from "react";
 
-import { useExpireOffer, useSnackbar, useTranslations } from "$hooks";
+import { useExpireOffer, useShowError, useTranslations } from "$hooks";
 
 import { IExpireButtonContainerProps } from "./interface";
 import { ActionButton } from "../ActionButton";
@@ -15,7 +15,7 @@ export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProp
 }) => {
   const translations = useTranslations<IActionButtonTranslations>("offerDetailExpireActions");
   const { expireOffer } = useExpireOffer();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
 
   const showActionButton = offer.canExpireForStudents() || offer.canExpireForGraduates();
 
@@ -25,10 +25,10 @@ export const ExpireButtonContainer: FunctionComponent<IExpireButtonContainerProp
       variables: {
         uuid: offer.uuid
       },
-      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+      errorHandlers: formErrorHandlers(showError)()
     });
     if (response.error) return;
-  }, [offer, expireOffer, enqueueSnackbar]);
+  }, [offer, expireOffer, showError]);
 
   const messageDescription = ({ isModal }: { isModal: boolean }) => (
     <ExpireStateDescription

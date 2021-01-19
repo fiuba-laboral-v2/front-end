@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useState, useCallback } from "react";
-import { useCompanyOfferByUuid, useEditOffer, useTranslations } from "$hooks";
+import { useCompanyOfferByUuid, useEditOffer, useShowError, useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
 import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
@@ -13,7 +12,7 @@ import { saveOfferArguments } from "$models/MutationArguments";
 export const EditOfferContainer: FunctionComponent = () => {
   const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { uuid } = useParams();
   const { editOffer } = useEditOffer();
   const offer = useCompanyOfferByUuid(uuid).data?.getOfferByUuid;
@@ -28,7 +27,7 @@ export const EditOfferContainer: FunctionComponent = () => {
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
         }),
-        errorHandlers: formErrorHandlers({ enqueueSnackbar })(),
+        errorHandlers: formErrorHandlers(showError)(),
         update: cache =>
           cache.modify({
             id: `Offer:${offerUuid}`,
@@ -41,7 +40,7 @@ export const EditOfferContainer: FunctionComponent = () => {
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data?.editOffer.uuid));
     },
-    [offerUuid, editOffer, enqueueSnackbar, history]
+    [offerUuid, editOffer, showError, history]
   );
 
   return (

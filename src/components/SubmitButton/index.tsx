@@ -1,17 +1,17 @@
 import React from "react";
 import { Button, IButtonProps } from "$components/Button";
 import { FormikErrors } from "formik";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
+import { useShowError } from "$hooks/snackbar";
 import { handleValidationError } from "$models/errorHandlers/handleValidationError";
 import { isEmpty, keys } from "lodash";
 
 export const SubmitButton = <Values,>({ errors, ...props }: ISubmitButtonProps<Values>) => {
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
 
   return (
     <Button
       onClick={() => {
-        if (!isEmpty(keys(errors))) handleValidationError({ enqueueSnackbar })();
+        if (!isEmpty(keys(errors))) handleValidationError(showError)();
       }}
       {...props}
     />

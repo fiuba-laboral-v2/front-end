@@ -20,9 +20,11 @@ type ErrorName =
   | "ValidationError"
   | "OfferNotVisibleByCurrentUserError"
   | "JobApplicationAlreadyExistsError"
-  | "FiubaUsersServiceFetchError"
   | "JobApplicationNotFoundError"
   | "BusinessNameAlreadyExistsError"
+  | "AuthenticateFaultError"
+  | "AuthenticateUnknownError"
+  | "FiubaUsersServiceFetchError"
   | "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";

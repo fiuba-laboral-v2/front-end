@@ -11,10 +11,10 @@ interface ICreateCompanyErrorHandlers extends ISaveCompanyErrorHandlersErrors {
 
 export const createCompanyErrorHandlers = ({
   setErrors,
-  enqueueSnackbar
+  showError
 }: ISaveCompanyErrorHandlers<ICreateCompanyErrorHandlers>) => ({
-  UserEmailAlreadyExistsError: handleValidationError({ enqueueSnackbar }, () =>
+  UserEmailAlreadyExistsError: handleValidationError(showError, () =>
     setErrors({ user: { email: "Este email ya existe" } })
   ),
-  ...saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+  ...saveCompanyErrorHandlers({ setErrors, showError })
 });

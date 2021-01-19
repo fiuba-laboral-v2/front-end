@@ -1,16 +1,10 @@
 import { ErrorHandlers } from "../handleError";
-import { EnqueueSnackbar } from "$hooks";
+import { ShowError } from "$hooks";
 import { handleValidationError } from "./handleValidationError";
 import { handleGenericError } from "./handleGenericError";
 
-export interface IFormErrorHandlers {
-  enqueueSnackbar: EnqueueSnackbar;
-}
-
-export const formErrorHandlers = ({ enqueueSnackbar }: IFormErrorHandlers) => (
-  handlers?: ErrorHandlers
-) => ({
-  ValidationError: handleValidationError({ enqueueSnackbar }),
-  defaultHandler: handleGenericError({ enqueueSnackbar }),
+export const formErrorHandlers = (showError: ShowError) => (handlers?: ErrorHandlers) => ({
+  ValidationError: handleValidationError(showError),
+  defaultHandler: handleGenericError(showError),
   ...handlers
 });

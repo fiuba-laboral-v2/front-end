@@ -11,7 +11,7 @@ import { EditableProfile } from "./component";
 import { IEditableProfileFormValues, IEditableProfileTranslations } from "./interfaces";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
-import { useSnackbar } from "$hooks/snackbar/useSnackbar";
+import { useShowError } from "$hooks/snackbar";
 import { Window } from "$components/Window";
 import { Formik } from "$components/Formik";
 import { FormikForm } from "$components/FormikForm";
@@ -19,7 +19,7 @@ import { ICompany } from "$interfaces/Company";
 
 export const EditableProfileContainer: FunctionComponent = () => {
   const history = useHistory();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
   const { updateCurrentCompany } = useUpdateCurrentCompany();
   const company = useMyCompanyProfile();
   const translations = useTranslations<IEditableProfileTranslations>("editMyCompanyProfile");
@@ -49,14 +49,14 @@ export const EditableProfileContainer: FunctionComponent = () => {
     ) => {
       const updateCompanyResult = await updateCurrentCompany({
         variables: companyValues,
-        errorHandlers: saveCompanyErrorHandlers({ setErrors, enqueueSnackbar })
+        errorHandlers: saveCompanyErrorHandlers({ setErrors, showError })
       });
       if (updateCompanyResult.error) return;
 
       setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
-    [enqueueSnackbar, history, updateCurrentCompany]
+    [showError, history, updateCurrentCompany]
   );
 
   return (

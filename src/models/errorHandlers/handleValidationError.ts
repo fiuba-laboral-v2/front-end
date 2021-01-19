@@ -1,9 +1,6 @@
-import { IFormErrorHandlers } from "./formErrorHandlers";
+import { ShowError } from "$hooks";
 
-export const handleValidationError = (
-  { enqueueSnackbar }: IFormErrorHandlers,
-  callback?: () => void
-) => () => {
-  enqueueSnackbar("Error de validación. Verifique los datos ingresados", { variant: "error" });
+export const handleValidationError = (showError: ShowError, callback?: () => void) => () => {
+  showError({ message: "Error de validación. Verifique los datos ingresados" });
   if (callback) callback();
 };

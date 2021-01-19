@@ -9,9 +9,9 @@ const reloadAction = (
   </ActionButton>
 );
 
-export const useShowError = () => {
+export const useShowError = (): ShowError => {
   const { enqueueSnackbar } = useSnackbar();
-  return ({ message, reloadPrompt }: IShowError) => {
+  return ({ message, reloadPrompt }: IShowErrorArguments) => {
     return enqueueSnackbar(message || "Hubo un error", {
       action: reloadPrompt ? reloadAction : undefined,
       variant: "error"
@@ -19,7 +19,9 @@ export const useShowError = () => {
   };
 };
 
-interface IShowError {
+export type ShowError = ({ message, reloadPrompt }: IShowErrorArguments) => React.ReactText;
+
+interface IShowErrorArguments {
   message?: string;
   reloadPrompt?: boolean;
 }

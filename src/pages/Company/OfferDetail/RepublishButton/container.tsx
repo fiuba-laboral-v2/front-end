@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useCallback } from "react";
 
-import { useRepublishOffer, useSnackbar, useTranslations } from "$hooks";
+import { useRepublishOffer, useShowError, useTranslations } from "$hooks";
 
 import { IRepublishButtonContainerProps } from "./interface";
 import { ActionButton } from "../ActionButton";
@@ -15,7 +15,7 @@ export const RepublishButtonContainer: FunctionComponent<IRepublishButtonContain
 }) => {
   const translations = useTranslations<IActionButtonTranslations>("offerDetailRepublishActions");
   const { republishOffer } = useRepublishOffer();
-  const { enqueueSnackbar } = useSnackbar();
+  const showError = useShowError();
 
   const showActionButton = offer.canRepublishForStudents() || offer.canRepublishForGraduates();
 
@@ -25,10 +25,10 @@ export const RepublishButtonContainer: FunctionComponent<IRepublishButtonContain
       variables: {
         uuid: offer.uuid
       },
-      errorHandlers: formErrorHandlers({ enqueueSnackbar })()
+      errorHandlers: formErrorHandlers(showError)()
     });
     if (response.error) return;
-  }, [offer, republishOffer, enqueueSnackbar]);
+  }, [offer, republishOffer, showError]);
 
   const messageDescription = ({ isModal }: { isModal: boolean }) => (
     <RepublishStateDescription
