@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
 import { useSaveAdmin, useTranslations, useShowError } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
+import { FiubaAuthenticationErrorHandler } from "$models/errorHandlers";
 
 import { SignUp } from "./component";
 import { Window } from "$components/Window";
@@ -26,7 +27,8 @@ export const SignUpContainer: FunctionComponent = () => {
         AdminAlreadyExistsError: () =>
           showError({ message: translations?.adminAlreadyExistsError }),
         UserEmailAlreadyExistsError: () =>
-          showError({ message: translations?.userEmailAlreadyExistsError })
+          showError({ message: translations?.userEmailAlreadyExistsError }),
+        ...FiubaAuthenticationErrorHandler(showError)
       }
     });
 
