@@ -1,0 +1,43 @@
+@import "$styles/_variables";
+@import "$styles/mixins/_card";
+@import "$styles/mixins/_text";
+
+.cardContainer {
+  @include card;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: $spacing-xl $spacing-l;
+  min-width: 350px;
+}
+
+.title {
+  font-size: $fontSize-l;
+  margin-bottom: $spacing-m;
+}
+
+.value {
+  font-size: $fixedFontSize-xxxxl;
+  font-weight: bold;
+}
+
+.approvedStudentsCount {
+  color: $applicantColor;
+}
+
+.approvedGraduatesCount {
+  color: $applicantColor;
+}
+
+.approvedCompaniesCount {
+  color: $companyColor;
+}
+
+.approvedJobApplicationsCount {
+  color: $jobApplicationColor;
+}
+
+.approvedOffersCount {
+  color: $offerColor;
+}

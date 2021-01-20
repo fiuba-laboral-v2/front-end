@@ -1,6 +1,16 @@
-export interface IStatisticsContainerProps {}
+import { IStatisticsValues } from "$models/hooks/queries/useStatistics";
+import { StatisticType } from "./StatisticCard/interface";
 
-export interface IStatisticsProps extends IStatisticsContainerProps {
+export interface IStatisticsProps {
+  statisticsValues: IStatisticsValues;
   translations: ITranslations;
+  statistics: StatisticType[];
 }
-export interface ITranslations {}
+export interface ITranslations {
+  title: string;
+  [approvedStudentsCount: string]: string;
+  approvedGraduatesCount: string;
+  approvedCompaniesCount: string;
+  approvedJobApplicationsCount: string;
+  approvedOffersCount: string;
+}

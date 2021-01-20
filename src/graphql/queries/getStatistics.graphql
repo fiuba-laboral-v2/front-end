@@ -1,0 +1,9 @@
+query getStatistics {
+  getStatistics {
+    approvedStudentsCount
+    approvedGraduatesCount
+    approvedCompaniesCount
+    approvedJobApplicationsCount
+    approvedOffersCount
+  }
+}

@@ -4,10 +4,14 @@ import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const ApplicantIcon: FunctionComponent<SvgIconProps> = ({ className, ...props }) => (
+export const ApplicantIcon: FunctionComponent<SvgIconProps> = ({
+  className,
+  fontSize,
+  ...props
+}) => (
   <SchoolIcon
     {...props}
     className={classNames(styles.applicantIcon, className)}
-    fontSize="default"
+    {...{ fontSize: fontSize || "default" }}
   />
 );

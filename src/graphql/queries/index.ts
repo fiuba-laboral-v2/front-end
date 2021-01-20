@@ -48,6 +48,7 @@ const GET_REJECTED_OFFER_MESSAGE_BY_UUID = loader("./getRejectedOfferMessageByUu
 const GET_REJECTED_COMPANY_PROFILE_MESSAGE_BY_UUID = loader(
   "./getRejectedCompanyProfileMessageByUuid.graphql"
 );
+const GET_STATISTICS = loader("./getStatistics.graphql");
 
 export {
   GET_CURRENT_USER,
@@ -91,5 +92,6 @@ export {
   GET_REJECTED_COMPANY_PROFILE_MESSAGE_BY_UUID,
   GET_ADMIN_BY_UUID,
   GET_DELETED_ADMIN_BY_UUID,
-  GET_COMPANY_USER_BY_UUID
+  GET_COMPANY_USER_BY_UUID,
+  GET_STATISTICS
 };
