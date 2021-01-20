@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: $spacing-xxl;
-  max-width: $laptopWidth;
+  max-width: $largeLaptopWidth;
 }
 
 @media (max-width: $laptopWidth) {
