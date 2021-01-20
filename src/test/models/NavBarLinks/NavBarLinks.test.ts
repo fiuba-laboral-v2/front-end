@@ -13,6 +13,7 @@ import SchoolIcon from "@material-ui/icons/School";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import SettingsIcon from "@material-ui/icons/Settings";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 import { AdminNotificationIcon } from "$components/AdminNotificationIcon";
 import { CompanyNotificationsIcon } from "$components/CompanyNotificationsIcon";
 import { ApplicantNotificationIcon } from "$components/ApplicantNotificationIcon";
@@ -36,7 +37,8 @@ describe("NavBarLinks", () => {
     pendingProfile: "pendingProfile",
     rejectedProfile: "rejectedProfile",
     settings: "settings",
-    credits: "credits"
+    credits: "credits",
+    statistics: "statistics"
   };
   const userAttributes = {
     email: "companyUser@company.com",
@@ -308,6 +310,11 @@ describe("NavBarLinks", () => {
           path: RoutesBuilder.admin.notifications(),
           title: translations.notifications,
           icon: AdminNotificationIcon
+        },
+        {
+          path: RoutesBuilder.admin.statistics(),
+          title: translations.statistics,
+          icon: EqualizerIcon
         },
         {
           path: RoutesBuilder.admin.settings(),
