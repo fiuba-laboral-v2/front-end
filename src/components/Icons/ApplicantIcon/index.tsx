@@ -12,6 +12,6 @@ export const ApplicantIcon: FunctionComponent<SvgIconProps> = ({
   <SchoolIcon
     {...props}
     className={classNames(styles.applicantIcon, className)}
-    {...{ fontSize: fontSize || "default" }}
+    fontSize={fontSize || "default"}
   />
 );

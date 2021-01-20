@@ -8,6 +8,6 @@ export const OfferIcon: FunctionComponent<SvgIconProps> = ({ className, fontSize
   <LibraryBooksIcon
     {...props}
     className={classNames(styles.offerIcon, className)}
-    {...{ fontSize: fontSize || "default" }}
+    fontSize={fontSize || "default"}
   />
 );

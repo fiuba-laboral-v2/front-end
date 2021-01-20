@@ -12,6 +12,6 @@ export const JobApplicationIcon: FunctionComponent<SvgIconProps> = ({
   <PersonAddIcon
     {...props}
     className={classNames(styles.jobApplicationIcon, className)}
-    {...{ fontSize: fontSize || "default" }}
+    fontSize={fontSize || "default"}
   />
 );

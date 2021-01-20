@@ -7,7 +7,7 @@ import classNames from "classnames";
 export const CompanyIcon: FunctionComponent<SvgIconProps> = ({ className, fontSize, ...props }) => (
   <BusinessIcon
     className={classNames(styles.companyIcon, className)}
-    {...{ fontSize: fontSize || "default" }}
+    fontSize={fontSize || "default"}
     {...props}
   />
 );
