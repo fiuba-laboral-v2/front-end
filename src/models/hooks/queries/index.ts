@@ -42,3 +42,4 @@ export * from "./useLazyRejectedCompanyProfileMessageByUuid";
 export * from "./useAdminByUuid";
 export * from "./useDeletedAdminByUuid";
 export * from "./useCompanyUserByUuid";
+export * from "./useStatistics";

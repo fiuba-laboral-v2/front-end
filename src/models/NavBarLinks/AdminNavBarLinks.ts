@@ -8,6 +8,7 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import { AdminNotificationIcon } from "$components/AdminNotificationIcon";
 import SettingsIcon from "@material-ui/icons/Settings";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 import HomeIcon from "@material-ui/icons/Home";
 
 const {
@@ -18,7 +19,8 @@ const {
   offers,
   jobApplications,
   notifications,
-  settings
+  settings,
+  statistics
 } = RoutesBuilder.admin;
 
 export const AdminNavBarLinks = {
@@ -57,6 +59,11 @@ export const AdminNavBarLinks = {
       path: notifications(),
       title: translations.notifications,
       icon: AdminNotificationIcon
+    },
+    {
+      path: statistics(),
+      title: translations.statistics,
+      icon: EqualizerIcon
     },
     {
       path: settings(),

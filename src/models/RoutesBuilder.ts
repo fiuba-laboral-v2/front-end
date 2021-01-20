@@ -24,6 +24,7 @@ const NOTIFICATIONS = "notificaciones";
 const PASSWORD = "contrasena";
 const REQUEST = "solicitar";
 const EXPLANATION = "explicacion";
+const STATISTICS = "estadisticas";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
@@ -73,7 +74,9 @@ export const RoutesBuilder = {
 
     jobApplicationDetail: (uuid: string) => adminRoute(APPLICATIONS, uuid),
 
-    offerDetail: (uuid: string) => adminRoute(OFFERS, uuid)
+    offerDetail: (uuid: string) => adminRoute(OFFERS, uuid),
+
+    statistics: () => adminRoute(STATISTICS)
   },
 
   applicant: {

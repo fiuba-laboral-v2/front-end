@@ -4,10 +4,10 @@ import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
-export const OfferIcon: FunctionComponent<SvgIconProps> = ({ className, ...props }) => (
+export const OfferIcon: FunctionComponent<SvgIconProps> = ({ className, fontSize, ...props }) => (
   <LibraryBooksIcon
     {...props}
     className={classNames(styles.offerIcon, className)}
-    fontSize="default"
+    fontSize={fontSize || "default"}
   />
 );

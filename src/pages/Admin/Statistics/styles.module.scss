@@ -1,0 +1,35 @@
+@import "$styles/_variables";
+
+.mainContainer {
+  margin: $spacing-xxl $spacing-l $spacing-s;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 90vw;
+  width: 90%;
+}
+
+.statisticsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: $spacing-xxl;
+  max-width: $largeLaptopWidth;
+}
+
+@media (max-width: $laptopWidth) {
+  .mainContainer {
+    max-width: 90vw;
+  }
+
+  .headerContainer {
+    max-width: 90vw;
+  }
+
+  .statisticsContainer {
+    max-width: 90vw;
+  }
+}
