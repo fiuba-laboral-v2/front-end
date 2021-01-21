@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { FormSection } from "$components/FormSection";
 import { CheckboxInput } from "$components/CheckboxInput";
-import { EmailField, PositiveIntegerField, TextField } from "$components/Fields";
+import { FiubaEmailField, PositiveIntegerField, TextField } from "$components/Fields";
 import { IAdminSettings } from "$interfaces/AdminSettings";
 import styles from "./styles.module.scss";
 
@@ -20,7 +20,7 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
       name="offerDurationInDays"
       label={translations.offerDurationInDays}
     />
-    <EmailField
+    <FiubaEmailField
       singleLine
       mandatory
       name="email"
