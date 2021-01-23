@@ -8,33 +8,49 @@ Staging: ![Build status](https://github.com/fiuba-laboral-v2/front-end/workflows
 
 http://antiguos.fi.uba.ar/laboral/
 
-# Get started
+## Comandos de yarn
 
-```bash
-    yarn install
-```
+En este repositorio se usa `yarn` como gestor de dependencias
 
-In the project directory, you can run:
+- `yarn install`: Este comando instala las dependencias especificadas en el
+  archivo `package.json`.
 
-### `yarn start`
+- `yarn start`: Este comando ejecuta la aplicación de React para que
+  se recompile en caso de que se detecte un cambio. Se usa para desarrollo.
+- `preinstall`: Este comando elimina los módulos linkeados para los imports
+  que utilizan alias.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `postinstall`: Este comando crea los módulos linkeados para los imports
+  que utilizan alias.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- `yarn build`: Este comando compila los archivos de Typescript a Javascript
+  creando la aplicación productiva en la carpeta `build`.
 
-### `yarn test`
+- `yarn test`: Este comando ejecuta los tests.
 
-Launches the test runner.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `yarn lint`: Este comando ejecuta todos los linters que están integrados,
+  es decir, ejecuta `prettier`, `tslint`, `stylelint` y `tsc` que es el
+  compilador. En caso de que falle el linter debido a `prettier`, se debe
+  ejecutar `format:all` para arreglarlo.
+- `yarn lint:scss`: Este comando ejecuta el linter de `stylelint` para los archivos de extensión `scss`.
 
-### `yarn build`
+- `yarn lint:src:ts`: Este comando ejecuta el linter de `tslint` para los archivos de extensión `ts`.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `yarn lint:src:tsx`: Este comando ejecuta el linter de `tslint` para los
+  archivos de extensión `tsx` dentro del directorio de `src`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- `yarn lint:src:tsx`: Este comando ejecuta el linter de `tslint` para los
+  archivos de extensión `tsx` dentro del directorio de `src`.
+- `yarn lint:test:ts`: Este comando ejecuta el linter de `tslint` para los
+  archivos de extensión `ts` dentro del directorio de `test`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `yarn lint:test:tsx`: Este comando ejecuta el linter de `tslint` para los
+  archivos de extensión `tsx` dentro del directorio de `test`.
+
+- `yarn format:all`: Este comando arregla los errores del linter de `prettier`.
+
+- `yarn stash`: Este comando utiliza el stash de git para ocultar los archivos
+  que no están agregados para el commit. Se usa al momento de querer realizar un commit cuando
+  tenemos archivos nuevos sin agregar.
+  `yarn unstash`: Este comando saca de la pila del stash de git los últimos
+  archivos del stash.
