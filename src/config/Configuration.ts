@@ -3,7 +3,7 @@ import { Environment } from "./Environment";
 export const Configuration = {
   production: {
     sub_domain: "/",
-    application_base_url: "http://bolsadetrabajo.fi.uba.ar/graphql",
+    application_base_url: "https://bolsadetrabajo.fi.uba.ar/graphql",
     show_seeded_users: false
   },
   staging: {
