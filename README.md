@@ -56,5 +56,6 @@ En este repositorio se usa `yarn` como gestor de dependencias
 - `yarn stash`: Este comando utiliza el stash de git para ocultar los archivos
   que no están agregados para el commit. Se usa al momento de querer realizar un commit cuando
   tenemos archivos nuevos sin agregar.
-  `yarn unstash`: Este comando saca de la pila del stash de git los últimos
+
+- `yarn unstash`: Este comando saca de la pila del stash de git los últimos
   archivos del stash.
