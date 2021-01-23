@@ -22,10 +22,10 @@ En este repositorio se usa `yarn` como gestor de dependencias
 - `yarn start`: Este comando ejecuta la aplicación de React para que
   se recompile en caso de que se detecte un cambio. Se usa para desarrollo.
 - `preinstall`: Este comando elimina los módulos linkeados para los imports
-  que utilizan alias.
+  que utilizan alias (https://www.npmjs.com/package/link-module-alias).
 
 - `postinstall`: Este comando crea los módulos linkeados para los imports
-  que utilizan alias.
+  que utilizan alias (https://www.npmjs.com/package/link-module-alias).
 
 - `yarn build`: Este comando compila los archivos de Typescript a Javascript
   creando la aplicación productiva en la carpeta `build`.
