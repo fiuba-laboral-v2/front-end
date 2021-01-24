@@ -39,7 +39,7 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
   const modelToValues = useCallback(
     (model?: ICompanyUser) => ({
       user: {
-        uuid: model?.uuid || "",
+        uuid: model?.user.uuid || "",
         email: model?.user.email || "",
         name: model?.user.name || "",
         surname: model?.user.surname || "",
