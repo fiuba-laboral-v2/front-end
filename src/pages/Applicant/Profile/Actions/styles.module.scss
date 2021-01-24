@@ -38,18 +38,3 @@
     width: 50%;
   }
 }
-
-@media (max-width: $mobileWidth) {
-  .actionsContainer {
-    flex-direction: column;
-  }
-
-  .edit {
-    margin: 0 0 $spacing-s;
-  }
-
-  .edit,
-  .editPadron {
-    width: unset;
-  }
-}
