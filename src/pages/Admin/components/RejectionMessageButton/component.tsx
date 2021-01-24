@@ -3,6 +3,7 @@ import { Button } from "$components/Button";
 import { IComponentProps } from "./interfaces";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { LoadingSpinner } from "$components/LoadingSpinner";
+import { MessageBox } from "../../components/MessageBox";
 
 export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
   message,
@@ -25,7 +26,7 @@ export const RejectionMessageButton: FunctionComponent<IComponentProps> = ({
       hideConfirmButton
     >
       {loading && <LoadingSpinner />}
-      {!loading && <span>{message}</span>}
+      {!loading && <MessageBox>{message}</MessageBox>}
     </FormConfirmDialog>
   </>
 );

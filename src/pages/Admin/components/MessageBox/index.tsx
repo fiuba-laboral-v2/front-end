@@ -1,10 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 
-export const MessageBox: FunctionComponent<IComponentProps> = ({ message }) => (
-  <span className={styles.messageContainer}>{message}</span>
+export const MessageBox: FunctionComponent = ({ children }) => (
+  <span className={styles.messageContainer}>{children}</span>
 );
-
-interface IComponentProps {
-  message: string;
-}
