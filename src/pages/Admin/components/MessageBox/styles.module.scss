@@ -1,0 +1,12 @@
+@import "$styles/_variables";
+
+.messageContainer {
+  background-color: $lighterGrey;
+  border-radius: $borderRadius-s;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+  padding: $spacing-m;
+  white-space: pre-wrap;
+  width: 100%;
+}
