@@ -25,7 +25,7 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
             />
           </div>
           <FormHelperText className={styles.formHelperText} error>
-            {errors.maxFileSize ? "Tamaño máximo: 500MB" : " "}
+            {errors.maxFileSize ? "Tamaño máximo superado" : " "}
           </FormHelperText>
         </>
       )}
