@@ -37,7 +37,8 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
     { setSubmitting }: FormikHelpers<IValues>
   ) => {
     setSubmitting(false);
-    return setStatus(status, moderatorMessage);
+    await setStatus(status, moderatorMessage);
+    setConfirmDialogIsOpen(false);
   };
 
   const initialValues: IValues = { moderatorMessage: "" };
@@ -55,7 +56,7 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
         formName={formName}
         isOpen={confirmDialogIsOpen}
         {...(!isRejected() && { onConfirm: () => setStatus(status) })}
-        closeOnConfirm
+        closeOnConfirm={!isRejected()}
         onClose={() => setConfirmDialogIsOpen(false)}
         confirmButtonKind={props.kind}
         confirmButtonType="submit"
