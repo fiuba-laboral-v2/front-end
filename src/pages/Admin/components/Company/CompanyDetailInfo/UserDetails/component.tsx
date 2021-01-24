@@ -3,7 +3,6 @@ import classNames from "classnames";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { TaskHeaderInfo } from "../../../TaskHeaderInfo";
-import Tooltip from "@material-ui/core/Tooltip";
 import { IUserDetailsProps } from "./interfaces";
 
 import styles from "./styles.module.scss";
@@ -22,9 +21,7 @@ export const UserDetails: FunctionComponent<IUserDetailsProps> = ({
     <div className={styles.firstRow}>
       <TaskHeaderInfo value={`${name} ${surname}`} Icon={PersonOutlinedIcon} />
       <TaskHeaderInfo title={translations?.cuit} value={NumberFormatter.formatCuit(cuit)} />
-      <Tooltip title={businessSector} placement="top-start">
-        <TaskHeaderInfo title={translations?.businessSector} value={businessSector} />
-      </Tooltip>
+      <TaskHeaderInfo title={translations?.businessSector} value={businessSector} />
     </div>
     <TaskHeaderInfo
       className={classNames({ [styles.withoutMarginBottom]: !hasAnInternshipAgreement })}

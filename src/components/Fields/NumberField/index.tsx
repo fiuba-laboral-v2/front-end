@@ -22,8 +22,11 @@ export const NumberField: FunctionComponent<INumberFieldProps> = ({
     name,
     validate: FormikValidator({ validator, mandatory }),
     children: ({ meta, form }: FieldProps<number>) => {
-      const setFormValue = (stringValue: string) =>
-        form.setFieldValue(name, stringValue === "" ? null : Number(stringValue.replace(",", ".")));
+      const setFormValue = (stringValue: string) => {
+        const stringToNumber = Number(stringValue.replace(",", "."));
+        const mappedValue = isNaN(stringToNumber) ? " " : stringToNumber;
+        form.setFieldValue(name, stringValue === "" ? null : mappedValue);
+      };
 
       return (
         <TextField

@@ -5,8 +5,8 @@ describe("isEmpty", () => {
     expect(isEmpty([])).toBe(true);
   });
 
-  it("doesn't interpret NaN as empty", async () => {
-    expect(isEmpty(NaN)).toBe(false);
+  it("interprets NaN as empty", async () => {
+    expect(isEmpty(NaN)).toBe(true);
   });
 
   it("returns true if the value is an empty object", async () => {
