@@ -36,7 +36,7 @@ export const SignUpContainer: FunctionComponent = () => {
     if (loginResult.error) return;
 
     setSubmitting(false);
-    history.push(RoutesBuilder.company.myProfile());
+    history.push(RoutesBuilder.company.editMyProfile());
   };
 
   const loading = !translations || !acceptanceCriteria;

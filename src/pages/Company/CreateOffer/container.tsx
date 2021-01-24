@@ -3,7 +3,7 @@ import { useCreateOffer, useTranslations, useShowError } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
-import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { createOrEditOfferErrorHandlers } from "$models/errorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { ICreateOfferValues } from "$interfaces/Offer";
 import { saveOfferArguments } from "$models/MutationArguments";
@@ -21,7 +21,7 @@ export const CreateOfferContainer: FunctionComponent = () => {
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
         }),
-        errorHandlers: formErrorHandlers(showError)()
+        errorHandlers: createOrEditOfferErrorHandlers(showError)()
       });
       if (response.error) return;
       history.push(RoutesBuilder.company.offer(response.data.createOffer.uuid));
