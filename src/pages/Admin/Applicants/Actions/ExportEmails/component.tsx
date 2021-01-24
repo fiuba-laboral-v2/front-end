@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
+import { MessageBox } from "../../../components/MessageBox";
 import { IComponentProps } from "./interfaces";
-import styles from "./styles.module.scss";
 
 export const ExportEmails: FunctionComponent<IComponentProps> = ({
   exportEmailsTranslation,
@@ -27,10 +27,6 @@ export const ExportEmails: FunctionComponent<IComponentProps> = ({
     }}
   >
     {loading && <LoadingSpinner />}
-    {!loading && exportEmails && (
-      <span aria-readonly className={styles.emailsContainer}>
-        {emails}
-      </span>
-    )}
+    {!loading && exportEmails && <MessageBox aria-readonly>{emails}</MessageBox>}
   </FormConfirmDialog>
 );
