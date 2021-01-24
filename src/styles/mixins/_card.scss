@@ -4,7 +4,7 @@
   background: $cardBackgroundColor;
   border-radius: $borderRadius-l;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: $spacing-xxl;
+  padding: $spacing-xxl MIN(4vw, #{$spacing-xxl});
 
   &::-webkit-scrollbar-track {
     background: $cardBackgroundColor;

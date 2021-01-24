@@ -24,6 +24,6 @@
 
 @media (max-width: $laptopWidth) {
   .error .imgSrc {
-    max-width: 90vw;
+    max-width: $detailContainerMobileWidth;
   }
 }

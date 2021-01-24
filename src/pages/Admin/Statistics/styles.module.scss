@@ -7,7 +7,7 @@
 .title {
   display: flex;
   justify-content: flex-start;
-  max-width: 90vw;
+  max-width: $detailContainerMobileWidth;
   width: 90%;
 }
 
@@ -22,14 +22,14 @@
 
 @media (max-width: $laptopWidth) {
   .mainContainer {
-    max-width: 90vw;
+    max-width: $detailContainerMobileWidth;
   }
 
   .headerContainer {
-    max-width: 90vw;
+    max-width: $detailContainerMobileWidth;
   }
 
   .statisticsContainer {
-    max-width: 90vw;
+    max-width: $detailContainerMobileWidth;
   }
 }
