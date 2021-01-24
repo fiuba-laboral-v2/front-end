@@ -8,10 +8,11 @@ import { FormHelperText } from "@material-ui/core";
 
 export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
   initialValue,
+  tooltipMessage,
   setLogo,
   className
 }) => (
-  <Tooltip title={"Icono de empresa"} placement="top-start">
+  <Tooltip title={tooltipMessage} placement="top-start">
     <div className={className}>
       <ImageUpload onChange={images => setLogo(images[0].dataURL)}>
         {({ imageList, onImageUpload, errors }) => (
@@ -40,6 +41,7 @@ export const CompanyLogoInput: FunctionComponent<IComponentProps> = ({
 );
 
 export interface IComponentProps {
+  tooltipMessage: string;
   initialValue?: string;
   setLogo: (logo: string) => void;
   className?: string;

@@ -13,6 +13,7 @@ export const CompanyDataFormSection: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormSection className={className}>
     <CompanyLogoInput
+      tooltipMessage={translations.companyLogoInputTooltipMessage}
       className={styles.logo}
       initialValue={initialLogo}
       setLogo={logo => setFieldValue("logo", logo)}
