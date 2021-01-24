@@ -21,7 +21,6 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
           className={styles.rightField}
           name="maximumSalary"
           label={translations.maximumSalary}
-          mandatory
         />
       )}
     </div>
