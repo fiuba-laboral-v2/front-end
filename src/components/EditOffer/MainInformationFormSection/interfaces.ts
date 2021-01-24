@@ -1,4 +1,5 @@
 import { ICreateOfferValues } from "$interfaces/Offer";
+import { ICompany } from "$interfaces/Company";
 
 export interface ITranslations {
   offerTitle: string;
@@ -10,6 +11,7 @@ export interface ITranslations {
 }
 
 export interface IContainerProps {
+  company?: ICompany;
   autoFocus?: boolean;
   className?: string;
   values: ICreateOfferValues;
