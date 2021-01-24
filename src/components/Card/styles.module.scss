@@ -12,7 +12,7 @@
 }
 
 .largePadding {
-  padding: $spacing-xxl;
+  padding: $spacing-xxl MIN(4vw, #{$spacing-xxl});
 }
 
 .selected {
