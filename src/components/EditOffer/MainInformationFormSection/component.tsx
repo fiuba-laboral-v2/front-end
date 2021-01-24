@@ -10,7 +10,8 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
   className,
   translations,
   autoFocus,
-  values
+  values,
+  company
 }) => (
   <FormSection className={className}>
     <TextField name="title" label={translations.offerTitle} autoFocus={autoFocus} mandatory />
@@ -26,13 +27,15 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
     </div>
     <div className={styles.row}>
       <HoursPerDayField name="hoursPerDay" label={translations.hoursPerDay} mandatory />
-      <CheckboxInput
-        checked={values.isInternship}
-        className={classNames(styles.isInternship, styles.rightField)}
-        label={translations.isInternship}
-        name="isInternship"
-        labelPosition="start"
-      />
+      {company?.hasAnInternshipAgreement && (
+        <CheckboxInput
+          checked={values.isInternship}
+          className={classNames(styles.isInternship, styles.rightField)}
+          label={translations.isInternship}
+          name="isInternship"
+          labelPosition="start"
+        />
+      )}
     </div>
     <TextField name="description" label={translations.description} mandatory withoutMargin />
   </FormSection>

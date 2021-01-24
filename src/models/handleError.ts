@@ -8,6 +8,7 @@ type ErrorName =
   | "InvalidEmptyPasswordError"
   | "UserNotFoundError"
   | "OfferNotFoundError"
+  | "CompanyWithNoInternshipAgreementError"
   | "ApplicantNotFound"
   | "AdminNotFoundError"
   | "ApplicantNotificationNotFoundError"

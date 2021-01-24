@@ -1,6 +1,6 @@
 @import "$styles/_variables";
 
-.emailsContainer {
+.messageContainer {
   background-color: $lighterGrey;
   border-radius: $borderRadius-s;
   box-sizing: border-box;
@@ -10,4 +10,5 @@
   user-select: all;
   white-space: pre-wrap;
   width: 100%;
+  word-break: break-all;
 }

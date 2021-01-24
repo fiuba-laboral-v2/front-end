@@ -3,6 +3,7 @@ export interface ITranslations {
   slogan: string;
   description: string;
   businessSector: string;
+  companyLogoInputTooltipMessage: string;
 }
 
 export interface IContainerProps {
