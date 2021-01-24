@@ -3,7 +3,7 @@ import { useCompanyOfferByUuid, useEditOffer, useShowError, useTranslations } fr
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { EditOffer, IEditOfferTranslations } from "$components/EditOffer";
 import { useHistory, useParams } from "react-router-dom";
-import { formErrorHandlers } from "$models/errorHandlers/formErrorHandlers";
+import { createOrEditOfferErrorHandlers } from "$models/errorHandlers";
 import { FormFooter } from "$components/FormFooter";
 import { FormConfirmDialog } from "$components/Dialog/FormConfirmDialog";
 import { ICreateOfferValues } from "$interfaces/Offer";
@@ -27,7 +27,7 @@ export const EditOfferContainer: FunctionComponent = () => {
           ...values,
           careers: values.careers.map(({ code }) => ({ careerCode: code }))
         }),
-        errorHandlers: formErrorHandlers(showError)(),
+        errorHandlers: createOrEditOfferErrorHandlers(showError)(),
         update: cache =>
           cache.modify({
             id: `Offer:${offerUuid}`,
