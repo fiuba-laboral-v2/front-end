@@ -1,4 +1,5 @@
 import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
+import { ICompany } from "$interfaces/Company";
 import { FormikProps } from "formik";
 import { ReactNode } from "react";
 import { IConfirmDialogTranslations } from "../Dialog/FormConfirmDialog";
@@ -20,6 +21,7 @@ export interface IEditOfferContainerProps {
 }
 
 export interface IEditOfferProps extends IEditOfferContainerProps {
+  company?: ICompany;
   acceptanceCriteria?: string;
   modelToValues: (model?: IOffer) => ICreateOfferValues;
   validateForm: (values: ICreateOfferValues) => { _form: string } | undefined;

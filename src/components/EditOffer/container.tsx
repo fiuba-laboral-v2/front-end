@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useCallback } from "react";
+import { useMyCompanyProfile } from "$hooks";
 import { IEditOfferContainerProps } from "./interfaces";
 import { EditOffer } from "./component";
 import { ICreateOfferValues, IOffer } from "$interfaces/Offer";
@@ -11,6 +12,7 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
   loading,
   ...props
 }) => {
+  const company = useMyCompanyProfile();
   const acceptanceCriteria = useSharedSettings()?.editOfferAcceptanceCriteria;
 
   const modelToValues = useCallback((model?: IOffer) => {
@@ -48,6 +50,7 @@ export const EditOfferContainer: FunctionComponent<IEditOfferContainerProps> = (
       modelToValues={modelToValues}
       validateForm={validateForm}
       loading={loading || !acceptanceCriteria}
+      company={company}
       {...props}
     />
   );

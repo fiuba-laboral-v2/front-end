@@ -14,6 +14,7 @@ import classNames from "classnames";
 export const EditOffer: FunctionComponent<IEditOfferProps> = ({
   title,
   offer,
+  company,
   autoFocus,
   formFooter,
   onSubmit,
@@ -37,6 +38,7 @@ export const EditOffer: FunctionComponent<IEditOfferProps> = ({
               values={formikProps.values}
               className={styles.formSection}
               autoFocus={autoFocus}
+              company={company}
             />
             <DescriptionFormSection
               className={styles.formSection}
