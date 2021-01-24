@@ -17,7 +17,8 @@ export const typePolicies = {
   },
   Offer: {
     fields: {
-      sections: { merge: discardExistingResults }
+      sections: { merge: discardExistingResults },
+      careers: { merge: discardExistingResults }
     }
   },
   AdminSettings: {
