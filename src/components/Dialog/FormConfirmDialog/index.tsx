@@ -29,7 +29,7 @@ export const FormConfirmDialog: FunctionComponent<IConfirmDialogProps> = ({
         {children}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} kind="secondary">
+        <Button onClick={onClose} kind="secondary" type="button">
           {translations?.confirmDialogCancel}
         </Button>
         {!hideConfirmButton && (
