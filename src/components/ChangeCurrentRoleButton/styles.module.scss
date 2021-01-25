@@ -1,7 +1,5 @@
 @import "$styles/_variables";
 
-@media (max-width: $laptopWidth) {
-  .button {
-    padding: 0 $spacing-s;
-  }
+.button {
+  word-break: break-all;
 }

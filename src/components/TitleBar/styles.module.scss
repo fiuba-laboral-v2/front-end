@@ -82,12 +82,30 @@ button.button.alwaysShow {
     margin: 0;
   }
 
+  .changeCurrentRoleButton {
+    flex-shrink: 1;
+  }
+
   .logoContainer {
     flex-shrink: unset;
     height: 35px;
+    width: auto;
   }
 
   .logoLink {
-    width: 122px;
+    flex-grow: 0;
+    width: unset;
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  .changeCurrentRoleButton {
+    flex-shrink: 1;
+    margin-right: 0;
+    min-width: unset;
+  }
+
+  .logoLink {
+    display: none;
   }
 }
