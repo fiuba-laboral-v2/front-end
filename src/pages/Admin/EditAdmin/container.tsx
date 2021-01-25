@@ -2,7 +2,6 @@ import React, { FunctionComponent, useCallback } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useAdminByUuid, useShowError, useTranslations, useUpdateAdmin } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
-import { FormikHelpers } from "formik/dist/types";
 import { Secretary } from "$interfaces/Secretary";
 import { ITranslations, IUpdateAdminForm } from "./interfaces";
 import { IAdmin } from "$interfaces/Admin";
@@ -18,10 +17,7 @@ export const EditAdminContainer: FunctionComponent = () => {
   const admin = useAdminByUuid(uuid);
   const showError = useShowError();
 
-  const onSubmitAdmin = async (
-    { _form, ...variables }: IUpdateAdminForm,
-    { setSubmitting }: FormikHelpers<IUpdateAdminForm>
-  ) => {
+  const onSubmitAdmin = async ({ _form, ...variables }: IUpdateAdminForm) => {
     const result = await updateAdmin({
       variables,
       errorHandlers: {
@@ -31,7 +27,6 @@ export const EditAdminContainer: FunctionComponent = () => {
     });
 
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.admin.admins());
   };
 
