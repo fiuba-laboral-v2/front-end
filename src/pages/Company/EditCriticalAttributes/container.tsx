@@ -29,16 +29,12 @@ export const EditCriticalAttributesContainer: FunctionComponent = () => {
   );
 
   const onSubmit = useCallback(
-    async (
-      { _form, ...variables }: IFormValues,
-      { setSubmitting, setErrors }: FormikHelpers<IFormValues>
-    ) => {
+    async ({ _form, ...variables }: IFormValues, { setErrors }: FormikHelpers<IFormValues>) => {
       const result = await updateCompanyCriticalAttributes({
         variables,
         errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
       });
       if (result.error) return;
-      setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
     [history, updateCompanyCriticalAttributes, showError]

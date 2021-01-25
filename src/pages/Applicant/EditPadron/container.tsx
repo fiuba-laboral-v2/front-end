@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers } from "formik";
 import { useTranslations, useUpdatePadron, useMyApplicantProfile } from "$hooks";
 
 import { EditPadron } from "./component";
@@ -22,10 +21,9 @@ export const EditPadronContainer: FunctionComponent = () => {
   );
 
   const onSubmit = useCallback(
-    async ({ padron }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
+    async ({ padron }: IFormValues) => {
       const result = await updatePadron({ variables: { padron } });
       if (result.error) return;
-      setSubmitting(false);
       history.push(RoutesBuilder.applicant.myProfile());
     },
     [history, updatePadron]

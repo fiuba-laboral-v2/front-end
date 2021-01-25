@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers } from "formik";
 import { useTranslations, useUpdateMyForgottenPassword } from "$hooks";
 
 import { EditMyForgottenPassword } from "./component";
@@ -18,10 +17,7 @@ export const EditMyForgottenPasswordContainer: FunctionComponent<IContainerProps
   const { updateMyForgottenPassword } = useUpdateMyForgottenPassword();
   const translations = useTranslations<ITranslations>("editMyForgottenPassword");
 
-  const onSubmit = async (
-    { newPassword }: IFormValues,
-    { setSubmitting }: FormikHelpers<IFormValues>
-  ) => {
+  const onSubmit = async ({ newPassword }: IFormValues) => {
     const result = await updateMyForgottenPassword({
       variables: { token, newPassword },
       errorHandlers: {
@@ -30,7 +26,6 @@ export const EditMyForgottenPasswordContainer: FunctionComponent<IContainerProps
       }
     });
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.company.myOffers());
   };
 

@@ -6,7 +6,6 @@ import { FiubaAuthenticationErrorHandler } from "$models/errorHandlers";
 
 import { SignUp } from "./component";
 import { Window } from "$components/Window";
-import { FormikHelpers } from "formik/dist/types";
 import { Secretary } from "$interfaces/Secretary";
 import { ITranslations, ISaveAdminForm } from "./interfaces";
 
@@ -16,10 +15,7 @@ export const SignUpContainer: FunctionComponent = () => {
   const { saveAdmin } = useSaveAdmin();
   const showError = useShowError();
 
-  const onSubmitAdmin = async (
-    { _form, ...variables }: ISaveAdminForm,
-    { setSubmitting }: FormikHelpers<ISaveAdminForm>
-  ) => {
+  const onSubmitAdmin = async ({ _form, ...variables }: ISaveAdminForm) => {
     const result = await saveAdmin({
       variables,
       errorHandlers: {
@@ -33,7 +29,6 @@ export const SignUpContainer: FunctionComponent = () => {
     });
 
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.admin.admins());
   };
 

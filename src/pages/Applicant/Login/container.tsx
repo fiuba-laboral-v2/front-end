@@ -6,7 +6,6 @@ import { useTranslations, useFiubaLogin, IFiubaLoginVariables, useShowError } fr
 import { FiubaAuthenticationErrorHandler } from "$models/errorHandlers";
 import { Login } from "./component";
 import { ITranslations } from "./interfaces";
-import { FormikHelpers } from "formik";
 
 export const LoginContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("applicantLogin");
@@ -14,11 +13,7 @@ export const LoginContainer: FunctionComponent = () => {
   const history = useHistory();
   const showError = useShowError();
 
-  const onSubmit = async (
-    variables: IFiubaLoginVariables,
-    { setSubmitting }: FormikHelpers<IFiubaLoginVariables>,
-    errorHandlers: ErrorHandlers
-  ) => {
+  const onSubmit = async (variables: IFiubaLoginVariables, errorHandlers: ErrorHandlers) => {
     const loginResult = await login({
       variables,
       errorHandlers: {
@@ -31,7 +26,6 @@ export const LoginContainer: FunctionComponent = () => {
       }
     });
     if (loginResult.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.public.home());
   };
 

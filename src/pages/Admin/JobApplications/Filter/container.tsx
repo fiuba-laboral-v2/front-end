@@ -4,7 +4,6 @@ import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { JobApplicationsFilter } from "$models/SearchFilters/JobApplicationsFilter";
-import { FormikHelpers } from "formik";
 import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 
 import { NameField } from "$components/Fields/NameField";
@@ -21,8 +20,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   const history = useHistory();
 
   const onSubmit = useCallback(
-    async ({ _form, ...variables }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
-      setSubmitting(false);
+    async ({ _form, ...variables }: IFormValues) => {
       filter.setValues(variables);
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.jobApplications({ searchParams }));
