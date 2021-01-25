@@ -4,7 +4,6 @@ import { useTranslations } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
 import { CompaniesFilter } from "$models/SearchFilters/CompaniesFilter";
-import { FormikHelpers } from "formik";
 import { IContainerProps, IFormValues, ITranslations } from "./interfaces";
 
 import { NameField } from "$components/Fields/NameField";
@@ -21,12 +20,11 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
   const history = useHistory();
 
   const onSubmit = useCallback(
-    async ({ _form, ...variables }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
+    async ({ _form, ...variables }: IFormValues) => {
       filter.setValues(variables);
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.companies({ searchParams }));
       if (refetchCompanies) refetchCompanies(filter.getValues());
-      setSubmitting(false);
     },
     [filter, history, refetchCompanies]
   );
