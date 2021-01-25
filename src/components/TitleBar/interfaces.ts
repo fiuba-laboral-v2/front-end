@@ -6,6 +6,7 @@ export interface ITitleBarContainerProps {
 
 export interface ITitleBarProps extends ITitleBarContainerProps {
   title?: string;
+  canChangeCurrentRole: () => boolean;
 }
 
 export interface ITranslations {

@@ -14,36 +14,23 @@
   min-width: 0;
 }
 
-.title,
-.logoContainer {
+.rightContainer {
+  display: flex;
+  height: 50px;
   padding: $spacing-m;
 }
 
 .title {
   color: $white;
   overflow: hidden;
+  padding: $spacing-m;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.logoContainer {
-  display: flex;
-  flex-shrink: 0;
-  height: 50px;
-}
-
-.logo {
-  height: 100%;
-}
-
 .changeCurrentRoleButton {
   margin-right: $spacing-m;
-}
-
-.logoLink {
-  display: flex;
-  width: 175px;
 }
 
 svg.icon {
@@ -82,12 +69,24 @@ button.button.alwaysShow {
     margin: 0;
   }
 
-  .logoContainer {
-    flex-shrink: unset;
-    height: 35px;
+  .changeCurrentRoleButton {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: $largeMobileWidth) {
+  .changeCurrentRoleButton {
+    width: 70%;
   }
 
-  .logoLink {
-    width: 122px;
+  .rightContainer {
+    .logoContainer {
+      padding: $spacing-xs;
+      width: calc(30% - 2 * #{$spacing-xs});
+    }
+
+    .logo {
+      width: 100%;
+    }
   }
 }
