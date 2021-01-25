@@ -14,12 +14,7 @@
   min-width: 0;
 }
 
-.logoContainer {
-  align-self: center;
-}
-
-.rightContainer,
-.logoContainer {
+.rightContainer {
   display: flex;
   height: 50px;
   padding: $spacing-m;
@@ -32,10 +27,6 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.logo {
-  height: 100%;
 }
 
 .changeCurrentRoleButton {
@@ -80,12 +71,6 @@ button.button.alwaysShow {
 
   .changeCurrentRoleButton {
     flex-grow: 1;
-  }
-
-  .logoContainer {
-    flex-shrink: 0;
-    height: 35px;
-    width: unset;
   }
 }
 

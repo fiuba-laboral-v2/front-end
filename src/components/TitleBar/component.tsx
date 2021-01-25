@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { ITitleBarProps } from "./interfaces";
 import { IconButton } from "@material-ui/core";
 import { ChangeCurrentRoleButton } from "$components/ChangeCurrentRoleButton";
+import { FiubaLogo } from "./FiubaLogo";
 import MenuIcon from "@material-ui/icons/Menu";
 import classNames from "classnames";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -33,25 +34,9 @@ export const TitleBar: FunctionComponent<ITitleBarProps> = ({
     {canChangeCurrentRole() && (
       <div className={styles.rightContainer}>
         <ChangeCurrentRoleButton className={styles.changeCurrentRoleButton} />
-        <Link to={RoutesBuilder.public.home()} className={styles.logoContainer}>
-          <img
-            src={"images/logo.svg"}
-            alt="Logo de FIUBA"
-            className={styles.logo}
-            draggable={false}
-          />
-        </Link>
+        <FiubaLogo className={styles.logoContainer} imageClassName={styles.logo} />
       </div>
     )}
-    {!canChangeCurrentRole() && (
-      <Link to={RoutesBuilder.public.home()} className={styles.logoContainer}>
-        <img
-          src={"images/logo.svg"}
-          alt="Logo de FIUBA"
-          className={styles.logo}
-          draggable={false}
-        />
-      </Link>
-    )}
+    {!canChangeCurrentRole() && <FiubaLogo />}
   </div>
 );
