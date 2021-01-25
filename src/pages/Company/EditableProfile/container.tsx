@@ -45,15 +45,13 @@ export const EditableProfileContainer: FunctionComponent = () => {
   const onSubmit = useCallback(
     async (
       { _form, ...companyValues }: IEditableProfileFormValues,
-      { setErrors, setSubmitting }: FormikHelpers<IEditableProfileFormValues>
+      { setErrors }: FormikHelpers<IEditableProfileFormValues>
     ) => {
       const updateCompanyResult = await updateCurrentCompany({
         variables: companyValues,
         errorHandlers: saveCompanyErrorHandlers({ setErrors, showError })
       });
       if (updateCompanyResult.error) return;
-
-      setSubmitting(false);
       history.push(RoutesBuilder.company.myProfile());
     },
     [showError, history, updateCurrentCompany]
