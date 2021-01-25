@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers } from "formik";
 import { useTranslations, useUpdateCompanyUserPassword } from "$hooks";
 import { useShowError } from "$hooks/snackbar/useShowError";
 
@@ -17,10 +16,7 @@ export const EditPasswordContainer: FunctionComponent = () => {
   const { updatePassword } = useUpdateCompanyUserPassword();
   const translations = useTranslations<ITranslations>("editCompanyUserPassword");
 
-  const onSubmit = async (
-    { oldPassword, newPassword }: IFormValues,
-    { setSubmitting }: FormikHelpers<IFormValues>
-  ) => {
+  const onSubmit = async ({ oldPassword, newPassword }: IFormValues) => {
     const result = await updatePassword({
       variables: { oldPassword, newPassword },
       errorHandlers: {
@@ -28,7 +24,6 @@ export const EditPasswordContainer: FunctionComponent = () => {
       }
     });
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.company.users());
   };
 
