@@ -10,7 +10,18 @@ export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = ({
   const translations = useTranslations<ITranslations>("titleBar");
   const currentUser = useCurrentUser().data.getCurrentUser;
 
+  const canChangeCurrentRole = () => {
+    if (!currentUser) return false;
+    if (currentUser?.company) return false;
+    return !(!currentUser.admin || !currentUser.applicant);
+  };
+
   return (
-    <TitleBar title={translations?.title} showNavBar={!!currentUser && showNavBar} {...props} />
+    <TitleBar
+      canChangeCurrentRole={canChangeCurrentRole}
+      title={translations?.title}
+      showNavBar={!!currentUser && showNavBar}
+      {...props}
+    />
   );
 };

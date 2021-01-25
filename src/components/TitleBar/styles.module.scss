@@ -14,23 +14,24 @@
   min-width: 0;
 }
 
-.title,
 .logoContainer {
+  align-self: center;
+}
+
+.rightContainer,
+.logoContainer {
+  display: flex;
+  height: 50px;
   padding: $spacing-m;
 }
 
 .title {
   color: $white;
   overflow: hidden;
+  padding: $spacing-m;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.logoContainer {
-  display: flex;
-  flex-shrink: 0;
-  height: 50px;
 }
 
 .logo {
@@ -39,11 +40,6 @@
 
 .changeCurrentRoleButton {
   margin-right: $spacing-m;
-}
-
-.logoLink {
-  display: flex;
-  width: 175px;
 }
 
 svg.icon {
@@ -91,21 +87,11 @@ button.button.alwaysShow {
     height: 35px;
     width: auto;
   }
-
-  .logoLink {
-    flex-grow: 0;
-    width: unset;
-  }
 }
 
 @media (max-width: $mobileWidth) {
   .changeCurrentRoleButton {
     flex-shrink: 1;
-    margin-right: 0;
     min-width: unset;
-  }
-
-  .logoLink {
-    display: none;
   }
 }

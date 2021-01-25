@@ -9,6 +9,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Link } from "react-router-dom";
 
 export const TitleBar: FunctionComponent<ITitleBarProps> = ({
+  canChangeCurrentRole,
   title,
   alwaysShowDrawerButton,
   showNavBar,
@@ -29,9 +30,21 @@ export const TitleBar: FunctionComponent<ITitleBarProps> = ({
         {title}
       </Link>
     </span>
-    <div className={styles.logoContainer}>
-      <ChangeCurrentRoleButton className={styles.changeCurrentRoleButton} />
-      <Link to={RoutesBuilder.public.home()} className={styles.logoLink}>
+    {canChangeCurrentRole() && (
+      <div className={styles.rightContainer}>
+        <ChangeCurrentRoleButton className={styles.changeCurrentRoleButton} />
+        <Link to={RoutesBuilder.public.home()} className={styles.logoContainer}>
+          <img
+            src={"images/logo.svg"}
+            alt="Logo de FIUBA"
+            className={styles.logo}
+            draggable={false}
+          />
+        </Link>
+      </div>
+    )}
+    {!canChangeCurrentRole() && (
+      <Link to={RoutesBuilder.public.home()} className={styles.logoContainer}>
         <img
           src={"images/logo.svg"}
           alt="Logo de FIUBA"
@@ -39,6 +52,6 @@ export const TitleBar: FunctionComponent<ITitleBarProps> = ({
           draggable={false}
         />
       </Link>
-    </div>
+    )}
   </div>
 );
