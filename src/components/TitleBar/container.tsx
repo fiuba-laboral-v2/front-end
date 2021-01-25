@@ -13,7 +13,7 @@ export const TitleBarContainer: FunctionComponent<ITitleBarContainerProps> = ({
   const canChangeCurrentRole = () => {
     if (!currentUser) return false;
     if (currentUser?.company) return false;
-    return !(!currentUser.admin || !currentUser.applicant);
+    return !!(currentUser.admin && currentUser.applicant);
   };
 
   return (
