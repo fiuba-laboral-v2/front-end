@@ -74,7 +74,7 @@ button.button.alwaysShow {
   }
 }
 
-@media (max-width: $mobileWidth) {
+@media (max-width: $largeMobileWidth) {
   .changeCurrentRoleButton {
     width: 70%;
   }
