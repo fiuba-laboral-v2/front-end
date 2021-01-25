@@ -29,7 +29,6 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       { _form, applicantType, ...values }: IFormValues,
       { setSubmitting }: FormikHelpers<IFormValues>
     ) => {
-      setSubmitting(false);
       filter.setValues({
         ...values,
         careerCodes: values.careers.map(({ code }) => code),
@@ -38,6 +37,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.applicants({ searchParams }));
       if (refetchApplicants) refetchApplicants(filter.getValues());
+      setSubmitting(false);
     },
     [filter, history, refetchApplicants]
   );

@@ -22,11 +22,11 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
 
   const onSubmit = useCallback(
     async ({ _form, ...variables }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
-      setSubmitting(false);
       filter.setValues(variables);
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.jobApplications({ searchParams }));
       if (refetchJobApplications) refetchJobApplications(filter.getValues());
+      setSubmitting(false);
     },
     [filter, history, refetchJobApplications]
   );

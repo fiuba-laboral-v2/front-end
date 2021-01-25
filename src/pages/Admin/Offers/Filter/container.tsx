@@ -25,7 +25,6 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
 
   const onSubmit = useCallback(
     async ({ _form, ...values }: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
-      setSubmitting(false);
       filter.setValues({
         ...values,
         studentsStatus:
@@ -37,6 +36,7 @@ export const FilterContainer: FunctionComponent<IContainerProps> = ({
       const searchParams = filter.toString();
       history.push(RoutesBuilder.admin.offers({ searchParams }));
       if (refetchOffers) refetchOffers(filter.getValues());
+      setSubmitting(false);
     },
     [filter, history, refetchOffers]
   );

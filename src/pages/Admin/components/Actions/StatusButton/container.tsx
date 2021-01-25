@@ -36,8 +36,8 @@ export const StatusButtonContainer: FunctionComponent<IContainer> = ({
     { moderatorMessage }: IValues,
     { setSubmitting }: FormikHelpers<IValues>
   ) => {
-    setSubmitting(false);
     await setStatus(status, moderatorMessage);
+    setSubmitting(false);
     setConfirmDialogIsOpen(false);
   };
 
