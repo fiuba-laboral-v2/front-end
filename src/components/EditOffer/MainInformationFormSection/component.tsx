@@ -27,7 +27,7 @@ export const MainInformationFormSection: FunctionComponent<IComponentProps> = ({
     </div>
     <div className={styles.row}>
       <HoursPerDayField name="hoursPerDay" label={translations.hoursPerDay} mandatory />
-      {company?.hasAnInternshipAgreement && (
+      {(company?.hasAnInternshipAgreement || values.isInternship) && (
         <CheckboxInput
           checked={values.isInternship}
           className={classNames(styles.isInternship, styles.rightField)}
