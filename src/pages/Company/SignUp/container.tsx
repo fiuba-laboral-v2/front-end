@@ -21,7 +21,7 @@ export const SignUpContainer: FunctionComponent = () => {
 
   const onSubmit = async (
     { _form, user: { passwordConfirm, ...userAttributes }, ...companyValues }: ISignUpFormValues,
-    { setErrors, setSubmitting }: FormikHelpers<ISignUpFormValues>
+    { setErrors }: FormikHelpers<ISignUpFormValues>
   ) => {
     const createCompanyResult = await createCompany({
       variables: { user: userAttributes, ...companyValues },
@@ -34,8 +34,6 @@ export const SignUpContainer: FunctionComponent = () => {
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
-
-    setSubmitting(false);
     history.push(RoutesBuilder.company.editMyProfile());
   };
 
