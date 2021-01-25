@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers } from "formik";
 import { useTranslations, useSendPasswordRecoveryEmail } from "$hooks";
 
 import { PasswordRecovery } from "./component";
@@ -15,10 +14,7 @@ export const PasswordRecoveryContainer: FunctionComponent = () => {
   const { sendPasswordRecoveryEmail } = useSendPasswordRecoveryEmail();
   const translations = useTranslations<ITranslations>("passwordRecovery");
 
-  const onSubmit = async (
-    variables: IFormValues,
-    { setSubmitting }: FormikHelpers<IFormValues>
-  ) => {
+  const onSubmit = async (variables: IFormValues) => {
     const result = await sendPasswordRecoveryEmail({
       variables,
       errorHandlers: {
@@ -27,7 +23,6 @@ export const PasswordRecoveryContainer: FunctionComponent = () => {
       }
     });
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.company.passwordRecoveryExplanation());
   };
 
