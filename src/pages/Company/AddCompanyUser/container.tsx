@@ -20,14 +20,13 @@ export const AddCompanyUserContainer: FunctionComponent = () => {
 
   const onSubmit = async (
     { user: { passwordConfirm, ...userAttributes } }: ICompanyUserFormValues,
-    { setErrors, setSubmitting }: FormikHelpers<ICompanyUserFormValues>
+    { setErrors }: FormikHelpers<ICompanyUserFormValues>
   ) => {
     const result = await saveCompanyUser({
       variables: { user: userAttributes },
       errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
     });
     if (result.error) return;
-    setSubmitting(false);
     history.push(RoutesBuilder.company.users());
   };
 
