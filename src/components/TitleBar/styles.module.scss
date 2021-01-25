@@ -81,7 +81,8 @@ button.button.alwaysShow {
 
   .rightContainer {
     .logoContainer {
-      width: calc(30% - 2 * #{$spacing-m});
+      padding: $spacing-xs;
+      width: calc(30% - 2 * #{$spacing-xs});
     }
 
     .logo {
