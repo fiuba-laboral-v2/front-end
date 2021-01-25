@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { useHistory } from "react-router-dom";
-import { FormikHelpers } from "formik";
 import { LoginForm } from "./component";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { useTranslations } from "$hooks";
@@ -19,8 +18,8 @@ export const LoginFormContainer = <TVariables extends {}>({
   const showBadCredentialsError = () =>
     enqueueSnackbar(translations.badCredentialsMessage, { variant: "error" });
 
-  const onClick = async (values: TVariables, formikHelpers: FormikHelpers<TVariables>) => {
-    return onSubmit(values, formikHelpers, {
+  const onClick = async (values: TVariables) => {
+    return onSubmit(values, {
       BadCredentialsError: () => showBadCredentialsError(),
       UserNotFoundError: () => showBadCredentialsError(),
       InvalidEmptyPasswordError: () => showBadCredentialsError(),
