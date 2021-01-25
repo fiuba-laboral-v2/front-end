@@ -21,16 +21,12 @@ export const EditCompanyUserContainer: FunctionComponent = () => {
   const translations = useTranslations<ITranslations>("editCompanyUser");
 
   const onSubmit = useCallback(
-    async (
-      { _form, ...variables }: IFormValues,
-      { setErrors, setSubmitting }: FormikHelpers<IFormValues>
-    ) => {
+    async ({ _form, ...variables }: IFormValues, { setErrors }: FormikHelpers<IFormValues>) => {
       const result = await updateCompanyUser({
         variables,
         errorHandlers: createCompanyErrorHandlers({ setErrors, showError })
       });
       if (result.error) return;
-      setSubmitting(false);
       history.push(RoutesBuilder.company.users());
     },
     [showError, history, updateCompanyUser]
