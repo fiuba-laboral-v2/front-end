@@ -79,18 +79,28 @@ button.button.alwaysShow {
   }
 
   .changeCurrentRoleButton {
-    flex-shrink: 1;
+    flex-grow: 1;
   }
 
   .logoContainer {
-    flex-shrink: unset;
+    flex-shrink: 0;
     height: 35px;
-    width: auto;
+    width: unset;
   }
 }
 
 @media (max-width: $mobileWidth) {
   .changeCurrentRoleButton {
-    flex-shrink: 1;
+    width: 70%;
+  }
+
+  .rightContainer {
+    .logoContainer {
+      width: calc(30% - 2 * #{$spacing-m});
+    }
+
+    .logo {
+      width: 100%;
+    }
   }
 }
