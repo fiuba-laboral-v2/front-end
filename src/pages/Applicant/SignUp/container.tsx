@@ -32,7 +32,7 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
 
   const onSubmit = async (
     { _form, user, ...applicantValues }: IApplicantSignUpFormValues,
-    { setSubmitting, setErrors }: FormikHelpers<IApplicantSignUpFormValues>
+    { setErrors }: FormikHelpers<IApplicantSignUpFormValues>
   ) => {
     const saveApplicantResult = await saveApplicant({
       variables: saveApplicantArguments({ user, ...applicantValues }),
@@ -50,8 +50,6 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
       errorHandlers: { defaultHandler: () => history.push(RoutesBuilder.public.login()) }
     });
     if (loginResult.error) return;
-
-    setSubmitting(false);
     history.push(RoutesBuilder.applicant.editMyProfile());
   };
 
