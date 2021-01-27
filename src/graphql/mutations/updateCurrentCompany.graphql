@@ -26,6 +26,7 @@ mutation(
     businessSector
     slogan
     description
+    approvalStatus
     logo
     website
     email
