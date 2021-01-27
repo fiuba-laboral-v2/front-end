@@ -2,6 +2,7 @@ export { DniField } from "./DniField";
 export { EmailField } from "./EmailField";
 export { FiubaEmailField } from "./FiubaEmailField";
 export { NameField } from "./NameField";
+export { TitleField } from "./TitleField";
 export { PasswordField } from "./PasswordField";
 export { CuitField } from "./CuitField";
 export { UrlField } from "./UrlField";
