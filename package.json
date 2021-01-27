@@ -51,7 +51,7 @@
     "tslint": "5.20.1",
     "tiny-warning": ">=1.0.2",
     "typescript": "3.7.5",
-    "validations-fiuba-laboral-v2": "1.0.33"
+    "validations-fiuba-laboral-v2": "github::fiuba-laboral-v2/validations#f5fcc73c70e338efc71892b28bde03c0fe4a3f78"
   },
   "resolutions": {
     "@types/react": "16.9.34"
