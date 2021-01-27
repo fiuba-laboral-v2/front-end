@@ -18,6 +18,7 @@ mutation updateCurrentApplicant(
   ) {
     uuid
     padron
+    approvalStatus
     user {
       uuid
       name
