@@ -40,6 +40,7 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
         UserEmailAlreadyExistsError: handleValidationError(showError, () =>
           setErrors({ user: { email: "Este email ya existe" } })
         ),
+        ApplicantAlreadyExistsError: () => setErrors({ user: { dni: "Este dni ya existe" } }),
         ...FiubaAuthenticationErrorHandler(showError)
       })
     });

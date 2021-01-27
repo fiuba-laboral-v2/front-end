@@ -26,6 +26,7 @@ type ErrorName =
   | "AuthenticateFaultError"
   | "AuthenticateUnknownError"
   | "FiubaUsersServiceFetchError"
+  | "ApplicantAlreadyExistsError"
   | "MissingTranslationError";
 
 type HandlerName = ErrorName | "defaultHandler";
