@@ -8,10 +8,12 @@ import { Card } from "$components/Card";
 import { StatusTitle } from "$components/StatusTitle";
 import { CompanyLogo } from "$components/CompanyLogo";
 import { ICompany } from "$interfaces/Company";
+import { CompanyPhoto } from "./CompanyPhoto";
 
 export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
   className,
   withStatusLabel,
+  withInvalidPhotos,
   company,
   children,
   link
@@ -39,7 +41,12 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
     <Description>{company?.description}</Description>
     <section className={styles.photos}>
       {company?.photos?.map((source, index) => (
-        <img key={index} src={source} alt={`${company.companyName}`} />
+        <CompanyPhoto
+          key={index}
+          url={source}
+          companyName={company.companyName}
+          hideWhenInvalid={!withInvalidPhotos}
+        />
       ))}
     </section>
   </Card>
@@ -48,6 +55,7 @@ export const CompanyDetail: FunctionComponent<ICompanyDetailProps> = ({
 interface ICompanyDetailProps {
   company?: ICompany;
   withStatusLabel?: boolean;
+  withInvalidPhotos?: boolean;
   className?: string;
   link?: string;
 }

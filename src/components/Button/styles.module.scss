@@ -64,5 +64,5 @@ $lightRedBtn: #fee8e7;
 }
 
 .warning {
-  @include btnColors($grey, $lighterGrey, $grey);
+  @include btnColors($grey, $lightestGrey, $grey);
 }

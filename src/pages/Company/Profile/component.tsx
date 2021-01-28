@@ -8,7 +8,7 @@ import { ICompany } from "$interfaces/Company";
 export const Profile: FunctionComponent<IProfile> = ({ company }) => (
   <Window loading={!company}>
     <Title />
-    <CompanyDetail company={company} withStatusLabel>
+    <CompanyDetail company={company} withStatusLabel withInvalidPhotos>
       <Actions />
     </CompanyDetail>
   </Window>

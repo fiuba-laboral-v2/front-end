@@ -1,0 +1,15 @@
+@import "$styles/_variables";
+
+.container {
+  align-items: center;
+  background: $lighterGrey;
+  display: flex;
+  height: 170px;
+}
+
+.errorLabel {
+  line-height: 20px;
+  overflow-wrap: break-word;
+  text-align: center;
+  width: 100%;
+}
