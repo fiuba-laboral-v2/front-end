@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback } from "react";
+import React, { FunctionComponent, useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FormikHelpers } from "formik";
 import {
@@ -13,11 +13,10 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { saveCompanyErrorHandlers } from "$errorHandlers/saveCompanyErrorHandlers";
 import { useShowError } from "$hooks/snackbar";
 import { Window } from "$components/Window";
-import { Formik } from "$components/Formik";
-import { FormikForm } from "$components/FormikForm";
 import { ICompany } from "$interfaces/Company";
 
 export const EditableProfileContainer: FunctionComponent = () => {
+  const [confirmDialogIsOpen, setConfirmDialogIsOpen] = useState(false);
   const history = useHistory();
   const showError = useShowError();
   const { updateCurrentCompany } = useUpdateCurrentCompany();
@@ -59,21 +58,15 @@ export const EditableProfileContainer: FunctionComponent = () => {
 
   return (
     <Window loading={!translations || !company || !acceptanceCriteria || !company}>
-      <Formik initialValues={modelToValues()} onSubmit={onSubmit}>
-        {formikProps => (
-          <FormikForm
-            initialValuesModel={company}
-            modelToValues={modelToValues}
-            formikProps={formikProps}
-          >
-            <EditableProfile
-              acceptanceCriteria={acceptanceCriteria}
-              translations={translations}
-              formikProps={formikProps}
-            />
-          </FormikForm>
-        )}
-      </Formik>
+      <EditableProfile
+        modelToValues={modelToValues}
+        company={company}
+        onSubmit={onSubmit}
+        confirmDialogIsOpen={confirmDialogIsOpen}
+        setConfirmDialogIsOpen={setConfirmDialogIsOpen}
+        acceptanceCriteria={acceptanceCriteria}
+        translations={translations}
+      />
     </Window>
   );
 };
