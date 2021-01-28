@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from "react";
-
 import { NotificationBody } from "$components/Notification/NotificationBody";
 import { NotificationItem } from "$components/Notification/NotificationItem";
-import { Link } from "$components/Link";
-
+import { ReloadLink } from "$components/ReloadLink";
 import { IApplicant } from "$interfaces/Applicant";
 import { IOffer } from "$interfaces/Offer";
 import styles from "./styles.module.scss";
@@ -17,12 +15,14 @@ export const JobApplicationNotificationBody: FunctionComponent<IContainerProps> 
 }) => (
   <div>
     <NotificationBody>
-      <Link to={applicantLink}>{`${applicant.user.name} ${applicant.user.surname}`}</Link>
+      <ReloadLink
+        to={applicantLink}
+      >{`${applicant.user.name} ${applicant.user.surname}`}</ReloadLink>
       <div className={styles.separator}>-</div>
       {offerLink && (
-        <Link className={styles.offer} to={offerLink(offer.uuid)}>
+        <ReloadLink className={styles.offer} to={offerLink(offer.uuid)}>
           {offer.title}
-        </Link>
+        </ReloadLink>
       )}
       {!offerLink && <div className={styles.offer}>{offer.title}</div>}
     </NotificationBody>
