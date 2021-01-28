@@ -53,7 +53,7 @@ export const EditableProfile: FunctionComponent<IEditableProfileProps> = ({
           isOpen={confirmDialogIsOpen}
           onConfirm={formikProps.submitForm}
           onClose={() => setConfirmDialogIsOpen(false)}
-          translations={{} as any}
+          translations={translations}
         />
       </Form>
     )}
