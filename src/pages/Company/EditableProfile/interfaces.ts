@@ -7,4 +7,8 @@ export interface IEditableProfileFormValues extends IUpdateCurrentCompanyVariabl
 export interface IEditableProfileTranslations {
   title: string;
   submit: string;
+  confirmDialogTitle: string;
+  confirmDialogDescription: string;
+  confirmDialogCancel: string;
+  confirmDialogConfirm: string;
 }
