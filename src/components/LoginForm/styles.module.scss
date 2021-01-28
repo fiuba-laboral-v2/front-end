@@ -94,9 +94,7 @@
   .separator {
     display: none;
   }
-}
 
-@media (max-width: $smallMobileWidth) {
   .links {
     align-self: unset;
     flex-direction: column;
