@@ -6,11 +6,12 @@ import { SnackbarProvider } from "notistack";
 import Routes from "./routes/routes";
 import { MaterialUITheme } from "./materialUITheme";
 import { ApolloProvider } from "@apollo/client";
+import styles from "./styles.module.scss";
 
 const App: FunctionComponent = () => (
   <ApolloProvider client={ApolloClient}>
     <ThemeProvider theme={MaterialUITheme}>
-      <SnackbarProvider maxSnack={3}>
+      <SnackbarProvider maxSnack={3} classes={{ root: styles.snackbarContainer }}>
         <Router>
           <Routes />
         </Router>

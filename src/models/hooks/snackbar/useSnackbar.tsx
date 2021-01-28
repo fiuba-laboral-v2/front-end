@@ -13,7 +13,7 @@ export const useSnackbar = () => {
     closeSnackbar,
     enqueueSnackbar: (message: SnackbarMessage, options?: OptionsObject) => {
       const key = enqueueSnackbar(message, {
-        anchorOrigin: { horizontal: "right", vertical: "bottom" },
+        anchorOrigin: { horizontal: "right", vertical: "top" },
         ...options,
         action: (
           <>
