@@ -15,5 +15,5 @@ export const NotificationExplanation: FunctionComponent<IComponentProps> = ({
 
 interface IComponentProps {
   className?: string;
-  message: string;
+  message?: string;
 }

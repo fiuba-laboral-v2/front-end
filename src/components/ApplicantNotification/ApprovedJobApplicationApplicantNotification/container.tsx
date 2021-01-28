@@ -4,6 +4,7 @@ import { useTranslations } from "$hooks";
 
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
+import { NotificationExplanation } from "$components/Notification/NotificationExplanation";
 import { JobApplicationIcon } from "$components/Icons/JobApplicationIcon";
 import { StatusIcon } from "$components/StatusIcon";
 import { JobApplicationNotificationBody } from "$components/Notification/JobApplicationNotificationBody";
@@ -15,7 +16,7 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
   className,
   notification
 }) => {
-  const translations = useTranslations<{ title: string }>(
+  const translations = useTranslations<ITranslations>(
     "approvedJobApplicationApplicantNotification"
   );
 
@@ -31,10 +32,17 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
         offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
         offerLink={RoutesBuilder.applicant.offerDetail}
-      />
+      >
+        <NotificationExplanation message={translations?.explanation} />
+      </JobApplicationNotificationBody>
     </Notification>
   );
 };
+
+interface ITranslations {
+  title: string;
+  explanation: string;
+}
 
 interface IContainerProps {
   className?: string;
