@@ -15,7 +15,6 @@ export const SecretarySettingsFormSection: FunctionComponent<ISecretarySettingsF
     className={styles.formSection}
   >
     <PositiveIntegerField
-      singleLine
       mandatory
       name="offerDurationInDays"
       label={translations.offerDurationInDays}
