@@ -1,3 +1,7 @@
+@import "$styles/_variables";
+
 button.reloadButton {
+  margin-right: $spacing-xs;
   min-height: 36px;
+  min-width: 0;
 }
