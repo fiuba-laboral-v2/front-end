@@ -1,8 +1,25 @@
-div.snackbarContainer {
-  left: 6px;
-  top: -6px;
+div.containerRoot {
+  left: 55px !important;
+  top: 0 !important;
+  width: calc(100% - 55px);
 
-  > div {
-    height: 38px;
+  @media (min-width: 601px) {
+    left: 60px !important;
+    width: calc(100% - 70px);
   }
+
+  @media (min-width: 775px) {
+    left: 80px !important;
+    top: 8px !important;
+    width: calc(100% - 90px);
+  }
+
+  @media (min-width: 1025px) {
+    left: 450px !important;
+    width: calc(100% - 460px);
+  }
+}
+
+div.root > div {
+  height: 38px;
 }

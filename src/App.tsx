@@ -11,7 +11,10 @@ import styles from "./styles.module.scss";
 const App: FunctionComponent = () => (
   <ApolloProvider client={ApolloClient}>
     <ThemeProvider theme={MaterialUITheme}>
-      <SnackbarProvider maxSnack={3} classes={{ root: styles.snackbarContainer }}>
+      <SnackbarProvider
+        maxSnack={3}
+        classes={{ root: styles.root, containerRoot: styles.containerRoot }}
+      >
         <Router>
           <Routes />
         </Router>
