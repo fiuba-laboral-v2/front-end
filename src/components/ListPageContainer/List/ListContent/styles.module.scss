@@ -15,5 +15,5 @@
 .listContent {
   @include scrollOverlay;
 
-  background-color: mix($lighterGrey, $white, 30%);
+  background-color: mix($lightestGrey, $white, 30%);
 }
