@@ -90,11 +90,13 @@
   margin-top: $spacing-xs;
 }
 
-@media (max-width: $smallMobileWidth), (max-width: $largeLaptopWidth) and (min-width: $laptopWidth) {
+@media (max-width: $smallMobileWidth) {
   .separator {
     display: none;
   }
+}
 
+@media (max-width: $smallMobileWidth) {
   .links {
     align-self: unset;
     flex-direction: column;
