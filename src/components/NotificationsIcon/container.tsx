@@ -17,7 +17,6 @@ export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
       message: "Tenés notificaciones",
       actionMessage: "Ver",
       skip: !hasUnreadNotifications || lastUnreadValue,
-      persist: true,
       preventDuplicate: true
     });
     setLastUnreadValue(!!hasUnreadNotifications);
