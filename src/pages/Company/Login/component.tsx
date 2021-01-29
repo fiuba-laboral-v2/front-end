@@ -34,6 +34,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       usernameField={
         translations && (
           <EmailField
+            mandatory
             autoFocus
             singleLine
             name="email"
