@@ -15,6 +15,7 @@ export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
   useEffect(() => {
     infoSnackbar({
       action: () => {
+        document.getElementById("root")!.style.display = "none";
         history.push(actionRoute);
         Window.reload();
       },
