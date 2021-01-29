@@ -5,13 +5,11 @@ import {
   ITitleTranslations
 } from "$models/OfferNotificationTitleBuilder";
 import { useTranslations } from "$hooks";
-
 import { Notification } from "$components/Notification";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { NotificationBody } from "$components/Notification/NotificationBody";
-import { Link } from "$components/Link";
+import { ReloadLink } from "$components/ReloadLink";
 import { OfferIcon } from "$components/Icons/OfferIcon";
-
 import { IApprovedOfferCompanyNotification } from "$interfaces/CompanyNotification";
 
 export const ApprovedOfferCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
@@ -25,9 +23,9 @@ export const ApprovedOfferCompanyNotificationContainer: FunctionComponent<IConta
     <Notification className={className} notification={notification} icon={<OfferIcon />}>
       <NotificationTitle>{title}</NotificationTitle>
       <NotificationBody>
-        <Link to={RoutesBuilder.company.offer(notification.offer.uuid)}>
+        <ReloadLink to={RoutesBuilder.company.offer(notification.offer.uuid)}>
           {notification.offer.title}
-        </Link>
+        </ReloadLink>
       </NotificationBody>
     </Notification>
   );

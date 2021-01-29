@@ -5,15 +5,13 @@ import {
   ITitleTranslations
 } from "$models/OfferNotificationTitleBuilder";
 import { useTranslations } from "$hooks";
-
 import { Notification } from "$components/Notification";
 import { NotificationItem } from "$components/Notification/NotificationItem";
 import { RejectionReason } from "$components/Notification/RejectionReason";
 import { NotificationTitle } from "$components/Notification/NotificationTitle";
 import { NotificationBody } from "$components/Notification/NotificationBody";
-import { Link } from "$components/Link";
+import { ReloadLink } from "$components/ReloadLink";
 import { OfferIcon } from "$components/Icons/OfferIcon";
-
 import { IRejectedOfferCompanyNotification } from "$interfaces/CompanyNotification";
 
 export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
@@ -29,9 +27,9 @@ export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IConta
     <Notification className={className} notification={notification} icon={<OfferIcon />}>
       <NotificationTitle>{title}</NotificationTitle>
       <NotificationBody>
-        <Link to={RoutesBuilder.company.offer(notification.offer.uuid)}>
+        <ReloadLink to={RoutesBuilder.company.offer(notification.offer.uuid)}>
           {notification.offer.title}
-        </Link>
+        </ReloadLink>
       </NotificationBody>
       <NotificationItem>
         <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />
