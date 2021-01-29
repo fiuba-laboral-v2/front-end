@@ -17,7 +17,10 @@ export const ExportEmails: FunctionComponent<IComponentProps> = ({
 }) => (
   <FormConfirmDialog
     isOpen={isOpen}
-    onClose={() => setIsOpen(false)}
+    onClose={() => {
+      setIsOpen(false);
+      setExportEmails(false);
+    }}
     translations={exportEmails ? exportedEmailsTranslation : exportEmailsTranslation}
     hideConfirmButton={exportEmails}
     closeOnConfirm={exportEmails}
