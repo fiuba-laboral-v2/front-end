@@ -1,7 +1,6 @@
 import { CurrentUser } from "$models/CurrentUser";
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 import { Secretary } from "$interfaces/Secretary";
-import { SessionStorageRepository } from "$repositories";
 
 describe("CurrentUser", () => {
   it("returns a valid current applicant user", () => {
@@ -59,8 +58,6 @@ describe("CurrentUser", () => {
       name: "eric",
       surname: "Clapton"
     };
-
-    beforeEach(() => SessionStorageRepository.clear());
 
     it("returns applicant as the current role", () => {
       const currentUser = CurrentUser({
