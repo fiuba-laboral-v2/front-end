@@ -54,6 +54,7 @@ describe("CurrentUser", () => {
   });
 
   describe("getCurrentRole", () => {
+    const currentRoute = "";
     const commonAttributes = {
       email: "companyUser@company.com",
       name: "eric",
@@ -70,7 +71,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      const role = currentUser.getCurrentRole();
+      const role = currentUser.getCurrentRole(currentRoute);
       expect(role.isApplicantRole()).toBe(true);
     });
 
@@ -82,7 +83,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      const role = currentUser.getCurrentRole();
+      const role = currentUser.getCurrentRole(currentRoute);
       expect(role.isCompanyRole()).toBe(true);
     });
 
@@ -94,7 +95,7 @@ describe("CurrentUser", () => {
           secretary: Secretary.extension
         }
       });
-      const role = currentUser.getCurrentRole();
+      const role = currentUser.getCurrentRole(currentRoute);
       expect(role.isAdminRole()).toBe(true);
     });
 
@@ -110,7 +111,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      const role = currentUser.getCurrentRole();
+      const role = currentUser.getCurrentRole(currentRoute);
       expect(role.isAdminRole()).toBe(true);
     });
 
@@ -128,7 +129,7 @@ describe("CurrentUser", () => {
           approvalStatus: ApprovalStatus.pending
         }
       });
-      const role = currentUser.getCurrentRole();
+      const role = currentUser.getCurrentRole(currentRoute);
       expect(role).toEqual(applicantRole);
     });
   });

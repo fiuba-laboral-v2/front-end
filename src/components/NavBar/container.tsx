@@ -37,7 +37,7 @@ export const NavBarContainer: FunctionComponent<INavBarContainerProps> = props =
 
   const currentUser = currentUserResponse.data.getCurrentUser;
   if (!translations || !currentUser) return <Fragment />;
-  const links = currentUser ? NavBarLinks.create(currentUser, translations) : [];
+  const links = currentUser ? NavBarLinks.create(currentUser, translations, location.pathname) : [];
 
   const onLogOut = async () => {
     closeSnackbar();

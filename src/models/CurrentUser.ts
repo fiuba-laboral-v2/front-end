@@ -12,7 +12,7 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
     admin: attributes.admin && CurrentAdmin(attributes.admin),
     company: attributes.company && CurrentCompany(attributes.company),
     applicant: attributes.applicant && CurrentApplicant(attributes.applicant),
-    getCurrentRole: () => {
+    getCurrentRole: (_: string) => {
       try {
         return SessionStorageRepository.getCurrentRole();
       } catch (e) {
@@ -33,7 +33,7 @@ export type TCurrentUser = TGenericCurrentUser<
   TCurrentApplicant,
   ICurrentCompany
 > & {
-  getCurrentRole: () => Role;
+  getCurrentRole: (currentRoute: string) => Role;
 };
 
 export type TGenericCurrentUser<TAdmin, TApplicant, TCompany> = IUser & {

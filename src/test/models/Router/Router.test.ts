@@ -7,6 +7,7 @@ import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Secretary } from "$interfaces/Secretary";
 
 describe("Router", () => {
+  const currentRoute = "";
   const userAttributes = {
     email: "companyUser@company.com",
     name: "Eric",
@@ -28,17 +29,21 @@ describe("Router", () => {
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.jobApplications());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(
+        RoutesBuilder.company.jobApplications()
+      );
     });
 
     it("returns editMyProfile route if status is pending", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.editMyProfile());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(
+        RoutesBuilder.company.editMyProfile()
+      );
     });
 
     it("returns myProfile route if status is rejected", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.myProfile());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(RoutesBuilder.company.myProfile());
     });
   });
 
@@ -57,17 +62,23 @@ describe("Router", () => {
 
     it("returns offerList route if status is approved", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.offerList());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.offerList()
+      );
     });
 
     it("returns editMyProfile route if status is pending", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.pending);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.editMyProfile());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.editMyProfile()
+      );
     });
 
     it("returns myProfile route if status is rejected", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.rejected);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.myProfile());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.myProfile()
+      );
     });
   });
 
@@ -88,7 +99,7 @@ describe("Router", () => {
 
     it("returns home route", () => {
       const currentAdmin = createCurrentAdmin();
-      expect(Router.home(currentAdmin)).toEqual(RoutesBuilder.admin.home());
+      expect(Router.home(currentAdmin, currentRoute)).toEqual(RoutesBuilder.admin.home());
     });
   });
 });
