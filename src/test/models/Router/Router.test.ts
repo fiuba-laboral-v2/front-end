@@ -1,6 +1,4 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { Role } from "$models/Role";
-import { RoleName, SessionStorageRepository } from "$repositories";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
@@ -15,17 +13,14 @@ describe("Router", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(RoleName.Company);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
+    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
         ...userAttributes,
         company: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
-    };
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
@@ -48,17 +43,14 @@ describe("Router", () => {
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(RoleName.Applicant);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
+    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
         ...userAttributes,
         applicant: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
-    };
 
     it("returns offerList route if status is approved", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
@@ -83,22 +75,17 @@ describe("Router", () => {
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () => {
-      const role = new Role(RoleName.Admin);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
-        ...userAttributes,
-        admin: {
-          user: {
-            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
-          },
-          secretary: Secretary.graduados
-        }
-      });
-    };
+    const currentAdmin = CurrentUser({
+      ...userAttributes,
+      admin: {
+        user: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+        },
+        secretary: Secretary.graduados
+      }
+    });
 
     it("returns home route", () => {
-      const currentAdmin = createCurrentAdmin();
       expect(Router.home(currentAdmin, currentRoute)).toEqual(RoutesBuilder.admin.home());
     });
   });
