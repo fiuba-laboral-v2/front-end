@@ -1,3 +1,9 @@
+export enum RoleName {
+  Company = "Company",
+  Applicant = "Applicant",
+  Admin = "Admin"
+}
+
 export class Role {
   public name: RoleName;
 
@@ -16,10 +22,4 @@ export class Role {
   public isAdminRole() {
     return this.name === RoleName.Admin;
   }
-}
-
-export enum RoleName {
-  Company = "Company",
-  Applicant = "Applicant",
-  Admin = "Admin"
 }
