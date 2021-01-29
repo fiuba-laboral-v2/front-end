@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useInfoSnackbar } from "$hooks";
+import { Window } from "$models/Window";
 import { NotificationsIcon } from "./component";
 
 export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
@@ -13,7 +14,11 @@ export const NotificationIconContainer: FunctionComponent<IContainerProps> = ({
   const infoSnackbar = useInfoSnackbar();
   useEffect(() => {
     infoSnackbar({
-      action: () => history.push(actionRoute),
+      action: () => {
+        document.getElementById("root")!.style.display = "none";
+        history.push(actionRoute);
+        Window.reload();
+      },
       message: "Tenés notificaciones",
       actionMessage: "Ver",
       skip: !hasUnreadNotifications || lastUnreadValue,
