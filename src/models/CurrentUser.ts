@@ -3,8 +3,7 @@ import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 import { TCurrentUserAttributes } from "./hooks/queries";
 import { CurrentApplicant, TCurrentApplicant } from "./CurrentApplicant";
 import { CurrentAdmin, TCurrentAdmin } from "./CurrentAdmin";
-import { Role } from "./Role";
-import { RoleName } from "./Repositories";
+import { Role, RoleName } from "./Role";
 import { adminRoutePrefix, applicantRoutePrefix } from "./RoutesBuilder";
 
 export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser => {
