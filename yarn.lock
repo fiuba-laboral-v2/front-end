@@ -12586,9 +12586,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-"validations-fiuba-laboral-v2@github::fiuba-laboral-v2/validations#53b91666772e28a10aceeda42539fa52ec64b5a4":
+validations-fiuba-laboral-v2@1.0.35:
   version "1.0.35"
-  resolved "https://codeload.github.com/fiuba-laboral-v2/validations/tar.gz/53b91666772e28a10aceeda42539fa52ec64b5a4"
+  resolved "https://registry.yarnpkg.com/validations-fiuba-laboral-v2/-/validations-fiuba-laboral-v2-1.0.35.tgz#f64be2b083f02eff1135a85346f1823889d32dd9"
+  integrity sha512-0Q4k6ofrAH48vGoX041iprMVF/cQZsAbKW1Otwz+KS4T8AtQvEampyjoQpkJDGO50s8BYSeWxlJLqqMYdval5g==
   dependencies:
     "@types/bluebird" "3.5.29"
     "@types/node" "13.1.4"
