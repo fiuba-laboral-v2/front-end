@@ -17,6 +17,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
             company {
               uuid
               companyName
+              approvalStatus
             }
           }
           applicant {
@@ -39,6 +40,9 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
         offer {
           uuid
           title
+          company {
+            approvalStatus
+          }
         }
       }
       ... on RejectedOfferCompanyNotification {
@@ -52,6 +56,9 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
         offer {
           uuid
           title
+          company {
+            approvalStatus
+          }
         }
       }
       ... on ApprovedProfileCompanyNotification {
