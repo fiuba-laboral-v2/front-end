@@ -33,7 +33,8 @@ describe("Permissions", () => {
       myOffers,
       jobApplications,
       applicantDetail,
-      users
+      users,
+      notifications
     } = RoutesBuilder.company;
     const createCurrentCompanyUser = (status: ApprovalStatus) =>
       CurrentUser({
@@ -71,6 +72,7 @@ describe("Permissions", () => {
             () => offer("uuid"),
             () => myOffers(),
             () => jobApplications(),
+            () => notifications(),
             () => applicantDetail("uuid")
           ],
           PendingCompanyError
@@ -80,6 +82,11 @@ describe("Permissions", () => {
       it("does not throw error if status is rejected for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
         expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
+      });
+
+      it("does not throw error if status is rejected for notifications route", () => {
+        const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
+        expect(() => Permissions.check(currentCompany, notifications())).not.toThrow();
       });
 
       it("does not throw error if status is rejected for users route", () => {

@@ -10,7 +10,8 @@ const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
 
 const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [
   RoutesBuilder.company.myProfile(),
-  RoutesBuilder.company.users()
+  RoutesBuilder.company.users(),
+  RoutesBuilder.company.notifications()
 ];
 
 export const CompanyPermissions = {
