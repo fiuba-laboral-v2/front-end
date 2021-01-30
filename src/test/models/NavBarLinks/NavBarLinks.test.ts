@@ -250,7 +250,6 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.applicant.notifications(),
           title: translations.notifications,
-          tooltipMessage: translations.rejectedProfile,
           icon: ApplicantNotificationIcon
         }
       ]);

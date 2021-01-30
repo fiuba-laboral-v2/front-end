@@ -7,7 +7,10 @@ const AVAILABLE_ROUTES_IN_PENDING_STATUS = [
   RoutesBuilder.applicant.myProfile()
 ];
 
-const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [RoutesBuilder.applicant.myProfile()];
+const AVAILABLE_ROUTES_IN_REJECTED_STATUS = [
+  RoutesBuilder.applicant.myProfile(),
+  RoutesBuilder.applicant.notifications()
+];
 
 export const ApplicantPermissions = {
   check: (currentApplicant: TCurrentApplicant, route: string) => {
