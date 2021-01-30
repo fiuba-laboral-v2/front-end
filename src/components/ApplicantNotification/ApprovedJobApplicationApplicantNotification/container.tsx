@@ -20,6 +20,9 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
     "approvedJobApplicationApplicantNotification"
   );
 
+  const applicant = notification.jobApplication.applicant;
+  const isApproved = applicant.approvalStatus === ApprovalStatus.approved;
+
   return (
     <Notification
       className={className}
@@ -28,10 +31,10 @@ export const ApprovedJobApplicationApplicantNotificationContainer: FunctionCompo
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
-        applicant={notification.jobApplication.applicant}
+        applicant={applicant}
         offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
-        offerLink={RoutesBuilder.applicant.offerDetail}
+        {...(isApproved && { offerLink: RoutesBuilder.applicant.offerDetail })}
       >
         <NotificationExplanation message={translations?.explanation} />
       </JobApplicationNotificationBody>

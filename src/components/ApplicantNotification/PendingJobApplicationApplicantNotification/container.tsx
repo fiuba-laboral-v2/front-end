@@ -19,6 +19,9 @@ export const PendingJobApplicationApplicantNotificationContainer: FunctionCompon
     "pendingJobApplicationApplicantNotification"
   );
 
+  const applicant = notification.jobApplication.applicant;
+  const isApproved = applicant.approvalStatus === ApprovalStatus.approved;
+
   return (
     <Notification
       className={className}
@@ -27,10 +30,10 @@ export const PendingJobApplicationApplicantNotificationContainer: FunctionCompon
     >
       <NotificationTitle>{translations?.title || ""}</NotificationTitle>
       <JobApplicationNotificationBody
-        applicant={notification.jobApplication.applicant}
+        applicant={applicant}
         offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
-        offerLink={RoutesBuilder.applicant.offerDetail}
+        {...(isApproved && { offerLink: RoutesBuilder.applicant.offerDetail })}
       />
     </Notification>
   );

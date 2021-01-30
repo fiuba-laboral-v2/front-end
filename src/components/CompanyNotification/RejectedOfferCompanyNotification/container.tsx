@@ -13,6 +13,7 @@ import { NotificationBody } from "$components/Notification/NotificationBody";
 import { ReloadLink } from "$components/ReloadLink";
 import { OfferIcon } from "$components/Icons/OfferIcon";
 import { IRejectedOfferCompanyNotification } from "$interfaces/CompanyNotification";
+import { ApprovalStatus } from "$interfaces/ApprovalStatus";
 
 export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IContainerProps> = ({
   className,
@@ -22,14 +23,19 @@ export const RejectedOfferCompanyNotificationContainer: FunctionComponent<IConta
 
   const { moderatorMessage, adminEmail } = notification;
   const title = OfferNotificationTitleBuilder.build(notification.secretary, translations);
+  const company = notification.offer.company;
+  const isApproved = company.approvalStatus === ApprovalStatus.approved;
 
   return (
     <Notification className={className} notification={notification} icon={<OfferIcon />}>
       <NotificationTitle>{title}</NotificationTitle>
       <NotificationBody>
-        <ReloadLink to={RoutesBuilder.company.offer(notification.offer.uuid)}>
-          {notification.offer.title}
-        </ReloadLink>
+        {isApproved && (
+          <ReloadLink to={RoutesBuilder.company.offer(notification.offer.uuid)}>
+            {notification.offer.title}
+          </ReloadLink>
+        )}
+        {!isApproved && <div>{notification.offer.title}</div>}
       </NotificationBody>
       <NotificationItem>
         <RejectionReason message={moderatorMessage} moderatorEmail={adminEmail} />

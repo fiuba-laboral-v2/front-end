@@ -128,7 +128,6 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.company.notifications(),
           title: translations.notifications,
-          tooltipMessage: translations.rejectedProfile,
           icon: CompanyNotificationsIcon
         },
         {
@@ -250,7 +249,6 @@ describe("NavBarLinks", () => {
         {
           path: RoutesBuilder.applicant.notifications(),
           title: translations.notifications,
-          tooltipMessage: translations.rejectedProfile,
           icon: ApplicantNotificationIcon
         }
       ]);

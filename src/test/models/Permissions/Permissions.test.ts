@@ -33,7 +33,8 @@ describe("Permissions", () => {
       myOffers,
       jobApplications,
       applicantDetail,
-      users
+      users,
+      notifications
     } = RoutesBuilder.company;
     const createCurrentCompanyUser = (status: ApprovalStatus) =>
       CurrentUser({
@@ -71,6 +72,7 @@ describe("Permissions", () => {
             () => offer("uuid"),
             () => myOffers(),
             () => jobApplications(),
+            () => notifications(),
             () => applicantDetail("uuid")
           ],
           PendingCompanyError
@@ -80,6 +82,11 @@ describe("Permissions", () => {
       it("does not throw error if status is rejected for myProfile route", () => {
         const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
         expect(() => Permissions.check(currentCompany, myProfile())).not.toThrow();
+      });
+
+      it("does not throw error if status is rejected for notifications route", () => {
+        const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
+        expect(() => Permissions.check(currentCompany, notifications())).not.toThrow();
       });
 
       it("does not throw error if status is rejected for users route", () => {
@@ -161,7 +168,8 @@ describe("Permissions", () => {
       editMyProfile,
       offerList,
       offerDetail,
-      companyProfile
+      companyProfile,
+      notifications
     } = RoutesBuilder.applicant;
 
     const createCurrentApplicantUser = (status: ApprovalStatus) =>
@@ -192,7 +200,8 @@ describe("Permissions", () => {
             () => signUp(),
             () => offerList(),
             () => offerDetail("uuid"),
-            () => companyProfile("uuid")
+            () => companyProfile("uuid"),
+            () => notifications()
           ],
           PendingApplicantError
         );
@@ -201,6 +210,11 @@ describe("Permissions", () => {
       it("does not throw error if status is rejected for myProfile route", () => {
         const currentApplicant = createCurrentApplicantUser(ApprovalStatus.rejected);
         expect(() => Permissions.check(currentApplicant, myProfile())).not.toThrow();
+      });
+
+      it("does not throw error if status is rejected for notifications route", () => {
+        const currentApplicant = createCurrentApplicantUser(ApprovalStatus.rejected);
+        expect(() => Permissions.check(currentApplicant, notifications())).not.toThrow();
       });
 
       it("throws error if status is rejected for some specific routes", () => {
