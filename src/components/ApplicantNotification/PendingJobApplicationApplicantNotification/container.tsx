@@ -33,7 +33,6 @@ export const PendingJobApplicationApplicantNotificationContainer: FunctionCompon
         applicant={applicant}
         offer={notification.jobApplication.offer()}
         applicantLink={RoutesBuilder.applicant.myProfile()}
-        offerLink={RoutesBuilder.applicant.offerDetail}
         {...(isApproved && { offerLink: RoutesBuilder.applicant.offerDetail })}
       />
     </Notification>
