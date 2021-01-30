@@ -21,6 +21,7 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
           }
           applicant {
             uuid
+            approvalStatus
             user {
               uuid
               name
@@ -49,6 +50,7 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
           }
           applicant {
             uuid
+            approvalStatus
             user {
               uuid
               name
@@ -78,6 +80,7 @@ query GetApplicantNotifications($updatedBeforeThan: PaginatedInput) {
           }
           applicant {
             uuid
+            approvalStatus
             user {
               uuid
               name
