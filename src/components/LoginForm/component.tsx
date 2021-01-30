@@ -42,6 +42,7 @@ export const LoginForm = <TVariables,>({
                 validate={false}
                 autoComplete="current-password"
                 withoutMargin
+                mandatory
               />
             </FormikForm>
             <div className={styles.footer}>

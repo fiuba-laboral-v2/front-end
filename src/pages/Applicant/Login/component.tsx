@@ -36,7 +36,7 @@ export const Login: FunctionComponent<IComponentProps> = ({ translations, ...pro
       className={styles.form}
       usernameField={
         translations && (
-          <DniField autoFocus singleLine mandatory={false} name="dni" label={translations.dni} />
+          <DniField autoFocus singleLine mandatory name="dni" label={translations.dni} />
         )
       }
       signUpLink={
