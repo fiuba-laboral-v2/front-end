@@ -5,7 +5,8 @@ import {
   useDeactivateAdminAccount,
   useAdminByUuid,
   useCurrentUser,
-  useLogout
+  useLogout,
+  useShowError
 } from "$hooks";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 
@@ -15,6 +16,7 @@ import { Window } from "$components/Window";
 export const DeactivateAdminAccountContainer: FunctionComponent = () => {
   const { uuid } = useParams<{ uuid: string }>();
   const history = useHistory();
+  const showError = useShowError();
   const translations = useTranslations<ITranslations>("deactivateAdminAccount");
   const { deactivateAdminAccount } = useDeactivateAdminAccount();
   const admin = useAdminByUuid(uuid);
@@ -22,7 +24,12 @@ export const DeactivateAdminAccountContainer: FunctionComponent = () => {
   const { logout } = useLogout();
 
   const onSubmit = async () => {
-    const result = await deactivateAdminAccount({ variables: { uuid } });
+    const result = await deactivateAdminAccount({
+      variables: { uuid },
+      errorHandlers: {
+        DeleteLastAdminError: () => showError({ message: translations?.deleteLastAdminError })
+      }
+    });
     if (result.error) return;
     if (currentUser?.uuid === admin?.user.uuid) {
       await logout();
@@ -48,4 +55,5 @@ interface ITranslations {
   title: string;
   description: string;
   submit: string;
+  deleteLastAdminError: string;
 }
