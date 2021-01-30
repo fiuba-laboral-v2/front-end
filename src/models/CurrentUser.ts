@@ -3,8 +3,8 @@ import { CurrentCompany, ICurrentCompany } from "./CurrentCompany";
 import { TCurrentUserAttributes } from "./hooks/queries";
 import { CurrentApplicant, TCurrentApplicant } from "./CurrentApplicant";
 import { CurrentAdmin, TCurrentAdmin } from "./CurrentAdmin";
-import { Role } from "./Role";
-import { RoleName, SessionStorageRepository } from "./Repositories";
+import { Role, RoleName } from "./Role";
+import { adminRoutePrefix, applicantRoutePrefix } from "./RoutesBuilder";
 
 export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser => {
   const currentUser = {
@@ -12,17 +12,15 @@ export const CurrentUser = (attributes: TCurrentUserAttributes): TCurrentUser =>
     admin: attributes.admin && CurrentAdmin(attributes.admin),
     company: attributes.company && CurrentCompany(attributes.company),
     applicant: attributes.applicant && CurrentApplicant(attributes.applicant),
-    getCurrentRole: () => {
-      try {
-        return SessionStorageRepository.getCurrentRole();
-      } catch (e) {
-        let currentRole: RoleName = RoleName.Applicant;
-        if (currentUser.admin) currentRole = RoleName.Admin;
-        if (currentUser.company) currentRole = RoleName.Company;
-        const role = new Role(currentRole);
-        SessionStorageRepository.saveCurrentRole(role);
-        return role;
-      }
+    getCurrentRole: (currentRoute: string) => {
+      if (currentUser.company) return new Role(RoleName.Company);
+      if (currentUser.admin && !currentUser.applicant) return new Role(RoleName.Admin);
+      if (currentUser.applicant && !currentUser.admin) return new Role(RoleName.Applicant);
+
+      const routeRole = currentRoute.split("/")[1];
+      if (routeRole === adminRoutePrefix) return new Role(RoleName.Admin);
+      if (routeRole === applicantRoutePrefix) return new Role(RoleName.Applicant);
+      return new Role(RoleName.Admin);
     }
   };
   return currentUser;
@@ -33,7 +31,7 @@ export type TCurrentUser = TGenericCurrentUser<
   TCurrentApplicant,
   ICurrentCompany
 > & {
-  getCurrentRole: () => Role;
+  getCurrentRole: (currentRoute: string) => Role;
 };
 
 export type TGenericCurrentUser<TAdmin, TApplicant, TCompany> = IUser & {

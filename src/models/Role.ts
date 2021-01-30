@@ -1,4 +1,8 @@
-import { RoleName } from "./Repositories";
+export enum RoleName {
+  Company = "Company",
+  Applicant = "Applicant",
+  Admin = "Admin"
+}
 
 export class Role {
   public name: RoleName;

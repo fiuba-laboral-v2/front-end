@@ -28,9 +28,11 @@ const STATISTICS = "estadisticas";
 
 const routeBuilder = (urlPrefix: string) => (...path: string[]) => `${urlPrefix}/${path.join("/")}`;
 
-const applicantRoute = routeBuilder("/postulante");
+export const applicantRoutePrefix = "postulante";
+export const adminRoutePrefix = "admin";
+const applicantRoute = routeBuilder(`/${applicantRoutePrefix}`);
 const companyRoute = routeBuilder("/empresa");
-const adminRoute = routeBuilder("/admin");
+const adminRoute = routeBuilder(`/${adminRoutePrefix}`);
 const publicRoute = routeBuilder("");
 
 const queryParams = (params?: string) => (params ? `?${params}` : "");

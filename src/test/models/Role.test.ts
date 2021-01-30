@@ -1,5 +1,5 @@
 import { Role } from "$models/Role";
-import { RoleName } from "$repositories";
+import { RoleName } from "$models/Role";
 
 describe("Role", () => {
   describe("CompanyRole", () => {

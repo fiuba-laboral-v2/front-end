@@ -1,12 +1,11 @@
 import { ApprovalStatus } from "$interfaces/ApprovalStatus";
-import { Role } from "$models/Role";
-import { RoleName, SessionStorageRepository } from "$repositories";
 import { CurrentUser } from "$models/CurrentUser";
 import { Router } from "$models/Router";
 import { RoutesBuilder } from "$models/RoutesBuilder";
 import { Secretary } from "$interfaces/Secretary";
 
 describe("Router", () => {
+  const currentRoute = "";
   const userAttributes = {
     email: "companyUser@company.com",
     name: "Eric",
@@ -14,81 +13,80 @@ describe("Router", () => {
   };
 
   describe("Company", () => {
-    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(RoleName.Company);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
+    const createCurrentCompanyUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
         ...userAttributes,
         company: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
-    };
 
     it("returns jobApplications route if status is approved", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.approved);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.jobApplications());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(
+        RoutesBuilder.company.jobApplications()
+      );
     });
 
     it("returns editMyProfile route if status is pending", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.pending);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.editMyProfile());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(
+        RoutesBuilder.company.editMyProfile()
+      );
     });
 
     it("returns myProfile route if status is rejected", () => {
       const currentCompany = createCurrentCompanyUser(ApprovalStatus.rejected);
-      expect(Router.home(currentCompany)).toEqual(RoutesBuilder.company.myProfile());
+      expect(Router.home(currentCompany, currentRoute)).toEqual(RoutesBuilder.company.myProfile());
     });
   });
 
   describe("Applicant", () => {
-    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) => {
-      const role = new Role(RoleName.Applicant);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
+    const createCurrentApplicantUser = (approvalStatus: ApprovalStatus) =>
+      CurrentUser({
         ...userAttributes,
         applicant: {
           uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da",
           approvalStatus
         }
       });
-    };
 
     it("returns offerList route if status is approved", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.approved);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.offerList());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.offerList()
+      );
     });
 
     it("returns editMyProfile route if status is pending", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.pending);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.editMyProfile());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.editMyProfile()
+      );
     });
 
     it("returns myProfile route if status is rejected", () => {
       const currentApplicant = createCurrentApplicantUser(ApprovalStatus.rejected);
-      expect(Router.home(currentApplicant)).toEqual(RoutesBuilder.applicant.myProfile());
+      expect(Router.home(currentApplicant, currentRoute)).toEqual(
+        RoutesBuilder.applicant.myProfile()
+      );
     });
   });
 
   describe("Admin", () => {
-    const createCurrentAdmin = () => {
-      const role = new Role(RoleName.Admin);
-      SessionStorageRepository.saveCurrentRole(role);
-      return CurrentUser({
-        ...userAttributes,
-        admin: {
-          user: {
-            uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
-          },
-          secretary: Secretary.graduados
-        }
-      });
-    };
+    const currentAdmin = CurrentUser({
+      ...userAttributes,
+      admin: {
+        user: {
+          uuid: "4c925fdc-8fd4-47ed-9a24-fa81ed5cc9da"
+        },
+        secretary: Secretary.graduados
+      }
+    });
 
     it("returns home route", () => {
-      const currentAdmin = createCurrentAdmin();
-      expect(Router.home(currentAdmin)).toEqual(RoutesBuilder.admin.home());
+      expect(Router.home(currentAdmin, currentRoute)).toEqual(RoutesBuilder.admin.home());
     });
   });
 });
