@@ -1,5 +1,6 @@
 div.containerRoot {
   left: 55px !important;
+  min-width: 0;
   top: 0 !important;
   width: calc(100% - 55px);
 
@@ -21,5 +22,7 @@ div.containerRoot {
 }
 
 div.root > div {
+  flex-wrap: nowrap;
   height: 38px;
+  min-width: 0;
 }
