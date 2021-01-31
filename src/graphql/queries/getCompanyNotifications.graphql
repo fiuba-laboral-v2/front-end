@@ -41,6 +41,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           uuid
           title
           company {
+            uuid
             approvalStatus
           }
         }
@@ -57,6 +58,7 @@ query GetCompanyNotifications($updatedBeforeThan: PaginatedInput) {
           uuid
           title
           company {
+            uuid
             approvalStatus
           }
         }
