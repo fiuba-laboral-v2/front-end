@@ -6,6 +6,7 @@ import { TextField } from "@material-ui/core";
 import { isNil } from "lodash";
 import { FormikValidator } from "$models/FormikValidator";
 import { EMPTY_SPACE } from "$models/emptySpace";
+import { validateStringNumber } from "validations-fiuba-laboral-v2";
 
 export const NumberField: FunctionComponent<INumberFieldProps> = ({
   name,
@@ -18,11 +19,21 @@ export const NumberField: FunctionComponent<INumberFieldProps> = ({
   withoutMargin = false,
   mandatory = false
 }) => {
+  const validate = (value: string) => {
+    validateStringNumber(value);
+    validator(Number(value));
+  };
+
   const fieldProps = {
     name,
-    validate: FormikValidator({ validator, mandatory }),
+    validate: FormikValidator({ validator: validate, mandatory }),
     children: ({ meta, form }: FieldProps<number>) => {
       const setFormValue = (stringValue: string) => {
+        try {
+          validateStringNumber(stringValue);
+        } catch (e) {
+          return form.setFieldValue(name, stringValue);
+        }
         const stringToNumber = Number(stringValue.replace(",", "."));
         const mappedValue = isNaN(stringToNumber) ? " " : stringToNumber;
         form.setFieldValue(name, stringValue === "" ? null : mappedValue);
