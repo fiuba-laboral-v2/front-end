@@ -40,7 +40,12 @@ export const MaterialUITheme = createMuiTheme({
     },
     MuiSnackbarContent: {
       message: {
-        fontSize: 14
+        fontSize: 14,
+        minWidth: 0,
+        overflow: "hidden"
+      },
+      action: {
+        flexShrink: 0
       }
     },
     MuiFormLabel: {
