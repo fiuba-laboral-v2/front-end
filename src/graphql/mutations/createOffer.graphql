@@ -23,6 +23,11 @@ mutation createOffer(
     uuid
     title
     description
+    targetApplicantType
+    extensionApprovalStatus
+    graduadosApprovalStatus
+    studentsExpirationDateTime
+    graduatesExpirationDateTime
     hoursPerDay
     isInternship
     minimumSalary
@@ -38,6 +43,11 @@ mutation createOffer(
     careers {
       code
       description
+    }
+    company {
+      uuid
+      companyName
+      logo
     }
   }
 }
