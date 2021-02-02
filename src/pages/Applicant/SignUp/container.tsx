@@ -56,12 +56,14 @@ export const SignUpContainer: FunctionComponent<ISignUpProps> = ({ searchQuery }
 
   return (
     <Window withoutNavBar loading={!translations}>
-      <SignUp
-        translations={translations}
-        validateForm={validateForm}
-        onSubmit={onSubmit}
-        initialDni={new URLSearchParams(searchQuery).get("dni")}
-      />
+      {translations && (
+        <SignUp
+          translations={translations}
+          validateForm={validateForm}
+          onSubmit={onSubmit}
+          initialDni={new URLSearchParams(searchQuery).get("dni")}
+        />
+      )}
     </Window>
   );
 };

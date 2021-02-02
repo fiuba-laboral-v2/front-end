@@ -71,7 +71,7 @@ export const SignUp: FunctionComponent<ISignUpProps> = ({
 
 interface ISignUpProps {
   initialDni: string | null;
-  translations?: IApplicantSignUpTranslations;
+  translations: IApplicantSignUpTranslations;
   validateForm: (values: IApplicantSignUpFormValues) => string | undefined;
   onSubmit: (
     values: IApplicantSignUpFormValues,
