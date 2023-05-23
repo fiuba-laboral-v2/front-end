@@ -17,7 +17,7 @@ const seededUsersText = `
 Email                         | Nombre   | Rol
 -----------------------------------------------------------------
 fiubalaboralv2@gmail.com      | Claudio  | Admin de devartis
-sebastian.e.blanco@gmail.com  | Marcos   | Admin de Mercado Libre
+test@gmail.com  | Marcos   | Admin de Mercado Libre
 
 Contraseña de ambos: SecurePassword1010
 `;
